@@ -1,0 +1,501 @@
+import { useEffect } from 'react';
+import Header from '../../../components/feature/Header';
+import Footer from '../../../components/feature/Footer';
+import Button from '../../../components/base/Button';
+
+export default function SpringReplacementPage() {
+  useEffect(() => {
+    document.title = 'Garage Door Spring Replacement NYC | Torsion & Extension Springs | Westchester Garage Door Repair';
+    
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Professional garage door spring replacement in NYC, Westchester, and Connecticut. Safe installation of torsion and extension springs. Same-day service available. Call (914) 557-6816!');
+    }
+    
+    const metaKeywords = document.querySelector('meta[name="keywords"]');
+    if (metaKeywords) {
+      metaKeywords.setAttribute('content', 'garage door spring replacement, torsion spring repair, extension spring replacement, broken spring repair, spring installation');
+    }
+  }, []);
+
+  const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const data = new URLSearchParams();
+    
+    for (const [key, value] of formData.entries()) {
+      data.append(key, value.toString());
+    }
+
+    try {
+      const response = await fetch('https://readdy.ai/api/form/d413rd22kqgi5a0pu880', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: data,
+      });
+
+      if (response.ok) {
+        alert('Spring replacement request submitted! We will contact you to schedule service.');
+        (e.target as HTMLFormElement).reset();
+      } else {
+        alert('Failed to submit request. Please call us at (914) 557-6816');
+      }
+    } catch (error) {
+      alert('Failed to submit request. Please call us at (914) 557-6816');
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <Header />
+      
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-orange-600 to-red-600 text-white py-20">
+        <div className="absolute inset-0">
+          <img 
+            src="https://readdy.ai/api/search-image?query=Professional%20technician%20safely%20installing%20high-quality%20garage%20door%20torsion%20springs%20in%20clean%20workshop%20environment%2C%20precision%20tools%20and%20safety%20equipment%20visible%2C%20skilled%20workmanship%20demonstration%2C%20modern%20garage%20door%20mechanism%2C%20professional%20uniform%2C%20well-lit%20workspace&width=1200&height=600&seq=spring-hero001&orientation=landscape"
+            alt="Professional Garage Door Spring Replacement"
+            className="w-full h-full object-cover opacity-20"
+          />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              Garage Door Spring Replacement
+            </h1>
+            <p className="text-xl mb-8">
+              Safe and professional replacement of broken garage door springs. We handle both torsion and extension springs with same-day service across NYC, Westchester, and Connecticut. Don't risk injury - call the professionals.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <button className="bg-white text-orange-600 hover:bg-gray-100 px-8 py-4 text-lg rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center justify-center whitespace-nowrap">
+                <i className="ri-phone-fill mr-2"></i>
+                Call: (914) 557-6816
+              </button>
+              <button className="bg-orange-600 text-white hover:bg-orange-700 px-8 py-4 text-lg rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center justify-center whitespace-nowrap">
+                <i className="ri-calendar-line mr-2"></i>
+                Schedule Service
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Warning Section */}
+      <section className="py-12 bg-red-50 border-l-4 border-red-500">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-start">
+            <div className="flex-shrink-0">
+              <i className="ri-alarm-warning-fill text-3xl text-red-600"></i>
+            </div>
+            <div className="ml-4">
+              <h3 className="text-lg font-semibold text-red-800 mb-2">⚠️ SAFETY WARNING</h3>
+              <p className="text-red-700">
+                <strong>Never attempt to replace garage door springs yourself!</strong> Garage door springs are under extreme tension and can cause serious injury or death if handled improperly. Always call professional technicians for spring replacement. Our certified technicians have the proper tools and training to safely replace springs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Spring Types */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Types of Garage Door Springs</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              We service and replace all types of garage door springs with high-quality components and professional installation.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* Torsion Springs */}
+            <div className="bg-gray-50 rounded-lg p-8">
+              <div className="text-center mb-6">
+                <img 
+                  src="https://readdy.ai/api/search-image?query=Garage%20door%20torsion%20spring%20system%20mounted%20above%20door%20opening%2C%20professional%20installation%20showing%20spring%20mechanism%2C%20clean%20garage%20environment%2C%20modern%20torsion%20spring%20assembly%2C%20quality%20hardware%20components&width=500&height=300&seq=torsion001&orientation=landscape"
+                  alt="Torsion Spring System"
+                  className="w-full h-48 object-cover rounded-lg mb-4"
+                />
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">Torsion Springs</h3>
+                <p className="text-gray-600">Mounted above the door opening</p>
+              </div>
+              
+              <div className="space-y-4">
+                <div className="flex items-start">
+                  <i className="ri-check-line text-green-600 mr-3 mt-1"></i>
+                  <div>
+                    <h4 className="font-semibold text-gray-900">Longer Lifespan</h4>
+                    <p className="text-gray-600 text-sm">Typically last 15,000-20,000 cycles vs 10,000 for extension springs</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <i className="ri-check-line text-green-600 mr-3 mt-1"></i>
+                  <div>
+                    <h4 className="font-semibold text-gray-900">Better Balance</h4>
+                    <p className="text-gray-600 text-sm">Provides more even lifting force and smoother operation</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <i className="ri-check-line text-green-600 mr-3 mt-1"></i>
+                  <div>
+                    <h4 className="font-semibold text-gray-900">Safer Design</h4>
+                    <p className="text-gray-600 text-sm">Contained system reduces risk if spring breaks</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <i className="ri-check-line text-green-600 mr-3 mt-1"></i>
+                  <div>
+                    <h4 className="font-semibold text-gray-900">Space Efficient</h4>
+                    <p className="text-gray-600 text-sm">Doesn't take up ceiling space like extension springs</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="mt-6 p-4 bg-orange-100 rounded-lg">
+                <p className="text-sm text-orange-800">
+                  <strong>Best for:</strong> Heavy doors, frequent use, and when maximum safety and longevity are priorities.
+                </p>
+              </div>
+            </div>
+
+            {/* Extension Springs */}
+            <div className="bg-gray-50 rounded-lg p-8">
+              <div className="text-center mb-6">
+                <img 
+                  src="https://readdy.ai/api/search-image?query=Garage%20door%20extension%20spring%20system%20along%20ceiling%20tracks%2C%20professional%20installation%20showing%20spring%20and%20cable%20assembly%2C%20residential%20garage%20setting%2C%20extension%20spring%20mechanism%2C%20safety%20cables%20visible&width=500&height=300&seq=extension001&orientation=landscape"
+                  alt="Extension Spring System"
+                  className="w-full h-48 object-cover rounded-lg mb-4"
+                />
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">Extension Springs</h3>
+                <p className="text-gray-600">Mounted along the ceiling tracks</p>
+              </div>
+              
+              <div className="space-y-4">
+                <div className="flex items-start">
+                  <i className="ri-check-line text-green-600 mr-3 mt-1"></i>
+                  <div>
+                    <h4 className="font-semibold text-gray-900">Lower Cost</h4>
+                    <p className="text-gray-600 text-sm">More affordable initial installation and replacement cost</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <i className="ri-check-line text-green-600 mr-3 mt-1"></i>
+                  <div>
+                    <h4 className="font-semibold text-gray-900">Easier Installation</h4>
+                    <p className="text-gray-600 text-sm">Simpler installation process in most garage configurations</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <i className="ri-check-line text-green-600 mr-3 mt-1"></i>
+                  <div>
+                    <h4 className="font-semibold text-gray-900">Good for Light Doors</h4>
+                    <p className="text-gray-600 text-sm">Adequate for lighter residential garage doors</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <i className="ri-information-line text-blue-600 mr-3 mt-1"></i>
+                  <div>
+                    <h4 className="font-semibold text-gray-900">Safety Cables Required</h4>
+                    <p className="text-gray-600 text-sm">Must include safety cables to prevent spring from flying if broken</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="mt-6 p-4 bg-blue-100 rounded-lg">
+                <p className="text-sm text-blue-800">
+                  <strong>Best for:</strong> Budget-conscious installations, lighter doors, and garages with limited headroom.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Signs of Spring Problems */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Signs Your Springs Need Replacement</h2>
+            <p className="text-lg text-gray-600">
+              Don't wait for complete failure. Watch for these warning signs and call for professional service.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-white rounded-lg p-6 hover:shadow-lg transition-shadow">
+              <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                <i className="ri-volume-up-line text-2xl text-red-600"></i>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Loud Bang</h3>
+              <p className="text-gray-600">
+                A loud bang from your garage often indicates a spring has snapped. Stop using the door immediately.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-lg p-6 hover:shadow-lg transition-shadow">
+              <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                <i className="ri-arrow-down-line text-2xl text-red-600"></i>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Door Won't Open</h3>
+              <p className="text-gray-600">
+                If your door won't open or feels extremely heavy, the springs may be broken or losing tension.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-lg p-6 hover:shadow-lg transition-shadow">
+              <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                <i className="ri-speed-line text-2xl text-red-600"></i>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Door Slams Shut</h3>
+              <p className="text-gray-600">
+                A door that closes too quickly or slams shut indicates spring failure and is dangerous.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-lg p-6 hover:shadow-lg transition-shadow">
+              <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                <i className="ri-contrast-line text-2xl text-red-600"></i>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Visible Gap</h3>
+              <p className="text-gray-600">
+                A visible gap or separation in the torsion spring indicates it has broken and needs replacement.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-lg p-6 hover:shadow-lg transition-shadow">
+              <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                <i className="ri-scales-line text-2xl text-red-600"></i>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Uneven Movement</h3>
+              <p className="text-gray-600">
+                Door opens unevenly or one side higher than the other suggests spring imbalance or failure.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-lg p-6 hover:shadow-lg transition-shadow">
+              <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                <i className="ri-rust-line text-2xl text-red-600"></i>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Rust & Wear</h3>
+              <p className="text-gray-600">
+                Visible rust, corrosion, or wear on springs indicates they're nearing end of life and should be replaced.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Process */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Safe Spring Replacement Process</h2>
+            <p className="text-lg text-gray-600">
+              Professional, safe, and efficient spring replacement with proper tools and techniques.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-orange-600">1</span>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Safety Assessment</h3>
+              <p className="text-gray-600">Complete safety evaluation and proper equipment setup before beginning work</p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-orange-600">2</span>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Tension Release</h3>
+              <p className="text-gray-600">Safe release of spring tension using professional winding bars and techniques</p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-orange-600">3</span>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Spring Installation</h3>
+              <p className="text-gray-600">Installation of high-quality replacement springs with proper specifications</p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-orange-600">4</span>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Testing & Adjustment</h3>
+              <p className="text-gray-600">Complete testing and fine-tuning to ensure perfect balance and operation</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Quality & Warranty */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Quality Springs & Warranty</h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i className="ri-award-line text-3xl text-green-600"></i>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Premium Quality</h3>
+              <p className="text-gray-600">High-tensile steel springs from trusted manufacturers with superior durability</p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i className="ri-shield-check-line text-3xl text-green-600"></i>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Warranty Coverage</h3>
+              <p className="text-gray-600">Comprehensive warranty on parts and labor for complete peace of mind</p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i className="ri-tools-fill text-3xl text-green-600"></i>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Professional Installation</h3>
+              <p className="text-gray-600">Certified technicians with specialized tools and safety training</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Form */}
+      <section id="spring-form" className="py-16 bg-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Schedule Spring Replacement Service</h2>
+            <p className="text-lg text-gray-600">
+              Don't risk injury with DIY spring replacement. Get professional service from certified technicians.
+            </p>
+          </div>
+
+          <form onSubmit={handleContactSubmit} className="bg-gray-50 rounded-lg p-8" data-readdy-form>
+            <div className="grid md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  Full Name *
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                />
+              </div>
+              <div>
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                  Phone Number *
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                />
+              </div>
+            </div>
+
+            <div className="mb-6">
+              <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-2">
+                Service Address *
+              </label>
+              <input
+                type="text"
+                id="address"
+                name="address"
+                required
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+              />
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <label htmlFor="spring_type" className="block text-sm font-medium text-gray-700 mb-2">
+                  Spring Type *
+                </label>
+                <select
+                  id="spring_type"
+                  name="spring_type"
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent pr-8"
+                >
+                  <option value="">Select Spring Type</option>
+                  <option value="torsion">Torsion Springs</option>
+                  <option value="extension">Extension Springs</option>
+                  <option value="not-sure">Not Sure</option>
+                </select>
+              </div>
+              <div>
+                <label htmlFor="urgency" className="block text-sm font-medium text-gray-700 mb-2">
+                  Service Urgency
+                </label>
+                <select
+                  id="urgency"
+                  name="urgency"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent pr-8"
+                >
+                  <option value="">Select Urgency</option>
+                  <option value="emergency">Emergency - Door Not Working</option>
+                  <option value="urgent">Urgent - Within 24 Hours</option>
+                  <option value="normal">Normal - Within 2-3 Days</option>
+                  <option value="preventive">Preventive - Planning Ahead</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="mb-6">
+              <label htmlFor="problem_description" className="block text-sm font-medium text-gray-700 mb-2">
+                Problem Description *
+              </label>
+              <textarea
+                id="problem_description"
+                name="problem_description"
+                rows={4}
+                required
+                maxLength={500}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                placeholder="Describe what happened with your springs (loud bang, door won't open, visible damage, etc.)..."
+              ></textarea>
+            </div>
+
+            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+              <div className="flex items-start">
+                <i className="ri-alarm-warning-line text-red-600 mr-3 mt-1"></i>
+                <div>
+                  <h4 className="font-semibold text-red-800 mb-1">Safety Reminder</h4>
+                  <p className="text-red-700 text-sm">
+                    If your springs are broken, do not attempt to operate your garage door manually or with the opener. This can cause serious injury or further damage.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <Button type="submit" variant="primary" size="lg" className="w-full bg-orange-600 hover:bg-orange-700">
+              <i className="ri-tools-line mr-2"></i>
+              Schedule Spring Replacement
+            </Button>
+          </form>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+}
