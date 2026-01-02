@@ -2,11 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#f97316" />
+    <meta name="mobile-web-app-capable" content="yes" />
     
     <!-- Performance: Resource Hints - prioritize critical resources -->
     <link rel="preconnect" href="https://static.readdy.ai" crossorigin />
-    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- Defer non-critical connections -->
     <link rel="dns-prefetch" href="https://readdy.ai" />
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
@@ -48,41 +51,80 @@
     <!-- External Stylesheets - deferred loading for better performance -->
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" /></noscript>
-    <!-- Font Awesome deferred - not critical for initial render -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" media="print" onload="this.media='all';this.onload=null" />
+    <!-- Font Awesome deferred - load after page is interactive -->
+    <script>
+      // Load Font Awesome after page is interactive to reduce render blocking
+      (function() {
+        function loadFontAwesome() {
+          var link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';
+          link.media = 'print';
+          link.onload = function() { this.media = 'all'; };
+          document.head.appendChild(link);
+        }
+        
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', function() {
+            if ('requestIdleCallback' in window) {
+              requestIdleCallback(loadFontAwesome, { timeout: 2000 });
+            } else {
+              setTimeout(loadFontAwesome, 1000);
+            }
+          });
+        } else {
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(loadFontAwesome, { timeout: 2000 });
+          } else {
+            setTimeout(loadFontAwesome, 1000);
+          }
+        }
+      })();
+    </script>
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" /></noscript>
     
-    <!-- Google Analytics (will be initialized by analytics.ts if GA_MEASUREMENT_ID is set) -->
+    <!-- Google Analytics - deferred to reduce blocking -->
     <script>
-      // Initialize dataLayer for Google Tag Manager/Analytics (inline, non-blocking)
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    </script>
-    <!-- Defer main script for better initial render -->
-    <script>
-      // Optimize initial render by deferring non-critical scripts
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(() => {
-          // Load analytics and other non-critical scripts during idle time
-        });
-      }
+      // Initialize dataLayer for Google Tag Manager/Analytics (deferred)
+      (function() {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        // Defer GA script loading until after page load
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', function() {
+            if ('requestIdleCallback' in window) {
+              requestIdleCallback(loadAnalytics);
+            } else {
+              setTimeout(loadAnalytics, 2000);
+            }
+          });
+        } else {
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(loadAnalytics);
+          } else {
+            setTimeout(loadAnalytics, 2000);
+          }
+        }
+        function loadAnalytics() {
+          // Analytics will be loaded by analytics.ts after page load
+        }
+      })();
     </script>
     <!-- Prefetch non-critical external resources - defer to avoid blocking -->
-    <link rel="prefetch" href="https://widgets.sociablekit.com" as="script" />
-    <link rel="prefetch" href="https://www.googletagmanager.com" as="script" />
+    <!-- Note: SociableKit widget is now loaded via Intersection Observer to prevent forced reflows -->
     
     <!-- Preload hero image for mobile - critical above-the-fold content -->
     <link rel="preload" as="image" href="/hero-van-800.webp" type="image/webp" media="(max-width: 800px)" fetchpriority="high" />
     <link rel="preload" as="image" href="/hero-van-800.jpg" type="image/jpeg" media="(max-width: 800px)" fetchpriority="high" />
-    <script type="module" crossorigin src="/assets/js/index-DPTsHHQK.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/js/vendor-Bv-Em8ol.js">
-    <link rel="modulepreload" crossorigin href="/assets/js/react-core-WGEz_RE9.js">
+    <script type="module" crossorigin src="/assets/js/index-B6Zke6Pp.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/js/vendor-BehsTOzw.js">
+    <link rel="modulepreload" crossorigin href="/assets/js/react-core-8gImnMM-.js">
     <link rel="modulepreload" crossorigin href="/assets/js/i18n-vendor-WQh-luxc.js">
-    <link rel="modulepreload" crossorigin href="/assets/js/page-NotFound.tsx-gLlCShro.js">
-    <link rel="stylesheet" crossorigin href="/assets/css/index-EF08YoCr.css">
+    <link rel="modulepreload" crossorigin href="/assets/js/page-NotFound.tsx-zh4OWFGv.js">
+    <link rel="stylesheet" crossorigin href="/assets/css/index-B4RfYmqp.css">
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"></div>
   </body>
 </html>

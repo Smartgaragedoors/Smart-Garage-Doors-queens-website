@@ -16,14 +16,16 @@ export default function Button({
   onClick, 
   href, 
   className = '',
-  type = 'button'
+  type = 'button',
+  'aria-label': ariaLabel,
+  disabled = false
 }: ButtonProps) {
-  const baseClasses = 'inline-flex items-center justify-center font-semibold transition-all duration-300 cursor-pointer whitespace-nowrap';
+  const baseClasses = 'inline-flex items-center justify-center font-semibold transition-all duration-300 cursor-pointer whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2';
   
   const variants = {
-    primary: 'bg-orange-500 hover:bg-orange-600 text-white shadow-lg hover:shadow-xl',
-    secondary: 'bg-blue-900 hover:bg-blue-800 text-white shadow-lg hover:shadow-xl',
-    outline: 'border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white'
+    primary: 'bg-orange-500 hover:bg-orange-600 text-white shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed',
+    secondary: 'bg-blue-900 hover:bg-blue-800 text-white shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed',
+    outline: 'border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white disabled:opacity-50 disabled:cursor-not-allowed'
   };
   
   const sizes = {
@@ -36,14 +38,24 @@ export default function Button({
   
   if (href) {
     return (
-      <a href={href} className={classes}>
+      <a 
+        href={href} 
+        className={classes}
+        aria-label={ariaLabel}
+      >
         {children}
       </a>
     );
   }
   
   return (
-    <button type={type} onClick={onClick} className={classes}>
+    <button 
+      type={type} 
+      onClick={onClick} 
+      className={classes}
+      aria-label={ariaLabel}
+      disabled={disabled}
+    >
       {children}
     </button>
   );

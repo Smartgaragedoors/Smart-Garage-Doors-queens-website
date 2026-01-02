@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useCallback, memo } from 'react';
 import { trackFormSubmit } from '../../utils/analytics';
 import { submitForm } from '../../utils/formSubmission';
+import ResponsiveImage from '../base/ResponsiveImage';
 
-export default function Contact() {
+function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -13,7 +14,7 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus('idle');
@@ -33,14 +34,14 @@ export default function Contact() {
     } finally {
       setIsSubmitting(false);
     }
-  };
+  }, [formData]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData(prev => ({
       ...prev,
       [e.target.name]: e.target.value
     }));
-  };
+  }, []);
 
   return (
     <section id="contact" className="py-20 bg-white">
@@ -60,13 +61,14 @@ export default function Contact() {
           <div>
             {/* Real photo */}
             <div className="mb-8 relative rounded-lg overflow-hidden shadow-xl">
-              <img 
+              <ResponsiveImage
                 src="https://static.readdy.ai/image/b69172f381814b1e7c2f555a7760d2b1/9f70538874f046536c17d5849a06e8ef.jpeg"
                 alt="Professional garage door service team"
                 className="w-full h-80 object-cover object-top"
-                loading="lazy"
-                width="600"
-                height="400"
+                width={600}
+                height={400}
+                priority={false}
+                sizes="(max-width: 1024px) 100vw, 600px"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-blue-900/70 to-transparent"></div>
               <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
@@ -256,3 +258,5 @@ export default function Contact() {
     </section>
   );
 }
+
+export default memo(Contact);

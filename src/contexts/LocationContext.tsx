@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
+import { createContext, useContext, useEffect, useState, useMemo, useCallback, ReactNode } from 'react';
 import { detectLocation, getLocationDisplayName, getResponseTime, LocationData } from '../services/geolocation';
 
 interface LocationContextType {
@@ -17,7 +17,7 @@ export function LocationProvider({ children }: { children: ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const loadLocation = async () => {
+  const loadLocation = useCallback(async () => {
     setIsLoading(true);
     setError(null);
     try {
@@ -38,7 +38,7 @@ export function LocationProvider({ children }: { children: ReactNode }) {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, []);
 
   useEffect(() => {
     // Delay geolocation call to reduce initial load triggers
@@ -48,22 +48,25 @@ export function LocationProvider({ children }: { children: ReactNode }) {
     }, 1000); // 1 second delay to let page load first
     
     return () => clearTimeout(timer);
-  }, []);
+  }, [loadLocation]);
 
-  const locationName = getLocationDisplayName(location);
-  const responseTime = getResponseTime(location);
+  const locationName = useMemo(() => getLocationDisplayName(location), [location]);
+  const responseTime = useMemo(() => getResponseTime(location), [location]);
+
+  const contextValue = useMemo(
+    () => ({
+      location,
+      locationName,
+      responseTime,
+      isLoading,
+      error,
+      refreshLocation: loadLocation,
+    }),
+    [location, locationName, responseTime, isLoading, error, loadLocation]
+  );
 
   return (
-    <LocationContext.Provider
-      value={{
-        location,
-        locationName,
-        responseTime,
-        isLoading,
-        error,
-        refreshLocation: loadLocation,
-      }}
-    >
+    <LocationContext.Provider value={contextValue}>
       {children}
     </LocationContext.Provider>
   );

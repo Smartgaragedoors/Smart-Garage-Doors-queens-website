@@ -274,7 +274,8 @@ export default function BookNowPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="bg-red-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-red-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap cursor-pointer"
+                  aria-label={isSubmitting ? "Submitting service request" : "Book service now"}
+                  className="bg-red-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-red-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap cursor-pointer focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
                 >
                   {isSubmitting ? (
                     <>

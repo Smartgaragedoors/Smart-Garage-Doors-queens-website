@@ -1,4 +1,6 @@
-export default function Services() {
+import { memo } from 'react';
+
+function Services() {
   const services = [
     {
       icon: 'ri-tools-line',
@@ -88,3 +90,5 @@ export default function Services() {
     </section>
   );
 }
+
+export default memo(Services);

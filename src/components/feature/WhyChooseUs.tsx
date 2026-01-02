@@ -1,4 +1,7 @@
-export default function WhyChooseUs() {
+import { memo } from 'react';
+import ResponsiveImage from '../base/ResponsiveImage';
+
+function WhyChooseUs() {
   const features = [
     {
       icon: 'ri-time-line',
@@ -49,13 +52,14 @@ export default function WhyChooseUs() {
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           {/* Left: Image */}
           <div className="relative overflow-hidden">
-            <img 
+            <ResponsiveImage
               src="https://static.readdy.ai/image/b69172f381814b1e7c2f555a7760d2b1/22be8a4aee48d1bbee63b5199aec8007.webp"
               alt="Professional garage door technicians"
-              className="w-full h-auto rounded-lg shadow-2xl object-cover"
-              loading="lazy"
-              width="600"
-              height="400"
+              className="w-full h-auto rounded-lg shadow-2xl"
+              width={600}
+              height={400}
+              priority={false}
+              sizes="(max-width: 1024px) 100vw, 600px"
             />
             <div className="absolute bottom-0 right-0 bg-orange-500 text-white p-6 rounded-lg shadow-xl">
               <div className="text-4xl font-bold">1000+</div>
@@ -80,3 +84,5 @@ export default function WhyChooseUs() {
     </section>
   );
 }
+
+export default memo(WhyChooseUs);

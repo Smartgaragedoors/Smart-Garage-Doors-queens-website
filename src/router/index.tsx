@@ -1,7 +1,9 @@
+import { Suspense } from 'react';
 import { useNavigate, type NavigateFunction } from "react-router-dom";
 import { useRoutes } from "react-router-dom";
 import { useEffect } from "react";
 import routes from "./config";
+import { RouteLoadingSkeleton } from "../components/base/LoadingSkeleton";
 
 let navigateResolver: (navigate: ReturnType<typeof useNavigate>) => void;
 
@@ -24,5 +26,11 @@ export function AppRoutes() {
       navigateResolver(window.REACT_APP_NAVIGATE);
     });
   }
-  return element;
+  
+  return (
+    <Suspense fallback={<RouteLoadingSkeleton />}>
+      {element}
+    </Suspense>
+  );
 }
+

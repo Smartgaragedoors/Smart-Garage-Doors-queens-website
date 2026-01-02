@@ -196,43 +196,65 @@ export async function detectLocation(): Promise<LocationData | null> {
     // Try multiple free IP geolocation APIs (fallback chain)
     let locationData: LocationData | null = null;
 
-    // Try ip-api.com (free, no key required) with timeout
-    try {
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 3000); // 3 second timeout
-      
-      const response = await fetch('https://ip-api.com/json/?fields=status,message,city,regionName,zip,lat,lon', {
-        signal: controller.signal,
-        headers: {
-          'Accept': 'application/json',
-        },
-      });
-      clearTimeout(timeoutId);
-      const data = await response.json();
-      
-      if (data.status === 'success') {
-        // Try to match by city/state first
-        locationData = matchLocationByCity(data.city, data.regionName, data.regionName);
+    // Try ip-api.com (free, no key required) with timeout and retry logic
+    const maxRetries = 2;
+    for (let attempt = 0; attempt <= maxRetries; attempt++) {
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 3000); // 3 second timeout
         
-        // If no match, use coordinates to find closest
-        if (!locationData && data.lat && data.lon) {
-          locationData = findClosestServiceArea(data.lat, data.lon);
+        const response = await fetch('https://ip-api.com/json/?fields=status,message,city,regionName,zip,lat,lon', {
+          signal: controller.signal,
+          headers: {
+            'Accept': 'application/json',
+          },
+        });
+        clearTimeout(timeoutId);
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
         }
+        
+        const data = await response.json();
+        
+        if (data.status === 'success') {
+          // Try to match by city/state first
+          locationData = matchLocationByCity(data.city, data.regionName, data.regionName);
+          
+          // If no match, use coordinates to find closest
+          if (!locationData && data.lat && data.lon) {
+            locationData = findClosestServiceArea(data.lat, data.lon);
+          }
 
-        if (locationData) {
-          locationData.zipCode = data.zip;
-          // Cache the result
-          localStorage.setItem('detected_location', JSON.stringify({
-            location: locationData,
-            timestamp: Date.now(),
-          }));
-          return locationData;
+          if (locationData) {
+            locationData.zipCode = data.zip;
+            // Cache the result
+            localStorage.setItem('detected_location', JSON.stringify({
+              location: locationData,
+              timestamp: Date.now(),
+            }));
+            return locationData;
+          }
         }
-      }
-    } catch (error) {
-      // Silently fail - will use default location
-      if (process.env.NODE_ENV === 'development') {
-        console.warn('ip-api.com failed, trying fallback:', error);
+        
+        // If we got here, the API returned but no location matched
+        break;
+      } catch (error) {
+        // Don't retry if request was aborted
+        if (error instanceof Error && error.name === 'AbortError') {
+          break;
+        }
+        
+        // Retry with exponential backoff
+        if (attempt < maxRetries) {
+          await new Promise(resolve => setTimeout(resolve, 1000 * (attempt + 1)));
+          continue;
+        }
+        
+        // Silently fail after max retries - will use default location
+        if (import.meta.env.DEV) {
+          console.warn('ip-api.com failed after retries:', error);
+        }
       }
     }
 

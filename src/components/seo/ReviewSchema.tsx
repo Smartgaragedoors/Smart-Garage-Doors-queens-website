@@ -17,11 +17,43 @@ interface ReviewSchemaProps {
   };
 }
 
+interface SchemaReview {
+  "@type": "Review";
+  author: {
+    "@type": "Person";
+    name: string;
+  };
+  reviewRating: {
+    "@type": "Rating";
+    ratingValue: string;
+    bestRating: string;
+    worstRating: string;
+  };
+  reviewBody?: string;
+  datePublished?: string;
+}
+
+interface SchemaAggregateRating {
+  "@type": "AggregateRating";
+  ratingValue: string;
+  reviewCount: string;
+  bestRating: string;
+  worstRating: string;
+}
+
+interface LocalBusinessSchema {
+  "@context": string;
+  "@type": "LocalBusiness";
+  name: string;
+  review?: SchemaReview[];
+  aggregateRating?: SchemaAggregateRating;
+}
+
 const ReviewSchema: React.FC<ReviewSchemaProps> = ({ 
   reviews = [],
   aggregateRating 
 }) => {
-  const schema: any = {
+  const schema: LocalBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Smartest Garage Doors",

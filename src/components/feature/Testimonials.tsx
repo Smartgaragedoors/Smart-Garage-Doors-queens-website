@@ -14,6 +14,8 @@ export default function Testimonials() {
             loading="lazy"
             width="64"
             height="64"
+            decoding="async"
+            fetchpriority="low"
           />
         </div>
 

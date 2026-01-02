@@ -1,25 +1,54 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
+import ResponsiveImage from '../base/ResponsiveImage';
 
-export default function RecentWork() {
+interface Photo {
+  image: string;
+  title: string;
+  description?: string;
+}
+
+function RecentWork() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [photos, setPhotos] = useState<any[]>([]);
+  const [photos, setPhotos] = useState<Photo[]>([]);
   const [loading, setLoading] = useState(true);
+  const abortControllerRef = useRef<AbortController | null>(null);
 
-  useEffect(() => {
-    fetchGooglePhotos();
-  }, []);
+  const fetchGooglePhotos = useCallback(async (retryCount = 0): Promise<void> => {
+    const maxRetries = 2;
+    
+    // Cancel previous request if still pending
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
+    }
+    
+    // Create new AbortController for this request
+    const abortController = new AbortController();
+    abortControllerRef.current = abortController;
 
-  const fetchGooglePhotos = async () => {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_PUBLIC_SUPABASE_URL}/functions/v1/google-reviews`
+        `${import.meta.env.VITE_PUBLIC_SUPABASE_URL}/functions/v1/google-reviews`,
+        {
+          signal: abortController.signal,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
       );
+      
+      if (abortController.signal.aborted) {
+        return;
+      }
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
       
       const data = await response.json();
       
       // Check if we got valid photos from Google
-      if (response.ok && data.photos && data.photos.length > 0) {
-        const googlePhotos = data.photos.map((photo: any, index: number) => ({
+      if (data.photos && Array.isArray(data.photos) && data.photos.length > 0) {
+        const googlePhotos: Photo[] = data.photos.map((photo: { url: string }, index: number) => ({
           image: photo.url,
           title: `Professional Garage Door ${['Installation', 'Repair', 'Service', 'Maintenance', 'Opener Installation', 'Spring Replacement'][index] || 'Project'}`,
           description: 'High-quality workmanship and professional service'
@@ -28,23 +57,43 @@ export default function RecentWork() {
         // Add custom images first, then Google photos
         setPhotos([...customPhotos, ...googlePhotos]);
       } else {
-        // Use fallback images if Google API fails
-        if (process.env.NODE_ENV === 'development') {
-          console.log('Using fallback images. Google API status:', data.error || 'No photos available');
-        }
+        // Use fallback images if Google API returns no photos
         setPhotos([...customPhotos, ...defaultProjects]);
       }
     } catch (error) {
-      if (process.env.NODE_ENV === 'development') {
-        console.log('Using fallback images due to error:', error);
+      // Don't retry if request was aborted
+      if (error instanceof Error && error.name === 'AbortError') {
+        return;
       }
+
+      // Retry logic
+      if (retryCount < maxRetries) {
+        // Wait before retrying (exponential backoff)
+        await new Promise(resolve => setTimeout(resolve, 1000 * (retryCount + 1)));
+        return fetchGooglePhotos(retryCount + 1);
+      }
+
+      // Use fallback images after max retries
       setPhotos([...customPhotos, ...defaultProjects]);
     } finally {
-      setLoading(false);
+      if (!abortController.signal.aborted) {
+        setLoading(false);
+      }
     }
-  };
+  }, []);
 
-  const customPhotos = [
+  useEffect(() => {
+    fetchGooglePhotos();
+
+    // Cleanup: abort request on unmount
+    return () => {
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort();
+      }
+    };
+  }, [fetchGooglePhotos]);
+
+  const customPhotos: Photo[] = [
     {
       image: 'https://static.readdy.ai/image/b69172f381814b1e7c2f555a7760d2b1/6c1b03291502bee542d52ba370b557cf.jpeg',
       title: 'Professional Garage Door Installation'
@@ -59,7 +108,7 @@ export default function RecentWork() {
     }
   ];
 
-  const defaultProjects = [
+  const defaultProjects: Photo[] = [
     {
       image: 'https://readdy.ai/api/search-image?query=Professional%20garage%20door%20installation%20project%20showing%20a%20newly%20installed%20white%20residential%20garage%20door%20with%20clean%20modern%20design%2C%20technician%20in%20uniform%20completing%20final%20adjustments%2C%20suburban%20home%20exterior%20with%20driveway%2C%20bright%20daylight%2C%20high%20quality%20professional%20photography%20style&width=800&height=533&quality=85&seq=gd001&orientation=landscape',
       title: 'Door Installation Project'
@@ -128,13 +177,14 @@ export default function RecentWork() {
               {displayProjects.map((project, index) => (
                 <div key={index} className="w-1/3 flex-shrink-0 px-2 min-w-0">
                   <div className="bg-white rounded-lg shadow-lg overflow-hidden w-full">
-                    <img 
-                      src={project.image} 
+                    <ResponsiveImage
+                      src={project.image}
                       alt={project.title}
                       className="w-full h-64 object-cover object-top"
-                      loading="lazy"
-                      width="800"
-                      height="533"
+                      width={800}
+                      height={533}
+                      priority={index < 3}
+                      sizes="(max-width: 768px) 50vw, 33vw"
                     />
                   </div>
                 </div>
@@ -145,17 +195,19 @@ export default function RecentWork() {
           {/* Navigation Arrows */}
           <button 
             onClick={prevSlide}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-orange-500 text-white p-3 rounded-full hover:bg-orange-600 transition-colors cursor-pointer"
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-orange-500 text-white p-3 rounded-full hover:bg-orange-600 transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
             aria-label="Previous slide"
+            type="button"
           >
-            <i className="ri-arrow-left-line text-xl"></i>
+            <i className="ri-arrow-left-line text-xl" aria-hidden="true"></i>
           </button>
           <button 
             onClick={nextSlide}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-orange-500 text-white p-3 rounded-full hover:bg-orange-600 transition-colors cursor-pointer"
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-orange-500 text-white p-3 rounded-full hover:bg-orange-600 transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
             aria-label="Next slide"
+            type="button"
           >
-            <i className="ri-arrow-right-line text-xl"></i>
+            <i className="ri-arrow-right-line text-xl" aria-hidden="true"></i>
           </button>
         </div>
 
@@ -163,13 +215,14 @@ export default function RecentWork() {
         <div className="md:hidden grid grid-cols-2 gap-4">
           {displayProjects.slice(0, 4).map((project, index) => (
             <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <img 
-                src={project.image} 
+              <ResponsiveImage
+                src={project.image}
                 alt={project.title}
                 className="w-full h-40 object-cover object-top"
-                loading="lazy"
-                width="400"
-                height="267"
+                width={400}
+                height={267}
+                priority={index < 2}
+                sizes="50vw"
               />
             </div>
           ))}
@@ -178,3 +231,5 @@ export default function RecentWork() {
     </section>
   );
 }
+
+export default memo(RecentWork);

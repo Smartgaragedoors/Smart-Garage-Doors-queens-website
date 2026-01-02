@@ -49,11 +49,39 @@
     <meta name="twitter:image" content="https://static.readdy.ai/image/b69172f381814b1e7c2f555a7760d2b1/4d43fd0bc8f747590e796db153cdd63c.png" />
     
     <!-- External Stylesheets - deferred loading for better performance -->
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" /></noscript>
-    <!-- Font Awesome deferred - load after page is interactive -->
+    <!-- RemixIcon - load after page is interactive -->
     <script>
-      // Load Font Awesome after page is interactive to reduce render blocking
+      (function() {
+        function loadRemixIcon() {
+          var link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.href = 'https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css';
+          link.media = 'print';
+          link.onload = function() { this.media = 'all'; };
+          link.crossOrigin = 'anonymous';
+          document.head.appendChild(link);
+        }
+        
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', function() {
+            if ('requestIdleCallback' in window) {
+              requestIdleCallback(loadRemixIcon, { timeout: 2000 });
+            } else {
+              setTimeout(loadRemixIcon, 1000);
+            }
+          });
+        } else {
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(loadRemixIcon, { timeout: 2000 });
+          } else {
+            setTimeout(loadRemixIcon, 1000);
+          }
+        }
+      })();
+    </script>
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" crossorigin="anonymous" /></noscript>
+    <!-- Font Awesome - load only if needed, after page is interactive -->
+    <script>
       (function() {
         function loadFontAwesome() {
           var link = document.createElement('link');
@@ -61,27 +89,31 @@
           link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';
           link.media = 'print';
           link.onload = function() { this.media = 'all'; };
+          link.crossOrigin = 'anonymous';
           document.head.appendChild(link);
         }
         
-        if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', function() {
-            if ('requestIdleCallback' in window) {
-              requestIdleCallback(loadFontAwesome, { timeout: 2000 });
-            } else {
-              setTimeout(loadFontAwesome, 1000);
-            }
-          });
-        } else {
-          if ('requestIdleCallback' in window) {
-            requestIdleCallback(loadFontAwesome, { timeout: 2000 });
+        // Only load Font Awesome if actually needed (check for fa- classes)
+        if (document.querySelector('[class*="fa-"]')) {
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() {
+              if ('requestIdleCallback' in window) {
+                requestIdleCallback(loadFontAwesome, { timeout: 3000 });
+              } else {
+                setTimeout(loadFontAwesome, 2000);
+              }
+            });
           } else {
-            setTimeout(loadFontAwesome, 1000);
+            if ('requestIdleCallback' in window) {
+              requestIdleCallback(loadFontAwesome, { timeout: 3000 });
+            } else {
+              setTimeout(loadFontAwesome, 2000);
+            }
           }
         }
       })();
     </script>
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" /></noscript>
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" /></noscript>
     
     <!-- Google Analytics - deferred to reduce blocking -->
     <script>

@@ -3,6 +3,8 @@ import './i18n'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
+import { initAnalytics } from './utils/analytics'
+import { initWebVitals } from './utils/webVitals'
 
 // Register service worker for offline support and better performance
 if ('serviceWorker' in navigator && import.meta.env.PROD) {
@@ -19,6 +21,15 @@ if ('serviceWorker' in navigator && import.meta.env.PROD) {
         }
       });
   });
+}
+
+// Initialize analytics and performance monitoring
+if (import.meta.env.PROD) {
+  initAnalytics();
+  // Initialize Web Vitals after a short delay to ensure GA is loaded
+  setTimeout(() => {
+    initWebVitals();
+  }, 2000);
 }
 
 createRoot(document.getElementById('root')!).render(

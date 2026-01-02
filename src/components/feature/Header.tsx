@@ -1,149 +1,77 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, memo, useMemo, useCallback } from 'react';
 import { useLocation as useLocationContext } from '../../contexts/LocationContext';
-import { useLocation as useRouterLocation, useNavigate } from 'react-router-dom';
+import { useLocation as useRouterLocation } from 'react-router-dom';
 import { trackPhoneClick } from '../../utils/analytics';
 
-export default function Header() {
+function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isServiceAreasOpen, setIsServiceAreasOpen] = useState(false);
   const { location, locationName } = useLocationContext();
   const routerLocation = useRouterLocation();
-  const servicesDropdownRef = useRef<HTMLDivElement>(null);
-  const serviceAreasDropdownRef = useRef<HTMLDivElement>(null);
-
-  // #region agent log
-  const logState = (message: string, data: any) => {
-    fetch('http://127.0.0.1:7243/ingest/6c3bdf5c-af68-469f-9337-ff93e6c01d2a',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'Header.tsx',message,data:{...data,isServicesOpen,isServiceAreasOpen},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
-  };
-
-  useEffect(() => {
-    if (isServicesOpen && servicesDropdownRef.current) {
-      const rect = servicesDropdownRef.current.getBoundingClientRect();
-      const buttonRect = servicesDropdownRef.current.parentElement?.getBoundingClientRect();
-      const styles = window.getComputedStyle(servicesDropdownRef.current);
-      const parent = servicesDropdownRef.current.parentElement;
-      const parentStyles = parent ? window.getComputedStyle(parent) : null;
-      const nav = servicesDropdownRef.current.closest('nav');
-      const navStyles = nav ? window.getComputedStyle(nav) : null;
-      const debugInfo = {
-        dropdownTop: rect.top,
-        dropdownBottom: rect.bottom,
-        dropdownLeft: rect.left,
-        dropdownHeight: rect.height,
-        dropdownWidth: rect.width,
-        scrollHeight: servicesDropdownRef.current.scrollHeight,
-        clientHeight: servicesDropdownRef.current.clientHeight,
-        viewportHeight: window.innerHeight,
-        scrollY: window.scrollY,
-        buttonTop: buttonRect?.top,
-        buttonBottom: buttonRect?.bottom,
-        position: styles.position,
-        zIndex: styles.zIndex,
-        display: styles.display,
-        visibility: styles.visibility,
-        overflow: styles.overflow,
-        overflowY: styles.overflowY,
-        overflowX: styles.overflowX,
-        maxHeight: styles.maxHeight,
-        height: styles.height,
-        parentOverflow: parentStyles?.overflow,
-        parentOverflowY: parentStyles?.overflowY,
-        navOverflow: navStyles?.overflow,
-        navOverflowY: navStyles?.overflowY,
-        isBelowViewport: rect.top > window.innerHeight,
-        isAboveViewport: rect.bottom < 0,
-        hasScrollbar: rect.height < servicesDropdownRef.current.scrollHeight
-      };
-      console.log('🔍 Services Dropdown Debug:', debugInfo);
-      logState('Services dropdown position check', debugInfo);
-    }
-  }, [isServicesOpen]);
-
-  useEffect(() => {
-    if (isServiceAreasOpen && serviceAreasDropdownRef.current) {
-      const rect = serviceAreasDropdownRef.current.getBoundingClientRect();
-      const buttonRect = serviceAreasDropdownRef.current.parentElement?.getBoundingClientRect();
-      const styles = window.getComputedStyle(serviceAreasDropdownRef.current);
-      const parent = serviceAreasDropdownRef.current.parentElement;
-      const parentStyles = parent ? window.getComputedStyle(parent) : null;
-      const nav = serviceAreasDropdownRef.current.closest('nav');
-      const navStyles = nav ? window.getComputedStyle(nav) : null;
-      const debugInfo = {
-        dropdownTop: rect.top,
-        dropdownBottom: rect.bottom,
-        dropdownLeft: rect.left,
-        dropdownHeight: rect.height,
-        dropdownWidth: rect.width,
-        scrollHeight: serviceAreasDropdownRef.current.scrollHeight,
-        clientHeight: serviceAreasDropdownRef.current.clientHeight,
-        viewportHeight: window.innerHeight,
-        scrollY: window.scrollY,
-        buttonTop: buttonRect?.top,
-        buttonBottom: buttonRect?.bottom,
-        position: styles.position,
-        zIndex: styles.zIndex,
-        display: styles.display,
-        visibility: styles.visibility,
-        overflow: styles.overflow,
-        overflowY: styles.overflowY,
-        overflowX: styles.overflowX,
-        maxHeight: styles.maxHeight,
-        height: styles.height,
-        parentOverflow: parentStyles?.overflow,
-        parentOverflowY: parentStyles?.overflowY,
-        navOverflow: navStyles?.overflow,
-        navOverflowY: navStyles?.overflowY,
-        isBelowViewport: rect.top > window.innerHeight,
-        isAboveViewport: rect.bottom < 0,
-        hasScrollbar: rect.height < serviceAreasDropdownRef.current.scrollHeight
-      };
-      console.log('🔍 Service Areas Dropdown Debug:', debugInfo);
-      logState('Service Areas dropdown position check', debugInfo);
-    }
-  }, [isServiceAreasOpen]);
-  // #endregion
 
   // Get current page to show relevant address
   const currentPath = routerLocation.pathname;
-  let currentAddress = "New York, New Jersey, Connecticut";
   
   // Determine contact link: use #contact on home page for smooth scroll, /contact on other pages
-  const contactLink = currentPath === '/' || currentPath === '/home' ? '#contact' : '/contact';
+  const contactLink = useMemo(
+    () => currentPath === '/' || currentPath === '/home' ? '#contact' : '/contact',
+    [currentPath]
+  );
   
-  // Handle About link click - use navigate for cross-page navigation to preserve hash
-  const handleAboutClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (currentPath === '/' || currentPath === '/home') {
-      // On home page, let default behavior handle smooth scroll
-      return;
-    }
-    // On other pages, navigate to home with hash using window.location for reliable hash handling
-    e.preventDefault();
-    const basePath = typeof __BASE_PATH__ !== 'undefined' ? __BASE_PATH__ : '/';
-    window.location.href = `${basePath}#about`;
-  };
 
-  // Use detected location first, then fall back to route-based
-  if (location && !currentPath.includes('/garage-door-repair-') && !currentPath.includes('/service-areas/')) {
-    // Show location-aware message
-    if (location.city === 'Queens' || location.city === 'Flushing') {
-      currentAddress = "141-24 70th Ave, Flushing, NY 11367";
-    } else if (location.city === 'Brooklyn') {
-      currentAddress = "71st 12th Ave, Dyker Heights, Brooklyn, NY";
-    } else if (location.city === 'Suffern') {
-      currentAddress = "31 Deerwood Road, Suffern, NY";
-    } else {
-      currentAddress = `Serving ${locationName} | Local to Your Area`;
+  // Memoize current address calculation
+  const currentAddress = useMemo(() => {
+    let address = "New York, New Jersey, Connecticut";
+    
+    // Use detected location first, then fall back to route-based
+    if (location && !currentPath.includes('/garage-door-repair-') && !currentPath.includes('/service-areas/')) {
+      // Show location-aware message
+      if (location.city === 'Queens' || location.city === 'Flushing') {
+        address = "141-24 70th Ave, Flushing, NY 11367";
+      } else if (location.city === 'Brooklyn') {
+        address = "71st 12th Ave, Dyker Heights, Brooklyn, NY";
+      } else if (location.city === 'Suffern') {
+        address = "31 Deerwood Road, Suffern, NY";
+      } else {
+        address = `Serving ${locationName} | Local to Your Area`;
+      }
+    } else if (currentPath.includes('brooklyn')) {
+      address = "71st 12th Ave, Dyker Heights, Brooklyn, NY";
+    } else if (currentPath.includes('suffern')) {
+      address = "31 Deerwood Road, Suffern, NY";
+    } else if (currentPath.includes('queens') || currentPath.includes('flushing')) {
+      address = "141-24 70th Ave, Flushing, NY 11367";
+    } else if (location) {
+      address = `Local to ${locationName}`;
     }
-  } else if (currentPath.includes('brooklyn')) {
-    currentAddress = "71st 12th Ave, Dyker Heights, Brooklyn, NY";
-  } else if (currentPath.includes('suffern')) {
-    currentAddress = "31 Deerwood Road, Suffern, NY";
-  } else if (currentPath.includes('queens') || currentPath.includes('flushing')) {
-    currentAddress = "141-24 70th Ave, Flushing, NY 11367";
-  } else if (location) {
-    currentAddress = `Local to ${locationName}`;
-  }
+    
+    return address;
+  }, [location, locationName, currentPath]);
+
+  const handlePhoneClick = useCallback(() => {
+    trackPhoneClick('(914) 557-6816');
+  }, []);
+
+  const handleMenuToggle = useCallback(() => {
+    setIsMenuOpen(prev => !prev);
+  }, []);
+
+  const handleServicesMouseEnter = useCallback(() => {
+    setIsServicesOpen(true);
+  }, []);
+
+  const handleServicesMouseLeave = useCallback(() => {
+    setIsServicesOpen(false);
+  }, []);
+
+  const handleServiceAreasMouseEnter = useCallback(() => {
+    setIsServiceAreasOpen(true);
+  }, []);
+
+  const handleServiceAreasMouseLeave = useCallback(() => {
+    setIsServiceAreasOpen(false);
+  }, []);
 
   return (
     <header className="sticky top-0 z-50" style={{ overflow: 'visible' }}>
@@ -207,20 +135,30 @@ export default function Header() {
               <div 
                 className="relative"
                 style={{ overflow: 'visible', position: 'relative' }}
-                onMouseEnter={() => setIsServicesOpen(true)}
-                onMouseLeave={() => setIsServicesOpen(false)}
+                onMouseEnter={handleServicesMouseEnter}
+                onMouseLeave={handleServicesMouseLeave}
               >
                 <button 
                   className="text-gray-700 hover:text-orange-500 font-medium flex items-center"
                   aria-expanded={isServicesOpen}
                   aria-haspopup="true"
+                  aria-controls="services-menu"
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      setIsServicesOpen(!isServicesOpen);
+                    } else if (e.key === 'Escape') {
+                      setIsServicesOpen(false);
+                    }
+                  }}
                 >
                   Services
                   <i className="ri-arrow-down-s-line ml-1" aria-hidden="true"></i>
                 </button>
                 {isServicesOpen && (
                   <div 
-                    ref={servicesDropdownRef}
+                    id="services-menu"
+                    role="menu"
                     className="dropdown-menu absolute left-0 top-full mt-1 w-64 bg-white rounded-md shadow-lg py-1 z-[100]"
                     style={{ 
                       overflow: 'visible', 
@@ -231,17 +169,23 @@ export default function Header() {
                       display: 'block',
                       position: 'absolute'
                     }}
-                    onMouseEnter={() => setIsServicesOpen(true)}
-                    onMouseLeave={() => setIsServicesOpen(false)}
+                    onMouseEnter={handleServicesMouseEnter}
+                    onMouseLeave={handleServicesMouseLeave}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Escape') {
+                        setIsServicesOpen(false);
+                        e.currentTarget.previousElementSibling?.querySelector('button')?.focus();
+                      }
+                    }}
                   >
-                    <a href="/emergency-garage-door-repair/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Emergency Repairs</a>
-                    <a href="/garage-door-installation/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Installation Services</a>
-                    <a href="/garage-door-repair/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Garage Door Repair</a>
-                    <a href="/opener-repair-installation/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Opener Repair</a>
-                    <a href="/spring-replacement/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Spring Replacement</a>
-                    <a href="/cable-roller-repair/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Cable & Roller Repair</a>
-                    <a href="/services/maintenance/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Maintenance</a>
-                    <a href="/services/installation/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Installation</a>
+                    <a href="/emergency-garage-door-repair/" role="menuitem" className="block px-4 py-2 text-gray-700 hover:text-orange-500 focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Emergency Repairs</a>
+                    <a href="/garage-door-installation/" role="menuitem" className="block px-4 py-2 text-gray-700 hover:text-orange-500 focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Installation Services</a>
+                    <a href="/garage-door-repair/" role="menuitem" className="block px-4 py-2 text-gray-700 hover:text-orange-500 focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Garage Door Repair</a>
+                    <a href="/opener-repair-installation/" role="menuitem" className="block px-4 py-2 text-gray-700 hover:text-orange-500 focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Opener Repair</a>
+                    <a href="/spring-replacement/" role="menuitem" className="block px-4 py-2 text-gray-700 hover:text-orange-500 focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Spring Replacement</a>
+                    <a href="/cable-roller-repair/" role="menuitem" className="block px-4 py-2 text-gray-700 hover:text-orange-500 focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Cable & Roller Repair</a>
+                    <a href="/services/maintenance/" role="menuitem" className="block px-4 py-2 text-gray-700 hover:text-orange-500 focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Maintenance</a>
+                    <a href="/services/installation/" role="menuitem" className="block px-4 py-2 text-gray-700 hover:text-orange-500 focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Installation</a>
                   </div>
                 )}
               </div>
@@ -250,20 +194,30 @@ export default function Header() {
               <div 
                 className="relative"
                 style={{ overflow: 'visible', position: 'relative' }}
-                onMouseEnter={() => setIsServiceAreasOpen(true)}
-                onMouseLeave={() => setIsServiceAreasOpen(false)}
+                onMouseEnter={handleServiceAreasMouseEnter}
+                onMouseLeave={handleServiceAreasMouseLeave}
               >
                 <button 
                   className="text-gray-700 hover:text-orange-500 font-medium flex items-center transition-colors"
                   aria-expanded={isServiceAreasOpen}
                   aria-haspopup="true"
+                  aria-controls="service-areas-menu"
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      setIsServiceAreasOpen(!isServiceAreasOpen);
+                    } else if (e.key === 'Escape') {
+                      setIsServiceAreasOpen(false);
+                    }
+                  }}
                 >
                   Service Areas
                   <i className="ri-arrow-down-s-line ml-1" aria-hidden="true"></i>
                 </button>
                 {isServiceAreasOpen && (
                   <div 
-                    ref={serviceAreasDropdownRef}
+                    id="service-areas-menu"
+                    role="menu"
                     className="dropdown-menu absolute top-full left-0 mt-1 w-80 bg-white rounded-lg shadow-xl z-[100]"
                     style={{ 
                       overflow: 'visible', 
@@ -274,8 +228,14 @@ export default function Header() {
                       display: 'block',
                       position: 'absolute'
                     }}
-                    onMouseEnter={() => setIsServiceAreasOpen(true)}
-                    onMouseLeave={() => setIsServiceAreasOpen(false)}
+                    onMouseEnter={handleServiceAreasMouseEnter}
+                    onMouseLeave={handleServiceAreasMouseLeave}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Escape') {
+                        setIsServiceAreasOpen(false);
+                        e.currentTarget.previousElementSibling?.querySelector('button')?.focus();
+                      }
+                    }}
                   >
                     <div className="p-6">
                       <div className="grid grid-cols-1 gap-4">
@@ -283,12 +243,12 @@ export default function Header() {
                         <div>
                           <h4 className="font-semibold text-blue-900 mb-2 border-b border-gray-200 pb-1">New York</h4>
                           <div className="space-y-1">
-                            <a href="/garage-door-repair-brooklyn-ny/" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer">Brooklyn</a>
-                            <a href="/garage-door-repair-flushing-ny/" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer">Flushing</a>
-                            <a href="/garage-door-repair-long-island-ny/" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer">Long Island</a>
-                            <a href="/garage-door-repair-staten-island-ny/" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer">Staten Island</a>
-                            <a href="/garage-door-repair-suffern-ny/" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer">Suffern</a>
-                            <a href="/garage-door-repair-white-plains-ny/" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer">White Plains</a>
+                            <a href="/garage-door-repair-brooklyn-ny/" role="menuitem" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Brooklyn</a>
+                            <a href="/garage-door-repair-flushing-ny/" role="menuitem" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Flushing</a>
+                            <a href="/garage-door-repair-long-island-ny/" role="menuitem" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Long Island</a>
+                            <a href="/garage-door-repair-staten-island-ny/" role="menuitem" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Staten Island</a>
+                            <a href="/garage-door-repair-suffern-ny/" role="menuitem" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Suffern</a>
+                            <a href="/garage-door-repair-white-plains-ny/" role="menuitem" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">White Plains</a>
                           </div>
                         </div>
                         
@@ -296,12 +256,12 @@ export default function Header() {
                         <div>
                           <h4 className="font-semibold text-blue-900 mb-2 border-b border-gray-200 pb-1">Connecticut</h4>
                           <div className="space-y-1">
-                            <a href="/garage-door-repair-darien-ct/" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer">Darien</a>
-                            <a href="/garage-door-repair-greenwich-ct/" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer">Greenwich</a>
-                            <a href="/new-canaan-ct/" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer">New Canaan</a>
-                            <a href="/newtown-ct/" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer">Newtown</a>
-                            <a href="/garage-door-repair-stamford-ct/" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer">Stamford</a>
-                            <a href="/westport-ct/" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer">Westport</a>
+                            <a href="/garage-door-repair-darien-ct/" role="menuitem" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Darien</a>
+                            <a href="/garage-door-repair-greenwich-ct/" role="menuitem" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Greenwich</a>
+                            <a href="/new-canaan-ct/" role="menuitem" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">New Canaan</a>
+                            <a href="/newtown-ct/" role="menuitem" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Newtown</a>
+                            <a href="/garage-door-repair-stamford-ct/" role="menuitem" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Stamford</a>
+                            <a href="/westport-ct/" role="menuitem" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Westport</a>
                           </div>
                         </div>
                         
@@ -309,7 +269,7 @@ export default function Header() {
                         <div>
                           <h4 className="font-semibold text-blue-900 mb-2 border-b border-gray-200 pb-1">New Jersey</h4>
                           <div className="space-y-1">
-                            <a href="/teaneck-nj/" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer">Teaneck</a>
+                            <a href="/teaneck-nj/" role="menuitem" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Teaneck</a>
                           </div>
                         </div>
                       </div>
@@ -318,13 +278,6 @@ export default function Header() {
                 )}
               </div>
 
-              <a 
-                href={currentPath === '/' || currentPath === '/home' ? '#about' : '/#about'} 
-                onClick={handleAboutClick}
-                className="text-gray-700 hover:text-orange-500 font-medium transition-colors"
-              >
-                About
-              </a>
               <a href="/blog/" className="text-gray-700 hover:text-orange-500 font-medium transition-colors">
                 Blog
               </a>
@@ -337,7 +290,7 @@ export default function Header() {
             <div className="flex items-center space-x-2 md:space-x-4">
               <a 
                 href="tel:(914) 557-6816" 
-                onClick={() => trackPhoneClick('(914) 557-6816')}
+                onClick={handlePhoneClick}
                 className="bg-orange-500 hover:bg-orange-600 text-white px-3 md:px-4 py-2 rounded-lg font-semibold transition-colors whitespace-nowrap text-sm md:text-base"
               >
                 <i className="ri-phone-fill mr-1 md:mr-2"></i>
@@ -347,7 +300,7 @@ export default function Header() {
               
               {/* Mobile Menu Button */}
               <button 
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                onClick={handleMenuToggle}
                 className="lg:hidden text-gray-700 hover:text-orange-500 transition-colors p-2"
                 aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                 aria-expanded={isMenuOpen}
@@ -392,13 +345,6 @@ export default function Header() {
                   </div>
                 </div>
 
-                <a 
-                  href={currentPath === '/' || currentPath === '/home' ? '#about' : '/#about'} 
-                  onClick={handleAboutClick}
-                  className="block text-gray-700 hover:text-orange-500 font-medium transition-colors py-2"
-                >
-                  About
-                </a>
                 <a href="/blog/" className="block text-gray-700 hover:text-orange-500 font-medium transition-colors py-2">
                   Blog
                 </a>
@@ -421,3 +367,5 @@ export default function Header() {
     </header>
   );
 }
+
+export default memo(Header);

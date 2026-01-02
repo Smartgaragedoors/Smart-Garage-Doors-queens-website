@@ -1,18 +1,19 @@
+import { memo, useMemo } from 'react';
 import OrganizationSchema from '../seo/OrganizationSchema';
 import { useLocation } from 'react-router-dom';
 
-export default function Footer() {
+function Footer() {
   const routerLocation = useLocation();
-  const services = [
+  const services = useMemo(() => [
     'Garage Door Repair',
     'Opener Repair & Installation', 
     'Spring Replacement',
     'Cable & Roller Repair',
     'Garage Door Installation',
     'Emergency Garage Door Repair'
-  ];
+  ], []);
 
-  const serviceAreas = [
+  const serviceAreas = useMemo(() => [
     { name: 'Flushing', href: '/garage-door-repair-flushing-ny/' },
     { name: 'White Plains', href: '/garage-door-repair-white-plains-ny/' },
     { name: 'Suffern', href: '/garage-door-repair-suffern-ny/' },
@@ -25,17 +26,18 @@ export default function Footer() {
     { name: 'New Canaan', href: '/new-canaan-ct/' },
     { name: 'Westport', href: '/westport-ct/' },
     { name: 'Newtown', href: '/newtown-ct/' }
-  ];
+  ], []);
 
   // Get current page to show relevant address
   const currentPath = routerLocation.pathname;
-  let currentAddress = "141-24 70th Ave, Flushing, NY 11367";
-
-  if (currentPath.includes('suffern')) {
-    currentAddress = "31 Deerwood Road, Suffern, NY";
-  } else if (currentPath.includes('brooklyn')) {
-    currentAddress = "71st 12th Ave, Dyker Heights, Brooklyn, NY";
-  }
+  const currentAddress = useMemo(() => {
+    if (currentPath.includes('suffern')) {
+      return "31 Deerwood Road, Suffern, NY";
+    } else if (currentPath.includes('brooklyn')) {
+      return "71st 12th Ave, Dyker Heights, Brooklyn, NY";
+    }
+    return "141-24 70th Ave, Flushing, NY 11367";
+  }, [currentPath]);
 
   return (
     <footer className="bg-gradient-to-r from-blue-900 to-blue-800 text-white">
@@ -50,6 +52,8 @@ export default function Footer() {
               width="64"
               height="64"
               loading="lazy"
+              decoding="async"
+              fetchpriority="low"
             />
             <p className="text-gray-200 mb-4">
               Professional garage door repair and installation services in NY, NJ &amp; CT.
@@ -138,3 +142,5 @@ export default function Footer() {
     </footer>
   );
 }
+
+export default memo(Footer);

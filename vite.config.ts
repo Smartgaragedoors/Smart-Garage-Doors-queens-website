@@ -7,13 +7,31 @@ import AutoImport from 'unplugin-auto-import/vite'
 // Set BASE_PATH environment variable for GitHub Pages builds
 const base = process.env.BASE_PATH || '/'
 const isPreview = process.env.IS_PREVIEW  ? true : false;
+
+// Conditionally load visualizer only when ANALYZE=true
+let visualizerPlugin: any = null;
+if (process.env.ANALYZE === 'true') {
+  try {
+    const { visualizer } = require('rollup-plugin-visualizer');
+    visualizerPlugin = visualizer({
+      open: true,
+      filename: 'dist/stats.html',
+      gzipSize: true,
+      brotliSize: true,
+    });
+  } catch (e) {
+    console.warn('rollup-plugin-visualizer not found. Install it with: npm install -D rollup-plugin-visualizer');
+  }
+}
+
 // https://vite.dev/config/
 export default defineConfig({
   define: {
    __BASE_PATH__: JSON.stringify(base),
    __IS_PREVIEW__: JSON.stringify(isPreview)
   },
-  plugins: [react(),
+  plugins: [
+    react(),
     AutoImport({
       imports: [
         {
@@ -66,7 +84,9 @@ export default defineConfig({
       ],
       dts: true,
     }),
-  ],
+    // Bundle analyzer - only in analyze mode
+    visualizerPlugin,
+  ].filter(Boolean),
   base,
   esbuild: {
     drop: process.env.NODE_ENV === 'production' ? ['console', 'debugger'] : [],
@@ -76,24 +96,46 @@ export default defineConfig({
     sourcemap: false, // Disable sourcemaps in production for faster builds
     outDir: 'out',
     minify: 'esbuild',
+    // Enable tree-shaking
+    treeshake: {
+      moduleSideEffects: 'no-external',
+      propertyReadSideEffects: false,
+      tryCatchDeoptimization: false,
+    },
     rollupOptions: {
       output: {
         manualChunks: (id) => {
           // Vendor chunks - more granular splitting for better caching
           if (id.includes('node_modules')) {
+            // React core - most stable, rarely changes
             if (id.includes('react') || id.includes('react-dom')) {
               return 'react-core';
             }
+            // React Router - stable, changes infrequently
             if (id.includes('react-router')) {
               return 'react-router';
             }
-            if (id.includes('recharts')) {
-              return 'ui-vendor';
+            // Supabase - separate chunk for API client
+            if (id.includes('@supabase')) {
+              return 'supabase-vendor';
             }
-            if (id.includes('i18next') || id.includes('react-i18next')) {
+            // Stripe - separate chunk for payment processing
+            if (id.includes('@stripe')) {
+              return 'stripe-vendor';
+            }
+            // Recharts - large charting library, separate chunk
+            if (id.includes('recharts')) {
+              return 'recharts-vendor';
+            }
+            // i18n - internationalization, separate chunk
+            if (id.includes('i18next') || id.includes('react-i18next') || id.includes('i18next-browser-languagedetector')) {
               return 'i18n-vendor';
             }
-            // All other node_modules
+            // Analytics - separate chunk for tracking
+            if (id.includes('@vercel/analytics') || id.includes('web-vitals')) {
+              return 'analytics-vendor';
+            }
+            // All other node_modules - smaller vendor libraries
             return 'vendor';
           }
           // Split large page components for better code splitting

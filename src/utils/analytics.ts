@@ -1,9 +1,12 @@
 // Google Analytics 4 and event tracking utilities
 
+type GtagCommand = 'config' | 'event' | 'js' | 'set';
+type GtagParams = Record<string, unknown>;
+
 declare global {
   interface Window {
-    gtag?: (...args: any[]) => void;
-    dataLayer?: any[];
+    gtag?: (command: GtagCommand, targetId: string, config?: GtagParams) => void;
+    dataLayer?: unknown[];
   }
 }
 
@@ -51,8 +54,8 @@ export const initAnalytics = () => {
 
   // Initialize dataLayer and gtag
   window.dataLayer = window.dataLayer || [];
-  window.gtag = function(...args: any[]) {
-    window.dataLayer!.push(args);
+  window.gtag = function(command: GtagCommand, targetId: string, config?: GtagParams) {
+    window.dataLayer!.push([command, targetId, config]);
   };
   window.gtag('js', new Date());
   window.gtag('config', GA_MEASUREMENT_ID, {
@@ -78,7 +81,7 @@ export const trackEvent = (
     category?: string;
     label?: string;
     value?: number;
-    [key: string]: any;
+    [key: string]: unknown;
   }
 ) => {
   if (typeof window === 'undefined' || !window.gtag) return;

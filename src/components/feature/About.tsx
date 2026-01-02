@@ -1,17 +1,21 @@
-export default function About() {
+import { memo } from 'react';
+import ResponsiveImage from '../base/ResponsiveImage';
+
+function About() {
   return (
     <section id="about" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Image */}
           <div className="relative">
-            <img 
-              src="https://static.readdy.ai/image/b69172f381814b1e7c2f555a7760d2b1/54c27a0f429f46aa3708097b53c43e0e.jpeg" 
+            <ResponsiveImage
+              src="https://static.readdy.ai/image/b69172f381814b1e7c2f555a7760d2b1/54c27a0f429f46aa3708097b53c43e0e.jpeg"
               alt="Professional garage door technicians performing repair service in Queens, NY. Licensed and insured garage door specialists with years of experience."
-              className="w-full h-auto rounded-lg shadow-2xl object-cover"
-              loading="lazy"
-              width="600"
-              height="400"
+              className="w-full h-auto rounded-lg shadow-2xl"
+              width={600}
+              height={400}
+              priority={false}
+              sizes="(max-width: 1024px) 100vw, 600px"
             />
           </div>
 
@@ -36,3 +40,5 @@ export default function About() {
     </section>
   );
 }
+
+export default memo(About);

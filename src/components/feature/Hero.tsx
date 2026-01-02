@@ -1,22 +1,40 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, memo, useMemo, useCallback } from 'react';
 import { useLocation } from '../../contexts/LocationContext';
 import { trackPhoneClick, trackEvent } from '../../utils/analytics';
 
-export default function Hero() {
+function Hero() {
   const { location, locationName, responseTime, isLoading } = useLocation();
   
   // For Queens, use generic regional language. For other cities, use specific city name.
-  const serviceAreaText = location && location.city !== 'Queens' && !isLoading
-    ? `Serving ${locationName} and Surrounding Areas • Multiple Locations Across NY, NJ & CT`
-    : 'Serving NY, NJ & CT with Fast, Reliable Service • Multiple Service Locations';
+  const serviceAreaText = useMemo(() => 
+    location && location.city !== 'Queens' && !isLoading
+      ? `Serving ${locationName} and Surrounding Areas • Multiple Locations Across NY, NJ & CT`
+      : 'Serving NY, NJ & CT with Fast, Reliable Service • Multiple Service Locations',
+    [location, locationName, isLoading]
+  );
   
-  const responseTimeText = location && location.city !== 'Queens' && !isLoading
-    ? `Average ${responseTime} response in ${location.city} • Available throughout the tri-state area`
-    : '24/7 Emergency Repairs • Expert Installation • Maintenance Plans';
+  const responseTimeText = useMemo(() =>
+    location && location.city !== 'Queens' && !isLoading
+      ? `Average ${responseTime} response in ${location.city} • Available throughout the tri-state area`
+      : '24/7 Emergency Repairs • Expert Installation • Maintenance Plans',
+    [location, responseTime, isLoading]
+  );
   
-  const ctaText = location && location.city !== 'Queens' && !isLoading
-    ? `Call for ${location.city} Garage Door Service`
-    : 'Call (914) 557-6816';
+  const ctaText = useMemo(() =>
+    location && location.city !== 'Queens' && !isLoading
+      ? `Call for ${location.city} Garage Door Service`
+      : 'Call (914) 557-6816',
+    [location, isLoading]
+  );
+
+  const handlePhoneClick = useCallback(() => {
+    trackPhoneClick('914-557-6816');
+    trackEvent('cta_click', { category: 'Hero', action: 'phone_click', label: 'Hero CTA' });
+  }, []);
+
+  const handleScheduleClick = useCallback(() => {
+    trackEvent('cta_click', { category: 'Hero', action: 'schedule_click', label: 'Hero Schedule' });
+  }, []);
 
   // Get base path from vite config for proper image paths
   const basePath = typeof __BASE_PATH__ !== 'undefined' ? __BASE_PATH__ : '/';
@@ -31,27 +49,44 @@ export default function Hero() {
       const mobile = width <= 800;
       setIsMobile(mobile);
       const newSize = mobile ? '800' : width >= 1920 ? '1920' : '1280';
-      if (newSize !== imageSize) {
-        setImageSize(newSize);
-      }
+      setImageSize(prevSize => {
+        // Only update if size actually changed to prevent unnecessary re-renders
+        if (prevSize !== newSize) {
+          return newSize;
+        }
+        return prevSize;
+      });
     };
     
     // Set initial size immediately to prevent layout shift
     updateImageSize();
     
-    // Debounce resize to avoid excessive updates
-    let timeoutId: NodeJS.Timeout;
+    // Throttle resize to avoid excessive updates (using requestAnimationFrame for better performance)
+    let rafId: number | null = null;
+    let lastUpdateTime = 0;
+    const throttleDelay = 200; // ms
+    
     const handleResize = () => {
-      clearTimeout(timeoutId);
-      timeoutId = setTimeout(updateImageSize, 150);
+      const now = Date.now();
+      if (now - lastUpdateTime >= throttleDelay) {
+        if (rafId !== null) {
+          cancelAnimationFrame(rafId);
+        }
+        rafId = requestAnimationFrame(() => {
+          updateImageSize();
+          lastUpdateTime = now;
+        });
+      }
     };
     
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize, { passive: true });
     return () => {
       window.removeEventListener('resize', handleResize);
-      clearTimeout(timeoutId);
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId);
+      }
     };
-  }, [imageSize]);
+  }, []);
   
   // Use WebP with JPG fallback for better compression
   const heroImageWebP = `${basePath}hero-van-${imageSize}.webp`;
@@ -106,10 +141,7 @@ export default function Hero() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
                 <a 
                   href="tel:914-557-6816"
-                  onClick={() => {
-                    trackPhoneClick('914-557-6816');
-                    trackEvent('cta_click', { category: 'Hero', action: 'phone_click', label: 'Hero CTA' });
-                  }}
+                  onClick={handlePhoneClick}
                   aria-label="Call Smart Garage Doors from hero section"
                   className="inline-flex items-center justify-center font-bold transition-all duration-300 cursor-pointer whitespace-nowrap bg-orange-500 hover:bg-orange-600 text-white shadow-2xl hover:shadow-3xl px-8 py-4 text-lg rounded-full transform hover:scale-105"
                 >
@@ -118,7 +150,7 @@ export default function Hero() {
                 </a>
                 <a 
                   href="#contact"
-                  onClick={() => trackEvent('cta_click', { category: 'Hero', action: 'schedule_click', label: 'Hero Schedule' })}
+                  onClick={handleScheduleClick}
                   className="inline-flex items-center justify-center font-bold transition-all duration-300 cursor-pointer whitespace-nowrap bg-white hover:bg-gray-100 text-blue-900 shadow-2xl hover:shadow-3xl px-8 py-4 text-lg rounded-full transform hover:scale-105"
                 >
                   <i className="ri-calendar-line mr-3 text-xl"></i>
@@ -155,3 +187,5 @@ export default function Hero() {
     </section>
   );
 }
+
+export default memo(Hero);

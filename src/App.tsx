@@ -1,13 +1,19 @@
 import { BrowserRouter } from 'react-router-dom'
 import { AppRoutes } from './router'
 import { LocationProvider } from './contexts/LocationContext'
+import ErrorBoundary from './components/ErrorBoundary'
+
 function App() {
   return (
-    <LocationProvider>
-      <BrowserRouter basename={__BASE_PATH__}>
-        <AppRoutes />
-      </BrowserRouter>
-    </LocationProvider>
+    <ErrorBoundary>
+      <LocationProvider>
+        <BrowserRouter basename={__BASE_PATH__}>
+          <ErrorBoundary>
+            <AppRoutes />
+          </ErrorBoundary>
+        </BrowserRouter>
+      </LocationProvider>
+    </ErrorBoundary>
   )
 }
 
