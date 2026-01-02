@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useLocation as useLocationContext } from '../../contexts/LocationContext';
 import { useLocation as useRouterLocation, useNavigate } from 'react-router-dom';
 import { trackPhoneClick } from '../../utils/analytics';
@@ -9,6 +9,100 @@ export default function Header() {
   const [isServiceAreasOpen, setIsServiceAreasOpen] = useState(false);
   const { location, locationName } = useLocationContext();
   const routerLocation = useRouterLocation();
+  const servicesDropdownRef = useRef<HTMLDivElement>(null);
+  const serviceAreasDropdownRef = useRef<HTMLDivElement>(null);
+
+  // #region agent log
+  const logState = (message: string, data: any) => {
+    fetch('http://127.0.0.1:7243/ingest/6c3bdf5c-af68-469f-9337-ff93e6c01d2a',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'Header.tsx',message,data:{...data,isServicesOpen,isServiceAreasOpen},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+  };
+
+  useEffect(() => {
+    if (isServicesOpen && servicesDropdownRef.current) {
+      const rect = servicesDropdownRef.current.getBoundingClientRect();
+      const buttonRect = servicesDropdownRef.current.parentElement?.getBoundingClientRect();
+      const styles = window.getComputedStyle(servicesDropdownRef.current);
+      const parent = servicesDropdownRef.current.parentElement;
+      const parentStyles = parent ? window.getComputedStyle(parent) : null;
+      const nav = servicesDropdownRef.current.closest('nav');
+      const navStyles = nav ? window.getComputedStyle(nav) : null;
+      const debugInfo = {
+        dropdownTop: rect.top,
+        dropdownBottom: rect.bottom,
+        dropdownLeft: rect.left,
+        dropdownHeight: rect.height,
+        dropdownWidth: rect.width,
+        scrollHeight: servicesDropdownRef.current.scrollHeight,
+        clientHeight: servicesDropdownRef.current.clientHeight,
+        viewportHeight: window.innerHeight,
+        scrollY: window.scrollY,
+        buttonTop: buttonRect?.top,
+        buttonBottom: buttonRect?.bottom,
+        position: styles.position,
+        zIndex: styles.zIndex,
+        display: styles.display,
+        visibility: styles.visibility,
+        overflow: styles.overflow,
+        overflowY: styles.overflowY,
+        overflowX: styles.overflowX,
+        maxHeight: styles.maxHeight,
+        height: styles.height,
+        parentOverflow: parentStyles?.overflow,
+        parentOverflowY: parentStyles?.overflowY,
+        navOverflow: navStyles?.overflow,
+        navOverflowY: navStyles?.overflowY,
+        isBelowViewport: rect.top > window.innerHeight,
+        isAboveViewport: rect.bottom < 0,
+        hasScrollbar: rect.height < servicesDropdownRef.current.scrollHeight
+      };
+      console.log('🔍 Services Dropdown Debug:', debugInfo);
+      logState('Services dropdown position check', debugInfo);
+    }
+  }, [isServicesOpen]);
+
+  useEffect(() => {
+    if (isServiceAreasOpen && serviceAreasDropdownRef.current) {
+      const rect = serviceAreasDropdownRef.current.getBoundingClientRect();
+      const buttonRect = serviceAreasDropdownRef.current.parentElement?.getBoundingClientRect();
+      const styles = window.getComputedStyle(serviceAreasDropdownRef.current);
+      const parent = serviceAreasDropdownRef.current.parentElement;
+      const parentStyles = parent ? window.getComputedStyle(parent) : null;
+      const nav = serviceAreasDropdownRef.current.closest('nav');
+      const navStyles = nav ? window.getComputedStyle(nav) : null;
+      const debugInfo = {
+        dropdownTop: rect.top,
+        dropdownBottom: rect.bottom,
+        dropdownLeft: rect.left,
+        dropdownHeight: rect.height,
+        dropdownWidth: rect.width,
+        scrollHeight: serviceAreasDropdownRef.current.scrollHeight,
+        clientHeight: serviceAreasDropdownRef.current.clientHeight,
+        viewportHeight: window.innerHeight,
+        scrollY: window.scrollY,
+        buttonTop: buttonRect?.top,
+        buttonBottom: buttonRect?.bottom,
+        position: styles.position,
+        zIndex: styles.zIndex,
+        display: styles.display,
+        visibility: styles.visibility,
+        overflow: styles.overflow,
+        overflowY: styles.overflowY,
+        overflowX: styles.overflowX,
+        maxHeight: styles.maxHeight,
+        height: styles.height,
+        parentOverflow: parentStyles?.overflow,
+        parentOverflowY: parentStyles?.overflowY,
+        navOverflow: navStyles?.overflow,
+        navOverflowY: navStyles?.overflowY,
+        isBelowViewport: rect.top > window.innerHeight,
+        isAboveViewport: rect.bottom < 0,
+        hasScrollbar: rect.height < serviceAreasDropdownRef.current.scrollHeight
+      };
+      console.log('🔍 Service Areas Dropdown Debug:', debugInfo);
+      logState('Service Areas dropdown position check', debugInfo);
+    }
+  }, [isServiceAreasOpen]);
+  // #endregion
 
   // Get current page to show relevant address
   const currentPath = routerLocation.pathname;
@@ -52,7 +146,7 @@ export default function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50">
+    <header className="sticky top-0 z-50" style={{ overflow: 'visible' }}>
       {/* Top Bar */}
       <div className="bg-blue-900 text-white py-1.5 md:py-2">
         <div className="max-w-7xl mx-auto px-4 flex justify-between items-center text-xs md:text-sm">
@@ -81,8 +175,8 @@ export default function Header() {
       </div>
 
       {/* Main Navigation */}
-      <nav className="bg-white shadow-lg">
-        <div className="max-w-7xl mx-auto px-4">
+      <nav className="bg-white shadow-lg" style={{ overflow: 'visible' }}>
+        <div className="max-w-7xl mx-auto px-4" style={{ overflow: 'visible' }}>
           <div className="flex justify-between items-center py-3 md:py-4">
             {/* Logo */}
             <div className="flex items-center">
@@ -104,7 +198,7 @@ export default function Header() {
             </div>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-6">
+            <div className="hidden lg:flex items-center space-x-6" style={{ overflow: 'visible' }}>
               <a href="/" className="text-gray-700 hover:text-orange-500 font-medium transition-colors">
                 Home
               </a>
@@ -112,6 +206,7 @@ export default function Header() {
               {/* Services Dropdown */}
               <div 
                 className="relative"
+                style={{ overflow: 'visible', position: 'relative' }}
                 onMouseEnter={() => setIsServicesOpen(true)}
                 onMouseLeave={() => setIsServicesOpen(false)}
               >
@@ -125,7 +220,17 @@ export default function Header() {
                 </button>
                 {isServicesOpen && (
                   <div 
-                    className="absolute left-0 top-full w-64 bg-white rounded-md shadow-lg py-1 z-50"
+                    ref={servicesDropdownRef}
+                    className="dropdown-menu absolute left-0 top-full mt-1 w-64 bg-white rounded-md shadow-lg py-1 z-[100]"
+                    style={{ 
+                      overflow: 'visible', 
+                      overflowY: 'visible',
+                      overflowX: 'visible',
+                      maxHeight: 'none',
+                      height: 'auto',
+                      display: 'block',
+                      position: 'absolute'
+                    }}
                     onMouseEnter={() => setIsServicesOpen(true)}
                     onMouseLeave={() => setIsServicesOpen(false)}
                   >
@@ -144,6 +249,7 @@ export default function Header() {
               {/* Service Areas Dropdown */}
               <div 
                 className="relative"
+                style={{ overflow: 'visible', position: 'relative' }}
                 onMouseEnter={() => setIsServiceAreasOpen(true)}
                 onMouseLeave={() => setIsServiceAreasOpen(false)}
               >
@@ -157,7 +263,17 @@ export default function Header() {
                 </button>
                 {isServiceAreasOpen && (
                   <div 
-                    className="absolute top-full left-0 w-80 bg-white rounded-lg shadow-xl z-50"
+                    ref={serviceAreasDropdownRef}
+                    className="dropdown-menu absolute top-full left-0 mt-1 w-80 bg-white rounded-lg shadow-xl z-[100]"
+                    style={{ 
+                      overflow: 'visible', 
+                      overflowY: 'visible',
+                      overflowX: 'visible',
+                      maxHeight: 'none',
+                      height: 'auto',
+                      display: 'block',
+                      position: 'absolute'
+                    }}
                     onMouseEnter={() => setIsServiceAreasOpen(true)}
                     onMouseLeave={() => setIsServiceAreasOpen(false)}
                   >

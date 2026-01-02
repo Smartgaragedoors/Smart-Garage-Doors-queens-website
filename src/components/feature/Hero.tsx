@@ -58,7 +58,7 @@ export default function Hero() {
   const heroImageJpg = `${basePath}hero-van-${imageSize}.jpg`;
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-visible">
       {/* Optimized responsive background image with WebP support */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat hero-van-bg z-0"
@@ -127,20 +127,20 @@ export default function Hero() {
               </div>
 
           {/* Trust Indicators - optimized for performance */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div className="bg-white/10 rounded-lg p-4" style={{ backdropFilter: 'blur(4px)', willChange: 'transform', transform: 'translateZ(0)' }}>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center overflow-visible">
+            <div className="bg-white/10 rounded-lg p-4 overflow-visible" style={{ backdropFilter: 'blur(4px)', willChange: 'transform', transform: 'translateZ(0)' }}>
               <div className="text-3xl font-bold text-orange-400">24/7</div>
               <div className="text-sm text-gray-100">Emergency Service</div>
             </div>
-            <div className="bg-white/10 rounded-lg p-4" style={{ backdropFilter: 'blur(4px)', willChange: 'transform', transform: 'translateZ(0)' }}>
+            <div className="bg-white/10 rounded-lg p-4 overflow-visible" style={{ backdropFilter: 'blur(4px)', willChange: 'transform', transform: 'translateZ(0)' }}>
               <div className="text-3xl font-bold text-orange-400">15+</div>
               <div className="text-sm text-gray-100">Years Experience</div>
             </div>
-            <div className="bg-white/10 rounded-lg p-4" style={{ backdropFilter: 'blur(4px)', willChange: 'transform', transform: 'translateZ(0)' }}>
+            <div className="bg-white/10 rounded-lg p-4 overflow-visible" style={{ backdropFilter: 'blur(4px)', willChange: 'transform', transform: 'translateZ(0)' }}>
               <div className="text-3xl font-bold text-orange-400">1000+</div>
               <div className="text-sm text-gray-100">Happy Customers</div>
             </div>
-            <div className="bg-white/10 rounded-lg p-4" style={{ backdropFilter: 'blur(4px)', willChange: 'transform', transform: 'translateZ(0)' }}>
+            <div className="bg-white/10 rounded-lg p-4 overflow-visible" style={{ backdropFilter: 'blur(4px)', willChange: 'transform', transform: 'translateZ(0)' }}>
               <div className="text-3xl font-bold text-orange-400">100%</div>
               <div className="text-sm text-gray-100">Satisfaction</div>
             </div>
