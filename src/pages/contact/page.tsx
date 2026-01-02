@@ -2,6 +2,8 @@
 import { useEffect, useState } from 'react';
 import Header from '../../components/feature/Header';
 import Footer from '../../components/feature/Footer';
+import Breadcrumbs from '../../components/seo/Breadcrumbs';
+import DynamicMetaTags from '../../components/seo/DynamicMetaTags';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -34,7 +36,7 @@ const ContactPage = () => {
 
     const canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) {
-      canonical.setAttribute('href', `${import.meta.env.VITE_SITE_URL || 'https://example.com'}/contact`);
+      canonical.setAttribute('href', `${import.meta.env.VITE_SITE_URL || 'https://smartestgaragedoors.com'}/contact`);
     }
   }, []);
 
@@ -87,7 +89,12 @@ const ContactPage = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <DynamicMetaTags 
+        title="Contact Us | Garage Door Repair NY NJ CT | Smartest Garage Doors"
+        description="Contact Smartest Garage Doors for fast, professional garage door repair and installation services. Serving NY, NJ & CT. Call (914) 557-6816 or schedule online."
+      />
       <Header />
+      <Breadcrumbs />
       
       {/* Schema.org structured data for Contact Page */}
       <script

@@ -27,4 +27,4 @@ Allow: /garage-door-installation-suffern-ny/
 Allow: /garage-door-installers-white-plains-ny/
 Allow: /garage-door-installation-stamford-ct/
 
-Sitemap: https://example.com/sitemap.xml
+Sitemap: https://smartestgaragedoors.com/sitemap.xml

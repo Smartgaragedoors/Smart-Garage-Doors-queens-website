@@ -2,6 +2,8 @@
 import { useEffect } from 'react';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
+import Breadcrumbs from '../../../components/seo/Breadcrumbs';
+import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
 
 const LongIslandNY = () => {
   useEffect(() => {
@@ -20,7 +22,13 @@ const LongIslandNY = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <DynamicMetaTags 
+        title="Long Island NY Garage Door Repair | Smart Garage Doors | 24/7 Emergency Service"
+        description="Professional garage door repair services in Long Island, NY. Smart Garage Doors offers emergency repairs, spring replacement, opener installation throughout Nassau and Suffolk Counties. Licensed technicians serving all Long Island areas."
+        keywords="Long Island NY garage door repair, garage door installation Long Island, emergency garage door service Nassau Suffolk, Smart Garage Doors"
+      />
       <Header />
+      <Breadcrumbs />
       
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-blue-900 to-blue-700 text-white py-20">

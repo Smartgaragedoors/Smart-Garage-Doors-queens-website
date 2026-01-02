@@ -7,6 +7,7 @@ const ContactPage = lazy(() => import('../pages/contact/page').then(module => ({
 const BookNowPage = lazy(() => import('../pages/book-now/page').then(module => ({ default: module.default })));
 const ReviewsPage = lazy(() => import('../pages/reviews/page').then(module => ({ default: module.default })));
 const BlogPage = lazy(() => import('../pages/blog/page').then(module => ({ default: module.default })));
+const BlogPostPage = lazy(() => import('../pages/blog/[slug]/page').then(module => ({ default: module.default })));
 const NotFoundPage = lazy(() => import('../pages/NotFound'));
 
 // Service pages
@@ -67,6 +68,10 @@ const routes: RouteObject[] = [
     path: '/blog/',
     element: <BlogPage />
   },
+  {
+    path: '/blog/:slug',
+    element: <BlogPostPage />
+  },
   
   // Service pages with exact URLs
   {
@@ -92,6 +97,14 @@ const routes: RouteObject[] = [
   {
     path: '/cable-roller-repair/',
     element: <CableRollerRepairPage />
+  },
+  {
+    path: '/services/maintenance/',
+    element: <MaintenancePage />
+  },
+  {
+    path: '/services/installation/',
+    element: <InstallationPage />
   },
   
   // Service area pages with exact URLs

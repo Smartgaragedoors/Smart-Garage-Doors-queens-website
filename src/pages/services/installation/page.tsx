@@ -1,23 +1,80 @@
-
-import { useEffect } from 'react';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
 import Button from '../../../components/base/Button';
+import Breadcrumbs from '../../../components/seo/Breadcrumbs';
+import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
+import FAQSchema from '../../../components/seo/FAQSchema';
+import { useLocation } from '../../../contexts/LocationContext';
 
 export default function InstallationPage() {
-  useEffect(() => {
-    document.title = 'Garage Door Installation NYC | Professional Installation | Westchester Garage Door Repair';
-    
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Professional garage door installation in NYC, Westchester, and Connecticut. Expert installation of residential and commercial garage doors with warranty. Call (914) 557-6816 for quote!');
-    }
-    
-    const metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (metaKeywords) {
-      metaKeywords.setAttribute('content', 'garage door installation, new garage door, professional installation, residential garage doors, commercial installation');
-    }
-  }, []);
+  const { location, locationName, isLoading } = useLocation();
+  
+  const displayLocation = (location?.city === 'Queens' || !location || isLoading) 
+    ? 'your area' 
+    : locationName;
+  
+  const faqs = [
+    {
+      question: `How much does garage door installation cost in ${displayLocation}?`,
+      answer: `New garage door installation typically costs $800-$2,500 depending on door size, material, style, and features. Basic single-car steel doors start around $800-$1,200, while premium double-car doors with windows, insulation, and custom features can cost $1,800-$2,500. Wood doors typically cost $1,500-$5,000+. We provide free estimates with detailed pricing breakdowns for all installation projects.`,
+    },
+    {
+      question: 'How long does garage door installation take?',
+      answer: 'Most garage door installations take 3-5 hours to complete from start to finish. This includes removing the old door (if applicable), installing the new door and tracks, setting up springs and cables, installing the opener (if included), and comprehensive testing. For complex installations or custom doors, the process may take 5-7 hours. We work efficiently to minimize disruption to your day and ensure everything operates perfectly.',
+    },
+    {
+      question: 'Do you install all types and brands of garage doors?',
+      answer: 'Yes, we install all types of garage doors including sectional (most common), roll-up, side-hinged, and custom designs. We work with all major brands including Clopay, Wayne Dalton, Amarr, Raynor, CHI, LiftMaster, Chamberlain, and more. If you have a specific brand preference, we can source and install it. We can also help you choose the right door style, material, and features for your home based on your needs, budget, and aesthetic preferences.',
+    },
+    {
+      question: 'What garage door materials do you install?',
+      answer: 'We install garage doors in steel, aluminum, wood, fiberglass, and vinyl materials. Steel is the most popular choice for durability, value, and low maintenance - available in various gauges and insulation levels. Wood doors offer premium aesthetics and can be stained or painted but require more maintenance. Aluminum is lightweight and corrosion-resistant, ideal for coastal areas. Fiberglass and vinyl offer low maintenance and weather resistance. We can help you choose based on your budget, style preferences, climate, and maintenance expectations.',
+    },
+    {
+      question: `Do you offer installation warranty in ${displayLocation}?`,
+      answer: `Yes, all our installations include comprehensive warranty coverage. We warranty our installation workmanship for 1 year, ensuring proper installation and function. Doors come with manufacturer warranties (typically 3-20 years depending on material and brand). Springs typically have 1-2 year warranties, and openers have 1-5 year warranties. We stand behind our work and will address any installation-related issues promptly at no additional charge during the warranty period.`,
+    },
+    {
+      question: 'Can you install a new door without replacing the opener?',
+      answer: 'Yes, if your existing opener is in good condition, compatible with the new door, and less than 10-15 years old, we can often reuse it. However, we\'ll inspect it thoroughly first and may recommend replacement if it\'s old, incompatible, showing signs of wear, or lacks modern safety features. New doors often work best with new openers for optimal performance, better safety features, and warranty coverage. We can discuss options during your estimate.',
+    },
+    {
+      question: 'Do you remove and dispose of old garage doors?',
+      answer: 'Yes, we handle complete removal and disposal of old garage doors as part of our installation service. We\'ll safely remove the old door, tracks, springs, cables, and all hardware, and properly dispose of all materials. There\'s no extra charge for this service - it\'s included in the installation price. We ensure proper disposal in accordance with local regulations and recycling when possible.',
+    },
+    {
+      question: 'What styles of garage doors do you install?',
+      answer: 'We install all popular garage door styles including traditional raised panel, contemporary flush designs, carriage-house style (with decorative hardware), and custom designs. We offer doors with windows (decorative or full-view), different panel configurations, various color and finish options, and architectural details. Whether you want a traditional look that matches your home\'s architecture or a modern statement piece, we can help you find the perfect style.',
+    },
+    {
+      question: 'Do you install insulated garage doors?',
+      answer: 'Yes, we install insulated garage doors which provide significant energy savings, noise reduction, and better climate control. Insulated doors have R-values ranging from R-6 to R-18+, with higher R-values providing better insulation. This is especially important for attached garages or if you use your garage as a workspace. We can explain the benefits and costs of different insulation levels to help you choose the best option.',
+    },
+    {
+      question: `How quickly can you install a new garage door in ${displayLocation}?`,
+      answer: `We typically can schedule new garage door installations within 1-2 weeks, depending on door selection and current schedule. For standard doors in stock, we can often install within 3-7 days. Custom doors may take 2-4 weeks for ordering and delivery. Emergency installations are available when possible. We\'ll provide a timeline during your estimate and work to accommodate your schedule needs.`,
+    },
+    {
+      question: 'What measurements do you need for installation?',
+      answer: 'We\'ll take precise measurements during our free estimate visit, including door opening width and height, headroom (ceiling clearance), backroom (space behind door when open), and side room (space on either side). We also check for obstructions, electrical requirements for openers, and structural considerations. You don\'t need to measure yourself - our technicians handle all measurements professionally to ensure perfect fit.',
+    },
+    {
+      question: 'Do you install smart garage door openers?',
+      answer: 'Yes, we install modern smart garage door openers with WiFi connectivity, smartphone control, security cameras, and home automation integration. Smart openers allow you to control your door remotely, receive notifications, monitor activity, and integrate with systems like Amazon Alexa, Google Home, and Apple HomeKit. We can explain features and help you choose the best smart opener for your needs and home automation setup.',
+    },
+    {
+      question: 'Will installation disrupt my daily routine?',
+      answer: 'We work efficiently to minimize disruption. Most installations take 3-5 hours and can often be scheduled at your convenience. We\'ll coordinate timing with you and keep you informed throughout the process. You\'ll need to ensure your vehicles are moved from the garage, but otherwise you can continue your normal routine. We clean up thoroughly after installation, leaving your garage clean and organized.',
+    },
+    {
+      question: `What areas do you serve for garage door installation?`,
+      answer: `We provide garage door installation services throughout New York (including Queens, Brooklyn, Long Island, Westchester County), New Jersey (Bergen County), and Connecticut (Fairfield County). We serve all areas within a 50-mile radius with professional installation service and can typically reach you within the scheduled timeframe.`,
+    },
+    {
+      question: 'Do you offer financing for garage door installation?',
+      answer: 'Yes, we offer flexible financing options for garage door installation projects. We understand that a new garage door is a significant investment and offer payment plans to make quality doors affordable. Options include low monthly payments and interest-free plans for qualified customers. Contact us to discuss financing options and see what plans you qualify for.',
+    },
+  ];
 
   const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -50,7 +107,14 @@ export default function InstallationPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <DynamicMetaTags 
+        title="Garage Door Installation NYC | Professional Installation | Same-Day Service"
+        description="Professional garage door installation in NYC, Westchester, and Connecticut. Expert installation of residential and commercial garage doors with warranty."
+        keywords="garage door installation, new garage door, professional installation, residential garage doors, commercial installation"
+      />
+      <FAQSchema faqs={faqs} />
       <Header />
+      <Breadcrumbs />
       
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20">
@@ -383,6 +447,33 @@ export default function InstallationPage() {
               Request Free Quote
             </Button>
           </form>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Garage Door Installation FAQ
+            </h2>
+            <p className="text-lg text-gray-600">
+              Common questions about new garage door installation
+            </p>
+          </div>
+          
+          <div className="space-y-6">
+            {faqs.map((faq, index) => (
+              <div key={index} className="bg-gray-50 rounded-lg shadow-md p-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  {faq.question}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {faq.answer}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

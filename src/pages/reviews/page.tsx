@@ -78,7 +78,7 @@ export default function ReviewsPage() {
                 Call: (914) 557-6816
               </a>
               <a 
-                href="/book-now" 
+                href="/book-now/" 
                 className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition-colors whitespace-nowrap cursor-pointer"
               >
                 <i className="ri-calendar-line mr-2"></i>
@@ -311,7 +311,7 @@ export default function ReviewsPage() {
               Call Now: (914) 557-6816
             </a>
             <a 
-              href="/book-now" 
+              href="/book-now/" 
               className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition-colors whitespace-nowrap cursor-pointer"
             >
               <i className="ri-calendar-line mr-2"></i>

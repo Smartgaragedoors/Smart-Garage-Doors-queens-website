@@ -1,23 +1,49 @@
-
-import { useEffect } from 'react';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
 import Button from '../../../components/base/Button';
+import Breadcrumbs from '../../../components/seo/Breadcrumbs';
+import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
+import FAQSchema from '../../../components/seo/FAQSchema';
+import RelatedServices from '../../../components/seo/RelatedServices';
+import { useLocation } from '../../../contexts/LocationContext';
 
 export default function MaintenancePage() {
-  useEffect(() => {
-    document.title = 'Garage Door Maintenance Plans NYC | Preventive Service | Westchester Garage Door Repair';
-    
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Professional garage door maintenance plans in NYC, Westchester, and Connecticut. Preventive maintenance to extend door life and prevent costly repairs. Call (914) 557-6816!');
-    }
-    
-    const metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (metaKeywords) {
-      metaKeywords.setAttribute('content', 'garage door maintenance, preventive maintenance, maintenance plans, garage door service, annual maintenance');
-    }
-  }, []);
+  const { location, locationName, isLoading } = useLocation();
+  
+  const displayLocation = (location?.city === 'Queens' || !location || isLoading) 
+    ? 'your area' 
+    : locationName;
+  
+  const faqs = [
+    {
+      question: `How much does garage door maintenance cost in ${displayLocation}?`,
+      answer: `Preventive maintenance visits typically cost $100-$200 depending on the service level. Annual maintenance plans offer better value and typically cost $150-$300 per year with multiple visits included. Maintenance is much more cost-effective than waiting for expensive repairs.`,
+    },
+    {
+      question: 'How often should I have my garage door maintained?',
+      answer: 'We recommend professional garage door maintenance at least once per year, ideally before winter and after harsh weather seasons. Heavy-use doors may benefit from bi-annual maintenance. Regular maintenance can extend door life by 50% or more and prevent unexpected breakdowns.',
+    },
+    {
+      question: 'What\'s included in a garage door maintenance service?',
+      answer: 'Our comprehensive maintenance includes: inspection of all components (springs, cables, rollers, tracks), safety sensor testing, balance check, lubrication of moving parts, track alignment check, opener testing, weatherstripping inspection, and detailed report. We identify potential issues before they become expensive repairs.',
+    },
+    {
+      question: 'Can I maintain my garage door myself?',
+      answer: 'Basic maintenance like visual inspection and light lubrication can be done by homeowners, but professional maintenance is recommended. Technicians have the expertise to identify issues early, proper tools for adjustments, and safety knowledge to handle dangerous components. Professional maintenance often pays for itself by preventing major repairs.',
+    },
+    {
+      question: `Do you offer maintenance plans in ${displayLocation}?`,
+      answer: `Yes, we offer flexible maintenance plans throughout NY, NJ & CT. Plans can include annual or bi-annual visits, priority scheduling, discounted repairs, and extended warranties. Contact us to discuss a maintenance plan tailored to your needs and usage.`,
+    },
+    {
+      question: 'What problems can regular maintenance prevent?',
+      answer: 'Regular maintenance can prevent: spring failure (by detecting wear early), cable breakage, opener motor burnout, track misalignment, roller wear, and safety issues. Early detection allows for cost-effective repairs before components fail completely, saving hundreds or thousands of dollars.',
+    },
+    {
+      question: 'When is the best time for garage door maintenance?',
+      answer: 'The best times for maintenance are: before winter (to ensure smooth operation in cold weather), after severe storms, and in spring (to address any winter-related wear). However, maintenance can be scheduled anytime - the key is consistency. We can help you establish a maintenance schedule.',
+    },
+  ];
 
   const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -50,7 +76,14 @@ export default function MaintenancePage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <DynamicMetaTags 
+        title="Garage Door Maintenance Plans NYC | Preventive Service | Smart Garage Doors"
+        description="Professional garage door maintenance plans in NYC, Westchester, and Connecticut. Preventive maintenance to extend door life and prevent costly repairs."
+        keywords="garage door maintenance, preventive maintenance, maintenance plans, garage door service, annual maintenance"
+      />
+      <FAQSchema faqs={faqs} />
       <Header />
+      <Breadcrumbs />
       
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-green-600 to-green-800 text-white py-20">
@@ -471,6 +504,34 @@ export default function MaintenancePage() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Garage Door Maintenance FAQ
+            </h2>
+            <p className="text-lg text-gray-600">
+              Common questions about garage door maintenance and preventive care
+            </p>
+          </div>
+          
+          <div className="space-y-6">
+            {faqs.map((faq, index) => (
+              <div key={index} className="bg-gray-50 rounded-lg shadow-md p-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  {faq.question}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {faq.answer}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <RelatedServices />
       <Footer />
     </div>
   );

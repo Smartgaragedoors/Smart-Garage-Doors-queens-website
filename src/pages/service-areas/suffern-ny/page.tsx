@@ -50,7 +50,7 @@ export default function SuffernNY() {
       "@type": "LocalBusiness",
       "name": "Smart Garage Doors - Suffern NY",
       "description": "Professional garage door repair and installation services in Suffern, New York",
-      "url": `${import.meta.env.VITE_SITE_URL || "https://example.com"}/service-areas/suffern-ny`,
+      "url": `${import.meta.env.VITE_SITE_URL || "https://smartestgaragedoors.com"}/service-areas/suffern-ny`,
       "telephone": "(914) 557-6816",
       "address": {
         "@type": "PostalAddress",
@@ -210,56 +210,6 @@ export default function SuffernNY() {
               <p className="text-gray-600">
                 Commercial garage door services in Suffern for businesses, warehouses, and industrial facilities.
               </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Why Choose Smart Garage Doors in Suffern?
-            </h2>
-            <p className="text-xl text-gray-600">
-              Local expertise with professional service you can trust
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                <i className="ri-time-line text-3xl text-white"></i>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">24/7 Service</h3>
-              <p className="text-gray-600">Emergency repairs available around the clock in Suffern</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                <i className="ri-map-pin-line text-3xl text-white"></i>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Local Experts</h3>
-              <p className="text-gray-600">Serving Suffern and surrounding Rockland County areas</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                <i className="ri-shield-star-line text-3xl text-white"></i>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Licensed & Insured</h3>
-              <p className="text-gray-600">Fully licensed and insured garage door professionals</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-20 h-20 bg-orange-5
-
-00 rounded-full flex items-center justify-center mx-auto mb-4">
-                <i className="ri-money-dollar-circle-line text-3xl text-white"></i>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Fair Pricing</h3>
-              <p className="text-gray-600">Transparent pricing with no hidden fees or surprises</p>
             </div>
           </div>
         </div>

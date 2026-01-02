@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { trackFormSubmit } from '../../utils/analytics';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -33,6 +34,7 @@ export default function Contact() {
       if (response.ok) {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+        trackFormSubmit('Contact Form', 'contact');
       } else {
         setSubmitStatus('error');
       }

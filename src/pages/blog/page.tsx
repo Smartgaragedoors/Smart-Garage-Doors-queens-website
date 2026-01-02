@@ -1,62 +1,230 @@
-
+import { Link } from 'react-router-dom';
 import Header from '../../components/feature/Header';
 import Footer from '../../components/feature/Footer';
+import Breadcrumbs from '../../components/seo/Breadcrumbs';
+import DynamicMetaTags from '../../components/seo/DynamicMetaTags';
 
 export default function BlogPage() {
   const blogPosts = [
     {
       id: 1,
-      title: "Signs Your Garage Door Spring Needs Replacement",
+      slug: 'signs-your-garage-door-spring-needs-replacement',
+      title: "5 Signs Your Garage Door Spring Needs Replacement",
       excerpt: "Learn to identify the warning signs that indicate your garage door spring is failing and needs professional replacement.",
       image: "https://smartestgaragedoors.com/wp-content/uploads/2025/09/Lucid_Origin_A_beige_residential_garage_door_is_visibly_offtra_1_11zon.webp",
-      date: "March 15, 2024",
+      date: "January 15, 2025",
       category: "Maintenance",
       readTime: "5 min read"
     },
     {
       id: 2,
+      slug: 'how-to-fix-garage-door-wont-close',
       title: "How to Fix a Garage Door That Won't Close Properly",
       excerpt: "Troubleshooting guide for common garage door closing issues and when to call professional repair services.",
       image: "https://smartestgaragedoors.com/wp-content/uploads/2025/09/garage-top-roller-loose-from-door-and-looks-to-be-bending-v0-hqv1b7ru3svc1-1.webp",
-      date: "March 10, 2024",
+      date: "January 12, 2025",
       category: "Repair",
       readTime: "7 min read"
     },
     {
       id: 3,
-      title: "Garage Door Safety Tips Every Homeowner Should Know",
-      excerpt: "Essential safety guidelines to prevent accidents and ensure your garage door operates safely for your family.",
+      slug: 'winter-garage-door-maintenance-tips',
+      title: "Winter Garage Door Maintenance Tips: Protect Your Door from Cold Weather",
+      excerpt: "Essential winter maintenance tips to protect your garage door from cold weather damage. Learn how to prevent freezing and spring stress.",
       image: "https://smartestgaragedoors.com/wp-content/uploads/2025/09/wefc_11zon.webp",
-      date: "March 5, 2024",
-      category: "Safety",
+      date: "January 8, 2025",
+      category: "Maintenance",
       readTime: "6 min read"
     },
     {
       id: 4,
+      slug: 'emergency-garage-door-repair-guide',
       title: "Emergency Garage Door Repair: What to Do When Your Door Breaks",
       excerpt: "Step-by-step guide on handling garage door emergencies and when to call for immediate professional help.",
       image: "https://smartestgaragedoors.com/wp-content/uploads/2025/09/erh_11zon.webp",
-      date: "February 28, 2024",
+      date: "January 5, 2025",
       category: "Emergency",
       readTime: "4 min read"
     },
     {
       id: 5,
-      title: "Professional Garage Door Repair vs DIY: Making the Right Choice",
+      slug: 'professional-vs-diy-garage-door-repair',
+      title: "Professional vs DIY Garage Door Repair: Making the Right Choice",
       excerpt: "Understanding when to attempt DIY repairs and when professional garage door repair services are necessary.",
       image: "https://smartestgaragedoors.com/wp-content/uploads/2025/09/Lucid_Origin_A_closeup_of_a_person_wearing_black_gloves_repair_0_11zon.webp",
-      date: "February 20, 2024",
+      date: "January 3, 2025",
       category: "Tips",
       readTime: "8 min read"
     },
     {
       id: 6,
-      title: "How Much Should I Budget for Garage Door Roller Replacement?",
-      excerpt: "Complete cost breakdown for garage door roller replacement including factors that affect pricing.",
+      slug: 'garage-door-repair-cost-guide-2025',
+      title: "Garage Door Repair Cost Guide 2025: What to Expect",
+      excerpt: "Complete breakdown of garage door repair costs in 2025. Learn what factors affect pricing and how to budget for common repairs.",
       image: "https://smartestgaragedoors.com/wp-content/uploads/2025/09/66fa98ef144265b84041c07c_650c22f8f072796f55e70d33_how_much_should_i_budget_for_garage_door_roller_replacement_11zon.jpeg",
-      date: "February 15, 2024",
+      date: "January 10, 2025",
+      category: "Cost Guide",
+      readTime: "8 min read"
+    },
+    {
+      id: 7,
+      slug: 'garage-door-safety-tips-homeowner',
+      title: "Garage Door Safety Tips Every Homeowner Should Know",
+      excerpt: "Essential garage door safety guidelines to prevent accidents and ensure your garage door operates safely for your family.",
+      image: "https://smartestgaragedoors.com/wp-content/uploads/2025/09/wefc_11zon.webp",
+      date: "January 1, 2025",
+      category: "Safety",
+      readTime: "6 min read"
+    },
+    {
+      id: 8,
+      slug: 'how-to-choose-right-garage-door',
+      title: "How to Choose the Right Garage Door for Your Home",
+      excerpt: "Complete guide to selecting the perfect garage door style, material, and features for your home.",
+      image: "https://readdy.ai/api/search-image?query=Modern%20residential%20garage%20door%20selection%20showing%20various%20styles%20and%20materials&width=1200&height=600&seq=choose-door001",
+      date: "December 28, 2024",
+      category: "Tips",
+      readTime: "10 min read"
+    },
+    {
+      id: 9,
+      slug: 'garage-door-roller-replacement-cost',
+      title: "Garage Door Roller Replacement Cost: Complete Guide 2025",
+      excerpt: "Everything you need to know about garage door roller replacement costs in 2025.",
+      image: "https://smartestgaragedoors.com/wp-content/uploads/2025/09/66fa98ef144265b84041c07c_650c22f8f072796f55e70d33_how_much_should_i_budget_for_garage_door_roller_replacement_11zon.jpeg",
+      date: "December 25, 2024",
       category: "Cost Guide",
       readTime: "6 min read"
+    },
+    {
+      id: 10,
+      slug: 'chain-drive-vs-belt-drive-opener',
+      title: "Chain Drive vs Belt Drive Garage Door Opener: Which is Better?",
+      excerpt: "Compare chain drive and belt drive garage door openers. Learn about noise levels, durability, and cost.",
+      image: "https://readdy.ai/api/search-image?query=Chain%20drive%20vs%20belt%20drive%20garage%20door%20opener%20comparison&width=1200&height=600&seq=opener-comp001",
+      date: "December 22, 2024",
+      category: "Tips",
+      readTime: "7 min read"
+    },
+    {
+      id: 11,
+      slug: 'queens-garage-door-repair-cost',
+      title: "Garage Door Repair Cost in Queens NY 2025: Complete Pricing Guide",
+      excerpt: "Detailed guide to garage door repair costs in Queens, New York with local pricing information.",
+      image: "https://readdy.ai/api/search-image?query=Professional%20garage%20door%20technician%20working%20in%20Queens%20New%20York&width=1200&height=600&seq=queens-cost001",
+      date: "December 20, 2024",
+      category: "Cost Guide",
+      readTime: "8 min read"
+    },
+    {
+      id: 12,
+      slug: 'brooklyn-garage-door-repair-cost',
+      title: "Garage Door Repair Cost in Brooklyn NY 2025: Local Pricing Guide",
+      excerpt: "Complete guide to garage door repair costs in Brooklyn with local pricing and service information.",
+      image: "https://readdy.ai/api/search-image?query=Garage%20door%20repair%20service%20in%20Brooklyn%20New%20York&width=1200&height=600&seq=brooklyn-cost001",
+      date: "December 18, 2024",
+      category: "Cost Guide",
+      readTime: "7 min read"
+    },
+    {
+      id: 13,
+      slug: 'stamford-ct-garage-door-repair',
+      title: "Garage Door Repair in Stamford CT: Professional Service Guide",
+      excerpt: "Expert garage door repair services in Stamford, Connecticut. Learn about local service options and typical costs.",
+      image: "https://readdy.ai/api/search-image?query=Professional%20garage%20door%20service%20Stamford%20Connecticut&width=1200&height=600&seq=stamford001",
+      date: "December 15, 2024",
+      category: "Repair",
+      readTime: "5 min read"
+    },
+    {
+      id: 14,
+      slug: 'white-plains-ny-garage-door-service',
+      title: "Garage Door Service in White Plains NY: Expert Repair & Installation",
+      excerpt: "Professional garage door repair and installation services in White Plains, New York. Serving Westchester County.",
+      image: "https://readdy.ai/api/search-image?query=Garage%20door%20service%20White%20Plains%20New%20York&width=1200&height=600&seq=whiteplains001",
+      date: "December 12, 2024",
+      category: "Repair",
+      readTime: "5 min read"
+    },
+    {
+      id: 15,
+      slug: 'long-island-garage-door-repair',
+      title: "Long Island Garage Door Repair: Serving Nassau & Suffolk Counties",
+      excerpt: "Expert garage door repair services throughout Long Island. Serving Nassau and Suffolk Counties.",
+      image: "https://readdy.ai/api/search-image?query=Long%20Island%20garage%20door%20repair%20service&width=1200&height=600&seq=longisland001",
+      date: "December 10, 2024",
+      category: "Repair",
+      readTime: "6 min read"
+    },
+    {
+      id: 16,
+      slug: 'westchester-county-garage-door-service',
+      title: "Westchester County Garage Door Service: Expert Repair & Installation",
+      excerpt: "Professional garage door services throughout Westchester County, NY. Serving White Plains, New Rochelle, Scarsdale, and more.",
+      image: "https://readdy.ai/api/search-image?query=Westchester%20County%20garage%20door%20service&width=1200&height=600&seq=westchester001",
+      date: "December 8, 2024",
+      category: "Repair",
+      readTime: "5 min read"
+    },
+    {
+      id: 17,
+      slug: 'greenwich-ct-garage-door-repair',
+      title: "Garage Door Repair in Greenwich CT: Professional Service Guide",
+      excerpt: "Expert garage door repair and installation services in Greenwich, Connecticut. Serving Fairfield County.",
+      image: "https://readdy.ai/api/search-image?query=Greenwich%20Connecticut%20garage%20door%20service&width=1200&height=600&seq=greenwich001",
+      date: "December 5, 2024",
+      category: "Repair",
+      readTime: "5 min read"
+    },
+    {
+      id: 18,
+      slug: 'staten-island-garage-door-repair',
+      title: "Garage Door Repair in Staten Island NY: Expert Local Service",
+      excerpt: "Professional garage door repair services in Staten Island, New York. Serving all Staten Island neighborhoods.",
+      image: "https://readdy.ai/api/search-image?query=Staten%20Island%20garage%20door%20repair&width=1200&height=600&seq=staten001",
+      date: "December 3, 2024",
+      category: "Repair",
+      readTime: "5 min read"
+    },
+    {
+      id: 19,
+      slug: 'flushing-ny-garage-door-repair',
+      title: "Garage Door Repair in Flushing NY: Queens Neighborhood Service",
+      excerpt: "Expert garage door repair services in Flushing, Queens. Serving Flushing and surrounding Queens neighborhoods.",
+      image: "https://readdy.ai/api/search-image?query=Flushing%20Queens%20garage%20door%20repair&width=1200&height=600&seq=flushing001",
+      date: "December 1, 2024",
+      category: "Repair",
+      readTime: "5 min read"
+    },
+    {
+      id: 20,
+      slug: 'fairfield-ct-garage-door-service',
+      title: "Garage Door Service in Fairfield CT: Expert Repair & Installation",
+      excerpt: "Professional garage door services in Fairfield, Connecticut. Serving Fairfield County with quality repairs and installations.",
+      image: "https://readdy.ai/api/search-image?query=Fairfield%20Connecticut%20garage%20door%20service&width=1200&height=600&seq=fairfield001",
+      date: "November 28, 2024",
+      category: "Repair",
+      readTime: "5 min read"
+    },
+    {
+      id: 21,
+      slug: 'darien-ct-garage-door-repair',
+      title: "Garage Door Repair in Darien CT: Professional Service Guide",
+      excerpt: "Expert garage door repair services in Darien, Connecticut. Serving Fairfield County with fast, reliable service.",
+      image: "https://readdy.ai/api/search-image?query=Darien%20Connecticut%20garage%20door%20service&width=1200&height=600&seq=darien001",
+      date: "November 25, 2024",
+      category: "Repair",
+      readTime: "5 min read"
+    },
+    {
+      id: 22,
+      slug: 'suffern-ny-garage-door-service',
+      title: "Garage Door Service in Suffern NY: Rockland County Expert Repair",
+      excerpt: "Professional garage door repair and installation services in Suffern, New York. Serving Rockland County.",
+      image: "https://readdy.ai/api/search-image?query=Suffern%20New%20York%20garage%20door%20service&width=1200&height=600&seq=suffern001",
+      date: "November 22, 2024",
+      category: "Repair",
+      readTime: "5 min read"
     }
   ];
 
@@ -64,7 +232,13 @@ export default function BlogPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <DynamicMetaTags 
+        title="Garage Door Blog | Expert Tips & Maintenance Guides | Smart Garage Doors"
+        description="Expert garage door tips, maintenance guides, repair advice, and cost information. Learn how to maintain your garage door and when to call professionals."
+        keywords="garage door tips, garage door maintenance, garage door repair guide, garage door cost guide"
+      />
       <Header />
+      <Breadcrumbs />
       
       {/* Schema.org structured data for Blog */}
       <script
@@ -130,7 +304,7 @@ export default function BlogPage() {
                 Call: (914) 557-6816
               </a>
               <a 
-                href="/book-now" 
+                href="/book-now/" 
                 className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-purple-600 transition-colors whitespace-nowrap cursor-pointer"
               >
                 <i className="ri-calendar-line mr-2"></i>
@@ -185,12 +359,12 @@ export default function BlogPage() {
                   </p>
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-gray-500">{post.date}</span>
-                    <a 
-                      href="#" 
+                    <Link 
+                      to={`/blog/${post.slug || '#'}`}
                       className="text-purple-600 font-medium hover:text-purple-700 cursor-pointer"
                     >
                       Read More <i className="ri-arrow-right-line ml-1"></i>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </article>
@@ -298,7 +472,7 @@ export default function BlogPage() {
               Call Now: (914) 557-6816
             </a>
             <a 
-              href="/book-now" 
+              href="/book-now/" 
               className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-purple-600 transition-colors whitespace-nowrap cursor-pointer"
             >
               <i className="ri-calendar-line mr-2"></i>

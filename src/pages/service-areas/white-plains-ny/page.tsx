@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
 import Reviews from '../../../components/feature/Reviews';
+import Breadcrumbs from '../../../components/seo/Breadcrumbs';
+import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
 
 const WhitePlainsNY = () => {
   useEffect(() => {
@@ -21,7 +23,13 @@ const WhitePlainsNY = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <DynamicMetaTags 
+        title="White Plains NY Garage Door Repair | Smart Garage Doors | Licensed Technicians"
+        description="Professional garage door repair services in White Plains, NY. Smart Garage Doors offers emergency repairs, spring replacement, opener installation throughout White Plains and surrounding Westchester County areas."
+        keywords="White Plains NY garage door repair, garage door installation White Plains, emergency garage door service Westchester, Smart Garage Doors"
+      />
       <Header />
+      <Breadcrumbs />
       
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-blue-900 to-blue-700 text-white py-20">

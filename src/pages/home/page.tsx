@@ -9,46 +9,42 @@ import Reviews from '../../components/feature/Reviews';
 import Contact from '../../components/feature/Contact';
 import Header from '../../components/feature/Header';
 import Footer from '../../components/feature/Footer';
+import DynamicMetaTags from '../../components/seo/DynamicMetaTags';
+import { useLocation } from '../../contexts/LocationContext';
+import { BUSINESS_INFO } from '../../config/business-info';
 
 export default function HomePage() {
-  useEffect(() => {
-    // Set page title and meta tags
-    document.title = '24/7 Garage Door Repair | Installation | Same-Day';
-    
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Garage door stuck, broken spring, or opener not working? Smartest Garage Doors delivers same-day repair, professional installation, and trusted service homeowners rely on. Serving NY & CT. Fast response, fair pricing, satisfaction guaranteed.');
-    }
-    
-    const metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (metaKeywords) {
-      metaKeywords.setAttribute('content', 'garage door opener repair, chain drive, belt drive, wall mount torsion, NY, NJ, CT');
-    }
+  const { location } = useLocation();
+  const siteUrl = BUSINESS_INFO.website;
 
-    // Add Schema.org JSON-LD
+  useEffect(() => {
+    // Add Schema.org JSON-LD with location-aware data
     const schemaScript = document.createElement('script');
     schemaScript.type = 'application/ld+json';
     schemaScript.text = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      "name": "Smartest Garage Doors",
+      "name": BUSINESS_INFO.name,
+      "legalName": BUSINESS_INFO.legalName,
       "image": "https://static.readdy.ai/image/b69172f381814b1e7c2f555a7760d2b1/4d43fd0bc8f747590e796db153cdd63c.png",
-      "@id": `${import.meta.env.VITE_SITE_URL || 'https://example.com'}`,
-      "url": `${import.meta.env.VITE_SITE_URL || 'https://example.com'}`,
-      "telephone": "(914) 557-6816",
-      "priceRange": "$$",
+      "@id": siteUrl,
+      "url": siteUrl,
+      "telephone": BUSINESS_INFO.phoneFormatted,
+      "priceRange": BUSINESS_INFO.priceRange,
+      "paymentAccepted": BUSINESS_INFO.paymentAccepted.join(", "),
+      "currenciesAccepted": BUSINESS_INFO.currenciesAccepted,
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "",
-        "addressLocality": "New York",
-        "addressRegion": "NY",
-        "postalCode": "",
-        "addressCountry": "US"
+        "streetAddress": BUSINESS_INFO.addresses[0].streetAddress,
+        "addressLocality": BUSINESS_INFO.addresses[0].addressLocality,
+        "addressRegion": BUSINESS_INFO.addresses[0].addressRegion,
+        "postalCode": BUSINESS_INFO.addresses[0].postalCode,
+        "addressCountry": BUSINESS_INFO.addresses[0].addressCountry
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 40.7128,
-        "longitude": -74.0060
+        "latitude": location?.latitude || BUSINESS_INFO.addresses[0].latitude,
+        "longitude": location?.longitude || BUSINESS_INFO.addresses[0].longitude
       },
       "openingHoursSpecification": [
         {
@@ -62,15 +58,21 @@ export default function HomePage() {
             "Saturday",
             "Sunday"
           ],
-          "opens": "00:00",
-          "closes": "23:59"
+          "opens": BUSINESS_INFO.openingHours.monday.opens,
+          "closes": BUSINESS_INFO.openingHours.monday.closes
         }
       ],
-      "sameAs": [],
+      "sameAs": [
+        BUSINESS_INFO.socialMedia.facebook,
+        BUSINESS_INFO.socialMedia.instagram,
+        BUSINESS_INFO.socialMedia.googleMaps
+      ],
       "aggregateRating": {
         "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "reviewCount": "150"
+        "ratingValue": BUSINESS_INFO.aggregateRating.ratingValue,
+        "reviewCount": BUSINESS_INFO.aggregateRating.reviewCount,
+        "bestRating": BUSINESS_INFO.aggregateRating.bestRating,
+        "worstRating": BUSINESS_INFO.aggregateRating.worstRating
       },
       "areaServed": [
         {
@@ -136,10 +138,11 @@ export default function HomePage() {
         schemaScript.parentNode.removeChild(schemaScript);
       }
     };
-  }, []);
+  }, [location, siteUrl]);
 
   return (
     <div className="min-h-screen">
+      <DynamicMetaTags />
       <Header />
       <Hero />
       <Services />

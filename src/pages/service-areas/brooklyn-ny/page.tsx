@@ -1,6 +1,10 @@
 import { useEffect } from 'react';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
+import Breadcrumbs from '../../../components/seo/Breadcrumbs';
+import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
+import FAQSchema from '../../../components/seo/FAQSchema';
+import RelatedServices from '../../../components/seo/RelatedServices';
 
 const BrooklynNY = () => {
   useEffect(() => {
@@ -18,7 +22,7 @@ const BrooklynNY = () => {
 
     const canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) {
-      canonical.setAttribute('href', `${import.meta.env.VITE_SITE_URL || 'https://example.com'}/service-areas/brooklyn-ny`);
+      canonical.setAttribute('href', `${import.meta.env.VITE_SITE_URL || 'https://smartestgaragedoors.com'}/service-areas/brooklyn-ny`);
     }
 
     // Add Schema.org JSON-LD for Brooklyn NY page
@@ -29,8 +33,8 @@ const BrooklynNY = () => {
       "@type": "LocalBusiness",
       "name": "Smart Garage Doors - Brooklyn NY",
       "description": "Professional garage door repair and installation services in Brooklyn, New York",
-      "url": `${import.meta.env.VITE_SITE_URL || 'https://example.com'}/service-areas/brooklyn-ny`,
-      "telephone": "(123) 456-7890",
+      "url": `${import.meta.env.VITE_SITE_URL || 'https://smartestgaragedoors.com'}/service-areas/brooklyn-ny`,
+      "telephone": "(914) 557-6816",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "71st 12th Ave",
@@ -68,43 +72,68 @@ const BrooklynNY = () => {
     });
     document.head.appendChild(script);
 
-    // Add FAQ Schema
-    const faqScript = document.createElement('script');
-    faqScript.type = 'application/ld+json';
-    faqScript.text = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Do you service garage doors in all Brooklyn neighborhoods?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, Smart Garage Doors provides garage door repair and installation services throughout all Brooklyn neighborhoods, from Park Slope to Sheepshead Bay. Our technicians are familiar with Brooklyn's diverse housing stock and building requirements."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can you work on garage doors in Brooklyn brownstones?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Absolutely! We specialize in garage door services for Brooklyn's historic brownstones. Our technicians understand the unique challenges of older buildings and provide solutions that respect architectural character while ensuring modern functionality."
-          }
-        }
-      ]
-    });
-    document.head.appendChild(faqScript);
 
     return () => {
-      document.head.removeChild(script);
-      document.head.removeChild(faqScript);
+      if (document.head.contains(script)) {
+        document.head.removeChild(script);
+      }
     };
   }, []);
+  
+  const brooklynFaqs = [
+    {
+      question: "Do you service garage doors in all Brooklyn neighborhoods?",
+      answer: "Yes, Smart Garage Doors provides garage door repair and installation services throughout all Brooklyn neighborhoods, including Park Slope, Williamsburg, Dyker Heights, Bay Ridge, Sheepshead Bay, Brooklyn Heights, Carroll Gardens, Greenpoint, Crown Heights, Bed-Stuy, Sunset Park, Bensonhurst, Coney Island, Brighton Beach, and many more. Our technicians are familiar with Brooklyn's diverse housing stock and building requirements."
+    },
+    {
+      question: "How do you handle parking and access in Brooklyn?",
+      answer: "Our Brooklyn technicians are experienced with urban parking challenges and building access requirements. We coordinate with building management when needed, understand alternate-side parking regulations, and work efficiently to minimize disruption to your neighbors and traffic. We're equipped to work in tight spaces and can bring all necessary equipment to complete repairs."
+    },
+    {
+      question: "Can you work on garage doors in Brooklyn brownstones?",
+      answer: "Absolutely! We specialize in garage door services for Brooklyn's historic brownstones. Our technicians understand the unique challenges of older buildings including space constraints, structural considerations, historical preservation requirements, and narrow driveway access. We provide solutions that respect architectural character while ensuring modern functionality, safety, and security."
+    },
+    {
+      question: "What's your response time for emergency calls in Brooklyn?",
+      answer: "Smart Garage Doors typically responds to Brooklyn emergency calls within 60-90 minutes throughout most Brooklyn neighborhoods. Our strategically located service vehicles and extensive knowledge of Brooklyn traffic patterns, alternate-side parking schedules, and street layouts help us reach you quickly even during peak traffic times or rush hour."
+    },
+    {
+      question: "Do you offer garage door maintenance plans for Brooklyn residents?",
+      answer: "Yes, we offer comprehensive maintenance plans specifically designed for Brooklyn's urban environment. Regular maintenance is especially important in the city due to increased usage, environmental factors like salt air, pollution, extreme weather, and the wear from frequent opening and closing. Our maintenance plans include inspections, lubrication, adjustment, and priority service."
+    },
+    {
+      question: "What makes your Brooklyn service different from other companies?",
+      answer: "We specialize in serving Brooklyn communities with local expertise, faster response times, and personalized service. Our technicians understand Brooklyn's diverse neighborhoods, building types, parking challenges, and specific challenges like weather, traffic patterns, and parking. We offer transparent pricing with no hidden fees, comprehensive warranties, and a proven track record serving thousands of Brooklyn homeowners."
+    },
+    {
+      question: "Do you work on garage doors in Brooklyn apartment buildings?",
+      answer: "Yes, we provide garage door services for both single-family homes and multi-unit buildings throughout Brooklyn. Our technicians are experienced with building management requirements, access coordination, and working within building regulations. We coordinate with superintendents and property managers to ensure smooth service delivery."
+    },
+    {
+      question: "What garage door brands do you install and service in Brooklyn?",
+      answer: "We install and service all major garage door brands in Brooklyn including Clopay, Wayne Dalton, Amarr, Raynor, CHI, LiftMaster, Chamberlain, Genie, and more. Our technicians are trained on residential and commercial systems from all leading manufacturers, and we can source specific brands if you have a preference."
+    },
+    {
+      question: "Do you offer financing for garage door installation in Brooklyn?",
+      answer: "Yes, Smart Garage Doors offers flexible financing options for Brooklyn residents. We understand that garage door replacement is a significant investment and provide payment plans to make quality garage doors affordable for every budget. Options include low monthly payments and interest-free plans for qualified customers. Contact us to discuss financing options."
+    },
+    {
+      question: "How much does garage door repair cost in Brooklyn?",
+      answer: "Garage door repair costs in Brooklyn vary depending on the issue, door type, and parts needed. Basic repairs start at $150-$300, spring replacement costs $200-$400, opener repairs range from $150-$350, and new installations start around $800. We provide free, no-obligation estimates with detailed pricing breakdowns before any work begins."
+    },
+  ];
 
 
   return (
     <div className="min-h-screen bg-white">
+      <DynamicMetaTags 
+        title="Brooklyn NY Garage Door Repair | Smart Garage Doors | 24/7 Emergency Service"
+        description="Professional garage door repair services in Brooklyn, NY. Smart Garage Doors offers emergency repairs, spring replacement, opener installation throughout Brooklyn neighborhoods. Licensed technicians serving all Brooklyn areas."
+        keywords="Brooklyn NY garage door repair, garage door installation Brooklyn, emergency garage door service, Smart Garage Doors"
+      />
+      <FAQSchema faqs={brooklynFaqs} />
       <Header />
+      <Breadcrumbs />
       
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-blue-900 to-blue-700 text-white py-20">
@@ -366,6 +395,181 @@ const BrooklynNY = () => {
         </div>
       </section>
 
+      {/* Pricing CTA Section */}
+      <section className="py-16 bg-gradient-to-br from-blue-50 to-orange-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            Get Accurate Pricing for Your Brooklyn Location
+          </h2>
+          <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+            Pricing varies based on your specific Brooklyn neighborhood, garage door type, and service needed. 
+            We provide free, no-obligation estimates with transparent, upfront pricing for all Brooklyn customers.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a 
+              href="tel:+19145576816" 
+              className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap inline-flex items-center justify-center"
+            >
+              <i className="ri-phone-fill mr-2"></i>
+              Call for Brooklyn Pricing
+            </a>
+            <a 
+              href="/book-now/" 
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap inline-flex items-center justify-center"
+            >
+              <i className="ri-calendar-line mr-2"></i>
+              Schedule Free Estimate
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Brooklyn Testimonials */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              What Brooklyn Customers Say
+            </h2>
+            <p className="text-lg text-gray-600">
+              Real reviews from Brooklyn homeowners who've trusted Smart Garage Doors
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-gray-50 rounded-lg p-6">
+              <div className="flex items-center mb-4">
+                <div className="flex text-yellow-400">
+                  {'★'.repeat(5)}
+                </div>
+              </div>
+              <p className="text-gray-700 mb-4 italic">
+                "Excellent service in Park Slope! They replaced my broken spring quickly and professionally. 
+                The technician was knowledgeable and explained everything clearly. Great value and I'll definitely call again."
+              </p>
+              <div className="flex items-center">
+                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold mr-3">
+                  J.M.
+                </div>
+                <div>
+                  <div className="font-semibold text-gray-900">James M.</div>
+                  <div className="text-sm text-gray-500">Park Slope, Brooklyn</div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-gray-50 rounded-lg p-6">
+              <div className="flex items-center mb-4">
+                <div className="flex text-yellow-400">
+                  {'★'.repeat(5)}
+                </div>
+              </div>
+              <p className="text-gray-700 mb-4 italic">
+                "Fast response in Williamsburg! My garage door wouldn't close on a Sunday afternoon. 
+                They had someone out within 90 minutes and fixed it quickly. Professional, courteous, and reasonably priced."
+              </p>
+              <div className="flex items-center">
+                <div className="w-12 h-12 bg-orange-600 rounded-full flex items-center justify-center text-white font-semibold mr-3">
+                  A.R.
+                </div>
+                <div>
+                  <div className="font-semibold text-gray-900">Amanda R.</div>
+                  <div className="text-sm text-gray-500">Williamsburg, Brooklyn</div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-gray-50 rounded-lg p-6">
+              <div className="flex items-center mb-4">
+                <div className="flex text-yellow-400">
+                  {'★'.repeat(5)}
+                </div>
+              </div>
+              <p className="text-gray-700 mb-4 italic">
+                "Great work in Dyker Heights! They installed a new smart opener and did an excellent job. 
+                The technician was patient, clean, and very professional. Highly recommend for Brooklyn residents!"
+              </p>
+              <div className="flex items-center">
+                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-semibold mr-3">
+                  R.T.
+                </div>
+                <div>
+                  <div className="font-semibold text-gray-900">Robert T.</div>
+                  <div className="text-sm text-gray-500">Dyker Heights, Brooklyn</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us vs Competitors */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Why Smart Garage Doors Stands Out in Brooklyn
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              When choosing a garage door service provider in Brooklyn, experience, reliability, and local knowledge matter. 
+              Here's why Brooklyn residents trust Smart Garage Doors.
+            </p>
+          </div>
+          
+          <div className="bg-white rounded-lg shadow-xl overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead className="bg-blue-900 text-white">
+                  <tr>
+                    <th className="px-6 py-4 text-left font-semibold">Feature</th>
+                    <th className="px-6 py-4 text-center font-semibold">Smart Garage Doors</th>
+                    <th className="px-6 py-4 text-center font-semibold bg-gray-700">Typical Competitors</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-200">
+                  <tr>
+                    <td className="px-6 py-4 font-medium text-gray-900">Response Time</td>
+                    <td className="px-6 py-4 text-center">
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-green-100 text-green-800">
+                        <i className="ri-check-line mr-1"></i> 60-90 min
+                      </span>
+                    </td>
+                    <td className="px-6 py-4 text-center text-gray-600">2-4 hours</td>
+                  </tr>
+                  <tr className="bg-gray-50">
+                    <td className="px-6 py-4 font-medium text-gray-900">Brooklyn Coverage</td>
+                    <td className="px-6 py-4 text-center">
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-green-100 text-green-800">
+                        <i className="ri-check-line mr-1"></i> All Neighborhoods
+                      </span>
+                    </td>
+                    <td className="px-6 py-4 text-center text-gray-600">Limited Areas</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 font-medium text-gray-900">Brownstone Experience</td>
+                    <td className="px-6 py-4 text-center">
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-green-100 text-green-800">
+                        <i className="ri-check-line mr-1"></i> Specialized
+                      </span>
+                    </td>
+                    <td className="px-6 py-4 text-center text-gray-600">Varies</td>
+                  </tr>
+                  <tr className="bg-gray-50">
+                    <td className="px-6 py-4 font-medium text-gray-900">Parking Expertise</td>
+                    <td className="px-6 py-4 text-center">
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-green-100 text-green-800">
+                        <i className="ri-check-line mr-1"></i> Urban Experts
+                      </span>
+                    </td>
+                    <td className="px-6 py-4 text-center text-gray-600">Limited</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -376,63 +580,21 @@ const BrooklynNY = () => {
           </div>
           
           <div className="space-y-8">
-            <div className="border-b border-gray-200 pb-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Do you service garage doors in all Brooklyn neighborhoods?
-              </h3>
-              <p className="text-gray-600">
-                Yes, Smart Garage Doors provides garage door repair and installation services throughout 
-                all Brooklyn neighborhoods, from Park Slope to Sheepshead Bay. Our technicians are familiar 
-                with Brooklyn's diverse housing stock and building requirements.
-              </p>
-            </div>
-            
-            <div className="border-b border-gray-200 pb-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                How do you handle parking and access in Brooklyn?
-              </h3>
-              <p className="text-gray-600">
-                Our Brooklyn technicians are experienced with urban parking challenges and building access. 
-                We coordinate with building management when needed and work efficiently to minimize disruption 
-                to your neighbors and traffic.
-              </p>
-            </div>
-            
-            <div className="border-b border-gray-200 pb-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Can you work on garage doors in Brooklyn brownstones?
-              </h3>
-              <p className="text-gray-600">
-                Absolutely! We specialize in garage door services for Brooklyn's historic brownstones. 
-                Our technicians understand the unique challenges of older buildings and provide solutions 
-                that respect architectural character while ensuring modern functionality.
-              </p>
-            </div>
-            
-            <div className="border-b border-gray-200 pb-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                What's your response time for emergency calls in Brooklyn?
-              </h3>
-              <p className="text-gray-600">
-                Smart Garage Doors typically responds to Brooklyn emergency calls within 1-2 hours. 
-                Our strategically located service vehicles and knowledge of Brooklyn traffic patterns 
-                help us reach you quickly when you need urgent garage door repairs.
-              </p>
-            </div>
-            
-            <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Do you offer garage door maintenance plans for Brooklyn residents?
-              </h3>
-              <p className="text-gray-600">
-                Yes, we offer comprehensive maintenance plans specifically designed for Brooklyn's urban 
-                environment. Regular maintenance is especially important in the city due to increased 
-                usage and environmental factors like salt air and pollution.
-              </p>
-            </div>
+            {brooklynFaqs.map((faq, index) => (
+              <div key={index} className="bg-gray-50 rounded-lg p-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  {faq.question}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {faq.answer}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
+
+      <RelatedServices />
 
       {/* Contact CTA */}
       <section className="py-16 bg-blue-900 text-white">

@@ -1,5 +1,7 @@
 
 import { useEffect } from 'react';
+import ReviewSchema from '../seo/ReviewSchema';
+import { BUSINESS_INFO } from '../../config/business-info';
 
 const Reviews = () => {
   useEffect(() => {
@@ -70,24 +72,8 @@ const Reviews = () => {
         </div>
       </div>
 
-      {/* Schema.org structured data for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            "name": "Smart Garage Doors",
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.9",
-              "reviewCount": "247",
-              "bestRating": "5",
-              "worstRating": "1"
-            }
-          })
-        }}
-      />
+      {/* Enhanced Schema.org structured data for SEO */}
+      <ReviewSchema aggregateRating={BUSINESS_INFO.aggregateRating} />
     </section>
   );
 };

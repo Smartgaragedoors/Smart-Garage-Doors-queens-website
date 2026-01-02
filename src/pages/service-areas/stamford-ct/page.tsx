@@ -1,26 +1,18 @@
-
-import { useEffect } from 'react';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
+import Breadcrumbs from '../../../components/seo/Breadcrumbs';
+import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
 
 const StamfordCT = () => {
-  useEffect(() => {
-    document.title = 'Stamford CT Garage Door Repair | Smart Garage Doors | 24/7 Emergency Service';
-    
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Professional garage door repair services in Stamford, CT. Smart Garage Doors offers emergency repairs, spring replacement, opener installation throughout Stamford neighborhoods. Licensed technicians serving all Stamford areas.');
-    }
-    
-    const metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (metaKeywords) {
-      metaKeywords.setAttribute('content', 'Stamford CT garage door repair, garage door installation Stamford, emergency garage door service, Smart Garage Doors');
-    }
-  }, []);
-
   return (
     <div className="min-h-screen bg-white">
+      <DynamicMetaTags 
+        title="Stamford CT Garage Door Repair | Smart Garage Doors | 24/7 Emergency Service"
+        description="Professional garage door repair services in Stamford, CT. Smart Garage Doors offers emergency repairs, spring replacement, opener installation throughout Stamford neighborhoods. Licensed technicians serving all Stamford areas."
+        keywords="Stamford CT garage door repair, garage door installation Stamford, emergency garage door service, Smart Garage Doors"
+      />
       <Header />
+      <Breadcrumbs />
       
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-blue-900 to-blue-700 text-white py-20">

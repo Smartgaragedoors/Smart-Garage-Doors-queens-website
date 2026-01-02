@@ -1,60 +1,69 @@
-import { useEffect } from 'react';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
 import Button from '../../../components/base/Button';
+import Breadcrumbs from '../../../components/seo/Breadcrumbs';
+import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
+import FAQSchema from '../../../components/seo/FAQSchema';
+import RelatedServices from '../../../components/seo/RelatedServices';
+import { useLocation } from '../../../contexts/LocationContext';
 
 export default function CableRollerRepairPage() {
-  useEffect(() => {
-    document.title = 'Garage Door Cable & Roller Repair NYC | Track Repair | Westchester Garage Door Repair';
-    
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Professional garage door cable and roller repair in NYC, Westchester, and Connecticut. Track alignment, cable replacement, roller installation. Same-day service. Call (914) 557-6816!');
-    }
-    
-    const metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (metaKeywords) {
-      metaKeywords.setAttribute('content', 'garage door cable repair, roller replacement, track repair, cable replacement, garage door tracks, roller installation');
-    }
-
-    // Add Schema.org JSON-LD
-    const schemaScript = document.createElement('script');
-    schemaScript.type = 'application/ld+json';
-    schemaScript.text = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "serviceType": "Garage Door Cable & Roller Repair",
-      "provider": {
-        "@type": "LocalBusiness",
-        "name": "Smartest Garage Doors",
-        "telephone": "(914) 557-6816",
-        "url": `${import.meta.env.VITE_SITE_URL || 'https://example.com'}/cable-roller-repair/`,
-        "areaServed": [
-          {
-            "@type": "City",
-            "name": "New York"
-          },
-          {
-            "@type": "State",
-            "name": "Connecticut"
-          }
-        ]
-      },
-      "description": "Professional garage door cable and roller repair in NYC, Westchester, and Connecticut. Track alignment, cable replacement, roller installation. Same-day service.",
-      "offers": {
-        "@type": "Offer",
-        "availability": "https://schema.org/InStock",
-        "priceRange": "$$"
-      }
-    });
-    document.head.appendChild(schemaScript);
-
-    return () => {
-      if (schemaScript.parentNode) {
-        schemaScript.parentNode.removeChild(schemaScript);
-      }
-    };
-  }, []);
+  const { location, locationName, isLoading } = useLocation();
+  
+  const displayLocation = (location?.city === 'Queens' || !location || isLoading) 
+    ? 'your area' 
+    : locationName;
+  
+  const faqs = [
+    {
+      question: `How much does cable and roller repair cost in ${displayLocation}?`,
+      answer: `Cable replacement typically costs $150-$300, depending on the number of cables (single or double door) and door size. Roller replacement costs $100-$250 depending on quantity (usually 8-12 rollers) and type (nylon vs. steel). Track repair costs $150-$400 depending on severity - minor straightening vs. full track section replacement. We provide free estimates and upfront pricing before starting work with no hidden fees.`,
+    },
+    {
+      question: 'How do I know if my garage door cables or rollers need replacement?',
+      answer: 'Signs that cables or rollers need replacement include: frayed or broken cables (cables look worn or have broken strands), noisy operation (grinding, squeaking, or scraping sounds), door moves unevenly or jerks when opening/closing, rollers are worn, cracked, or missing, door doesn\'t move smoothly along the track, visible damage to cables or rollers, door sags on one side, or cables are visibly stretched or loose. Regular inspection can catch these issues early before they cause bigger problems.',
+    },
+    {
+      question: 'What\'s the difference between nylon and steel rollers?',
+      answer: 'Nylon rollers are quieter (ideal for attached garages), don\'t require lubrication, are less likely to damage tracks, and provide smoother operation, but may not last as long under extremely heavy use (typically 7-10 years). Steel rollers are more durable, longer-lasting (10-15 years), and better for heavy commercial doors, but can be noisier and may need periodic lubrication. Premium nylon rollers with steel cores offer a good balance. Our technicians can recommend the best type based on your door\'s usage, weight, and your noise preferences.',
+    },
+    {
+      question: 'Can I replace cables and rollers myself?',
+      answer: 'Cable replacement should NEVER be attempted by homeowners - cables work with springs under extreme tension (hundreds of pounds) and can cause serious injury or death if mishandled. Cable replacement requires special tools, knowledge of spring systems, and safety procedures. Roller replacement can be done by experienced DIYers, but professional installation ensures proper alignment, prevents track damage, and guarantees optimal performance. We strongly recommend professional service for both safety and proper operation.',
+    },
+    {
+      question: `How quickly can you repair cables and rollers in ${displayLocation}?`,
+      answer: `We offer same-day cable and roller repair service throughout NY, NJ & CT. Most repairs can be completed within 1-2 hours of arrival. We stock common cable sizes and roller types in our service vehicles for quick turnaround. For specialty sizes or types, we can often source parts quickly and return the same day or next day to complete the repair.`,
+    },
+    {
+      question: 'How often should garage door rollers be replaced?',
+      answer: 'Rollers typically last 7-10 years with normal use (3-4 cycles per day). Heavy use, lack of maintenance, harsh weather, or poor track alignment can shorten their lifespan to 5-7 years. We recommend having rollers inspected annually during maintenance visits and replaced when signs of wear appear (cracking, flattening, visible wear). Replacing all rollers at once ensures even operation, prevents premature wear, and maintains proper door balance.',
+    },
+    {
+      question: 'Can damaged tracks be repaired or do they need replacement?',
+      answer: 'Minor track damage like small dents or slight bends can often be straightened and repaired professionally using specialized tools. However, severely damaged tracks (large dents, major bends, rusted sections, or warped areas) typically need replacement for proper door operation and safety. Our technicians will inspect your tracks thoroughly, check alignment, and recommend the best solution - repair if possible and cost-effective, replacement if necessary for safety and performance.',
+    },
+    {
+      question: 'What causes garage door cables to break?',
+      answer: 'Common causes of cable breakage include: worn or frayed cables from age and use, improper spring tension causing excessive stress, rust or corrosion weakening the cable, poor cable routing or installation, door imbalance putting uneven stress on cables, lack of maintenance and lubrication, or physical damage from objects or impact. Regular maintenance and proper spring tension can significantly extend cable lifespan.',
+    },
+    {
+      question: 'Should I replace all cables and rollers at once?',
+      answer: 'Yes, we recommend replacing all cables and rollers at once, even if only one is damaged. Cables and rollers age together, so if one fails, others are likely near the end of their lifespan. Replacing them all at once ensures balanced operation, prevents future emergency repairs, and often costs less than multiple separate service calls. We can discuss options and timing during our inspection.',
+    },
+    {
+      question: 'Can worn rollers damage my garage door tracks?',
+      answer: 'Yes, worn or damaged rollers can cause significant track damage over time. Worn rollers don\'t roll smoothly, causing friction and scraping that wears down tracks. Flat or cracked rollers can gouge tracks, and misaligned rollers from worn bearings can cause tracks to bend. This creates a cycle of damage - bad rollers damage tracks, which then damage new rollers. We recommend addressing roller issues promptly to prevent expensive track replacement.',
+    },
+    {
+      question: 'Do you offer warranty on cable and roller repairs?',
+      answer: 'Yes, all our cable and roller repairs come with warranty coverage. Labor is typically covered for 90 days to 1 year, and parts come with manufacturer warranties (usually 1-2 years depending on type). We use high-quality cables and rollers from trusted manufacturers and stand behind our workmanship. We\'ll return to fix any issues related to our repair at no additional charge during the warranty period.',
+    },
+    {
+      question: `What areas do you serve for cable and roller repair services?`,
+      answer: `We provide garage door cable and roller repair services throughout New York (including Queens, Brooklyn, Long Island, Westchester County), New Jersey (Bergen County), and Connecticut (Fairfield County). We serve all areas within a 50-mile radius with same-day service available in most locations.`,
+    },
+  ];
 
   const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -87,7 +96,14 @@ export default function CableRollerRepairPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <DynamicMetaTags 
+        title="Garage Door Cable & Roller Repair NYC | Track Repair | Same-Day Service"
+        description="Professional garage door cable and roller repair in NYC, Westchester, and Connecticut. Track alignment, cable replacement, roller installation. Same-day service."
+        keywords="garage door cable repair, roller replacement, track repair, cable replacement, garage door tracks, roller installation"
+        canonical={`${import.meta.env.VITE_SITE_URL || 'https://smartestgaragedoors.com'}/cable-roller-repair/`}
+      />
       <Header />
+      <Breadcrumbs />
       
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-teal-600 to-teal-800 text-white py-20">
@@ -512,6 +528,35 @@ export default function CableRollerRepairPage() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Cable & Roller Repair FAQ
+            </h2>
+            <p className="text-lg text-gray-600">
+              Common questions about garage door cable and roller repair
+            </p>
+          </div>
+          
+          <div className="space-y-6">
+            {faqs.map((faq, index) => (
+              <div key={index} className="bg-gray-50 rounded-lg shadow-md p-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  {faq.question}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {faq.answer}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <FAQSchema faqs={faqs} />
+      <RelatedServices />
       <Footer />
     </div>
   );

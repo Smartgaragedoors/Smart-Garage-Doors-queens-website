@@ -35,7 +35,7 @@ export default function TeaneckNJPage() {
                   Call: (914) 557-6816
                 </a>
                 <a 
-                  href="/book-now" 
+                  href="/book-now/" 
                   className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition-colors whitespace-nowrap cursor-pointer"
                 >
                   <i className="ri-calendar-line mr-2"></i>
@@ -95,7 +95,7 @@ export default function TeaneckNJPage() {
               <p className="text-gray-600 mb-4">
                 Expert replacement of broken torsion and extension springs with high-quality parts.
               </p>
-              <a href="/services/spring-replacement" className="text-blue-600 font-medium hover:text-blue-700 cursor-pointer">
+              <a href="/spring-replacement/" className="text-blue-600 font-medium hover:text-blue-700 cursor-pointer">
                 Learn More <i className="ri-arrow-right-line ml-1"></i>
               </a>
             </div>
@@ -108,7 +108,7 @@ export default function TeaneckNJPage() {
               <p className="text-gray-600 mb-4">
                 Professional repair and installation of garage door openers from all major brands.
               </p>
-              <a href="/services/opener-repair" className="text-blue-600 font-medium hover:text-blue-700 cursor-pointer">
+              <a href="/opener-repair-installation/" className="text-blue-600 font-medium hover:text-blue-700 cursor-pointer">
                 Learn More <i className="ri-arrow-right-line ml-1"></i>
               </a>
             </div>
@@ -121,7 +121,7 @@ export default function TeaneckNJPage() {
               <p className="text-gray-600 mb-4">
                 24/7 emergency garage door repair services for urgent situations in Teaneck.
               </p>
-              <a href="/services/emergency-repairs" className="text-red-600 font-medium hover:text-red-700 cursor-pointer">
+              <a href="/emergency-garage-door-repair/" className="text-red-600 font-medium hover:text-red-700 cursor-pointer">
                 Learn More <i className="ri-arrow-right-line ml-1"></i>
               </a>
             </div>
@@ -134,7 +134,7 @@ export default function TeaneckNJPage() {
               <p className="text-gray-600 mb-4">
                 Complete garage door installation services for new construction and replacements.
               </p>
-              <a href="/services/installation" className="text-blue-600 font-medium hover:text-blue-700 cursor-pointer">
+              <a href="/services/installation/" className="text-blue-600 font-medium hover:text-blue-700 cursor-pointer">
                 Learn More <i className="ri-arrow-right-line ml-1"></i>
               </a>
             </div>
@@ -147,7 +147,7 @@ export default function TeaneckNJPage() {
               <p className="text-gray-600 mb-4">
                 Professional repair and replacement of cables, rollers, and hardware components.
               </p>
-              <a href="/services/cable-roller-repair" className="text-blue-600 font-medium hover:text-blue-700 cursor-pointer">
+              <a href="/cable-roller-repair/" className="text-blue-600 font-medium hover:text-blue-700 cursor-pointer">
                 Learn More <i className="ri-arrow-right-line ml-1"></i>
               </a>
             </div>
@@ -160,55 +160,9 @@ export default function TeaneckNJPage() {
               <p className="text-gray-600 mb-4">
                 Regular maintenance services to keep your garage door operating smoothly and safely.
               </p>
-              <a href="/services/maintenance" className="text-blue-600 font-medium hover:text-blue-700 cursor-pointer">
+              <a href="/services/maintenance/" className="text-blue-600 font-medium hover:text-blue-700 cursor-pointer">
                 Learn More <i className="ri-arrow-right-line ml-1"></i>
               </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Why Teaneck Residents Choose Us
-            </h2>
-            <p className="text-lg text-gray-600">
-              Local expertise with professional service standards
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <i className="ri-time-line text-blue-600 text-2xl"></i>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Same-Day Service</h3>
-              <p className="text-gray-600">
-                Fast response times with same-day service available for emergency repairs in Teaneck.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <i className="ri-map-pin-line text-blue-600 text-2xl"></i>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Local Experts</h3>
-              <p className="text-gray-600">
-                Bergen County locals who understand the specific needs of Teaneck area homes.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <i className="ri-shield-check-line text-blue-600 text-2xl"></i>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Licensed & Insured</h3>
-              <p className="text-gray-600">
-                Fully licensed and insured technicians providing peace of mind with every service.
-              </p>
             </div>
           </div>
         </div>
@@ -264,7 +218,7 @@ export default function TeaneckNJPage() {
                     Call: (914) 557-6816
                   </a>
                   <a 
-                    href="/book-now" 
+                    href="/book-now/" 
                     className="block bg-white text-blue-600 border-2 border-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors cursor-pointer"
                   >
                     <i className="ri-calendar-line mr-2"></i>
@@ -295,7 +249,7 @@ export default function TeaneckNJPage() {
               Call Now: (914) 557-6816
             </a>
             <a 
-              href="/book-now" 
+              href="/book-now/" 
               className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition-colors whitespace-nowrap cursor-pointer"
             >
               <i className="ri-calendar-line mr-2"></i>

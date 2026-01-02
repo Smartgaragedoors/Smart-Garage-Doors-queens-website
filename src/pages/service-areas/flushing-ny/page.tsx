@@ -2,6 +2,8 @@
 import { useEffect } from 'react';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
+import Breadcrumbs from '../../../components/seo/Breadcrumbs';
+import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
 import Services from '../../../components/feature/Services';
 import Reviews from '../../../components/feature/Reviews';
 import Contact from '../../../components/feature/Contact';
@@ -83,7 +85,13 @@ export default function FlushingNYPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <DynamicMetaTags 
+        title="Flushing NY Garage Door Repair & Installation | Smart Garage Doors"
+        description="Professional garage door repair and installation services in Flushing, NY. Emergency repairs, new installations, spring replacement. Same-day service in Flushing, Queens."
+        keywords="garage door repair Flushing NY, garage door installation Flushing, emergency garage door repair Queens, garage door spring replacement Flushing"
+      />
       <Header />
+      <Breadcrumbs />
       
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-blue-900 to-blue-800 text-white py-20">

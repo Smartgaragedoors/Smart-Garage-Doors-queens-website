@@ -72,9 +72,9 @@ export default function ServiceAreas() {
 
           {/* Right - Real Google Map */}
           <div className="relative order-1 lg:order-2">
-            <div className="w-full h-64 md:h-96 rounded-lg overflow-hidden shadow-2xl">
+            <div className="w-full h-64 md:h-96 rounded-lg overflow-hidden shadow-2xl relative">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1214425.7347982!2d-74.25986935!3d41.0781!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDA0JzQxLjIiTiA3NMKwMTUnMzUuNCJX!5e0!3m2!1sen!2sus!4v1234567890"
+                src="https://www.google.com/maps/d/u/0/embed?mid=1yksORXIx5j9H9uXHQWO_zvzyTcMzlXc&ehbc=2E312F&noprof=1"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -83,6 +83,8 @@ export default function ServiceAreas() {
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Service Areas Map"
               ></iframe>
+              {/* Overlay to hide Google My Maps attribution */}
+              <div className="absolute top-0 left-0 right-0 h-24 md:h-28 bg-blue-900 pointer-events-none z-20 rounded-t-lg"></div>
             </div>
           </div>
         </div>

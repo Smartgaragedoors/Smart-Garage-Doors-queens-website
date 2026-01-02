@@ -1,22 +1,80 @@
-import { useEffect } from 'react';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
 import Button from '../../../components/base/Button';
+import Breadcrumbs from '../../../components/seo/Breadcrumbs';
+import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
+import FAQSchema from '../../../components/seo/FAQSchema';
+import { useLocation } from '../../../contexts/LocationContext';
 
 export default function SpringReplacementPage() {
-  useEffect(() => {
-    document.title = 'Garage Door Spring Replacement NYC | Torsion & Extension Springs | Westchester Garage Door Repair';
-    
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Professional garage door spring replacement in NYC, Westchester, and Connecticut. Safe installation of torsion and extension springs. Same-day service available. Call (914) 557-6816!');
-    }
-    
-    const metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (metaKeywords) {
-      metaKeywords.setAttribute('content', 'garage door spring replacement, torsion spring repair, extension spring replacement, broken spring repair, spring installation');
-    }
-  }, []);
+  const { location, locationName, isLoading } = useLocation();
+  
+  const displayLocation = (location?.city === 'Queens' || !location || isLoading) 
+    ? 'your area' 
+    : locationName;
+  
+  const faqs = [
+    {
+      question: `How much does garage door spring replacement cost in ${displayLocation}?`,
+      answer: `Garage door spring replacement typically costs between $200-$400, depending on whether you have torsion or extension springs, the size and weight of your door, and accessibility. Torsion springs are usually more expensive ($250-$400) but last longer. Extension spring replacement costs $200-$300. Double car doors may cost $300-$500. We provide free estimates and upfront pricing with no hidden fees.`,
+    },
+    {
+      question: 'How do I know if my garage door spring is broken?',
+      answer: 'Signs of a broken garage door spring include: the door won\'t open or opens only a few inches, the door slams shut when you try to open it, you hear a loud bang or snapping noise, one side of the door is higher than the other, or the door feels much heavier than normal. You may also see a visible gap in the spring or notice the spring looks stretched or damaged. If you suspect a broken spring, don\'t try to open the door - call a professional immediately.',
+    },
+    {
+      question: 'What\'s the difference between torsion and extension springs?',
+      answer: 'Torsion springs are mounted above the door on a metal bar and use torque to lift the door. They\'re typically more durable, last 7-10 years (about 10,000 cycles), provide smoother operation, and are safer if they fail. Extension springs are mounted on either side of the door and stretch as the door closes. They\'re less expensive but typically last 5-7 years. Our technicians can determine which type your door uses and recommend the best replacement option based on your specific needs.',
+    },
+    {
+      question: 'Is it dangerous to replace garage door springs myself?',
+      answer: 'Yes, replacing garage door springs is extremely dangerous and should NEVER be attempted by homeowners. Springs are under extreme tension (hundreds of pounds) and can cause serious injury or death if mishandled. The spring can snap with tremendous force, causing severe cuts, broken bones, or worse. Always hire a licensed, experienced professional with proper tools, training, and safety equipment.',
+    },
+    {
+      question: `How quickly can you replace broken springs in ${displayLocation}?`,
+      answer: `We offer same-day garage door spring replacement service throughout NY, NJ & CT. Most spring replacements can be completed within 1-2 hours of arrival. We stock common spring sizes in our service vehicles, so repairs can often be completed on the first visit without additional trips. Emergency spring replacement is available 24/7.`,
+    },
+    {
+      question: 'How long do new garage door springs last?',
+      answer: 'Torsion springs typically last 7-10 years (about 10,000 cycles), while extension springs last 5-7 years (about 10,000 cycles). Lifespan depends on usage frequency, door weight, spring quality, and maintenance. We use high-quality springs from trusted manufacturers and provide maintenance tips to extend their lifespan. Regular lubrication and balance checks can help prolong spring life.',
+    },
+    {
+      question: 'Should I replace both springs even if only one is broken?',
+      answer: 'If you have a two-spring system, yes, you should replace both springs even if only one is broken. Springs age together and wear at similar rates, so if one breaks, the other is likely to fail soon. Replacing both ensures balanced operation, prevents another emergency repair, and extends the overall lifespan. We can discuss this during our estimate and explain the benefits.',
+    },
+    {
+      question: 'What brands of springs do you use for replacement?',
+      answer: 'We use high-quality springs from trusted manufacturers including LiftMaster, Chamberlain, and other industry-leading brands. We match the spring specifications to your door\'s weight and size to ensure proper operation. All springs come with a manufacturer warranty, and our installation work is backed by our service warranty.',
+    },
+    {
+      question: 'Do you offer warranty on spring replacement?',
+      answer: 'Yes, all our spring replacements come with a comprehensive warranty. Parts (springs) are typically covered for 1-2 years depending on the manufacturer, and our labor is covered for 90 days to 1 year. We stand behind our workmanship and will return to fix any issues related to our installation at no additional charge.',
+    },
+    {
+      question: `What areas do you serve for spring replacement services?`,
+      answer: `We provide garage door spring replacement services throughout New York (including Queens, Brooklyn, Long Island, Westchester County), New Jersey (Bergen County), and Connecticut (Fairfield County). We serve all areas within a 50-mile radius and offer same-day service in most locations.`,
+    },
+    {
+      question: 'Can you replace springs on any brand of garage door?',
+      answer: 'Yes, we can replace springs on all major garage door brands including Clopay, Wayne Dalton, Amarr, Raynor, CHI, LiftMaster, Chamberlain, and more. Our technicians are trained on all types of spring systems and can source the correct replacement springs for your specific door model and size.',
+    },
+    {
+      question: 'What should I do if my garage door spring breaks?',
+      answer: 'First, do NOT attempt to open or close the door manually - this is dangerous. Secure the door in its current position if possible, and immediately call a professional. Keep children and pets away from the garage. We offer 24/7 emergency spring replacement service and can typically have a technician to you within 60-90 minutes. Don\'t delay - a broken spring can lead to further damage to other components.',
+    },
+    {
+      question: 'How do I maintain my garage door springs to extend their life?',
+      answer: 'Regular maintenance can extend spring life significantly. Have your springs professionally inspected and lubricated annually. Avoid excessive opening and closing, and ensure the door is properly balanced. Keep the door tracks clean and aligned, and address any issues with cables or rollers promptly. We offer maintenance plans that include spring inspections and lubrication.',
+    },
+    {
+      question: 'Are there different quality levels of springs?',
+      answer: 'Yes, spring quality varies by manufacturer and materials used. We use high-quality, industry-grade springs from trusted manufacturers. While lower-quality springs may be cheaper initially, they fail more frequently and can cause damage to other components. Investing in quality springs saves money in the long run through longer lifespan and fewer repairs.',
+    },
+    {
+      question: 'Can weather affect garage door springs?',
+      answer: 'Yes, extreme temperature changes, humidity, and weather conditions can affect spring lifespan and performance. Springs can become more brittle in extreme cold and may experience increased wear in hot, humid conditions. Regular maintenance and proper lubrication help protect springs from weather-related damage. We can provide weather-specific maintenance recommendations for your area.',
+    },
+  ];
 
   const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -49,7 +107,14 @@ export default function SpringReplacementPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <DynamicMetaTags 
+        title="Garage Door Spring Replacement NYC | Torsion & Extension Springs | Same-Day Service"
+        description="Professional garage door spring replacement in NYC, Westchester, and Connecticut. Safe installation of torsion and extension springs. Same-day service available."
+        keywords="garage door spring replacement, torsion spring repair, extension spring replacement, broken spring repair, spring installation"
+      />
+      <FAQSchema faqs={faqs} />
       <Header />
+      <Breadcrumbs />
       
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-orange-600 to-red-600 text-white py-20">
@@ -95,6 +160,98 @@ export default function SpringReplacementPage() {
                 <strong>Never attempt to replace garage door springs yourself!</strong> Garage door springs are under extreme tension and can cause serious injury or death if handled improperly. Always call professional technicians for spring replacement. Our certified technicians have the proper tools and training to safely replace springs.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Information Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Garage Door Spring Replacement Pricing
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Transparent, upfront pricing for all spring replacement services. All prices include parts, labor, and warranty.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-8 border-2 border-blue-300">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">Torsion Spring Replacement</h3>
+              <div className="text-4xl font-bold text-blue-600 mb-2">$250 - $400</div>
+              <p className="text-gray-600 mb-4">Starting price for single spring</p>
+              <ul className="space-y-2 text-gray-700 mb-6">
+                <li className="flex items-center">
+                  <i className="ri-check-line text-green-600 mr-2"></i>
+                  Professional installation
+                </li>
+                <li className="flex items-center">
+                  <i className="ri-check-line text-green-600 mr-2"></i>
+                  High-quality springs
+                </li>
+                <li className="flex items-center">
+                  <i className="ri-check-line text-green-600 mr-2"></i>
+                  1-2 year parts warranty
+                </li>
+                <li className="flex items-center">
+                  <i className="ri-check-line text-green-600 mr-2"></i>
+                  90-day labor warranty
+                </li>
+              </ul>
+              <p className="text-sm text-gray-600">
+                Double car doors may cost $300-$500. Price varies by door weight, spring size, and accessibility.
+              </p>
+            </div>
+            
+            <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-lg p-8 border-2 border-orange-300">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">Extension Spring Replacement</h3>
+              <div className="text-4xl font-bold text-orange-600 mb-2">$200 - $300</div>
+              <p className="text-gray-600 mb-4">Starting price per pair</p>
+              <ul className="space-y-2 text-gray-700 mb-6">
+                <li className="flex items-center">
+                  <i className="ri-check-line text-green-600 mr-2"></i>
+                  Professional installation
+                </li>
+                <li className="flex items-center">
+                  <i className="ri-check-line text-green-600 mr-2"></i>
+                  Safety cables included
+                </li>
+                <li className="flex items-center">
+                  <i className="ri-check-line text-green-600 mr-2"></i>
+                  1-2 year parts warranty
+                </li>
+                <li className="flex items-center">
+                  <i className="ri-check-line text-green-600 mr-2"></i>
+                  90-day labor warranty
+                </li>
+              </ul>
+              <p className="text-sm text-gray-600">
+                Both springs typically replaced together. Price includes safety cables and professional installation.
+              </p>
+            </div>
+          </div>
+          
+          <div className="bg-gray-50 rounded-lg p-6">
+            <h4 className="font-semibold text-gray-900 mb-3">What Affects Spring Replacement Cost?</h4>
+            <div className="grid md:grid-cols-2 gap-4 text-sm text-gray-600">
+              <div>
+                <strong className="text-gray-900">Door Size & Weight:</strong> Larger, heavier doors require stronger (more expensive) springs.
+              </div>
+              <div>
+                <strong className="text-gray-900">Spring Type:</strong> Torsion springs cost more than extension springs but last longer.
+              </div>
+              <div>
+                <strong className="text-gray-900">Number of Springs:</strong> Double car doors typically require two springs, increasing cost.
+              </div>
+              <div>
+                <strong className="text-gray-900">Accessibility:</strong> Hard-to-reach installations may include additional labor charges.
+              </div>
+            </div>
+            <p className="mt-4 text-sm text-gray-600">
+              <strong>Free Estimates:</strong> We provide detailed, no-obligation estimates before any work begins. 
+              Call <a href="tel:914-557-6816" className="text-blue-600 font-semibold hover:text-blue-700">(914) 557-6816</a> for accurate pricing for your specific situation.
+            </p>
           </div>
         </div>
       </section>
@@ -492,6 +649,33 @@ export default function SpringReplacementPage() {
               Schedule Spring Replacement
             </Button>
           </form>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Garage Door Spring Replacement FAQ
+            </h2>
+            <p className="text-lg text-gray-600">
+              Common questions about garage door spring replacement
+            </p>
+          </div>
+          
+          <div className="space-y-6">
+            {faqs.map((faq, index) => (
+              <div key={index} className="bg-gray-50 rounded-lg shadow-md p-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  {faq.question}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {faq.answer}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

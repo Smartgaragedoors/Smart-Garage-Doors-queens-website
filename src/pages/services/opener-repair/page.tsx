@@ -1,25 +1,59 @@
-import { useEffect } from 'react';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
+import Breadcrumbs from '../../../components/seo/Breadcrumbs';
+import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
+import FAQSchema from '../../../components/seo/FAQSchema';
+import RelatedServices from '../../../components/seo/RelatedServices';
+import { useLocation } from '../../../contexts/LocationContext';
 
 export default function OpenerRepair() {
-  useEffect(() => {
-    document.title = 'Garage Door Opener Repair NY NJ CT | Smart Garage Doors';
-    
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Professional garage door opener repair services in NY, NJ & CT. Chain drive, belt drive, and wall mount torsion systems. Fast, reliable service with warranty.');
-    }
-
-    const metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (metaKeywords) {
-      metaKeywords.setAttribute('content', 'garage door opener repair, chain drive, belt drive, wall mount torsion, NY, NJ, CT');
-    }
-  }, []);
+  const { location, locationName, isLoading } = useLocation();
+  
+  const displayLocation = (location?.city === 'Queens' || !location || isLoading) 
+    ? 'your area' 
+    : locationName;
+  
+  const faqs = [
+    {
+      question: `How much does garage door opener repair cost in ${displayLocation}?`,
+      answer: `Garage door opener repair costs typically range from $150-$350, depending on the issue. Simple repairs like sensor alignment or remote programming cost $150-$200. Motor repairs or circuit board replacement cost $250-$350. We provide free estimates and upfront pricing before starting any work.`,
+    },
+    {
+      question: 'What types of garage door openers do you repair?',
+      answer: 'We repair all types of garage door openers including chain drive, belt drive, screw drive, and wall mount openers. We service all major brands including LiftMaster, Chamberlain, Genie, Craftsman, Linear, and more. Our technicians are trained on both residential and commercial opener systems.',
+    },
+    {
+      question: 'How do I know if my garage door opener needs repair?',
+      answer: 'Signs that your opener needs repair include: the door won\'t open or close, the opener motor runs but the door doesn\'t move, the door reverses immediately after closing, the opener makes unusual noises, the remote control doesn\'t work, or the opener doesn\'t respond to the wall switch. If you notice any of these issues, call us for a diagnostic.',
+    },
+    {
+      question: 'Can you fix my opener or do I need a new one?',
+      answer: 'Most opener issues can be repaired. Common repairs include sensor alignment, motor capacitor replacement, gear and sprocket replacement, circuit board repair, and remote programming. However, if your opener is very old (15+ years), severely damaged, or the cost of repair approaches a new unit, we may recommend replacement. We\'ll always provide options and help you make the best decision.',
+    },
+    {
+      question: `How quickly can you repair my opener in ${displayLocation}?`,
+      answer: `We offer same-day garage door opener repair service throughout NY, NJ & CT. Most opener repairs can be completed within 1-2 hours. We carry common replacement parts in our service vehicles, so many repairs can be finished on the first visit.`,
+    },
+    {
+      question: 'Do you install new garage door openers?',
+      answer: 'Yes, we install new garage door openers of all types and brands. We can help you choose the right opener for your door size and needs, install it professionally, and program all remotes and keypads. Installation typically takes 2-3 hours and includes warranty coverage.',
+    },
+    {
+      question: 'What\'s the difference between chain, belt, and screw drive openers?',
+      answer: 'Chain drive openers use a metal chain and are the most common, durable, and affordable. Belt drive openers use a rubber belt and are quieter but more expensive. Screw drive openers use a threaded steel rod and are low-maintenance. Wall mount openers are installed beside the door and are ideal for high-ceiling garages. Our technicians can recommend the best type for your needs.',
+    },
+  ];
 
   return (
     <div className="min-h-screen">
+      <DynamicMetaTags 
+        title="Garage Door Opener Repair NY NJ CT | Same-Day Service | Smart Garage Doors"
+        description="Professional garage door opener repair services in NY, NJ & CT. Chain drive, belt drive, and wall mount torsion systems. Fast, reliable service with warranty."
+        keywords="garage door opener repair, chain drive, belt drive, wall mount torsion, NY, NJ, CT"
+      />
+      <FAQSchema faqs={faqs} />
       <Header />
+      <Breadcrumbs />
 
       <main>
         {/* Hero Section */}
@@ -285,6 +319,7 @@ export default function OpenerRepair() {
         </section>
       </main>
 
+      <RelatedServices />
       <Footer />
     </div>
   );

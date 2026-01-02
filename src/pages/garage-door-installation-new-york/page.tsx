@@ -1,11 +1,19 @@
 
 import Header from '../../components/feature/Header';
 import Footer from '../../components/feature/Footer';
+import Breadcrumbs from '../../components/seo/Breadcrumbs';
+import DynamicMetaTags from '../../components/seo/DynamicMetaTags';
 
 export default function GarageDoorInstallationNewYorkPage() {
   return (
     <div className="min-h-screen bg-white">
+      <DynamicMetaTags 
+        title="Garage Door Installation NY NJ CT | Professional Installation Services"
+        description="Professional garage door installation services in NY, NJ & CT. Expert installation of all garage door styles and brands. Same-day service available. Licensed and insured technicians."
+        keywords="garage door installation, new garage door installation, garage door installer, professional garage door installation"
+      />
       <Header />
+      <Breadcrumbs />
       
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-green-600 to-green-700 text-white py-20">
@@ -35,7 +43,7 @@ export default function GarageDoorInstallationNewYorkPage() {
                   Call: (914) 557-6816
                 </a>
                 <a 
-                  href="/book-now" 
+                  href="/book-now/" 
                   className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-green-600 transition-colors whitespace-nowrap cursor-pointer"
                 >
                   <i className="ri-calendar-line mr-2"></i>
@@ -311,7 +319,7 @@ export default function GarageDoorInstallationNewYorkPage() {
               Call: (914) 557-6816
             </a>
             <a 
-              href="/book-now" 
+              href="/book-now/" 
               className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-green-600 transition-colors whitespace-nowrap cursor-pointer"
             >
               <i className="ri-calendar-line mr-2"></i>

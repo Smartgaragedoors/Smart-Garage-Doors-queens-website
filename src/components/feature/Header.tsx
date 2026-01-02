@@ -1,49 +1,64 @@
 import { useState } from 'react';
+import { useLocation as useLocationContext } from '../../contexts/LocationContext';
+import { useLocation as useRouterLocation } from 'react-router-dom';
+import { trackPhoneClick } from '../../utils/analytics';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isServiceAreasOpen, setIsServiceAreasOpen] = useState(false);
+  const { location, locationName } = useLocationContext();
+  const routerLocation = useRouterLocation();
 
   // Get current page to show relevant address
-  const currentPath = window.location.pathname;
+  const currentPath = routerLocation.pathname;
   let currentAddress = "New York, New Jersey, Connecticut";
 
-  if (currentPath.includes('brooklyn')) {
+  // Use detected location first, then fall back to route-based
+  if (location && !currentPath.includes('/garage-door-repair-') && !currentPath.includes('/service-areas/')) {
+    // Show location-aware message
+    if (location.city === 'Queens' || location.city === 'Flushing') {
+      currentAddress = "141-24 70th Ave, Flushing, NY 11367";
+    } else if (location.city === 'Brooklyn') {
+      currentAddress = "71st 12th Ave, Dyker Heights, Brooklyn, NY";
+    } else if (location.city === 'Suffern') {
+      currentAddress = "31 Deerwood Road, Suffern, NY";
+    } else {
+      currentAddress = `Serving ${locationName} | Local to Your Area`;
+    }
+  } else if (currentPath.includes('brooklyn')) {
     currentAddress = "71st 12th Ave, Dyker Heights, Brooklyn, NY";
   } else if (currentPath.includes('suffern')) {
     currentAddress = "31 Deerwood Road, Suffern, NY";
   } else if (currentPath.includes('queens') || currentPath.includes('flushing')) {
     currentAddress = "141-24 70th Ave, Flushing, NY 11367";
+  } else if (location) {
+    currentAddress = `Local to ${locationName}`;
   }
 
   return (
-    <header>
+    <header className="sticky top-0 z-50">
       {/* Top Bar */}
-      <div className="bg-blue-900 text-white py-2 hidden md:block">
-        <div className="max-w-7xl mx-auto px-4 flex justify-between items-center text-sm">
-          <div className="flex items-center space-x-6">
-            <a href="mailto:info@smartestgaragedoors.com" className="flex items-center space-x-2 hover:text-orange-400 transition-colors">
+      <div className="bg-blue-900 text-white py-1.5 md:py-2">
+        <div className="max-w-7xl mx-auto px-4 flex justify-between items-center text-xs md:text-sm">
+          <div className="flex items-center space-x-3 md:space-x-6">
+            <a href="mailto:info@smartestgaragedoors.com" className="hidden md:flex items-center space-x-2 hover:text-orange-400 transition-colors">
               <i className="ri-mail-line"></i>
               <span>info@smartestgaragedoors.com</span>
             </a>
-            <div className="flex items-center space-x-2">
+            <div className="hidden md:flex items-center space-x-2">
               <i className="ri-map-pin-line"></i>
               <span>{currentAddress}</span>
             </div>
           </div>
-          <div className="flex items-center space-x-4">
-            <a href="tel:(914) 557-6816" className="flex items-center space-x-2 text-orange-400 font-semibold hover:text-orange-300 transition-colors">
-              <i className="ri-phone-fill"></i>
-              <span>(914) 557-6816</span>
-            </a>
-            <a href="https://www.facebook.com/profile.php?id=61563773137785" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors">
+          <div className="flex items-center space-x-2 md:space-x-4">
+            <a href="https://www.facebook.com/profile.php?id=61563773137785" target="_blank" rel="noopener noreferrer" className="hidden md:block hover:text-orange-400 transition-colors">
               <i className="ri-facebook-fill"></i>
             </a>
-            <a href="https://www.instagram.com/smartgaragedoorss/" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors">
+            <a href="https://www.instagram.com/smartgaragedoorss/" target="_blank" rel="noopener noreferrer" className="hidden md:block hover:text-orange-400 transition-colors">
               <i className="ri-instagram-fill"></i>
             </a>
-            <a href="https://maps.app.goo.gl/GjfsFbH5kQ2smvdU8" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors">
+            <a href="https://maps.app.goo.gl/GjfsFbH5kQ2smvdU8" target="_blank" rel="noopener noreferrer" className="hidden md:block hover:text-orange-400 transition-colors">
               <i className="ri-map-pin-fill"></i>
             </a>
           </div>
@@ -51,7 +66,7 @@ export default function Header() {
       </div>
 
       {/* Main Navigation */}
-      <nav className="bg-white shadow-lg sticky top-0 z-50">
+      <nav className="bg-white shadow-lg">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center py-3 md:py-4">
             {/* Logo */}
@@ -103,6 +118,8 @@ export default function Header() {
                     <a href="/opener-repair-installation/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Opener Repair</a>
                     <a href="/spring-replacement/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Spring Replacement</a>
                     <a href="/cable-roller-repair/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Cable & Roller Repair</a>
+                    <a href="/services/maintenance/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Maintenance</a>
+                    <a href="/services/installation/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Installation</a>
                   </div>
                 )}
               </div>
@@ -174,7 +191,11 @@ export default function Header() {
 
             {/* CTA Button & Mobile Menu */}
             <div className="flex items-center space-x-2 md:space-x-4">
-              <a href="tel:(914) 557-6816" className="bg-orange-500 hover:bg-orange-600 text-white px-3 md:px-4 py-2 rounded-lg font-semibold transition-colors whitespace-nowrap text-sm md:text-base">
+              <a 
+                href="tel:(914) 557-6816" 
+                onClick={() => trackPhoneClick('(914) 557-6816')}
+                className="bg-orange-500 hover:bg-orange-600 text-white px-3 md:px-4 py-2 rounded-lg font-semibold transition-colors whitespace-nowrap text-sm md:text-base"
+              >
                 <i className="ri-phone-fill mr-1 md:mr-2"></i>
                 <span className="hidden sm:inline">(914) 557-6816</span>
                 <span className="sm:hidden">Call</span>
@@ -207,6 +228,8 @@ export default function Header() {
                     <a href="/opener-repair-installation/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Opener Repair</a>
                     <a href="/spring-replacement/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Spring Replacement</a>
                     <a href="/cable-roller-repair/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Cable & Roller Repair</a>
+                    <a href="/services/maintenance/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Maintenance</a>
+                    <a href="/services/installation/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Installation</a>
                   </div>
                 </div>
 

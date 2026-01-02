@@ -1,5 +1,8 @@
+import OrganizationSchema from '../seo/OrganizationSchema';
+import { useLocation } from 'react-router-dom';
 
 export default function Footer() {
+  const routerLocation = useLocation();
   const services = [
     'Garage Door Repair',
     'Opener Repair & Installation', 
@@ -25,7 +28,7 @@ export default function Footer() {
   ];
 
   // Get current page to show relevant address
-  const currentPath = window.location.pathname;
+  const currentPath = routerLocation.pathname;
   let currentAddress = "141-24 70th Ave, Flushing, NY 11367";
 
   if (currentPath.includes('suffern')) {
@@ -126,6 +129,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
+      <OrganizationSchema />
     </footer>
   );
 }

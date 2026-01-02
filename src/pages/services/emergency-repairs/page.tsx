@@ -3,21 +3,44 @@ import { useEffect } from 'react';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
 import Button from '../../../components/base/Button';
+import Breadcrumbs from '../../../components/seo/Breadcrumbs';
+import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
+import FAQSchema from '../../../components/seo/FAQSchema';
+import { useLocation } from '../../../contexts/LocationContext';
 
 export default function EmergencyRepairsPage() {
-  useEffect(() => {
-    document.title = 'Emergency Garage Door Repair NYC | 24/7 Service | Westchester Garage Door Repair';
-    
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', '24/7 emergency garage door repair in NYC, Westchester, and Connecticut. Fast response, professional technicians, immediate solutions for broken garage doors. Call (914) 557-6816 now!');
-    }
-    
-    const metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (metaKeywords) {
-      metaKeywords.setAttribute('content', 'emergency garage door repair, 24/7 garage door service, urgent garage door fix, broken garage door repair, emergency technician');
-    }
-  }, []);
+  const { location, locationName, isLoading } = useLocation();
+  
+  const displayLocation = (location?.city === 'Queens' || !location || isLoading) 
+    ? 'your area' 
+    : locationName;
+  
+  const faqs = [
+    {
+      question: `How quickly can you respond to emergency garage door repairs in ${displayLocation}?`,
+      answer: `We offer 24/7 emergency garage door repair service with fast response times throughout NY, NJ & CT. Our technicians typically arrive within 60-90 minutes for emergency calls in most areas. We have multiple service locations strategically positioned to ensure quick response times, regardless of where you're located in our service area.`,
+    },
+    {
+      question: 'What situations require emergency garage door repair?',
+      answer: 'Emergency garage door repair is needed when your door is stuck open or closed, there\'s a safety hazard (like a broken spring that could cause injury), the door won\'t close and you\'re leaving your property unsecured, or there\'s a malfunction that prevents you from accessing or leaving your garage. We respond to all urgent situations 24/7.',
+    },
+    {
+      question: 'Do you charge extra for emergency service calls?',
+      answer: 'Our emergency service rates are competitive and transparent. While emergency calls may have slightly higher rates due to immediate dispatch and after-hours service, we always provide upfront pricing. We never surprise customers with hidden fees. Many emergency repairs can be completed quickly and affordably.',
+    },
+    {
+      question: 'What if my garage door is stuck open and I need to leave?',
+      answer: 'If your garage door is stuck open and you need immediate assistance, call us right away. Our emergency technicians can often provide a temporary solution to secure your garage door so you can leave safely, then return to complete the full repair. We understand the urgency and prioritize these situations.',
+    },
+    {
+      question: 'Can you handle emergency repairs for all garage door brands?',
+      answer: 'Yes, our technicians are trained and equipped to handle emergency repairs for all major garage door brands including LiftMaster, Chamberlain, Genie, Craftsman, and more. We carry common replacement parts in our service vehicles to address most emergency situations quickly.',
+    },
+    {
+      question: `What areas do you serve for emergency garage door repair?`,
+      answer: `We provide 24/7 emergency garage door repair throughout New York (Queens, Brooklyn, Long Island, Westchester County), New Jersey (Bergen County), and Connecticut (Fairfield County). With multiple service locations, we can quickly respond to emergencies throughout our entire coverage area.`,
+    },
+  ];
 
   const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -50,7 +73,14 @@ export default function EmergencyRepairsPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <DynamicMetaTags 
+        title="Emergency Garage Door Repair NYC | 24/7 Service | Same-Day Response"
+        description="24/7 emergency garage door repair in NYC, Westchester, and Connecticut. Fast response, professional technicians, immediate solutions for broken garage doors. Available 24/7."
+        keywords="emergency garage door repair, 24/7 garage door service, urgent garage door fix, broken garage door repair, emergency technician"
+      />
+      <FAQSchema faqs={faqs} />
       <Header />
+      <Breadcrumbs />
       
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-red-600 to-orange-600 text-white py-20">
@@ -298,6 +328,33 @@ export default function EmergencyRepairsPage() {
               Submit Emergency Request
             </Button>
           </form>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Emergency Garage Door Repair FAQ
+            </h2>
+            <p className="text-lg text-gray-600">
+              Common questions about our 24/7 emergency garage door repair services
+            </p>
+          </div>
+          
+          <div className="space-y-6">
+            {faqs.map((faq, index) => (
+              <div key={index} className="bg-white rounded-lg shadow-md p-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  {faq.question}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {faq.answer}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
