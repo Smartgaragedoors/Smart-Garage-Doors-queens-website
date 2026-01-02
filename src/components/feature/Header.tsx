@@ -97,7 +97,7 @@ export default function Header() {
                   height="48"
                 />
                 <div>
-                  <h1 className="text-base md:text-xl font-bold text-gray-900">Smart Garage Doors</h1>
+                  <h2 className="text-base md:text-xl font-bold text-gray-900">Smart Garage Doors</h2>
                   <p className="text-xs md:text-sm text-gray-600 hidden sm:block">Professional Garage Door Services</p>
                 </div>
               </a>

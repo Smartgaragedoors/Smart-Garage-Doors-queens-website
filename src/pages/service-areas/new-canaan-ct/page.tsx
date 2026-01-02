@@ -61,8 +61,10 @@ export default function NewCanaanCTPage() {
       "email": "info@smartestgaragedoors.com",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "New Canaan",
-        "addressRegion": "CT",
+        "streetAddress": "141-24 70th Ave",
+        "addressLocality": "Flushing",
+        "addressRegion": "NY",
+        "postalCode": "11367",
         "addressCountry": "US"
       },
       "geo": {
@@ -71,7 +73,6 @@ export default function NewCanaanCTPage() {
         "longitude": "-73.4948"
       },
       "areaServed": "New Canaan, CT",
-      "serviceType": "Garage Door Repair and Installation",
       "openingHours": "Mo-Su 06:00-22:00"
     });
     document.head.appendChild(script);

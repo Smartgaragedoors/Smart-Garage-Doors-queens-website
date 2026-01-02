@@ -90,8 +90,10 @@ export default function GarageDoorRepairPage() {
               "telephone": "+19145576816",
               "address": {
                 "@type": "PostalAddress",
-                "addressLocality": "White Plains",
+                "streetAddress": "141-24 70th Ave",
+                "addressLocality": "Flushing",
                 "addressRegion": "NY",
+                "postalCode": "11367",
                 "addressCountry": "US"
               }
             },

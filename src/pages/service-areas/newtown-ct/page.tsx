@@ -61,8 +61,10 @@ export default function NewtownCTPage() {
       "email": "info@smartestgaragedoors.com",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Newtown",
-        "addressRegion": "CT",
+        "streetAddress": "141-24 70th Ave",
+        "addressLocality": "Flushing",
+        "addressRegion": "NY",
+        "postalCode": "11367",
         "addressCountry": "US"
       },
       "geo": {
@@ -71,7 +73,6 @@ export default function NewtownCTPage() {
         "longitude": "-73.3026"
       },
       "areaServed": "Newtown, CT",
-      "serviceType": "Garage Door Repair and Installation",
       "openingHours": "Mo-Su 06:00-22:00"
     });
     document.head.appendChild(script);

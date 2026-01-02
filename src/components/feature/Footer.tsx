@@ -77,6 +77,8 @@ export default function Footer() {
               <li><a href="/opener-repair-installation/" className="text-gray-200 hover:text-orange-400 transition-colors">Opener Repair</a></li>
               <li><a href="/spring-replacement/" className="text-gray-200 hover:text-orange-400 transition-colors">Spring Replacement</a></li>
               <li><a href="/cable-roller-repair/" className="text-gray-200 hover:text-orange-400 transition-colors">Cable & Roller Repair</a></li>
+              <li><a href="/reviews/" className="text-gray-200 hover:text-orange-400 transition-colors">Reviews</a></li>
+              <li><a href="/blog/" className="text-gray-200 hover:text-orange-400 transition-colors">Blog</a></li>
             </ul>
           </div>
 
@@ -84,7 +86,7 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">Service Areas</h3>
             <ul className="space-y-2">
-              {serviceAreas.slice(0, 6).map((area, index) => (
+              {serviceAreas.map((area, index) => (
                 <li key={index}>
                   <a href={area.href} className="text-gray-200 hover:text-orange-400 transition-colors">
                     {area.name}

@@ -61,8 +61,10 @@ export default function GreenwichCTPage() {
       "email": "info@smartestgaragedoors.com",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Greenwich",
-        "addressRegion": "CT",
+        "streetAddress": "141-24 70th Ave",
+        "addressLocality": "Flushing",
+        "addressRegion": "NY",
+        "postalCode": "11367",
         "addressCountry": "US"
       },
       "geo": {
@@ -71,7 +73,6 @@ export default function GreenwichCTPage() {
         "longitude": "-73.6282"
       },
       "areaServed": "Greenwich, CT",
-      "serviceType": "Garage Door Repair and Installation",
       "openingHours": "Mo-Su 06:00-22:00"
     });
     document.head.appendChild(script);

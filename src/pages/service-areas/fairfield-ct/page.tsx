@@ -34,8 +34,10 @@ const FairfieldCT = () => {
       "telephone": "(123) 456-7890",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Fairfield",
-        "addressRegion": "CT",
+        "streetAddress": "141-24 70th Ave",
+        "addressLocality": "Flushing",
+        "addressRegion": "NY",
+        "postalCode": "11367",
         "addressCountry": "US"
       },
       "geo": {
