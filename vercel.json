@@ -46,11 +46,7 @@
       ]
     },
     {
-<<<<<<< Updated upstream
-      "source": "/(.*\\.(jpg|jpeg|png|webp|gif|svg|ico|woff|woff2|ttf|eot))",
-=======
       "source": "/hero-van-(.*)",
->>>>>>> Stashed changes
       "headers": [
         {
           "key": "Cache-Control",
@@ -59,9 +55,6 @@
       ]
     },
     {
-<<<<<<< Updated upstream
-      "source": "/(.*\\.(js|css))",
-=======
       "source": "/(.*\\.js)",
       "headers": [
         {
@@ -144,7 +137,6 @@
     },
     {
       "source": "/(.*\\.woff2)",
->>>>>>> Stashed changes
       "headers": [
         {
           "key": "Cache-Control",
