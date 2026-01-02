@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm run build",
+  "buildCommand": "BASE_PATH=/ npm run build",
   "outputDirectory": "out",
   "framework": "vite",
   "installCommand": "npm ci",
