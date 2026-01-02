@@ -148,12 +148,12 @@ export default function Header() {
                 onMouseLeave={() => setIsServiceAreasOpen(false)}
               >
                 <button 
-                  className="flex items-center space-x-1 text-gray-700 hover:text-orange-500 transition-colors whitespace-nowrap cursor-pointer"
+                  className="text-gray-700 hover:text-orange-500 font-medium flex items-center transition-colors"
                   aria-expanded={isServiceAreasOpen}
                   aria-haspopup="true"
                 >
-                  <span>Service Areas</span>
-                  <i className="ri-arrow-down-s-line" aria-hidden="true"></i>
+                  Service Areas
+                  <i className="ri-arrow-down-s-line ml-1" aria-hidden="true"></i>
                 </button>
                 {isServiceAreasOpen && (
                   <div 
@@ -251,7 +251,7 @@ export default function Header() {
                 </a>
                 
                 <div>
-                  <div className="text-gray-700 font-medium mb-2 py-2">Services</div>
+                  <div className="text-gray-700 font-medium py-2">Services</div>
                   <div className="space-y-1 pl-4">
                     <a href="/emergency-garage-door-repair/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Emergency Repairs</a>
                     <a href="/garage-door-installation/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Installation Services</a>
@@ -265,7 +265,7 @@ export default function Header() {
                 </div>
 
                 <div>
-                  <div className="font-semibold text-gray-900 py-2">Service Areas</div>
+                  <div className="text-gray-700 font-medium py-2">Service Areas</div>
                   <div className="grid grid-cols-2 gap-1 pl-4">
                     <a href="/garage-door-repair-brooklyn-ny/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Brooklyn</a>
                     <a href="/garage-door-repair-stamford-ct/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Stamford</a>
