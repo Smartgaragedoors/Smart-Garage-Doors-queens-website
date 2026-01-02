@@ -4,6 +4,7 @@ import Header from '../../components/feature/Header';
 import Footer from '../../components/feature/Footer';
 import Breadcrumbs from '../../components/seo/Breadcrumbs';
 import DynamicMetaTags from '../../components/seo/DynamicMetaTags';
+import { submitForm } from '../../utils/formSubmission';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -54,17 +55,9 @@ const ContactPage = () => {
     setSubmitStatus('');
 
     try {
-      const formDataToSend = new FormData();
-      Object.entries(formData).forEach(([key, value]) => {
-        formDataToSend.append(key, value);
-      });
+      const result = await submitForm(formData, 'Contact Page Form');
 
-      const response = await fetch('https://readdy.ai/api/form/d417537failshf0qmt8g', {
-        method: 'POST',
-        body: new URLSearchParams(formDataToSend as any)
-      });
-
-      if (response.ok) {
+      if (result.success) {
         setSubmitStatus('success');
         setFormData({
           name: '',

@@ -55,14 +55,14 @@ export default function Footer() {
               Professional garage door repair and installation services in NY, NJ &amp; CT.
             </p>
             <div className="flex space-x-4">
-              <a href="https://www.facebook.com/profile.php?id=61563773137785" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-orange-400 transition-colors">
-                <i className="ri-facebook-fill text-xl"></i>
+              <a href="https://www.facebook.com/profile.php?id=61563773137785" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook page" className="text-gray-300 hover:text-orange-400 transition-colors">
+                <i className="ri-facebook-fill text-xl" aria-hidden="true"></i>
               </a>
-              <a href="https://www.instagram.com/smartgaragedoorss/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-orange-400 transition-colors">
-                <i className="ri-instagram-fill text-xl"></i>
+              <a href="https://www.instagram.com/smartgaragedoorss/" target="_blank" rel="noopener noreferrer" aria-label="Visit our Instagram page" className="text-gray-300 hover:text-orange-400 transition-colors">
+                <i className="ri-instagram-fill text-xl" aria-hidden="true"></i>
               </a>
-              <a href="https://maps.app.goo.gl/GjfsFbH5kQ2smvdU8" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-orange-400 transition-colors">
-                <i className="ri-map-pin-fill text-xl"></i>
+              <a href="https://maps.app.goo.gl/GjfsFbH5kQ2smvdU8" target="_blank" rel="noopener noreferrer" aria-label="View our location on Google Maps" className="text-gray-300 hover:text-orange-400 transition-colors">
+                <i className="ri-map-pin-fill text-xl" aria-hidden="true"></i>
               </a>
             </div>
           </div>
@@ -99,19 +99,19 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-4">Contact</h3>
             <div className="space-y-3">
               <div className="flex items-center space-x-2">
-                <i className="ri-phone-fill text-orange-500"></i>
+                <i className="ri-phone-fill text-orange-500" aria-hidden="true"></i>
                 <a href="tel:(914) 557-6816" className="text-gray-300 hover:text-orange-400 transition-colors">
                   (914) 557-6816
                 </a>
               </div>
               <div className="flex items-center space-x-2">
-                <i className="ri-mail-fill text-orange-500"></i>
+                <i className="ri-mail-fill text-orange-500" aria-hidden="true"></i>
                 <a href="mailto:info@smartestgaragedoors.com" className="text-gray-300 hover:text-orange-400 transition-colors">
                   info@smartestgaragedoors.com
                 </a>
               </div>
               <div className="flex items-start space-x-2">
-                <i className="ri-map-pin-fill text-orange-500 mt-1"></i>
+                <i className="ri-map-pin-fill text-orange-500 mt-1" aria-hidden="true"></i>
                 <span className="text-gray-300">
                   {currentAddress}
                 </span>

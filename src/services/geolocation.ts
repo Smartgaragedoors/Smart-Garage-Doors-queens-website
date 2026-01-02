@@ -158,7 +158,7 @@ export async function detectLocation(): Promise<LocationData | null> {
 
     // Try ip-api.com (free, no key required)
     try {
-      const response = await fetch('http://ip-api.com/json/?fields=status,message,city,regionName,zip,lat,lon');
+      const response = await fetch('https://ip-api.com/json/?fields=status,message,city,regionName,zip,lat,lon');
       const data = await response.json();
       
       if (data.status === 'success') {

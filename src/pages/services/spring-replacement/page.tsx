@@ -5,6 +5,7 @@ import Breadcrumbs from '../../../components/seo/Breadcrumbs';
 import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
 import FAQSchema from '../../../components/seo/FAQSchema';
 import { useLocation } from '../../../contexts/LocationContext';
+import { submitForm } from '../../../utils/formSubmission';
 
 export default function SpringReplacementPage() {
   const { location, locationName, isLoading } = useLocation();
@@ -79,22 +80,16 @@ export default function SpringReplacementPage() {
   const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    const data = new URLSearchParams();
+    const data: Record<string, string> = {};
     
     for (const [key, value] of formData.entries()) {
-      data.append(key, value.toString());
+      data[key] = value.toString();
     }
 
     try {
-      const response = await fetch('https://readdy.ai/api/form/d413rd22kqgi5a0pu880', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: data,
-      });
+      const result = await submitForm(data, 'Spring Replacement Form');
 
-      if (response.ok) {
+      if (result.success) {
         alert('Spring replacement request submitted! We will contact you to schedule service.');
         (e.target as HTMLFormElement).reset();
       } else {

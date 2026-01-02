@@ -6,6 +6,7 @@ import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
 import FAQSchema from '../../../components/seo/FAQSchema';
 import RelatedServices from '../../../components/seo/RelatedServices';
 import { useLocation } from '../../../contexts/LocationContext';
+import { submitForm } from '../../../utils/formSubmission';
 
 export default function MaintenancePage() {
   const { location, locationName, isLoading } = useLocation();
@@ -48,22 +49,16 @@ export default function MaintenancePage() {
   const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    const data = new URLSearchParams();
+    const data: Record<string, string> = {};
     
     for (const [key, value] of formData.entries()) {
-      data.append(key, value.toString());
+      data[key] = value.toString();
     }
 
     try {
-      const response = await fetch('https://readdy.ai/api/form/d413rd22kqgi5a0pu880', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: data,
-      });
+      const result = await submitForm(data, 'Maintenance Form');
 
-      if (response.ok) {
+      if (result.success) {
         alert('Maintenance plan request submitted! We will contact you to schedule your service.');
         (e.target as HTMLFormElement).reset();
       } else {

@@ -272,7 +272,7 @@ export default function SuffernNY() {
               Call (914) 557-6816
             </a>
             <a 
-              href="#" 
+              href="/contact" 
               className="border-2 border-white text-white hover:bg-white hover:text-orange-500 px-8 py-4 rounded-lg font-semibold text-lg transition-colors whitespace-nowrap"
             >
               Schedule Service

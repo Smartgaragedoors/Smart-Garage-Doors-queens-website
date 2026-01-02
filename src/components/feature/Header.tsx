@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useLocation as useLocationContext } from '../../contexts/LocationContext';
-import { useLocation as useRouterLocation } from 'react-router-dom';
+import { useLocation as useRouterLocation, useNavigate } from 'react-router-dom';
 import { trackPhoneClick } from '../../utils/analytics';
 
 export default function Header() {
@@ -9,10 +9,25 @@ export default function Header() {
   const [isServiceAreasOpen, setIsServiceAreasOpen] = useState(false);
   const { location, locationName } = useLocationContext();
   const routerLocation = useRouterLocation();
+  const navigate = useNavigate();
 
   // Get current page to show relevant address
   const currentPath = routerLocation.pathname;
   let currentAddress = "New York, New Jersey, Connecticut";
+  
+  // Determine contact link: use #contact on home page for smooth scroll, /contact on other pages
+  const contactLink = currentPath === '/' || currentPath === '/home' ? '#contact' : '/contact';
+  
+  // Handle About link click - use navigate for cross-page navigation to preserve hash
+  const handleAboutClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (currentPath === '/' || currentPath === '/home') {
+      // On home page, let default behavior handle smooth scroll
+      return;
+    }
+    // On other pages, use navigate to go to home with hash
+    e.preventDefault();
+    navigate('/#about');
+  };
 
   // Use detected location first, then fall back to route-based
   if (location && !currentPath.includes('/garage-door-repair-') && !currentPath.includes('/service-areas/')) {
@@ -43,23 +58,23 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-4 flex justify-between items-center text-xs md:text-sm">
           <div className="flex items-center space-x-3 md:space-x-6">
             <a href="mailto:info@smartestgaragedoors.com" className="hidden md:flex items-center space-x-2 hover:text-orange-400 transition-colors">
-              <i className="ri-mail-line"></i>
+              <i className="ri-mail-line" aria-hidden="true"></i>
               <span>info@smartestgaragedoors.com</span>
             </a>
             <div className="hidden md:flex items-center space-x-2">
-              <i className="ri-map-pin-line"></i>
+              <i className="ri-map-pin-line" aria-hidden="true"></i>
               <span>{currentAddress}</span>
             </div>
           </div>
           <div className="flex items-center space-x-2 md:space-x-4">
-            <a href="https://www.facebook.com/profile.php?id=61563773137785" target="_blank" rel="noopener noreferrer" className="hidden md:block hover:text-orange-400 transition-colors">
-              <i className="ri-facebook-fill"></i>
+            <a href="https://www.facebook.com/profile.php?id=61563773137785" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook page" className="hidden md:block hover:text-orange-400 transition-colors">
+              <i className="ri-facebook-fill" aria-hidden="true"></i>
             </a>
-            <a href="https://www.instagram.com/smartgaragedoorss/" target="_blank" rel="noopener noreferrer" className="hidden md:block hover:text-orange-400 transition-colors">
-              <i className="ri-instagram-fill"></i>
+            <a href="https://www.instagram.com/smartgaragedoorss/" target="_blank" rel="noopener noreferrer" aria-label="Visit our Instagram page" className="hidden md:block hover:text-orange-400 transition-colors">
+              <i className="ri-instagram-fill" aria-hidden="true"></i>
             </a>
-            <a href="https://maps.app.goo.gl/GjfsFbH5kQ2smvdU8" target="_blank" rel="noopener noreferrer" className="hidden md:block hover:text-orange-400 transition-colors">
-              <i className="ri-map-pin-fill"></i>
+            <a href="https://maps.app.goo.gl/GjfsFbH5kQ2smvdU8" target="_blank" rel="noopener noreferrer" aria-label="View our location on Google Maps" className="hidden md:block hover:text-orange-400 transition-colors">
+              <i className="ri-map-pin-fill" aria-hidden="true"></i>
             </a>
           </div>
         </div>
@@ -102,9 +117,11 @@ export default function Header() {
               >
                 <button 
                   className="text-gray-700 hover:text-orange-500 font-medium flex items-center"
+                  aria-expanded={isServicesOpen}
+                  aria-haspopup="true"
                 >
                   Services
-                  <i className="ri-arrow-down-s-line ml-1"></i>
+                  <i className="ri-arrow-down-s-line ml-1" aria-hidden="true"></i>
                 </button>
                 {isServicesOpen && (
                   <div 
@@ -130,9 +147,13 @@ export default function Header() {
                 onMouseEnter={() => setIsServiceAreasOpen(true)}
                 onMouseLeave={() => setIsServiceAreasOpen(false)}
               >
-                <button className="flex items-center space-x-1 text-gray-700 hover:text-orange-500 transition-colors whitespace-nowrap cursor-pointer">
+                <button 
+                  className="flex items-center space-x-1 text-gray-700 hover:text-orange-500 transition-colors whitespace-nowrap cursor-pointer"
+                  aria-expanded={isServiceAreasOpen}
+                  aria-haspopup="true"
+                >
                   <span>Service Areas</span>
-                  <i className="ri-arrow-down-s-line"></i>
+                  <i className="ri-arrow-down-s-line" aria-hidden="true"></i>
                 </button>
                 {isServiceAreasOpen && (
                   <div 
@@ -181,10 +202,10 @@ export default function Header() {
                 )}
               </div>
 
-              <a href="#about" className="text-gray-700 hover:text-orange-500 font-medium transition-colors">
+              <a href={aboutLink} className="text-gray-700 hover:text-orange-500 font-medium transition-colors">
                 About
               </a>
-              <a href="#contact" className="text-gray-700 hover:text-orange-500 font-medium transition-colors">
+              <a href={contactLink} className="text-gray-700 hover:text-orange-500 font-medium transition-colors">
                 Contact
               </a>
             </div>
@@ -205,15 +226,18 @@ export default function Header() {
               <button 
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="lg:hidden text-gray-700 hover:text-orange-500 transition-colors p-2"
+                aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+                aria-expanded={isMenuOpen}
+                aria-controls="mobile-menu"
               >
-                <i className={`text-2xl ${isMenuOpen ? 'ri-close-line' : 'ri-menu-line'}`}></i>
+                <i className={`text-2xl ${isMenuOpen ? 'ri-close-line' : 'ri-menu-line'}`} aria-hidden="true"></i>
               </button>
             </div>
           </div>
 
           {/* Mobile Menu */}
           {isMenuOpen && (
-            <div className="lg:hidden border-t border-gray-200 py-4 max-h-96 overflow-y-auto">
+            <div id="mobile-menu" className="lg:hidden border-t border-gray-200 py-4 max-h-96 overflow-y-auto">
               <div className="space-y-2">
                 <a href="/" className="block text-gray-700 hover:text-orange-500 font-medium transition-colors py-2">
                   Home
@@ -245,10 +269,10 @@ export default function Header() {
                   </div>
                 </div>
 
-                <a href="#about" className="block text-gray-700 hover:text-orange-500 font-medium transition-colors py-2">
+                <a href={aboutLink} className="block text-gray-700 hover:text-orange-500 font-medium transition-colors py-2">
                   About
                 </a>
-                <a href="#contact" className="block text-gray-700 hover:text-orange-500 font-medium transition-colors py-2">
+                <a href={contactLink} className="block text-gray-700 hover:text-orange-500 font-medium transition-colors py-2">
                   Contact
                 </a>
                 

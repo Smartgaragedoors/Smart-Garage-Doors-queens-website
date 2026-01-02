@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { trackFormSubmit } from '../../utils/analytics';
+import { submitForm } from '../../utils/formSubmission';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -18,20 +19,9 @@ export default function Contact() {
     setSubmitStatus('idle');
 
     try {
-      const formBody = new URLSearchParams();
-      Object.entries(formData).forEach(([key, value]) => {
-        formBody.append(key, value);
-      });
+      const result = await submitForm(formData, 'Contact Form');
 
-      const response = await fetch('https://readdy.ai/api/public/form/submit/b69172f381814b1e7c2f555a7760d2b1/contact-form', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: formBody.toString()
-      });
-
-      if (response.ok) {
+      if (result.success) {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', phone: '', service: '', message: '' });
         trackFormSubmit('Contact Form', 'contact');

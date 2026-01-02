@@ -24,21 +24,14 @@ export default function Hero() {
   // Determine which image size to use based on screen size
   const [imageSize, setImageSize] = useState<'800' | '1280' | '1920'>('1280');
   
-  // #region agent log
   useEffect(() => {
-    fetch('http://127.0.0.1:7243/ingest/6c3bdf5c-af68-469f-9337-ff93e6c01d2a',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'Hero.tsx:28',message:'Hero component rendered',data:{hasLocation:!!location,locationName,basePath,imageSize},timestamp:Date.now(),sessionId:'debug-session',runId:'run2',hypothesisId:'A'})}).catch(()=>{});
-    // #endregion agent log
-    
-    // #region agent log
     const updateImageSize = () => {
       const width = window.innerWidth;
       const newSize = width <= 800 ? '800' : width >= 1920 ? '1920' : '1280';
       if (newSize !== imageSize) {
         setImageSize(newSize);
-        fetch('http://127.0.0.1:7243/ingest/6c3bdf5c-af68-469f-9337-ff93e6c01d2a',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'Hero.tsx:35',message:'Image size changed',data:{oldSize:imageSize,newSize,windowWidth:width},timestamp:Date.now(),sessionId:'debug-session',runId:'run2',hypothesisId:'H'})}).catch(()=>{});
       }
     };
-    // #endregion agent log
     
     updateImageSize();
     window.addEventListener('resize', updateImageSize);
@@ -46,19 +39,6 @@ export default function Hero() {
   }, [location, locationName, imageSize]);
   
   const heroImageUrl = `${basePath}hero-van-${imageSize}.jpg`;
-  
-  // #region agent log
-  useEffect(() => {
-    const testImg = new Image();
-    testImg.onload = () => {
-      fetch('http://127.0.0.1:7243/ingest/6c3bdf5c-af68-469f-9337-ff93e6c01d2a',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'Hero.tsx:51',message:'Background image loaded successfully',data:{src:heroImageUrl,width:testImg.width,height:testImg.height},timestamp:Date.now(),sessionId:'debug-session',runId:'run2',hypothesisId:'E'})}).catch(()=>{});
-    };
-    testImg.onerror = () => {
-      fetch('http://127.0.0.1:7243/ingest/6c3bdf5c-af68-469f-9337-ff93e6c01d2a',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'Hero.tsx:56',message:'Background image failed to load',data:{src:heroImageUrl,fullUrl:typeof window!=='undefined'?new URL(heroImageUrl,window.location.origin).href:'N/A'},timestamp:Date.now(),sessionId:'debug-session',runId:'run2',hypothesisId:'F'})}).catch(()=>{});
-    };
-    testImg.src = heroImageUrl;
-  }, [heroImageUrl]);
-  // #endregion agent log
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -84,16 +64,8 @@ export default function Hero() {
         aria-hidden="true"
         width="1280"
         height="720"
-        onError={(e) => {
-          // #region agent log
-          fetch('http://127.0.0.1:7243/ingest/6c3bdf5c-af68-469f-9337-ff93e6c01d2a',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'Hero.tsx:82',message:'SEO img load error',data:{src:e.currentTarget.src,basePath,imageSize},timestamp:Date.now(),sessionId:'debug-session',runId:'run2',hypothesisId:'C'})}).catch(()=>{});
-          // #endregion agent log
-        }}
-        onLoad={() => {
-          // #region agent log
-          fetch('http://127.0.0.1:7243/ingest/6c3bdf5c-af68-469f-9337-ff93e6c01d2a',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'Hero.tsx:87',message:'SEO img loaded successfully',data:{src:heroImageUrl},timestamp:Date.now(),sessionId:'debug-session',runId:'run2',hypothesisId:'D'})}).catch(()=>{});
-          // #endregion agent log
-        }}
+        onError={() => {}}
+        onLoad={() => {}}
       />
       
       <div className="max-w-7xl mx-auto px-4 text-center text-white relative z-10">

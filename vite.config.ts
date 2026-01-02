@@ -3,7 +3,9 @@ import react from '@vitejs/plugin-react-swc'
 import { resolve } from 'node:path'
 import AutoImport from 'unplugin-auto-import/vite'
 
-const base = process.env.BASE_PATH || '/Smart-Garage-Doors-queens-website/'
+// Default to '/' for local dev, GitHub Pages uses '/Smart-Garage-Doors-queens-website/'
+// Set BASE_PATH environment variable for GitHub Pages builds
+const base = process.env.BASE_PATH || '/'
 const isPreview = process.env.IS_PREVIEW  ? true : false;
 // https://vite.dev/config/
 export default defineConfig({
@@ -66,12 +68,13 @@ export default defineConfig({
     }),
   ],
   base,
+  esbuild: {
+    drop: process.env.NODE_ENV === 'production' ? ['console', 'debugger'] : [],
+  },
   build: {
     sourcemap: false, // Disable sourcemaps in production for faster builds
     outDir: 'out',
     minify: 'esbuild',
-    // Note: esbuild automatically removes comments and provides excellent minification
-    // Dropping console/debugger is handled by Vite's build process
     rollupOptions: {
       output: {
         manualChunks: (id) => {

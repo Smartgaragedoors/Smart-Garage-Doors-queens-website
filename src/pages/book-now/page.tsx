@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import Header from '../../components/feature/Header';
 import Footer from '../../components/feature/Footer';
+import { submitForm } from '../../utils/formSubmission';
 
 export default function BookNowPage() {
   const [formData, setFormData] = useState({
@@ -32,15 +33,9 @@ export default function BookNowPage() {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch('https://readdy.ai/api/form/submit/book-now-form', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: new URLSearchParams(formData).toString()
-      });
+      const result = await submitForm(formData, 'Book Now Form');
 
-      if (response.ok) {
+      if (result.success) {
         setSubmitStatus('success');
         setFormData({
           name: '',
