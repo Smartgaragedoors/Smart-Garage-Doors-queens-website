@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
 import Reviews from '../../../components/feature/Reviews';
+import ServiceLinks from '../../../components/seo/ServiceLinks';
 
 const NewRochelleNY = () => {
   useEffect(() => {
@@ -347,6 +348,11 @@ const NewRochelleNY = () => {
       </div>
 
       <Reviews />
+      <ServiceLinks 
+        title="Complete Garage Door Services in New Rochelle, NY"
+        showDescription={true}
+        locationPath="/garage-door-repair-new-rochelle-ny/"
+      />
       <Footer />
     </div>
   );

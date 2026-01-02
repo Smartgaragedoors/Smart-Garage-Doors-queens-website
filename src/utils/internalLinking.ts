@@ -122,3 +122,119 @@ export function getLocationContext(locationName: string): {
   };
 }
 
+// Get service area links for service pages (incoming links TO location pages)
+export function getServiceAreaLinksForService(serviceType: string): InternalLink[] {
+  // Top service areas to link to from service pages
+  const topServiceAreas: InternalLink[] = [
+    { url: '/service-areas/queens-ny/', text: 'Queens, NY', description: 'Garage door services in Queens' },
+    { url: '/garage-door-repair-brooklyn-ny/', text: 'Brooklyn, NY', description: 'Garage door services in Brooklyn' },
+    { url: '/garage-door-repair-long-island-ny/', text: 'Long Island, NY', description: 'Garage door services on Long Island' },
+    { url: '/garage-door-repair-staten-island-ny/', text: 'Staten Island, NY', description: 'Garage door services in Staten Island' },
+    { url: '/garage-door-repair-white-plains-ny/', text: 'White Plains, NY', description: 'Garage door services in White Plains' },
+    { url: '/garage-door-repair-stamford-ct/', text: 'Stamford, CT', description: 'Garage door services in Stamford' },
+    { url: '/garage-door-repair-greenwich-ct/', text: 'Greenwich, CT', description: 'Garage door services in Greenwich' },
+    { url: '/garage-door-repair-westchester-county-ny/', text: 'Westchester County, NY', description: 'Garage door services in Westchester County' },
+    { url: '/garage-door-repair-nassau-county-ny/', text: 'Nassau County, NY', description: 'Garage door services in Nassau County' },
+    { url: '/garage-door-repair-suffolk-county-ny/', text: 'Suffolk County, NY', description: 'Garage door services in Suffolk County' },
+  ];
+
+  return topServiceAreas;
+}
+
+// Get service links for location pages (incoming links TO service pages)
+export function getServiceLinksForLocation(locationPath: string): InternalLink[] {
+  // All services that should be linked from location pages
+  const allServices: InternalLink[] = [
+    { 
+      url: '/garage-door-repair/', 
+      text: 'Garage Door Repair',
+      description: 'Professional garage door repair services'
+    },
+    { 
+      url: '/garage-door-installation/', 
+      text: 'Garage Door Installation',
+      description: 'Expert garage door installation'
+    },
+    { 
+      url: '/emergency-garage-door-repair/', 
+      text: 'Emergency Repairs',
+      description: '24/7 emergency garage door service'
+    },
+    { 
+      url: '/spring-replacement/', 
+      text: 'Spring Replacement',
+      description: 'Professional spring replacement'
+    },
+    { 
+      url: '/opener-repair-installation/', 
+      text: 'Opener Repair',
+      description: 'Garage door opener services'
+    },
+    { 
+      url: '/cable-roller-repair/', 
+      text: 'Cable & Roller Repair',
+      description: 'Cable and roller replacement'
+    },
+  ];
+
+  return allServices;
+}
+
+// Get related location pages (for cross-linking between location pages)
+export function getRelatedLocations(currentLocationPath: string): InternalLink[] {
+  // Extract location from path
+  const locationMap: Record<string, InternalLink[]> = {
+    'queens-ny': [
+      { url: '/garage-door-repair-brooklyn-ny/', text: 'Brooklyn, NY' },
+      { url: '/garage-door-repair-long-island-ny/', text: 'Long Island, NY' },
+      { url: '/garage-door-repair-staten-island-ny/', text: 'Staten Island, NY' },
+      { url: '/garage-door-repair-flushing-ny/', text: 'Flushing, NY' },
+      { url: '/garage-door-repair-white-plains-ny/', text: 'White Plains, NY' },
+    ],
+    'brooklyn-ny': [
+      { url: '/service-areas/queens-ny/', text: 'Queens, NY' },
+      { url: '/garage-door-repair-long-island-ny/', text: 'Long Island, NY' },
+      { url: '/garage-door-repair-staten-island-ny/', text: 'Staten Island, NY' },
+      { url: '/garage-door-repair-flushing-ny/', text: 'Flushing, NY' },
+      { url: '/garage-door-repair-white-plains-ny/', text: 'White Plains, NY' },
+    ],
+    'long-island-ny': [
+      { url: '/service-areas/queens-ny/', text: 'Queens, NY' },
+      { url: '/garage-door-repair-brooklyn-ny/', text: 'Brooklyn, NY' },
+      { url: '/garage-door-repair-staten-island-ny/', text: 'Staten Island, NY' },
+      { url: '/garage-door-repair-nassau-county-ny/', text: 'Nassau County, NY' },
+      { url: '/garage-door-repair-suffolk-county-ny/', text: 'Suffolk County, NY' },
+    ],
+    'stamford-ct': [
+      { url: '/garage-door-repair-greenwich-ct/', text: 'Greenwich, CT' },
+      { url: '/garage-door-repair-darien-ct/', text: 'Darien, CT' },
+      { url: '/new-canaan-ct/', text: 'New Canaan, CT' },
+      { url: '/westport-ct/', text: 'Westport, CT' },
+      { url: '/garage-door-repair-white-plains-ny/', text: 'White Plains, NY' },
+    ],
+    'white-plains-ny': [
+      { url: '/garage-door-repair-scarsdale-ny/', text: 'Scarsdale, NY' },
+      { url: '/garage-door-repair-new-rochelle-ny/', text: 'New Rochelle, NY' },
+      { url: '/garage-door-repair-westchester-county-ny/', text: 'Westchester County, NY' },
+      { url: '/garage-door-repair-stamford-ct/', text: 'Stamford, CT' },
+      { url: '/garage-door-repair-suffern-ny/', text: 'Suffern, NY' },
+    ],
+  };
+
+  // Try to match current path
+  for (const [key, links] of Object.entries(locationMap)) {
+    if (currentLocationPath.includes(key)) {
+      return links;
+    }
+  }
+
+  // Default: return top locations
+  return [
+    { url: '/service-areas/queens-ny/', text: 'Queens, NY' },
+    { url: '/garage-door-repair-brooklyn-ny/', text: 'Brooklyn, NY' },
+    { url: '/garage-door-repair-long-island-ny/', text: 'Long Island, NY' },
+    { url: '/garage-door-repair-stamford-ct/', text: 'Stamford, CT' },
+    { url: '/garage-door-repair-white-plains-ny/', text: 'White Plains, NY' },
+  ];
+}
+

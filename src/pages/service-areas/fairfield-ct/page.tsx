@@ -2,6 +2,7 @@
 import { useEffect } from 'react';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
+import ServiceLinks from '../../../components/seo/ServiceLinks';
 
 const FairfieldCT = () => {
   useEffect(() => {
@@ -435,6 +436,11 @@ const FairfieldCT = () => {
         </div>
       </section>
 
+      <ServiceLinks 
+        title="Complete Garage Door Services in Fairfield, CT"
+        showDescription={true}
+        locationPath="/garage-door-repair-fairfield-ct/"
+      />
       <Footer />
     </div>
   );

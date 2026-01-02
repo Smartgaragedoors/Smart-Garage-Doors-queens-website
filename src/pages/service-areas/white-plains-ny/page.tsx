@@ -5,6 +5,7 @@ import Footer from '../../../components/feature/Footer';
 import Reviews from '../../../components/feature/Reviews';
 import Breadcrumbs from '../../../components/seo/Breadcrumbs';
 import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
+import ServiceLinks from '../../../components/seo/ServiceLinks';
 
 const WhitePlainsNY = () => {
   useEffect(() => {
@@ -355,6 +356,11 @@ const WhitePlainsNY = () => {
       </div>
 
       <Reviews />
+      <ServiceLinks 
+        title="Complete Garage Door Services in White Plains, NY"
+        showDescription={true}
+        locationPath="/garage-door-repair-white-plains-ny/"
+      />
       <Footer />
     </div>
   );

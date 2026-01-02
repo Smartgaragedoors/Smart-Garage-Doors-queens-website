@@ -4,6 +4,7 @@ import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
 import Breadcrumbs from '../../../components/seo/Breadcrumbs';
 import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
+import ServiceLinks from '../../../components/seo/ServiceLinks';
 
 const QueensNY = () => {
   useEffect(() => {
@@ -587,6 +588,13 @@ const QueensNY = () => {
           </div>
         </div>
       </section>
+
+      {/* Service Links - Creates incoming internal links to service pages */}
+      <ServiceLinks 
+        title="Complete Garage Door Services in Queens, NY"
+        showDescription={true}
+        locationPath="/service-areas/queens-ny/"
+      />
 
       {/* Contact CTA */}
       <section className="py-16 bg-blue-900 text-white">

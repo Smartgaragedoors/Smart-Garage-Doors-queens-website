@@ -2,6 +2,7 @@
 import { useEffect } from 'react';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
+import ServiceLinks from '../../../components/seo/ServiceLinks';
 
 const BergenCountyNJ = () => {
   useEffect(() => {
@@ -371,6 +372,11 @@ const BergenCountyNJ = () => {
         </div>
       </section>
 
+      <ServiceLinks 
+        title="Complete Garage Door Services in Bergen County, NJ"
+        showDescription={true}
+        locationPath="/garage-door-repair-bergen-county-nj/"
+      />
       <Footer />
     </div>
   );

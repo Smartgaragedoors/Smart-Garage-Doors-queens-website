@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
 import Reviews from '../../../components/feature/Reviews';
+import ServiceLinks from '../../../components/seo/ServiceLinks';
 
 const ScarsdaleNY = () => {
   useEffect(() => {
@@ -347,6 +348,11 @@ const ScarsdaleNY = () => {
       </div>
 
       <Reviews />
+      <ServiceLinks 
+        title="Complete Garage Door Services in Scarsdale, NY"
+        showDescription={true}
+        locationPath="/garage-door-repair-scarsdale-ny/"
+      />
       <Footer />
     </div>
   );

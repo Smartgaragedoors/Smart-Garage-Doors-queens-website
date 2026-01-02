@@ -5,6 +5,7 @@ import Footer from '../../../components/feature/Footer';
 import Services from '../../../components/feature/Services';
 import Reviews from '../../../components/feature/Reviews';
 import Contact from '../../../components/feature/Contact';
+import ServiceLinks from '../../../components/seo/ServiceLinks';
 
 export default function GreenwichCTPage() {
   useEffect(() => {
@@ -174,6 +175,11 @@ export default function GreenwichCTPage() {
       <Services />
       <Reviews />
       <Contact />
+      <ServiceLinks 
+        title="Complete Garage Door Services in Greenwich, CT"
+        showDescription={true}
+        locationPath="/garage-door-repair-greenwich-ct/"
+      />
       <Footer />
     </div>
   );

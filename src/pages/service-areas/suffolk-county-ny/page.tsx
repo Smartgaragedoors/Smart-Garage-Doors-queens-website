@@ -2,6 +2,7 @@
 import { useEffect } from 'react';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
+import ServiceLinks from '../../../components/seo/ServiceLinks';
 
 const SuffolkCountyNY = () => {
   useEffect(() => {
@@ -350,6 +351,11 @@ const SuffolkCountyNY = () => {
         </div>
       </section>
 
+      <ServiceLinks 
+        title="Complete Garage Door Services in Suffolk County, NY"
+        showDescription={true}
+        locationPath="/garage-door-repair-suffolk-county-ny/"
+      />
       <Footer />
     </div>
   );

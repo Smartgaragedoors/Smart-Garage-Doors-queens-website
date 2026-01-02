@@ -4,6 +4,7 @@ import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
 import Breadcrumbs from '../../../components/seo/Breadcrumbs';
 import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
+import ServiceLinks from '../../../components/seo/ServiceLinks';
 
 const LongIslandNY = () => {
   useEffect(() => {
@@ -358,6 +359,11 @@ const LongIslandNY = () => {
         </div>
       </section>
 
+      <ServiceLinks 
+        title="Complete Garage Door Services on Long Island, NY"
+        showDescription={true}
+        locationPath="/garage-door-repair-long-island-ny/"
+      />
       <Footer />
     </div>
   );

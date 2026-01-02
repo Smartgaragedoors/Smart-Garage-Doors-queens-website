@@ -2,6 +2,7 @@
 import { useEffect } from 'react';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
+import ServiceLinks from '../../../components/seo/ServiceLinks';
 
 const WestchesterCountyNY = () => {
   useEffect(() => {
@@ -350,6 +351,11 @@ const WestchesterCountyNY = () => {
         </div>
       </section>
 
+      <ServiceLinks 
+        title="Complete Garage Door Services in Westchester County, NY"
+        showDescription={true}
+        locationPath="/garage-door-repair-westchester-county-ny/"
+      />
       <Footer />
     </div>
   );

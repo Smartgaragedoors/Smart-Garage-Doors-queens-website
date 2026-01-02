@@ -5,6 +5,7 @@ import Breadcrumbs from '../../components/seo/Breadcrumbs';
 import DynamicMetaTags from '../../components/seo/DynamicMetaTags';
 import FAQSchema from '../../components/seo/FAQSchema';
 import RelatedServices from '../../components/seo/RelatedServices';
+import ServiceAreaLinks from '../../components/seo/ServiceAreaLinks';
 import { useLocation } from '../../contexts/LocationContext';
 
 export default function GarageDoorRepairPage() {
@@ -405,6 +406,13 @@ export default function GarageDoorRepairPage() {
 
       {/* Related Services */}
       <RelatedServices />
+
+      {/* Service Area Links - Creates incoming internal links to location pages */}
+      <ServiceAreaLinks 
+        title="Garage Door Repair Services in Your Area"
+        showDescription={true}
+        maxLinks={10}
+      />
 
       {/* CTA Section */}
       <section className="py-16 bg-blue-600 text-white">

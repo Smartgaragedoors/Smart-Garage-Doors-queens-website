@@ -1,0 +1,146 @@
+# Smartest Garage Doors - Garage Door Repair & Installation Services
+
+## Overview
+Smartest Garage Doors (also known as Smart Garage Doors) is a professional garage door repair and installation company serving New York, New Jersey, and Connecticut. We provide emergency repairs, installations, maintenance, and all garage door services for residential and commercial properties.
+
+## Business Information
+- **Business Name**: Smartest Garage Doors / Smart Garage Doors
+- **Phone**: (914) 557-6816
+- **Email**: info@smartestgaragedoors.com
+- **Website**: https://smartestgaragedoors.com
+- **Service Areas**: New York (NY), New Jersey (NJ), Connecticut (CT)
+- **Rating**: 4.9/5 stars (150+ reviews)
+
+## Primary Service Locations
+1. **Flushing, NY** (Primary): 141-24 70th Ave, Flushing, NY 11367
+2. **Brooklyn, NY**: 71st 12th Ave, Dyker Heights, Brooklyn, NY 11228
+3. **Suffern, NY**: 31 Deerwood Road, Suffern, NY 10901
+
+## Core Services Offered
+1. **Garage Door Repair** - All types of garage door repairs, same-day service
+2. **Garage Door Installation** - New garage door installation and replacement
+3. **Emergency Garage Door Repair** - 24/7 emergency service
+4. **Spring Replacement** - Professional garage door spring replacement
+5. **Opener Repair & Installation** - Garage door opener services
+6. **Cable & Roller Repair** - Cable and roller replacement
+7. **Maintenance Services** - Preventive maintenance plans
+8. **Smart Technology Integration** - WiFi-enabled garage door systems
+
+## Service Areas by Location
+
+### New York (NY)
+- Queens (all neighborhoods: Astoria, Flushing, Forest Hills, Jamaica, Bayside, Elmhurst, Corona, Long Island City, Whitestone, Kew Gardens, Little Neck, St. Albans, Rego Park, Woodside, Sunnyside, Jackson Heights, Fresh Meadows, and more)
+- Brooklyn (all neighborhoods including Dyker Heights, Park Slope, Williamsburg)
+- Long Island (Nassau County, Suffolk County)
+- Staten Island
+- White Plains
+- Westchester County (Scarsdale, New Rochelle, and all Westchester communities)
+- Suffern
+
+### New Jersey (NJ)
+- Bergen County
+- Teaneck
+
+### Connecticut (CT)
+- Stamford
+- Greenwich
+- Darien
+- New Canaan
+- Westport
+- Newtown
+- Fairfield County (all communities)
+
+## Key Features & Differentiators
+- **Fast Response**: 60-90 minute response time for emergencies
+- **Same-Day Service**: Available for most non-emergency repairs
+- **Licensed Technicians**: Fully licensed and insured
+- **All Brands**: Service and installation for all major garage door brands (Clopay, Wayne Dalton, Amarr, Raynor, CHI, LiftMaster, Chamberlain, Genie, Craftsman, etc.)
+- **Multilingual Service**: Serves diverse communities with multilingual support
+- **Transparent Pricing**: No hidden fees, upfront estimates
+- **Comprehensive Warranties**: On all work performed
+- **Local Expertise**: Technicians understand local building codes and weather patterns
+
+## Website Structure
+
+### Main Pages
+- Home: `/` - Main landing page with services overview
+- Contact: `/contact` - Contact form and business information
+- Reviews: `/reviews/` - Customer reviews and testimonials
+- Blog: `/blog/` - Educational content about garage doors
+
+### Service Pages
+- Garage Door Repair: `/garage-door-repair/`
+- Garage Door Installation: `/garage-door-installation/`
+- Emergency Repairs: `/emergency-garage-door-repair/`
+- Spring Replacement: `/spring-replacement/`
+- Opener Repair: `/opener-repair-installation/`
+- Cable & Roller Repair: `/cable-roller-repair/`
+- Maintenance: `/services/maintenance/`
+- Installation Services: `/services/installation/`
+
+### Location Pages
+- Queens, NY: `/service-areas/queens-ny/`
+- Brooklyn, NY: `/garage-door-repair-brooklyn-ny/`
+- Long Island, NY: `/garage-door-repair-long-island-ny/`
+- Staten Island, NY: `/garage-door-repair-staten-island-ny/`
+- Flushing, NY: `/garage-door-repair-flushing-ny/`
+- White Plains, NY: `/garage-door-repair-white-plains-ny/`
+- Westchester County, NY: `/garage-door-repair-westchester-county-ny/`
+- Nassau County, NY: `/garage-door-repair-nassau-county-ny/`
+- Suffolk County, NY: `/garage-door-repair-suffolk-county-ny/`
+- Scarsdale, NY: `/garage-door-repair-scarsdale-ny/`
+- New Rochelle, NY: `/garage-door-repair-new-rochelle-ny/`
+- Suffern, NY: `/garage-door-repair-suffern-ny/`
+- Stamford, CT: `/garage-door-repair-stamford-ct/`
+- Greenwich, CT: `/garage-door-repair-greenwich-ct/`
+- Darien, CT: `/garage-door-repair-darien-ct/`
+- New Canaan, CT: `/new-canaan-ct/`
+- Westport, CT: `/westport-ct/`
+- Newtown, CT: `/newtown-ct/`
+- Fairfield, CT: `/garage-door-repair-fairfield-ct/`
+- Bergen County, NJ: `/garage-door-repair-bergen-county-nj/`
+- Teaneck, NJ: `/teaneck-nj/`
+
+## Common Questions & Answers
+
+**Q: What areas do you serve?**
+A: We serve all of New York (NY), New Jersey (NJ), and Connecticut (CT), with primary focus on Queens, Brooklyn, Long Island, Westchester County, Fairfield County, and Bergen County.
+
+**Q: How quickly can you respond to emergencies?**
+A: Our typical response time is 60-90 minutes for emergency calls throughout our service areas.
+
+**Q: Do you offer same-day service?**
+A: Yes, same-day service is available for most non-emergency repairs and installations.
+
+**Q: What garage door brands do you service?**
+A: We service and install all major brands including Clopay, Wayne Dalton, Amarr, Raynor, CHI, LiftMaster, Chamberlain, Genie, Craftsman, and more.
+
+**Q: Are your technicians licensed and insured?**
+A: Yes, all our technicians are fully licensed and insured.
+
+**Q: Do you offer financing?**
+A: Yes, we offer flexible financing options with low monthly payments and interest-free plans for qualified customers.
+
+**Q: What makes you different from competitors?**
+A: Faster response times (60-90 min vs 2-4 hours), comprehensive Queens coverage, 4.9/5 star rating with 150+ reviews, local expertise, multilingual service, and transparent pricing.
+
+## Technical Details
+- **Framework**: React with TypeScript
+- **Routing**: React Router
+- **Styling**: Tailwind CSS
+- **Build Tool**: Vite
+- **Deployment**: Vercel
+- **Schema Markup**: Organization, LocalBusiness, Service, FAQPage, Review schemas implemented
+- **SEO**: Dynamic meta tags, breadcrumbs, sitemap, robots.txt
+
+## Contact & Booking
+- **Phone**: (914) 557-6816
+- **Email**: info@smartestgaragedoors.com
+- **Online Booking**: `/book-now/`
+- **Hours**: 24/7 availability for emergencies
+
+## Social Media
+- Facebook: https://www.facebook.com/profile.php?id=61563773137785
+- Instagram: https://www.instagram.com/smartgaragedoorss/
+- Google Maps: https://maps.app.goo.gl/GjfsFbH5kQ2smvdU8
+

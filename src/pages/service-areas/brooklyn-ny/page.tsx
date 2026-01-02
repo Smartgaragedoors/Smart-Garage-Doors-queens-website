@@ -5,6 +5,7 @@ import Breadcrumbs from '../../../components/seo/Breadcrumbs';
 import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
 import FAQSchema from '../../../components/seo/FAQSchema';
 import RelatedServices from '../../../components/seo/RelatedServices';
+import ServiceLinks from '../../../components/seo/ServiceLinks';
 
 const BrooklynNY = () => {
   useEffect(() => {
@@ -617,6 +618,11 @@ const BrooklynNY = () => {
         </div>
       </section>
 
+      <ServiceLinks 
+        title="Complete Garage Door Services in Brooklyn, NY"
+        showDescription={true}
+        locationPath="/garage-door-repair-brooklyn-ny/"
+      />
       <Footer />
     </div>
   );

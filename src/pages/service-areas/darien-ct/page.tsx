@@ -5,6 +5,7 @@ import Footer from '../../../components/feature/Footer';
 import Services from '../../../components/feature/Services';
 import Reviews from '../../../components/feature/Reviews';
 import Contact from '../../../components/feature/Contact';
+import ServiceLinks from '../../../components/seo/ServiceLinks';
 
 export default function DarienCTPage() {
   useEffect(() => {
@@ -174,6 +175,11 @@ export default function DarienCTPage() {
       <Services />
       <Reviews />
       <Contact />
+      <ServiceLinks 
+        title="Complete Garage Door Services in Darien, CT"
+        showDescription={true}
+        locationPath="/garage-door-repair-darien-ct/"
+      />
       <Footer />
     </div>
   );

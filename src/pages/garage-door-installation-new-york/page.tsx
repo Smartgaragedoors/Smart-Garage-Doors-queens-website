@@ -4,6 +4,7 @@ import Footer from '../../components/feature/Footer';
 import Breadcrumbs from '../../components/seo/Breadcrumbs';
 import DynamicMetaTags from '../../components/seo/DynamicMetaTags';
 import FAQSchema from '../../components/seo/FAQSchema';
+import ServiceAreaLinks from '../../components/seo/ServiceAreaLinks';
 
 export default function GarageDoorInstallationNewYorkPage() {
   const faqs = [
@@ -392,6 +393,12 @@ export default function GarageDoorInstallationNewYorkPage() {
           </div>
         </div>
       </section>
+
+      <ServiceAreaLinks 
+        title="Garage Door Installation Services in Your Area"
+        showDescription={true}
+        maxLinks={10}
+      />
 
       <Footer />
     </div>

@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
+import ServiceLinks from '../../../components/seo/ServiceLinks';
 
 const StatenIslandNY = () => {
   useEffect(() => {
@@ -349,6 +350,11 @@ const StatenIslandNY = () => {
         </div>
       </section>
 
+      <ServiceLinks 
+        title="Complete Garage Door Services in Staten Island, NY"
+        showDescription={true}
+        locationPath="/garage-door-repair-staten-island-ny/"
+      />
       <Footer />
     </div>
   );

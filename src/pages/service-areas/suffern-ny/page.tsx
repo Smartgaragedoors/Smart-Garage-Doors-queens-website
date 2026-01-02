@@ -2,6 +2,7 @@
 import { useEffect } from 'react';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
+import ServiceLinks from '../../../components/seo/ServiceLinks';
 
 export default function SuffernNY() {
   useEffect(() => {
@@ -281,6 +282,11 @@ export default function SuffernNY() {
         </div>
       </section>
 
+      <ServiceLinks 
+        title="Complete Garage Door Services in Suffern, NY"
+        showDescription={true}
+        locationPath="/garage-door-repair-suffern-ny/"
+      />
       <Footer />
     </div>
   );

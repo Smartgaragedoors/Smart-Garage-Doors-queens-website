@@ -5,6 +5,7 @@ import Breadcrumbs from '../../../components/seo/Breadcrumbs';
 import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
 import FAQSchema from '../../../components/seo/FAQSchema';
 import RelatedServices from '../../../components/seo/RelatedServices';
+import ServiceAreaLinks from '../../../components/seo/ServiceAreaLinks';
 import { useLocation } from '../../../contexts/LocationContext';
 import { submitForm } from '../../../utils/formSubmission';
 
@@ -556,6 +557,11 @@ export default function CableRollerRepairPage() {
 
       <FAQSchema faqs={faqs} />
       <RelatedServices />
+      <ServiceAreaLinks 
+        title="Cable & Roller Repair Services in Your Area"
+        showDescription={true}
+        maxLinks={10}
+      />
       <Footer />
     </div>
   );

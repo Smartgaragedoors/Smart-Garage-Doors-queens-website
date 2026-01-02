@@ -5,6 +5,7 @@ import Footer from '../../../components/feature/Footer';
 import Services from '../../../components/feature/Services';
 import Reviews from '../../../components/feature/Reviews';
 import Contact from '../../../components/feature/Contact';
+import ServiceLinks from '../../../components/seo/ServiceLinks';
 
 export default function WestportCTPage() {
   useEffect(() => {
@@ -174,6 +175,11 @@ export default function WestportCTPage() {
       <Services />
       <Reviews />
       <Contact />
+      <ServiceLinks 
+        title="Complete Garage Door Services in Westport, CT"
+        showDescription={true}
+        locationPath="/westport-ct/"
+      />
       <Footer />
     </div>
   );

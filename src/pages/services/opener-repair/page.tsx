@@ -4,6 +4,7 @@ import Breadcrumbs from '../../../components/seo/Breadcrumbs';
 import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
 import FAQSchema from '../../../components/seo/FAQSchema';
 import RelatedServices from '../../../components/seo/RelatedServices';
+import ServiceAreaLinks from '../../../components/seo/ServiceAreaLinks';
 import { useLocation } from '../../../contexts/LocationContext';
 
 export default function OpenerRepair() {
@@ -320,6 +321,11 @@ export default function OpenerRepair() {
       </main>
 
       <RelatedServices />
+      <ServiceAreaLinks 
+        title="Opener Repair Services in Your Area"
+        showDescription={true}
+        maxLinks={10}
+      />
       <Footer />
     </div>
   );

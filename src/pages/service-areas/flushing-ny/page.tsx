@@ -7,6 +7,7 @@ import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
 import Services from '../../../components/feature/Services';
 import Reviews from '../../../components/feature/Reviews';
 import Contact from '../../../components/feature/Contact';
+import ServiceLinks from '../../../components/seo/ServiceLinks';
 
 export default function FlushingNYPage() {
   useEffect(() => {
@@ -182,6 +183,11 @@ export default function FlushingNYPage() {
       <Services />
       <Reviews />
       <Contact />
+      <ServiceLinks 
+        title="Complete Garage Door Services in Flushing, NY"
+        showDescription={true}
+        locationPath="/garage-door-repair-flushing-ny/"
+      />
       <Footer />
     </div>
   );

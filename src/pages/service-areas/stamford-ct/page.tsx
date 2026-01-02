@@ -2,6 +2,7 @@ import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
 import Breadcrumbs from '../../../components/seo/Breadcrumbs';
 import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
+import ServiceLinks from '../../../components/seo/ServiceLinks';
 
 const StamfordCT = () => {
   return (
@@ -363,6 +364,11 @@ const StamfordCT = () => {
         </div>
       </section>
 
+      <ServiceLinks 
+        title="Complete Garage Door Services in Stamford, CT"
+        showDescription={true}
+        locationPath="/garage-door-repair-stamford-ct/"
+      />
       <Footer />
     </div>
   );

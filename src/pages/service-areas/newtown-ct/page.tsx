@@ -5,6 +5,7 @@ import Footer from '../../../components/feature/Footer';
 import Services from '../../../components/feature/Services';
 import Reviews from '../../../components/feature/Reviews';
 import Contact from '../../../components/feature/Contact';
+import ServiceLinks from '../../../components/seo/ServiceLinks';
 
 export default function NewtownCTPage() {
   useEffect(() => {
@@ -174,6 +175,11 @@ export default function NewtownCTPage() {
       <Services />
       <Reviews />
       <Contact />
+      <ServiceLinks 
+        title="Complete Garage Door Services in Newtown, CT"
+        showDescription={true}
+        locationPath="/newtown-ct/"
+      />
       <Footer />
     </div>
   );
