@@ -5,16 +5,59 @@ import { BUSINESS_INFO } from '../../config/business-info';
 
 const Reviews = () => {
   useEffect(() => {
-    // Load the Google Reviews widget script if not already loaded
-    if (!document.querySelector('script[src="https://widgets.sociablekit.com/google-reviews/widget.js"]')) {
-      const script = document.createElement('script');
-      script.src = 'https://widgets.sociablekit.com/google-reviews/widget.js';
-      script.async = true;
-      script.defer = true;
-      script.onerror = () => {
-        console.warn('Failed to load Google Reviews widget script');
-      };
-      document.head.appendChild(script);
+    // Defer widget loading to prevent forced reflows - load only when component is visible
+    const loadWidget = () => {
+      if (!document.querySelector('script[src="https://widgets.sociablekit.com/google-reviews/widget.js"]')) {
+        const script = document.createElement('script');
+        script.src = 'https://widgets.sociablekit.com/google-reviews/widget.js';
+        script.async = true;
+        script.defer = true;
+        script.onerror = () => {
+          if (process.env.NODE_ENV === 'development') {
+            console.warn('Failed to load Google Reviews widget script');
+          }
+        };
+        document.head.appendChild(script);
+      }
+    };
+
+    // Use Intersection Observer to load widget only when Reviews section is visible
+    const reviewsSection = document.getElementById('reviews');
+    if (reviewsSection && 'IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              // Load widget when section is visible, but defer to avoid blocking
+              if ('requestIdleCallback' in window) {
+                requestIdleCallback(loadWidget, { timeout: 2000 });
+              } else {
+                setTimeout(loadWidget, 1000);
+              }
+              observer.disconnect();
+            }
+          });
+        },
+        { rootMargin: '200px' } // Start loading 200px before section is visible
+      );
+      observer.observe(reviewsSection);
+    } else {
+      // Fallback: load after page is interactive
+      if (document.readyState === 'complete') {
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(loadWidget, { timeout: 3000 });
+        } else {
+          setTimeout(loadWidget, 2000);
+        }
+      } else {
+        window.addEventListener('load', () => {
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(loadWidget, { timeout: 3000 });
+          } else {
+            setTimeout(loadWidget, 2000);
+          }
+        });
+      }
     }
   }, []);
 

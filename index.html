@@ -8,7 +8,8 @@
     
     <!-- Performance: Resource Hints - prioritize critical resources -->
     <link rel="preconnect" href="https://static.readdy.ai" crossorigin />
-    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- Defer non-critical connections -->
     <link rel="dns-prefetch" href="https://readdy.ai" />
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
@@ -111,7 +112,7 @@
       })();
     </script>
     <!-- Prefetch non-critical external resources - defer to avoid blocking -->
-    <link rel="prefetch" href="https://widgets.sociablekit.com" as="script" />
+    <!-- Note: SociableKit widget is now loaded via Intersection Observer to prevent forced reflows -->
     
     <!-- Preload hero image for mobile - critical above-the-fold content -->
     <link rel="preload" as="image" href="/hero-van-800.webp" type="image/webp" media="(max-width: 800px)" fetchpriority="high" />
