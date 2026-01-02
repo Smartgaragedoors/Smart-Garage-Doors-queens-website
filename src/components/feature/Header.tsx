@@ -86,10 +86,10 @@ export default function Header() {
           <div className="flex justify-between items-center py-3 md:py-4">
             {/* Logo */}
             <div className="flex items-center">
-              <a href="/" className="flex items-center space-x-2 md:space-x-3">
+              <a href="/" className="flex items-center space-x-2 md:space-x-3" aria-label="Smart Garage Doors Home">
                 <img 
                   src="https://static.readdy.ai/image/b69172f381814b1e7c2f555a7760d2b1/b5abc60311785d6f2fb733a6d104ca55.webp" 
-                  alt="Smart Garage Doors"
+                  alt=""
                   className="h-8 md:h-12 w-auto"
                   loading="eager"
                   fetchPriority="high"

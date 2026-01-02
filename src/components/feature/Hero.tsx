@@ -73,7 +73,7 @@ export default function Hero() {
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
             Professional <span className="text-orange-400">Garage Door</span> Services
           </h1>
-          <p className="text-xl md:text-2xl mb-4 text-gray-200 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl mb-4 text-gray-100 max-w-3xl mx-auto leading-relaxed">
             {responseTimeText}
           </p>
           {location && !isLoading && (
@@ -82,7 +82,7 @@ export default function Hero() {
             </p>
           )}
           {!location && !isLoading && (
-            <p className="text-lg md:text-xl mb-8 text-gray-200 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl mb-8 text-gray-100 max-w-3xl mx-auto">
               {serviceAreaText}
             </p>
           )}
@@ -94,9 +94,10 @@ export default function Hero() {
                     trackPhoneClick('914-557-6816');
                     trackEvent('cta_click', { category: 'Hero', action: 'phone_click', label: 'Hero CTA' });
                   }}
+                  aria-label="Call Smart Garage Doors from hero section"
                   className="inline-flex items-center justify-center font-bold transition-all duration-300 cursor-pointer whitespace-nowrap bg-orange-500 hover:bg-orange-600 text-white shadow-2xl hover:shadow-3xl px-8 py-4 text-lg rounded-full transform hover:scale-105"
                 >
-                  <i className="ri-phone-line mr-3 text-xl"></i>
+                  <i className="ri-phone-line mr-3 text-xl" aria-hidden="true"></i>
                   {ctaText}
                 </a>
                 <a 
@@ -113,19 +114,19 @@ export default function Hero() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
               <div className="text-3xl font-bold text-orange-400">24/7</div>
-              <div className="text-sm text-gray-200">Emergency Service</div>
+              <div className="text-sm text-gray-100">Emergency Service</div>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
               <div className="text-3xl font-bold text-orange-400">15+</div>
-              <div className="text-sm text-gray-200">Years Experience</div>
+              <div className="text-sm text-gray-100">Years Experience</div>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
               <div className="text-3xl font-bold text-orange-400">1000+</div>
-              <div className="text-sm text-gray-200">Happy Customers</div>
+              <div className="text-sm text-gray-100">Happy Customers</div>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
               <div className="text-3xl font-bold text-orange-400">100%</div>
-              <div className="text-sm text-gray-200">Satisfaction</div>
+              <div className="text-sm text-gray-100">Satisfaction</div>
             </div>
           </div>
         </div>

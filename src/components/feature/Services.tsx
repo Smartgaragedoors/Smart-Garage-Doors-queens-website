@@ -73,12 +73,13 @@ export default function Services() {
         <div className="mt-16 text-center">
           <div className="bg-gradient-to-r from-blue-900 to-blue-800 rounded-lg p-12">
             <h3 className="text-3xl font-bold text-white mb-4">Need Garage Door Service?</h3>
-            <p className="text-xl text-gray-200 mb-8">Call us now for fast, reliable service</p>
+            <p className="text-xl text-gray-100 mb-8">Call us now for fast, reliable service</p>
             <a 
               href="tel:914-557-6816"
+              aria-label="Call Smart Garage Doors from services section"
               className="inline-flex items-center justify-center font-bold transition-all duration-300 cursor-pointer whitespace-nowrap bg-orange-500 hover:bg-orange-600 text-white shadow-2xl hover:shadow-3xl px-8 py-4 text-lg rounded-full transform hover:scale-105"
             >
-              <i className="ri-phone-line mr-3 text-xl"></i>
+              <i className="ri-phone-line mr-3 text-xl" aria-hidden="true"></i>
               Call (914) 557-6816
             </a>
           </div>

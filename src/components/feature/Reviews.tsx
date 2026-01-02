@@ -63,9 +63,10 @@ const Reviews = () => {
             </a>
             <a
               href="tel:+19145576816"
+              aria-label="Call Smart Garage Doors from reviews section"
               className="inline-flex items-center px-8 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors whitespace-nowrap cursor-pointer"
             >
-              <i className="ri-phone-fill mr-2"></i>
+              <i className="ri-phone-fill mr-2" aria-hidden="true"></i>
               Call (914) 557-6816
             </a>
           </div>

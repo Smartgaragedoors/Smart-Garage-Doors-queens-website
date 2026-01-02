@@ -9,8 +9,11 @@ export default function Testimonials() {
         <div className="mb-8">
           <img 
             src="https://smartestgaragedoors.com/wp-content/uploads/2025/02/qoute.png" 
-            alt="Quote"
+            alt=""
             className="w-16 h-16 mx-auto"
+            loading="lazy"
+            width="64"
+            height="64"
           />
         </div>
 
@@ -27,7 +30,7 @@ export default function Testimonials() {
         <h3 className="text-3xl font-bold text-white mb-6">
           A Beautiful And Functional Garage Door Is Within Reach
         </h3>
-        <p className="text-xl text-gray-200 mb-8">
+        <p className="text-xl text-gray-100 mb-8">
           Contact us right away to get garage door repair, replacement or installation services in Flushing, Hempstead & Queens, NY.
         </p>
 
