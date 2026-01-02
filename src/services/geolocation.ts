@@ -230,3 +230,4 @@ export function getResponseTime(location: LocationData | null): string {
   return '90-120 minutes';
 }
 
+

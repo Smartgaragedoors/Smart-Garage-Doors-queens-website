@@ -22,6 +22,13 @@ img {
   content-visibility: auto;
 }
 
+/* Responsive hero background images - base path handled inline in component */
+.hero-van-bg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 /* Reduce layout shift */
 .hero-section {
   min-height: 100vh;

@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { useLocation } from '../../contexts/LocationContext';
 import { trackPhoneClick, trackEvent } from '../../utils/analytics';
 
@@ -17,27 +18,82 @@ export default function Hero() {
     ? `Call for ${location.city} Garage Door Service`
     : 'Call (914) 557-6816';
 
+  // Get base path from vite config for proper image paths
+  const basePath = typeof __BASE_PATH__ !== 'undefined' ? __BASE_PATH__ : '/';
+  
+  // Determine which image size to use based on screen size
+  const [imageSize, setImageSize] = useState<'800' | '1280' | '1920'>('1280');
+  
+  // #region agent log
+  useEffect(() => {
+    fetch('http://127.0.0.1:7243/ingest/6c3bdf5c-af68-469f-9337-ff93e6c01d2a',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'Hero.tsx:28',message:'Hero component rendered',data:{hasLocation:!!location,locationName,basePath,imageSize},timestamp:Date.now(),sessionId:'debug-session',runId:'run2',hypothesisId:'A'})}).catch(()=>{});
+    // #endregion agent log
+    
+    // #region agent log
+    const updateImageSize = () => {
+      const width = window.innerWidth;
+      const newSize = width <= 800 ? '800' : width >= 1920 ? '1920' : '1280';
+      if (newSize !== imageSize) {
+        setImageSize(newSize);
+        fetch('http://127.0.0.1:7243/ingest/6c3bdf5c-af68-469f-9337-ff93e6c01d2a',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'Hero.tsx:35',message:'Image size changed',data:{oldSize:imageSize,newSize,windowWidth:width},timestamp:Date.now(),sessionId:'debug-session',runId:'run2',hypothesisId:'H'})}).catch(()=>{});
+      }
+    };
+    // #endregion agent log
+    
+    updateImageSize();
+    window.addEventListener('resize', updateImageSize);
+    return () => window.removeEventListener('resize', updateImageSize);
+  }, [location, locationName, imageSize]);
+  
+  const heroImageUrl = `${basePath}hero-van-${imageSize}.jpg`;
+  
+  // #region agent log
+  useEffect(() => {
+    const testImg = new Image();
+    testImg.onload = () => {
+      fetch('http://127.0.0.1:7243/ingest/6c3bdf5c-af68-469f-9337-ff93e6c01d2a',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'Hero.tsx:51',message:'Background image loaded successfully',data:{src:heroImageUrl,width:testImg.width,height:testImg.height},timestamp:Date.now(),sessionId:'debug-session',runId:'run2',hypothesisId:'E'})}).catch(()=>{});
+    };
+    testImg.onerror = () => {
+      fetch('http://127.0.0.1:7243/ingest/6c3bdf5c-af68-469f-9337-ff93e6c01d2a',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'Hero.tsx:56',message:'Background image failed to load',data:{src:heroImageUrl,fullUrl:typeof window!=='undefined'?new URL(heroImageUrl,window.location.origin).href:'N/A'},timestamp:Date.now(),sessionId:'debug-session',runId:'run2',hypothesisId:'F'})}).catch(()=>{});
+    };
+    testImg.src = heroImageUrl;
+  }, [heroImageUrl]);
+  // #endregion agent log
+
   return (
-    <section 
-      className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
-      style={{
-        backgroundImage: `linear-gradient(rgba(30, 58, 138, 0.8), rgba(30, 58, 138, 0.6)), url('https://readdy.ai/api/search-image?query=Modern%20residential%20garage%20with%20professional%20technician%20working%20on%20sleek%20contemporary%20garage%20door%2C%20clean%20suburban%20home%20exterior%2C%20bright%20natural%20lighting%2C%20professional%20service%20van%20in%20driveway%2C%20well-maintained%20landscaping%2C%20premium%20garage%20door%20installation%2C%20expert%20craftsmanship%20visible&width=1280&height=720&quality=85&seq=hero001&orientation=landscape')`
-      }}
-    >
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Preload critical background image */}
       <link 
         rel="preload" 
         as="image" 
-        href="https://readdy.ai/api/search-image?query=Modern%20residential%20garage%20with%20professional%20technician%20working%20on%20sleek%20contemporary%20garage%20door%2C%20clean%20suburban%20home%20exterior%2C%20bright%20natural%20lighting%2C%20professional%20service%20van%20in%20driveway%2C%20well-maintained%20landscaping%2C%20premium%20garage%20door%20installation%2C%20expert%20craftsmanship%20visible&width=1280&height=720&quality=85&seq=hero001&orientation=landscape"
+        href={heroImageUrl}
         fetchPriority="high"
       />
+      {/* Optimized responsive background image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat hero-van-bg z-0"
+        style={{
+          backgroundImage: `linear-gradient(rgba(30, 58, 138, 0.75), rgba(30, 58, 138, 0.65)), url('${heroImageUrl}')`
+        }}
+      />
+      {/* Hidden image for SEO */}
       <img 
-        src="https://readdy.ai/api/search-image?query=Modern%20residential%20garage%20with%20professional%20technician%20working%20on%20sleek%20contemporary%20garage%20door%2C%20clean%20suburban%20home%20exterior%2C%20bright%20natural%20lighting%2C%20professional%20service%20van%20in%20driveway%2C%20well-maintained%20landscaping%2C%20premium%20garage%20door%20installation%2C%20expert%20craftsmanship%20visible&width=1280&height=720&quality=85&seq=hero001&orientation=landscape"
-        alt="Professional garage door technician providing expert repair and installation services. Modern residential garage door with clean suburban home exterior."
+        src={heroImageUrl}
+        alt="Smart Garage Doors service van parked in front of a residential garage. Professional garage door repair and installation services with branded white service vehicle."
         className="hidden"
         aria-hidden="true"
         width="1280"
         height="720"
+        onError={(e) => {
+          // #region agent log
+          fetch('http://127.0.0.1:7243/ingest/6c3bdf5c-af68-469f-9337-ff93e6c01d2a',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'Hero.tsx:82',message:'SEO img load error',data:{src:e.currentTarget.src,basePath,imageSize},timestamp:Date.now(),sessionId:'debug-session',runId:'run2',hypothesisId:'C'})}).catch(()=>{});
+          // #endregion agent log
+        }}
+        onLoad={() => {
+          // #region agent log
+          fetch('http://127.0.0.1:7243/ingest/6c3bdf5c-af68-469f-9337-ff93e6c01d2a',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'Hero.tsx:87',message:'SEO img loaded successfully',data:{src:heroImageUrl},timestamp:Date.now(),sessionId:'debug-session',runId:'run2',hypothesisId:'D'})}).catch(()=>{});
+          // #endregion agent log
+        }}
       />
       
       <div className="max-w-7xl mx-auto px-4 text-center text-white relative z-10">

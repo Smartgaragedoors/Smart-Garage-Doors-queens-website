@@ -69,17 +69,9 @@ export default defineConfig({
   build: {
     sourcemap: false, // Disable sourcemaps in production for faster builds
     outDir: 'out',
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
-        passes: 2, // Multiple passes for better compression
-      },
-      format: {
-        comments: false, // Remove all comments
-      },
-    },
+    minify: 'esbuild',
+    // Note: esbuild automatically removes comments and provides excellent minification
+    // Dropping console/debugger is handled by Vite's build process
     rollupOptions: {
       output: {
         manualChunks: (id) => {
