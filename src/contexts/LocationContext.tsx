@@ -41,7 +41,13 @@ export function LocationProvider({ children }: { children: ReactNode }) {
   };
 
   useEffect(() => {
-    loadLocation();
+    // Delay geolocation call to reduce initial load triggers
+    // Wait for page to be fully loaded before making API call
+    const timer = setTimeout(() => {
+      loadLocation();
+    }, 1000); // 1 second delay to let page load first
+    
+    return () => clearTimeout(timer);
   }, []);
 
   const locationName = getLocationDisplayName(location);

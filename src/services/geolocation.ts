@@ -141,24 +141,73 @@ function matchLocationByCity(city: string, state: string, stateCode: string): Lo
 // Detect location using IP geolocation API
 export async function detectLocation(): Promise<LocationData | null> {
   try {
-    // Check cache first
+    // Check if geolocation is disabled via environment variable
+    if (import.meta.env.VITE_DISABLE_GEOLOCATION === 'true') {
+      return {
+        city: 'Queens',
+        state: 'New York',
+        stateCode: 'NY',
+        latitude: QUEENS_COORDS.lat,
+        longitude: QUEENS_COORDS.lng,
+        distance: 0,
+        serviceAreaPage: '/garage-door-repair-flushing-ny/',
+      };
+    }
+
+    // Check cache first - extended cache to reduce API calls
     const cached = localStorage.getItem('detected_location');
     if (cached) {
       const cachedData = JSON.parse(cached);
       const cacheTime = cachedData.timestamp;
       const now = Date.now();
-      // Cache valid for 24 hours
-      if (now - cacheTime < 24 * 60 * 60 * 1000) {
+      // Cache valid for 7 days (increased from 24 hours to reduce API calls)
+      if (now - cacheTime < 7 * 24 * 60 * 60 * 1000) {
         return cachedData.location;
       }
     }
 
+    // Rate limiting: Check if we've made a request recently (within last 5 minutes)
+    const lastRequest = localStorage.getItem('geolocation_last_request');
+    if (lastRequest) {
+      const lastRequestTime = parseInt(lastRequest, 10);
+      const now = Date.now();
+      // If request was made within last 5 minutes, use cached data or return default
+      if (now - lastRequestTime < 5 * 60 * 1000) {
+        if (cached) {
+          const cachedData = JSON.parse(cached);
+          return cachedData.location;
+        }
+        // Return default without making API call
+        return {
+          city: 'Queens',
+          state: 'New York',
+          stateCode: 'NY',
+          latitude: QUEENS_COORDS.lat,
+          longitude: QUEENS_COORDS.lng,
+          distance: 0,
+          serviceAreaPage: '/garage-door-repair-flushing-ny/',
+        };
+      }
+    }
+
+    // Record request time for rate limiting
+    localStorage.setItem('geolocation_last_request', Date.now().toString());
+
     // Try multiple free IP geolocation APIs (fallback chain)
     let locationData: LocationData | null = null;
 
-    // Try ip-api.com (free, no key required)
+    // Try ip-api.com (free, no key required) with timeout
     try {
-      const response = await fetch('https://ip-api.com/json/?fields=status,message,city,regionName,zip,lat,lon');
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 3000); // 3 second timeout
+      
+      const response = await fetch('https://ip-api.com/json/?fields=status,message,city,regionName,zip,lat,lon', {
+        signal: controller.signal,
+        headers: {
+          'Accept': 'application/json',
+        },
+      });
+      clearTimeout(timeoutId);
       const data = await response.json();
       
       if (data.status === 'success') {
