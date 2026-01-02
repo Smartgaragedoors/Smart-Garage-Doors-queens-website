@@ -70,6 +70,7 @@ export default defineConfig({
   base,
   esbuild: {
     drop: process.env.NODE_ENV === 'production' ? ['console', 'debugger'] : [],
+    legalComments: 'none', // Remove comments for smaller bundles
   },
   build: {
     sourcemap: false, // Disable sourcemaps in production for faster builds
@@ -78,10 +79,13 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: (id) => {
-          // Vendor chunks
+          // Vendor chunks - more granular splitting for better caching
           if (id.includes('node_modules')) {
-            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router')) {
-              return 'react-vendor';
+            if (id.includes('react') || id.includes('react-dom')) {
+              return 'react-core';
+            }
+            if (id.includes('react-router')) {
+              return 'react-router';
             }
             if (id.includes('recharts')) {
               return 'ui-vendor';
@@ -92,6 +96,13 @@ export default defineConfig({
             // All other node_modules
             return 'vendor';
           }
+          // Split large page components for better code splitting
+          if (id.includes('/pages/') && !id.includes('home')) {
+            const match = id.match(/pages\/([^/]+)/);
+            if (match) {
+              return `page-${match[1]}`;
+            }
+          }
         },
         // Optimize chunk file names
         chunkFileNames: 'assets/js/[name]-[hash].js',
@@ -99,9 +110,10 @@ export default defineConfig({
         assetFileNames: 'assets/[ext]/[name]-[hash].[ext]',
       },
     },
-    chunkSizeWarningLimit: 600, // Lower limit to catch large bundles earlier
+    chunkSizeWarningLimit: 500, // Lower limit for mobile optimization
     reportCompressedSize: true, // Report compressed sizes
     cssCodeSplit: true, // Split CSS per chunk
+    target: 'es2015', // Target modern browsers for smaller bundles
   },
   resolve: {
     alias: {

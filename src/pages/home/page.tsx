@@ -1,18 +1,20 @@
-import { useEffect } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import { useLocation as useRouterLocation } from 'react-router-dom';
 import Hero from '../../components/feature/Hero';
 import Services from '../../components/feature/Services';
 import About from '../../components/feature/About';
 import WhyChooseUs from '../../components/feature/WhyChooseUs';
 import ServiceAreas from '../../components/feature/ServiceAreas';
-import RecentWork from '../../components/feature/RecentWork';
-import Reviews from '../../components/feature/Reviews';
 import Contact from '../../components/feature/Contact';
 import Header from '../../components/feature/Header';
 import Footer from '../../components/feature/Footer';
 import DynamicMetaTags from '../../components/seo/DynamicMetaTags';
 import { useLocation } from '../../contexts/LocationContext';
 import { BUSINESS_INFO } from '../../config/business-info';
+
+// Lazy load below-the-fold components for better initial load performance
+const RecentWork = lazy(() => import('../../components/feature/RecentWork'));
+const Reviews = lazy(() => import('../../components/feature/Reviews'));
 
 export default function HomePage() {
   const { location } = useLocation();
@@ -194,8 +196,12 @@ export default function HomePage() {
       <About />
       <WhyChooseUs />
       <ServiceAreas />
-      <RecentWork />
-      <Reviews />
+      <Suspense fallback={<div className="min-h-[400px]" />}>
+        <RecentWork />
+      </Suspense>
+      <Suspense fallback={<div className="min-h-[400px]" />}>
+        <Reviews />
+      </Suspense>
       <Contact />
       <Footer />
     </div>

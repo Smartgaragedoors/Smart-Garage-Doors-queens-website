@@ -21,52 +21,68 @@ export default function Hero() {
   // Get base path from vite config for proper image paths
   const basePath = typeof __BASE_PATH__ !== 'undefined' ? __BASE_PATH__ : '/';
   
-  // Determine which image size to use based on screen size
-  const [imageSize, setImageSize] = useState<'800' | '1280' | '1920'>('1280');
+  // Use smaller default image for mobile-first approach
+  const [imageSize, setImageSize] = useState<'800' | '1280' | '1920'>('800');
+  const [isMobile, setIsMobile] = useState(true);
   
   useEffect(() => {
     const updateImageSize = () => {
       const width = window.innerWidth;
-      const newSize = width <= 800 ? '800' : width >= 1920 ? '1920' : '1280';
+      const mobile = width <= 800;
+      setIsMobile(mobile);
+      const newSize = mobile ? '800' : width >= 1920 ? '1920' : '1280';
       if (newSize !== imageSize) {
         setImageSize(newSize);
       }
     };
     
+    // Set initial size immediately to prevent layout shift
     updateImageSize();
-    window.addEventListener('resize', updateImageSize);
-    return () => window.removeEventListener('resize', updateImageSize);
-  }, [location, locationName, imageSize]);
+    
+    // Debounce resize to avoid excessive updates
+    let timeoutId: NodeJS.Timeout;
+    const handleResize = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(updateImageSize, 150);
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      clearTimeout(timeoutId);
+    };
+  }, [imageSize]);
   
-  const heroImageUrl = `${basePath}hero-van-${imageSize}.jpg`;
+  // Use WebP with JPG fallback for better compression
+  const heroImageWebP = `${basePath}hero-van-${imageSize}.webp`;
+  const heroImageJpg = `${basePath}hero-van-${imageSize}.jpg`;
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Preload critical background image */}
-      <link 
-        rel="preload" 
-        as="image" 
-        href={heroImageUrl}
-        fetchPriority="high"
-      />
-      {/* Optimized responsive background image */}
+      {/* Optimized responsive background image with WebP support */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat hero-van-bg z-0"
         style={{
-          backgroundImage: `linear-gradient(rgba(30, 58, 138, 0.75), rgba(30, 58, 138, 0.65)), url('${heroImageUrl}')`
+          backgroundImage: `linear-gradient(rgba(30, 58, 138, 0.75), rgba(30, 58, 138, 0.65)), 
+            image-set(
+              url('${heroImageWebP}') type('image/webp'),
+              url('${heroImageJpg}') type('image/jpeg')
+            ),
+            url('${heroImageJpg}')`
         }}
       />
-      {/* Hidden image for SEO */}
-      <img 
-        src={heroImageUrl}
-        alt="Smart Garage Doors service van parked in front of a residential garage. Professional garage door repair and installation services with branded white service vehicle."
-        className="hidden"
-        aria-hidden="true"
-        width="1280"
-        height="720"
-        onError={() => {}}
-        onLoad={() => {}}
-      />
+      {/* Hidden image for SEO with proper format */}
+      <picture className="hidden" aria-hidden="true">
+        <source srcSet={heroImageWebP} type="image/webp" />
+        <img 
+          src={heroImageJpg}
+          alt="Smart Garage Doors service van parked in front of a residential garage. Professional garage door repair and installation services with branded white service vehicle."
+          width="1280"
+          height="720"
+          loading="eager"
+          fetchPriority="high"
+        />
+      </picture>
       
       <div className="max-w-7xl mx-auto px-4 text-center text-white relative z-10">
         <div className="max-w-4xl mx-auto">
