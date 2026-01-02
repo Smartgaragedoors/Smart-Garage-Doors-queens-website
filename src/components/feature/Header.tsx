@@ -209,6 +209,9 @@ export default function Header() {
               >
                 About
               </a>
+              <a href="/blog/" className="text-gray-700 hover:text-orange-500 font-medium transition-colors">
+                Blog
+              </a>
               <a href={contactLink} className="text-gray-700 hover:text-orange-500 font-medium transition-colors">
                 Contact
               </a>
@@ -279,6 +282,9 @@ export default function Header() {
                   className="block text-gray-700 hover:text-orange-500 font-medium transition-colors py-2"
                 >
                   About
+                </a>
+                <a href="/blog/" className="block text-gray-700 hover:text-orange-500 font-medium transition-colors py-2">
+                  Blog
                 </a>
                 <a href={contactLink} className="block text-gray-700 hover:text-orange-500 font-medium transition-colors py-2">
                   Contact

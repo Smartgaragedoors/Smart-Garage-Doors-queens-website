@@ -126,21 +126,21 @@ export default function Hero() {
                 </a>
               </div>
 
-          {/* Trust Indicators */}
+          {/* Trust Indicators - optimized for performance */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+            <div className="bg-white/10 rounded-lg p-4" style={{ backdropFilter: 'blur(4px)', willChange: 'transform', transform: 'translateZ(0)' }}>
               <div className="text-3xl font-bold text-orange-400">24/7</div>
               <div className="text-sm text-gray-100">Emergency Service</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+            <div className="bg-white/10 rounded-lg p-4" style={{ backdropFilter: 'blur(4px)', willChange: 'transform', transform: 'translateZ(0)' }}>
               <div className="text-3xl font-bold text-orange-400">15+</div>
               <div className="text-sm text-gray-100">Years Experience</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+            <div className="bg-white/10 rounded-lg p-4" style={{ backdropFilter: 'blur(4px)', willChange: 'transform', transform: 'translateZ(0)' }}>
               <div className="text-3xl font-bold text-orange-400">1000+</div>
               <div className="text-sm text-gray-100">Happy Customers</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+            <div className="bg-white/10 rounded-lg p-4" style={{ backdropFilter: 'blur(4px)', willChange: 'transform', transform: 'translateZ(0)' }}>
               <div className="text-3xl font-bold text-orange-400">100%</div>
               <div className="text-sm text-gray-100">Satisfaction</div>
             </div>
@@ -148,9 +148,9 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <i className="ri-arrow-down-line text-white text-2xl"></i>
+      {/* Scroll Indicator - optimized for composited animation */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2" style={{ willChange: 'transform', transform: 'translateZ(0) translateX(-50%)' }}>
+        <i className="ri-arrow-down-line text-white text-2xl animate-bounce" style={{ willChange: 'transform', transform: 'translateZ(0)' }}></i>
       </div>
     </section>
   );

@@ -9,6 +9,8 @@ import Contact from '../../components/feature/Contact';
 import Header from '../../components/feature/Header';
 import Footer from '../../components/feature/Footer';
 import DynamicMetaTags from '../../components/seo/DynamicMetaTags';
+import OrganizationSchema from '../../components/seo/OrganizationSchema';
+import LocalBusinessSchema from '../../components/seo/LocalBusinessSchema';
 import { useLocation } from '../../contexts/LocationContext';
 import { BUSINESS_INFO } from '../../config/business-info';
 
@@ -190,6 +192,8 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       <DynamicMetaTags />
+      <OrganizationSchema />
+      <LocalBusinessSchema />
       <Header />
       <Hero />
       <Services />

@@ -20,7 +20,7 @@ export default function Testimonials() {
         <h2 className="text-4xl font-bold text-white mb-8">Clients Testimonials</h2>
 
         {/* Testimonials would be loaded here via external widget */}
-        <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8 mb-12">
+        <div className="bg-white/10 rounded-lg p-8 mb-12" style={{ backdropFilter: 'blur(4px)', willChange: 'transform', transform: 'translateZ(0)' }}>
           <p className="text-white text-lg mb-4">
             "Excellent service! The team was professional, punctual, and fixed our garage door quickly. Highly recommend Smart Garage Doors for anyone in need of reliable garage door services."
           </p>

@@ -48,8 +48,23 @@
     <!-- External Stylesheets - deferred loading for better performance -->
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" /></noscript>
-    <!-- Font Awesome deferred - not critical for initial render -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" media="print" onload="this.media='all';this.onload=null" />
+    <!-- Font Awesome deferred - not critical for initial render, load after page load -->
+    <script>
+      // Load Font Awesome after page load to reduce render blocking
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+          var link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';
+          document.head.appendChild(link);
+        });
+      } else {
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';
+        document.head.appendChild(link);
+      }
+    </script>
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" /></noscript>
     
     <!-- Google Analytics (will be initialized by analytics.ts if GA_MEASUREMENT_ID is set) -->

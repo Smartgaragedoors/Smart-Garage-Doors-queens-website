@@ -8,6 +8,36 @@ export default function BlogPage() {
   const blogPosts = [
     {
       id: 1,
+      slug: 'signs-you-need-new-garage-door',
+      title: "Signs You Need a New Garage Door: When to Replace vs Repair",
+      excerpt: "Complete guide to determining when you need a new garage door versus repair. Learn the warning signs, cost considerations, and decision framework.",
+      image: "https://readdy.ai/api/search-image?query=Comparison%20of%20old%20damaged%20garage%20door%20versus%20new%20modern%20garage%20door%2C%20residential%20setting%2C%20before%20and%20after%20demonstration%2C%20curb%20appeal%20improvement%2C%20professional%20installation&width=1200&height=600&seq=replace-signs001&orientation=landscape",
+      date: "January 22, 2025",
+      category: "Tips",
+      readTime: "14 min read"
+    },
+    {
+      id: 2,
+      slug: 'cost-of-garage-door-spring-replacement',
+      title: "Cost of Garage Door Spring Replacement: Complete Pricing Guide 2025",
+      excerpt: "Comprehensive guide to garage door spring replacement costs in 2025. Learn pricing factors, average costs by spring type, and how to get accurate estimates.",
+      image: "https://readdy.ai/api/search-image?query=Professional%20garage%20door%20spring%20replacement%20showing%20torsion%20springs%20and%20installation%20tools%2C%20residential%20garage%20setting%2C%20skilled%20technician%20working%2C%20safety%20equipment%20visible%2C%20quality%20springs%20and%20hardware&width=1200&height=600&seq=spring-cost001&orientation=landscape",
+      date: "January 18, 2025",
+      category: "Cost Guide",
+      readTime: "12 min read"
+    },
+    {
+      id: 3,
+      slug: 'how-to-fix-garage-door-opener',
+      title: "How to Fix Garage Door Opener: Common Issues and Solutions",
+      excerpt: "Complete troubleshooting guide for garage door opener problems. Learn how to diagnose and fix common opener issues, when to call professionals, and preventive maintenance tips.",
+      image: "https://readdy.ai/api/search-image?query=Professional%20technician%20repairing%20garage%20door%20opener%20motor%20unit%2C%20close-up%20of%20opener%20mechanism%2C%20residential%20garage%20setting%2C%20tools%20and%20equipment%20visible%2C%20professional%20repair%20work&width=1200&height=600&seq=opener-repair001&orientation=landscape",
+      date: "January 20, 2025",
+      category: "Repair",
+      readTime: "10 min read"
+    },
+    {
+      id: 4,
       slug: 'signs-your-garage-door-spring-needs-replacement',
       title: "5 Signs Your Garage Door Spring Needs Replacement",
       excerpt: "Learn to identify the warning signs that indicate your garage door spring is failing and needs professional replacement.",
@@ -17,7 +47,7 @@ export default function BlogPage() {
       readTime: "5 min read"
     },
     {
-      id: 2,
+      id: 5,
       slug: 'how-to-fix-garage-door-wont-close',
       title: "How to Fix a Garage Door That Won't Close Properly",
       excerpt: "Troubleshooting guide for common garage door closing issues and when to call professional repair services.",
@@ -27,7 +57,7 @@ export default function BlogPage() {
       readTime: "7 min read"
     },
     {
-      id: 3,
+      id: 6,
       slug: 'winter-garage-door-maintenance-tips',
       title: "Winter Garage Door Maintenance Tips: Protect Your Door from Cold Weather",
       excerpt: "Essential winter maintenance tips to protect your garage door from cold weather damage. Learn how to prevent freezing and spring stress.",
@@ -37,7 +67,7 @@ export default function BlogPage() {
       readTime: "6 min read"
     },
     {
-      id: 4,
+      id: 7,
       slug: 'emergency-garage-door-repair-guide',
       title: "Emergency Garage Door Repair: What to Do When Your Door Breaks",
       excerpt: "Step-by-step guide on handling garage door emergencies and when to call for immediate professional help.",
@@ -47,7 +77,7 @@ export default function BlogPage() {
       readTime: "4 min read"
     },
     {
-      id: 5,
+      id: 8,
       slug: 'professional-vs-diy-garage-door-repair',
       title: "Professional vs DIY Garage Door Repair: Making the Right Choice",
       excerpt: "Understanding when to attempt DIY repairs and when professional garage door repair services are necessary.",
@@ -57,7 +87,7 @@ export default function BlogPage() {
       readTime: "8 min read"
     },
     {
-      id: 6,
+      id: 9,
       slug: 'garage-door-repair-cost-guide-2025',
       title: "Garage Door Repair Cost Guide 2025: What to Expect",
       excerpt: "Complete breakdown of garage door repair costs in 2025. Learn what factors affect pricing and how to budget for common repairs.",

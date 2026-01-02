@@ -15,11 +15,24 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  
+  /* Optimize font loading for external fonts */
+  @font-face {
+    font-family: 'RemixIcon';
+    font-display: swap;
+  }
 }
 
 /* Optimize image rendering */
 img {
   content-visibility: auto;
+  height: auto;
+}
+
+/* Optimize backdrop-blur for better performance */
+.backdrop-blur-sm {
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 /* Responsive hero background images - base path handled inline in component */
@@ -33,6 +46,28 @@ img {
 .hero-section {
   min-height: 100vh;
   contain: layout style paint;
+}
+
+/* Optimize animations - use composited properties only */
+* {
+  will-change: auto;
+}
+
+/* Force GPU acceleration for common animations */
+.hover\:scale-105,
+.hover\:shadow-3xl,
+.transform {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Optimize transitions to use composited properties */
+.transition-all,
+.transition-colors,
+.transition-shadow {
+  will-change: transform, opacity;
 }
 
 /* Optimize animations */
