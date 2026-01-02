@@ -158,9 +158,12 @@ export default function NewCanaanCTPage() {
             </div>
             <div>
               <img 
-                src="https://readdy.ai/api/search-image?query=Traditional%20garage%20door%20installation%20on%20colonial%20home%20in%20New%20Canaan%20Connecticut%2C%20professional%20technician%20working%2C%20classic%20New%20England%20residential%20architecture%2C%20quality%20craftsmanship%20photography&width=600&height=400&seq=newcanaan-service&orientation=landscape"
+                src="https://readdy.ai/api/search-image?query=Traditional%20garage%20door%20installation%20on%20colonial%20home%20in%20New%20Canaan%20Connecticut%2C%20professional%20technician%20working%2C%20classic%20New%20England%20residential%20architecture%2C%20quality%20craftsmanship%20photography&width=600&height=400&quality=85&seq=newcanaan-service&orientation=landscape"
                 alt="Garage door service in New Canaan CT"
                 className="rounded-lg shadow-lg w-full h-auto object-cover"
+                width="600"
+                height="400"
+                loading="lazy"
               />
             </div>
           </div>

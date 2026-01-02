@@ -158,9 +158,12 @@ export default function NewtownCTPage() {
             </div>
             <div>
               <img 
-                src="https://readdy.ai/api/search-image?query=Family-friendly%20garage%20door%20installation%20in%20Newtown%20Connecticut%20suburban%20home%2C%20professional%20technician%20working%20safely%2C%20residential%20neighborhood%20setting%2C%20quality%20family%20service%20photography&width=600&height=400&seq=newtown-service&orientation=landscape"
+                src="https://readdy.ai/api/search-image?query=Family-friendly%20garage%20door%20installation%20in%20Newtown%20Connecticut%20suburban%20home%2C%20professional%20technician%20working%20safely%2C%20residential%20neighborhood%20setting%2C%20quality%20family%20service%20photography&width=600&height=400&quality=85&seq=newtown-service&orientation=landscape"
                 alt="Garage door service in Newtown CT"
                 className="rounded-lg shadow-lg w-full h-auto object-cover"
+                width="600"
+                height="400"
+                loading="lazy"
               />
             </div>
           </div>

@@ -21,21 +21,23 @@ export default function Hero() {
     <section 
       className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
       style={{
-        backgroundImage: `linear-gradient(rgba(30, 58, 138, 0.8), rgba(30, 58, 138, 0.6)), url('https://readdy.ai/api/search-image?query=Modern%20residential%20garage%20with%20professional%20technician%20working%20on%20sleek%20contemporary%20garage%20door%2C%20clean%20suburban%20home%20exterior%2C%20bright%20natural%20lighting%2C%20professional%20service%20van%20in%20driveway%2C%20well-maintained%20landscaping%2C%20premium%20garage%20door%20installation%2C%20expert%20craftsmanship%20visible&width=1920&height=1080&seq=hero001&orientation=landscape')`
+        backgroundImage: `linear-gradient(rgba(30, 58, 138, 0.8), rgba(30, 58, 138, 0.6)), url('https://readdy.ai/api/search-image?query=Modern%20residential%20garage%20with%20professional%20technician%20working%20on%20sleek%20contemporary%20garage%20door%2C%20clean%20suburban%20home%20exterior%2C%20bright%20natural%20lighting%2C%20professional%20service%20van%20in%20driveway%2C%20well-maintained%20landscaping%2C%20premium%20garage%20door%20installation%2C%20expert%20craftsmanship%20visible&width=1280&height=720&quality=85&seq=hero001&orientation=landscape')`
       }}
     >
       {/* Preload critical background image */}
       <link 
         rel="preload" 
         as="image" 
-        href="https://readdy.ai/api/search-image?query=Modern%20residential%20garage%20with%20professional%20technician%20working%20on%20sleek%20contemporary%20garage%20door%2C%20clean%20suburban%20home%20exterior%2C%20bright%20natural%20lighting%2C%20professional%20service%20van%20in%20driveway%2C%20well-maintained%20landscaping%2C%20premium%20garage%20door%20installation%2C%20expert%20craftsmanship%20visible&width=1920&height=1080&seq=hero001&orientation=landscape"
+        href="https://readdy.ai/api/search-image?query=Modern%20residential%20garage%20with%20professional%20technician%20working%20on%20sleek%20contemporary%20garage%20door%2C%20clean%20suburban%20home%20exterior%2C%20bright%20natural%20lighting%2C%20professional%20service%20van%20in%20driveway%2C%20well-maintained%20landscaping%2C%20premium%20garage%20door%20installation%2C%20expert%20craftsmanship%20visible&width=1280&height=720&quality=85&seq=hero001&orientation=landscape"
         fetchPriority="high"
       />
       <img 
-        src="https://readdy.ai/api/search-image?query=Modern%20residential%20garage%20with%20professional%20technician%20working%20on%20sleek%20contemporary%20garage%20door%2C%20clean%20suburban%20home%20exterior%2C%20bright%20natural%20lighting%2C%20professional%20service%20van%20in%20driveway%2C%20well-maintained%20landscaping%2C%20premium%20garage%20door%20installation%2C%20expert%20craftsmanship%20visible&width=1920&height=1080&seq=hero001&orientation=landscape"
+        src="https://readdy.ai/api/search-image?query=Modern%20residential%20garage%20with%20professional%20technician%20working%20on%20sleek%20contemporary%20garage%20door%2C%20clean%20suburban%20home%20exterior%2C%20bright%20natural%20lighting%2C%20professional%20service%20van%20in%20driveway%2C%20well-maintained%20landscaping%2C%20premium%20garage%20door%20installation%2C%20expert%20craftsmanship%20visible&width=1280&height=720&quality=85&seq=hero001&orientation=landscape"
         alt="Professional garage door technician providing expert repair and installation services. Modern residential garage door with clean suburban home exterior."
         className="hidden"
         aria-hidden="true"
+        width="1280"
+        height="720"
       />
       
       <div className="max-w-7xl mx-auto px-4 text-center text-white relative z-10">

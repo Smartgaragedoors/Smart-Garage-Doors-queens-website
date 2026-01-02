@@ -109,9 +109,13 @@ export default function CableRollerRepairPage() {
       <section className="relative bg-gradient-to-br from-teal-600 to-teal-800 text-white py-20">
         <div className="absolute inset-0">
           <img 
-            src="https://readdy.ai/api/search-image?query=Professional%20technician%20working%20on%20garage%20door%20track%20systems%20installing%20high-quality%20steel%20cables%20and%20smooth%20rollers%2C%20clean%20garage%20environment%2C%20professional%20tools%20and%20equipment%2C%20skilled%20installation%20work%2C%20modern%20track%20system%2C%20quality%20hardware%20components&width=1200&height=600&seq=cable-hero001&orientation=landscape"
+            src="https://readdy.ai/api/search-image?query=Professional%20technician%20working%20on%20garage%20door%20track%20systems%20installing%20high-quality%20steel%20cables%20and%20smooth%20rollers%2C%20clean%20garage%20environment%2C%20professional%20tools%20and%20equipment%2C%20skilled%20installation%20work%2C%20modern%20track%20system%2C%20quality%20hardware%20components&width=1280&height=640&quality=85&seq=cable-hero001&orientation=landscape"
             alt="Professional Cable and Roller Repair"
             className="w-full h-full object-cover opacity-20"
+            width="1280"
+            height="640"
+            loading="eager"
+            fetchPriority="high"
           />
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

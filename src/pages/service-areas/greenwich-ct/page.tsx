@@ -158,9 +158,12 @@ export default function GreenwichCTPage() {
             </div>
             <div>
               <img 
-                src="https://readdy.ai/api/search-image?query=Elegant%20garage%20door%20installation%20on%20luxury%20home%20in%20Greenwich%20Connecticut%2C%20professional%20technician%20working%20on%20high-end%20garage%20door%2C%20upscale%20residential%20setting%2C%20premium%20service%20quality%20photography&width=600&height=400&seq=greenwich-service&orientation=landscape"
+                src="https://readdy.ai/api/search-image?query=Elegant%20garage%20door%20installation%20on%20luxury%20home%20in%20Greenwich%20Connecticut%2C%20professional%20technician%20working%20on%20high-end%20garage%20door%2C%20upscale%20residential%20setting%2C%20premium%20service%20quality%20photography&width=600&height=400&quality=85&seq=greenwich-service&orientation=landscape"
                 alt="Premium garage door service in Greenwich CT"
                 className="rounded-lg shadow-lg w-full h-auto object-cover"
+                width="600"
+                height="400"
+                loading="lazy"
               />
             </div>
           </div>

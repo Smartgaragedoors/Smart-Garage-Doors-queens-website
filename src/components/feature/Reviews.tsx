@@ -9,7 +9,11 @@ const Reviews = () => {
     if (!document.querySelector('script[src="https://widgets.sociablekit.com/google-reviews/widget.js"]')) {
       const script = document.createElement('script');
       script.src = 'https://widgets.sociablekit.com/google-reviews/widget.js';
+      script.async = true;
       script.defer = true;
+      script.onerror = () => {
+        console.warn('Failed to load Google Reviews widget script');
+      };
       document.head.appendChild(script);
     }
   }, []);

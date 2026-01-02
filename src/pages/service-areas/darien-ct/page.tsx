@@ -158,9 +158,12 @@ export default function DarienCTPage() {
             </div>
             <div>
               <img 
-                src="https://readdy.ai/api/search-image?query=Professional%20garage%20door%20installation%20in%20Darien%20Connecticut%20coastal%20home%2C%20technician%20working%20on%20weather-resistant%20garage%20door%2C%20beautiful%20residential%20neighborhood%2C%20high-quality%20service%20photography&width=600&height=400&seq=darien-service&orientation=landscape"
+                src="https://readdy.ai/api/search-image?query=Professional%20garage%20door%20installation%20in%20Darien%20Connecticut%20coastal%20home%2C%20technician%20working%20on%20weather-resistant%20garage%20door%2C%20beautiful%20residential%20neighborhood%2C%20high-quality%20service%20photography&width=600&height=400&quality=85&seq=darien-service&orientation=landscape"
                 alt="Garage door service in Darien CT"
                 className="rounded-lg shadow-lg w-full h-auto object-cover"
+                width="600"
+                height="400"
+                loading="lazy"
               />
             </div>
           </div>

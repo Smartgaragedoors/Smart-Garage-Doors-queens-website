@@ -120,9 +120,13 @@ export default function SpringReplacementPage() {
       <section className="relative bg-gradient-to-br from-orange-600 to-red-600 text-white py-20">
         <div className="absolute inset-0">
           <img 
-            src="https://readdy.ai/api/search-image?query=Professional%20technician%20safely%20installing%20high-quality%20garage%20door%20torsion%20springs%20in%20clean%20workshop%20environment%2C%20precision%20tools%20and%20safety%20equipment%20visible%2C%20skilled%20workmanship%20demonstration%2C%20modern%20garage%20door%20mechanism%2C%20professional%20uniform%2C%20well-lit%20workspace&width=1200&height=600&seq=spring-hero001&orientation=landscape"
+            src="https://readdy.ai/api/search-image?query=Professional%20technician%20safely%20installing%20high-quality%20garage%20door%20torsion%20springs%20in%20clean%20workshop%20environment%2C%20precision%20tools%20and%20safety%20equipment%20visible%2C%20skilled%20workmanship%20demonstration%2C%20modern%20garage%20door%20mechanism%2C%20professional%20uniform%2C%20well-lit%20workspace&width=1280&height=640&quality=85&seq=spring-hero001&orientation=landscape"
             alt="Professional Garage Door Spring Replacement"
             className="w-full h-full object-cover opacity-20"
+            width="1280"
+            height="640"
+            loading="eager"
+            fetchPriority="high"
           />
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -274,6 +278,9 @@ export default function SpringReplacementPage() {
                   src="https://readdy.ai/api/search-image?query=Garage%20door%20torsion%20spring%20system%20mounted%20above%20door%20opening%2C%20professional%20installation%20showing%20spring%20mechanism%2C%20clean%20garage%20environment%2C%20modern%20torsion%20spring%20assembly%2C%20quality%20hardware%20components&width=500&height=300&seq=torsion001&orientation=landscape"
                   alt="Torsion Spring System"
                   className="w-full h-48 object-cover rounded-lg mb-4"
+                  width="500"
+                  height="300"
+                  loading="lazy"
                 />
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">Torsion Springs</h3>
                 <p className="text-gray-600">Mounted above the door opening</p>
@@ -327,6 +334,9 @@ export default function SpringReplacementPage() {
                   src="https://readdy.ai/api/search-image?query=Garage%20door%20extension%20spring%20system%20along%20ceiling%20tracks%2C%20professional%20installation%20showing%20spring%20and%20cable%20assembly%2C%20residential%20garage%20setting%2C%20extension%20spring%20mechanism%2C%20safety%20cables%20visible&width=500&height=300&seq=extension001&orientation=landscape"
                   alt="Extension Spring System"
                   className="w-full h-48 object-cover rounded-lg mb-4"
+                  width="500"
+                  height="300"
+                  loading="lazy"
                 />
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">Extension Springs</h3>
                 <p className="text-gray-600">Mounted along the ceiling tracks</p>

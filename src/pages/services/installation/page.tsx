@@ -120,9 +120,13 @@ export default function InstallationPage() {
       <section className="relative bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20">
         <div className="absolute inset-0">
           <img 
-            src="https://readdy.ai/api/search-image?query=Professional%20garage%20door%20installation%20showing%20modern%20residential%20garage%20with%20new%20stylish%20garage%20door%20being%20installed%20by%20skilled%20technicians%2C%20clean%20suburban%20setting%2C%20bright%20daylight%2C%20installation%20equipment%20and%20tools%20visible%2C%20professional%20work%20environment&width=1200&height=600&seq=install-hero001&orientation=landscape"
+            src="https://readdy.ai/api/search-image?query=Professional%20garage%20door%20installation%20showing%20modern%20residential%20garage%20with%20new%20stylish%20garage%20door%20being%20installed%20by%20skilled%20technicians%2C%20clean%20suburban%20setting%2C%20bright%20daylight%2C%20installation%20equipment%20and%20tools%20visible%2C%20professional%20work%20environment&width=1280&height=640&quality=85&seq=install-hero001&orientation=landscape"
             alt="Professional Garage Door Installation"
             className="w-full h-full object-cover opacity-20"
+            width="1280"
+            height="640"
+            loading="eager"
+            fetchPriority="high"
           />
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

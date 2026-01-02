@@ -47,6 +47,9 @@ export default function Footer() {
               src="https://static.readdy.ai/image/b69172f381814b1e7c2f555a7760d2b1/b5abc60311785d6f2fb733a6d104ca55.webp" 
               alt="Smart Garage Doors"
               className="h-16 w-auto mb-4"
+              width="64"
+              height="64"
+              loading="lazy"
             />
             <p className="text-gray-300 mb-4">
               Professional garage door repair and installation services in NY, NJ &amp; CT.

@@ -158,9 +158,12 @@ export default function WestportCTPage() {
             </div>
             <div>
               <img 
-                src="https://readdy.ai/api/search-image?query=Luxury%20garage%20door%20installation%20on%20coastal%20home%20in%20Westport%20Connecticut%2C%20professional%20technician%20working%20near%20waterfront%20property%2C%20salt-resistant%20materials%2C%20high-end%20residential%20service%20photography&width=600&height=400&seq=westport-service&orientation=landscape"
+                src="https://readdy.ai/api/search-image?query=Luxury%20garage%20door%20installation%20on%20coastal%20home%20in%20Westport%20Connecticut%2C%20professional%20technician%20working%20near%20waterfront%20property%2C%20salt-resistant%20materials%2C%20high-end%20residential%20service%20photography&width=600&height=400&quality=85&seq=westport-service&orientation=landscape"
                 alt="Premium garage door service in Westport CT"
                 className="rounded-lg shadow-lg w-full h-auto object-cover"
+                width="600"
+                height="400"
+                loading="lazy"
               />
             </div>
           </div>

@@ -166,9 +166,12 @@ export default function FlushingNYPage() {
             </div>
             <div>
               <img 
-                src="https://readdy.ai/api/search-image?query=Modern%20garage%20door%20installation%20in%20Flushing%20Queens%20New%20York%20residential%20home%2C%20professional%20technician%20working%20on%20garage%20door%2C%20clean%20suburban%20neighborhood%2C%20high%20quality%20service%20photography%2C%20bright%20natural%20lighting&width=600&height=400&seq=flushing-service&orientation=landscape"
+                src="https://readdy.ai/api/search-image?query=Modern%20garage%20door%20installation%20in%20Flushing%20Queens%20New%20York%20residential%20home%2C%20professional%20technician%20working%20on%20garage%20door%2C%20clean%20suburban%20neighborhood%2C%20high%20quality%20service%20photography%2C%20bright%20natural%20lighting&width=600&height=400&quality=85&seq=flushing-service&orientation=landscape"
                 alt="Garage door service in Flushing NY"
                 className="rounded-lg shadow-lg w-full h-auto object-cover"
+                width="600"
+                height="400"
+                loading="lazy"
               />
             </div>
           </div>

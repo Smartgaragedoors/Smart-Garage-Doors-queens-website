@@ -89,9 +89,13 @@ export default function MaintenancePage() {
       <section className="relative bg-gradient-to-br from-green-600 to-green-800 text-white py-20">
         <div className="absolute inset-0">
           <img 
-            src="https://readdy.ai/api/search-image?query=Professional%20technician%20performing%20garage%20door%20maintenance%20inspection%20with%20checklist%20and%20tools%2C%20clean%20residential%20garage%20setting%2C%20preventive%20maintenance%20service%2C%20professional%20uniform%2C%20well-organized%20work%20environment%2C%20quality%20service%20demonstration&width=1200&height=600&seq=maintenance-hero001&orientation=landscape"
+            src="https://readdy.ai/api/search-image?query=Professional%20technician%20performing%20garage%20door%20maintenance%20inspection%20with%20checklist%20and%20tools%2C%20clean%20residential%20garage%20setting%2C%20preventive%20maintenance%20service%2C%20professional%20uniform%2C%20well-organized%20work%20environment%2C%20quality%20service%20demonstration&width=1280&height=640&quality=85&seq=maintenance-hero001&orientation=landscape"
             alt="Professional Garage Door Maintenance"
             className="w-full h-full object-cover opacity-20"
+            width="1280"
+            height="640"
+            loading="eager"
+            fetchPriority="high"
           />
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

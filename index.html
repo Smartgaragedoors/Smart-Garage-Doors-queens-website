@@ -9,9 +9,12 @@
     <link rel="preconnect" href="https://readdy.ai" crossorigin />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link rel="preconnect" href="https://maps.google.com" crossorigin />
+    <link rel="preconnect" href="https://www.google.com" crossorigin />
+    <link rel="preconnect" href="https://maps.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    <link rel="preconnect" href="https://widgets.sociablekit.com" crossorigin />
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-    <link rel="dns-prefetch" href="https://www.google.com" />
-    <link rel="dns-prefetch" href="https://maps.googleapis.com" />
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
@@ -49,11 +52,14 @@
     
     <!-- Google Analytics (will be initialized by analytics.ts if GA_MEASUREMENT_ID is set) -->
     <script>
-      // Initialize dataLayer for Google Tag Manager/Analytics
+      // Initialize dataLayer for Google Tag Manager/Analytics (inline, non-blocking)
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
     </script>
+    <!-- Prefetch critical external resources -->
+    <link rel="prefetch" href="https://widgets.sociablekit.com" as="script" />
+    <link rel="prefetch" href="https://www.googletagmanager.com" as="script" />
   </head>
   <body>
     <div id="root"></div>

@@ -15,10 +15,15 @@ export const initAnalytics = () => {
     return;
   }
 
-  // Load gtag script
+  // Load gtag script asynchronously
   const script1 = document.createElement('script');
   script1.async = true;
+  script1.defer = false; // Async takes precedence
   script1.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+  // Add error handling for script loading
+  script1.onerror = () => {
+    console.warn('Failed to load Google Analytics script');
+  };
   document.head.appendChild(script1);
 
   // Initialize dataLayer and gtag
