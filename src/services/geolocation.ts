@@ -230,7 +230,10 @@ export async function detectLocation(): Promise<LocationData | null> {
         }
       }
     } catch (error) {
-      console.warn('ip-api.com failed, trying fallback:', error);
+      // Silently fail - will use default location
+      if (process.env.NODE_ENV === 'development') {
+        console.warn('ip-api.com failed, trying fallback:', error);
+      }
     }
 
     // Fallback: Try ipgeolocation.io (requires free API key but more reliable)
@@ -249,7 +252,10 @@ export async function detectLocation(): Promise<LocationData | null> {
 
     return locationData;
   } catch (error) {
-    console.error('Location detection failed:', error);
+    // Silently fail - return default location
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Location detection failed:', error);
+    }
     // Return default Queens location
     return {
       city: 'Queens',

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
 import Button from '../../../components/base/Button';
@@ -10,6 +11,7 @@ import { submitForm } from '../../../utils/formSubmission';
 
 export default function MaintenancePage() {
   const { location, locationName, isLoading } = useLocation();
+  const [notification, setNotification] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
   
   const displayLocation = (location?.city === 'Queens' || !location || isLoading) 
     ? 'your area' 
@@ -59,13 +61,16 @@ export default function MaintenancePage() {
       const result = await submitForm(data, 'Maintenance Form');
 
       if (result.success) {
-        alert('Maintenance plan request submitted! We will contact you to schedule your service.');
+        setNotification({ type: 'success', message: 'Maintenance plan request submitted! We will contact you to schedule your service.' });
         (e.target as HTMLFormElement).reset();
+        setTimeout(() => setNotification(null), 5000);
       } else {
-        alert('Failed to submit request. Please call us at (914) 557-6816');
+        setNotification({ type: 'error', message: 'Failed to submit request. Please call us at (914) 557-6816' });
+        setTimeout(() => setNotification(null), 5000);
       }
     } catch (error) {
-      alert('Failed to submit request. Please call us at (914) 557-6816');
+      setNotification({ type: 'error', message: 'Failed to submit request. Please call us at (914) 557-6816' });
+      setTimeout(() => setNotification(null), 5000);
     }
   };
 
@@ -79,6 +84,24 @@ export default function MaintenancePage() {
       <FAQSchema faqs={faqs} />
       <Header />
       <Breadcrumbs />
+      
+      {/* Notification */}
+      {notification && (
+        <div className={`fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg max-w-md ${
+          notification.type === 'success' ? 'bg-green-500 text-white' : 'bg-red-500 text-white'
+        }`} role="alert" aria-live="polite">
+          <div className="flex items-center justify-between">
+            <p>{notification.message}</p>
+            <button 
+              onClick={() => setNotification(null)}
+              className="ml-4 text-white hover:text-gray-200"
+              aria-label="Close notification"
+            >
+              ×
+            </button>
+          </div>
+        </div>
+      )}
       
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-green-600 to-green-800 text-white py-20">

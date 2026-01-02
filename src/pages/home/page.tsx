@@ -61,7 +61,11 @@ export default function HomePage() {
 
       // Try immediately, and also after a delay to catch late-loading content
       attemptScroll();
-      setTimeout(attemptScroll, 100);
+      // Use requestAnimationFrame for better performance
+      requestAnimationFrame(() => {
+        requestAnimationFrame(attemptScroll);
+      });
+      // Fallback timeout for late-loading content
       setTimeout(attemptScroll, 300);
     }
   }, [routerLocation.hash, routerLocation.pathname]);

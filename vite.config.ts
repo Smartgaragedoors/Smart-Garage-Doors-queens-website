@@ -114,6 +114,8 @@ export default defineConfig({
     reportCompressedSize: true, // Report compressed sizes
     cssCodeSplit: true, // Split CSS per chunk
     target: 'es2015', // Target modern browsers for smaller bundles
+    cssTarget: 'es2015', // Better CSS minification
+    terserOptions: undefined, // Use esbuild minification (faster)
   },
   resolve: {
     alias: {

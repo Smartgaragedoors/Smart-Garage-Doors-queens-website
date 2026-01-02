@@ -27,6 +27,19 @@
 img {
   content-visibility: auto;
   height: auto;
+  /* Prevent layout shift */
+  max-width: 100%;
+  /* Optimize image decoding */
+  decoding: async;
+  /* Lazy load by default */
+  loading: lazy;
+}
+
+/* Critical images should load immediately */
+img[loading="eager"],
+img[fetchpriority="high"] {
+  loading: eager;
+  content-visibility: visible;
 }
 
 /* Optimize backdrop-blur for better performance */
@@ -51,6 +64,20 @@ img {
 /* Optimize animations - use composited properties only */
 * {
   will-change: auto;
+}
+
+/* Reduce paint complexity on mobile */
+@media (max-width: 768px) {
+  /* Simplify shadows on mobile */
+  .shadow-2xl,
+  .shadow-3xl {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  /* Reduce backdrop blur on mobile for better performance */
+  .backdrop-blur-sm {
+    backdrop-filter: blur(2px);
+  }
 }
 
 /* Force GPU acceleration for common animations */

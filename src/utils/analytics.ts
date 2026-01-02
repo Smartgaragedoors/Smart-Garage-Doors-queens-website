@@ -9,22 +9,45 @@ declare global {
 
 export const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID || '';
 
-// Initialize Google Analytics
+// Initialize Google Analytics - deferred for better performance
 export const initAnalytics = () => {
   if (typeof window === 'undefined' || !GA_MEASUREMENT_ID) {
     return;
   }
 
-  // Load gtag script asynchronously
-  const script1 = document.createElement('script');
-  script1.async = true;
-  script1.defer = false; // Async takes precedence
-  script1.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
-  // Add error handling for script loading
-  script1.onerror = () => {
-    console.warn('Failed to load Google Analytics script');
+  // Defer GA loading until after page is interactive
+  const loadGA = () => {
+    // Load gtag script asynchronously
+    const script1 = document.createElement('script');
+    script1.async = true;
+    script1.defer = true;
+    script1.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+    // Add error handling for script loading
+    script1.onerror = () => {
+      if (process.env.NODE_ENV === 'development') {
+        console.warn('Failed to load Google Analytics script');
+      }
+    };
+    document.head.appendChild(script1);
   };
-  document.head.appendChild(script1);
+
+  // Wait for page to be interactive before loading GA
+  if (document.readyState === 'complete') {
+    // Use requestIdleCallback if available, otherwise delay
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(loadGA, { timeout: 2000 });
+    } else {
+      setTimeout(loadGA, 2000);
+    }
+  } else {
+    window.addEventListener('load', () => {
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadGA, { timeout: 2000 });
+      } else {
+        setTimeout(loadGA, 2000);
+      }
+    });
+  }
 
   // Initialize dataLayer and gtag
   window.dataLayer = window.dataLayer || [];

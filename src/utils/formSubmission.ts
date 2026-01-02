@@ -24,7 +24,9 @@ export interface FormSubmissionResult {
 export async function submitForm(data: Record<string, string | number | undefined>, formName?: string): Promise<FormSubmissionResult> {
   // If no access key is configured, fall back to mailto (not ideal but works)
   if (!WEB3FORMS_ACCESS_KEY) {
-    console.warn('VITE_WEB3FORMS_ACCESS_KEY not configured. Forms will use mailto fallback.');
+    if (process.env.NODE_ENV === 'development') {
+      console.warn('VITE_WEB3FORMS_ACCESS_KEY not configured. Forms will use mailto fallback.');
+    }
     return submitFormMailto(data, formName);
   }
 
@@ -69,7 +71,9 @@ export async function submitForm(data: Record<string, string | number | undefine
       };
     }
   } catch (error) {
-    console.error('Form submission error:', error);
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Form submission error:', error);
+    }
     // Fallback to mailto if API fails
     return submitFormMailto(data, formName);
   }

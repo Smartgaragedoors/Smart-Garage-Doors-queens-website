@@ -29,11 +29,15 @@ export default function RecentWork() {
         setPhotos([...customPhotos, ...googlePhotos]);
       } else {
         // Use fallback images if Google API fails
-        console.log('Using fallback images. Google API status:', data.error || 'No photos available');
+        if (process.env.NODE_ENV === 'development') {
+          console.log('Using fallback images. Google API status:', data.error || 'No photos available');
+        }
         setPhotos([...customPhotos, ...defaultProjects]);
       }
     } catch (error) {
-      console.log('Using fallback images due to error:', error);
+      if (process.env.NODE_ENV === 'development') {
+        console.log('Using fallback images due to error:', error);
+      }
       setPhotos([...customPhotos, ...defaultProjects]);
     } finally {
       setLoading(false);
