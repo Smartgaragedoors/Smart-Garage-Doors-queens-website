@@ -119,15 +119,15 @@ export default function RecentWork() {
         </div>
 
         {/* Desktop Carousel */}
-        <div className="hidden md:block relative">
-          <div className="overflow-hidden">
+        <div className="hidden md:block relative w-full max-w-full overflow-hidden">
+          <div className="overflow-hidden w-full max-w-full">
             <div 
-              className="flex transition-transform duration-500 ease-in-out"
+              className="flex transition-transform duration-500 ease-in-out w-full"
               style={{ transform: `translateX(-${currentSlide * (100 / 3)}%)` }}
             >
               {displayProjects.map((project, index) => (
-                <div key={index} className="w-1/3 flex-shrink-0 px-2">
-                  <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div key={index} className="w-1/3 flex-shrink-0 px-2 min-w-0">
+                  <div className="bg-white rounded-lg shadow-lg overflow-hidden w-full">
                     <img 
                       src={project.image} 
                       alt={project.title}

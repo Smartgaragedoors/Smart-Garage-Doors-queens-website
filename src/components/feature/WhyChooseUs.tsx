@@ -48,7 +48,7 @@ export default function WhyChooseUs() {
         {/* Two column layout with image */}
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           {/* Left: Image */}
-          <div className="relative">
+          <div className="relative overflow-hidden">
             <img 
               src="https://static.readdy.ai/image/b69172f381814b1e7c2f555a7760d2b1/22be8a4aee48d1bbee63b5199aec8007.webp"
               alt="Professional garage door technicians"
@@ -57,7 +57,7 @@ export default function WhyChooseUs() {
               width="600"
               height="400"
             />
-            <div className="absolute -bottom-6 -right-6 bg-orange-500 text-white p-6 rounded-lg shadow-xl">
+            <div className="absolute bottom-0 right-0 bg-orange-500 text-white p-6 rounded-lg shadow-xl">
               <div className="text-4xl font-bold">1000+</div>
               <div className="text-sm">Happy Customers</div>
             </div>
