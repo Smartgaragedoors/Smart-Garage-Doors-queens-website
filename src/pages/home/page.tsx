@@ -21,45 +21,44 @@ export default function HomePage() {
 
   // Handle hash scrolling after navigation (e.g., from /#about)
   useEffect(() => {
-    // #region agent log
-    const hash = routerLocation.hash;
-    fetch('http://127.0.0.1:7243/ingest/6c3bdf5c-af68-469f-9337-ff93e6c01d2a',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'HomePage.tsx:hash-scroll',message:'Hash scroll effect triggered',data:{hash,pathname:routerLocation.pathname},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
-    // #endregion agent log
+    // Check both React Router location hash and window.location.hash (for page reloads)
+    const hash = routerLocation.hash || window.location.hash;
 
     if (hash) {
       // Remove the # from the hash
       const elementId = hash.substring(1);
-      // #region agent log
-      fetch('http://127.0.0.1:7243/ingest/6c3bdf5c-af68-469f-9337-ff93e6c01d2a',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'HomePage.tsx:hash-scroll',message:'Looking for element with hash',data:{elementId},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
-      // #endregion agent log
       
-      // Wait for the next frame to ensure DOM is ready
-      setTimeout(() => {
+      // Function to scroll to the element
+      const scrollToHash = () => {
         const element = document.getElementById(elementId);
-        // #region agent log
-        fetch('http://127.0.0.1:7243/ingest/6c3bdf5c-af68-469f-9337-ff93e6c01d2a',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'HomePage.tsx:hash-scroll',message:'Element found check',data:{elementId,elementFound:!!element},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
-        // #endregion agent log
         
         if (element) {
-          // #region agent log
-          const scrollYBefore = window.scrollY;
-          fetch('http://127.0.0.1:7243/ingest/6c3bdf5c-af68-469f-9337-ff93e6c01d2a',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'HomePage.tsx:hash-scroll',message:'Scrolling to element',data:{elementId,scrollYBefore,elementTop:element.offsetTop},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
-          // #endregion agent log
+          // Calculate position with offset for sticky header (approximately 150px)
+          const headerOffset = 150;
+          const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+          const offsetPosition = elementPosition - headerOffset;
           
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          
-          // #region agent log
-          setTimeout(() => {
-            const scrollYAfter = window.scrollY;
-            fetch('http://127.0.0.1:7243/ingest/6c3bdf5c-af68-469f-9337-ff93e6c01d2a',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'HomePage.tsx:hash-scroll',message:'Scroll completed',data:{elementId,scrollYAfter,scrollYBefore},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
-          }, 500);
-          // #endregion agent log
-        } else {
-          // #region agent log
-          fetch('http://127.0.0.1:7243/ingest/6c3bdf5c-af68-469f-9337-ff93e6c01d2a',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'HomePage.tsx:hash-scroll',message:'Element not found for hash',data:{elementId},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'B'})}).catch(()=>{});
-          // #endregion agent log
+          // Scroll to the element
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
         }
-      }, 100);
+      };
+
+      // Wait for DOM to be ready - use requestAnimationFrame for better timing
+      const attemptScroll = () => {
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            scrollToHash();
+          });
+        });
+      };
+
+      // Try immediately, and also after a delay to catch late-loading content
+      attemptScroll();
+      setTimeout(attemptScroll, 100);
+      setTimeout(attemptScroll, 300);
     }
   }, [routerLocation.hash, routerLocation.pathname]);
 

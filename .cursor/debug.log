@@ -1,5 +1,0 @@
-{"location":"HomePage.tsx:hash-scroll","message":"Looking for element with hash","data":{"elementId":"about"},"timestamp":1767337080712,"sessionId":"debug-session","runId":"run1","hypothesisId":"A"}
-{"location":"HomePage.tsx:hash-scroll","message":"Hash scroll effect triggered","data":{"hash":"#about","pathname":"/"},"timestamp":1767337080712,"sessionId":"debug-session","runId":"run1","hypothesisId":"A"}
-{"location":"HomePage.tsx:hash-scroll","message":"Element found check","data":{"elementId":"about","elementFound":true},"timestamp":1767337080817,"sessionId":"debug-session","runId":"run1","hypothesisId":"A"}
-{"location":"HomePage.tsx:hash-scroll","message":"Scrolling to element","data":{"elementId":"about","scrollYBefore":0,"elementTop":2444},"timestamp":1767337080817,"sessionId":"debug-session","runId":"run1","hypothesisId":"A"}
-{"location":"HomePage.tsx:hash-scroll","message":"Scroll completed","data":{"elementId":"about","scrollYAfter":1986,"scrollYBefore":0},"timestamp":1767337081322,"sessionId":"debug-session","runId":"run1","hypothesisId":"A"}

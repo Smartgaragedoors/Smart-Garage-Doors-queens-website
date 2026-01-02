@@ -9,7 +9,6 @@ export default function Header() {
   const [isServiceAreasOpen, setIsServiceAreasOpen] = useState(false);
   const { location, locationName } = useLocationContext();
   const routerLocation = useRouterLocation();
-  const navigate = useNavigate();
 
   // Get current page to show relevant address
   const currentPath = routerLocation.pathname;
@@ -24,9 +23,10 @@ export default function Header() {
       // On home page, let default behavior handle smooth scroll
       return;
     }
-    // On other pages, use navigate to go to home with hash
+    // On other pages, navigate to home with hash using window.location for reliable hash handling
     e.preventDefault();
-    navigate('/#about');
+    const basePath = typeof __BASE_PATH__ !== 'undefined' ? __BASE_PATH__ : '/';
+    window.location.href = `${basePath}#about`;
   };
 
   // Use detected location first, then fall back to route-based
@@ -202,7 +202,11 @@ export default function Header() {
                 )}
               </div>
 
-              <a href={aboutLink} className="text-gray-700 hover:text-orange-500 font-medium transition-colors">
+              <a 
+                href={currentPath === '/' || currentPath === '/home' ? '#about' : '/#about'} 
+                onClick={handleAboutClick}
+                className="text-gray-700 hover:text-orange-500 font-medium transition-colors"
+              >
                 About
               </a>
               <a href={contactLink} className="text-gray-700 hover:text-orange-500 font-medium transition-colors">
@@ -269,7 +273,11 @@ export default function Header() {
                   </div>
                 </div>
 
-                <a href={aboutLink} className="block text-gray-700 hover:text-orange-500 font-medium transition-colors py-2">
+                <a 
+                  href={currentPath === '/' || currentPath === '/home' ? '#about' : '/#about'} 
+                  onClick={handleAboutClick}
+                  className="block text-gray-700 hover:text-orange-500 font-medium transition-colors py-2"
+                >
                   About
                 </a>
                 <a href={contactLink} className="block text-gray-700 hover:text-orange-500 font-medium transition-colors py-2">
