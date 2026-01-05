@@ -1,41 +1,8 @@
 import { useEffect, useRef } from 'react';
 
 export default function ServiceAreas() {
-  // #region agent log
   const mapRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const log = () => {
-      if (!mapRef.current || !gridRef.current) return;
-      const mapRect = mapRef.current.getBoundingClientRect();
-      const gridRect = gridRef.current.getBoundingClientRect();
-      const mapStyle = window.getComputedStyle(mapRef.current);
-      const gridStyle = window.getComputedStyle(gridRef.current);
-      fetch('http://127.0.0.1:7243/ingest/6c3bdf5c-af68-469f-9337-ff93e6c01d2a', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          location: 'ServiceAreas.tsx:map',
-          message: 'ServiceAreas map bounding + overflow',
-          data: {
-            mapRect,
-            gridRect,
-            mapOverflow: { overflow: mapStyle.overflow, overflowX: mapStyle.overflowX, overflowY: mapStyle.overflowY },
-            gridOverflow: { overflow: gridStyle.overflow, overflowX: gridStyle.overflowX, overflowY: gridStyle.overflowY }
-          },
-          timestamp: Date.now(),
-          sessionId: 'debug-session',
-          runId: 'post-fix',
-          hypothesisId: 'MAP'
-        })
-      }).catch(() => {});
-    };
-    log();
-    window.addEventListener('resize', log);
-    return () => window.removeEventListener('resize', log);
-  }, []);
-  // #endregion
 
   const serviceAreas = {
     'New York': [
