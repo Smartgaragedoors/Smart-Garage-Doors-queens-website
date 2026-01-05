@@ -353,7 +353,7 @@ const StatenIslandNY = () => {
       <ServiceLinks 
         title="Complete Garage Door Services in Staten Island, NY"
         showDescription={true}
-        locationPath="/garage-door-repair-staten-island-ny/"
+        locationPath="/staten-island-ny/"
       />
       <Footer />
     </div>

@@ -40,7 +40,7 @@ export default function DarienCTPage() {
     // Canonical URL
     const canonical = document.querySelector('link[rel="canonical"]') || document.createElement('link');
     canonical.setAttribute('rel', 'canonical');
-    canonical.setAttribute('href', `${import.meta.env.VITE_SITE_URL || 'https://smartestgaragedoors.com'}/garage-door-repair-darien-ct/`);
+    canonical.setAttribute('href', `${import.meta.env.VITE_SITE_URL || 'https://smartestgaragedoors.com'}/darien-ct/`);
     if (!document.querySelector('link[rel="canonical"]')) document.head.appendChild(canonical);
 
     // Last modified
@@ -57,7 +57,7 @@ export default function DarienCTPage() {
       "@type": "LocalBusiness",
       "name": "Smart Garage Doors - Darien CT",
       "description": "Professional garage door repair and installation services in Darien, CT",
-      "url": "https://smartestgaragedoors.com/service-areas/darien-ct",
+      "url": "https://smartestgaragedoors.com/darien-ct/",
       "telephone": "(914) 557-6816",
       "email": "info@smartestgaragedoors.com",
       "address": {
@@ -178,7 +178,7 @@ export default function DarienCTPage() {
       <ServiceLinks 
         title="Complete Garage Door Services in Darien, CT"
         showDescription={true}
-        locationPath="/garage-door-repair-darien-ct/"
+        locationPath="/darien-ct/"
       />
       <Footer />
     </div>

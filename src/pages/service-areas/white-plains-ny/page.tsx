@@ -14,7 +14,7 @@ const WhitePlainsNY = () => {
   
   useEffect(() => {
     // Determine canonical URL - always point to repair URL
-    const canonicalUrl = `${siteUrl}/garage-door-repair-white-plains-ny/`;
+    const canonicalUrl = `${siteUrl}/white-plains-ny/`;
     
     // Update canonical tag
     let canonicalLink = document.querySelector('link[rel="canonical"]');
@@ -44,7 +44,7 @@ const WhitePlainsNY = () => {
         title="White Plains NY Garage Door Repair | Smart Garage Doors | Licensed Technicians"
         description="Professional garage door repair services in White Plains, NY. Smart Garage Doors offers emergency repairs, spring replacement, opener installation throughout White Plains and surrounding Westchester County areas."
         keywords="White Plains NY garage door repair, garage door installation White Plains, emergency garage door service Westchester, Smart Garage Doors"
-        canonical={`${siteUrl}/garage-door-repair-white-plains-ny/`}
+        canonical={`${siteUrl}/white-plains-ny/`}
       />
       <Header />
       <Breadcrumbs />
@@ -376,7 +376,7 @@ const WhitePlainsNY = () => {
       <ServiceLinks 
         title="Complete Garage Door Services in White Plains, NY"
         showDescription={true}
-        locationPath="/garage-door-repair-white-plains-ny/"
+        locationPath="/white-plains-ny/"
       />
       <Footer />
     </div>

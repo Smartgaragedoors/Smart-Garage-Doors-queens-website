@@ -14,18 +14,30 @@ function Footer() {
   ], []);
 
   const serviceAreas = useMemo(() => [
-    { name: 'Flushing', href: '/garage-door-repair-flushing-ny/' },
-    { name: 'White Plains', href: '/garage-door-repair-white-plains-ny/' },
-    { name: 'Suffern', href: '/garage-door-repair-suffern-ny/' },
-    { name: 'Brooklyn', href: '/garage-door-repair-brooklyn-ny/' },
-    { name: 'Staten Island', href: '/garage-door-repair-staten-island-ny/' },
-    { name: 'Long Island', href: '/garage-door-repair-long-island-ny/' },
-    { name: 'Stamford', href: '/garage-door-repair-stamford-ct/' },
-    { name: 'Greenwich', href: '/garage-door-repair-greenwich-ct/' },
-    { name: 'Darien', href: '/garage-door-repair-darien-ct/' },
+    // New York
+    { name: 'Brooklyn', href: '/brooklyn-ny/' },
+    { name: 'Queens', href: '/queens-ny/' },
+    { name: 'Long Island', href: '/long-island-ny/' },
+    { name: 'Staten Island', href: '/staten-island-ny/' },
+    { name: 'Suffern', href: '/suffern-ny/' },
+    { name: 'White Plains', href: '/white-plains-ny/' },
+    { name: 'New Rochelle', href: '/new-rochelle-ny/' },
+    { name: 'Scarsdale', href: '/scarsdale-ny/' },
+    { name: 'Nassau County', href: '/nassau-county-ny/' },
+    { name: 'Suffolk County', href: '/suffolk-county-ny/' },
+    { name: 'Westchester County', href: '/westchester-county-ny/' },
+    // Connecticut
+    { name: 'Stamford', href: '/stamford-ct/' },
+    { name: 'Greenwich', href: '/greenwich-ct/' },
+    { name: 'Darien', href: '/darien-ct/' },
     { name: 'New Canaan', href: '/new-canaan-ct/' },
     { name: 'Westport', href: '/westport-ct/' },
-    { name: 'Newtown', href: '/newtown-ct/' }
+    { name: 'Newtown', href: '/newtown-ct/' },
+    { name: 'Fairfield', href: '/fairfield-ct/' },
+    // New Jersey
+    { name: 'Teaneck', href: '/teaneck-nj/' },
+    { name: 'Elizabeth', href: '/elizabeth-nj/' },
+    { name: 'Bergen County', href: '/bergen-county-nj/' }
   ], []);
 
   // Get current page to show relevant address

@@ -12,7 +12,7 @@ const StamfordCT = () => {
   
   useEffect(() => {
     // Determine canonical URL - always point to repair URL
-    const canonicalUrl = `${siteUrl}/garage-door-repair-stamford-ct/`;
+    const canonicalUrl = `${siteUrl}/stamford-ct/`;
     
     // Update canonical tag
     let canonicalLink = document.querySelector('link[rel="canonical"]');
@@ -30,7 +30,7 @@ const StamfordCT = () => {
         title="Stamford CT Garage Door Repair | Smart Garage Doors | 24/7 Emergency Service"
         description="Professional garage door repair services in Stamford, CT. Smart Garage Doors offers emergency repairs, spring replacement, opener installation throughout Stamford neighborhoods. Licensed technicians serving all Stamford areas."
         keywords="Stamford CT garage door repair, garage door installation Stamford, emergency garage door service, Smart Garage Doors"
-        canonical={`${siteUrl}/garage-door-repair-stamford-ct/`}
+        canonical={`${siteUrl}/stamford-ct/`}
       />
       <Header />
       <Breadcrumbs />
@@ -387,7 +387,7 @@ const StamfordCT = () => {
       <ServiceLinks 
         title="Complete Garage Door Services in Stamford, CT"
         showDescription={true}
-        locationPath="/garage-door-repair-stamford-ct/"
+        locationPath="/stamford-ct/"
       />
       <Footer />
     </div>

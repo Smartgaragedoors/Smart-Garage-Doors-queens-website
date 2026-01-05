@@ -354,7 +354,7 @@ const WestchesterCountyNY = () => {
       <ServiceLinks 
         title="Complete Garage Door Services in Westchester County, NY"
         showDescription={true}
-        locationPath="/garage-door-repair-westchester-county-ny/"
+        locationPath="/westchester-county-ny/"
       />
       <Footer />
     </div>

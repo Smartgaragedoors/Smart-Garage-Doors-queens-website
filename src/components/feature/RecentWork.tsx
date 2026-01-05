@@ -143,8 +143,8 @@ function RecentWork() {
 
   if (loading) {
     return (
-      <section className="py-12 md:py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
+      <section className="py-12 md:py-20 bg-white overflow-x-hidden w-full">
+        <div className="max-w-7xl mx-auto px-4" style={{ width: '100%', maxWidth: '1280px' }}>
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">
               Recent <span className="text-orange-500">Works</span>
@@ -159,8 +159,8 @@ function RecentWork() {
   }
 
   return (
-    <section className="py-12 md:py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4">
+    <section className="py-12 md:py-20 bg-white overflow-x-hidden w-full">
+      <div className="max-w-7xl mx-auto px-4" style={{ width: '100%', maxWidth: '1280px' }}>
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">
             Recent <span className="text-orange-500">Works</span>
@@ -168,8 +168,8 @@ function RecentWork() {
         </div>
 
         {/* Desktop Carousel */}
-        <div className="hidden md:block relative w-full max-w-full overflow-hidden">
-          <div className="overflow-hidden w-full max-w-full">
+        <div className="hidden md:block relative overflow-hidden" style={{ width: '100%', maxWidth: '100%' }}>
+          <div className="overflow-hidden" style={{ width: '100%', maxWidth: '100%' }}>
             <div 
               className="flex transition-transform duration-500 ease-in-out w-full"
               style={{ transform: `translateX(-${currentSlide * (100 / 3)}%)` }}

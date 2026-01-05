@@ -6,21 +6,12 @@ import App from './App.tsx'
 import { initAnalytics } from './utils/analytics'
 import { initWebVitals } from './utils/webVitals'
 
-// Register service worker for offline support and better performance
-if ('serviceWorker' in navigator && import.meta.env.PROD) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/service-worker.js')
-      .then((registration) => {
-        if (import.meta.env.DEV) {
-          console.log('Service Worker registered:', registration);
-        }
-      })
-      .catch((error) => {
-        if (import.meta.env.DEV) {
-          console.error('Service Worker registration failed:', error);
-        }
-      });
-  });
+// Disable service worker to avoid stale/cached bundles causing runtime errors
+// If you need offline support, re-enable after resolving cache issues.
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.getRegistrations().then(regs => {
+    regs.forEach(reg => reg.unregister().catch(() => {}));
+  }).catch(() => {});
 }
 
 // Initialize analytics and performance monitoring
@@ -37,3 +28,58 @@ createRoot(document.getElementById('root')!).render(
     <App />
   </StrictMode>,
 )
+
+// Global error logging for runtime evidence
+if (typeof window !== 'undefined') {
+  const logEndpoint = 'http://127.0.0.1:7243/ingest/6c3bdf5c-af68-469f-9337-ff93e6c01d2a';
+  window.addEventListener('error', (event) => {
+    try {
+      fetch(logEndpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          location: 'window:error',
+          message: event.message || 'window error',
+          data: {
+            source: event.filename,
+            lineno: event.lineno,
+            colno: event.colno,
+            error: event.error ? event.error.toString() : undefined,
+            stack: event.error ? event.error.stack : undefined,
+            pathname: window.location.pathname
+          },
+          timestamp: Date.now(),
+          sessionId: 'debug-session',
+          runId: 'post-fix',
+          hypothesisId: 'ERR'
+        })
+      }).catch(() => {});
+    } catch {
+      // ignore
+    }
+  });
+
+  window.addEventListener('unhandledrejection', (event) => {
+    try {
+      fetch(logEndpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          location: 'window:unhandledrejection',
+          message: 'Unhandled promise rejection',
+          data: {
+            reason: event.reason ? event.reason.toString() : undefined,
+            stack: event.reason?.stack,
+            pathname: window.location.pathname
+          },
+          timestamp: Date.now(),
+          sessionId: 'debug-session',
+          runId: 'post-fix',
+          hypothesisId: 'ERR'
+        })
+      }).catch(() => {});
+    } catch {
+      // ignore
+    }
+  });
+}

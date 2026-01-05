@@ -57,7 +57,7 @@ export default function NewCanaanCTPage() {
       "@type": "LocalBusiness",
       "name": "Smart Garage Doors - New Canaan CT",
       "description": "Professional garage door repair and installation services in New Canaan, CT",
-      "url": "https://smartestgaragedoors.com/service-areas/new-canaan-ct",
+      "url": "https://smartestgaragedoors.com/new-canaan-ct/",
       "telephone": "(914) 557-6816",
       "email": "info@smartestgaragedoors.com",
       "address": {

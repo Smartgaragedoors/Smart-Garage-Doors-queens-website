@@ -1,5 +1,42 @@
+import { useEffect, useRef } from 'react';
 
 export default function ServiceAreas() {
+  // #region agent log
+  const mapRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const log = () => {
+      if (!mapRef.current || !gridRef.current) return;
+      const mapRect = mapRef.current.getBoundingClientRect();
+      const gridRect = gridRef.current.getBoundingClientRect();
+      const mapStyle = window.getComputedStyle(mapRef.current);
+      const gridStyle = window.getComputedStyle(gridRef.current);
+      fetch('http://127.0.0.1:7243/ingest/6c3bdf5c-af68-469f-9337-ff93e6c01d2a', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          location: 'ServiceAreas.tsx:map',
+          message: 'ServiceAreas map bounding + overflow',
+          data: {
+            mapRect,
+            gridRect,
+            mapOverflow: { overflow: mapStyle.overflow, overflowX: mapStyle.overflowX, overflowY: mapStyle.overflowY },
+            gridOverflow: { overflow: gridStyle.overflow, overflowX: gridStyle.overflowX, overflowY: gridStyle.overflowY }
+          },
+          timestamp: Date.now(),
+          sessionId: 'debug-session',
+          runId: 'post-fix',
+          hypothesisId: 'MAP'
+        })
+      }).catch(() => {});
+    };
+    log();
+    window.addEventListener('resize', log);
+    return () => window.removeEventListener('resize', log);
+  }, []);
+  // #endregion
+
   const serviceAreas = {
     'New York': [
       'Brooklyn',
@@ -30,11 +67,11 @@ export default function ServiceAreas() {
   };
 
   return (
-    <section id="service-areas" className="py-12 md:py-20 bg-blue-900">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
+    <section id="service-areas" className="py-12 md:py-20 bg-blue-900 overflow-x-hidden w-full">
+      <div className="max-w-7xl mx-auto px-4" style={{ width: '100%', maxWidth: '1280px' }}>
+        <div ref={gridRef} className="grid lg:grid-cols-[1fr_1.6fr] gap-8 md:gap-12 items-center">
           {/* Left Content */}
-          <div className="text-white order-2 lg:order-1">
+          <div className="text-white order-2 lg:order-1 w-full">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Services <span className="text-orange-500">Areas</span>
             </h2>
@@ -71,13 +108,16 @@ export default function ServiceAreas() {
           </div>
 
           {/* Right - Real Google Map */}
-          <div className="relative order-1 lg:order-2">
-            <div className="w-full h-64 md:h-96 rounded-lg overflow-hidden shadow-2xl relative">
+          <div className="relative order-1 lg:order-2 w-full">
+            <div
+              ref={mapRef}
+              className="relative w-full h-[32rem] md:h-[40rem] lg:h-[44rem] rounded-lg overflow-hidden shadow-2xl"
+              style={{ maxWidth: '100%' }}
+            >
               <iframe
                 src="https://www.google.com/maps/d/u/0/embed?mid=1yksORXIx5j9H9uXHQWO_zvzyTcMzlXc&ehbc=2E312F&noprof=1"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
+                className="absolute inset-0 w-full h-full"
+                style={{ border: 0, minHeight: '100%' }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"

@@ -1,24 +1,22 @@
-import { useEffect, lazy, Suspense, useMemo } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import { useLocation as useRouterLocation } from 'react-router-dom';
 import Hero from '../../components/feature/Hero';
 import Services from '../../components/feature/Services';
 import About from '../../components/feature/About';
+import WhyChooseUs from '../../components/feature/WhyChooseUs';
+import ServiceAreas from '../../components/feature/ServiceAreas';
+import Contact from '../../components/feature/Contact';
 import Header from '../../components/feature/Header';
+import Footer from '../../components/feature/Footer';
 import DynamicMetaTags from '../../components/seo/DynamicMetaTags';
 import OrganizationSchema from '../../components/seo/OrganizationSchema';
 import LocalBusinessSchema from '../../components/seo/LocalBusinessSchema';
 import { useLocation } from '../../contexts/LocationContext';
 import { BUSINESS_INFO } from '../../config/business-info';
-import { PageLoadingSkeleton } from '../../components/base/LoadingSkeleton';
-import ErrorBoundary from '../../components/ErrorBoundary';
 
 // Lazy load below-the-fold components for better initial load performance
-const WhyChooseUs = lazy(() => import('../../components/feature/WhyChooseUs'));
-const ServiceAreas = lazy(() => import('../../components/feature/ServiceAreas'));
 const RecentWork = lazy(() => import('../../components/feature/RecentWork'));
 const Reviews = lazy(() => import('../../components/feature/Reviews'));
-const Contact = lazy(() => import('../../components/feature/Contact'));
-const Footer = lazy(() => import('../../components/feature/Footer'));
 
 export default function HomePage() {
   const { location } = useLocation();
@@ -72,7 +70,11 @@ export default function HomePage() {
     }
   }, [routerLocation.hash, routerLocation.pathname]);
 
-  const schemaData = useMemo(() => ({
+  useEffect(() => {
+    // Add Schema.org JSON-LD with location-aware data
+    const schemaScript = document.createElement('script');
+    schemaScript.type = 'application/ld+json';
+    schemaScript.text = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": BUSINESS_INFO.name,
@@ -181,13 +183,7 @@ export default function HomePage() {
           }
         ]
       }
-  }), [location, siteUrl]);
-
-  useEffect(() => {
-    // Add Schema.org JSON-LD with location-aware data
-    const schemaScript = document.createElement('script');
-    schemaScript.type = 'application/ld+json';
-    schemaScript.text = JSON.stringify(schemaData);
+    });
     document.head.appendChild(schemaScript);
 
     return () => {
@@ -195,56 +191,27 @@ export default function HomePage() {
         schemaScript.parentNode.removeChild(schemaScript);
       }
     };
-  }, [schemaData]);
+  }, [location, siteUrl]);
 
   return (
     <div className="min-h-screen">
-      {/* Skip to main content link for accessibility */}
-      <a 
-        href="#main-content" 
-        className="absolute left-[-9999px] focus:left-4 focus:top-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-orange-500 focus:text-white focus:rounded-lg focus:font-semibold focus:outline-none focus:ring-2 focus:ring-orange-500"
-      >
-        Skip to main content
-      </a>
       <DynamicMetaTags />
       <OrganizationSchema />
       <LocalBusinessSchema />
       <Header />
-      <main id="main-content">
-        <Hero />
-        <Services />
-        <About />
-        <ErrorBoundary>
-          <Suspense fallback={<PageLoadingSkeleton height="min-h-[400px]" />}>
-            <WhyChooseUs />
-          </Suspense>
-        </ErrorBoundary>
-        <ErrorBoundary>
-          <Suspense fallback={<PageLoadingSkeleton height="min-h-[400px]" />}>
-            <ServiceAreas />
-          </Suspense>
-        </ErrorBoundary>
-        <ErrorBoundary>
-          <Suspense fallback={<PageLoadingSkeleton height="min-h-[400px]" />}>
-            <RecentWork />
-          </Suspense>
-        </ErrorBoundary>
-        <ErrorBoundary>
-          <Suspense fallback={<PageLoadingSkeleton height="min-h-[400px]" />}>
-            <Reviews />
-          </Suspense>
-        </ErrorBoundary>
-        <ErrorBoundary>
-          <Suspense fallback={<PageLoadingSkeleton height="min-h-[400px]" />}>
-            <Contact />
-          </Suspense>
-        </ErrorBoundary>
-        <ErrorBoundary>
-          <Suspense fallback={<PageLoadingSkeleton height="min-h-[200px]" />}>
-            <Footer />
-          </Suspense>
-        </ErrorBoundary>
-      </main>
+      <Hero />
+      <Services />
+      <About />
+      <WhyChooseUs />
+      <ServiceAreas />
+      <Suspense fallback={<div className="min-h-[400px]" />}>
+        <RecentWork />
+      </Suspense>
+      <Suspense fallback={<div className="min-h-[400px]" />}>
+        <Reviews />
+      </Suspense>
+      <Contact />
+      <Footer />
     </div>
   );
 }

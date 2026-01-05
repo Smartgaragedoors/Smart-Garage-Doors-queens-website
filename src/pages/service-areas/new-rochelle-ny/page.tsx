@@ -351,7 +351,7 @@ const NewRochelleNY = () => {
       <ServiceLinks 
         title="Complete Garage Door Services in New Rochelle, NY"
         showDescription={true}
-        locationPath="/garage-door-repair-new-rochelle-ny/"
+        locationPath="/new-rochelle-ny/"
       />
       <Footer />
     </div>

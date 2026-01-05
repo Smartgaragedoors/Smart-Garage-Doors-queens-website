@@ -354,7 +354,7 @@ const SuffolkCountyNY = () => {
       <ServiceLinks 
         title="Complete Garage Door Services in Suffolk County, NY"
         showDescription={true}
-        locationPath="/garage-door-repair-suffolk-county-ny/"
+        locationPath="/suffolk-county-ny/"
       />
       <Footer />
     </div>

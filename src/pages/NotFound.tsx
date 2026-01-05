@@ -63,7 +63,7 @@ export default function NotFound() {
                 <i className="ri-arrow-right-line mr-2"></i>
                 Spring Replacement
               </Link>
-              <Link to="/garage-door-repair-flushing-ny/" className="text-blue-600 hover:text-orange-500 transition-colors">
+              <Link to="/queens-ny/" className="text-blue-600 hover:text-orange-500 transition-colors">
                 <i className="ri-arrow-right-line mr-2"></i>
                 Service Areas
               </Link>

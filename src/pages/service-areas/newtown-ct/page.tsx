@@ -57,7 +57,7 @@ export default function NewtownCTPage() {
       "@type": "LocalBusiness",
       "name": "Smart Garage Doors - Newtown CT",
       "description": "Professional garage door repair and installation services in Newtown, CT",
-      "url": "https://smartestgaragedoors.com/service-areas/newtown-ct",
+      "url": "https://smartestgaragedoors.com/newtown-ct/",
       "telephone": "(914) 557-6816",
       "email": "info@smartestgaragedoors.com",
       "address": {

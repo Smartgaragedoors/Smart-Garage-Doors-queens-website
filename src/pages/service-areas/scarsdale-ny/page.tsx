@@ -351,7 +351,7 @@ const ScarsdaleNY = () => {
       <ServiceLinks 
         title="Complete Garage Door Services in Scarsdale, NY"
         showDescription={true}
-        locationPath="/garage-door-repair-scarsdale-ny/"
+        locationPath="/scarsdale-ny/"
       />
       <Footer />
     </div>

@@ -11,7 +11,7 @@ export default function SuffernNY() {
   
   useEffect(() => {
     // Determine canonical URL - always point to repair URL
-    const canonicalUrl = `${siteUrl}/garage-door-repair-suffern-ny/`;
+    const canonicalUrl = `${siteUrl}/suffern-ny/`;
     
     // Update canonical tag
     let canonicalLink = document.querySelector('link[rel="canonical"]');
@@ -67,7 +67,7 @@ export default function SuffernNY() {
       "@type": "LocalBusiness",
       "name": "Smart Garage Doors - Suffern NY",
       "description": "Professional garage door repair and installation services in Suffern, New York",
-      "url": `${import.meta.env.VITE_SITE_URL || "https://smartestgaragedoors.com"}/service-areas/suffern-ny`,
+      "url": `${import.meta.env.VITE_SITE_URL || "https://smartestgaragedoors.com"}/suffern-ny/`,
       "telephone": "(914) 557-6816",
       "address": {
         "@type": "PostalAddress",
@@ -301,7 +301,7 @@ export default function SuffernNY() {
       <ServiceLinks 
         title="Complete Garage Door Services in Suffern, NY"
         showDescription={true}
-        locationPath="/garage-door-repair-suffern-ny/"
+        locationPath="/suffern-ny/"
       />
       <Footer />
     </div>

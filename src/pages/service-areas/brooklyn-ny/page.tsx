@@ -24,7 +24,7 @@ const BrooklynNY = () => {
     // Canonical URL
     const canonical = document.querySelector('link[rel="canonical"]') || document.createElement('link');
     canonical.setAttribute('rel', 'canonical');
-    canonical.setAttribute('href', `${import.meta.env.VITE_SITE_URL || 'https://smartestgaragedoors.com'}/garage-door-repair-brooklyn-ny/`);
+    canonical.setAttribute('href', `${import.meta.env.VITE_SITE_URL || 'https://smartestgaragedoors.com'}/brooklyn-ny/`);
     if (!document.querySelector('link[rel="canonical"]')) document.head.appendChild(canonical);
 
     // Add Schema.org JSON-LD for Brooklyn NY page
@@ -35,7 +35,7 @@ const BrooklynNY = () => {
       "@type": "LocalBusiness",
       "name": "Smart Garage Doors - Brooklyn NY",
       "description": "Professional garage door repair and installation services in Brooklyn, New York",
-      "url": `${import.meta.env.VITE_SITE_URL || 'https://smartestgaragedoors.com'}/service-areas/brooklyn-ny`,
+      "url": `${import.meta.env.VITE_SITE_URL || 'https://smartestgaragedoors.com'}/brooklyn-ny/`,
       "telephone": "(914) 557-6816",
       "address": {
         "@type": "PostalAddress",
@@ -519,7 +519,7 @@ const BrooklynNY = () => {
           </div>
           
           <div className="bg-white rounded-lg shadow-xl overflow-hidden">
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto" style={{ scrollbarGutter: 'stable' }}>
               <table className="w-full">
                 <thead className="bg-blue-900 text-white">
                   <tr>
@@ -622,7 +622,7 @@ const BrooklynNY = () => {
       <ServiceLinks 
         title="Complete Garage Door Services in Brooklyn, NY"
         showDescription={true}
-        locationPath="/garage-door-repair-brooklyn-ny/"
+        locationPath="/brooklyn-ny/"
       />
       <Footer />
     </div>

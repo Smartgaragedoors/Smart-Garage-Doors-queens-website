@@ -33,7 +33,7 @@ export function LocationProvider({ children }: { children: ReactNode }) {
         latitude: 40.7282,
         longitude: -73.7949,
         distance: 0,
-        serviceAreaPage: '/garage-door-repair-flushing-ny/',
+        serviceAreaPage: '/queens-ny/',
       });
     } finally {
       setIsLoading(false);

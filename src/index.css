@@ -2,6 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Prevent horizontal overflow on body and root */
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+}
+
+#root {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+}
+
+/* Ensure max-w-7xl containers are properly constrained */
+.max-w-7xl {
+  max-width: 1280px !important;
+  width: 100% !important;
+}
+
+/* Ensure sections don't overflow */
+section {
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+}
+
+/* CRITICAL: Global scrollbar hiding - but NOT on dropdowns, buttons, links, or their children */
+*:not(button):not(a):not([role="menuitem"]):not([role="button"]):not(.dropdown-menu):not([class*="dropdown"]) {
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* IE and Edge */
+}
+
+*:not(button):not(a):not([role="menuitem"]):not([role="button"]):not(.dropdown-menu):not([class*="dropdown"])::-webkit-scrollbar {
+  display: none !important; /* Chrome, Safari, Opera */
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Ensure dropdowns and their containers can display properly */
+.relative,
+div[class*="absolute"][class*="top-full"],
+div[class*="shadow-lg"],
+div[class*="shadow-xl"] {
+  scrollbar-width: auto !important;
+  -ms-overflow-style: auto !important;
+}
+
+.relative::-webkit-scrollbar,
+div[class*="absolute"][class*="top-full"]::-webkit-scrollbar,
+div[class*="shadow-lg"]::-webkit-scrollbar,
+div[class*="shadow-xl"]::-webkit-scrollbar {
+  display: auto !important;
+}
+
+/* Ensure header nav containers never clip dropdowns */
+header nav,
+header nav .max-w-7xl,
+header nav .flex.justify-between,
+header nav .hidden.lg\:flex {
+  overflow: visible !important;
+}
+
 /* CRITICAL: Dropdown menu overflow fix - must be at top level */
 .dropdown-menu,
 .dropdown-menu * {
@@ -14,8 +73,22 @@
 
 /* Ensure dropdown parent containers don't clip */
 .relative:has(.dropdown-menu),
-div:has(.dropdown-menu) {
+div:has(.dropdown-menu),
+nav .relative,
+header nav .relative,
+header nav div.relative {
   overflow: visible !important;
+}
+
+/* Ensure dropdowns are visible and above other content */
+nav div[class*="absolute"][class*="top-full"],
+header nav div[class*="absolute"][class*="top-full"],
+div[class*="absolute"][class*="top-full"][class*="z-"],
+div[class*="absolute"][class*="top-full"][class*="z-["] {
+  overflow: visible !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 /* Optimize font loading */
@@ -147,16 +220,24 @@ img[fetchpriority="high"] {
   }
   
   /* Prevent any element from causing horizontal overflow - but NOT dropdown menus */
-  section:not(.dropdown-menu):not([class*="dropdown-menu"]), 
-  div:not(.dropdown-menu):not([class*="dropdown-menu"]), 
-  main:not(.dropdown-menu):not([class*="dropdown-menu"]), 
-  article:not(.dropdown-menu):not([class*="dropdown-menu"]), 
-  aside:not(.dropdown-menu):not([class*="dropdown-menu"]), 
-  header:not(.dropdown-menu):not([class*="dropdown-menu"]), 
-  footer:not(.dropdown-menu):not([class*="dropdown-menu"]), 
-  nav:not(.dropdown-menu):not([class*="dropdown-menu"]) {
+  section:not(.dropdown-menu):not([class*="dropdown-menu"]):not(:has(div[class*="absolute"][class*="top-full"])), 
+  div:not(.dropdown-menu):not([class*="dropdown-menu"]):not(:has(div[class*="absolute"][class*="top-full"])), 
+  main:not(.dropdown-menu):not([class*="dropdown-menu"]):not(:has(div[class*="absolute"][class*="top-full"])), 
+  article:not(.dropdown-menu):not([class*="dropdown-menu"]):not(:has(div[class*="absolute"][class*="top-full"])), 
+  aside:not(.dropdown-menu):not([class*="dropdown-menu"]):not(:has(div[class*="absolute"][class*="top-full"])), 
+  header:not(.dropdown-menu):not([class*="dropdown-menu"]):not(:has(div[class*="absolute"][class*="top-full"])), 
+  footer:not(.dropdown-menu):not([class*="dropdown-menu"]):not(:has(div[class*="absolute"][class*="top-full"])), 
+  nav:not(.dropdown-menu):not([class*="dropdown-menu"]):not(:has(div[class*="absolute"][class*="top-full"])) {
     max-width: 100%;
     overflow-x: hidden;
+  }
+  
+  /* CRITICAL: Ensure nav and header allow dropdowns to overflow */
+  nav,
+  header nav,
+  header nav > div,
+  nav > div {
+    overflow: visible !important;
   }
   
   /* Ensure images don't cause overflow */
@@ -172,11 +253,253 @@ img[fetchpriority="high"] {
     table-layout: fixed;
   }
   
+  /* Ensure table containers don't show scrollbars unnecessarily */
+  .overflow-x-auto table {
+    min-width: 100%;
+  }
+  
   /* Prevent pre/code blocks from causing overflow */
   pre, code {
     max-width: 100%;
     overflow-x: auto;
     word-wrap: break-word;
+  }
+  
+  /* Prevent unnecessary scrollbars - ensure scrollbars only appear when content actually overflows */
+  .overflow-x-auto {
+    overflow-x: auto;
+    /* Only show scrollbar when content actually overflows */
+    scrollbar-width: thin; /* Firefox - thin scrollbar */
+    scrollbar-gutter: stable; /* Reserve space to prevent layout shift */
+  }
+  
+  /* Customize scrollbar appearance for better UX */
+  .overflow-x-auto::-webkit-scrollbar {
+    height: 6px; /* Thin scrollbar for horizontal scrolling */
+  }
+  
+  .overflow-x-auto::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 3px;
+  }
+  
+  .overflow-x-auto::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+  }
+  
+  .overflow-x-auto::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+  
+  /* Ensure overflow-y-auto only shows when needed */
+  .overflow-y-auto {
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-gutter: stable;
+  }
+  
+  .overflow-y-auto::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .overflow-y-auto::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 3px;
+  }
+  
+  .overflow-y-auto::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+  }
+  
+  .overflow-y-auto::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+  
+  /* Prevent scrollbars on elements with hover scale transforms */
+  .transform.hover\:scale-105,
+  a.transform.hover\:scale-105,
+  button.transform.hover\:scale-105 {
+    overflow: hidden !important;
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+  }
+  
+  /* Prevent scrollbars on containers with scaled children */
+  div:has(.transform.hover\:scale-105),
+  div:has(a.transform.hover\:scale-105),
+  div:has(button.transform.hover\:scale-105) {
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+  
+  /* CRITICAL: Hide scrollbars on Hero stats cards completely */
+  .hero-stats-card,
+  .hero-stats-card * {
+    overflow: hidden !important;
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+    scrollbar-width: none !important; /* Firefox */
+    -ms-overflow-style: none !important; /* IE and Edge */
+  }
+  
+  .hero-stats-card::-webkit-scrollbar,
+  .hero-stats-card *::-webkit-scrollbar {
+    display: none !important; /* Chrome, Safari, Opera */
+    width: 0 !important;
+    height: 0 !important;
+  }
+  
+  /* Hide scrollbars on Hero stats grid container */
+  .grid:has(.hero-stats-card) {
+    overflow: hidden !important;
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+  
+  .grid:has(.hero-stats-card)::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+  
+  /* CRITICAL: Hide scrollbars on Hero buttons completely */
+  .hero-button,
+  .hero-button *,
+  .hero-buttons-container,
+  .hero-buttons-container * {
+    overflow: hidden !important;
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+    scrollbar-width: none !important; /* Firefox */
+    -ms-overflow-style: none !important; /* IE and Edge */
+  }
+  
+  .hero-button::-webkit-scrollbar,
+  .hero-button *::-webkit-scrollbar,
+  .hero-buttons-container::-webkit-scrollbar,
+  .hero-buttons-container *::-webkit-scrollbar {
+    display: none !important; /* Chrome, Safari, Opera */
+    width: 0 !important;
+    height: 0 !important;
+  }
+  
+  /* CRITICAL: Hide ALL scrollbars on dropdown menus - multiple selector approaches */
+  .dropdown-menu,
+  .dropdown-menu *,
+  div.absolute.top-full,
+  div.absolute.left-0.top-full,
+  div[class*="absolute"][class*="top-full"],
+  div[class*="shadow-xl"],
+  div[class*="shadow-lg"] {
+    overflow: hidden !important;
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+    scrollbar-width: none !important; /* Firefox */
+    -ms-overflow-style: none !important; /* IE and Edge */
+  }
+  
+  .dropdown-menu::-webkit-scrollbar,
+  .dropdown-menu *::-webkit-scrollbar,
+  div.absolute.top-full::-webkit-scrollbar,
+  div.absolute.left-0.top-full::-webkit-scrollbar,
+  div[class*="absolute"][class*="top-full"]::-webkit-scrollbar,
+  div[class*="shadow-xl"]::-webkit-scrollbar,
+  div[class*="shadow-lg"]::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+  
+  /* Hide scrollbars on all buttons and links - comprehensive */
+  button,
+  a,
+  .btn,
+  [role="button"],
+  [role="menuitem"],
+  a[class*="rounded-full"],
+  a[class*="rounded-lg"],
+  a[class*="rounded-md"],
+  button[class*="rounded-full"],
+  button[class*="rounded-lg"],
+  button[class*="rounded-md"] {
+    overflow: hidden !important;
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+  
+  button::-webkit-scrollbar,
+  a::-webkit-scrollbar,
+  .btn::-webkit-scrollbar,
+  [role="button"]::-webkit-scrollbar,
+  [role="menuitem"]::-webkit-scrollbar,
+  a[class*="rounded-full"]::-webkit-scrollbar,
+  a[class*="rounded-lg"]::-webkit-scrollbar,
+  a[class*="rounded-md"]::-webkit-scrollbar,
+  button[class*="rounded-full"]::-webkit-scrollbar,
+  button[class*="rounded-lg"]::-webkit-scrollbar,
+  button[class*="rounded-md"]::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+  
+  /* Hide scrollbars on all rounded elements (stats cards, buttons, etc.) */
+  [class*="rounded"],
+  [class*="rounded-lg"],
+  [class*="rounded-full"],
+  [class*="rounded-md"],
+  div[class*="rounded-lg"],
+  div[class*="rounded-full"],
+  div[class*="rounded-md"] {
+    overflow: hidden !important;
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+  
+  [class*="rounded"]::-webkit-scrollbar,
+  [class*="rounded-lg"]::-webkit-scrollbar,
+  [class*="rounded-full"]::-webkit-scrollbar,
+  [class*="rounded-md"]::-webkit-scrollbar,
+  div[class*="rounded-lg"]::-webkit-scrollbar,
+  div[class*="rounded-full"]::-webkit-scrollbar,
+  div[class*="rounded-md"]::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+  
+  /* Hide scrollbars on grid and flex containers that contain interactive elements */
+  div[class*="grid"]:has([class*="rounded"]),
+  div[class*="flex"]:has([class*="rounded"]),
+  div[class*="grid"]:has(button),
+  div[class*="flex"]:has(button),
+  div[class*="grid"]:has(a),
+  div[class*="flex"]:has(a) {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    overflow: hidden !important;
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+  }
+  
+  div[class*="grid"]:has([class*="rounded"])::-webkit-scrollbar,
+  div[class*="flex"]:has([class*="rounded"])::-webkit-scrollbar,
+  div[class*="grid"]:has(button)::-webkit-scrollbar,
+  div[class*="flex"]:has(button)::-webkit-scrollbar,
+  div[class*="grid"]:has(a)::-webkit-scrollbar,
+  div[class*="flex"]:has(a)::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
   }
 }
 

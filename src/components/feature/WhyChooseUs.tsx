@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useEffect, useRef } from 'react';
 import ResponsiveImage from '../base/ResponsiveImage';
 
 function WhyChooseUs() {
@@ -35,47 +35,89 @@ function WhyChooseUs() {
     }
   ];
 
+  // #region agent log
+  const imageWrapperRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const log = () => {
+      const img = imageWrapperRef.current;
+      const grid = gridRef.current;
+      if (!img || !grid) return;
+      const imgRect = img.getBoundingClientRect();
+      const gridRect = grid.getBoundingClientRect();
+      const imgStyle = window.getComputedStyle(img);
+      const gridStyle = window.getComputedStyle(grid);
+      fetch('http://127.0.0.1:7243/ingest/6c3bdf5c-af68-469f-9337-ff93e6c01d2a', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          location: 'WhyChooseUs.tsx:image',
+          message: 'WhyChooseUs image bounding + overflow',
+          data: {
+            imgRect,
+            gridRect,
+            imgOverflow: { overflow: imgStyle.overflow, overflowX: imgStyle.overflowX, overflowY: imgStyle.overflowY },
+            gridOverflow: { overflow: gridStyle.overflow, overflowX: gridStyle.overflowX, overflowY: gridStyle.overflowY }
+          },
+          timestamp: Date.now(),
+          sessionId: 'debug-session',
+          runId: 'post-fix',
+          hypothesisId: 'IMG'
+        })
+      }).catch(() => {});
+    };
+    log();
+    window.addEventListener('resize', log);
+    return () => window.removeEventListener('resize', log);
+  }, []);
+  // #endregion
+
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <span className="text-orange-500 font-semibold text-lg">Why Choose Us</span>
-          <h2 className="text-4xl font-bold text-blue-900 mt-2 mb-4">
+    <section className="py-16 lg:py-24 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
+        {/* Header */}
+        <div className="text-center mb-12 lg:mb-16">
+          <span className="inline-block px-4 py-2 bg-orange-100 text-orange-600 font-semibold rounded-full text-sm mb-4">
+            Why Choose Us
+          </span>
+          <h2 className="text-4xl lg:text-5xl font-bold text-blue-900 mb-4 leading-tight">
             Your Trusted Garage Door Experts
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
             We're committed to providing the highest quality garage door services with exceptional customer care
           </p>
         </div>
 
-        {/* Two column layout with image */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+        {/* Main Content: Image and Features */}
+        <div ref={gridRef} className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-start">
           {/* Left: Image */}
-          <div className="relative overflow-hidden">
-            <ResponsiveImage
-              src="https://static.readdy.ai/image/b69172f381814b1e7c2f555a7760d2b1/22be8a4aee48d1bbee63b5199aec8007.webp"
-              alt="Professional garage door technicians"
-              className="w-full h-auto rounded-lg shadow-2xl"
-              width={600}
-              height={400}
-              priority={false}
-              sizes="(max-width: 1024px) 100vw, 600px"
-            />
-            <div className="absolute bottom-0 right-0 bg-orange-500 text-white p-6 rounded-lg shadow-xl">
-              <div className="text-4xl font-bold">1000+</div>
-              <div className="text-sm">Happy Customers</div>
+          <div ref={imageWrapperRef} className="relative order-2 lg:order-1 w-fit mx-auto">
+            <div className="relative">
+              <ResponsiveImage
+                src="https://static.readdy.ai/image/b69172f381814b1e7c2f555a7760d2b1/22be8a4aee48d1bbee63b5199aec8007.webp"
+                alt="Professional garage door technicians"
+                className="w-full max-w-[500px] h-auto rounded-xl shadow-xl"
+                width={500}
+                height={400}
+                priority={true}
+                sizes="(max-width: 1024px) 100vw, 500px"
+              />
             </div>
           </div>
 
           {/* Right: Features Grid */}
-          <div className="grid sm:grid-cols-2 gap-6">
+          <div className="grid sm:grid-cols-2 gap-5 order-1 lg:order-2 max-w-2xl mx-auto lg:mx-0 pr-0 lg:pr-8 xl:pr-12">
             {features.map((feature, index) => (
-              <div key={index} className="bg-white rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow">
-                <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center mb-4">
+              <div 
+                key={index} 
+                className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-orange-200 group"
+              >
+                <div className="w-14 h-14 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                   <i className={`${feature.icon} text-2xl text-white`}></i>
                 </div>
                 <h3 className="text-lg font-bold text-blue-900 mb-2">{feature.title}</h3>
-                <p className="text-gray-600 text-sm">{feature.description}</p>
+                <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
               </div>
             ))}
           </div>

@@ -243,40 +243,40 @@ export default function GarageDoorInstallationNewYorkPage() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             <div className="bg-white rounded-lg p-4 text-center shadow-sm hover:shadow-md transition-shadow">
-              <a href="/garage-door-repair-brooklyn-ny/" className="text-green-600 font-medium hover:text-green-700 cursor-pointer">Brooklyn</a>
+              <a href="/brooklyn-ny/" className="text-green-600 font-medium hover:text-green-700 cursor-pointer">Brooklyn</a>
             </div>
             <div className="bg-white rounded-lg p-4 text-center shadow-sm hover:shadow-md transition-shadow">
-              <a href="/garage-door-repair-flushing-ny/" className="text-green-600 font-medium hover:text-green-700 cursor-pointer">Queens</a>
+              <a href="/queens-ny/" className="text-green-600 font-medium hover:text-green-700 cursor-pointer">Queens</a>
             </div>
             <div className="bg-white rounded-lg p-4 text-center shadow-sm hover:shadow-md transition-shadow">
-              <a href="/garage-door-repair-staten-island-ny/" className="text-green-600 font-medium hover:text-green-700 cursor-pointer">Staten Island</a>
+              <a href="/staten-island-ny/" className="text-green-600 font-medium hover:text-green-700 cursor-pointer">Staten Island</a>
             </div>
             <div className="bg-white rounded-lg p-4 text-center shadow-sm hover:shadow-md transition-shadow">
-              <a href="/garage-door-repair-flushing-ny/" className="text-green-600 font-medium hover:text-green-700 cursor-pointer">Flushing</a>
+              <a href="/queens-ny/" className="text-green-600 font-medium hover:text-green-700 cursor-pointer">Flushing</a>
             </div>
             <div className="bg-white rounded-lg p-4 text-center shadow-sm hover:shadow-md transition-shadow">
-              <a href="/garage-door-repair-long-island-ny/" className="text-green-600 font-medium hover:text-green-700 cursor-pointer">Long Island</a>
+              <a href="/long-island-ny/" className="text-green-600 font-medium hover:text-green-700 cursor-pointer">Long Island</a>
             </div>
             <div className="bg-white rounded-lg p-4 text-center shadow-sm hover:shadow-md transition-shadow">
-              <a href="/garage-door-repair-long-island-ny/" className="text-green-600 font-medium hover:text-green-700 cursor-pointer">Nassau County</a>
+              <a href="/nassau-county-ny/" className="text-green-600 font-medium hover:text-green-700 cursor-pointer">Nassau County</a>
             </div>
             <div className="bg-white rounded-lg p-4 text-center shadow-sm hover:shadow-md transition-shadow">
-              <a href="/garage-door-repair-long-island-ny/" className="text-green-600 font-medium hover:text-green-700 cursor-pointer">Suffolk County</a>
+              <a href="/suffolk-county-ny/" className="text-green-600 font-medium hover:text-green-700 cursor-pointer">Suffolk County</a>
             </div>
             <div className="bg-white rounded-lg p-4 text-center shadow-sm hover:shadow-md transition-shadow">
-              <a href="/garage-door-repair-white-plains-ny/" className="text-green-600 font-medium hover:text-green-700 cursor-pointer">Westchester County</a>
+              <a href="/westchester-county-ny/" className="text-green-600 font-medium hover:text-green-700 cursor-pointer">Westchester County</a>
             </div>
             <div className="bg-white rounded-lg p-4 text-center shadow-sm hover:shadow-md transition-shadow">
-              <a href="/garage-door-repair-white-plains-ny/" className="text-green-600 font-medium hover:text-green-700 cursor-pointer">White Plains</a>
+              <a href="/white-plains-ny/" className="text-green-600 font-medium hover:text-green-700 cursor-pointer">White Plains</a>
             </div>
             <div className="bg-white rounded-lg p-4 text-center shadow-sm hover:shadow-md transition-shadow">
-              <a href="/garage-door-repair-white-plains-ny/" className="text-green-600 font-medium hover:text-green-700 cursor-pointer">New Rochelle</a>
+              <a href="/new-rochelle-ny/" className="text-green-600 font-medium hover:text-green-700 cursor-pointer">New Rochelle</a>
             </div>
             <div className="bg-white rounded-lg p-4 text-center shadow-sm hover:shadow-md transition-shadow">
-              <a href="/garage-door-repair-white-plains-ny/" className="text-green-600 font-medium hover:text-green-700 cursor-pointer">Scarsdale</a>
+              <a href="/scarsdale-ny/" className="text-green-600 font-medium hover:text-green-700 cursor-pointer">Scarsdale</a>
             </div>
             <div className="bg-white rounded-lg p-4 text-center shadow-sm hover:shadow-md transition-shadow">
-              <a href="/garage-door-repair-suffern-ny/" className="text-green-600 font-medium hover:text-green-700 cursor-pointer">Suffern</a>
+              <a href="/suffern-ny/" className="text-green-600 font-medium hover:text-green-700 cursor-pointer">Suffern</a>
             </div>
           </div>
         </div>

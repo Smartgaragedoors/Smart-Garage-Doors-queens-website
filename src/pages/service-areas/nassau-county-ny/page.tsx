@@ -354,7 +354,7 @@ const NassauCountyNY = () => {
       <ServiceLinks 
         title="Complete Garage Door Services in Nassau County, NY"
         showDescription={true}
-        locationPath="/garage-door-repair-nassau-county-ny/"
+        locationPath="/nassau-county-ny/"
       />
       <Footer />
     </div>

@@ -99,7 +99,8 @@ const ResponsiveImage = memo(function ResponsiveImage({
       className={`relative overflow-hidden ${className}`}
       style={{
         aspectRatio: width && height ? `${width} / ${height}` : undefined,
-        width: width ? `${width}px` : '100%',
+        width: '100%',
+        maxWidth: width ? `${width}px` : '100%',
         height: height && !width ? `${height}px` : undefined,
       }}
     >
@@ -139,7 +140,7 @@ const ResponsiveImage = memo(function ResponsiveImage({
             fetchPriority={priority ? 'high' : 'low'}
             onLoad={handleLoad}
             className={`transition-opacity duration-300 ${
-              isLoaded ? 'opacity-100' : 'opacity-0'
+              isLoaded ? 'opacity-100' : 'opacity-50'
             } ${className}`}
             style={{
               objectFit: 'cover',
@@ -163,4 +164,3 @@ const ResponsiveImage = memo(function ResponsiveImage({
 ResponsiveImage.displayName = 'ResponsiveImage';
 
 export default ResponsiveImage;
-

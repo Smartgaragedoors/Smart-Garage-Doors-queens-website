@@ -57,7 +57,7 @@ export default function WestportCTPage() {
       "@type": "LocalBusiness",
       "name": "Smart Garage Doors - Westport CT",
       "description": "Professional garage door repair and installation services in Westport, CT",
-      "url": "https://smartestgaragedoors.com/service-areas/westport-ct",
+      "url": "https://smartestgaragedoors.com/westport-ct/",
       "telephone": "(914) 557-6816",
       "email": "info@smartestgaragedoors.com",
       "address": {

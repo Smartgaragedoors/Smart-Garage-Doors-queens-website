@@ -375,7 +375,7 @@ const BergenCountyNJ = () => {
       <ServiceLinks 
         title="Complete Garage Door Services in Bergen County, NJ"
         showDescription={true}
-        locationPath="/garage-door-repair-bergen-county-nj/"
+        locationPath="/bergen-county-nj/"
       />
       <Footer />
     </div>

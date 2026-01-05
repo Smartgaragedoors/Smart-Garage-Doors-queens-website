@@ -34,6 +34,30 @@ class ErrorBoundary extends Component<Props, State> {
       console.error('ErrorBoundary caught an error:', error, errorInfo);
     }
 
+    // Log error to debug endpoint (runtime evidence)
+    try {
+      fetch('http://127.0.0.1:7243/ingest/6c3bdf5c-af68-469f-9337-ff93e6c01d2a', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          location: 'ErrorBoundary:componentDidCatch',
+          message: 'Unhandled component error',
+          data: {
+            error: error?.toString(),
+            stack: error?.stack,
+            componentStack: errorInfo?.componentStack,
+            pathname: typeof window !== 'undefined' ? window.location.pathname : 'unknown'
+          },
+          timestamp: Date.now(),
+          sessionId: 'debug-session',
+          runId: 'post-fix',
+          hypothesisId: 'ERR'
+        })
+      }).catch(() => {});
+    } catch {
+      // swallow
+    }
+
     // Log error to analytics in production
     if (import.meta.env.PROD && typeof window !== 'undefined' && window.gtag) {
       window.gtag('event', 'exception', {

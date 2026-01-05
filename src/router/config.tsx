@@ -42,6 +42,7 @@ const WestchesterCountyNYPage = lazy(() => import('../pages/service-areas/westch
 const NassauCountyNYPage = lazy(() => import('../pages/service-areas/nassau-county-ny/page').then(module => ({ default: module.default })));
 const SuffolkCountyNYPage = lazy(() => import('../pages/service-areas/suffolk-county-ny/page').then(module => ({ default: module.default })));
 const FairfieldCTPage = lazy(() => import('../pages/service-areas/fairfield-ct/page').then(module => ({ default: module.default })));
+const ElizabethNJPage = lazy(() => import('../pages/service-areas/elizabeth-nj/page').then(module => ({ default: module.default })));
 
 const routes: RouteObject[] = [
   {
@@ -109,35 +110,35 @@ const routes: RouteObject[] = [
   
   // Service area pages with exact URLs
   {
-    path: '/garage-door-repair-brooklyn-ny/',
+    path: '/brooklyn-ny/',
     element: <BrooklynNYPage />
   },
   {
-    path: '/garage-door-repair-stamford-ct/',
+    path: '/stamford-ct/',
     element: <StamfordCTPage />
   },
   {
-    path: '/garage-door-repair-darien-ct/',
+    path: '/darien-ct/',
     element: <DarienCTPage />
   },
   {
-    path: '/garage-door-repair-suffern-ny/',
+    path: '/suffern-ny/',
     element: <SuffernNYPage />
   },
   {
-    path: '/garage-door-repair-white-plains-ny/',
+    path: '/white-plains-ny/',
     element: <WhitePlainsNYPage />
   },
   {
-    path: '/garage-door-repair-flushing-ny/',
+    path: '/flushing-ny/',
     element: <FlushingNYPage />
   },
   {
-    path: '/garage-door-repair-long-island-ny/',
+    path: '/long-island-ny/',
     element: <LongIslandNYPage />
   },
   {
-    path: '/garage-door-repair-staten-island-ny/',
+    path: '/staten-island-ny/',
     element: <StatenIslandNYPage />
   },
   {
@@ -145,7 +146,7 @@ const routes: RouteObject[] = [
     element: <TeaneckNJPage />
   },
   {
-    path: '/garage-door-repair-greenwich-ct/',
+    path: '/greenwich-ct/',
     element: <GreenwichCTPage />
   },
   {
@@ -160,6 +161,43 @@ const routes: RouteObject[] = [
     path: '/newtown-ct/',
     element: <NewtownCTPage />
   },
+  {
+    path: '/queens-ny/',
+    element: <QueensNYPage />
+  },
+  {
+    path: '/elizabeth-nj/',
+    element: <ElizabethNJPage />
+  },
+  {
+    path: '/fairfield-ct/',
+    element: <FairfieldCTPage />
+  },
+  {
+    path: '/bergen-county-nj/',
+    element: <BergenCountyNJPage />
+  },
+  {
+    path: '/nassau-county-ny/',
+    element: <NassauCountyNYPage />
+  },
+  {
+    path: '/new-rochelle-ny/',
+    element: <NewRochelleNYPage />
+  },
+  {
+    path: '/scarsdale-ny/',
+    element: <ScarsdalePage />
+  },
+  {
+    path: '/suffolk-county-ny/',
+    element: <SuffolkCountyNYPage />
+  },
+  {
+    path: '/westchester-county-ny/',
+    element: <WestchesterCountyNYPage />
+  },
+  // Legacy routes - redirect to new format (keep for SEO)
   {
     path: '/garage-door-installation-suffern-ny/',
     element: <SuffernNYPage />

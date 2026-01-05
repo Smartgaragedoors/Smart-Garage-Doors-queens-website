@@ -62,8 +62,8 @@ const Reviews = () => {
   }, []);
 
   return (
-    <section id="reviews" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="reviews" className="py-20 bg-gray-50 overflow-x-hidden w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style={{ width: '100%', maxWidth: '1280px' }}>
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Customer Reviews
@@ -80,8 +80,8 @@ const Reviews = () => {
         </div>
 
         {/* Live Google Reviews Widget */}
-        <div className="mb-12">
-          <div className='sk-ww-google-reviews' data-embed-id='25618359'></div>
+        <div className="mb-12 overflow-x-hidden" style={{ width: '100%', maxWidth: '100%' }}>
+          <div className='sk-ww-google-reviews' data-embed-id='25618359' style={{ maxWidth: '100%', overflowX: 'hidden', width: '100%' }}></div>
         </div>
 
         <div className="text-center space-y-4">

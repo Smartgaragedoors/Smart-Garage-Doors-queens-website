@@ -362,7 +362,7 @@ const LongIslandNY = () => {
       <ServiceLinks 
         title="Complete Garage Door Services on Long Island, NY"
         showDescription={true}
-        locationPath="/garage-door-repair-long-island-ny/"
+        locationPath="/long-island-ny/"
       />
       <Footer />
     </div>
