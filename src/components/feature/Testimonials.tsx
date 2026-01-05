@@ -16,6 +16,7 @@ export default function Testimonials() {
             height="64"
             decoding="async"
             fetchpriority="low"
+            style={{ aspectRatio: '1 / 1' }}
           />
         </div>
 

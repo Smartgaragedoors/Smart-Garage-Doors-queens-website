@@ -1,51 +1,13 @@
-import { memo, useEffect, useRef } from 'react';
+import { memo } from 'react';
 import ResponsiveImage from '../base/ResponsiveImage';
 
 function About() {
-  // #region agent log
-  const imageWrapperRef = useRef<HTMLDivElement>(null);
-  const gridRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const log = () => {
-      const img = imageWrapperRef.current;
-      const grid = gridRef.current;
-      if (!img || !grid) return;
-      const imgRect = img.getBoundingClientRect();
-      const gridRect = grid.getBoundingClientRect();
-      const imgStyle = window.getComputedStyle(img);
-      const gridStyle = window.getComputedStyle(grid);
-      fetch('http://127.0.0.1:7243/ingest/6c3bdf5c-af68-469f-9337-ff93e6c01d2a', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          location: 'About.tsx:image',
-          message: 'About image bounding + overflow',
-          data: {
-            imgRect,
-            gridRect,
-            imgOverflow: { overflow: imgStyle.overflow, overflowX: imgStyle.overflowX, overflowY: imgStyle.overflowY },
-            gridOverflow: { overflow: gridStyle.overflow, overflowX: gridStyle.overflowX, overflowY: gridStyle.overflowY }
-          },
-          timestamp: Date.now(),
-          sessionId: 'debug-session',
-          runId: 'post-fix',
-          hypothesisId: 'IMG'
-        })
-      }).catch(() => {});
-    };
-    log();
-    window.addEventListener('resize', log);
-    return () => window.removeEventListener('resize', log);
-  }, []);
-  // #endregion
-
   return (
     <section id="about" className="py-16 lg:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
-        <div ref={gridRef} className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left: Image with decorative elements */}
-          <div ref={imageWrapperRef} className="relative order-2 lg:order-1 w-fit mx-auto">
+          <div className="relative order-2 lg:order-1 w-fit mx-auto">
             <div className="relative">
               <ResponsiveImage
                 src="https://static.readdy.ai/image/b69172f381814b1e7c2f555a7760d2b1/54c27a0f429f46aa3708097b53c43e0e.jpeg"

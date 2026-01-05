@@ -1,4 +1,4 @@
-import { memo, useEffect, useRef } from 'react';
+import { memo } from 'react';
 import ResponsiveImage from '../base/ResponsiveImage';
 
 function WhyChooseUs() {
@@ -35,44 +35,6 @@ function WhyChooseUs() {
     }
   ];
 
-  // #region agent log
-  const imageWrapperRef = useRef<HTMLDivElement>(null);
-  const gridRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const log = () => {
-      const img = imageWrapperRef.current;
-      const grid = gridRef.current;
-      if (!img || !grid) return;
-      const imgRect = img.getBoundingClientRect();
-      const gridRect = grid.getBoundingClientRect();
-      const imgStyle = window.getComputedStyle(img);
-      const gridStyle = window.getComputedStyle(grid);
-      fetch('http://127.0.0.1:7243/ingest/6c3bdf5c-af68-469f-9337-ff93e6c01d2a', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          location: 'WhyChooseUs.tsx:image',
-          message: 'WhyChooseUs image bounding + overflow',
-          data: {
-            imgRect,
-            gridRect,
-            imgOverflow: { overflow: imgStyle.overflow, overflowX: imgStyle.overflowX, overflowY: imgStyle.overflowY },
-            gridOverflow: { overflow: gridStyle.overflow, overflowX: gridStyle.overflowX, overflowY: gridStyle.overflowY }
-          },
-          timestamp: Date.now(),
-          sessionId: 'debug-session',
-          runId: 'post-fix',
-          hypothesisId: 'IMG'
-        })
-      }).catch(() => {});
-    };
-    log();
-    window.addEventListener('resize', log);
-    return () => window.removeEventListener('resize', log);
-  }, []);
-  // #endregion
-
   return (
     <section className="py-16 lg:py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
@@ -90,9 +52,9 @@ function WhyChooseUs() {
         </div>
 
         {/* Main Content: Image and Features */}
-        <div ref={gridRef} className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-start">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-start">
           {/* Left: Image */}
-          <div ref={imageWrapperRef} className="relative order-2 lg:order-1 w-fit mx-auto">
+          <div className="relative order-2 lg:order-1 w-fit mx-auto">
             <div className="relative">
               <ResponsiveImage
                 src="https://static.readdy.ai/image/b69172f381814b1e7c2f555a7760d2b1/22be8a4aee48d1bbee63b5199aec8007.webp"

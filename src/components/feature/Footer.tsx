@@ -68,6 +68,7 @@ function Footer() {
               loading="lazy"
               decoding="async"
               fetchpriority="low"
+              style={{ aspectRatio: '1 / 1' }}
             />
             <p className="text-gray-200 mb-4">
               Professional garage door repair and installation services in NY, NJ &amp; CT.

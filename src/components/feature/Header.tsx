@@ -96,6 +96,7 @@ export default function Header() {
                   fetchPriority="high"
                   width="48"
                   height="48"
+                  style={{ aspectRatio: '1 / 1' }}
                 />
                 <div>
                   <h2 className="text-base md:text-xl font-bold text-gray-900">Smart Garage Doors</h2>

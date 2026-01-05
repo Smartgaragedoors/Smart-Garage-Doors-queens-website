@@ -81,6 +81,7 @@ export default function Hero() {
           height="720"
           loading="eager"
           fetchPriority="high"
+          style={{ aspectRatio: '16 / 9' }}
         />
       </picture>
       

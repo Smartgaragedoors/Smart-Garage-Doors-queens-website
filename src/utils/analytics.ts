@@ -60,6 +60,11 @@ export const initAnalytics = () => {
   window.gtag('js', new Date());
   window.gtag('config', GA_MEASUREMENT_ID, {
     page_path: window.location.pathname,
+    // Minimize cookie usage
+    anonymize_ip: true,
+    allow_google_signals: false,
+    allow_ad_personalization_signals: false,
+    cookie_flags: 'SameSite=None;Secure',
   });
 };
 

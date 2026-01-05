@@ -29,8 +29,8 @@ createRoot(document.getElementById('root')!).render(
   </StrictMode>,
 )
 
-// Global error logging for runtime evidence
-if (typeof window !== 'undefined') {
+// Global error logging for runtime evidence (development only)
+if (typeof window !== 'undefined' && import.meta.env.DEV) {
   const logEndpoint = 'http://127.0.0.1:7243/ingest/6c3bdf5c-af68-469f-9337-ff93e6c01d2a';
   window.addEventListener('error', (event) => {
     try {
