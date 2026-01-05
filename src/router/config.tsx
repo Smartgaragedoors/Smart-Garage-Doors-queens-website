@@ -43,6 +43,8 @@ const NassauCountyNYPage = lazy(() => import('../pages/service-areas/nassau-coun
 const SuffolkCountyNYPage = lazy(() => import('../pages/service-areas/suffolk-county-ny/page').then(module => ({ default: module.default })));
 const FairfieldCTPage = lazy(() => import('../pages/service-areas/fairfield-ct/page').then(module => ({ default: module.default })));
 const ElizabethNJPage = lazy(() => import('../pages/service-areas/elizabeth-nj/page').then(module => ({ default: module.default })));
+const HauppaugeNYPage = lazy(() => import('../pages/service-areas/hauppauge-ny/page').then(module => ({ default: module.default })));
+const SmithtownNYPage = lazy(() => import('../pages/service-areas/smithtown-ny/page').then(module => ({ default: module.default })));
 
 const routes: RouteObject[] = [
   {
@@ -196,6 +198,14 @@ const routes: RouteObject[] = [
   {
     path: '/westchester-county-ny/',
     element: <WestchesterCountyNYPage />
+  },
+  {
+    path: '/hauppauge-ny/',
+    element: <HauppaugeNYPage />
+  },
+  {
+    path: '/smithtown-ny/',
+    element: <SmithtownNYPage />
   },
   // Legacy routes - redirect to new format (keep for SEO)
   {

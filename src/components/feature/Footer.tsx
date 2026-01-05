@@ -23,6 +23,8 @@ function Footer() {
     { name: 'White Plains', href: '/white-plains-ny/' },
     { name: 'New Rochelle', href: '/new-rochelle-ny/' },
     { name: 'Scarsdale', href: '/scarsdale-ny/' },
+    { name: 'Hauppauge', href: '/hauppauge-ny/' },
+    { name: 'Smithtown', href: '/smithtown-ny/' },
     { name: 'Nassau County', href: '/nassau-county-ny/' },
     { name: 'Suffolk County', href: '/suffolk-county-ny/' },
     { name: 'Westchester County', href: '/westchester-county-ny/' },

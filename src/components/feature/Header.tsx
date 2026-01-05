@@ -182,6 +182,8 @@ export default function Header() {
                               <a href="/white-plains-ny/" role="menuitem" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">White Plains</a>
                               <a href="/new-rochelle-ny/" role="menuitem" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">New Rochelle</a>
                               <a href="/scarsdale-ny/" role="menuitem" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Scarsdale</a>
+                              <a href="/hauppauge-ny/" role="menuitem" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Hauppauge</a>
+                              <a href="/smithtown-ny/" role="menuitem" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Smithtown</a>
                             </div>
                           </div>
                           
@@ -304,6 +306,8 @@ export default function Header() {
                       <a href="/white-plains-ny/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">White Plains</a>
                       <a href="/new-rochelle-ny/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">New Rochelle</a>
                       <a href="/scarsdale-ny/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Scarsdale</a>
+                      <a href="/hauppauge-ny/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Hauppauge</a>
+                      <a href="/smithtown-ny/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Smithtown</a>
                       <a href="/nassau-county-ny/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Nassau County</a>
                       <a href="/suffolk-county-ny/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Suffolk County</a>
                       <a href="/westchester-county-ny/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Westchester County</a>

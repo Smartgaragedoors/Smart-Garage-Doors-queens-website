@@ -48,6 +48,8 @@ const serviceAreaPages = [
   { path: '/scarsdale-ny/', priority: '0.8', changefreq: 'monthly' },
   { path: '/suffolk-county-ny/', priority: '0.8', changefreq: 'monthly' },
   { path: '/westchester-county-ny/', priority: '0.8', changefreq: 'monthly' },
+  { path: '/hauppauge-ny/', priority: '0.8', changefreq: 'monthly' },
+  { path: '/smithtown-ny/', priority: '0.8', changefreq: 'monthly' },
 ];
 
 // Blog posts from the BLOG_POSTS object
