@@ -23,6 +23,30 @@ if (import.meta.env.PROD) {
   }, 2000);
 }
 
+// Trusted Types: create a default policy to reduce DOM-based XSS risk
+if (typeof window !== 'undefined' && 'trustedTypes' in window && window.trustedTypes) {
+  const sanitizeHtml = (input: string) => {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(input, 'text/html');
+    doc.querySelectorAll('script, iframe, object, embed').forEach((el) => el.remove());
+    doc.querySelectorAll('*').forEach((el) => {
+      [...el.attributes].forEach((attr) => {
+        if (attr.name.toLowerCase().startsWith('on')) {
+          el.removeAttribute(attr.name);
+        }
+      });
+    });
+    return doc.body.innerHTML || '';
+  };
+
+  if (!window.trustedTypes.getPolicyNames().includes('default')) {
+    window.trustedTypes.createPolicy('default', {
+      createHTML: (input) => sanitizeHtml(String(input)),
+      createScriptURL: (input) => String(input),
+    });
+  }
+}
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <App />

@@ -60,15 +60,14 @@ function Footer() {
           {/* Company Info */}
           <div>
             <img 
-              src="https://static.readdy.ai/image/b69172f381814b1e7c2f555a7760d2b1/b5abc60311785d6f2fb733a6d104ca55.webp" 
+              src="/smart-garage-doors-logo.webp" 
               alt="Smart Garage Doors"
               className="h-16 w-auto mb-4"
-              width="64"
-              height="64"
+              width="499"
+              height="160"
               loading="lazy"
               decoding="async"
               fetchpriority="low"
-              style={{ aspectRatio: '1 / 1' }}
             />
             <p className="text-gray-200 mb-4">
               Professional garage door repair and installation services in NY, NJ &amp; CT.

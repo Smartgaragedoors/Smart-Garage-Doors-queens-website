@@ -89,14 +89,13 @@ export default function Header() {
             <div className="flex items-center">
               <a href="/" className="flex items-center space-x-2 md:space-x-3" aria-label="Smart Garage Doors Home">
                 <img 
-                  src="https://static.readdy.ai/image/b69172f381814b1e7c2f555a7760d2b1/b5abc60311785d6f2fb733a6d104ca55.webp" 
-                  alt=""
+                  src="/smart-garage-doors-logo.webp" 
+                  alt="Smart Garage Doors logo"
                   className="h-8 md:h-12 w-auto"
                   loading="eager"
                   fetchPriority="high"
-                  width="48"
-                  height="48"
-                  style={{ aspectRatio: '1 / 1' }}
+                  width="499"
+                  height="160"
                 />
                 <div>
                   <h2 className="text-base md:text-xl font-bold text-gray-900">Smart Garage Doors</h2>
