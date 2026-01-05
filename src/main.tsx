@@ -39,7 +39,12 @@ if (typeof window !== 'undefined' && 'trustedTypes' in window && window.trustedT
     return doc.body.innerHTML || '';
   };
 
-  if (!window.trustedTypes.getPolicyNames().includes('default')) {
+  const getNames =
+    typeof window.trustedTypes.getPolicyNames === 'function'
+      ? window.trustedTypes.getPolicyNames()
+      : [];
+
+  if (!getNames.includes('default')) {
     window.trustedTypes.createPolicy('default', {
       createHTML: (input) => sanitizeHtml(String(input)),
       createScriptURL: (input) => String(input),
