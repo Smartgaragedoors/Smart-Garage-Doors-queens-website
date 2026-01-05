@@ -1,7 +1,7 @@
 // Web Vitals tracking for performance monitoring
-import { onCLS, onINP, onLCP, onFCP, onTTFB, Metric } from 'web-vitals';
+import { onCLS, onINP, onLCP, onFCP, onTTFB } from 'web-vitals';
 
-interface WebVitalsMetric extends Metric {
+interface WebVitalsMetric {
   value: number;
   id: string;
   name: string;
