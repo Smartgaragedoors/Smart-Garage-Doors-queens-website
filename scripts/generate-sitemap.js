@@ -42,14 +42,6 @@ const serviceAreaPages = [
   { path: '/garage-door-installation-suffern-ny/', priority: '0.8', changefreq: 'monthly' },
   { path: '/garage-door-installers-white-plains-ny/', priority: '0.8', changefreq: 'monthly' },
   { path: '/garage-door-installation-stamford-ct/', priority: '0.8', changefreq: 'monthly' },
-  { path: '/garage-door-repair-fairfield-ct/', priority: '0.8', changefreq: 'monthly' },
-  { path: '/garage-door-repair-bergen-county-nj/', priority: '0.8', changefreq: 'monthly' },
-  { path: '/garage-door-repair-nassau-county-ny/', priority: '0.8', changefreq: 'monthly' },
-  { path: '/garage-door-repair-suffolk-county-ny/', priority: '0.8', changefreq: 'monthly' },
-  { path: '/garage-door-repair-westchester-county-ny/', priority: '0.8', changefreq: 'monthly' },
-  { path: '/garage-door-repair-scarsdale-ny/', priority: '0.8', changefreq: 'monthly' },
-  { path: '/garage-door-repair-new-rochelle-ny/', priority: '0.8', changefreq: 'monthly' },
-  { path: '/service-areas/queens-ny/', priority: '0.8', changefreq: 'monthly' },
 ];
 
 // Blog posts from the BLOG_POSTS object

@@ -724,6 +724,11 @@ export default function BlogPostPage() {
   if (!post) {
     return (
       <div className="min-h-screen bg-white">
+        <DynamicMetaTags 
+          title="Post Not Found | Smart Garage Doors Blog"
+          description="The blog post you're looking for doesn't exist."
+          noIndex={true}
+        />
         <Header />
         <div className="max-w-4xl mx-auto px-4 py-20 text-center">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Post Not Found</h1>

@@ -1,11 +1,27 @@
 
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
 import ServiceLinks from '../../../components/seo/ServiceLinks';
 
 export default function SuffernNY() {
+  const location = useLocation();
+  const siteUrl = import.meta.env.VITE_SITE_URL || 'https://smartestgaragedoors.com';
+  
   useEffect(() => {
+    // Determine canonical URL - always point to repair URL
+    const canonicalUrl = `${siteUrl}/garage-door-repair-suffern-ny/`;
+    
+    // Update canonical tag
+    let canonicalLink = document.querySelector('link[rel="canonical"]');
+    if (!canonicalLink) {
+      canonicalLink = document.createElement('link');
+      canonicalLink.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonicalLink);
+    }
+    canonicalLink.setAttribute('href', canonicalUrl);
+    
     // Update page title and meta tags
     document.title = 'Suffern NY Garage Door Repair & Installation | Smart Garage Doors';
     
@@ -100,7 +116,7 @@ export default function SuffernNY() {
         document.head.removeChild(script);
       }
     };
-  }, []);
+  }, [location.pathname, siteUrl]);
 
   return (
     <div className="min-h-screen">

@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
 import Breadcrumbs from '../../../components/seo/Breadcrumbs';
@@ -5,12 +7,30 @@ import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
 import ServiceLinks from '../../../components/seo/ServiceLinks';
 
 const StamfordCT = () => {
+  const location = useLocation();
+  const siteUrl = import.meta.env.VITE_SITE_URL || 'https://smartestgaragedoors.com';
+  
+  useEffect(() => {
+    // Determine canonical URL - always point to repair URL
+    const canonicalUrl = `${siteUrl}/garage-door-repair-stamford-ct/`;
+    
+    // Update canonical tag
+    let canonicalLink = document.querySelector('link[rel="canonical"]');
+    if (!canonicalLink) {
+      canonicalLink = document.createElement('link');
+      canonicalLink.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonicalLink);
+    }
+    canonicalLink.setAttribute('href', canonicalUrl);
+  }, [location.pathname, siteUrl]);
+  
   return (
     <div className="min-h-screen bg-white">
       <DynamicMetaTags 
         title="Stamford CT Garage Door Repair | Smart Garage Doors | 24/7 Emergency Service"
         description="Professional garage door repair services in Stamford, CT. Smart Garage Doors offers emergency repairs, spring replacement, opener installation throughout Stamford neighborhoods. Licensed technicians serving all Stamford areas."
         keywords="Stamford CT garage door repair, garage door installation Stamford, emergency garage door service, Smart Garage Doors"
+        canonical={`${siteUrl}/garage-door-repair-stamford-ct/`}
       />
       <Header />
       <Breadcrumbs />

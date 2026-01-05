@@ -18,10 +18,11 @@ const FairfieldCT = () => {
       metaKeywords.setAttribute('content', 'Fairfield CT garage door repair, garage door installation Fairfield, emergency garage door service, Smart Garage Doors');
     }
 
-    const canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) {
-      canonical.setAttribute('href', `${import.meta.env.VITE_SITE_URL || 'https://smartestgaragedoors.com'}/service-areas/fairfield-ct`);
-    }
+    // Canonical URL - point to repair URL if route exists, otherwise keep service-areas
+    const canonical = document.querySelector('link[rel="canonical"]') || document.createElement('link');
+    canonical.setAttribute('rel', 'canonical');
+    canonical.setAttribute('href', `${import.meta.env.VITE_SITE_URL || 'https://smartestgaragedoors.com'}/garage-door-repair-fairfield-ct/`);
+    if (!document.querySelector('link[rel="canonical"]')) document.head.appendChild(canonical);
 
     // Add Schema.org JSON-LD for Fairfield CT page
     const script = document.createElement('script');

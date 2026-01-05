@@ -21,10 +21,11 @@ const BrooklynNY = () => {
       metaKeywords.setAttribute('content', 'Brooklyn NY garage door repair, garage door installation Brooklyn, emergency garage door service, Smart Garage Doors');
     }
 
-    const canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) {
-      canonical.setAttribute('href', `${import.meta.env.VITE_SITE_URL || 'https://smartestgaragedoors.com'}/service-areas/brooklyn-ny`);
-    }
+    // Canonical URL
+    const canonical = document.querySelector('link[rel="canonical"]') || document.createElement('link');
+    canonical.setAttribute('rel', 'canonical');
+    canonical.setAttribute('href', `${import.meta.env.VITE_SITE_URL || 'https://smartestgaragedoors.com'}/garage-door-repair-brooklyn-ny/`);
+    if (!document.querySelector('link[rel="canonical"]')) document.head.appendChild(canonical);
 
     // Add Schema.org JSON-LD for Brooklyn NY page
     const script = document.createElement('script');

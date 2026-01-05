@@ -1,5 +1,6 @@
 
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
 import Reviews from '../../../components/feature/Reviews';
@@ -8,7 +9,22 @@ import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
 import ServiceLinks from '../../../components/seo/ServiceLinks';
 
 const WhitePlainsNY = () => {
+  const location = useLocation();
+  const siteUrl = import.meta.env.VITE_SITE_URL || 'https://smartestgaragedoors.com';
+  
   useEffect(() => {
+    // Determine canonical URL - always point to repair URL
+    const canonicalUrl = `${siteUrl}/garage-door-repair-white-plains-ny/`;
+    
+    // Update canonical tag
+    let canonicalLink = document.querySelector('link[rel="canonical"]');
+    if (!canonicalLink) {
+      canonicalLink = document.createElement('link');
+      canonicalLink.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonicalLink);
+    }
+    canonicalLink.setAttribute('href', canonicalUrl);
+    
     document.title = 'White Plains NY Garage Door Repair | Smart Garage Doors | Licensed Technicians';
     
     const metaDescription = document.querySelector('meta[name="description"]');
@@ -20,7 +36,7 @@ const WhitePlainsNY = () => {
     if (metaKeywords) {
       metaKeywords.setAttribute('content', 'White Plains NY garage door repair, garage door installation White Plains, emergency garage door service Westchester, Smart Garage Doors');
     }
-  }, []);
+  }, [location.pathname, siteUrl]);
 
   return (
     <div className="min-h-screen bg-white">
@@ -28,6 +44,7 @@ const WhitePlainsNY = () => {
         title="White Plains NY Garage Door Repair | Smart Garage Doors | Licensed Technicians"
         description="Professional garage door repair services in White Plains, NY. Smart Garage Doors offers emergency repairs, spring replacement, opener installation throughout White Plains and surrounding Westchester County areas."
         keywords="White Plains NY garage door repair, garage door installation White Plains, emergency garage door service Westchester, Smart Garage Doors"
+        canonical={`${siteUrl}/garage-door-repair-white-plains-ny/`}
       />
       <Header />
       <Breadcrumbs />
