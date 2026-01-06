@@ -43,4 +43,4 @@ Allow: /elizabeth-nj/
 Allow: /teaneck-nj/
 
 # Sitemap
-Sitemap: https://smartestgaragedoors.com/sitemap.xml
+Sitemap: https://www.smartestgaragedoors.com/sitemap.xml

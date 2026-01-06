@@ -84,7 +84,7 @@ export default function GarageDoorRepairPage() {
             "@type": "Service",
             "name": "Garage Door Repair Services",
             "description": "Professional garage door repair services in NY, NJ & CT. Same-day service, licensed technicians, all brands.",
-            "url": `${import.meta.env.VITE_SITE_URL || "https://smartestgaragedoors.com"}/garage-door-repair/`,
+            "url": `${import.meta.env.VITE_SITE_URL || "https://www.smartestgaragedoors.com"}/garage-door-repair/`,
             "provider": {
               "@type": "LocalBusiness",
               "name": "Smart Garage Doors",
@@ -180,7 +180,7 @@ export default function GarageDoorRepairPage() {
               "priceRange": "$$",
               "priceCurrency": "USD",
               "availability": "https://schema.org/InStock",
-              "url": `${import.meta.env.VITE_SITE_URL || "https://smartestgaragedoors.com"}/garage-door-repair/`
+              "url": `${import.meta.env.VITE_SITE_URL || "https://www.smartestgaragedoors.com"}/garage-door-repair/`
             }
           })
         }}
@@ -191,7 +191,7 @@ export default function GarageDoorRepairPage() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('https://smartestgaragedoors.com/wp-content/uploads/2025/06/Ben-fixing-door-scaled.jpg')`
+            backgroundImage: `url('https://www.smartestgaragedoors.com/wp-content/uploads/2025/06/Ben-fixing-door-scaled.jpg')`
           }}
         >
           <div className="absolute inset-0 bg-blue-600/80"></div>

@@ -13,7 +13,7 @@ export default function TeaneckNJPage() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('https://smartestgaragedoors.com/wp-content/uploads/2025/03/appointment.png')`
+            backgroundImage: `url('https://www.smartestgaragedoors.com/wp-content/uploads/2025/03/appointment.png')`
           }}
         >
           <div className="absolute inset-0 bg-blue-600/80"></div>

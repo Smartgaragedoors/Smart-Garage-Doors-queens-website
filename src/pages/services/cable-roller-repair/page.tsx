@@ -96,7 +96,7 @@ export default function CableRollerRepairPage() {
         title="Garage Door Cable & Roller Repair NYC | Track Repair | Same-Day Service"
         description="Professional garage door cable and roller repair in NYC, Westchester, and Connecticut. Track alignment, cable replacement, roller installation. Same-day service."
         keywords="garage door cable repair, roller replacement, track repair, cable replacement, garage door tracks, roller installation"
-        canonical={`${import.meta.env.VITE_SITE_URL || 'https://smartestgaragedoors.com'}/cable-roller-repair/`}
+        canonical={`${import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com'}/cable-roller-repair/`}
       />
       <Header />
       <Breadcrumbs />

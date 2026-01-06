@@ -21,7 +21,7 @@ const FairfieldCT = () => {
     // Canonical URL - point to repair URL if route exists, otherwise keep service-areas
     const canonical = document.querySelector('link[rel="canonical"]') || document.createElement('link');
     canonical.setAttribute('rel', 'canonical');
-    canonical.setAttribute('href', `${import.meta.env.VITE_SITE_URL || 'https://smartestgaragedoors.com'}/fairfield-ct/`);
+    canonical.setAttribute('href', `${import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com'}/fairfield-ct/`);
     if (!document.querySelector('link[rel="canonical"]')) document.head.appendChild(canonical);
 
     // Add Schema.org JSON-LD for Fairfield CT page
@@ -32,7 +32,7 @@ const FairfieldCT = () => {
       "@type": "LocalBusiness",
       "name": "Smart Garage Doors - Fairfield CT",
       "description": "Professional garage door repair and installation services in Fairfield, Connecticut",
-      "url": `${import.meta.env.VITE_SITE_URL || 'https://smartestgaragedoors.com'}/fairfield-ct/`,
+      "url": `${import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com'}/fairfield-ct/`,
       "telephone": "(123) 456-7890",
       "address": {
         "@type": "PostalAddress",

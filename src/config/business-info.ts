@@ -5,7 +5,7 @@ export const BUSINESS_INFO = {
   phone: "(914) 557-6816",
   phoneFormatted: "+19145576816",
   email: "info@smartestgaragedoors.com",
-  website: "https://smartestgaragedoors.com",
+  website: "https://www.smartestgaragedoors.com",
   addresses: [
     {
       type: "primary",

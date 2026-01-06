@@ -42,7 +42,7 @@ export default function FlushingNYPage() {
     // Canonical URL
     const canonical = document.querySelector('link[rel="canonical"]') || document.createElement('link');
     canonical.setAttribute('rel', 'canonical');
-    canonical.setAttribute('href', `${import.meta.env.VITE_SITE_URL || 'https://smartestgaragedoors.com'}/flushing-ny/`);
+    canonical.setAttribute('href', `${import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com'}/flushing-ny/`);
     if (!document.querySelector('link[rel="canonical"]')) document.head.appendChild(canonical);
 
     // Last modified
@@ -59,7 +59,7 @@ export default function FlushingNYPage() {
       "@type": "LocalBusiness",
       "name": "Smart Garage Doors - Flushing NY",
       "description": "Professional garage door repair and installation services in Flushing, NY",
-      "url": "https://smartestgaragedoors.com/flushing-ny/",
+      "url": "https://www.smartestgaragedoors.com/flushing-ny/",
       "telephone": "(914) 557-6816",
       "email": "info@smartestgaragedoors.com",
       "address": {

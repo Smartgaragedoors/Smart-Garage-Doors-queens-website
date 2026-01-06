@@ -23,7 +23,7 @@ const ElizabethNJ = () => {
     // Canonical URL
     const canonical = document.querySelector('link[rel="canonical"]') || document.createElement('link');
     canonical.setAttribute('rel', 'canonical');
-    canonical.setAttribute('href', `${import.meta.env.VITE_SITE_URL || 'https://smartestgaragedoors.com'}/elizabeth-nj/`);
+    canonical.setAttribute('href', `${import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com'}/elizabeth-nj/`);
     if (!document.querySelector('link[rel="canonical"]')) document.head.appendChild(canonical);
 
     // Add Schema.org JSON-LD for Elizabeth NJ page
@@ -34,7 +34,7 @@ const ElizabethNJ = () => {
       "@type": "LocalBusiness",
       "name": "Smart Garage Doors - Elizabeth NJ",
       "description": "Professional garage door repair and installation services in Elizabeth, New Jersey",
-      "url": `${import.meta.env.VITE_SITE_URL || 'https://smartestgaragedoors.com'}/elizabeth-nj/`,
+      "url": `${import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com'}/elizabeth-nj/`,
       "telephone": "(914) 557-6816",
       "address": {
         "@type": "PostalAddress",
@@ -117,7 +117,7 @@ const ElizabethNJ = () => {
         title="Elizabeth NJ Garage Door Repair | Smart Garage Doors | 24/7 Emergency Service"
         description="Professional garage door repair services in Elizabeth, NJ. Smart Garage Doors offers emergency repairs, spring replacement, opener installation throughout Elizabeth neighborhoods. Licensed technicians serving all Elizabeth areas."
         keywords="Elizabeth NJ garage door repair, garage door installation Elizabeth, emergency garage door service, Smart Garage Doors"
-        canonical={`${import.meta.env.VITE_SITE_URL || 'https://smartestgaragedoors.com'}/elizabeth-nj/`}
+        canonical={`${import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com'}/elizabeth-nj/`}
       />
       <Header />
       <Breadcrumbs />

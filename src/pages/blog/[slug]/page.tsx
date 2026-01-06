@@ -54,7 +54,7 @@ const BLOG_POSTS: Record<string, {
       <h2>Prevention and Maintenance</h2>
       <p>Regular professional maintenance can extend spring life and catch issues early. Have your springs inspected annually by qualified technicians who can identify wear before failure occurs.</p>
     `,
-    image: "https://smartestgaragedoors.com/wp-content/uploads/2025/09/Lucid_Origin_A_beige_residential_garage_door_is_visibly_offtra_1_11zon.webp",
+    image: "https://www.smartestgaragedoors.com/wp-content/uploads/2025/09/Lucid_Origin_A_beige_residential_garage_door_is_visibly_offtra_1_11zon.webp",
     date: "2025-01-15",
     category: "Maintenance",
     readTime: "5 min read",
@@ -95,7 +95,7 @@ const BLOG_POSTS: Record<string, {
       <h2>Factors Affecting Repair Costs</h2>
       <p>Door size, weight, accessibility, parts quality, and urgency all affect final pricing. We provide free estimates before any work begins.</p>
     `,
-    image: "https://smartestgaragedoors.com/wp-content/uploads/2025/09/66fa98ef144265b84041c07c_650c22f8f072796f55e70d33_how_much_should_i_budget_for_garage_door_roller_replacement_11zon.jpeg",
+    image: "https://www.smartestgaragedoors.com/wp-content/uploads/2025/09/66fa98ef144265b84041c07c_650c22f8f072796f55e70d33_how_much_should_i_budget_for_garage_door_roller_replacement_11zon.jpeg",
     date: "2025-01-10",
     category: "Cost Guide",
     readTime: "8 min read",
@@ -140,7 +140,7 @@ const BLOG_POSTS: Record<string, {
       <h2>When to Call a Professional</h2>
       <p>If troubleshooting doesn't resolve the issue, or if you notice spring problems, track damage, or electrical issues, call Smart Garage Doors immediately. Our technicians can diagnose and repair issues safely and efficiently.</p>
     `,
-    image: "https://smartestgaragedoors.com/wp-content/uploads/2025/09/garage-top-roller-loose-from-door-and-looks-to-be-bending-v0-hqv1b7ru3svc1-1.webp",
+    image: "https://www.smartestgaragedoors.com/wp-content/uploads/2025/09/garage-top-roller-loose-from-door-and-looks-to-be-bending-v0-hqv1b7ru3svc1-1.webp",
     date: "2025-01-12",
     category: "Repair",
     readTime: "7 min read",
@@ -180,7 +180,7 @@ const BLOG_POSTS: Record<string, {
       <h2>Preventing Common Winter Problems</h2>
       <p>Regular maintenance prevents most winter-related garage door issues. Schedule professional maintenance in fall to prepare for cold weather.</p>
     `,
-    image: "https://smartestgaragedoors.com/wp-content/uploads/2025/09/wefc_11zon.webp",
+    image: "https://www.smartestgaragedoors.com/wp-content/uploads/2025/09/wefc_11zon.webp",
     date: "2025-01-08",
     category: "Maintenance",
     readTime: "6 min read",
@@ -212,7 +212,7 @@ const BLOG_POSTS: Record<string, {
       <h2>Emergency Service Response</h2>
       <p>We offer 24/7 emergency garage door repair throughout NY, NJ & CT. Our technicians typically arrive within 60-90 minutes to address urgent situations safely and efficiently.</p>
     `,
-    image: "https://smartestgaragedoors.com/wp-content/uploads/2025/09/erh_11zon.webp",
+    image: "https://www.smartestgaragedoors.com/wp-content/uploads/2025/09/erh_11zon.webp",
     date: "2025-01-05",
     category: "Emergency",
     readTime: "4 min read",
@@ -248,7 +248,7 @@ const BLOG_POSTS: Record<string, {
       <h2>Why Professional Service Matters</h2>
       <p>Garage doors involve extreme tension, electrical components, and heavy parts. Professional technicians have proper training, tools, and insurance. DIY attempts can void warranties and create safety hazards.</p>
     `,
-    image: "https://smartestgaragedoors.com/wp-content/uploads/2025/09/Lucid_Origin_A_closeup_of_a_person_wearing_black_gloves_repair_0_11zon.webp",
+    image: "https://www.smartestgaragedoors.com/wp-content/uploads/2025/09/Lucid_Origin_A_closeup_of_a_person_wearing_black_gloves_repair_0_11zon.webp",
     date: "2025-01-03",
     category: "Tips",
     readTime: "8 min read",

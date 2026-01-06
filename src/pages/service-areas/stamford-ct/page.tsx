@@ -8,7 +8,7 @@ import ServiceLinks from '../../../components/seo/ServiceLinks';
 
 const StamfordCT = () => {
   const location = useLocation();
-  const siteUrl = import.meta.env.VITE_SITE_URL || 'https://smartestgaragedoors.com';
+  const siteUrl = import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com';
   
   useEffect(() => {
     // Determine canonical URL - always point to repair URL

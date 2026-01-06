@@ -40,7 +40,7 @@ export default function NewCanaanCTPage() {
     // Canonical URL
     const canonical = document.querySelector('link[rel="canonical"]') || document.createElement('link');
     canonical.setAttribute('rel', 'canonical');
-    canonical.setAttribute('href', `${import.meta.env.VITE_SITE_URL || 'https://smartestgaragedoors.com'}/new-canaan-ct/`);
+    canonical.setAttribute('href', `${import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com'}/new-canaan-ct/`);
     if (!document.querySelector('link[rel="canonical"]')) document.head.appendChild(canonical);
 
     // Last modified
@@ -57,7 +57,7 @@ export default function NewCanaanCTPage() {
       "@type": "LocalBusiness",
       "name": "Smart Garage Doors - New Canaan CT",
       "description": "Professional garage door repair and installation services in New Canaan, CT",
-      "url": "https://smartestgaragedoors.com/new-canaan-ct/",
+      "url": "https://www.smartestgaragedoors.com/new-canaan-ct/",
       "telephone": "(914) 557-6816",
       "email": "info@smartestgaragedoors.com",
       "address": {

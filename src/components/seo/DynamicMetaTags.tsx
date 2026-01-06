@@ -25,7 +25,7 @@ export default function DynamicMetaTags({
 }: DynamicMetaTagsProps) {
   const { location, locationName } = useLocation();
   const routerLocation = useRouterLocation();
-  const siteUrl = import.meta.env.VITE_SITE_URL || 'https://smartestgaragedoors.com';
+  const siteUrl = import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com';
 
   useEffect(() => {
     // Determine final title with location

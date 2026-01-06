@@ -21,7 +21,7 @@ const SmithtownNY = () => {
     // Canonical URL
     const canonical = document.querySelector('link[rel="canonical"]') || document.createElement('link');
     canonical.setAttribute('rel', 'canonical');
-    canonical.setAttribute('href', `${import.meta.env.VITE_SITE_URL || 'https://smartestgaragedoors.com'}/smithtown-ny/`);
+    canonical.setAttribute('href', `${import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com'}/smithtown-ny/`);
     if (!document.querySelector('link[rel="canonical"]')) document.head.appendChild(canonical);
 
     // Add Schema.org JSON-LD for Smithtown NY page
@@ -32,7 +32,7 @@ const SmithtownNY = () => {
       "@type": "LocalBusiness",
       "name": "Smart Garage Doors - Smithtown NY",
       "description": "Professional garage door repair and installation services in Smithtown, New York",
-      "url": `${import.meta.env.VITE_SITE_URL || 'https://smartestgaragedoors.com'}/smithtown-ny/`,
+      "url": `${import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com'}/smithtown-ny/`,
       "telephone": "(123) 456-7890",
       "address": {
         "@type": "PostalAddress",

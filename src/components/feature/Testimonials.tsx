@@ -8,7 +8,7 @@ export default function Testimonials() {
         {/* Quote Icon */}
         <div className="mb-8">
           <img 
-            src="https://smartestgaragedoors.com/wp-content/uploads/2025/02/qoute.png" 
+            src="https://www.smartestgaragedoors.com/wp-content/uploads/2025/02/qoute.png" 
             alt=""
             className="w-16 h-16 mx-auto"
             loading="lazy"

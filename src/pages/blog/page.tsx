@@ -41,7 +41,7 @@ export default function BlogPage() {
       slug: 'signs-your-garage-door-spring-needs-replacement',
       title: "5 Signs Your Garage Door Spring Needs Replacement",
       excerpt: "Learn to identify the warning signs that indicate your garage door spring is failing and needs professional replacement.",
-      image: "https://smartestgaragedoors.com/wp-content/uploads/2025/09/Lucid_Origin_A_beige_residential_garage_door_is_visibly_offtra_1_11zon.webp",
+      image: "https://www.smartestgaragedoors.com/wp-content/uploads/2025/09/Lucid_Origin_A_beige_residential_garage_door_is_visibly_offtra_1_11zon.webp",
       date: "January 15, 2025",
       category: "Maintenance",
       readTime: "5 min read"
@@ -51,7 +51,7 @@ export default function BlogPage() {
       slug: 'how-to-fix-garage-door-wont-close',
       title: "How to Fix a Garage Door That Won't Close Properly",
       excerpt: "Troubleshooting guide for common garage door closing issues and when to call professional repair services.",
-      image: "https://smartestgaragedoors.com/wp-content/uploads/2025/09/garage-top-roller-loose-from-door-and-looks-to-be-bending-v0-hqv1b7ru3svc1-1.webp",
+      image: "https://www.smartestgaragedoors.com/wp-content/uploads/2025/09/garage-top-roller-loose-from-door-and-looks-to-be-bending-v0-hqv1b7ru3svc1-1.webp",
       date: "January 12, 2025",
       category: "Repair",
       readTime: "7 min read"
@@ -61,7 +61,7 @@ export default function BlogPage() {
       slug: 'winter-garage-door-maintenance-tips',
       title: "Winter Garage Door Maintenance Tips: Protect Your Door from Cold Weather",
       excerpt: "Essential winter maintenance tips to protect your garage door from cold weather damage. Learn how to prevent freezing and spring stress.",
-      image: "https://smartestgaragedoors.com/wp-content/uploads/2025/09/wefc_11zon.webp",
+      image: "https://www.smartestgaragedoors.com/wp-content/uploads/2025/09/wefc_11zon.webp",
       date: "January 8, 2025",
       category: "Maintenance",
       readTime: "6 min read"
@@ -71,7 +71,7 @@ export default function BlogPage() {
       slug: 'emergency-garage-door-repair-guide',
       title: "Emergency Garage Door Repair: What to Do When Your Door Breaks",
       excerpt: "Step-by-step guide on handling garage door emergencies and when to call for immediate professional help.",
-      image: "https://smartestgaragedoors.com/wp-content/uploads/2025/09/erh_11zon.webp",
+      image: "https://www.smartestgaragedoors.com/wp-content/uploads/2025/09/erh_11zon.webp",
       date: "January 5, 2025",
       category: "Emergency",
       readTime: "4 min read"
@@ -81,7 +81,7 @@ export default function BlogPage() {
       slug: 'professional-vs-diy-garage-door-repair',
       title: "Professional vs DIY Garage Door Repair: Making the Right Choice",
       excerpt: "Understanding when to attempt DIY repairs and when professional garage door repair services are necessary.",
-      image: "https://smartestgaragedoors.com/wp-content/uploads/2025/09/Lucid_Origin_A_closeup_of_a_person_wearing_black_gloves_repair_0_11zon.webp",
+      image: "https://www.smartestgaragedoors.com/wp-content/uploads/2025/09/Lucid_Origin_A_closeup_of_a_person_wearing_black_gloves_repair_0_11zon.webp",
       date: "January 3, 2025",
       category: "Tips",
       readTime: "8 min read"
@@ -91,7 +91,7 @@ export default function BlogPage() {
       slug: 'garage-door-repair-cost-guide-2025',
       title: "Garage Door Repair Cost Guide 2025: What to Expect",
       excerpt: "Complete breakdown of garage door repair costs in 2025. Learn what factors affect pricing and how to budget for common repairs.",
-      image: "https://smartestgaragedoors.com/wp-content/uploads/2025/09/66fa98ef144265b84041c07c_650c22f8f072796f55e70d33_how_much_should_i_budget_for_garage_door_roller_replacement_11zon.jpeg",
+      image: "https://www.smartestgaragedoors.com/wp-content/uploads/2025/09/66fa98ef144265b84041c07c_650c22f8f072796f55e70d33_how_much_should_i_budget_for_garage_door_roller_replacement_11zon.jpeg",
       date: "January 10, 2025",
       category: "Cost Guide",
       readTime: "8 min read"
@@ -101,7 +101,7 @@ export default function BlogPage() {
       slug: 'garage-door-safety-tips-homeowner',
       title: "Garage Door Safety Tips Every Homeowner Should Know",
       excerpt: "Essential garage door safety guidelines to prevent accidents and ensure your garage door operates safely for your family.",
-      image: "https://smartestgaragedoors.com/wp-content/uploads/2025/09/wefc_11zon.webp",
+      image: "https://www.smartestgaragedoors.com/wp-content/uploads/2025/09/wefc_11zon.webp",
       date: "January 1, 2025",
       category: "Safety",
       readTime: "6 min read"
@@ -121,7 +121,7 @@ export default function BlogPage() {
       slug: 'garage-door-roller-replacement-cost',
       title: "Garage Door Roller Replacement Cost: Complete Guide 2025",
       excerpt: "Everything you need to know about garage door roller replacement costs in 2025.",
-      image: "https://smartestgaragedoors.com/wp-content/uploads/2025/09/66fa98ef144265b84041c07c_650c22f8f072796f55e70d33_how_much_should_i_budget_for_garage_door_roller_replacement_11zon.jpeg",
+      image: "https://www.smartestgaragedoors.com/wp-content/uploads/2025/09/66fa98ef144265b84041c07c_650c22f8f072796f55e70d33_how_much_should_i_budget_for_garage_door_roller_replacement_11zon.jpeg",
       date: "December 25, 2024",
       category: "Cost Guide",
       readTime: "6 min read"
@@ -279,7 +279,7 @@ export default function BlogPage() {
             "@type": "Blog",
             "name": "Smart Garage Doors Blog",
             "description": "Expert tips, maintenance guides, and industry insights for garage door owners",
-            "url": `${import.meta.env.VITE_SITE_URL || "https://smartestgaragedoors.com"}/blog/`,
+            "url": `${import.meta.env.VITE_SITE_URL || "https://www.smartestgaragedoors.com"}/blog/`,
             "publisher": {
               "@type": "Organization",
               "name": "Smart Garage Doors",

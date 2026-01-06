@@ -40,7 +40,7 @@ export default function WestportCTPage() {
     // Canonical URL
     const canonical = document.querySelector('link[rel="canonical"]') || document.createElement('link');
     canonical.setAttribute('rel', 'canonical');
-    canonical.setAttribute('href', `${import.meta.env.VITE_SITE_URL || 'https://smartestgaragedoors.com'}/westport-ct/`);
+    canonical.setAttribute('href', `${import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com'}/westport-ct/`);
     if (!document.querySelector('link[rel="canonical"]')) document.head.appendChild(canonical);
 
     // Last modified
@@ -57,7 +57,7 @@ export default function WestportCTPage() {
       "@type": "LocalBusiness",
       "name": "Smart Garage Doors - Westport CT",
       "description": "Professional garage door repair and installation services in Westport, CT",
-      "url": "https://smartestgaragedoors.com/westport-ct/",
+      "url": "https://www.smartestgaragedoors.com/westport-ct/",
       "telephone": "(914) 557-6816",
       "email": "info@smartestgaragedoors.com",
       "address": {

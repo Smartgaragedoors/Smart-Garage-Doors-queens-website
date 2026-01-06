@@ -24,7 +24,7 @@ const BrooklynNY = () => {
     // Canonical URL
     const canonical = document.querySelector('link[rel="canonical"]') || document.createElement('link');
     canonical.setAttribute('rel', 'canonical');
-    canonical.setAttribute('href', `${import.meta.env.VITE_SITE_URL || 'https://smartestgaragedoors.com'}/brooklyn-ny/`);
+    canonical.setAttribute('href', `${import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com'}/brooklyn-ny/`);
     if (!document.querySelector('link[rel="canonical"]')) document.head.appendChild(canonical);
 
     // Add Schema.org JSON-LD for Brooklyn NY page
@@ -35,7 +35,7 @@ const BrooklynNY = () => {
       "@type": "LocalBusiness",
       "name": "Smart Garage Doors - Brooklyn NY",
       "description": "Professional garage door repair and installation services in Brooklyn, New York",
-      "url": `${import.meta.env.VITE_SITE_URL || 'https://smartestgaragedoors.com'}/brooklyn-ny/`,
+      "url": `${import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com'}/brooklyn-ny/`,
       "telephone": "(914) 557-6816",
       "address": {
         "@type": "PostalAddress",

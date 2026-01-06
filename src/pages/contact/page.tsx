@@ -37,7 +37,7 @@ const ContactPage = () => {
 
     const canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) {
-      canonical.setAttribute('href', `${import.meta.env.VITE_SITE_URL || 'https://smartestgaragedoors.com'}/contact`);
+      canonical.setAttribute('href', `${import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com'}/contact`);
     }
   }, []);
 
@@ -98,7 +98,7 @@ const ContactPage = () => {
             "@type": "ContactPage",
             "name": "Contact Smart Garage Doors",
             "description": "Get in touch with Smart Garage Doors for professional garage door services in NY, NJ & CT",
-            "url": `${import.meta.env.VITE_SITE_URL || "https://smartestgaragedoors.com"}/contact/`,
+            "url": `${import.meta.env.VITE_SITE_URL || "https://www.smartestgaragedoors.com"}/contact/`,
             "mainEntity": {
               "@type": "LocalBusiness",
               "name": "Smart Garage Doors",
