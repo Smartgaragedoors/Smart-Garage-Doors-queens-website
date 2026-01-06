@@ -147,18 +147,57 @@
     <!-- Prefetch non-critical external resources - defer to avoid blocking -->
     <!-- Note: SociableKit widget is now loaded via Intersection Observer to prevent forced reflows -->
     
-    <!-- Preload hero image for mobile - critical above-the-fold content -->
-    <link rel="preload" as="image" href="/hero-van-800.webp" type="image/webp" media="(max-width: 800px)" fetchpriority="high" />
-    <link rel="preload" as="image" href="/hero-van-800.jpg" type="image/jpeg" media="(max-width: 800px)" fetchpriority="high" />
+    <!-- Preload hero image set for faster LCP -->
+    <link
+      rel="preload"
+      as="image"
+      href="/hero-van-1280.webp"
+      imagesrcset="/hero-van-800.webp 800w, /hero-van-1280.webp 1280w, /hero-van-1920.webp 1920w"
+      imagesizes="100vw"
+      type="image/webp"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="/hero-van-1280.jpg"
+      imagesrcset="/hero-van-800.jpg 800w, /hero-van-1280.jpg 1280w, /hero-van-1920.jpg 1920w"
+      imagesizes="100vw"
+      type="image/jpeg"
+      fetchpriority="high"
+    />
     
-    <!-- LeadConnector Chat Widget -->
-    <script
-      src="https://widgets.leadconnectorhq.com/loader.js"
-      data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
-      data-widget-id="68f91895be3485765c10fbd3"
-      async
-      defer
-    ></script>
+    <!-- LeadConnector Chat Widget (lazy load on first interaction or idle) -->
+    <script>
+      (function() {
+        var loaded = false;
+        function loadChat() {
+          if (loaded) return;
+          loaded = true;
+          var s = document.createElement('script');
+          s.src = 'https://widgets.leadconnectorhq.com/loader.js';
+          s.async = true;
+          s.defer = true;
+          s.dataset.resourcesUrl = 'https://widgets.leadconnectorhq.com/chat-widget/loader.js';
+          s.dataset.widgetId = '68f91895be3485765c10fbd3';
+          document.head.appendChild(s);
+        }
+        function trigger() {
+          loadChat();
+          window.removeEventListener('click', trigger);
+          window.removeEventListener('touchstart', trigger);
+          window.removeEventListener('keydown', trigger);
+        }
+        window.addEventListener('click', trigger, { once: true, passive: true });
+        window.addEventListener('touchstart', trigger, { once: true, passive: true });
+        window.addEventListener('keydown', trigger, { once: true });
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(loadChat, { timeout: 10000 });
+        } else {
+          setTimeout(loadChat, 10000);
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

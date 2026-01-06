@@ -23,51 +23,23 @@ export default function HomePage() {
   const routerLocation = useRouterLocation();
   const siteUrl = BUSINESS_INFO.website;
 
-  // Handle hash scrolling after navigation (e.g., from /#about)
+  // Handle hash scrolling after navigation (e.g., from /#about) with a single rAF to reduce reflow noise
   useEffect(() => {
-    // Check both React Router location hash and window.location.hash (for page reloads)
     const hash = routerLocation.hash || window.location.hash;
+    if (!hash) return;
 
-    if (hash) {
-      // Remove the # from the hash
-      const elementId = hash.substring(1);
-      
-      // Function to scroll to the element
-      const scrollToHash = () => {
-        const element = document.getElementById(elementId);
-        
-        if (element) {
-          // Calculate position with offset for sticky header (approximately 150px)
-          const headerOffset = 150;
-          const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-          const offsetPosition = elementPosition - headerOffset;
-          
-          // Scroll to the element
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-          });
-        }
-      };
+    const elementId = hash.substring(1);
 
-      // Wait for DOM to be ready - use requestAnimationFrame for better timing
-      const attemptScroll = () => {
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            scrollToHash();
-          });
-        });
-      };
+    const scrollToHash = () => {
+      const element = document.getElementById(elementId);
+      if (!element) return;
+      const headerOffset = 150;
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - headerOffset;
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+    };
 
-      // Try immediately, and also after a delay to catch late-loading content
-      attemptScroll();
-      // Use requestAnimationFrame for better performance
-      requestAnimationFrame(() => {
-        requestAnimationFrame(attemptScroll);
-      });
-      // Fallback timeout for late-loading content
-      setTimeout(attemptScroll, 300);
-    }
+    requestAnimationFrame(scrollToHash);
   }, [routerLocation.hash, routerLocation.pathname]);
 
   useEffect(() => {
