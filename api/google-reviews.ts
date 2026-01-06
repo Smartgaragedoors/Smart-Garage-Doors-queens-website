@@ -16,14 +16,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const apiKey = process.env.GOOGLE_PLACES_API_KEY;
+  // Prefer server-side secret; fall back to VITE_ if someone set only that
+  const apiKey = process.env.GOOGLE_PLACES_API_KEY || process.env.VITE_GOOGLE_PLACES_API_KEY;
   const placeId = 'ChIJucuPoePGzGMRGWWH9YOmAX4';
 
   if (!apiKey) {
-    console.error('GOOGLE_PLACES_API_KEY not configured');
+    console.error('GOOGLE_PLACES_API_KEY not configured in Vercel environment variables');
     return res.status(500).json({ 
       error: 'API key not configured',
-      message: 'GOOGLE_PLACES_API_KEY environment variable is missing'
+      message: 'GOOGLE_PLACES_API_KEY environment variable is missing on the server'
     });
   }
 
