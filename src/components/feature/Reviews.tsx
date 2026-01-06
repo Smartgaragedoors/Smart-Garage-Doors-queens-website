@@ -18,8 +18,14 @@ const Reviews = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    let isMounted = true;
+    let retryCount = 0;
+    const maxRetries = 1;
+
     const loadReviews = async () => {
       try {
+        if (!isMounted) return;
+        
         setLoading(true);
         setError(null);
 
@@ -30,10 +36,20 @@ const Reviews = () => {
         });
 
         if (!response.ok) {
+          // Don't retry on 500 errors (likely missing API key)
+          if (response.status === 500) {
+            if (!isMounted) return;
+            setError(null); // Don't show error, just use fallback
+            setReviews([]);
+            setLoading(false);
+            return;
+          }
           throw new Error(`Failed to fetch: ${response.status}`);
         }
 
         const data = await response.json();
+        
+        if (!isMounted) return;
         
         if (data.reviews && Array.isArray(data.reviews) && data.reviews.length > 0) {
           // Sort by time (newest first) and take top 6
@@ -41,15 +57,28 @@ const Reviews = () => {
             .sort((a: GoogleReview, b: GoogleReview) => b.time - a.time)
             .slice(0, 6);
           setReviews(sortedReviews);
+          setError(null);
         } else {
           setReviews([]);
+          setError(null);
         }
       } catch (err) {
+        if (!isMounted) return;
+        
+        // Only retry once for network errors
+        if (retryCount < maxRetries && err instanceof TypeError) {
+          retryCount++;
+          setTimeout(loadReviews, 2000);
+          return;
+        }
+        
         console.error('Error loading reviews:', err);
-        setError('Failed to load reviews');
+        setError(null); // Don't show error, just use fallback
         setReviews([]);
       } finally {
-        setLoading(false);
+        if (isMounted) {
+          setLoading(false);
+        }
       }
     };
 
@@ -92,23 +121,29 @@ const Reviews = () => {
       }
     }
 
-    // Fallback: Load SociableKit widget if API fails
+    // Fallback: Load SociableKit widget if API fails (after a delay)
     const fallbackTimeout = setTimeout(() => {
-      if (reviews.length === 0 && !loading) {
+      if (reviews.length === 0 && !loading && !error) {
         if (!document.querySelector('script[src="https://widgets.sociablekit.com/google-reviews/widget.js"]')) {
           const script = document.createElement('script');
           script.src = 'https://widgets.sociablekit.com/google-reviews/widget.js';
           script.async = true;
           script.defer = true;
+          script.onerror = () => {
+            if (import.meta.env.DEV) {
+              console.warn('Failed to load SociableKit fallback widget');
+            }
+          };
           document.head.appendChild(script);
         }
       }
-    }, 3000);
+    }, 5000);
 
     return () => {
+      isMounted = false;
       clearTimeout(fallbackTimeout);
     };
-  }, [reviews.length, loading]);
+  }, []);
 
   const formatReviewDate = (timestamp: number): string => {
     const date = new Date(timestamp * 1000);
