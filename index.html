@@ -18,6 +18,7 @@
     <link rel="dns-prefetch" href="https://maps.googleapis.com" />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://widgets.sociablekit.com" />
+    <link rel="dns-prefetch" href="https://widgets.leadconnectorhq.com" />
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     
     <!-- Favicon -->
@@ -149,9 +150,7 @@
     <!-- Preload hero image for mobile - critical above-the-fold content -->
     <link rel="preload" as="image" href="/hero-van-800.webp" type="image/webp" media="(max-width: 800px)" fetchpriority="high" />
     <link rel="preload" as="image" href="/hero-van-800.jpg" type="image/jpeg" media="(max-width: 800px)" fetchpriority="high" />
-  </head>
-  <body>
-    <div id="root"></div>
+    
     <!-- LeadConnector Chat Widget -->
     <script
       src="https://widgets.leadconnectorhq.com/loader.js"
@@ -160,6 +159,9 @@
       async
       defer
     ></script>
+  </head>
+  <body>
+    <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
