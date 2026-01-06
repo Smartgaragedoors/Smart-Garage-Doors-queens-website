@@ -153,6 +153,69 @@
       ]
     }
   ],
+  "redirects": [
+    {
+      "source": "/:path((?!.*\\.).*[^/])",
+      "destination": "/:path/",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "old.smartestgaragedoors.com"
+        }
+      ],
+      "destination": "https://smartestgaragedoors.com/",
+      "permanent": true
+    },
+    {
+      "source": "/flushing-ny",
+      "destination": "/queens-ny/",
+      "permanent": true
+    },
+    {
+      "source": "/flushing-ny/",
+      "destination": "/queens-ny/",
+      "permanent": true
+    },
+    {
+      "source": "/garage-door-replacement",
+      "destination": "/garage-door-installation/",
+      "permanent": true
+    },
+    {
+      "source": "/garage-door-replacement/",
+      "destination": "/garage-door-installation/",
+      "permanent": true
+    },
+    {
+      "source": "/services/maintenance",
+      "destination": "/maintenance/",
+      "permanent": true
+    },
+    {
+      "source": "/services/maintenance/",
+      "destination": "/maintenance/",
+      "permanent": true
+    },
+    {
+      "source": "/garage-door-repair-brooklyn-ny/",
+      "destination": "/brooklyn-ny/",
+      "permanent": true
+    },
+    {
+      "source": "/garage-door-repair-stamford-ct/",
+      "destination": "/stamford-ct/",
+      "permanent": true
+    },
+    {
+      "source": "/garage-door-installers-white-plains-ny/",
+      "destination": "/white-plains-ny/",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/((?!.*\\.).*$)",

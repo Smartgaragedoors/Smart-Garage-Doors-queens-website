@@ -390,7 +390,7 @@ export default function BlogPage() {
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-gray-500">{post.date}</span>
                     <Link 
-                      to={`/blog/${post.slug || '#'}`}
+                      to={`/blog/${post.slug || '#'}/`}
                       className="text-purple-600 font-medium hover:text-purple-700 cursor-pointer"
                     >
                       Read More <i className="ri-arrow-right-line ml-1"></i>

@@ -4,14 +4,6 @@ import { useLocation } from 'react-router-dom';
 
 function Footer() {
   const routerLocation = useLocation();
-  const services = useMemo(() => [
-    'Garage Door Repair',
-    'Opener Repair & Installation', 
-    'Spring Replacement',
-    'Cable & Roller Repair',
-    'Garage Door Installation',
-    'Emergency Garage Door Repair'
-  ], []);
 
   const serviceAreas = useMemo(() => [
     // New York
@@ -67,7 +59,7 @@ function Footer() {
               height="160"
               loading="lazy"
               decoding="async"
-              fetchpriority="low"
+              fetchPriority="low"
             />
             <p className="text-gray-200 mb-4">
               Professional garage door repair and installation services in NY, NJ &amp; CT.
@@ -95,6 +87,8 @@ function Footer() {
               <li><a href="/opener-repair-installation/" className="text-gray-200 hover:text-orange-400 transition-colors">Opener Repair</a></li>
               <li><a href="/spring-replacement/" className="text-gray-200 hover:text-orange-400 transition-colors">Spring Replacement</a></li>
               <li><a href="/cable-roller-repair/" className="text-gray-200 hover:text-orange-400 transition-colors">Cable & Roller Repair</a></li>
+              <li><a href="/maintenance/" className="text-gray-200 hover:text-orange-400 transition-colors">Maintenance</a></li>
+              <li><a href="/book-now/" className="text-gray-200 hover:text-orange-400 transition-colors">Book Now</a></li>
               <li><a href="/reviews/" className="text-gray-200 hover:text-orange-400 transition-colors">Reviews</a></li>
               <li><a href="/blog/" className="text-gray-200 hover:text-orange-400 transition-colors">Blog</a></li>
             </ul>

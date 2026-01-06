@@ -11,7 +11,9 @@ const TODAY = new Date().toISOString().split('T')[0];
 // Routes from router config
 const routes = [
   { path: '/', priority: '1.0', changefreq: 'weekly' },
-  { path: '/contact', priority: '0.8', changefreq: 'monthly' },
+  { path: '/contact/', priority: '0.8', changefreq: 'monthly' },
+  { path: '/home/', priority: '0.6', changefreq: 'monthly' },
+  { path: '/book-now/', priority: '0.8', changefreq: 'monthly' },
   { path: '/reviews/', priority: '0.7', changefreq: 'weekly' },
   { path: '/blog/', priority: '0.7', changefreq: 'weekly' },
   { path: '/garage-door-repair/', priority: '0.9', changefreq: 'monthly' },
@@ -20,7 +22,7 @@ const routes = [
   { path: '/spring-replacement/', priority: '0.8', changefreq: 'monthly' },
   { path: '/opener-repair-installation/', priority: '0.8', changefreq: 'monthly' },
   { path: '/cable-roller-repair/', priority: '0.8', changefreq: 'monthly' },
-  { path: '/services/maintenance/', priority: '0.8', changefreq: 'monthly' },
+  { path: '/maintenance/', priority: '0.8', changefreq: 'monthly' },
   { path: '/services/installation/', priority: '0.8', changefreq: 'monthly' },
 ];
 
@@ -31,7 +33,6 @@ const serviceAreaPages = [
   { path: '/darien-ct/', priority: '0.8', changefreq: 'monthly' },
   { path: '/suffern-ny/', priority: '0.8', changefreq: 'monthly' },
   { path: '/white-plains-ny/', priority: '0.8', changefreq: 'monthly' },
-  { path: '/flushing-ny/', priority: '0.8', changefreq: 'monthly' },
   { path: '/long-island-ny/', priority: '0.8', changefreq: 'monthly' },
   { path: '/staten-island-ny/', priority: '0.8', changefreq: 'monthly' },
   { path: '/teaneck-nj/', priority: '0.8', changefreq: 'monthly' },
@@ -84,7 +85,7 @@ function generateSitemap() {
   // Add blog posts
   blogPosts.forEach(post => {
     xml += `  <url>
-    <loc>${BASE_URL}/blog/${post.slug}</loc>
+    <loc>${BASE_URL}/blog/${post.slug}/</loc>
     <lastmod>${TODAY}</lastmod>
     <changefreq>${post.changefreq}</changefreq>
     <priority>${post.priority}</priority>

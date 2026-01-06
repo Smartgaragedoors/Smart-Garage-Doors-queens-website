@@ -15,12 +15,12 @@ export default function Header() {
   const currentPath = routerLocation.pathname;
   let currentAddress = "New York, New Jersey, Connecticut";
   
-  // Determine contact link: use #contact on home page for smooth scroll, /contact on other pages
-  const contactLink = currentPath === '/' || currentPath === '/home' ? '#contact' : '/contact';
+  // Determine contact link: use #contact on home page for smooth scroll, /contact/ on other pages
+  const contactLink = (currentPath === '/' || currentPath === '/home/' || currentPath === '/home') ? '#contact' : '/contact/';
   
   // Handle About link click - use navigate for cross-page navigation to preserve hash
   const handleAboutClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (currentPath === '/' || currentPath === '/home') {
+    if (currentPath === '/' || currentPath === '/home/' || currentPath === '/home') {
       // On home page, let default behavior handle smooth scroll
       return;
     }
@@ -138,7 +138,7 @@ export default function Header() {
                     <a href="/opener-repair-installation/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Opener Repair</a>
                     <a href="/spring-replacement/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Spring Replacement</a>
                     <a href="/cable-roller-repair/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Cable & Roller Repair</a>
-                    <a href="/services/maintenance/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Maintenance</a>
+                    <a href="/maintenance/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Maintenance</a>
                     <a href="/services/installation/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Installation</a>
                   </div>
                 )}
@@ -231,7 +231,7 @@ export default function Header() {
               </div>
 
               <a 
-                href={currentPath === '/' || currentPath === '/home' ? '#about' : '/#about'} 
+                href={currentPath === '/' || currentPath === '/home/' || currentPath === '/home' ? '#about' : '/#about'} 
                 onClick={handleAboutClick}
                 className="text-gray-700 hover:text-orange-500 font-medium transition-colors"
               >
@@ -242,6 +242,9 @@ export default function Header() {
               </a>
               <a href={contactLink} className="text-gray-700 hover:text-orange-500 font-medium transition-colors">
                 Contact
+              </a>
+              <a href="/book-now/" className="text-orange-600 hover:text-orange-700 font-semibold transition-colors">
+                Book Now
               </a>
             </div>
 
@@ -287,7 +290,7 @@ export default function Header() {
                     <a href="/opener-repair-installation/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Opener Repair</a>
                     <a href="/spring-replacement/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Spring Replacement</a>
                     <a href="/cable-roller-repair/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Cable & Roller Repair</a>
-                    <a href="/services/maintenance/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Maintenance</a>
+                    <a href="/maintenance/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Maintenance</a>
                     <a href="/services/installation/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Installation</a>
                   </div>
                 </div>
@@ -331,7 +334,7 @@ export default function Header() {
                 </div>
 
                 <a 
-                  href={currentPath === '/' || currentPath === '/home' ? '#about' : '/#about'} 
+                  href={currentPath === '/' || currentPath === '/home/' || currentPath === '/home' ? '#about' : '/#about'} 
                   onClick={handleAboutClick}
                   className="block text-gray-700 hover:text-orange-500 font-medium transition-colors py-2"
                 >
@@ -342,6 +345,9 @@ export default function Header() {
                 </a>
                 <a href={contactLink} className="block text-gray-700 hover:text-orange-500 font-medium transition-colors py-2">
                   Contact
+                </a>
+                <a href="/book-now/" className="block text-orange-600 hover:text-orange-700 font-semibold transition-colors py-2">
+                  Book Now
                 </a>
                 
                 <a 

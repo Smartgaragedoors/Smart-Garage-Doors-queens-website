@@ -40,7 +40,7 @@ export function getRelatedServices(currentPath: string): InternalLink[] {
       description: 'Cable and roller replacement services'
     },
     { 
-      url: '/services/maintenance/', 
+      url: '/maintenance/', 
       text: 'Maintenance',
       description: 'Preventive maintenance plans'
     },

@@ -1,5 +1,9 @@
 User-agent: *
+
+# Disallow any admin or booking paths (adjust if you want booking indexed)
 Disallow: /book-now/
+
+# Core site pages
 Allow: /
 Allow: /contact
 Allow: /reviews/
@@ -10,21 +14,33 @@ Allow: /emergency-garage-door-repair/
 Allow: /spring-replacement/
 Allow: /opener-repair-installation/
 Allow: /cable-roller-repair/
-Allow: /garage-door-repair-brooklyn-ny/
-Allow: /garage-door-repair-stamford-ct/
-Allow: /garage-door-repair-darien-ct/
-Allow: /garage-door-repair-suffern-ny/
-Allow: /garage-door-repair-white-plains-ny/
-Allow: /garage-door-repair-flushing-ny/
-Allow: /garage-door-repair-long-island-ny/
-Allow: /garage-door-repair-staten-island-ny/
-Allow: /teaneck-nj/
-Allow: /garage-door-repair-greenwich-ct/
+Allow: /services/maintenance/
+Allow: /services/installation/
+
+# Service area pages (clean format)
+Allow: /brooklyn-ny/
+Allow: /queens-ny/
+Allow: /long-island-ny/
+Allow: /staten-island-ny/
+Allow: /suffern-ny/
+Allow: /white-plains-ny/
+Allow: /new-rochelle-ny/
+Allow: /scarsdale-ny/
+Allow: /hauppauge-ny/
+Allow: /smithtown-ny/
+Allow: /nassau-county-ny/
+Allow: /suffolk-county-ny/
+Allow: /westchester-county-ny/
+Allow: /stamford-ct/
+Allow: /darien-ct/
+Allow: /greenwich-ct/
 Allow: /new-canaan-ct/
 Allow: /westport-ct/
 Allow: /newtown-ct/
-Allow: /garage-door-installation-suffern-ny/
-Allow: /garage-door-installers-white-plains-ny/
-Allow: /garage-door-installation-stamford-ct/
+Allow: /fairfield-ct/
+Allow: /bergen-county-nj/
+Allow: /elizabeth-nj/
+Allow: /teaneck-nj/
 
+# Sitemap
 Sitemap: https://smartestgaragedoors.com/sitemap.xml

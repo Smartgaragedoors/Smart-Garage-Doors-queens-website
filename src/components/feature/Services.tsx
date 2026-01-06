@@ -36,7 +36,7 @@ function Services() {
       icon: 'ri-shield-check-line',
       title: 'Maintenance',
       description: 'Regular maintenance to keep your door running smoothly and prevent costly repairs.',
-      link: '/services/maintenance/'
+      link: '/maintenance/'
     }
   ];
 

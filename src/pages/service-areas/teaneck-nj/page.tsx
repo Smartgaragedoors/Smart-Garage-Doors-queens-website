@@ -161,7 +161,7 @@ export default function TeaneckNJPage() {
               <p className="text-gray-600 mb-4">
                 Regular maintenance services to keep your garage door operating smoothly and safely.
               </p>
-              <a href="/services/maintenance/" className="text-blue-600 font-medium hover:text-blue-700 cursor-pointer">
+              <a href="/maintenance/" className="text-blue-600 font-medium hover:text-blue-700 cursor-pointer">
                 Learn More <i className="ri-arrow-right-line ml-1"></i>
               </a>
             </div>

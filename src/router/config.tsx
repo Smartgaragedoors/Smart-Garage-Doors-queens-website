@@ -1,5 +1,6 @@
 import { lazy } from 'react';
-import { RouteObject } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
+import type { RouteObject } from 'react-router-dom';
 
 // Lazy load components
 const HomePage = lazy(() => import('../pages/home/page').then(module => ({ default: module.default })));
@@ -28,7 +29,6 @@ const BergenCountyNJPage = lazy(() => import('../pages/service-areas/bergen-coun
 const DarienCTPage = lazy(() => import('../pages/service-areas/darien-ct/page').then(module => ({ default: module.default })));
 const SuffernNYPage = lazy(() => import('../pages/service-areas/suffern-ny/page').then(module => ({ default: module.default })));
 const WhitePlainsNYPage = lazy(() => import('../pages/service-areas/white-plains-ny/page').then(module => ({ default: module.default })));
-const FlushingNYPage = lazy(() => import('../pages/service-areas/flushing-ny/page').then(module => ({ default: module.default })));
 const LongIslandNYPage = lazy(() => import('../pages/service-areas/long-island-ny/page').then(module => ({ default: module.default })));
 const StatenIslandNYPage = lazy(() => import('../pages/service-areas/staten-island-ny/page').then(module => ({ default: module.default })));
 const TeaneckNJPage = lazy(() => import('../pages/service-areas/teaneck-nj/page').then(module => ({ default: module.default })));
@@ -52,11 +52,11 @@ const routes: RouteObject[] = [
     element: <HomePage />
   },
   {
-    path: '/home',
+    path: '/home/',
     element: <HomePage />
   },
   {
-    path: '/contact',
+    path: '/contact/',
     element: <ContactPage />
   },
   {
@@ -72,7 +72,7 @@ const routes: RouteObject[] = [
     element: <BlogPage />
   },
   {
-    path: '/blog/:slug',
+    path: '/blog/:slug/',
     element: <BlogPostPage />
   },
   
@@ -102,12 +102,16 @@ const routes: RouteObject[] = [
     element: <CableRollerRepairPage />
   },
   {
-    path: '/services/maintenance/',
+    path: '/maintenance/',
     element: <MaintenancePage />
   },
   {
     path: '/services/installation/',
     element: <InstallationPage />
+  },
+  {
+    path: '/services/maintenance/',
+    element: <Navigate to="/maintenance/" replace />
   },
   
   // Service area pages with exact URLs
@@ -133,7 +137,7 @@ const routes: RouteObject[] = [
   },
   {
     path: '/flushing-ny/',
-    element: <FlushingNYPage />
+    element: <Navigate to="/queens-ny/" replace />
   },
   {
     path: '/long-island-ny/',
@@ -208,6 +212,34 @@ const routes: RouteObject[] = [
     element: <SmithtownNYPage />
   },
   // Legacy routes - redirect to new format (keep for SEO)
+  {
+    path: '/garage-door-replacement/',
+    element: <Navigate to="/garage-door-installation/" replace />
+  },
+  {
+    path: '/home',
+    element: <Navigate to="/home/" replace />
+  },
+  {
+    path: '/contact',
+    element: <Navigate to="/contact/" replace />
+  },
+  {
+    path: '/blog/:slug',
+    element: <Navigate to="/blog/:slug/" replace />
+  },
+  {
+    path: '/garage-door-repair-brooklyn-ny/',
+    element: <Navigate to="/brooklyn-ny/" replace />
+  },
+  {
+    path: '/garage-door-repair-stamford-ct/',
+    element: <Navigate to="/stamford-ct/" replace />
+  },
+  {
+    path: '/garage-door-installers-white-plains-ny/',
+    element: <Navigate to="/white-plains-ny/" replace />
+  },
   {
     path: '/garage-door-installation-suffern-ny/',
     element: <SuffernNYPage />
