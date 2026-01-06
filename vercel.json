@@ -181,6 +181,16 @@
       "permanent": true
     },
     {
+      "source": "/home",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/home/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/garage-door-replacement",
       "destination": "/garage-door-installation/",
       "permanent": true
