@@ -11,8 +11,12 @@ serve(async (req) => {
   }
 
   try {
-    const GOOGLE_API_KEY = 'AIzaSyDEMPOViU0fFIORTEHJ5IH5eBXSdB3QJ0Q';
+    const GOOGLE_API_KEY = Deno.env.get('GOOGLE_PLACES_API_KEY') || Deno.env.get('VITE_GOOGLE_PLACES_API_KEY');
     const PLACE_ID = 'ChIJucuPoePGzGMRGWWH9YOmAX4';
+
+    if (!GOOGLE_API_KEY) {
+      throw new Error('Missing GOOGLE_PLACES_API_KEY');
+    }
 
     // Fetch place details including photos
     const placeDetailsUrl = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${PLACE_ID}&fields=name,rating,reviews,photos&key=${GOOGLE_API_KEY}`;
