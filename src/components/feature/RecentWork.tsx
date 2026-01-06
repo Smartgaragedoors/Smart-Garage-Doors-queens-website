@@ -16,6 +16,16 @@ function RecentWork() {
   const fetchGooglePhotos = useCallback(async (retryCount = 0): Promise<void> => {
     const maxRetries = 2;
     
+    const supabaseUrl = import.meta.env.VITE_PUBLIC_SUPABASE_URL;
+    const enableRemotePhotos = import.meta.env.DEV || import.meta.env.VITE_ENABLE_REMOTE_PHOTOS === 'true';
+
+    if (!enableRemotePhotos || !supabaseUrl) {
+      setPhotos([...customPhotos, ...defaultProjects]);
+      setLoading(false);
+
+      return;
+    }
+
     // Cancel previous request if still pending
     if (abortControllerRef.current) {
       abortControllerRef.current.abort();
@@ -27,7 +37,7 @@ function RecentWork() {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_PUBLIC_SUPABASE_URL}/functions/v1/google-reviews`,
+        `${supabaseUrl}/functions/v1/google-reviews`,
         {
           signal: abortController.signal,
           headers: {

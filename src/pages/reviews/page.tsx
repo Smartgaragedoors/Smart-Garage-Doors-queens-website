@@ -24,6 +24,7 @@ export default function ReviewsPage() {
   const fetchReviews = async () => {
     try {
       const response = await fetch('/api/google-reviews');
+
       if (response.ok) {
         const data = await response.json();
         setReviews(data.reviews || []);

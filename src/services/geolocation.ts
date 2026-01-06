@@ -196,6 +196,20 @@ export async function detectLocation(): Promise<LocationData | null> {
     // Try multiple free IP geolocation APIs (fallback chain)
     let locationData: LocationData | null = null;
 
+    // Optional feature flag to disable external IP lookup in production to avoid 4xx noise
+    const allowIpLookup = import.meta.env.VITE_ALLOW_IP_LOOKUP === 'true';
+    if (!allowIpLookup) {
+      return {
+        city: 'Queens',
+        state: 'New York',
+        stateCode: 'NY',
+        latitude: QUEENS_COORDS.lat,
+        longitude: QUEENS_COORDS.lng,
+        distance: 0,
+        serviceAreaPage: '/queens-ny/',
+      };
+    }
+
     // Try ip-api.com (free, no key required) with timeout and retry logic
     const maxRetries = 2;
     for (let attempt = 0; attempt <= maxRetries; attempt++) {
@@ -210,7 +224,7 @@ export async function detectLocation(): Promise<LocationData | null> {
           },
         });
         clearTimeout(timeoutId);
-        
+
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -251,10 +265,6 @@ export async function detectLocation(): Promise<LocationData | null> {
           continue;
         }
         
-        // Silently fail after max retries - will use default location
-        if (import.meta.env.DEV) {
-          console.warn('ip-api.com failed after retries:', error);
-        }
       }
     }
 
