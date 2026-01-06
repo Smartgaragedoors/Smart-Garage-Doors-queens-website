@@ -57,8 +57,8 @@ export const BUSINESS_INFO = {
   currenciesAccepted: "USD",
   paymentAccepted: ["Cash", "Credit Card", "Debit Card", "Bank Transfer", "Check"],
   aggregateRating: {
-    ratingValue: "4.9",
-    reviewCount: "150",
+    ratingValue: "5.0",
+    reviewCount: "392",
     bestRating: "5",
     worstRating: "1",
   },
