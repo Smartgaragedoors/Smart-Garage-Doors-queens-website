@@ -195,6 +195,7 @@ export default function Header() {
                               <a href="/greenwich-ct/" role="menuitem" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Greenwich</a>
                               <a href="/new-canaan-ct/" role="menuitem" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">New Canaan</a>
                               <a href="/newtown-ct/" role="menuitem" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Newtown</a>
+                              <a href="/norwalk-ct/" role="menuitem" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Norwalk</a>
                               <a href="/stamford-ct/" role="menuitem" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Stamford</a>
                               <a href="/westport-ct/" role="menuitem" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Westport</a>
                               <a href="/fairfield-ct/" role="menuitem" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Fairfield</a>
@@ -220,6 +221,9 @@ export default function Header() {
                             <div className="space-y-1">
                               <a href="/teaneck-nj/" role="menuitem" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Teaneck</a>
                               <a href="/elizabeth-nj/" role="menuitem" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Elizabeth</a>
+                              <a href="/edison-nj/" role="menuitem" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Edison</a>
+                              <a href="/jackson-nj/" role="menuitem" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Jackson</a>
+                              <a href="/paramus-nj/" role="menuitem" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Paramus</a>
                               <a href="/bergen-county-nj/" role="menuitem" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Bergen County</a>
                             </div>
                           </div>
@@ -323,11 +327,15 @@ export default function Header() {
                       <a href="/darien-ct/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Darien</a>
                       <a href="/new-canaan-ct/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">New Canaan</a>
                       <a href="/newtown-ct/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Newtown</a>
+                      <a href="/norwalk-ct/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Norwalk</a>
                       <a href="/westport-ct/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Westport</a>
                       <a href="/fairfield-ct/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Fairfield</a>
                       <div className="text-xs font-semibold text-gray-500 mb-1 mt-3">New Jersey</div>
                       <a href="/teaneck-nj/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Teaneck</a>
                       <a href="/elizabeth-nj/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Elizabeth</a>
+                      <a href="/edison-nj/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Edison</a>
+                      <a href="/jackson-nj/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Jackson</a>
+                      <a href="/paramus-nj/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Paramus</a>
                       <a href="/bergen-county-nj/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Bergen County</a>
                     </div>
                   </div>
