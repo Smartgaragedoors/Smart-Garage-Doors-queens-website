@@ -98,7 +98,12 @@ function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">Service Areas</h3>
             <ul className="space-y-2">
-              {serviceAreas.map((area, index) => (
+              <li>
+                <a href="/service-areas/" className="text-orange-400 hover:text-orange-300 font-semibold transition-colors">
+                  View All Areas →
+                </a>
+              </li>
+              {serviceAreas.slice(0, 6).map((area, index) => (
                 <li key={index}>
                   <a href={area.href} className="text-gray-200 hover:text-orange-400 transition-colors">
                     {area.name}

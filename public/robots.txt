@@ -41,6 +41,11 @@ Allow: /fairfield-ct/
 Allow: /bergen-county-nj/
 Allow: /elizabeth-nj/
 Allow: /teaneck-nj/
+Allow: /paramus-nj/
+Allow: /norwalk-ct/
+Allow: /edison-nj/
+Allow: /jackson-nj/
+Allow: /service-areas/
 
 # Sitemap
 Sitemap: https://www.smartestgaragedoors.com/sitemap.xml

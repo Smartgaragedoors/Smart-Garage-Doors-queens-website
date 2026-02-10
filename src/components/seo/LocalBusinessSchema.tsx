@@ -96,6 +96,7 @@ const LocalBusinessSchema: React.FC<LocalBusinessSchemaProps> = ({
           "@type": area.type,
           "name": area.name
         })),
+    "hasMap": BUSINESS_INFO.socialMedia.googleMaps || undefined,
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Garage Door Services",

@@ -1,6 +1,15 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17709307308"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17709307308');
+    </script>
+    
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#f97316" />
@@ -18,6 +27,7 @@
     <link rel="dns-prefetch" href="https://maps.googleapis.com" />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://widgets.sociablekit.com" />
+    <link rel="dns-prefetch" href="https://widgets.leadconnectorhq.com" />
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     
     <!-- Favicon -->
@@ -31,13 +41,13 @@
     <meta name="geo.region" content="US-NY" />
     <meta name="geo.placename" content="New York" />
     <meta name="geo.position" content="40.7128;-74.0060" />
-    <link rel="canonical" href="https://smartestgaragedoors.com/" />
+    <link rel="canonical" href="https://www.smartestgaragedoors.com/" />
     
     <!-- Open Graph -->
     <meta property="og:title" content="24/7 Garage Door Repair | Installation | Same-Day" />
     <meta property="og:description" content="Garage door stuck, broken spring, or opener not working? Smartest Garage Doors delivers same-day repair, professional installation, and trusted service homeowners rely on. Serving NY & CT. Fast response, fair pricing, satisfaction guaranteed." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://smartestgaragedoors.com/" />
+    <meta property="og:url" content="https://www.smartestgaragedoors.com/" />
     <meta property="og:image" content="https://static.readdy.ai/image/b69172f381814b1e7c2f555a7760d2b1/4d43fd0bc8f747590e796db153cdd63c.png" />
     <meta property="og:site_name" content="Smartest Garage Doors" />
     <meta property="og:locale" content="en_US" />
@@ -49,11 +59,39 @@
     <meta name="twitter:image" content="https://static.readdy.ai/image/b69172f381814b1e7c2f555a7760d2b1/4d43fd0bc8f747590e796db153cdd63c.png" />
     
     <!-- External Stylesheets - deferred loading for better performance -->
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" /></noscript>
-    <!-- Font Awesome deferred - load after page is interactive -->
+    <!-- RemixIcon - load after page is interactive -->
     <script>
-      // Load Font Awesome after page is interactive to reduce render blocking
+      (function() {
+        function loadRemixIcon() {
+          var link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.href = 'https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css';
+          link.media = 'print';
+          link.onload = function() { this.media = 'all'; };
+          link.crossOrigin = 'anonymous';
+          document.head.appendChild(link);
+        }
+        
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', function() {
+            if ('requestIdleCallback' in window) {
+              requestIdleCallback(loadRemixIcon, { timeout: 2000 });
+            } else {
+              setTimeout(loadRemixIcon, 1000);
+            }
+          });
+        } else {
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(loadRemixIcon, { timeout: 2000 });
+          } else {
+            setTimeout(loadRemixIcon, 1000);
+          }
+        }
+      })();
+    </script>
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" crossorigin="anonymous" /></noscript>
+    <!-- Font Awesome - load only if needed, after page is interactive -->
+    <script>
       (function() {
         function loadFontAwesome() {
           var link = document.createElement('link');
@@ -61,27 +99,31 @@
           link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';
           link.media = 'print';
           link.onload = function() { this.media = 'all'; };
+          link.crossOrigin = 'anonymous';
           document.head.appendChild(link);
         }
         
-        if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', function() {
-            if ('requestIdleCallback' in window) {
-              requestIdleCallback(loadFontAwesome, { timeout: 2000 });
-            } else {
-              setTimeout(loadFontAwesome, 1000);
-            }
-          });
-        } else {
-          if ('requestIdleCallback' in window) {
-            requestIdleCallback(loadFontAwesome, { timeout: 2000 });
+        // Only load Font Awesome if actually needed (check for fa- classes)
+        if (document.querySelector('[class*="fa-"]')) {
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() {
+              if ('requestIdleCallback' in window) {
+                requestIdleCallback(loadFontAwesome, { timeout: 3000 });
+              } else {
+                setTimeout(loadFontAwesome, 2000);
+              }
+            });
           } else {
-            setTimeout(loadFontAwesome, 1000);
+            if ('requestIdleCallback' in window) {
+              requestIdleCallback(loadFontAwesome, { timeout: 3000 });
+            } else {
+              setTimeout(loadFontAwesome, 2000);
+            }
           }
         }
       })();
     </script>
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" /></noscript>
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" /></noscript>
     
     <!-- Google Analytics - deferred to reduce blocking -->
     <script>
@@ -114,15 +156,64 @@
     <!-- Prefetch non-critical external resources - defer to avoid blocking -->
     <!-- Note: SociableKit widget is now loaded via Intersection Observer to prevent forced reflows -->
     
-    <!-- Preload hero image for mobile - critical above-the-fold content -->
-    <link rel="preload" as="image" href="/hero-van-800.webp" type="image/webp" media="(max-width: 800px)" fetchpriority="high" />
-    <link rel="preload" as="image" href="/hero-van-800.jpg" type="image/jpeg" media="(max-width: 800px)" fetchpriority="high" />
-    <script type="module" crossorigin src="/assets/js/index-B6Zke6Pp.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/js/vendor-BehsTOzw.js">
-    <link rel="modulepreload" crossorigin href="/assets/js/react-core-8gImnMM-.js">
+    <!-- Preload hero image set for faster LCP -->
+    <link
+      rel="preload"
+      as="image"
+      href="/hero-van-1280.webp"
+      imagesrcset="/hero-van-800.webp 800w, /hero-van-1280.webp 1280w, /hero-van-1920.webp 1920w"
+      imagesizes="100vw"
+      type="image/webp"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="/hero-van-1280.jpg"
+      imagesrcset="/hero-van-800.jpg 800w, /hero-van-1280.jpg 1280w, /hero-van-1920.jpg 1920w"
+      imagesizes="100vw"
+      type="image/jpeg"
+      fetchpriority="high"
+    />
+    
+    <!-- LeadConnector Chat Widget (lazy load on first interaction or idle) -->
+    <script>
+      (function() {
+        var loaded = false;
+        function loadChat() {
+          if (loaded) return;
+          loaded = true;
+          var s = document.createElement('script');
+          s.src = 'https://widgets.leadconnectorhq.com/loader.js';
+          s.async = true;
+          s.defer = true;
+          s.dataset.resourcesUrl = 'https://widgets.leadconnectorhq.com/chat-widget/loader.js';
+          s.dataset.widgetId = '68f91895be3485765c10fbd3';
+          document.head.appendChild(s);
+        }
+        function trigger() {
+          loadChat();
+          window.removeEventListener('click', trigger);
+          window.removeEventListener('touchstart', trigger);
+          window.removeEventListener('keydown', trigger);
+        }
+        window.addEventListener('click', trigger, { once: true, passive: true });
+        window.addEventListener('touchstart', trigger, { once: true, passive: true });
+        window.addEventListener('keydown', trigger, { once: true });
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(loadChat, { timeout: 10000 });
+        } else {
+          setTimeout(loadChat, 10000);
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/js/index-BxdZvKOd.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/js/vendor-Bv-Em8ol.js">
+    <link rel="modulepreload" crossorigin href="/assets/js/react-core-C8QJMK44.js">
     <link rel="modulepreload" crossorigin href="/assets/js/i18n-vendor-WQh-luxc.js">
-    <link rel="modulepreload" crossorigin href="/assets/js/page-NotFound.tsx-zh4OWFGv.js">
-    <link rel="stylesheet" crossorigin href="/assets/css/index-B4RfYmqp.css">
+    <link rel="modulepreload" crossorigin href="/assets/js/page-NotFound.tsx-BAI-FHpk.js">
+    <link rel="modulepreload" crossorigin href="/assets/js/analytics-vendor-DXd_nf2u.js">
+    <link rel="stylesheet" crossorigin href="/assets/css/index-BCXFXgN-.css">
   </head>
   <body>
     <div id="root"></div>

@@ -9,6 +9,7 @@ const BookNowPage = lazy(() => import('../pages/book-now/page').then(module => (
 const ReviewsPage = lazy(() => import('../pages/reviews/page').then(module => ({ default: module.default })));
 const BlogPage = lazy(() => import('../pages/blog/page').then(module => ({ default: module.default })));
 const BlogPostPage = lazy(() => import('../pages/blog/[slug]/page').then(module => ({ default: module.default })));
+const ServiceAreasPage = lazy(() => import('../pages/service-areas/page').then(module => ({ default: module.default })));
 const NotFoundPage = lazy(() => import('../pages/NotFound'));
 
 // Service pages
@@ -45,6 +46,10 @@ const FairfieldCTPage = lazy(() => import('../pages/service-areas/fairfield-ct/p
 const ElizabethNJPage = lazy(() => import('../pages/service-areas/elizabeth-nj/page').then(module => ({ default: module.default })));
 const HauppaugeNYPage = lazy(() => import('../pages/service-areas/hauppauge-ny/page').then(module => ({ default: module.default })));
 const SmithtownNYPage = lazy(() => import('../pages/service-areas/smithtown-ny/page').then(module => ({ default: module.default })));
+const ParamusNJPage = lazy(() => import('../pages/service-areas/paramus-nj/page').then(module => ({ default: module.default })));
+const NorwalkCTPage = lazy(() => import('../pages/service-areas/norwalk-ct/page').then(module => ({ default: module.default })));
+const EdisonNJPage = lazy(() => import('../pages/service-areas/edison-nj/page').then(module => ({ default: module.default })));
+const JacksonNJPage = lazy(() => import('../pages/service-areas/jackson-nj/page').then(module => ({ default: module.default })));
 
 const routes: RouteObject[] = [
   {
@@ -74,6 +79,10 @@ const routes: RouteObject[] = [
   {
     path: '/blog/:slug/',
     element: <BlogPostPage />
+  },
+  {
+    path: '/service-areas/',
+    element: <ServiceAreasPage />
   },
   
   // Service pages with exact URLs
@@ -206,6 +215,22 @@ const routes: RouteObject[] = [
   {
     path: '/smithtown-ny/',
     element: <SmithtownNYPage />
+  },
+  {
+    path: '/paramus-nj/',
+    element: <ParamusNJPage />
+  },
+  {
+    path: '/norwalk-ct/',
+    element: <NorwalkCTPage />
+  },
+  {
+    path: '/edison-nj/',
+    element: <EdisonNJPage />
+  },
+  {
+    path: '/jackson-nj/',
+    element: <JacksonNJPage />
   },
   // Legacy routes - redirect to new format (keep for SEO)
   {
