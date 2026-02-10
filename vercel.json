@@ -201,16 +201,6 @@
       "permanent": true
     },
     {
-      "source": "/services/maintenance",
-      "destination": "/maintenance/",
-      "permanent": true
-    },
-    {
-      "source": "/services/maintenance/",
-      "destination": "/maintenance/",
-      "permanent": true
-    },
-    {
       "source": "/garage-door-repair-brooklyn-ny/",
       "destination": "/brooklyn-ny/",
       "permanent": true
@@ -223,6 +213,16 @@
     {
       "source": "/garage-door-installers-white-plains-ny/",
       "destination": "/white-plains-ny/",
+      "permanent": true
+    },
+    {
+      "source": "/garage-door-installation-suffern-ny",
+      "destination": "/suffern-ny/",
+      "permanent": true
+    },
+    {
+      "source": "/garage-door-installation-suffern-ny/",
+      "destination": "/suffern-ny/",
       "permanent": true
     }
   ],

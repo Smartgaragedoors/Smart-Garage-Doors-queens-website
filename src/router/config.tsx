@@ -109,10 +109,6 @@ const routes: RouteObject[] = [
     path: '/services/installation/',
     element: <InstallationPage />
   },
-  {
-    path: '/services/maintenance/',
-    element: <Navigate to="/maintenance/" replace />
-  },
   
   // Service area pages with exact URLs
   {
@@ -242,7 +238,7 @@ const routes: RouteObject[] = [
   },
   {
     path: '/garage-door-installation-suffern-ny/',
-    element: <SuffernNYPage />
+    element: <Navigate to="/suffern-ny/" replace />
   },
   {
     path: '/garage-door-installers-white-plains-ny/',
