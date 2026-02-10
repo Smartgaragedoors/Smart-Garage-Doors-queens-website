@@ -20,11 +20,7 @@ const ElizabethNJ = () => {
       metaKeywords.setAttribute('content', 'Elizabeth NJ garage door repair, garage door installation Elizabeth, emergency garage door service, Smart Garage Doors');
     }
 
-    // Canonical URL
-    const canonical = document.querySelector('link[rel="canonical"]') || document.createElement('link');
-    canonical.setAttribute('rel', 'canonical');
-    canonical.setAttribute('href', `${import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com'}/elizabeth-nj/`);
-    if (!document.querySelector('link[rel="canonical"]')) document.head.appendChild(canonical);
+    // Canonical is handled by DynamicMetaTags component - removed duplicate manual setting
 
     // Add Schema.org JSON-LD for Elizabeth NJ page
     const script = document.createElement('script');

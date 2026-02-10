@@ -1,10 +1,16 @@
 import { Link } from 'react-router-dom';
 import Header from '../components/feature/Header';
 import Footer from '../components/feature/Footer';
+import DynamicMetaTags from '../components/seo/DynamicMetaTags';
 
 export default function NotFound() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
+      <DynamicMetaTags 
+        title="404 - Page Not Found | Smartest Garage Doors"
+        description="The page you're looking for doesn't exist or has been moved."
+        noIndex={true}
+      />
       <Header />
       <div className="flex-1 flex flex-col items-center justify-center text-center px-4 py-20">
         <div className="max-w-2xl mx-auto">

@@ -11,11 +11,28 @@ const require = createRequire(import.meta.url);
 const BASE_URL = process.env.SITE_URL || process.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com';
 const TODAY = new Date().toISOString().split('T')[0];
 
+// URLs that redirect to other pages - EXCLUDE from sitemap
+// These should not be indexed as they redirect to canonical URLs
+const EXCLUDED_PATHS = [
+  '/home/',                                    // Redirects to /
+  '/flushing-ny/',                            // Redirects to /queens-ny/
+  '/garage-door-repair-brooklyn-ny/',         // Redirects to /brooklyn-ny/
+  '/garage-door-repair-stamford-ct/',         // Redirects to /stamford-ct/
+  '/garage-door-installers-white-plains-ny/', // Redirects to /white-plains-ny/
+  '/garage-door-installation-suffern-ny/',    // Redirects to /suffern-ny/
+  '/garage-door-installation-stamford-ct/',  // Will redirect in commit 2, exclude now
+];
+
+// Helper function to check if a path should be excluded
+function isExcluded(path) {
+  return EXCLUDED_PATHS.includes(path);
+}
+
 // Core routes (non-service-area pages)
 const coreRoutes = [
   { path: '/', priority: '1.0', changefreq: 'weekly' },
   { path: '/contact/', priority: '0.8', changefreq: 'monthly' },
-  { path: '/home/', priority: '0.6', changefreq: 'monthly' },
+  // /home/ removed - it redirects to /
   { path: '/book-now/', priority: '0.8', changefreq: 'monthly' },
   { path: '/reviews/', priority: '0.7', changefreq: 'weekly' },
   { path: '/blog/', priority: '0.7', changefreq: 'weekly' },
@@ -52,7 +69,10 @@ function extractServiceAreaRoutes() {
       new Map(serviceAreaRoutes.map(route => [route.path, route])).values()
     );
     
-    return uniqueRoutes.sort((a, b) => a.path.localeCompare(b.path));
+    // Filter out excluded (redirected) paths
+    const filteredRoutes = uniqueRoutes.filter(route => !isExcluded(route.path));
+    
+    return filteredRoutes.sort((a, b) => a.path.localeCompare(b.path));
   } catch (error) {
     console.warn('⚠️  Could not read router config, falling back to hardcoded list:', error.message);
     // Fallback to hardcoded list if reading fails
@@ -102,12 +122,15 @@ const blogPosts = [
 function generateSitemap() {
   const serviceAreaRoutes = extractServiceAreaRoutes();
   
+  // Filter core routes to exclude redirected URLs
+  const filteredCoreRoutes = coreRoutes.filter(route => !isExcluded(route.path));
+  
   let xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 `;
 
-  // Add core routes
-  coreRoutes.forEach(route => {
+  // Add core routes (already filtered)
+  filteredCoreRoutes.forEach(route => {
     xml += `  <url>
     <loc>${BASE_URL}${route.path}</loc>
     <lastmod>${TODAY}</lastmod>
@@ -145,13 +168,16 @@ function generateSitemap() {
   const sitemapPath = path.join(__dirname, '..', 'public', 'sitemap.xml');
   fs.writeFileSync(sitemapPath, xml, 'utf8');
   
-  const totalUrls = coreRoutes.length + serviceAreaRoutes.length + blogPosts.length;
+  const totalUrls = filteredCoreRoutes.length + serviceAreaRoutes.length + blogPosts.length;
+  const excludedCount = EXCLUDED_PATHS.length;
+  
   console.log(`✅ Sitemap generated successfully at ${sitemapPath}`);
   console.log(`   Base URL: ${BASE_URL}`);
   console.log(`   Total URLs: ${totalUrls}`);
-  console.log(`   - Core routes: ${coreRoutes.length}`);
+  console.log(`   - Core routes: ${filteredCoreRoutes.length} (${coreRoutes.length - filteredCoreRoutes.length} excluded)`);
   console.log(`   - Service areas: ${serviceAreaRoutes.length}`);
   console.log(`   - Blog posts: ${blogPosts.length}`);
+  console.log(`   ⚠️  Excluded ${excludedCount} redirected/legacy URLs from sitemap`);
 }
 
 generateSitemap();

@@ -13,17 +13,7 @@ const WhitePlainsNY = () => {
   const siteUrl = import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com';
   
   useEffect(() => {
-    // Determine canonical URL - always point to repair URL
-    const canonicalUrl = `${siteUrl}/white-plains-ny/`;
-    
-    // Update canonical tag
-    let canonicalLink = document.querySelector('link[rel="canonical"]');
-    if (!canonicalLink) {
-      canonicalLink = document.createElement('link');
-      canonicalLink.setAttribute('rel', 'canonical');
-      document.head.appendChild(canonicalLink);
-    }
-    canonicalLink.setAttribute('href', canonicalUrl);
+    // Canonical is handled by DynamicMetaTags component - removed duplicate manual setting
     
     document.title = 'White Plains NY Garage Door Repair | Smart Garage Doors | Licensed Technicians';
     

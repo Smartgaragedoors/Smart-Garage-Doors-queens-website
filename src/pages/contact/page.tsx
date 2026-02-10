@@ -34,11 +34,7 @@ const ContactPage = () => {
     if (metaKeywords) {
       metaKeywords.setAttribute('content', 'contact garage door repair, schedule garage door service, garage door appointment, Smart Garage Doors contact');
     }
-
-    const canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) {
-      canonical.setAttribute('href', `${import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com'}/contact`);
-    }
+    // Canonical is handled by DynamicMetaTags component - removed duplicate manual setting
   }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -85,6 +81,7 @@ const ContactPage = () => {
       <DynamicMetaTags 
         title="Contact Us | Garage Door Repair NY NJ CT | Smartest Garage Doors"
         description="Contact Smartest Garage Doors for fast, professional garage door repair and installation services. Serving NY, NJ & CT. Call (914) 557-6816 or schedule online."
+        canonical={`${import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com'}/contact/`}
       />
       <Header />
       <Breadcrumbs />

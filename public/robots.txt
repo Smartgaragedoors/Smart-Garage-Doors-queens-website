@@ -5,7 +5,7 @@ Disallow: /book-now/
 
 # Core site pages
 Allow: /
-Allow: /contact
+Allow: /contact/
 Allow: /reviews/
 Allow: /blog/
 Allow: /garage-door-repair/
@@ -14,6 +14,7 @@ Allow: /emergency-garage-door-repair/
 Allow: /spring-replacement/
 Allow: /opener-repair-installation/
 Allow: /cable-roller-repair/
+Allow: /maintenance/
 Allow: /services/maintenance/
 Allow: /services/installation/
 

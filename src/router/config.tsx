@@ -266,12 +266,8 @@ const routes: RouteObject[] = [
     element: <Navigate to="/suffern-ny/" replace />
   },
   {
-    path: '/garage-door-installers-white-plains-ny/',
-    element: <WhitePlainsNYPage />
-  },
-  {
     path: '/garage-door-installation-stamford-ct/',
-    element: <StamfordCTPage />
+    element: <Navigate to="/stamford-ct/" replace />
   },
   
   // 404 page

@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "deploy": "BASE_PATH=/Smart-Garage-Doors-queens-website/ npm run build && gh-pages -d out",
     "optimize-hero": "node scripts/optimize-hero-image.js",
-    "generate-sitemap": "node scripts/generate-sitemap.js"
+    "generate-sitemap": "node scripts/generate-sitemap.js",
+    "verify-sitemap": "node scripts/verify-sitemap.js"
   },
   "dependencies": {
     "@stripe/react-stripe-js": "4.0.2",

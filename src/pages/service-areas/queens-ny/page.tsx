@@ -20,11 +20,7 @@ const QueensNY = () => {
       metaKeywords.setAttribute('content', 'Queens NY garage door repair, garage door installation Queens, emergency garage door service, Smart Garage Doors');
     }
 
-    // Canonical URL
-    const canonical = document.querySelector('link[rel="canonical"]') || document.createElement('link');
-    canonical.setAttribute('rel', 'canonical');
-    canonical.setAttribute('href', `${import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com'}/queens-ny/`);
-    if (!document.querySelector('link[rel="canonical"]')) document.head.appendChild(canonical);
+    // Canonical is handled by DynamicMetaTags component - removed duplicate manual setting
 
     // Add Schema.org JSON-LD for Queens NY page
     const script = document.createElement('script');
