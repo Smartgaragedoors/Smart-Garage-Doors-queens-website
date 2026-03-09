@@ -5,14 +5,17 @@ interface ServiceAreaLinksProps {
   title?: string;
   showDescription?: boolean;
   maxLinks?: number;
+  /** Service context for better anchor text (e.g. 'repair', 'installation', 'emergency', 'spring', 'opener', 'cable', 'maintenance') */
+  serviceType?: string;
 }
 
 export default function ServiceAreaLinks({ 
   title = "Service Areas",
   showDescription = true,
-  maxLinks = 8
+  maxLinks = 8,
+  serviceType = ''
 }: ServiceAreaLinksProps) {
-  const serviceAreas = getServiceAreaLinksForService('').slice(0, maxLinks);
+  const serviceAreas = getServiceAreaLinksForService(serviceType).slice(0, maxLinks);
 
   if (serviceAreas.length === 0) {
     return null;

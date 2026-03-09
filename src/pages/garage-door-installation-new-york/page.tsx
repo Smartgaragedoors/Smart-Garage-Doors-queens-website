@@ -45,9 +45,9 @@ export default function GarageDoorInstallationNewYorkPage() {
   return (
     <div className="min-h-screen bg-white">
       <DynamicMetaTags 
-        title="Garage Door Installation NY NJ CT | Professional Installation Services"
-        description="Professional garage door installation services in NY, NJ & CT. Expert installation of all garage door styles and brands. Same-day service available. Licensed and insured technicians."
-        keywords="garage door installation, new garage door installation, garage door installer, professional garage door installation"
+        title="Garage Door Installation NY NJ CT | New Doors & Replacements | Smartest Garage Doors"
+        description="New garage door installation & replacement. 5.0★, 392 reviews. Free estimates. Same-day available. Licensed & insured. Serving NY, NJ & CT."
+        keywords="garage door installation, new garage door, garage door replacement, garage door installer"
       />
       <FAQSchema faqs={faqs} />
       <Header />
@@ -69,8 +69,11 @@ export default function GarageDoorInstallationNewYorkPage() {
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
                 Garage Door Installation New York
               </h1>
-              <p className="text-xl md:text-2xl mb-8">
+              <p className="text-xl md:text-2xl mb-4">
                 Professional garage door installation services throughout New York. From residential to commercial, we install all types of garage doors with precision and expertise.
+              </p>
+              <p className="text-lg md:text-xl mb-8 text-green-100 font-semibold">
+                Trusted 5.0★ rated installer for New York homeowners and businesses • Licensed, insured, and factory-trained technicians.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a 
@@ -395,6 +398,7 @@ export default function GarageDoorInstallationNewYorkPage() {
       </section>
 
       <ServiceAreaLinks 
+        serviceType="installation"
         title="Garage Door Installation Services in Your Area"
         showDescription={true}
         maxLinks={10}

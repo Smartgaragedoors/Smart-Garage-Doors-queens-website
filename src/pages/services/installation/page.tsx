@@ -91,7 +91,11 @@ export default function InstallationPage() {
       const result = await submitForm(data, 'Installation Form');
 
       if (result.success) {
-        alert('Installation quote request submitted! We will contact you within 24 hours.');
+        if (result.usedFallback) {
+          alert('Your email client should open to send your request. If it didn\'t open, please call us at (914) 557-6816.');
+        } else {
+          alert('Installation quote request submitted! We will contact you within 24 hours.');
+        }
         (e.target as HTMLFormElement).reset();
       } else {
         alert('Failed to submit request. Please call us at (914) 557-6816');
@@ -104,9 +108,9 @@ export default function InstallationPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <DynamicMetaTags 
-        title="Garage Door Installation NYC | Professional Installation | Same-Day Service"
-        description="Professional garage door installation in NYC, Westchester, and Connecticut. Expert installation of residential and commercial garage doors with warranty."
-        keywords="garage door installation, new garage door, professional installation, residential garage doors, commercial installation"
+        title="Garage Door Installation Services & Free Quotes | Smartest Garage Doors"
+        description="Plan your garage door project with a free quote. Styles, materials, openers. Residential & commercial. NY, NJ & CT. 5.0★, 392 reviews. Licensed & insured."
+        keywords="garage door installation services, free garage door quote, residential commercial garage doors, installation planning"
       />
       <FAQSchema faqs={faqs} />
       <Header />
@@ -478,6 +482,7 @@ export default function InstallationPage() {
       </section>
 
       <ServiceAreaLinks 
+        serviceType="installation"
         title="Installation Services in Your Area"
         showDescription={true}
         maxLinks={10}

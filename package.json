@@ -10,11 +10,12 @@
     "deploy": "BASE_PATH=/Smart-Garage-Doors-queens-website/ npm run build && gh-pages -d out",
     "optimize-hero": "node scripts/optimize-hero-image.js",
     "generate-sitemap": "node scripts/generate-sitemap.js",
-    "verify-sitemap": "node scripts/verify-sitemap.js"
+    "verify-sitemap": "node scripts/verify-sitemap.js",
+    "test:form": "node scripts/test-form-submission.js",
+    "test:form:local": "node scripts/test-form-submission.js http://localhost:3000"
   },
   "dependencies": {
     "@stripe/react-stripe-js": "4.0.2",
-    "@supabase/supabase-js": "2.57.4",
     "@vercel/analytics": "^1.6.1",
     "firebase": "12.0.0",
     "i18next": "^25.3.2",
@@ -24,6 +25,7 @@
     "react-i18next": "^15.6.0",
     "react-router-dom": "^7.6.3",
     "recharts": "3.2.0",
+    "resend": "^6.9.3",
     "web-vitals": "^5.1.0"
   },
   "devDependencies": {

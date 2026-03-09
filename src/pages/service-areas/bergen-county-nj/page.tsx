@@ -1,27 +1,20 @@
-
-import { useEffect } from 'react';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
+import Breadcrumbs from '../../../components/seo/Breadcrumbs';
+import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
 import ServiceLinks from '../../../components/seo/ServiceLinks';
 
 const BergenCountyNJ = () => {
-  useEffect(() => {
-    document.title = 'Bergen County NJ Garage Door Repair | Smart Garage Doors | 24/7 Emergency Service';
-    
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Professional garage door repair services in Bergen County, NJ. Smart Garage Doors offers emergency repairs, spring replacement, opener installation throughout Bergen County neighborhoods. Licensed technicians serving all Bergen County areas.');
-    }
-    
-    const metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (metaKeywords) {
-      metaKeywords.setAttribute('content', 'Bergen County NJ garage door repair, garage door installation Bergen County, emergency garage door service, Smart Garage Doors');
-    }
-  }, []);
-
   return (
     <div className="min-h-screen bg-white">
+      <DynamicMetaTags 
+        title="Bergen County NJ Garage Door Repair | Smartest Garage Doors | 24/7 Emergency Service"
+        description="Professional garage door repair and installation services in Bergen County, NJ. Smartest Garage Doors offers same-day and emergency service for Paramus, Ridgewood, Hackensack, Teaneck, Fort Lee, Englewood and all nearby communities."
+        keywords="Bergen County NJ garage door repair, garage door installation Bergen County, emergency garage door service, Smartest Garage Doors"
+        canonical={`${import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com'}/bergen-county-nj/`}
+      />
       <Header />
+      <Breadcrumbs />
       
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-blue-900 to-blue-700 text-white py-20">
@@ -44,9 +37,9 @@ const BergenCountyNJ = () => {
               <a href="tel:+19145576816" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap">
                 Call Now: (914) 557-6816
               </a>
-              <button className="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap">
+              <a href="/book-now/" className="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap">
                 Get Free Estimate
-              </button>
+              </a>
             </div>
           </div>
         </div>

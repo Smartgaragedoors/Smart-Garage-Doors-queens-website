@@ -9,24 +9,6 @@ import ServiceLinks from '../../../components/seo/ServiceLinks';
 
 const BrooklynNY = () => {
   useEffect(() => {
-    document.title = 'Brooklyn NY Garage Door Repair | Smart Garage Doors | 24/7 Emergency Service';
-    
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Expert garage door repair services in Brooklyn, NY. Smart Garage Doors provides emergency repairs, spring replacement, opener installation, and maintenance throughout Brooklyn. Licensed technicians serving all Brooklyn neighborhoods.');
-    }
-    
-    const metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (metaKeywords) {
-      metaKeywords.setAttribute('content', 'Brooklyn NY garage door repair, garage door installation Brooklyn, emergency garage door service, Smart Garage Doors');
-    }
-
-    // Canonical URL
-    const canonical = document.querySelector('link[rel="canonical"]') || document.createElement('link');
-    canonical.setAttribute('rel', 'canonical');
-    canonical.setAttribute('href', `${import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com'}/brooklyn-ny/`);
-    if (!document.querySelector('link[rel="canonical"]')) document.head.appendChild(canonical);
-
     // Add Schema.org JSON-LD for Brooklyn NY page
     const script = document.createElement('script');
     script.type = 'application/ld+json';
@@ -129,9 +111,10 @@ const BrooklynNY = () => {
   return (
     <div className="min-h-screen bg-white">
       <DynamicMetaTags 
-        title="Brooklyn NY Garage Door Repair | Smart Garage Doors | 24/7 Emergency Service"
-        description="Professional garage door repair services in Brooklyn, NY. Smart Garage Doors offers emergency repairs, spring replacement, opener installation throughout Brooklyn neighborhoods. Licensed technicians serving all Brooklyn areas."
-        keywords="Brooklyn NY garage door repair, garage door installation Brooklyn, emergency garage door service, Smart Garage Doors"
+        title="Brooklyn NY Garage Door Repair | Smartest Garage Doors | 24/7"
+        description="Garage door repair in Brooklyn, NY. 5.0★, 392 reviews. Same-day service, emergency repairs. Licensed & insured."
+        keywords="Brooklyn NY garage door repair, garage door installation Brooklyn, emergency garage door service"
+        canonical={`${import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com'}/brooklyn-ny/`}
       />
       <FAQSchema faqs={brooklynFaqs} />
       <Header />
@@ -158,9 +141,9 @@ const BrooklynNY = () => {
               <a href="tel:+19145576816" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap">
                 Call Now: (914) 557-6816
               </a>
-              <button className="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap">
+              <a href="/book-now/" className="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap inline-block text-center">
                 Get Free Estimate
-              </button>
+              </a>
             </div>
           </div>
         </div>

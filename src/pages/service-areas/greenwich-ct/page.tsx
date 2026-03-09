@@ -5,50 +5,14 @@ import Footer from '../../../components/feature/Footer';
 import Services from '../../../components/feature/Services';
 import Reviews from '../../../components/feature/Reviews';
 import Contact from '../../../components/feature/Contact';
+import Breadcrumbs from '../../../components/seo/Breadcrumbs';
+import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
 import ServiceLinks from '../../../components/seo/ServiceLinks';
 
 export default function GreenwichCTPage() {
+  const siteUrl = import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com';
+
   useEffect(() => {
-    document.title = 'Greenwich CT Garage Door Repair & Installation | Smart Garage Doors';
-    
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Professional garage door repair and installation services in Greenwich, CT. Emergency repairs, new installations, spring replacement. Call (914) 557-6816 for same-day service in Greenwich, Connecticut.');
-    }
-
-    const metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (metaKeywords) {
-      metaKeywords.setAttribute('content', 'garage door repair Greenwich CT, garage door installation Greenwich, emergency garage door repair Connecticut, garage door spring replacement Greenwich');
-    }
-
-    // Geo tags for Greenwich, CT
-    const geoPosition = document.querySelector('meta[name="geo.position"]') || document.createElement('meta');
-    geoPosition.setAttribute('name', 'geo.position');
-    geoPosition.setAttribute('content', '41.0262;-73.6282');
-    if (!document.querySelector('meta[name="geo.position"]')) document.head.appendChild(geoPosition);
-
-    const geoRegion = document.querySelector('meta[name="geo.region"]') || document.createElement('meta');
-    geoRegion.setAttribute('name', 'geo.region');
-    geoRegion.setAttribute('content', 'US-CT');
-    if (!document.querySelector('meta[name="geo.region"]')) document.head.appendChild(geoRegion);
-
-    const geoPlacename = document.querySelector('meta[name="geo.placename"]') || document.createElement('meta');
-    geoPlacename.setAttribute('name', 'geo.placename');
-    geoPlacename.setAttribute('content', 'Greenwich, Connecticut');
-    if (!document.querySelector('meta[name="geo.placename"]')) document.head.appendChild(geoPlacename);
-
-    // Canonical URL
-    const canonical = document.querySelector('link[rel="canonical"]') || document.createElement('link');
-    canonical.setAttribute('rel', 'canonical');
-    canonical.setAttribute('href', `${import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com'}/greenwich-ct/`);
-    if (!document.querySelector('link[rel="canonical"]')) document.head.appendChild(canonical);
-
-    // Last modified
-    const lastModified = document.querySelector('meta[name="last-modified"]') || document.createElement('meta');
-    lastModified.setAttribute('name', 'last-modified');
-    lastModified.setAttribute('content', new Date().toISOString());
-    if (!document.querySelector('meta[name="last-modified"]')) document.head.appendChild(lastModified);
-
     // Schema.org structured data
     const script = document.createElement('script');
     script.type = 'application/ld+json';
@@ -85,7 +49,14 @@ export default function GreenwichCTPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <DynamicMetaTags 
+        title="Greenwich CT Garage Door Repair & Installation | Smartest Garage Doors"
+        description="Garage door repair in Greenwich, CT. 5.0★, 392 reviews. Same-day service, emergency repairs. Licensed & insured."
+        keywords="garage door repair Greenwich CT, garage door installation Greenwich, emergency garage door repair Connecticut"
+        canonical={`${siteUrl}/greenwich-ct/`}
+      />
       <Header />
+      <Breadcrumbs />
       
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-blue-900 to-blue-800 text-white py-20">

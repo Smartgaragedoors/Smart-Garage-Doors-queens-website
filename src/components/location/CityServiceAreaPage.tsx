@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../../components/feature/Header';
 import Footer from '../../components/feature/Footer';
@@ -46,17 +45,6 @@ export default function CityServiceAreaPage({ location }: CityServiceAreaPagePro
   // Generate meta description
   const metaDescription = location.serviceAreaText || 
     `Professional garage door repair and installation services in ${location.city}, ${location.stateAbbr}. Smartest Garage Doors offers same-day service, emergency repairs, and expert installation throughout ${location.city} and surrounding areas.`;
-
-  useEffect(() => {
-    // Ensure canonical is set
-    let canonicalLink = document.querySelector('link[rel="canonical"]');
-    if (!canonicalLink) {
-      canonicalLink = document.createElement('link');
-      canonicalLink.setAttribute('rel', 'canonical');
-      document.head.appendChild(canonicalLink);
-    }
-    canonicalLink.setAttribute('href', canonicalUrl);
-  }, [canonicalUrl]);
 
   return (
     <div className="min-h-screen bg-white">

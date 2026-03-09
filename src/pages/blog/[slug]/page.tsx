@@ -1,10 +1,14 @@
+import { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
 import Breadcrumbs from '../../../components/seo/Breadcrumbs';
 import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
 import FAQSchema from '../../../components/seo/FAQSchema';
-import { useEffect } from 'react';
+import BlogPostingSchema from '../../../components/seo/BlogPostingSchema';
+import { getBlogImage } from '../../../data/blogImages';
+
+const DEFAULT_BLOG_IMAGE_URL = "/hero-van-1280.webp";
 
 // Blog post data (in production, this would come from CMS/API)
 const BLOG_POSTS: Record<string, {
@@ -53,6 +57,8 @@ const BLOG_POSTS: Record<string, {
       
       <h2>Prevention and Maintenance</h2>
       <p>Regular professional maintenance can extend spring life and catch issues early. Have your springs inspected annually by qualified technicians who can identify wear before failure occurs.</p>
+      
+      <p>When you are ready to fix a failing spring, schedule professional <a href="/spring-replacement/">garage door spring replacement service</a> so the work is done safely and correctly.</p>
     `,
     image: "https://www.smartestgaragedoors.com/wp-content/uploads/2025/09/Lucid_Origin_A_beige_residential_garage_door_is_visibly_offtra_1_11zon.webp",
     date: "2025-01-15",
@@ -139,6 +145,8 @@ const BLOG_POSTS: Record<string, {
       
       <h2>When to Call a Professional</h2>
       <p>If troubleshooting doesn't resolve the issue, or if you notice spring problems, track damage, or electrical issues, call Smart Garage Doors immediately. Our technicians can diagnose and repair issues safely and efficiently.</p>
+      
+      <p>If your door still will not close reliably, it is usually safest to <a href="/garage-door-repair/">book a professional garage door repair visit</a> so the underlying problem can be fixed before it damages other parts.</p>
     `,
     image: "https://www.smartestgaragedoors.com/wp-content/uploads/2025/09/garage-top-roller-loose-from-door-and-looks-to-be-bending-v0-hqv1b7ru3svc1-1.webp",
     date: "2025-01-12",
@@ -211,6 +219,8 @@ const BLOG_POSTS: Record<string, {
       
       <h2>Emergency Service Response</h2>
       <p>We offer 24/7 emergency garage door repair throughout NY, NJ & CT. Our technicians typically arrive within 60-90 minutes to address urgent situations safely and efficiently.</p>
+      
+      <p>If you are currently dealing with an urgent problem, skip the DIY steps and <a href="/emergency-garage-door-repair/">request emergency garage door repair service</a> so a technician can secure your door quickly.</p>
     `,
     image: "https://www.smartestgaragedoors.com/wp-content/uploads/2025/09/erh_11zon.webp",
     date: "2025-01-05",
@@ -247,6 +257,8 @@ const BLOG_POSTS: Record<string, {
       
       <h2>Why Professional Service Matters</h2>
       <p>Garage doors involve extreme tension, electrical components, and heavy parts. Professional technicians have proper training, tools, and insurance. DIY attempts can void warranties and create safety hazards.</p>
+      
+      <p>If you are unsure whether a repair is safe to handle yourself, it is always better to <a href="/garage-door-repair/">schedule a professional garage door repair visit</a> and let a trained technician take over.</p>
     `,
     image: "https://www.smartestgaragedoors.com/wp-content/uploads/2025/09/Lucid_Origin_A_closeup_of_a_person_wearing_black_gloves_repair_0_11zon.webp",
     date: "2025-01-03",
@@ -337,6 +349,8 @@ const BLOG_POSTS: Record<string, {
       
       <h2>Professional Opener Repair Services</h2>
       <p>Smart Garage Doors provides expert opener repair services throughout NY, NJ & CT. Our certified technicians diagnose and repair all opener brands and types, from simple sensor alignment to complete motor replacement. We offer same-day service and comprehensive warranties on all repairs.</p>
+      
+      <p>If your opener still is not working the way it should, you can <a href="/opener-repair-installation/">book a professional garage door opener repair or installation</a> so the system is reliable again.</p>
     `,
     image: "https://readdy.ai/api/search-image?query=Professional%20technician%20repairing%20garage%20door%20opener%20motor%20unit%2C%20close-up%20of%20opener%20mechanism%2C%20residential%20garage%20setting%2C%20tools%20and%20equipment%20visible%2C%20professional%20repair%20work&width=1200&height=600&seq=opener-repair001&orientation=landscape",
     date: "2025-01-20",
@@ -499,6 +513,8 @@ const BLOG_POSTS: Record<string, {
       
       <h2>Professional Spring Replacement Services</h2>
       <p>Smart Garage Doors provides expert spring replacement services throughout NY, NJ & CT. We offer same-day service, transparent pricing, and comprehensive warranties. Our certified technicians safely replace all spring types with high-quality components and professional installation. Contact us for a free estimate and fast, reliable spring replacement service.</p>
+      
+      <p>When you are comparing quotes, make sure you are looking at qualified providers. You can <a href="/spring-replacement/">schedule garage door spring replacement with Smartest Garage Doors</a> for precise pricing and safe installation.</p>
     `,
     image: "https://readdy.ai/api/search-image?query=Professional%20garage%20door%20spring%20replacement%20showing%20torsion%20springs%20and%20installation%20tools%2C%20residential%20garage%20setting%2C%20skilled%20technician%20working%2C%20safety%20equipment%20visible%2C%20quality%20springs%20and%20hardware&width=1200&height=600&seq=spring-cost001&orientation=landscape",
     date: "2025-01-18",
@@ -704,6 +720,328 @@ const BLOG_POSTS: Record<string, {
         answer: "Yes, a new garage door can increase home value by 1-4% and significantly improve curb appeal. It's one of the best return-on-investment home improvements, often recouping 85-95% of the installation cost when selling."
       }
     ]
+  },
+  'garage-door-safety-tips-homeowner': {
+    title: "Garage Door Safety Tips Every Homeowner Should Know",
+    slug: 'garage-door-safety-tips-homeowner',
+    description: "Essential garage door safety guidelines to prevent accidents and ensure your garage door operates safely for your family.",
+    content: `
+      <h2>Why Garage Door Safety Matters</h2>
+      <p>Garage doors are heavy mechanical systems that can cause serious injury if misused. Following these safety tips helps protect your family, pets, and property.</p>
+      <h2>Key Safety Guidelines</h2>
+      <h3>1. Never Stand or Walk Under a Moving Door</h3>
+      <p>Always wait for the door to fully open or close. Sensors can fail; never assume the door will reverse.</p>
+      <h3>2. Keep Remotes Out of Children's Reach</h3>
+      <p>Treat the remote like a key. Kids can accidentally trigger the door or get trapped.</p>
+      <h3>3. Test the Auto-Reverse Monthly</h3>
+      <p>Place a roll of paper towels in the door's path. The door should reverse immediately on contact. If it doesn't, have the opener serviced.</p>
+      <h3>4. Keep Hands and Objects Clear of Sections and Hardware</h3>
+      <p>Pinch points between panels and near springs, cables, and tracks can cause severe injury.</p>
+      <h3>5. Leave Spring and Cable Work to Professionals</h3>
+      <p>Springs are under extreme tension. DIY work can be fatal. Always call a licensed technician.</p>
+      <h2>When to Call a Professional</h2>
+      <p>For repairs, adjustments, or if anything seems wrong, contact Smart Garage Doors. We offer <a href="/garage-door-repair/">professional garage door repair</a> throughout NY, NJ & CT.</p>
+    `,
+    image: "",
+    date: "2025-01-01",
+    category: "Safety",
+    readTime: "6 min read",
+    author: "Smart Garage Doors Team"
+  },
+  'how-to-choose-right-garage-door': {
+    title: "How to Choose the Right Garage Door for Your Home",
+    slug: 'how-to-choose-right-garage-door',
+    description: "Complete guide to selecting the perfect garage door style, material, and features for your home.",
+    content: `
+      <h2>Factors to Consider</h2>
+      <p>Choosing a garage door involves style, material, insulation, and budget. Here’s how to narrow your options.</p>
+      <h2>Materials</h2>
+      <h3>Steel</h3>
+      <p>Durable, low maintenance, and available in many styles. Insulated steel improves energy efficiency.</p>
+      <h3>Wood</h3>
+      <p>Classic look and natural insulation. Requires more upkeep than steel.</p>
+      <h3>Aluminum / Glass</h3>
+      <p>Modern look and natural light. Often used for contemporary homes.</p>
+      <h2>Style and Curb Appeal</h2>
+      <p>Match the door to your home’s architecture—traditional, carriage-house, or modern. Color and window inserts can tie the look together.</p>
+      <h2>Insulation and Energy</h2>
+      <p>If the garage is attached or used as living space, choose an insulated door (R-value 8 or higher) to save energy and improve comfort.</p>
+      <h2>Professional Installation</h2>
+      <p>Smart Garage Doors helps with selection and <a href="/garage-door-installation/">garage door installation</a> across NY, NJ & CT. We’ll measure, recommend, and install so your new door fits and performs correctly.</p>
+    `,
+    image: "",
+    date: "2024-12-28",
+    category: "Tips",
+    readTime: "10 min read",
+    author: "Smart Garage Doors Team"
+  },
+  'garage-door-roller-replacement-cost': {
+    title: "Garage Door Roller Replacement Cost: Complete Guide 2025",
+    slug: 'garage-door-roller-replacement-cost',
+    description: "Everything you need to know about garage door roller replacement costs in 2025.",
+    content: `
+      <h2>Why Rollers Matter</h2>
+      <p>Rollers allow the door to move smoothly along the tracks. Worn or damaged rollers cause noise, binding, and extra wear on the opener and tracks.</p>
+      <h2>Typical Costs in 2025</h2>
+      <p>Standard nylon roller replacement: about $150–$250 for a single door. Heavy-duty or sealed steel rollers cost more. Labor is usually included in that range for a typical residential door.</p>
+      <h2>When to Replace</h2>
+      <p>Replace rollers if you see wear, chips, flat spots, or if the door is noisy or jerky. Replacing all rollers at once is recommended so wear is even.</p>
+      <h2>Get an Accurate Quote</h2>
+      <p>Costs depend on door size, number of rollers, and roller type. For a precise price, schedule a <a href="/garage-door-repair/">garage door repair</a> visit. We serve NY, NJ & CT with upfront pricing.</p>
+    `,
+    image: "",
+    date: "2024-12-25",
+    category: "Cost Guide",
+    readTime: "6 min read",
+    author: "Smart Garage Doors Team"
+  },
+  'chain-drive-vs-belt-drive-opener': {
+    title: "Chain Drive vs Belt Drive Garage Door Opener: Which is Better?",
+    slug: 'chain-drive-vs-belt-drive-opener',
+    description: "Compare chain drive and belt drive garage door openers. Learn about noise levels, durability, and cost.",
+    content: `
+      <h2>Chain Drive Openers</h2>
+      <p>Use a metal chain to move the trolley. They’re durable and usually the most affordable. The main downside is noise—you’ll hear the chain and motor when the door runs.</p>
+      <h2>Belt Drive Openers</h2>
+      <p>Use a rubber or composite belt. They run much quieter than chain drives and are a good fit for garages under living space. They typically cost more and can need belt replacement over time.</p>
+      <h2>Which to Choose</h2>
+      <p>Choose chain drive if budget and durability are top priorities and noise isn’t. Choose belt drive if quiet operation matters (e.g. bedrooms above the garage).</p>
+      <h2>Professional Help</h2>
+      <p>Not sure which fits your home? We install and repair both. Contact Smart Garage Doors for <a href="/opener-repair-installation/">opener repair or installation</a> in NY, NJ & CT.</p>
+    `,
+    image: "",
+    date: "2024-12-22",
+    category: "Tips",
+    readTime: "7 min read",
+    author: "Smart Garage Doors Team"
+  },
+  'queens-garage-door-repair-cost': {
+    title: "Garage Door Repair Cost in Queens NY 2025: Complete Pricing Guide",
+    slug: 'queens-garage-door-repair-cost',
+    description: "Detailed guide to garage door repair costs in Queens, New York with local pricing information.",
+    content: `
+      <h2>Garage Door Repair in Queens</h2>
+      <p>Smart Garage Doors serves Queens with same-day repair, spring replacement, opener service, and track repairs. Pricing is in line with the NYC metro area.</p>
+      <h2>What Affects Cost</h2>
+      <p>Repair type (springs, opener, cables, rollers, tracks), door size, and part quality. We give free estimates so you know the cost before we start.</p>
+      <h2>Typical Ranges</h2>
+      <p>Spring replacement: about $200–$500. Opener repair: $150–$350. Roller or cable replacement: $150–$300. Emergency or after-hours service may have an additional fee.</p>
+      <h2>Schedule Service in Queens</h2>
+      <p>For a precise quote and fast service in Queens, call (914) 557-6816 or <a href="/book-now/">book online</a>. We cover Flushing, Jamaica, Astoria, and all Queens neighborhoods.</p>
+    `,
+    image: "",
+    date: "2024-12-20",
+    category: "Cost Guide",
+    readTime: "8 min read",
+    author: "Smart Garage Doors Team"
+  },
+  'brooklyn-garage-door-repair-cost': {
+    title: "Garage Door Repair Cost in Brooklyn NY 2025: Local Pricing Guide",
+    slug: 'brooklyn-garage-door-repair-cost',
+    description: "Complete guide to garage door repair costs in Brooklyn with local pricing and service information.",
+    content: `
+      <h2>Garage Door Repair in Brooklyn</h2>
+      <p>We provide garage door repair and installation across Brooklyn. Same-day service is available for most repairs.</p>
+      <h2>Pricing Factors</h2>
+      <p>Costs depend on the repair (springs, opener, tracks, cables, panels), your door size, and whether you need emergency service. We always quote before starting.</p>
+      <h2>What to Expect</h2>
+      <p>Spring replacement typically runs $200–$500; opener repair $150–$350; track or cable work $150–$300. We use quality parts and stand behind our work.</p>
+      <h2>Book Brooklyn Service</h2>
+      <p>For repair or installation in Brooklyn, call (914) 557-6816 or <a href="/book-now/">schedule online</a>. We serve all Brooklyn areas.</p>
+    `,
+    image: "",
+    date: "2024-12-18",
+    category: "Cost Guide",
+    readTime: "7 min read",
+    author: "Smart Garage Doors Team"
+  },
+  'stamford-ct-garage-door-repair': {
+    title: "Garage Door Repair in Stamford CT: Professional Service Guide",
+    slug: 'stamford-ct-garage-door-repair',
+    description: "Expert garage door repair services in Stamford, Connecticut. Learn about local service options and typical costs.",
+    content: `
+      <h2>Garage Door Service in Stamford</h2>
+      <p>Smart Garage Doors offers repair, spring replacement, opener service, and new door installation in Stamford and nearby Fairfield County.</p>
+      <h2>Our Services</h2>
+      <p>We handle broken springs, opener issues, off-track doors, cable and roller replacement, and full door installation. Same-day and emergency service are available.</p>
+      <h2>Transparent Pricing</h2>
+      <p>We provide free estimates. You’ll know the cost before any work begins. We use quality parts and back our repairs with a warranty.</p>
+      <h2>Contact Us</h2>
+      <p>For Stamford CT garage door repair or installation, call (914) 557-6816 or <a href="/book-now/">book online</a>. We’re here to help.</p>
+    `,
+    image: "",
+    date: "2024-12-15",
+    category: "Repair",
+    readTime: "5 min read",
+    author: "Smart Garage Doors Team"
+  },
+  'white-plains-ny-garage-door-service': {
+    title: "Garage Door Service in White Plains NY: Expert Repair & Installation",
+    slug: 'white-plains-ny-garage-door-service',
+    description: "Professional garage door repair and installation services in White Plains, New York. Serving Westchester County.",
+    content: `
+      <h2>Garage Door Service in White Plains</h2>
+      <p>We serve White Plains and Westchester County with same-day repair, spring replacement, opener service, and new door installation.</p>
+      <h2>What We Offer</h2>
+      <p>Broken springs, opener problems, off-track doors, cables, rollers, and track repairs. We also install new residential and commercial-style doors.</p>
+      <h2>Why Choose Us</h2>
+      <p>Licensed, insured technicians; upfront pricing; and warranty on parts and labor. We respond quickly for emergencies.</p>
+      <h2>Schedule in White Plains</h2>
+      <p>Call (914) 557-6816 or <a href="/book-now/">book online</a> for garage door repair or installation in White Plains, NY.</p>
+    `,
+    image: "",
+    date: "2024-12-12",
+    category: "Repair",
+    readTime: "5 min read",
+    author: "Smart Garage Doors Team"
+  },
+  'long-island-garage-door-repair': {
+    title: "Long Island Garage Door Repair: Serving Nassau & Suffolk Counties",
+    slug: 'long-island-garage-door-repair',
+    description: "Expert garage door repair services throughout Long Island. Serving Nassau and Suffolk Counties.",
+    content: `
+      <h2>Garage Door Repair on Long Island</h2>
+      <p>Smart Garage Doors provides repair, spring replacement, opener service, and installation across Nassau and Suffolk Counties.</p>
+      <h2>Service Area</h2>
+      <p>We cover Long Island communities in both counties. Same-day and emergency service available for most jobs.</p>
+      <h2>Common Repairs</h2>
+      <p>Springs, openers, tracks, cables, rollers, and panels. We diagnose, quote, and repair with quality parts and clear pricing.</p>
+      <h2>Get Long Island Service</h2>
+      <p>For repair or installation on Long Island, call (914) 557-6816 or <a href="/book-now/">schedule online</a>.</p>
+    `,
+    image: "",
+    date: "2024-12-10",
+    category: "Repair",
+    readTime: "6 min read",
+    author: "Smart Garage Doors Team"
+  },
+  'westchester-county-garage-door-service': {
+    title: "Westchester County Garage Door Service: Expert Repair & Installation",
+    slug: 'westchester-county-garage-door-service',
+    description: "Professional garage door services throughout Westchester County, NY. Serving White Plains, New Rochelle, Scarsdale, and more.",
+    content: `
+      <h2>Westchester County Garage Door Service</h2>
+      <p>We offer repair, spring replacement, opener service, and new door installation throughout Westchester County.</p>
+      <h2>Communities We Serve</h2>
+      <p>White Plains, New Rochelle, Scarsdale, Yonkers, Mount Vernon, and surrounding Westchester towns.</p>
+      <h2>Full Range of Services</h2>
+      <p>From broken springs and opener issues to off-track doors and full replacements. Same-day and emergency service when you need it.</p>
+      <h2>Book Westchester Service</h2>
+      <p>Call (914) 557-6816 or <a href="/book-now/">book online</a> for garage door repair or installation in Westchester County.</p>
+    `,
+    image: "",
+    date: "2024-12-08",
+    category: "Repair",
+    readTime: "5 min read",
+    author: "Smart Garage Doors Team"
+  },
+  'greenwich-ct-garage-door-repair': {
+    title: "Garage Door Repair in Greenwich CT: Professional Service Guide",
+    slug: 'greenwich-ct-garage-door-repair',
+    description: "Expert garage door repair and installation services in Greenwich, Connecticut. Serving Fairfield County.",
+    content: `
+      <h2>Garage Door Repair in Greenwich</h2>
+      <p>Smart Garage Doors serves Greenwich and Fairfield County with repair, spring replacement, opener service, and new door installation.</p>
+      <h2>Quality Service</h2>
+      <p>We use quality parts and provide clear, upfront pricing. Same-day and emergency service available.</p>
+      <h2>Contact Us</h2>
+      <p>For Greenwich CT garage door repair or installation, call (914) 557-6816 or <a href="/book-now/">schedule online</a>.</p>
+    `,
+    image: "",
+    date: "2024-12-05",
+    category: "Repair",
+    readTime: "5 min read",
+    author: "Smart Garage Doors Team"
+  },
+  'staten-island-garage-door-repair': {
+    title: "Garage Door Repair in Staten Island NY: Expert Local Service",
+    slug: 'staten-island-garage-door-repair',
+    description: "Professional garage door repair services in Staten Island, New York. Serving all Staten Island neighborhoods.",
+    content: `
+      <h2>Garage Door Repair on Staten Island</h2>
+      <p>We provide garage door repair, spring replacement, opener service, and installation across Staten Island.</p>
+      <h2>Local Service</h2>
+      <p>Same-day and emergency service available. We quote before we start and back our work with a warranty.</p>
+      <h2>Schedule Service</h2>
+      <p>Call (914) 557-6816 or <a href="/book-now/">book online</a> for Staten Island garage door repair or installation.</p>
+    `,
+    image: "",
+    date: "2024-12-03",
+    category: "Repair",
+    readTime: "5 min read",
+    author: "Smart Garage Doors Team"
+  },
+  'flushing-ny-garage-door-repair': {
+    title: "Garage Door Repair in Flushing NY: Queens Neighborhood Service",
+    slug: 'flushing-ny-garage-door-repair',
+    description: "Expert garage door repair services in Flushing, Queens. Serving Flushing and surrounding Queens neighborhoods.",
+    content: `
+      <h2>Garage Door Repair in Flushing</h2>
+      <p>Smart Garage Doors offers repair, spring replacement, opener service, and installation in Flushing and surrounding Queens areas.</p>
+      <h2>Fast, Reliable Service</h2>
+      <p>Same-day service for most repairs. We give free estimates and use quality parts.</p>
+      <h2>Book Flushing Service</h2>
+      <p>For garage door repair or installation in Flushing, call (914) 557-6816 or <a href="/book-now/">schedule online</a>.</p>
+    `,
+    image: "",
+    date: "2024-12-01",
+    category: "Repair",
+    readTime: "5 min read",
+    author: "Smart Garage Doors Team"
+  },
+  'fairfield-ct-garage-door-service': {
+    title: "Garage Door Service in Fairfield CT: Expert Repair & Installation",
+    slug: 'fairfield-ct-garage-door-service',
+    description: "Professional garage door services in Fairfield, Connecticut. Serving Fairfield County with quality repairs and installations.",
+    content: `
+      <h2>Garage Door Service in Fairfield CT</h2>
+      <p>We serve Fairfield and Fairfield County with repair, spring replacement, opener service, and new door installation.</p>
+      <h2>Our Promise</h2>
+      <p>Upfront pricing, quality parts, and warranty on our work. Same-day and emergency service when you need it.</p>
+      <h2>Schedule Today</h2>
+      <p>Call (914) 557-6816 or <a href="/book-now/">book online</a> for garage door service in Fairfield, CT.</p>
+    `,
+    image: "",
+    date: "2024-11-28",
+    category: "Repair",
+    readTime: "5 min read",
+    author: "Smart Garage Doors Team"
+  },
+  'darien-ct-garage-door-repair': {
+    title: "Garage Door Repair in Darien CT: Professional Service Guide",
+    slug: 'darien-ct-garage-door-repair',
+    description: "Expert garage door repair services in Darien, Connecticut. Serving Fairfield County with fast, reliable service.",
+    content: `
+      <h2>Garage Door Repair in Darien</h2>
+      <p>Smart Garage Doors provides repair, spring replacement, opener service, and installation in Darien and nearby Fairfield County.</p>
+      <h2>Reliable Service</h2>
+      <p>We offer same-day and emergency service, free estimates, and quality parts. Our technicians are licensed and insured.</p>
+      <h2>Contact Us</h2>
+      <p>For Darien CT garage door repair or installation, call (914) 557-6816 or <a href="/book-now/">schedule online</a>.</p>
+    `,
+    image: "",
+    date: "2024-11-25",
+    category: "Repair",
+    readTime: "5 min read",
+    author: "Smart Garage Doors Team"
+  },
+  'suffern-ny-garage-door-service': {
+    title: "Garage Door Service in Suffern NY: Rockland County Expert Repair",
+    slug: 'suffern-ny-garage-door-service',
+    description: "Professional garage door repair and installation services in Suffern, New York. Serving Rockland County.",
+    content: `
+      <h2>Garage Door Service in Suffern NY</h2>
+      <p>We serve Suffern and Rockland County with garage door repair, spring replacement, opener service, and new door installation.</p>
+      <h2>Quality & Transparency</h2>
+      <p>Free estimates, quality parts, and warranty on our work. Same-day and emergency service available.</p>
+      <h2>Book Suffern Service</h2>
+      <p>Call (914) 557-6816 or <a href="/book-now/">book online</a> for garage door repair or installation in Suffern, NY.</p>
+    `,
+    image: "",
+    date: "2024-11-22",
+    category: "Repair",
+    readTime: "5 min read",
+    author: "Smart Garage Doors Team"
   }
 };
 
@@ -711,15 +1049,10 @@ export default function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
   const post = slug ? BLOG_POSTS[slug] : null;
 
+  // Scroll to top when opening a post so content is visible (fixes landing at bottom)
   useEffect(() => {
-    if (post) {
-      document.title = `${post.title} | Smart Garage Doors Blog`;
-      const metaDescription = document.querySelector('meta[name="description"]');
-      if (metaDescription) {
-        metaDescription.setAttribute('content', post.description);
-      }
-    }
-  }, [post]);
+    window.scrollTo(0, 0);
+  }, [slug]);
 
   if (!post) {
     return (
@@ -742,12 +1075,29 @@ export default function BlogPostPage() {
     );
   }
 
+  const siteUrl = import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com';
+  const postUrl = `${siteUrl}/blog/${post.slug}/`;
+  const { image, imageAlt } = getBlogImage(post.slug);
+  const ogImageUrl = image.startsWith("http") ? image : `${siteUrl}${image}`;
+
   return (
     <div className="min-h-screen bg-white">
       <DynamicMetaTags 
-        title={`${post.title} | Smart Garage Doors Blog`}
+        title={`${post.title} | Smartest Garage Doors Blog`}
         description={post.description}
         keywords={`${post.category.toLowerCase()}, garage door repair, ${post.title.toLowerCase()}`}
+        canonical={postUrl}
+        ogImage={ogImageUrl}
+      />
+      <BlogPostingSchema
+        title={post.title}
+        description={post.description}
+        image={image}
+        imageAlt={imageAlt}
+        author={post.author}
+        datePublished={post.date}
+        url={postUrl}
+        articleSection={post.category}
       />
       {post.faqs && <FAQSchema faqs={post.faqs} />}
       <Header />
@@ -773,9 +1123,17 @@ export default function BlogPostPage() {
             <span>By {post.author}</span>
           </div>
           <img 
-            src={post.image} 
-            alt={post.title}
+            src={image} 
+            alt={imageAlt}
             className="w-full h-96 object-cover rounded-lg shadow-lg"
+            onError={(e) => {
+              const target = e.currentTarget;
+              if (target.src !== DEFAULT_BLOG_IMAGE_URL) {
+                target.onerror = null;
+                target.src = DEFAULT_BLOG_IMAGE_URL;
+                target.alt = post.title;
+              }
+            }}
           />
         </header>
 

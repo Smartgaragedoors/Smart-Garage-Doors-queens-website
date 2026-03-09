@@ -8,20 +8,6 @@ import ServiceLinks from '../../../components/seo/ServiceLinks';
 
 const QueensNY = () => {
   useEffect(() => {
-    document.title = 'Queens NY Garage Door Repair | Smart Garage Doors | 24/7 Emergency Service';
-    
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Professional garage door repair services in Queens, NY. Smart Garage Doors offers emergency repairs, spring replacement, opener installation throughout Queens neighborhoods. Licensed technicians serving all Queens areas.');
-    }
-    
-    const metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (metaKeywords) {
-      metaKeywords.setAttribute('content', 'Queens NY garage door repair, garage door installation Queens, emergency garage door service, Smart Garage Doors');
-    }
-
-    // Canonical is handled by DynamicMetaTags component - removed duplicate manual setting
-
     // Add Schema.org JSON-LD for Queens NY page
     const script = document.createElement('script');
     script.type = 'application/ld+json';
@@ -79,9 +65,9 @@ const QueensNY = () => {
   return (
     <div className="min-h-screen bg-white">
       <DynamicMetaTags 
-        title="Queens NY Garage Door Repair | Smart Garage Doors | 24/7 Emergency Service"
-        description="Professional garage door repair services in Queens, NY. Smart Garage Doors offers emergency repairs, spring replacement, opener installation throughout Queens neighborhoods. Licensed technicians serving all Queens areas."
-        keywords="Queens NY garage door repair, garage door installation Queens, emergency garage door service, Smart Garage Doors"
+        title="Queens NY Garage Door Repair | Smartest Garage Doors | 24/7"
+        description="Garage door repair in Queens, NY. 5.0★, 392 reviews. Same-day service, emergency repairs. Licensed & insured."
+        keywords="Queens NY garage door repair, garage door installation Queens, emergency garage door service"
         canonical={`${import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com'}/queens-ny/`}
       />
       <Header />
@@ -108,9 +94,9 @@ const QueensNY = () => {
               <a href="tel:+19145576816" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap">
                 Call Now: (914) 557-6816
               </a>
-              <button className="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap">
+              <a href="/book-now/" className="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap inline-block text-center">
                 Get Free Estimate
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -608,9 +594,9 @@ const QueensNY = () => {
             <a href="tel:+19145576816" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap">
               Call (914) 557-6816
             </a>
-            <button className="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap">
+            <a href="/book-now/" className="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap">
               Schedule Service Online
-            </button>
+            </a>
           </div>
         </div>
       </section>

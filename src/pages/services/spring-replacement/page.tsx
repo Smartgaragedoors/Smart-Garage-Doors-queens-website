@@ -11,7 +11,7 @@ import { submitForm } from '../../../utils/formSubmission';
 
 export default function SpringReplacementPage() {
   const { location, locationName, isLoading } = useLocation();
-  const [notification, setNotification] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
+  const [notification, setNotification] = useState<{ type: 'success' | 'fallback' | 'error'; message: string } | null>(null);
   
   const displayLocation = (location?.city === 'Queens' || !location || isLoading) 
     ? 'your area' 
@@ -93,7 +93,11 @@ export default function SpringReplacementPage() {
       const result = await submitForm(data, 'Spring Replacement Form');
 
       if (result.success) {
-        setNotification({ type: 'success', message: 'Spring replacement request submitted! We will contact you to schedule service.' });
+        if (result.usedFallback) {
+          setNotification({ type: 'fallback', message: 'Your email client should open. If it didn\'t, please call (914) 557-6816 to schedule.' });
+        } else {
+          setNotification({ type: 'success', message: 'Spring replacement request submitted! We will contact you to schedule service.' });
+        }
         (e.target as HTMLFormElement).reset();
         setTimeout(() => setNotification(null), 5000);
       } else {
@@ -109,9 +113,9 @@ export default function SpringReplacementPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <DynamicMetaTags 
-        title="Garage Door Spring Replacement NYC | Torsion & Extension Springs | Same-Day Service"
-        description="Professional garage door spring replacement in NYC, Westchester, and Connecticut. Safe installation of torsion and extension springs. Same-day service available."
-        keywords="garage door spring replacement, torsion spring repair, extension spring replacement, broken spring repair, spring installation"
+        title="Garage Door Spring Replacement NY NJ CT | Same-Day | Smartest Garage Doors"
+        description="5.0★ rated, 392 reviews. Safe spring replacement. Torsion & extension. Same-day service. NY, NJ & CT. Licensed & insured."
+        keywords="garage door spring replacement, torsion spring repair, extension spring replacement, broken spring repair"
       />
       <FAQSchema faqs={faqs} />
       <Header />
@@ -120,7 +124,7 @@ export default function SpringReplacementPage() {
       {/* Notification */}
       {notification && (
         <div className={`fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg max-w-md ${
-          notification.type === 'success' ? 'bg-green-500 text-white' : 'bg-red-500 text-white'
+          notification.type === 'success' ? 'bg-green-500 text-white' : notification.type === 'fallback' ? 'bg-amber-500 text-white' : 'bg-red-500 text-white'
         }`} role="alert" aria-live="polite">
           <div className="flex items-center justify-between">
             <p>{notification.message}</p>
@@ -709,6 +713,7 @@ export default function SpringReplacementPage() {
       </section>
 
       <ServiceAreaLinks 
+        serviceType="spring"
         title="Spring Replacement Services in Your Area"
         showDescription={true}
         maxLinks={10}

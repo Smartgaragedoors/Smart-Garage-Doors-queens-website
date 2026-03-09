@@ -57,7 +57,11 @@ export default function EmergencyRepairsPage() {
       const result = await submitForm(data, 'Emergency Repairs Form');
 
       if (result.success) {
-        alert('Emergency request submitted! We will contact you immediately.');
+        if (result.usedFallback) {
+          alert('Your email client should open to send your request. If it didn\'t open, please call us at (914) 557-6816.');
+        } else {
+          alert('Emergency request submitted! We will contact you immediately.');
+        }
         (e.target as HTMLFormElement).reset();
       } else {
         alert('Failed to submit request. Please call us directly at (914) 557-6816');
@@ -70,9 +74,9 @@ export default function EmergencyRepairsPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <DynamicMetaTags 
-        title="Emergency Garage Door Repair NYC | 24/7 Service | Same-Day Response"
-        description="24/7 emergency garage door repair in NYC, Westchester, and Connecticut. Fast response, professional technicians, immediate solutions for broken garage doors. Available 24/7."
-        keywords="emergency garage door repair, 24/7 garage door service, urgent garage door fix, broken garage door repair, emergency technician"
+        title="Emergency Garage Door Repair | 24/7 NY NJ CT | Smartest Garage Doors"
+        description="24/7 emergency garage door repair. 5.0★, 392 reviews. 60-90 min response. Same-day service. Licensed & insured. Call (914) 557-6816."
+        keywords="emergency garage door repair, 24/7 garage door service, urgent garage door fix, broken garage door repair"
       />
       <FAQSchema faqs={faqs} />
       <Header />
@@ -92,8 +96,11 @@ export default function EmergencyRepairsPage() {
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               24/7 Emergency Garage Door Repair
             </h1>
-            <p className="text-xl mb-8">
+            <p className="text-xl mb-4">
               Garage door stuck? Won't open? We provide immediate emergency repair services across NYC, Westchester, and Connecticut. Our certified technicians are available 24/7 for urgent garage door issues.
+            </p>
+            <p className="text-lg mb-8 text-orange-100 font-semibold">
+              Rated 5.0★ with hundreds of local reviews • Same-day tri-state response • Fully licensed and insured team.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a 
@@ -355,6 +362,7 @@ export default function EmergencyRepairsPage() {
       </section>
 
       <ServiceAreaLinks 
+        serviceType="emergency"
         title="Emergency Garage Door Repair Services in Your Area"
         showDescription={true}
         maxLinks={10}

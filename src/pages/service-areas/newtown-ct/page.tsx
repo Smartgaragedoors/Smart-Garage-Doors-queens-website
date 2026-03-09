@@ -5,50 +5,14 @@ import Footer from '../../../components/feature/Footer';
 import Services from '../../../components/feature/Services';
 import Reviews from '../../../components/feature/Reviews';
 import Contact from '../../../components/feature/Contact';
+import Breadcrumbs from '../../../components/seo/Breadcrumbs';
+import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
 import ServiceLinks from '../../../components/seo/ServiceLinks';
 
 export default function NewtownCTPage() {
+  const siteUrl = import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com';
+
   useEffect(() => {
-    document.title = 'Newtown CT Garage Door Repair & Installation | Smart Garage Doors';
-    
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Professional garage door repair and installation services in Newtown, CT. Emergency repairs, new installations, spring replacement. Call (914) 557-6816 for same-day service in Newtown, Connecticut.');
-    }
-
-    const metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (metaKeywords) {
-      metaKeywords.setAttribute('content', 'garage door repair Newtown CT, garage door installation Newtown, emergency garage door repair Connecticut, garage door spring replacement Newtown');
-    }
-
-    // Geo tags for Newtown, CT
-    const geoPosition = document.querySelector('meta[name="geo.position"]') || document.createElement('meta');
-    geoPosition.setAttribute('name', 'geo.position');
-    geoPosition.setAttribute('content', '41.4148;-73.3026');
-    if (!document.querySelector('meta[name="geo.position"]')) document.head.appendChild(geoPosition);
-
-    const geoRegion = document.querySelector('meta[name="geo.region"]') || document.createElement('meta');
-    geoRegion.setAttribute('name', 'geo.region');
-    geoRegion.setAttribute('content', 'US-CT');
-    if (!document.querySelector('meta[name="geo.region"]')) document.head.appendChild(geoRegion);
-
-    const geoPlacename = document.querySelector('meta[name="geo.placename"]') || document.createElement('meta');
-    geoPlacename.setAttribute('name', 'geo.placename');
-    geoPlacename.setAttribute('content', 'Newtown, Connecticut');
-    if (!document.querySelector('meta[name="geo.placename"]')) document.head.appendChild(geoPlacename);
-
-    // Canonical URL
-    const canonical = document.querySelector('link[rel="canonical"]') || document.createElement('link');
-    canonical.setAttribute('rel', 'canonical');
-    canonical.setAttribute('href', `${import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com'}/newtown-ct/`);
-    if (!document.querySelector('link[rel="canonical"]')) document.head.appendChild(canonical);
-
-    // Last modified
-    const lastModified = document.querySelector('meta[name="last-modified"]') || document.createElement('meta');
-    lastModified.setAttribute('name', 'last-modified');
-    lastModified.setAttribute('content', new Date().toISOString());
-    if (!document.querySelector('meta[name="last-modified"]')) document.head.appendChild(lastModified);
-
     // Schema.org structured data
     const script = document.createElement('script');
     script.type = 'application/ld+json';
@@ -85,7 +49,14 @@ export default function NewtownCTPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <DynamicMetaTags 
+        title="Newtown CT Garage Door Repair & Installation | Smartest Garage Doors"
+        description="Garage door repair in Newtown, CT. 5.0★, 392 reviews. Same-day service, emergency repairs. Licensed & insured."
+        keywords="garage door repair Newtown CT, garage door installation Newtown, emergency garage door repair Connecticut"
+        canonical={`${siteUrl}/newtown-ct/`}
+      />
       <Header />
+      <Breadcrumbs />
       
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-blue-900 to-blue-800 text-white py-20">
@@ -112,7 +83,7 @@ export default function NewtownCTPage() {
                 Call (914) 557-6816
               </a>
               <a 
-                href="#contact"
+                href="/book-now/"
                 className="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-4 rounded-lg font-semibold text-lg transition-colors inline-flex items-center justify-center whitespace-nowrap"
               >
                 Get Free Quote

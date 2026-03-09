@@ -1,149 +1,23 @@
-import { useState, useEffect } from 'react';
 import ReviewSchema from '../seo/ReviewSchema';
 import { BUSINESS_INFO } from '../../config/business-info';
+import { STATIC_REVIEWS } from '../../data/staticReviews';
 
 interface GoogleReview {
   author_name: string;
   author_url?: string;
   profile_photo_url?: string;
   rating: number;
-  relative_time_description: string;
+  relative_time_description?: string;
   text: string;
   time: number;
 }
 
+// Use static reviews (no Supabase/API calls) - sorted newest first, top 6
+const reviews: GoogleReview[] = [...STATIC_REVIEWS]
+  .sort((a, b) => b.time - a.time)
+  .slice(0, 6);
+
 const Reviews = () => {
-  const [reviews, setReviews] = useState<GoogleReview[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    let isMounted = true;
-    let retryCount = 0;
-    const maxRetries = 1;
-
-    const loadReviews = async () => {
-      try {
-        if (!isMounted) return;
-        
-        setLoading(true);
-        setError(null);
-
-        // Use the proxy endpoint (works in production with Vercel)
-        const response = await fetch('/api/google-reviews', {
-          method: 'GET',
-          headers: { 'Content-Type': 'application/json' },
-        });
-
-        if (!response.ok) {
-          // Don't retry on 500 errors (likely missing API key)
-          if (response.status === 500) {
-            if (!isMounted) return;
-            setError(null); // Don't show error, just use fallback
-            setReviews([]);
-            setLoading(false);
-            return;
-          }
-          throw new Error(`Failed to fetch: ${response.status}`);
-        }
-
-        const data = await response.json();
-        
-        if (!isMounted) return;
-        
-        if (data.reviews && Array.isArray(data.reviews) && data.reviews.length > 0) {
-          // Sort by time (newest first) and take top 6
-          const sortedReviews = data.reviews
-            .sort((a: GoogleReview, b: GoogleReview) => b.time - a.time)
-            .slice(0, 6);
-          setReviews(sortedReviews);
-          setError(null);
-        } else {
-          setReviews([]);
-          setError(null);
-        }
-      } catch (err) {
-        if (!isMounted) return;
-        
-        // Only retry once for network errors
-        if (retryCount < maxRetries && err instanceof TypeError) {
-          retryCount++;
-          setTimeout(loadReviews, 2000);
-          return;
-        }
-        
-        console.error('Error loading reviews:', err);
-        setError(null); // Don't show error, just use fallback
-        setReviews([]);
-      } finally {
-        if (isMounted) {
-          setLoading(false);
-        }
-      }
-    };
-
-    // Use Intersection Observer to load reviews only when section is visible
-    const reviewsSection = document.getElementById('reviews');
-    if (reviewsSection && 'IntersectionObserver' in window) {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              // Load reviews when section is visible, but defer to avoid blocking
-              if ('requestIdleCallback' in window) {
-                requestIdleCallback(loadReviews, { timeout: 2000 });
-              } else {
-                setTimeout(loadReviews, 1000);
-              }
-              observer.disconnect();
-            }
-          });
-        },
-        { rootMargin: '200px' } // Start loading 200px before section is visible
-      );
-      observer.observe(reviewsSection);
-    } else {
-      // Fallback: load after page is interactive
-      if (document.readyState === 'complete') {
-        if ('requestIdleCallback' in window) {
-          requestIdleCallback(loadReviews, { timeout: 3000 });
-        } else {
-          setTimeout(loadReviews, 2000);
-        }
-      } else {
-        window.addEventListener('load', () => {
-          if ('requestIdleCallback' in window) {
-            requestIdleCallback(loadReviews, { timeout: 3000 });
-          } else {
-            setTimeout(loadReviews, 2000);
-          }
-        });
-      }
-    }
-
-    // Fallback: Load SociableKit widget if API fails (after a delay)
-    const fallbackTimeout = setTimeout(() => {
-      if (reviews.length === 0 && !loading && !error) {
-        if (!document.querySelector('script[src="https://widgets.sociablekit.com/google-reviews/widget.js"]')) {
-          const script = document.createElement('script');
-          script.src = 'https://widgets.sociablekit.com/google-reviews/widget.js';
-          script.async = true;
-          script.defer = true;
-          script.onerror = () => {
-            if (import.meta.env.DEV) {
-              console.warn('Failed to load SociableKit fallback widget');
-            }
-          };
-          document.head.appendChild(script);
-        }
-      }
-    }, 5000);
-
-    return () => {
-      isMounted = false;
-      clearTimeout(fallbackTimeout);
-    };
-  }, []);
 
   const formatReviewDate = (timestamp: number): string => {
     const date = new Date(timestamp * 1000);
@@ -198,43 +72,7 @@ const Reviews = () => {
         </div>
 
         {/* Reviews Display */}
-        {loading && (
-          <div className="mb-12 text-center py-12">
-            <div className="inline-flex items-center">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-orange-500 mr-3"></div>
-              <span className="text-lg text-gray-600">Loading reviews...</span>
-            </div>
-          </div>
-        )}
-
-        {error && !loading && (
-          <div className="mb-12 text-center py-12">
-            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 max-w-md mx-auto">
-              <i className="ri-information-line text-yellow-600 text-2xl mb-2" aria-hidden="true"></i>
-              <p className="text-yellow-800">{error}</p>
-              <p className="text-sm text-yellow-700 mt-2">
-                Please check back later or{' '}
-                <a
-                  href="https://www.google.com/maps/place/?q=place_id:ChIJucuPoePGzGMRGWWH9YOmAX4"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline hover:text-yellow-900"
-                >
-                  view reviews on Google
-                </a>
-              </p>
-            </div>
-          </div>
-        )}
-
-        {!loading && !error && reviews.length === 0 && (
-          <div className="mb-12 overflow-x-hidden" style={{ width: '100%', maxWidth: '100%' }}>
-            {/* Fallback: Show SociableKit widget if API fails */}
-            <div className='sk-ww-google-reviews' data-embed-id='25618359' style={{ maxWidth: '100%', overflowX: 'hidden', width: '100%' }}></div>
-          </div>
-        )}
-
-        {!loading && !error && reviews.length > 0 && (
+        {reviews.length > 0 && (
           <div className="mb-12">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {reviews.map((review, index) => (

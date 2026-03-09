@@ -1,32 +1,15 @@
 
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
+import Breadcrumbs from '../../../components/seo/Breadcrumbs';
+import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
 import ServiceLinks from '../../../components/seo/ServiceLinks';
 
 export default function SuffernNY() {
-  const location = useLocation();
   const siteUrl = import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com';
   
   useEffect(() => {
-    // Canonical is handled by DynamicMetaTags component - removed duplicate manual setting
-    
-    // Update page title and meta tags
-    document.title = 'Suffern NY Garage Door Repair & Installation | Smart Garage Doors';
-    
-    // Update meta description
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Professional garage door repair and installation services in Suffern, NY. 24/7 emergency repairs, spring replacement, and new installations. Call (914) 557-6816 for fast service.');
-    }
-
-    // Update meta keywords
-    const metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (metaKeywords) {
-      metaKeywords.setAttribute('content', 'garage door repair Suffern NY, garage door installation Suffern, emergency garage door service Suffern, garage door spring replacement Suffern NY');
-    }
-
     // Add geo tags for Suffern, NY
     const geoPosition = document.querySelector('meta[name="geo.position"]') || document.createElement('meta');
     geoPosition.setAttribute('name', 'geo.position');
@@ -106,11 +89,18 @@ export default function SuffernNY() {
         document.head.removeChild(script);
       }
     };
-  }, [location.pathname, siteUrl]);
+  }, [siteUrl]);
 
   return (
     <div className="min-h-screen">
+      <DynamicMetaTags 
+        title="Suffern NY Garage Door Repair & Installation | Smartest Garage Doors"
+        description="Garage door repair in Suffern, NY. 5.0★, 392 reviews. 24/7 emergency, same-day service. Licensed & insured."
+        keywords="garage door repair Suffern NY, garage door installation Suffern, emergency garage door service Suffern"
+        canonical={`${siteUrl}/suffern-ny/`}
+      />
       <Header />
+      <Breadcrumbs />
       
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white py-20 overflow-hidden">

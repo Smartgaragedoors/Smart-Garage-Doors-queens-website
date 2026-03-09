@@ -1,42 +1,11 @@
-
-import { useState, useEffect } from 'react';
 import Header from '../../components/feature/Header';
 import Footer from '../../components/feature/Footer';
-
-interface Review {
-  id: string;
-  author_name: string;
-  rating: number;
-  text: string;
-  time: number;
-  profile_photo_url?: string;
-}
+import DynamicMetaTags from '../../components/seo/DynamicMetaTags';
+import { BUSINESS_INFO } from '../../config/business-info';
+import { STATIC_REVIEWS } from '../../data/staticReviews';
 
 export default function ReviewsPage() {
-  const [reviews, setReviews] = useState<Review[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
-
-  useEffect(() => {
-    fetchReviews();
-  }, []);
-
-  const fetchReviews = async () => {
-    try {
-      const response = await fetch('/api/google-reviews');
-
-      if (response.ok) {
-        const data = await response.json();
-        setReviews(data.reviews || []);
-      } else {
-        setError('Failed to load reviews');
-      }
-    } catch (err) {
-      setError('Failed to load reviews');
-    } finally {
-      setLoading(false);
-    }
-  };
+  const reviews = STATIC_REVIEWS;
 
   const formatDate = (timestamp: number) => {
     return new Date(timestamp * 1000).toLocaleDateString('en-US', {
@@ -57,6 +26,11 @@ export default function ReviewsPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <DynamicMetaTags 
+        title="Customer Reviews | 5-Star Garage Door Service NY NJ CT | Smartest Garage Doors"
+        description="Read real customer reviews for Smartest Garage Doors. 5.0 star rating with hundreds of verified reviews across New York, New Jersey & Connecticut for repair and installation."
+        canonical={`${import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com'}/reviews/`}
+      />
       <Header />
       
       {/* Hero Section */}
@@ -67,8 +41,11 @@ export default function ReviewsPage() {
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Customer Reviews
             </h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl mb-4 max-w-3xl mx-auto">
               See what our satisfied customers have to say about our garage door services across NY, NJ, and CT.
+            </p>
+            <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto text-orange-100 font-semibold">
+              Rated {BUSINESS_INFO.aggregateRating.ratingValue}★ with {BUSINESS_INFO.aggregateRating.reviewCount}+ verified reviews across the tri-state area.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
@@ -102,34 +79,7 @@ export default function ReviewsPage() {
             </p>
           </div>
 
-          {loading && (
-            <div className="text-center py-12">
-              <div className="inline-flex items-center">
-                <svg className="animate-spin h-8 w-8 text-blue-600 mr-3" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none"></circle>
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-                <span className="text-lg text-gray-600">Loading reviews...</span>
-              </div>
-            </div>
-          )}
-
-          {error && (
-            <div className="text-center py-12">
-              <div className="bg-red-50 border border-red-200 rounded-lg p-6 max-w-md mx-auto">
-                <i className="ri-error-warning-line text-red-600 text-2xl mb-2"></i>
-                <p className="text-red-800">{error}</p>
-              </div>
-            </div>
-          )}
-
-          {!loading && !error && reviews.length === 0 && (
-            <div className="text-center py-12">
-              <p className="text-gray-600">No reviews available at the moment.</p>
-            </div>
-          )}
-
-          {!loading && !error && reviews.length > 0 && (
+          {reviews.length > 0 && (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {reviews.map((review) => (
                 <div key={review.id} className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
@@ -158,137 +108,6 @@ export default function ReviewsPage() {
                   <p className="text-gray-600 leading-relaxed">{review.text}</p>
                 </div>
               ))}
-            </div>
-          )}
-
-          {/* Default Reviews if API fails */}
-          {!loading && error && (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                    <i className="ri-user-line text-blue-600 text-xl"></i>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Sarah M.</h3>
-                    <div className="flex items-center">
-                      <i className="ri-star-fill text-yellow-400"></i>
-                      <i className="ri-star-fill text-yellow-400"></i>
-                      <i className="ri-star-fill text-yellow-400"></i>
-                      <i className="ri-star-fill text-yellow-400"></i>
-                      <i className="ri-star-fill text-yellow-400"></i>
-                    </div>
-                  </div>
-                </div>
-                <p className="text-gray-600 leading-relaxed">
-                  "Excellent service! They fixed my garage door spring the same day I called. Professional, fast, and reasonably priced. Highly recommend Smartest Garage Doors!"
-                </p>
-              </div>
-
-              <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                    <i className="ri-user-line text-blue-600 text-xl"></i>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Mike R.</h3>
-                    <div className="flex items-center">
-                      <i className="ri-star-fill text-yellow-400"></i>
-                      <i className="ri-star-fill text-yellow-400"></i>
-                      <i className="ri-star-fill text-yellow-400"></i>
-                      <i className="ri-star-fill text-yellow-400"></i>
-                      <i className="ri-star-fill text-yellow-400"></i>
-                    </div>
-                  </div>
-                </div>
-                <p className="text-gray-600 leading-relaxed">
-                  "Great experience from start to finish. They installed a new garage door opener and it works perfectly. The technician was knowledgeable and explained everything clearly."
-                </p>
-              </div>
-
-              <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                    <i className="ri-user-line text-blue-600 text-xl"></i>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Jennifer L.</h3>
-                    <div className="flex items-center">
-                      <i className="ri-star-fill text-yellow-400"></i>
-                      <i className="ri-star-fill text-yellow-400"></i>
-                      <i className="ri-star-fill text-yellow-400"></i>
-                      <i className="ri-star-fill text-yellow-400"></i>
-                      <i className="ri-star-fill text-yellow-400"></i>
-                    </div>
-                  </div>
-                </div>
-                <p className="text-gray-600 leading-relaxed">
-                  "Emergency repair service was outstanding. My garage door was stuck and they came out within 2 hours. Fixed it quickly and the price was very fair. Thank you!"
-                </p>
-              </div>
-
-              <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                    <i className="ri-user-line text-blue-600 text-xl"></i>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900">David K.</h3>
-                    <div className="flex items-center">
-                      <i className="ri-star-fill text-yellow-400"></i>
-                      <i className="ri-star-fill text-yellow-400"></i>
-                      <i className="ri-star-fill text-yellow-400"></i>
-                      <i className="ri-star-fill text-yellow-400"></i>
-                      <i className="ri-star-fill text-yellow-400"></i>
-                    </div>
-                  </div>
-                </div>
-                <p className="text-gray-600 leading-relaxed">
-                  "Professional installation of our new garage door. The team was punctual, clean, and did excellent work. The door looks amazing and operates smoothly."
-                </p>
-              </div>
-
-              <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                    <i className="ri-user-line text-blue-600 text-xl"></i>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Lisa T.</h3>
-                    <div className="flex items-center">
-                      <i className="ri-star-fill text-yellow-400"></i>
-                      <i className="ri-star-fill text-yellow-400"></i>
-                      <i className="ri-star-fill text-yellow-400"></i>
-                      <i className="ri-star-fill text-yellow-400"></i>
-                      <i className="ri-star-fill text-yellow-400"></i>
-                    </div>
-                  </div>
-                </div>
-                <p className="text-gray-600 leading-relaxed">
-                  "Honest and reliable service. They diagnosed the problem accurately and fixed it without trying to sell me unnecessary parts. Will definitely use them again."
-                </p>
-              </div>
-
-              <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                    <i className="ri-user-line text-blue-600 text-xl"></i>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Robert H.</h3>
-                    <div className="flex items-center">
-                      <i className="ri-star-fill text-yellow-400"></i>
-                      <i className="ri-star-fill text-yellow-400"></i>
-                      <i className="ri-star-fill text-yellow-400"></i>
-                      <i className="ri-star-fill text-yellow-400"></i>
-                      <i className="ri-star-fill text-yellow-400"></i>
-                    </div>
-                  </div>
-                </div>
-                <p className="text-gray-600 leading-relaxed">
-                  "Top-notch service! They replaced my garage door cables and rollers. The technician was very professional and the work was completed efficiently. Highly recommended!"
-                </p>
-              </div>
             </div>
           )}
         </div>

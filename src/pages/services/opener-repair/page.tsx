@@ -48,9 +48,9 @@ export default function OpenerRepair() {
   return (
     <div className="min-h-screen">
       <DynamicMetaTags 
-        title="Garage Door Opener Repair NY NJ CT | Same-Day Service | Smart Garage Doors"
-        description="Professional garage door opener repair services in NY, NJ & CT. Chain drive, belt drive, and wall mount torsion systems. Fast, reliable service with warranty."
-        keywords="garage door opener repair, chain drive, belt drive, wall mount torsion, NY, NJ, CT"
+        title="Garage Door Opener Repair NY NJ CT | Same-Day | Smartest Garage Doors"
+        description="5.0★ rated, 392 reviews. Opener repair & installation. Chain, belt, wall-mount. Same-day service. NY, NJ & CT. Licensed & insured."
+        keywords="garage door opener repair, opener installation, chain drive, belt drive, wall mount"
       />
       <FAQSchema faqs={faqs} />
       <Header />
@@ -322,6 +322,7 @@ export default function OpenerRepair() {
 
       <RelatedServices />
       <ServiceAreaLinks 
+        serviceType="opener"
         title="Opener Repair Services in Your Area"
         showDescription={true}
         maxLinks={10}

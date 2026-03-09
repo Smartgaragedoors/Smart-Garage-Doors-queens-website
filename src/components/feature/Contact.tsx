@@ -12,7 +12,7 @@ function Contact() {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'fallback' | 'error'>('idle');
 
   const handleSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,7 +23,7 @@ function Contact() {
       const result = await submitForm(formData, 'Contact Form');
 
       if (result.success) {
-        setSubmitStatus('success');
+        setSubmitStatus(result.usedFallback ? 'fallback' : 'success');
         setFormData({ name: '', email: '', phone: '', service: '', message: '' });
         trackFormSubmit('Contact Form', 'contact');
       } else {
@@ -224,6 +224,13 @@ function Contact() {
                 <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg">
                   <p className="font-semibold">Thank you for contacting us!</p>
                   <p className="text-sm">We'll get back to you as soon as possible.</p>
+                </div>
+              )}
+
+              {submitStatus === 'fallback' && (
+                <div className="bg-amber-50 border border-amber-200 text-amber-800 px-4 py-3 rounded-lg">
+                  <p className="font-semibold">Your email client should open.</p>
+                  <p className="text-sm">If it didn't open or you prefer to call, please reach us at <a href="tel:914-557-6816" className="underline font-semibold">(914) 557-6816</a>.</p>
                 </div>
               )}
 

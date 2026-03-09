@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Header from '../../components/feature/Header';
 import Footer from '../../components/feature/Footer';
 import Breadcrumbs from '../../components/seo/Breadcrumbs';
@@ -22,21 +22,6 @@ const ContactPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState('');
 
-  useEffect(() => {
-    document.title = 'Contact & Schedule Service | Smart Garage Doors | Professional Garage Door Repair';
-    
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Contact Smart Garage Doors to schedule professional garage door repair, installation, and maintenance services. Easy online scheduling for all your garage door needs in NY, NJ, and CT.');
-    }
-    
-    const metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (metaKeywords) {
-      metaKeywords.setAttribute('content', 'contact garage door repair, schedule garage door service, garage door appointment, Smart Garage Doors contact');
-    }
-    // Canonical is handled by DynamicMetaTags component - removed duplicate manual setting
-  }, []);
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -54,7 +39,7 @@ const ContactPage = () => {
       const result = await submitForm(formData, 'Contact Page Form');
 
       if (result.success) {
-        setSubmitStatus('success');
+        setSubmitStatus(result.usedFallback ? 'fallback' : 'success');
         setFormData({
           name: '',
           email: '',
@@ -103,10 +88,10 @@ const ContactPage = () => {
               "email": "info@smartestgaragedoors.com",
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "123 Main Street",
-                "addressLocality": "White Plains",
+                "streetAddress": "141-24 70th Ave",
+                "addressLocality": "Flushing",
                 "addressRegion": "NY",
-                "postalCode": "10601",
+                "postalCode": "11367",
                 "addressCountry": "US"
               }
             }
@@ -378,6 +363,12 @@ const ContactPage = () => {
             {submitStatus === 'success' && (
               <div className="mt-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
                 Thank you! Your service request has been submitted. We'll contact you within 2 hours to confirm your appointment.
+              </div>
+            )}
+
+            {submitStatus === 'fallback' && (
+              <div className="mt-6 p-4 bg-amber-100 border border-amber-400 text-amber-800 rounded-lg">
+                Your email client should open to send your request. If it didn't open or you prefer to speak with us, please call <a href="tel:+19145576816" className="underline font-semibold">(914) 557-6816</a> to schedule.
               </div>
             )}
             

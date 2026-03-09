@@ -115,10 +115,6 @@ export default defineConfig({
             if (id.includes('react-router')) {
               return 'react-router';
             }
-            // Supabase - separate chunk for API client
-            if (id.includes('@supabase')) {
-              return 'supabase-vendor';
-            }
             // Stripe - separate chunk for payment processing
             if (id.includes('@stripe')) {
               return 'stripe-vendor';

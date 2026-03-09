@@ -1,5 +1,4 @@
 
-import { useEffect } from 'react';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
 import Breadcrumbs from '../../../components/seo/Breadcrumbs';
@@ -7,26 +6,15 @@ import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
 import ServiceLinks from '../../../components/seo/ServiceLinks';
 
 const LongIslandNY = () => {
-  useEffect(() => {
-    document.title = 'Long Island NY Garage Door Repair | Smart Garage Doors | 24/7 Emergency Service';
-    
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Professional garage door repair services in Long Island, NY. Smart Garage Doors offers emergency repairs, spring replacement, opener installation throughout Nassau and Suffolk Counties. Licensed technicians serving all Long Island areas.');
-    }
-    
-    const metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (metaKeywords) {
-      metaKeywords.setAttribute('content', 'Long Island NY garage door repair, garage door installation Long Island, emergency garage door service, Smart Garage Doors');
-    }
-  }, []);
+  const siteUrl = import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com';
 
   return (
     <div className="min-h-screen bg-white">
       <DynamicMetaTags 
-        title="Long Island NY Garage Door Repair | Smart Garage Doors | 24/7 Emergency Service"
-        description="Professional garage door repair services in Long Island, NY. Smart Garage Doors offers emergency repairs, spring replacement, opener installation throughout Nassau and Suffolk Counties. Licensed technicians serving all Long Island areas."
-        keywords="Long Island NY garage door repair, garage door installation Long Island, emergency garage door service Nassau Suffolk, Smart Garage Doors"
+        title="Long Island NY Garage Door Repair | Smartest Garage Doors | 24/7"
+        description="Garage door repair on Long Island, NY. 5.0★, 392 reviews. Nassau & Suffolk. Same-day service, emergency repairs. Licensed & insured."
+        keywords="Long Island NY garage door repair, garage door installation Long Island, emergency garage door service Nassau Suffolk"
+        canonical={`${siteUrl}/long-island-ny/`}
       />
       <Header />
       <Breadcrumbs />
@@ -52,9 +40,9 @@ const LongIslandNY = () => {
               <a href="tel:+19145576816" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap">
                 Call Now: (914) 557-6816
               </a>
-              <button className="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap">
+              <a href="/book-now/" className="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap inline-block text-center">
                 Get Free Estimate
-              </button>
+              </a>
             </div>
           </div>
         </div>

@@ -12,7 +12,7 @@ import { submitForm } from '../../../utils/formSubmission';
 
 export default function MaintenancePage() {
   const { location, locationName, isLoading } = useLocation();
-  const [notification, setNotification] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
+  const [notification, setNotification] = useState<{ type: 'success' | 'fallback' | 'error'; message: string } | null>(null);
   
   const displayLocation = (location?.city === 'Queens' || !location || isLoading) 
     ? 'your area' 
@@ -78,9 +78,9 @@ export default function MaintenancePage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <DynamicMetaTags 
-        title="Garage Door Maintenance Plans NYC | Preventive Service | Smart Garage Doors"
-        description="Professional garage door maintenance plans in NYC, Westchester, and Connecticut. Preventive maintenance to extend door life and prevent costly repairs."
-        keywords="garage door maintenance, preventive maintenance, maintenance plans, garage door service, annual maintenance"
+        title="Garage Door Maintenance Plans | NY NJ CT | Smartest Garage Doors"
+        description="Preventive garage door maintenance. Extend door life, avoid costly repairs. 5.0★, 392 reviews. Annual plans. NY, NJ & CT."
+        keywords="garage door maintenance, preventive maintenance, maintenance plans, annual garage door service"
       />
       <FAQSchema faqs={faqs} />
       <Header />
@@ -89,7 +89,7 @@ export default function MaintenancePage() {
       {/* Notification */}
       {notification && (
         <div className={`fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg max-w-md ${
-          notification.type === 'success' ? 'bg-green-500 text-white' : 'bg-red-500 text-white'
+          notification.type === 'success' ? 'bg-green-500 text-white' : notification.type === 'fallback' ? 'bg-amber-500 text-white' : 'bg-red-500 text-white'
         }`} role="alert" aria-live="polite">
           <div className="flex items-center justify-between">
             <p>{notification.message}</p>
@@ -556,6 +556,7 @@ export default function MaintenancePage() {
 
       <RelatedServices />
       <ServiceAreaLinks 
+        serviceType="maintenance"
         title="Maintenance Services in Your Area"
         showDescription={true}
         maxLinks={10}

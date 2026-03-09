@@ -1,28 +1,24 @@
 
-import { useEffect } from 'react';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
 import Reviews from '../../../components/feature/Reviews';
+import Breadcrumbs from '../../../components/seo/Breadcrumbs';
+import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
 import ServiceLinks from '../../../components/seo/ServiceLinks';
 
 const NewRochelleNY = () => {
-  useEffect(() => {
-    document.title = 'New Rochelle NY Garage Door Repair | Smart Garage Doors | Professional Service';
-    
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Professional garage door repair services in New Rochelle, NY. Smart Garage Doors offers emergency repairs, spring replacement, opener installation throughout New Rochelle and surrounding Westchester County areas.');
-    }
-    
-    const metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (metaKeywords) {
-      metaKeywords.setAttribute('content', 'New Rochelle NY garage door repair, garage door installation New Rochelle, emergency garage door service Westchester, Smart Garage Doors');
-    }
-  }, []);
+  const siteUrl = import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com';
 
   return (
     <div className="min-h-screen bg-white">
+      <DynamicMetaTags 
+        title="New Rochelle NY Garage Door Repair | Smartest Garage Doors"
+        description="Garage door repair in New Rochelle, NY. 5.0★, 392 reviews. Same-day service, emergency repairs. Licensed & insured."
+        keywords="New Rochelle NY garage door repair, garage door installation New Rochelle, emergency garage door service Westchester"
+        canonical={`${siteUrl}/new-rochelle-ny/`}
+      />
       <Header />
+      <Breadcrumbs />
       
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-blue-900 to-blue-700 text-white py-20">
@@ -45,9 +41,9 @@ const NewRochelleNY = () => {
               <a href="tel:+19145576816" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap">
                 Call Now: (914) 557-6816
               </a>
-              <button className="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap">
+              <a href="/book-now/" className="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap inline-block text-center">
                 Get Free Estimate
-              </button>
+              </a>
             </div>
           </div>
         </div>

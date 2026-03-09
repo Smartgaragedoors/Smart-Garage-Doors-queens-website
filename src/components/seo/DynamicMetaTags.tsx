@@ -25,7 +25,9 @@ export default function DynamicMetaTags({
 }: DynamicMetaTagsProps) {
   const { location, locationName } = useLocation();
   const routerLocation = useRouterLocation();
-  const siteUrl = import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com';
+  const siteUrl = (import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com').replace(/\/$/, '');
+  const defaultOgImage = `${siteUrl}/hero-van-1280.webp`;
+  const finalOgImage = ogImage || defaultOgImage;
 
   useEffect(() => {
     // Determine final title with location
@@ -50,9 +52,17 @@ export default function DynamicMetaTags({
           ? `24/7 Garage Door Repair ${locationName} | Installation | Same-Day`
           : '24/7 Garage Door Repair Queens NY | Installation | Same-Day';
       }
-    } else if (location && title && !title.includes(locationName)) {
-      // Add location to title if not already present
-      finalTitle = `${title} - Serving ${locationName}`;
+    } else if (location && title && !title.includes(locationName) && !title.toLowerCase().includes(location?.city?.toLowerCase() || '')) {
+      // Add location to title only if geo/location intent is not already present
+      const geoPatterns = [locationName, location?.city, location?.state, 'NY', 'NJ', 'CT', 'queens', 'brooklyn', 'long island', 'stamford', 'westchester', 'nassau', 'suffolk', 'bergen'];
+      const hasGeo = geoPatterns.some(p => p && title.toLowerCase().includes(p.toLowerCase()));
+      if (!hasGeo) {
+        finalTitle = `${title} - Serving ${locationName}`;
+      } else {
+        finalTitle = title;
+      }
+    } else if (title) {
+      finalTitle = title;
     }
 
     // Determine final description with location
@@ -64,12 +74,22 @@ export default function DynamicMetaTags({
         finalDescription = 'Garage door stuck, broken spring, or opener not working? Smartest Garage Doors delivers same-day repair, professional installation, and trusted service homeowners rely on. Serving NY, NJ & CT. Fast response, fair pricing, satisfaction guaranteed.';
       }
     } else if (location && description && !description.includes(locationName)) {
-      finalDescription = `${description} Serving ${locationName} and surrounding areas.`;
+      const geoPatterns = [locationName, location?.city, location?.state, 'NY', 'NJ', 'CT'];
+      const hasGeo = geoPatterns.some(p => p && description.toLowerCase().includes(p.toLowerCase()));
+      if (!hasGeo) {
+        finalDescription = `${description} Serving ${locationName} and surrounding areas.`;
+      } else {
+        finalDescription = description;
+      }
+    } else if (description) {
+      finalDescription = description;
     }
 
     // Determine final keywords
     let finalKeywords = keywords || 'garage door repair, garage door installation, emergency garage door service';
-    if (location) {
+    if (location && keywords && !keywords.toLowerCase().includes(location?.city?.toLowerCase() || '')) {
+      finalKeywords = `${finalKeywords}, ${location.city} garage door repair, garage door service ${locationName}`;
+    } else if (location && !keywords) {
       finalKeywords = `${finalKeywords}, ${location.city} garage door repair, garage door service ${locationName}`;
     }
 
@@ -147,15 +167,13 @@ export default function DynamicMetaTags({
     }
     ogUrlTag.setAttribute('content', finalCanonical);
 
-    if (ogImage) {
-      let ogImageTag = document.querySelector('meta[property="og:image"]');
-      if (!ogImageTag) {
-        ogImageTag = document.createElement('meta');
-        ogImageTag.setAttribute('property', 'og:image');
-        document.head.appendChild(ogImageTag);
-      }
-      ogImageTag.setAttribute('content', ogImage);
+    let ogImageTag = document.querySelector('meta[property="og:image"]');
+    if (!ogImageTag) {
+      ogImageTag = document.createElement('meta');
+      ogImageTag.setAttribute('property', 'og:image');
+      document.head.appendChild(ogImageTag);
     }
+    ogImageTag.setAttribute('content', finalOgImage);
 
     // Update Twitter Card tags
     let twitterTitle = document.querySelector('meta[name="twitter:title"]');
@@ -173,6 +191,14 @@ export default function DynamicMetaTags({
       document.head.appendChild(twitterDesc);
     }
     twitterDesc.setAttribute('content', ogDescFinal);
+
+    let twitterImage = document.querySelector('meta[name="twitter:image"]');
+    if (!twitterImage) {
+      twitterImage = document.createElement('meta');
+      twitterImage.setAttribute('name', 'twitter:image');
+      document.head.appendChild(twitterImage);
+    }
+    twitterImage.setAttribute('content', finalOgImage);
   }, [location, locationName, title, description, keywords, canonical, ogTitle, ogDescription, ogImage, noIndex, routerLocation.pathname, siteUrl]);
 
   return null; // This component doesn't render anything

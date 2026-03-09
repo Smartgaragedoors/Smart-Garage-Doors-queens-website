@@ -80,7 +80,11 @@ export default function CableRollerRepairPage() {
       const result = await submitForm(data, 'Cable & Roller Repair Form');
 
       if (result.success) {
-        alert('Cable and roller repair request submitted! We will contact you to schedule service.');
+        if (result.usedFallback) {
+          alert('Your email client should open to send your request. If it didn\'t open, please call us at (914) 557-6816.');
+        } else {
+          alert('Cable and roller repair request submitted! We will contact you to schedule service.');
+        }
         (e.target as HTMLFormElement).reset();
       } else {
         alert('Failed to submit request. Please call us at (914) 557-6816');
@@ -93,9 +97,9 @@ export default function CableRollerRepairPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <DynamicMetaTags 
-        title="Garage Door Cable & Roller Repair NYC | Track Repair | Same-Day Service"
-        description="Professional garage door cable and roller repair in NYC, Westchester, and Connecticut. Track alignment, cable replacement, roller installation. Same-day service."
-        keywords="garage door cable repair, roller replacement, track repair, cable replacement, garage door tracks, roller installation"
+        title="Garage Door Cable & Roller Repair NY NJ CT | Same-Day | Smartest Garage Doors"
+        description="5.0★ rated, 392 reviews. Cable, roller, track repair. Same-day service. NY, NJ & CT. Licensed & insured."
+        keywords="garage door cable repair, roller replacement, track repair, cable replacement"
         canonical={`${import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com'}/cable-roller-repair/`}
       />
       <Header />
@@ -558,6 +562,7 @@ export default function CableRollerRepairPage() {
       <FAQSchema faqs={faqs} />
       <RelatedServices />
       <ServiceAreaLinks 
+        serviceType="cable"
         title="Cable & Roller Repair Services in Your Area"
         showDescription={true}
         maxLinks={10}

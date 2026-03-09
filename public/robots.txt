@@ -1,10 +1,8 @@
 User-agent: *
 
-# Disallow any admin or booking paths (adjust if you want booking indexed)
-Disallow: /book-now/
-
-# Core site pages
+# Core site pages (booking page is intentionally indexable)
 Allow: /
+Allow: /book-now/
 Allow: /contact/
 Allow: /reviews/
 Allow: /blog/

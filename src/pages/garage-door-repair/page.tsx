@@ -7,6 +7,7 @@ import FAQSchema from '../../components/seo/FAQSchema';
 import RelatedServices from '../../components/seo/RelatedServices';
 import ServiceAreaLinks from '../../components/seo/ServiceAreaLinks';
 import { useLocation } from '../../contexts/LocationContext';
+import { BUSINESS_INFO } from '../../config/business-info';
 
 export default function GarageDoorRepairPage() {
   const { location, locationName, isLoading } = useLocation();
@@ -68,8 +69,8 @@ export default function GarageDoorRepairPage() {
   return (
     <div className="min-h-screen bg-white">
       <DynamicMetaTags 
-        title="Professional Garage Door Repair Services | Same-Day Service"
-        description="Expert garage door repair services across NY, NJ, and CT. Fast, reliable, and affordable solutions for all your garage door problems. Same-day service available."
+        title="Garage Door Repair NY NJ CT | 5.0★ Same-Day | Smartest Garage Doors"
+        description="5.0★ rated, 392 reviews. Same-day garage door repair across NY, NJ & CT. Spring replacement, opener repair, emergency service. Licensed & insured."
       />
       <FAQSchema faqs={faqs} />
       <Header />
@@ -202,8 +203,11 @@ export default function GarageDoorRepairPage() {
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
                 Professional Garage Door Repair Services
               </h1>
-              <p className="text-xl md:text-2xl mb-8">
+              <p className="text-xl md:text-2xl mb-4">
                 Expert garage door repair services across NY, NJ, and CT. Fast, reliable, and affordable solutions for all your garage door problems.
+              </p>
+              <p className="text-lg md:text-xl mb-8 text-blue-100 font-semibold">
+                5.0★ rated by {BUSINESS_INFO.aggregateRating.reviewCount}+ homeowners • Same-day repair in most areas • Fully insured local technicians.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a 
@@ -409,6 +413,7 @@ export default function GarageDoorRepairPage() {
 
       {/* Service Area Links - Creates incoming internal links to location pages */}
       <ServiceAreaLinks 
+        serviceType="repair"
         title="Garage Door Repair Services in Your Area"
         showDescription={true}
         maxLinks={10}

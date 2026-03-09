@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, memo } from 'react';
 import ResponsiveImage from '../base/ResponsiveImage';
 
 interface Photo {
@@ -7,103 +7,7 @@ interface Photo {
   description?: string;
 }
 
-function RecentWork() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [photos, setPhotos] = useState<Photo[]>([]);
-  const [loading, setLoading] = useState(true);
-  const abortControllerRef = useRef<AbortController | null>(null);
-
-  const fetchGooglePhotos = useCallback(async (retryCount = 0): Promise<void> => {
-    const maxRetries = 2;
-    
-    const supabaseUrl = import.meta.env.VITE_PUBLIC_SUPABASE_URL;
-    const enableRemotePhotos = import.meta.env.DEV || import.meta.env.VITE_ENABLE_REMOTE_PHOTOS === 'true';
-
-    if (!enableRemotePhotos || !supabaseUrl) {
-      setPhotos([...customPhotos, ...defaultProjects]);
-      setLoading(false);
-
-      return;
-    }
-
-    // Cancel previous request if still pending
-    if (abortControllerRef.current) {
-      abortControllerRef.current.abort();
-    }
-    
-    // Create new AbortController for this request
-    const abortController = new AbortController();
-    abortControllerRef.current = abortController;
-
-    try {
-      const response = await fetch(
-        `${supabaseUrl}/functions/v1/google-reviews`,
-        {
-          signal: abortController.signal,
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      );
-      
-      if (abortController.signal.aborted) {
-        return;
-      }
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      
-      const data = await response.json();
-      
-      // Check if we got valid photos from Google
-      if (data.photos && Array.isArray(data.photos) && data.photos.length > 0) {
-        const googlePhotos: Photo[] = data.photos.map((photo: { url: string }, index: number) => ({
-          image: photo.url,
-          title: `Professional Garage Door ${['Installation', 'Repair', 'Service', 'Maintenance', 'Opener Installation', 'Spring Replacement'][index] || 'Project'}`,
-          description: 'High-quality workmanship and professional service'
-        }));
-        
-        // Add custom images first, then Google photos
-        setPhotos([...customPhotos, ...googlePhotos]);
-      } else {
-        // Use fallback images if Google API returns no photos
-        setPhotos([...customPhotos, ...defaultProjects]);
-      }
-    } catch (error) {
-      // Don't retry if request was aborted
-      if (error instanceof Error && error.name === 'AbortError') {
-        return;
-      }
-
-      // Retry logic
-      if (retryCount < maxRetries) {
-        // Wait before retrying (exponential backoff)
-        await new Promise(resolve => setTimeout(resolve, 1000 * (retryCount + 1)));
-        return fetchGooglePhotos(retryCount + 1);
-      }
-
-      // Use fallback images after max retries
-      setPhotos([...customPhotos, ...defaultProjects]);
-    } finally {
-      if (!abortController.signal.aborted) {
-        setLoading(false);
-      }
-    }
-  }, []);
-
-  useEffect(() => {
-    fetchGooglePhotos();
-
-    // Cleanup: abort request on unmount
-    return () => {
-      if (abortControllerRef.current) {
-        abortControllerRef.current.abort();
-      }
-    };
-  }, [fetchGooglePhotos]);
-
-  const customPhotos: Photo[] = [
+const customPhotos: Photo[] = [
     {
       image: 'https://static.readdy.ai/image/b69172f381814b1e7c2f555a7760d2b1/6c1b03291502bee542d52ba370b557cf.jpeg',
       title: 'Professional Garage Door Installation'
@@ -118,7 +22,7 @@ function RecentWork() {
     }
   ];
 
-  const defaultProjects: Photo[] = [
+const defaultProjects: Photo[] = [
     {
       image: 'https://readdy.ai/api/search-image?query=Professional%20garage%20door%20installation%20project%20showing%20a%20newly%20installed%20white%20residential%20garage%20door%20with%20clean%20modern%20design%2C%20technician%20in%20uniform%20completing%20final%20adjustments%2C%20suburban%20home%20exterior%20with%20driveway%2C%20bright%20daylight%2C%20high%20quality%20professional%20photography%20style&width=800&height=533&quality=85&seq=gd001&orientation=landscape',
       title: 'Door Installation Project'
@@ -141,7 +45,10 @@ function RecentWork() {
     }
   ];
 
-  const displayProjects = photos.length > 0 ? photos : [...customPhotos, ...defaultProjects];
+const displayProjects: Photo[] = [...customPhotos, ...defaultProjects];
+
+function RecentWork() {
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % displayProjects.length);
@@ -150,23 +57,6 @@ function RecentWork() {
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + displayProjects.length) % displayProjects.length);
   };
-
-  if (loading) {
-    return (
-      <section className="py-12 md:py-20 bg-white overflow-x-hidden w-full">
-        <div className="max-w-7xl mx-auto px-4" style={{ width: '100%', maxWidth: '1280px' }}>
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">
-              Recent <span className="text-orange-500">Works</span>
-            </h2>
-          </div>
-          <div className="flex justify-center items-center h-64">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500"></div>
-          </div>
-        </div>
-      </section>
-    );
-  }
 
   return (
     <section className="py-12 md:py-20 bg-white overflow-x-hidden w-full">

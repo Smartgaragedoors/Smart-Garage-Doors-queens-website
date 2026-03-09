@@ -123,9 +123,9 @@ export function getLocationContext(locationName: string): {
 }
 
 // Get service area links for service pages (incoming links TO location pages)
+// serviceType: 'repair' | 'installation' | 'emergency' | 'spring' | 'opener' | 'cable' | 'maintenance' | ''
 export function getServiceAreaLinksForService(serviceType: string): InternalLink[] {
-  // Top service areas to link to from service pages
-  const topServiceAreas: InternalLink[] = [
+  const baseAreas: InternalLink[] = [
     { url: '/queens-ny/', text: 'Queens, NY', description: 'Garage door services in Queens' },
     { url: '/brooklyn-ny/', text: 'Brooklyn, NY', description: 'Garage door services in Brooklyn' },
     { url: '/long-island-ny/', text: 'Long Island, NY', description: 'Garage door services on Long Island' },
@@ -138,7 +138,69 @@ export function getServiceAreaLinksForService(serviceType: string): InternalLink
     { url: '/suffolk-county-ny/', text: 'Suffolk County, NY', description: 'Garage door services in Suffolk County' },
   ];
 
-  return topServiceAreas;
+  // Service-aware descriptions for better anchor text (natural, not stuffed)
+  const serviceDescriptions: Record<string, Record<string, string>> = {
+    repair: {
+      'queens-ny': 'Garage door repair in Queens',
+      'brooklyn-ny': 'Garage door repair in Brooklyn',
+      'long-island-ny': 'Garage door repair on Long Island',
+      'staten-island-ny': 'Garage door repair in Staten Island',
+      'white-plains-ny': 'Garage door repair in White Plains',
+      'stamford-ct': 'Garage door repair in Stamford',
+      'greenwich-ct': 'Garage door repair in Greenwich',
+    },
+    emergency: {
+      'queens-ny': 'Emergency garage door repair in Queens',
+      'brooklyn-ny': 'Emergency garage door repair in Brooklyn',
+      'long-island-ny': 'Emergency garage door repair on Long Island',
+      'white-plains-ny': 'Emergency garage door repair in White Plains',
+      'stamford-ct': 'Emergency garage door repair in Stamford',
+    },
+    spring: {
+      'queens-ny': 'Spring replacement in Queens',
+      'brooklyn-ny': 'Spring replacement in Brooklyn',
+      'long-island-ny': 'Spring replacement on Long Island',
+      'white-plains-ny': 'Spring replacement in White Plains',
+      'stamford-ct': 'Spring replacement in Stamford',
+    },
+    installation: {
+      'queens-ny': 'Garage door installation in Queens',
+      'brooklyn-ny': 'Garage door installation in Brooklyn',
+      'long-island-ny': 'Garage door installation on Long Island',
+      'white-plains-ny': 'Garage door installation in White Plains',
+      'stamford-ct': 'Garage door installation in Stamford',
+    },
+    opener: {
+      'queens-ny': 'Opener repair in Queens',
+      'brooklyn-ny': 'Opener repair in Brooklyn',
+      'long-island-ny': 'Opener repair on Long Island',
+      'white-plains-ny': 'Opener repair in White Plains',
+      'stamford-ct': 'Opener repair in Stamford',
+    },
+    cable: {
+      'queens-ny': 'Cable and roller repair in Queens',
+      'brooklyn-ny': 'Cable and roller repair in Brooklyn',
+      'long-island-ny': 'Cable and roller repair on Long Island',
+      'white-plains-ny': 'Cable and roller repair in White Plains',
+      'stamford-ct': 'Cable and roller repair in Stamford',
+    },
+    maintenance: {
+      'queens-ny': 'Garage door maintenance in Queens',
+      'brooklyn-ny': 'Garage door maintenance in Brooklyn',
+      'long-island-ny': 'Garage door maintenance on Long Island',
+      'white-plains-ny': 'Garage door maintenance in White Plains',
+      'stamford-ct': 'Garage door maintenance in Stamford',
+    },
+  };
+
+  const descMap = serviceType ? serviceDescriptions[serviceType] : null;
+  if (!descMap) return baseAreas;
+
+  return baseAreas.map(area => {
+    const slug = area.url.replace(/^\//, '').replace(/\/$/, ''); // e.g. "queens-ny"
+    const customDesc = descMap[slug];
+    return customDesc ? { ...area, description: customDesc } : area;
+  });
 }
 
 // Get service links for location pages (incoming links TO service pages)

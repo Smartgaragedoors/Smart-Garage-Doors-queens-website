@@ -2,38 +2,24 @@
 import { useEffect } from 'react';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
+import Breadcrumbs from '../../../components/seo/Breadcrumbs';
+import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
 import ServiceLinks from '../../../components/seo/ServiceLinks';
 
 const FairfieldCT = () => {
+  const siteUrl = import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com';
+
   useEffect(() => {
-    document.title = 'Fairfield CT Garage Door Repair | Smart Garage Doors | 24/7 Emergency Service';
-    
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Professional garage door repair services in Fairfield, CT. Smart Garage Doors offers 24/7 emergency repairs, spring replacement, opener installation, and maintenance. Serving Fairfield County with expert technicians and guaranteed satisfaction.');
-    }
-    
-    const metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (metaKeywords) {
-      metaKeywords.setAttribute('content', 'Fairfield CT garage door repair, garage door installation Fairfield, emergency garage door service, Smart Garage Doors');
-    }
-
-    // Canonical URL - point to repair URL if route exists, otherwise keep service-areas
-    const canonical = document.querySelector('link[rel="canonical"]') || document.createElement('link');
-    canonical.setAttribute('rel', 'canonical');
-    canonical.setAttribute('href', `${import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com'}/fairfield-ct/`);
-    if (!document.querySelector('link[rel="canonical"]')) document.head.appendChild(canonical);
-
     // Add Schema.org JSON-LD for Fairfield CT page
     const script = document.createElement('script');
     script.type = 'application/ld+json';
     script.text = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      "name": "Smart Garage Doors - Fairfield CT",
+      "name": "Smartest Garage Doors - Fairfield CT",
       "description": "Professional garage door repair and installation services in Fairfield, Connecticut",
-      "url": `${import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com'}/fairfield-ct/`,
-      "telephone": "(123) 456-7890",
+      "url": `${siteUrl}/fairfield-ct/`,
+      "telephone": "(914) 557-6816",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "141-24 70th Ave",
@@ -107,7 +93,14 @@ const FairfieldCT = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <DynamicMetaTags 
+        title="Fairfield CT Garage Door Repair | Smartest Garage Doors | 24/7"
+        description="Garage door repair in Fairfield, CT. 5.0★, 392 reviews. Same-day service, emergency repairs. Licensed & insured."
+        keywords="Fairfield CT garage door repair, garage door installation Fairfield, emergency garage door service"
+        canonical={`${siteUrl}/fairfield-ct/`}
+      />
       <Header />
+      <Breadcrumbs />
       
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-blue-900 to-blue-700 text-white py-20">
@@ -130,9 +123,9 @@ const FairfieldCT = () => {
               <a href="tel:+19145576816" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap">
                 Call Now: (914) 557-6816
               </a>
-              <button className="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap">
+              <a href="/book-now/" className="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap inline-block text-center">
                 Get Free Estimate
-              </button>
+              </a>
             </div>
           </div>
         </div>

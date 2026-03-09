@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import Header from '../../components/feature/Header';
 import Footer from '../../components/feature/Footer';
+import DynamicMetaTags from '../../components/seo/DynamicMetaTags';
 import { submitForm } from '../../utils/formSubmission';
 
 export default function BookNowPage() {
@@ -36,7 +37,7 @@ export default function BookNowPage() {
       const result = await submitForm(formData, 'Book Now Form');
 
       if (result.success) {
-        setSubmitStatus('success');
+        setSubmitStatus(result.usedFallback ? 'fallback' : 'success');
         setFormData({
           name: '',
           email: '',
@@ -60,6 +61,11 @@ export default function BookNowPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <DynamicMetaTags 
+        title="Book Garage Door Service | Same-Day Repair & Installation | Smartest Garage Doors"
+        description="Book your garage door repair or installation online in under 60 seconds. Same-day and emergency appointments available across NY, NJ & CT with a 5-star rated local team."
+        canonical={`${import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com'}/book-now/`}
+      />
       <Header />
       
       {/* Hero Section */}
@@ -80,6 +86,9 @@ export default function BookNowPage() {
             <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
               Schedule your garage door repair or installation with Smartest Garage Doors. 
               Fast, reliable service across NY, NJ, and CT.
+            </p>
+            <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto text-red-100 font-semibold">
+              5-star rated local technicians • Most calls booked within minutes • Same-day slots often available.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
@@ -296,6 +305,15 @@ export default function BookNowPage() {
                   <i className="ri-check-circle-line text-green-600 text-xl mr-2"></i>
                   <span className="text-green-800 font-medium">
                     Thank you! Your service request has been submitted. We'll contact you shortly to confirm your appointment.
+                  </span>
+                </div>
+              )}
+
+              {submitStatus === 'fallback' && (
+                <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 text-center">
+                  <i className="ri-mail-send-line text-amber-600 text-xl mr-2"></i>
+                  <span className="text-amber-800 font-medium">
+                    Your email client should open to send your request. If it didn’t open or you prefer to speak with us, please call <a href="tel:+19145576816" className="underline font-semibold">(914) 557-6816</a> to book.
                   </span>
                 </div>
               )}
