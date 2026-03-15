@@ -2,6 +2,7 @@ import Header from '../../components/feature/Header';
 import Footer from '../../components/feature/Footer';
 import DynamicMetaTags from '../../components/seo/DynamicMetaTags';
 import { BUSINESS_INFO } from '../../config/business-info';
+import { buildCanonical } from '../../config/canonical';
 import { STATIC_REVIEWS } from '../../data/staticReviews';
 
 export default function ReviewsPage() {
@@ -29,7 +30,7 @@ export default function ReviewsPage() {
       <DynamicMetaTags 
         title="Customer Reviews | 5-Star Garage Door Service NY NJ CT | Smartest Garage Doors"
         description="Read real customer reviews for Smartest Garage Doors. 5.0 star rating with hundreds of verified reviews across New York, New Jersey & Connecticut for repair and installation."
-        canonical={`${import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com'}/reviews/`}
+        canonical={buildCanonical('/reviews')}
       />
       <Header />
       

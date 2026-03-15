@@ -45,7 +45,7 @@ export default function GarageDoorInstallationNewYorkPage() {
   return (
     <div className="min-h-screen bg-white">
       <DynamicMetaTags 
-        title="Garage Door Installation NY NJ CT | New Doors & Replacements | Smartest Garage Doors"
+        title="Garage Door Installation New York | Same-Day & Replacement | Smartest Garage Doors"
         description="New garage door installation & replacement. 5.0★, 392 reviews. Free estimates. Same-day available. Licensed & insured. Serving NY, NJ & CT."
         keywords="garage door installation, new garage door, garage door replacement, garage door installer"
       />
@@ -71,6 +71,9 @@ export default function GarageDoorInstallationNewYorkPage() {
               </h1>
               <p className="text-xl md:text-2xl mb-4">
                 Professional garage door installation services throughout New York. From residential to commercial, we install all types of garage doors with precision and expertise.
+              </p>
+              <p className="text-lg md:text-xl mb-4 text-green-100">
+                Planning a new door? Get a free quote and explore options on our <a href="/services/installation/" className="underline font-semibold">installation planning page</a>.
               </p>
               <p className="text-lg md:text-xl mb-8 text-green-100 font-semibold">
                 Trusted 5.0★ rated installer for New York homeowners and businesses • Licensed, insured, and factory-trained technicians.

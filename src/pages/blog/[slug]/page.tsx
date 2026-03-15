@@ -7,6 +7,7 @@ import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
 import FAQSchema from '../../../components/seo/FAQSchema';
 import BlogPostingSchema from '../../../components/seo/BlogPostingSchema';
 import { getBlogImage } from '../../../data/blogImages';
+import { buildCanonical, CANONICAL_BASE } from '../../../config/canonical';
 
 const DEFAULT_BLOG_IMAGE_URL = "/hero-van-1280.webp";
 
@@ -1045,6 +1046,34 @@ const BLOG_POSTS: Record<string, {
   }
 };
 
+/** Contextual help text with service/city links based on post topic */
+function getBlogHelpText(slug: string): React.ReactNode {
+  const links: Record<string, { service: string; serviceUrl: string; city?: string; cityUrl?: string }> = {
+    'signs-your-garage-door-spring-needs-replacement': { service: 'spring replacement', serviceUrl: '/spring-replacement/', city: 'Queens', cityUrl: '/queens-ny/' },
+    'cost-of-garage-door-spring-replacement': { service: 'spring replacement', serviceUrl: '/spring-replacement/', city: 'Brooklyn', cityUrl: '/brooklyn-ny/' },
+    'how-to-fix-garage-door-opener': { service: 'opener repair', serviceUrl: '/opener-repair-installation/' },
+    'how-to-fix-garage-door-wont-close': { service: 'garage door repair', serviceUrl: '/garage-door-repair/' },
+    'emergency-garage-door-repair-guide': { service: 'emergency repair', serviceUrl: '/emergency-garage-door-repair/' },
+    'garage-door-roller-replacement-cost': { service: 'cable and roller repair', serviceUrl: '/cable-roller-repair/' },
+    'queens-garage-door-repair-cost': { service: 'garage door repair', serviceUrl: '/garage-door-repair/', city: 'Queens', cityUrl: '/queens-ny/' },
+    'brooklyn-garage-door-repair-cost': { service: 'garage door repair', serviceUrl: '/garage-door-repair/', city: 'Brooklyn', cityUrl: '/brooklyn-ny/' },
+    'stamford-ct-garage-door-repair': { service: 'garage door repair', serviceUrl: '/garage-door-repair/', city: 'Stamford', cityUrl: '/stamford-ct/' },
+    'how-to-choose-right-garage-door': { service: 'garage door installation', serviceUrl: '/garage-door-installation/' },
+    'signs-you-need-new-garage-door': { service: 'garage door installation', serviceUrl: '/garage-door-installation/' },
+  };
+  const l = links[slug];
+  if (l) {
+    return (
+      <>
+        While these tips are helpful, some garage door issues require professional expertise.
+        Smart Garage Doors offers expert <a href={l.serviceUrl} className="text-blue-600 hover:text-blue-700 font-medium">{l.service}</a>
+        {l.city && l.cityUrl ? <> throughout <a href={l.cityUrl} className="text-blue-600 hover:text-blue-700 font-medium">{l.city}</a></> : ''}.
+      </>
+    );
+  }
+  return 'While these tips are helpful, some garage door issues require professional expertise. Smart Garage Doors offers expert repair services throughout NY, NJ & CT.';
+}
+
 export default function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
   const post = slug ? BLOG_POSTS[slug] : null;
@@ -1075,10 +1104,9 @@ export default function BlogPostPage() {
     );
   }
 
-  const siteUrl = import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com';
-  const postUrl = `${siteUrl}/blog/${post.slug}/`;
+  const postUrl = buildCanonical(`/blog/${post.slug}`);
   const { image, imageAlt } = getBlogImage(post.slug);
-  const ogImageUrl = image.startsWith("http") ? image : `${siteUrl}${image}`;
+  const ogImageUrl = image.startsWith("http") ? image : `${CANONICAL_BASE}${image}`;
 
   return (
     <div className="min-h-screen bg-white">
@@ -1145,8 +1173,7 @@ export default function BlogPostPage() {
         <div className="mt-12 pt-8 border-t border-gray-200">
           <h3 className="text-2xl font-bold text-gray-900 mb-4">Need Professional Help?</h3>
           <p className="text-gray-600 mb-6">
-            While these tips are helpful, some garage door issues require professional expertise. 
-            Smart Garage Doors offers expert repair services throughout NY, NJ & CT.
+            {getBlogHelpText(post.slug)}
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <a 

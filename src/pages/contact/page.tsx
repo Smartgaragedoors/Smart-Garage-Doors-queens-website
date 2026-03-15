@@ -4,6 +4,7 @@ import Header from '../../components/feature/Header';
 import Footer from '../../components/feature/Footer';
 import Breadcrumbs from '../../components/seo/Breadcrumbs';
 import DynamicMetaTags from '../../components/seo/DynamicMetaTags';
+import { buildCanonical } from '../../config/canonical';
 import { submitForm } from '../../utils/formSubmission';
 
 const ContactPage = () => {
@@ -66,7 +67,7 @@ const ContactPage = () => {
       <DynamicMetaTags 
         title="Contact Us | Garage Door Repair NY NJ CT | Smartest Garage Doors"
         description="Contact Smartest Garage Doors for fast, professional garage door repair and installation services. Serving NY, NJ & CT. Call (914) 557-6816 or schedule online."
-        canonical={`${import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com'}/contact/`}
+        canonical={buildCanonical('/contact')}
       />
       <Header />
       <Breadcrumbs />
@@ -80,7 +81,7 @@ const ContactPage = () => {
             "@type": "ContactPage",
             "name": "Contact Smart Garage Doors",
             "description": "Get in touch with Smart Garage Doors for professional garage door services in NY, NJ & CT",
-            "url": `${import.meta.env.VITE_SITE_URL || "https://www.smartestgaragedoors.com"}/contact/`,
+            "url": buildCanonical('/contact'),
             "mainEntity": {
               "@type": "LocalBusiness",
               "name": "Smart Garage Doors",

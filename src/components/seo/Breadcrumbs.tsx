@@ -1,5 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { buildCanonical } from '../../config/canonical';
 
 interface BreadcrumbItem {
   label: string;
@@ -100,7 +101,7 @@ export default function Breadcrumbs() {
       "@type": "ListItem",
       "position": index + 1,
       "name": crumb.label,
-      "item": `${window.location.origin}${crumb.path}`,
+      "item": buildCanonical(crumb.path),
     })),
   };
 

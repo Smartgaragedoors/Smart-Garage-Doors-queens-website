@@ -108,8 +108,8 @@ export default function InstallationPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <DynamicMetaTags 
-        title="Garage Door Installation Services & Free Quotes | Smartest Garage Doors"
-        description="Plan your garage door project with a free quote. Styles, materials, openers. Residential & commercial. NY, NJ & CT. 5.0★, 392 reviews. Licensed & insured."
+        title="Free Garage Door Installation Quote | Plan Your Project | Smartest Garage Doors"
+        description="Get a free quote for your garage door project. Explore styles, materials, openers. Residential & commercial. NY, NJ & CT. 5.0★, 392 reviews. Licensed & insured."
         keywords="garage door installation services, free garage door quote, residential commercial garage doors, installation planning"
       />
       <FAQSchema faqs={faqs} />
@@ -132,20 +132,23 @@ export default function InstallationPage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Professional Garage Door Installation
+              Get Your Free Garage Door Installation Quote
             </h1>
-            <p className="text-xl mb-8">
-              Transform your home with a new garage door installation. We provide expert installation services for residential and commercial properties across NYC, Westchester, and Connecticut with full warranty coverage.
+            <p className="text-xl mb-4">
+              Plan your new garage door project. Get a free quote, explore styles and materials, and schedule installation across NY, NJ & CT.
+            </p>
+            <p className="text-lg mb-8 text-blue-100">
+              For New York–focused installation details, see our <a href="/garage-door-installation/" className="underline font-semibold">Garage Door Installation New York</a> page.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center justify-center whitespace-nowrap">
+              <a href="tel:+19145576816" className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center justify-center whitespace-nowrap">
                 <i className="ri-phone-fill mr-2"></i>
                 Call: (914) 557-6816
-              </button>
-              <button className="bg-blue-600 text-white hover:bg-blue-700 px-8 py-4 text-lg rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center justify-center whitespace-nowrap">
+              </a>
+              <a href="/book-now/" className="bg-blue-600 text-white hover:bg-blue-700 px-8 py-4 text-lg rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center justify-center whitespace-nowrap">
                 <i className="ri-calendar-line mr-2"></i>
-                Schedule Installation
-              </button>
+                Request Free Quote
+              </a>
             </div>
           </div>
         </div>

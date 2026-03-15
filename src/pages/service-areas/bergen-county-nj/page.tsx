@@ -3,6 +3,7 @@ import Footer from '../../../components/feature/Footer';
 import Breadcrumbs from '../../../components/seo/Breadcrumbs';
 import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
 import ServiceLinks from '../../../components/seo/ServiceLinks';
+import { buildCanonical } from '../../../config/canonical';
 
 const BergenCountyNJ = () => {
   return (
@@ -11,7 +12,7 @@ const BergenCountyNJ = () => {
         title="Bergen County NJ Garage Door Repair | Smartest Garage Doors | 24/7 Emergency Service"
         description="Professional garage door repair and installation services in Bergen County, NJ. Smartest Garage Doors offers same-day and emergency service for Paramus, Ridgewood, Hackensack, Teaneck, Fort Lee, Englewood and all nearby communities."
         keywords="Bergen County NJ garage door repair, garage door installation Bergen County, emergency garage door service, Smartest Garage Doors"
-        canonical={`${import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com'}/bergen-county-nj/`}
+        canonical={buildCanonical('/bergen-county-nj')}
       />
       <Header />
       <Breadcrumbs />

@@ -155,6 +155,12 @@
   ],
   "redirects": [
     {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "smartestgaragedoors.com" }],
+      "destination": "https://www.smartestgaragedoors.com/$1",
+      "permanent": true
+    },
+    {
       "source": "/:path((?!.*\\.).*[^/])",
       "destination": "/:path/",
       "permanent": true

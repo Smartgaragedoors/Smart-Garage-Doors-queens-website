@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Header from '../../components/feature/Header';
 import Footer from '../../components/feature/Footer';
 import DynamicMetaTags from '../../components/seo/DynamicMetaTags';
+import { buildCanonical } from '../../config/canonical';
 import { submitForm } from '../../utils/formSubmission';
 
 export default function BookNowPage() {
@@ -64,7 +65,7 @@ export default function BookNowPage() {
       <DynamicMetaTags 
         title="Book Garage Door Service | Same-Day Repair & Installation | Smartest Garage Doors"
         description="Book your garage door repair or installation online in under 60 seconds. Same-day and emergency appointments available across NY, NJ & CT with a 5-star rated local team."
-        canonical={`${import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com'}/book-now/`}
+        canonical={buildCanonical('/book-now')}
       />
       <Header />
       

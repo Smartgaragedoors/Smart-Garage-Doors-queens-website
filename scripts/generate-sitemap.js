@@ -7,8 +7,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const require = createRequire(import.meta.url);
 
-// Read site URL from environment or use default
-const BASE_URL = process.env.SITE_URL || process.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com';
+// Canonical base: always https, www (matches src/config/canonical.ts)
+const BASE_URL = 'https://www.smartestgaragedoors.com';
 const TODAY = new Date().toISOString().split('T')[0];
 
 // URLs that redirect to other pages - EXCLUDE from sitemap
@@ -106,7 +106,7 @@ function extractServiceAreaRoutes() {
   }
 }
 
-// Blog posts (static list - could be extracted from blog config if available)
+// Blog posts (must match BLOG_POSTS in src/pages/blog/[slug]/page.tsx)
 const blogPosts = [
   { slug: 'signs-your-garage-door-spring-needs-replacement', priority: '0.7', changefreq: 'monthly' },
   { slug: 'garage-door-repair-cost-guide-2025', priority: '0.7', changefreq: 'monthly' },
@@ -117,6 +117,22 @@ const blogPosts = [
   { slug: 'how-to-fix-garage-door-opener', priority: '0.7', changefreq: 'monthly' },
   { slug: 'cost-of-garage-door-spring-replacement', priority: '0.7', changefreq: 'monthly' },
   { slug: 'signs-you-need-new-garage-door', priority: '0.7', changefreq: 'monthly' },
+  { slug: 'garage-door-safety-tips-homeowner', priority: '0.7', changefreq: 'monthly' },
+  { slug: 'how-to-choose-right-garage-door', priority: '0.7', changefreq: 'monthly' },
+  { slug: 'garage-door-roller-replacement-cost', priority: '0.7', changefreq: 'monthly' },
+  { slug: 'chain-drive-vs-belt-drive-opener', priority: '0.7', changefreq: 'monthly' },
+  { slug: 'queens-garage-door-repair-cost', priority: '0.7', changefreq: 'monthly' },
+  { slug: 'brooklyn-garage-door-repair-cost', priority: '0.7', changefreq: 'monthly' },
+  { slug: 'stamford-ct-garage-door-repair', priority: '0.7', changefreq: 'monthly' },
+  { slug: 'white-plains-ny-garage-door-service', priority: '0.7', changefreq: 'monthly' },
+  { slug: 'long-island-garage-door-repair', priority: '0.7', changefreq: 'monthly' },
+  { slug: 'westchester-county-garage-door-service', priority: '0.7', changefreq: 'monthly' },
+  { slug: 'greenwich-ct-garage-door-repair', priority: '0.7', changefreq: 'monthly' },
+  { slug: 'staten-island-garage-door-repair', priority: '0.7', changefreq: 'monthly' },
+  { slug: 'flushing-ny-garage-door-repair', priority: '0.7', changefreq: 'monthly' },
+  { slug: 'fairfield-ct-garage-door-service', priority: '0.7', changefreq: 'monthly' },
+  { slug: 'darien-ct-garage-door-repair', priority: '0.7', changefreq: 'monthly' },
+  { slug: 'suffern-ny-garage-door-service', priority: '0.7', changefreq: 'monthly' },
 ];
 
 function generateSitemap() {

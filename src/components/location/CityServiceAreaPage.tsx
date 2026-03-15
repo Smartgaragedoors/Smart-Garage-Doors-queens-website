@@ -8,14 +8,14 @@ import LocalBusinessSchema from '../../components/seo/LocalBusinessSchema';
 import ServiceLinks from '../../components/seo/ServiceLinks';
 import { Location } from '../../config/locations';
 import { BUSINESS_INFO } from '../../config/business-info';
+import { buildCanonical } from '../../config/canonical';
 
 interface CityServiceAreaPageProps {
   location: Location;
 }
 
 export default function CityServiceAreaPage({ location }: CityServiceAreaPageProps) {
-  const siteUrl = import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com';
-  const canonicalUrl = `${siteUrl}/${location.slug}/`;
+  const canonicalUrl = buildCanonical(`/${location.slug}`);
 
   // Common issues (varied per city but generic enough)
   const commonIssues = [
@@ -89,7 +89,7 @@ export default function CityServiceAreaPage({ location }: CityServiceAreaPagePro
                 className="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap inline-flex items-center justify-center"
               >
                 <i className="ri-calendar-line mr-2"></i>
-                Schedule Service
+                Get Free Estimate
               </Link>
             </div>
           </div>
@@ -119,21 +119,19 @@ export default function CityServiceAreaPage({ location }: CityServiceAreaPagePro
         </section>
       )}
 
-      {/* City-Specific Intro */}
-      {location.uniqueAngle && (
-        <section className="py-16 bg-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="prose prose-lg max-w-none">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                Garage Door Services in {location.city}
-              </h2>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                {location.uniqueAngle}
-              </p>
-            </div>
+      {/* City-Specific Intro (uniqueAngle or fallback for stronger uniqueness signals) */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="prose prose-lg max-w-none">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Garage Door Services in {location.city}
+            </h2>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              {location.uniqueAngle || `Smartest Garage Doors provides professional garage door repair and installation throughout ${location.city}, ${location.stateAbbr}. Our technicians serve ${location.city}${location.county ? ` and ${location.county}` : ' and surrounding areas'} with same-day service, emergency repairs, and expert installation.`}
+            </p>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
       {/* Common Issues Section */}
       <section className="py-16 bg-gray-50">
@@ -314,7 +312,7 @@ export default function CityServiceAreaPage({ location }: CityServiceAreaPagePro
             Ready for Professional Garage Door Service in {location.city}?
           </h2>
           <p className="text-xl mb-8 text-blue-100">
-            Contact Smartest Garage Doors today for fast, reliable service throughout {location.city}, {location.stateAbbr}.
+            Same-day service available. Contact Smartest Garage Doors for fast, reliable service throughout {location.city}, {location.stateAbbr}.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
@@ -329,7 +327,7 @@ export default function CityServiceAreaPage({ location }: CityServiceAreaPagePro
               className="bg-white text-blue-900 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap inline-flex items-center justify-center"
             >
               <i className="ri-calendar-line mr-2"></i>
-              Schedule Online
+              Get Free Estimate
             </Link>
           </div>
         </div>

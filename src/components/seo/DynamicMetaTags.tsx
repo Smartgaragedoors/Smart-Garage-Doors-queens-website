@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useLocation } from '../../contexts/LocationContext';
 import { useLocation as useRouterLocation } from 'react-router-dom';
+import { CANONICAL_BASE, buildCanonical } from '../../config/canonical';
 
 interface DynamicMetaTagsProps {
   title?: string;
@@ -25,8 +26,7 @@ export default function DynamicMetaTags({
 }: DynamicMetaTagsProps) {
   const { location, locationName } = useLocation();
   const routerLocation = useRouterLocation();
-  const siteUrl = (import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com').replace(/\/$/, '');
-  const defaultOgImage = `${siteUrl}/hero-van-1280.webp`;
+  const defaultOgImage = `${CANONICAL_BASE}/hero-van-1280.webp`;
   const finalOgImage = ogImage || defaultOgImage;
 
   useEffect(() => {
@@ -93,10 +93,19 @@ export default function DynamicMetaTags({
       finalKeywords = `${finalKeywords}, ${location.city} garage door repair, garage door service ${locationName}`;
     }
 
-    // Determine canonical URL
-    let finalCanonical = canonical;
-    if (!finalCanonical) {
-      finalCanonical = `${siteUrl}${routerLocation.pathname}`;
+    // Determine canonical URL: always https, www, trailing slash; root = CANONICAL_BASE/
+    let finalCanonical: string;
+    if (canonical) {
+      try {
+        const pathname = new URL(canonical).pathname;
+        finalCanonical = buildCanonical(pathname);
+      } catch {
+        finalCanonical = `${CANONICAL_BASE}/`;
+      }
+    } else {
+      const pathNorm = routerLocation.pathname.replace(/\/$/, '') || '/';
+      const isHome = pathNorm === '/' || pathNorm === '/home';
+      finalCanonical = isHome ? `${CANONICAL_BASE}/` : buildCanonical(pathNorm);
     }
 
     // Update document title
@@ -199,7 +208,7 @@ export default function DynamicMetaTags({
       document.head.appendChild(twitterImage);
     }
     twitterImage.setAttribute('content', finalOgImage);
-  }, [location, locationName, title, description, keywords, canonical, ogTitle, ogDescription, ogImage, noIndex, routerLocation.pathname, siteUrl]);
+  }, [location, locationName, title, description, keywords, canonical, ogTitle, ogDescription, ogImage, noIndex, routerLocation.pathname]);
 
   return null; // This component doesn't render anything
 }

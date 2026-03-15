@@ -4,6 +4,7 @@ import Button from '../../../components/base/Button';
 import Breadcrumbs from '../../../components/seo/Breadcrumbs';
 import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
 import FAQSchema from '../../../components/seo/FAQSchema';
+import { buildCanonical } from '../../../config/canonical';
 import RelatedServices from '../../../components/seo/RelatedServices';
 import ServiceAreaLinks from '../../../components/seo/ServiceAreaLinks';
 import { useLocation } from '../../../contexts/LocationContext';
@@ -100,7 +101,7 @@ export default function CableRollerRepairPage() {
         title="Garage Door Cable & Roller Repair NY NJ CT | Same-Day | Smartest Garage Doors"
         description="5.0★ rated, 392 reviews. Cable, roller, track repair. Same-day service. NY, NJ & CT. Licensed & insured."
         keywords="garage door cable repair, roller replacement, track repair, cable replacement"
-        canonical={`${import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com'}/cable-roller-repair/`}
+        canonical={buildCanonical('/cable-roller-repair')}
       />
       <Header />
       <Breadcrumbs />
