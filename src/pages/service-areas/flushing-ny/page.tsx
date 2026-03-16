@@ -1,5 +1,5 @@
-
 import { useEffect } from 'react';
+import { buildCanonical } from '../../../config/canonical';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
 import Breadcrumbs from '../../../components/seo/Breadcrumbs';
@@ -10,8 +10,6 @@ import Contact from '../../../components/feature/Contact';
 import ServiceLinks from '../../../components/seo/ServiceLinks';
 
 export default function FlushingNYPage() {
-  const siteUrl = import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com';
-
   useEffect(() => {
     // Schema.org structured data
     const script = document.createElement('script');
@@ -53,7 +51,7 @@ export default function FlushingNYPage() {
         title="Flushing NY Garage Door Repair & Installation | Smartest Garage Doors"
         description="Garage door repair in Flushing, Queens, NY. 5.0★, 392 reviews. Same-day service, emergency repairs. Licensed & insured."
         keywords="garage door repair Flushing NY, garage door installation Flushing, emergency garage door repair Queens"
-        canonical={`${siteUrl}/flushing-ny/`}
+        canonical={buildCanonical('/flushing-ny')}
       />
       <Header />
       <Breadcrumbs />

@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { buildCanonical } from '../../../config/canonical';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
 import Breadcrumbs from '../../../components/seo/Breadcrumbs';
@@ -6,6 +7,7 @@ import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
 import FAQSchema from '../../../components/seo/FAQSchema';
 import RelatedServices from '../../../components/seo/RelatedServices';
 import ServiceLinks from '../../../components/seo/ServiceLinks';
+import NearbyAreasSection from '../../../components/seo/NearbyAreasSection';
 
 const BrooklynNY = () => {
   useEffect(() => {
@@ -17,7 +19,7 @@ const BrooklynNY = () => {
       "@type": "LocalBusiness",
       "name": "Smart Garage Doors - Brooklyn NY",
       "description": "Professional garage door repair and installation services in Brooklyn, New York",
-      "url": `${import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com'}/brooklyn-ny/`,
+      "url": buildCanonical('/brooklyn-ny'),
       "telephone": "(914) 557-6816",
       "address": {
         "@type": "PostalAddress",
@@ -114,7 +116,7 @@ const BrooklynNY = () => {
         title="Brooklyn NY Garage Door Repair | Smartest Garage Doors | 24/7"
         description="Garage door repair in Brooklyn, NY. 5.0★, 392 reviews. Same-day service, emergency repairs. Licensed & insured."
         keywords="Brooklyn NY garage door repair, garage door installation Brooklyn, emergency garage door service"
-        canonical={`${import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com'}/brooklyn-ny/`}
+        canonical={buildCanonical('/brooklyn-ny')}
       />
       <FAQSchema faqs={brooklynFaqs} />
       <Header />
@@ -595,13 +597,14 @@ const BrooklynNY = () => {
             <a href="tel:+19145576816" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap">
               Call (914) 557-6816
             </a>
-            <a href="/contact" className="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap">
+            <a href="/book-now/" className="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap inline-block text-center">
               Schedule Service Online
             </a>
           </div>
         </div>
       </section>
 
+      <NearbyAreasSection currentPath="/brooklyn-ny/" cityName="Brooklyn" />
       <ServiceLinks 
         title="Complete Garage Door Services in Brooklyn, NY"
         showDescription={true}

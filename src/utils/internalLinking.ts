@@ -244,7 +244,6 @@ export function getServiceLinksForLocation(locationPath: string): InternalLink[]
 
 // Get related location pages (for cross-linking between location pages)
 export function getRelatedLocations(currentLocationPath: string): InternalLink[] {
-  // Extract location from path
   const locationMap: Record<string, InternalLink[]> = {
     'queens-ny': [
       { url: '/brooklyn-ny/', text: 'Brooklyn, NY' },
@@ -261,9 +260,28 @@ export function getRelatedLocations(currentLocationPath: string): InternalLink[]
     'long-island-ny': [
       { url: '/queens-ny/', text: 'Queens, NY' },
       { url: '/brooklyn-ny/', text: 'Brooklyn, NY' },
-      { url: '/staten-island-ny/', text: 'Staten Island, NY' },
       { url: '/nassau-county-ny/', text: 'Nassau County, NY' },
       { url: '/suffolk-county-ny/', text: 'Suffolk County, NY' },
+      { url: '/hauppauge-ny/', text: 'Hauppauge, NY' },
+      { url: '/smithtown-ny/', text: 'Smithtown, NY' },
+    ],
+    'staten-island-ny': [
+      { url: '/brooklyn-ny/', text: 'Brooklyn, NY' },
+      { url: '/queens-ny/', text: 'Queens, NY' },
+      { url: '/long-island-ny/', text: 'Long Island, NY' },
+    ],
+    'nassau-county-ny': [
+      { url: '/queens-ny/', text: 'Queens, NY' },
+      { url: '/long-island-ny/', text: 'Long Island, NY' },
+      { url: '/suffolk-county-ny/', text: 'Suffolk County, NY' },
+      { url: '/hauppauge-ny/', text: 'Hauppauge, NY' },
+      { url: '/smithtown-ny/', text: 'Smithtown, NY' },
+    ],
+    'suffolk-county-ny': [
+      { url: '/long-island-ny/', text: 'Long Island, NY' },
+      { url: '/nassau-county-ny/', text: 'Nassau County, NY' },
+      { url: '/hauppauge-ny/', text: 'Hauppauge, NY' },
+      { url: '/smithtown-ny/', text: 'Smithtown, NY' },
     ],
     'stamford-ct': [
       { url: '/greenwich-ct/', text: 'Greenwich, CT' },
@@ -272,6 +290,43 @@ export function getRelatedLocations(currentLocationPath: string): InternalLink[]
       { url: '/westport-ct/', text: 'Westport, CT' },
       { url: '/white-plains-ny/', text: 'White Plains, NY' },
     ],
+    'greenwich-ct': [
+      { url: '/stamford-ct/', text: 'Stamford, CT' },
+      { url: '/darien-ct/', text: 'Darien, CT' },
+      { url: '/new-canaan-ct/', text: 'New Canaan, CT' },
+      { url: '/westport-ct/', text: 'Westport, CT' },
+      { url: '/white-plains-ny/', text: 'White Plains, NY' },
+    ],
+    'darien-ct': [
+      { url: '/stamford-ct/', text: 'Stamford, CT' },
+      { url: '/greenwich-ct/', text: 'Greenwich, CT' },
+      { url: '/new-canaan-ct/', text: 'New Canaan, CT' },
+      { url: '/westport-ct/', text: 'Westport, CT' },
+      { url: '/fairfield-ct/', text: 'Fairfield, CT' },
+    ],
+    'new-canaan-ct': [
+      { url: '/stamford-ct/', text: 'Stamford, CT' },
+      { url: '/darien-ct/', text: 'Darien, CT' },
+      { url: '/greenwich-ct/', text: 'Greenwich, CT' },
+      { url: '/westport-ct/', text: 'Westport, CT' },
+    ],
+    'westport-ct': [
+      { url: '/stamford-ct/', text: 'Stamford, CT' },
+      { url: '/darien-ct/', text: 'Darien, CT' },
+      { url: '/fairfield-ct/', text: 'Fairfield, CT' },
+      { url: '/greenwich-ct/', text: 'Greenwich, CT' },
+    ],
+    'fairfield-ct': [
+      { url: '/stamford-ct/', text: 'Stamford, CT' },
+      { url: '/darien-ct/', text: 'Darien, CT' },
+      { url: '/westport-ct/', text: 'Westport, CT' },
+      { url: '/greenwich-ct/', text: 'Greenwich, CT' },
+    ],
+    'newtown-ct': [
+      { url: '/fairfield-ct/', text: 'Fairfield, CT' },
+      { url: '/stamford-ct/', text: 'Stamford, CT' },
+      { url: '/darien-ct/', text: 'Darien, CT' },
+    ],
     'white-plains-ny': [
       { url: '/scarsdale-ny/', text: 'Scarsdale, NY' },
       { url: '/new-rochelle-ny/', text: 'New Rochelle, NY' },
@@ -279,16 +334,88 @@ export function getRelatedLocations(currentLocationPath: string): InternalLink[]
       { url: '/stamford-ct/', text: 'Stamford, CT' },
       { url: '/suffern-ny/', text: 'Suffern, NY' },
     ],
+    'new-rochelle-ny': [
+      { url: '/white-plains-ny/', text: 'White Plains, NY' },
+      { url: '/scarsdale-ny/', text: 'Scarsdale, NY' },
+      { url: '/westchester-county-ny/', text: 'Westchester County, NY' },
+      { url: '/stamford-ct/', text: 'Stamford, CT' },
+    ],
+    'scarsdale-ny': [
+      { url: '/white-plains-ny/', text: 'White Plains, NY' },
+      { url: '/new-rochelle-ny/', text: 'New Rochelle, NY' },
+      { url: '/westchester-county-ny/', text: 'Westchester County, NY' },
+      { url: '/stamford-ct/', text: 'Stamford, CT' },
+    ],
+    'westchester-county-ny': [
+      { url: '/white-plains-ny/', text: 'White Plains, NY' },
+      { url: '/scarsdale-ny/', text: 'Scarsdale, NY' },
+      { url: '/new-rochelle-ny/', text: 'New Rochelle, NY' },
+      { url: '/stamford-ct/', text: 'Stamford, CT' },
+      { url: '/suffern-ny/', text: 'Suffern, NY' },
+    ],
+    'suffern-ny': [
+      { url: '/white-plains-ny/', text: 'White Plains, NY' },
+      { url: '/westchester-county-ny/', text: 'Westchester County, NY' },
+      { url: '/bergen-county-nj/', text: 'Bergen County, NJ' },
+    ],
+    'hauppauge-ny': [
+      { url: '/smithtown-ny/', text: 'Smithtown, NY' },
+      { url: '/long-island-ny/', text: 'Long Island, NY' },
+      { url: '/nassau-county-ny/', text: 'Nassau County, NY' },
+      { url: '/suffolk-county-ny/', text: 'Suffolk County, NY' },
+    ],
+    'smithtown-ny': [
+      { url: '/hauppauge-ny/', text: 'Hauppauge, NY' },
+      { url: '/long-island-ny/', text: 'Long Island, NY' },
+      { url: '/suffolk-county-ny/', text: 'Suffolk County, NY' },
+      { url: '/nassau-county-ny/', text: 'Nassau County, NY' },
+    ],
+    'elizabeth-nj': [
+      { url: '/bergen-county-nj/', text: 'Bergen County, NJ' },
+      { url: '/queens-ny/', text: 'Queens, NY' },
+      { url: '/brooklyn-ny/', text: 'Brooklyn, NY' },
+    ],
+    'bergen-county-nj': [
+      { url: '/suffern-ny/', text: 'Suffern, NY' },
+      { url: '/white-plains-ny/', text: 'White Plains, NY' },
+      { url: '/queens-ny/', text: 'Queens, NY' },
+      { url: '/paramus-nj/', text: 'Paramus, NJ' },
+    ],
+    'teaneck-nj': [
+      { url: '/bergen-county-nj/', text: 'Bergen County, NJ' },
+      { url: '/paramus-nj/', text: 'Paramus, NJ' },
+      { url: '/queens-ny/', text: 'Queens, NY' },
+      { url: '/white-plains-ny/', text: 'White Plains, NY' },
+    ],
+    'paramus-nj': [
+      { url: '/bergen-county-nj/', text: 'Bergen County, NJ' },
+      { url: '/queens-ny/', text: 'Queens, NY' },
+      { url: '/white-plains-ny/', text: 'White Plains, NY' },
+    ],
+    'norwalk-ct': [
+      { url: '/stamford-ct/', text: 'Stamford, CT' },
+      { url: '/westport-ct/', text: 'Westport, CT' },
+      { url: '/darien-ct/', text: 'Darien, CT' },
+      { url: '/fairfield-ct/', text: 'Fairfield, CT' },
+    ],
+    'edison-nj': [
+      { url: '/elizabeth-nj/', text: 'Elizabeth, NJ' },
+      { url: '/bergen-county-nj/', text: 'Bergen County, NJ' },
+      { url: '/queens-ny/', text: 'Queens, NY' },
+    ],
+    'jackson-nj': [
+      { url: '/bergen-county-nj/', text: 'Bergen County, NJ' },
+      { url: '/elizabeth-nj/', text: 'Elizabeth, NJ' },
+      { url: '/long-island-ny/', text: 'Long Island, NY' },
+    ],
   };
 
-  // Try to match current path
   for (const [key, links] of Object.entries(locationMap)) {
     if (currentLocationPath.includes(key)) {
       return links;
     }
   }
 
-  // Default: return top locations
   return [
     { url: '/queens-ny/', text: 'Queens, NY' },
     { url: '/brooklyn-ny/', text: 'Brooklyn, NY' },

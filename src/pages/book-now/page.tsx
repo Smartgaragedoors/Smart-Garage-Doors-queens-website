@@ -88,8 +88,11 @@ export default function BookNowPage() {
               Schedule your garage door repair or installation with Smartest Garage Doors. 
               Fast, reliable service across NY, NJ, and CT.
             </p>
-            <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto text-red-100 font-semibold">
+            <p className="text-lg md:text-xl mb-4 max-w-3xl mx-auto text-red-100 font-semibold">
               5-star rated local technicians • Most calls booked within minutes • Same-day slots often available.
+            </p>
+            <p className="text-base md:text-lg mb-8 max-w-3xl mx-auto text-red-200">
+              Book garage door repair, installation, spring replacement, opener service, cable & roller, maintenance, and more.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 

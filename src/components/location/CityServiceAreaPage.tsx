@@ -6,6 +6,8 @@ import DynamicMetaTags from '../../components/seo/DynamicMetaTags';
 import FAQSchema from '../../components/seo/FAQSchema';
 import LocalBusinessSchema from '../../components/seo/LocalBusinessSchema';
 import ServiceLinks from '../../components/seo/ServiceLinks';
+import NearbyAreasSection from '../../components/seo/NearbyAreasSection';
+import BookingCTABar from '../../components/conversion/BookingCTABar';
 import { Location } from '../../config/locations';
 import { BUSINESS_INFO } from '../../config/business-info';
 import { buildCanonical } from '../../config/canonical';
@@ -96,6 +98,11 @@ export default function CityServiceAreaPage({ location }: CityServiceAreaPagePro
         </div>
       </section>
 
+      <BookingCTABar
+        title={`Ready for Garage Door Service in ${location.city}?`}
+        subtitle={`Same-day service • Licensed & insured • Free estimate in ${location.city}, ${location.stateAbbr}`}
+      />
+
       {/* Quick Answers FAQ (Above the fold for LLMs) */}
       {location.faqs && location.faqs.length > 0 && (
         <section className="py-12 bg-gray-50">
@@ -128,6 +135,9 @@ export default function CityServiceAreaPage({ location }: CityServiceAreaPagePro
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed">
               {location.uniqueAngle || `Smartest Garage Doors provides professional garage door repair and installation throughout ${location.city}, ${location.stateAbbr}. Our technicians serve ${location.city}${location.county ? ` and ${location.county}` : ' and surrounding areas'} with same-day service, emergency repairs, and expert installation.`}
+            </p>
+            <p className="text-lg text-gray-700 leading-relaxed mt-4">
+              Whether you need <a href="/garage-door-repair/" className="text-blue-600 hover:text-blue-700 font-medium">garage door repair</a>, <a href="/garage-door-installation/" className="text-blue-600 hover:text-blue-700 font-medium">new door installation</a>, or <a href="/emergency-garage-door-repair/" className="text-blue-600 hover:text-blue-700 font-medium">24/7 emergency service</a>, our licensed technicians provide fast, reliable solutions for {location.city} homeowners and businesses.
             </p>
           </div>
         </div>
@@ -312,7 +322,7 @@ export default function CityServiceAreaPage({ location }: CityServiceAreaPagePro
             Ready for Professional Garage Door Service in {location.city}?
           </h2>
           <p className="text-xl mb-8 text-blue-100">
-            Same-day service available. Contact Smartest Garage Doors for fast, reliable service throughout {location.city}, {location.stateAbbr}.
+            Same-day service available. Get a free estimate—our technicians typically respond within 60–90 minutes for emergencies. Licensed and insured throughout {location.city}, {location.stateAbbr}.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
@@ -333,6 +343,7 @@ export default function CityServiceAreaPage({ location }: CityServiceAreaPagePro
         </div>
       </section>
 
+      <NearbyAreasSection currentPath={`/${location.slug}/`} cityName={location.city} />
       <ServiceLinks />
       <Footer />
     </div>

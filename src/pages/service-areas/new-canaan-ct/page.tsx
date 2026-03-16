@@ -1,5 +1,5 @@
-
 import { useEffect } from 'react';
+import { buildCanonical } from '../../../config/canonical';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
 import Services from '../../../components/feature/Services';
@@ -8,10 +8,9 @@ import Contact from '../../../components/feature/Contact';
 import Breadcrumbs from '../../../components/seo/Breadcrumbs';
 import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
 import ServiceLinks from '../../../components/seo/ServiceLinks';
+import NearbyAreasSection from '../../../components/seo/NearbyAreasSection';
 
 export default function NewCanaanCTPage() {
-  const siteUrl = import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com';
-
   useEffect(() => {
     // Schema.org structured data
     const script = document.createElement('script');
@@ -21,7 +20,7 @@ export default function NewCanaanCTPage() {
       "@type": "LocalBusiness",
       "name": "Smart Garage Doors - New Canaan CT",
       "description": "Professional garage door repair and installation services in New Canaan, CT",
-      "url": "https://www.smartestgaragedoors.com/new-canaan-ct/",
+      "url": buildCanonical('/new-canaan-ct'),
       "telephone": "(914) 557-6816",
       "email": "info@smartestgaragedoors.com",
       "address": {
@@ -53,7 +52,7 @@ export default function NewCanaanCTPage() {
         title="New Canaan CT Garage Door Repair & Installation | Smartest Garage Doors"
         description="Garage door repair in New Canaan, CT. 5.0★, 392 reviews. Same-day service, emergency repairs. Licensed & insured."
         keywords="garage door repair New Canaan CT, garage door installation New Canaan, emergency garage door repair Connecticut"
-        canonical={`${siteUrl}/new-canaan-ct/`}
+        canonical={buildCanonical('/new-canaan-ct')}
       />
       <Header />
       <Breadcrumbs />
@@ -83,10 +82,10 @@ export default function NewCanaanCTPage() {
                 Call (914) 557-6816
               </a>
               <a 
-                href="#contact"
+                href="/book-now/"
                 className="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-4 rounded-lg font-semibold text-lg transition-colors inline-flex items-center justify-center whitespace-nowrap"
               >
-                Get Free Quote
+                Book Now
               </a>
             </div>
           </div>
@@ -102,7 +101,7 @@ export default function NewCanaanCTPage() {
                 Expert Garage Door Service in New Canaan, CT
               </h2>
               <p className="text-gray-600 mb-6">
-                Smart Garage Doors provides exceptional garage door services to New Canaan, Connecticut residents. We appreciate the classic charm and architectural beauty of New Canaan homes and offer garage door solutions that complement your property's unique character while providing modern functionality and security.
+                Smart Garage Doors provides exceptional garage door services to New Canaan, Connecticut residents. We appreciate the classic charm and architectural beauty of New Canaan homes and offer <a href="/garage-door-installation/" className="text-blue-600 hover:text-blue-700 font-medium">garage door solutions</a> that complement your property's unique character while providing modern functionality and security. For <a href="/garage-door-repair/" className="text-blue-600 hover:text-blue-700 font-medium">repairs</a> or <a href="/emergency-garage-door-repair/" className="text-blue-600 hover:text-blue-700 font-medium">emergency service</a>, we're here 24/7.
               </p>
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div className="text-center p-4 bg-white rounded-lg shadow">
@@ -146,6 +145,7 @@ export default function NewCanaanCTPage() {
       <Services />
       <Reviews />
       <Contact />
+      <NearbyAreasSection currentPath="/new-canaan-ct/" cityName="New Canaan" />
       <ServiceLinks 
         title="Complete Garage Door Services in New Canaan, CT"
         showDescription={true}

@@ -1,5 +1,5 @@
-
 import { useEffect } from 'react';
+import { buildCanonical } from '../../../config/canonical';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
 import Services from '../../../components/feature/Services';
@@ -8,10 +8,9 @@ import Contact from '../../../components/feature/Contact';
 import Breadcrumbs from '../../../components/seo/Breadcrumbs';
 import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
 import ServiceLinks from '../../../components/seo/ServiceLinks';
+import NearbyAreasSection from '../../../components/seo/NearbyAreasSection';
 
 export default function WestportCTPage() {
-  const siteUrl = import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com';
-
   useEffect(() => {
     // Schema.org structured data
     const script = document.createElement('script');
@@ -53,7 +52,7 @@ export default function WestportCTPage() {
         title="Westport CT Garage Door Repair & Installation | Smartest Garage Doors"
         description="Garage door repair in Westport, CT. 5.0★, 392 reviews. Same-day service, emergency repairs. Licensed & insured."
         keywords="garage door repair Westport CT, garage door installation Westport, emergency garage door repair Connecticut"
-        canonical={`${siteUrl}/westport-ct/`}
+        canonical={buildCanonical('/westport-ct')}
       />
       <Header />
       <Breadcrumbs />
@@ -102,7 +101,7 @@ export default function WestportCTPage() {
                 Premium Garage Door Service in Westport, CT
               </h2>
               <p className="text-gray-600 mb-6">
-                Smart Garage Doors serves Westport, Connecticut with premium garage door services tailored to coastal living. Our expertise in salt-air resistant materials and luxury installations makes us the preferred choice for Westport's discerning homeowners who demand both beauty and durability.
+                Smart Garage Doors serves Westport, Connecticut with premium garage door services tailored to coastal living. Our expertise in salt-air resistant materials and luxury <a href="/garage-door-installation/" className="text-blue-600 hover:text-blue-700 font-medium">installations</a> makes us the preferred choice for Westport's discerning homeowners who demand both beauty and durability. We also provide <a href="/garage-door-repair/" className="text-blue-600 hover:text-blue-700 font-medium">repairs</a> and <a href="/emergency-garage-door-repair/" className="text-blue-600 hover:text-blue-700 font-medium">24/7 emergency service</a>.
               </p>
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div className="text-center p-4 bg-white rounded-lg shadow">
@@ -146,6 +145,7 @@ export default function WestportCTPage() {
       <Services />
       <Reviews />
       <Contact />
+      <NearbyAreasSection currentPath="/westport-ct/" cityName="Westport" />
       <ServiceLinks 
         title="Complete Garage Door Services in Westport, CT"
         showDescription={true}

@@ -3,6 +3,7 @@ import Footer from '../../../components/feature/Footer';
 import Breadcrumbs from '../../../components/seo/Breadcrumbs';
 import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
 import ServiceLinks from '../../../components/seo/ServiceLinks';
+import NearbyAreasSection from '../../../components/seo/NearbyAreasSection';
 import { buildCanonical } from '../../../config/canonical';
 
 const BergenCountyNJ = () => {
@@ -359,13 +360,14 @@ const BergenCountyNJ = () => {
             <a href="tel:+19145576816" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap">
               Call (914) 557-6816
             </a>
-            <a href="/contact" className="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap">
+            <a href="/book-now/" className="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap inline-block text-center">
               Schedule Service Online
             </a>
           </div>
         </div>
       </section>
 
+      <NearbyAreasSection currentPath="/bergen-county-nj/" cityName="Bergen County" />
       <ServiceLinks 
         title="Complete Garage Door Services in Bergen County, NJ"
         showDescription={true}

@@ -6,8 +6,10 @@ import DynamicMetaTags from '../../components/seo/DynamicMetaTags';
 import FAQSchema from '../../components/seo/FAQSchema';
 import RelatedServices from '../../components/seo/RelatedServices';
 import ServiceAreaLinks from '../../components/seo/ServiceAreaLinks';
+import BookingCTABar from '../../components/conversion/BookingCTABar';
 import { useLocation } from '../../contexts/LocationContext';
 import { BUSINESS_INFO } from '../../config/business-info';
+import { buildCanonical } from '../../config/canonical';
 
 export default function GarageDoorRepairPage() {
   const { location, locationName, isLoading } = useLocation();
@@ -85,7 +87,7 @@ export default function GarageDoorRepairPage() {
             "@type": "Service",
             "name": "Garage Door Repair Services",
             "description": "Professional garage door repair services in NY, NJ & CT. Same-day service, licensed technicians, all brands.",
-            "url": `${import.meta.env.VITE_SITE_URL || "https://www.smartestgaragedoors.com"}/garage-door-repair/`,
+            "url": buildCanonical('/garage-door-repair'),
             "provider": {
               "@type": "LocalBusiness",
               "name": "Smart Garage Doors",
@@ -181,7 +183,7 @@ export default function GarageDoorRepairPage() {
               "priceRange": "$$",
               "priceCurrency": "USD",
               "availability": "https://schema.org/InStock",
-              "url": `${import.meta.env.VITE_SITE_URL || "https://www.smartestgaragedoors.com"}/garage-door-repair/`
+              "url": buildCanonical('/garage-door-repair')
             }
           })
         }}
@@ -229,6 +231,11 @@ export default function GarageDoorRepairPage() {
           </div>
         </div>
       </section>
+
+      <BookingCTABar
+        title="Ready to Schedule Your Repair?"
+        subtitle="Same-day service • Licensed & insured • 5-Star rated • Free estimate"
+      />
 
       {/* Repair Process */}
       <section className="py-16 bg-gray-50">

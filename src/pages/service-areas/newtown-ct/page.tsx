@@ -1,5 +1,5 @@
-
 import { useEffect } from 'react';
+import { buildCanonical } from '../../../config/canonical';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
 import Services from '../../../components/feature/Services';
@@ -8,10 +8,9 @@ import Contact from '../../../components/feature/Contact';
 import Breadcrumbs from '../../../components/seo/Breadcrumbs';
 import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
 import ServiceLinks from '../../../components/seo/ServiceLinks';
+import NearbyAreasSection from '../../../components/seo/NearbyAreasSection';
 
 export default function NewtownCTPage() {
-  const siteUrl = import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com';
-
   useEffect(() => {
     // Schema.org structured data
     const script = document.createElement('script');
@@ -53,7 +52,7 @@ export default function NewtownCTPage() {
         title="Newtown CT Garage Door Repair & Installation | Smartest Garage Doors"
         description="Garage door repair in Newtown, CT. 5.0★, 392 reviews. Same-day service, emergency repairs. Licensed & insured."
         keywords="garage door repair Newtown CT, garage door installation Newtown, emergency garage door repair Connecticut"
-        canonical={`${siteUrl}/newtown-ct/`}
+        canonical={buildCanonical('/newtown-ct')}
       />
       <Header />
       <Breadcrumbs />
@@ -102,7 +101,7 @@ export default function NewtownCTPage() {
                 Trusted Garage Door Service in Newtown, CT
               </h2>
               <p className="text-gray-600 mb-6">
-                Smart Garage Doors proudly serves Newtown, Connecticut families with reliable garage door repair and installation services. We understand the importance of home security and convenience for Newtown residents and provide dependable solutions that keep your family safe and your garage door operating smoothly year-round.
+                Smart Garage Doors proudly serves Newtown, Connecticut families with reliable <a href="/garage-door-repair/" className="text-blue-600 hover:text-blue-700 font-medium">garage door repair</a> and <a href="/garage-door-installation/" className="text-blue-600 hover:text-blue-700 font-medium">installation</a> services. We understand the importance of home security and convenience for Newtown residents and provide dependable solutions that keep your family safe and your garage door operating smoothly year-round. For urgent issues, our <a href="/emergency-garage-door-repair/" className="text-blue-600 hover:text-blue-700 font-medium">24/7 emergency service</a> is available.
               </p>
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div className="text-center p-4 bg-white rounded-lg shadow">
@@ -146,6 +145,7 @@ export default function NewtownCTPage() {
       <Services />
       <Reviews />
       <Contact />
+      <NearbyAreasSection currentPath="/newtown-ct/" cityName="Newtown" />
       <ServiceLinks 
         title="Complete Garage Door Services in Newtown, CT"
         showDescription={true}

@@ -4,6 +4,7 @@ import Footer from '../../components/feature/Footer';
 import Breadcrumbs from '../../components/seo/Breadcrumbs';
 import DynamicMetaTags from '../../components/seo/DynamicMetaTags';
 import FAQSchema from '../../components/seo/FAQSchema';
+import { buildCanonical } from '../../config/canonical';
 import { getAllLocations, getLocationsByState } from '../../config/locations';
 
 // Organize locations by state
@@ -53,15 +54,13 @@ const faqs = [
 ];
 
 export default function ServiceAreasPage() {
-  const siteUrl = import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com';
-
   return (
     <div className="min-h-screen bg-white">
       <DynamicMetaTags
         title="Service Areas | Garage Door Repair NY NJ CT | Smartest Garage Doors"
         description="Professional garage door services throughout New York, New Jersey, and Connecticut. Serving Brooklyn, Queens, Stamford, Greenwich, Bergen County, and more. Same-day service and 24/7 emergency repairs available."
         keywords="garage door service areas, NY garage door repair, NJ garage door repair, CT garage door repair, tri-state garage door service"
-        canonical={`${siteUrl}/service-areas/`}
+        canonical={buildCanonical('/service-areas')}
       />
       <Header />
       <Breadcrumbs />

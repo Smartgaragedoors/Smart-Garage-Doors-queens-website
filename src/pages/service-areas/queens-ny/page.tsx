@@ -1,10 +1,11 @@
-
 import { useEffect } from 'react';
+import { buildCanonical } from '../../../config/canonical';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
 import Breadcrumbs from '../../../components/seo/Breadcrumbs';
 import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
 import ServiceLinks from '../../../components/seo/ServiceLinks';
+import NearbyAreasSection from '../../../components/seo/NearbyAreasSection';
 
 const QueensNY = () => {
   useEffect(() => {
@@ -16,7 +17,7 @@ const QueensNY = () => {
       "@type": "LocalBusiness",
       "name": "Smart Garage Doors - Queens NY",
       "description": "Professional garage door repair and installation services in Queens, New York",
-      "url": `${import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com'}/queens-ny/`,
+      "url": buildCanonical('/queens-ny'),
       "telephone": "(914) 557-6816",
       "address": {
         "@type": "PostalAddress",
@@ -68,7 +69,7 @@ const QueensNY = () => {
         title="Queens NY Garage Door Repair | Smartest Garage Doors | 24/7"
         description="Garage door repair in Queens, NY. 5.0★, 392 reviews. Same-day service, emergency repairs. Licensed & insured."
         keywords="Queens NY garage door repair, garage door installation Queens, emergency garage door service"
-        canonical={`${import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com'}/queens-ny/`}
+        canonical={buildCanonical('/queens-ny')}
       />
       <Header />
       <Breadcrumbs />
@@ -573,7 +574,7 @@ const QueensNY = () => {
         </div>
       </section>
 
-      {/* Service Links - Creates incoming internal links to service pages */}
+      <NearbyAreasSection currentPath="/queens-ny/" cityName="Queens" />
       <ServiceLinks 
         title="Complete Garage Door Services in Queens, NY"
         showDescription={true}

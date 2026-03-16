@@ -121,8 +121,8 @@ const ContactPage = () => {
               <a href="tel:+19145576816" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap">
                 Call Now: (914) 557-6816
               </a>
-              <a href="#schedule-form" className="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap">
-                Schedule Online
+              <a href="/book-now/" className="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap">
+                Book Now
               </a>
             </div>
           </div>

@@ -126,14 +126,20 @@ export default function MaintenancePage() {
               Keep your garage door running smoothly year-round with our comprehensive maintenance plans. Prevent costly repairs and extend your door's lifespan with regular professional service across NYC, Westchester, and Connecticut.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 text-lg rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center justify-center whitespace-nowrap">
+              <a 
+                href="tel:+19145576816"
+                className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 text-lg rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center justify-center whitespace-nowrap"
+              >
                 <i className="ri-phone-fill mr-2"></i>
                 Call: (914) 557-6816
-              </button>
-              <button className="bg-green-600 text-white hover:bg-green-700 px-8 py-4 text-lg rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center justify-center whitespace-nowrap">
+              </a>
+              <a 
+                href="/book-now/"
+                className="bg-green-600 text-white hover:bg-green-700 px-8 py-4 text-lg rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center justify-center whitespace-nowrap"
+              >
                 <i className="ri-calendar-line mr-2"></i>
-                Schedule Maintenance
-              </button>
+                Book Now
+              </a>
             </div>
           </div>
         </div>
@@ -181,7 +187,7 @@ export default function MaintenancePage() {
                 </li>
               </ul>
               
-              <Button variant="outline" className="w-full border-green-600 text-green-600 hover:bg-green-600 hover:text-white">
+              <Button variant="outline" href="/book-now/?service=maintenance" className="w-full border-green-600 text-green-600 hover:bg-green-600 hover:text-white">
                 Choose Basic
               </Button>
             </div>
@@ -281,7 +287,7 @@ export default function MaintenancePage() {
                 </li>
               </ul>
               
-              <Button variant="outline" className="w-full border-green-600 text-green-600 hover:bg-green-600 hover:text-white">
+              <Button variant="outline" href="/book-now/?service=maintenance" className="w-full border-green-600 text-green-600 hover:bg-green-600 hover:text-white">
                 Choose Elite
               </Button>
             </div>

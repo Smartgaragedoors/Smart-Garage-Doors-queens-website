@@ -2,6 +2,7 @@
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
 import ServiceLinks from '../../../components/seo/ServiceLinks';
+import NearbyAreasSection from '../../../components/seo/NearbyAreasSection';
 
 export default function TeaneckNJPage() {
   return (
@@ -260,6 +261,7 @@ export default function TeaneckNJPage() {
         </div>
       </section>
 
+      <NearbyAreasSection currentPath="/teaneck-nj/" cityName="Teaneck" />
       <ServiceLinks 
         title="Complete Garage Door Services in Teaneck, NJ"
         showDescription={true}

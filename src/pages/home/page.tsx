@@ -1,6 +1,7 @@
 import { useEffect, lazy, Suspense } from 'react';
 import { useLocation as useRouterLocation } from 'react-router-dom';
 import Hero from '../../components/feature/Hero';
+import BookingCTABar from '../../components/conversion/BookingCTABar';
 import Services from '../../components/feature/Services';
 import About from '../../components/feature/About';
 import WhyChooseUs from '../../components/feature/WhyChooseUs';
@@ -52,6 +53,7 @@ export default function HomePage() {
       <LocalBusinessSchema />
       <Header />
       <Hero />
+      <BookingCTABar title="Ready to Schedule Service?" />
       <Services />
       <About />
       <WhyChooseUs />

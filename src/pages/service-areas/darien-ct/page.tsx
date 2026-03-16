@@ -1,5 +1,5 @@
-
 import { useEffect } from 'react';
+import { buildCanonical } from '../../../config/canonical';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
 import Services from '../../../components/feature/Services';
@@ -8,10 +8,9 @@ import Contact from '../../../components/feature/Contact';
 import Breadcrumbs from '../../../components/seo/Breadcrumbs';
 import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
 import ServiceLinks from '../../../components/seo/ServiceLinks';
+import NearbyAreasSection from '../../../components/seo/NearbyAreasSection';
 
 export default function DarienCTPage() {
-  const siteUrl = import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com';
-
   useEffect(() => {
     // Schema.org structured data
     const script = document.createElement('script');
@@ -53,7 +52,7 @@ export default function DarienCTPage() {
         title="Darien CT Garage Door Repair & Installation | Smartest Garage Doors"
         description="Garage door repair in Darien, CT. 5.0★, 392 reviews. Same-day service, emergency repairs. Licensed & insured."
         keywords="garage door repair Darien CT, garage door installation Darien, emergency garage door repair Connecticut"
-        canonical={`${siteUrl}/darien-ct/`}
+        canonical={buildCanonical('/darien-ct')}
       />
       <Header />
       <Breadcrumbs />
@@ -83,7 +82,7 @@ export default function DarienCTPage() {
                 Call (914) 557-6816
               </a>
               <a 
-                href="#contact"
+                href="/book-now/"
                 className="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-4 rounded-lg font-semibold text-lg transition-colors inline-flex items-center justify-center whitespace-nowrap"
               >
                 Get Free Quote
@@ -102,7 +101,7 @@ export default function DarienCTPage() {
                 Trusted Garage Door Service in Darien, CT
               </h2>
               <p className="text-gray-600 mb-6">
-                Smart Garage Doors proudly serves Darien, Connecticut with professional garage door repair and installation services. Our team understands the coastal Connecticut climate and provides durable solutions that withstand the elements while maintaining the aesthetic appeal of your Darien home.
+                Smart Garage Doors proudly serves Darien, Connecticut with professional <a href="/garage-door-repair/" className="text-blue-600 hover:text-blue-700 font-medium">garage door repair</a> and <a href="/garage-door-installation/" className="text-blue-600 hover:text-blue-700 font-medium">installation</a> services. Our team understands the coastal Connecticut climate and provides durable solutions that withstand the elements while maintaining the aesthetic appeal of your Darien home. <a href="/emergency-garage-door-repair/" className="text-blue-600 hover:text-blue-700 font-medium">Emergency service</a> is available 24/7.
               </p>
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div className="text-center p-4 bg-white rounded-lg shadow">
@@ -146,6 +145,7 @@ export default function DarienCTPage() {
       <Services />
       <Reviews />
       <Contact />
+      <NearbyAreasSection currentPath="/darien-ct/" cityName="Darien" />
       <ServiceLinks 
         title="Complete Garage Door Services in Darien, CT"
         showDescription={true}

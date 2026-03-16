@@ -161,14 +161,20 @@ export default function SpringReplacementPage() {
               Safe and professional replacement of broken garage door springs. We handle both torsion and extension springs with same-day service across NYC, Westchester, and Connecticut. Don't risk injury - call the professionals.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-white text-orange-600 hover:bg-gray-100 px-8 py-4 text-lg rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center justify-center whitespace-nowrap">
+              <a 
+                href="tel:+19145576816"
+                className="bg-white text-orange-600 hover:bg-gray-100 px-8 py-4 text-lg rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center justify-center whitespace-nowrap"
+              >
                 <i className="ri-phone-fill mr-2"></i>
                 Call: (914) 557-6816
-              </button>
-              <button className="bg-orange-600 text-white hover:bg-orange-700 px-8 py-4 text-lg rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center justify-center whitespace-nowrap">
+              </a>
+              <a 
+                href="/book-now/"
+                className="bg-orange-600 text-white hover:bg-orange-700 px-8 py-4 text-lg rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center justify-center whitespace-nowrap"
+              >
                 <i className="ri-calendar-line mr-2"></i>
-                Schedule Service
-              </button>
+                Book Now
+              </a>
             </div>
           </div>
         </div>

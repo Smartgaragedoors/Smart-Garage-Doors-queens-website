@@ -1,14 +1,13 @@
-
 import { useEffect } from 'react';
+import { buildCanonical } from '../../../config/canonical';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
 import Breadcrumbs from '../../../components/seo/Breadcrumbs';
 import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
 import ServiceLinks from '../../../components/seo/ServiceLinks';
+import NearbyAreasSection from '../../../components/seo/NearbyAreasSection';
 
 export default function SuffernNY() {
-  const siteUrl = import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com';
-  
   useEffect(() => {
     // Add geo tags for Suffern, NY
     const geoPosition = document.querySelector('meta[name="geo.position"]') || document.createElement('meta');
@@ -40,7 +39,7 @@ export default function SuffernNY() {
       "@type": "LocalBusiness",
       "name": "Smart Garage Doors - Suffern NY",
       "description": "Professional garage door repair and installation services in Suffern, New York",
-      "url": `${import.meta.env.VITE_SITE_URL || "https://www.smartestgaragedoors.com"}/suffern-ny/`,
+      "url": buildCanonical('/suffern-ny'),
       "telephone": "(914) 557-6816",
       "address": {
         "@type": "PostalAddress",
@@ -89,7 +88,7 @@ export default function SuffernNY() {
         document.head.removeChild(script);
       }
     };
-  }, [siteUrl]);
+  }, []);
 
   return (
     <div className="min-h-screen">
@@ -97,7 +96,7 @@ export default function SuffernNY() {
         title="Suffern NY Garage Door Repair & Installation | Smartest Garage Doors"
         description="Garage door repair in Suffern, NY. 5.0★, 392 reviews. 24/7 emergency, same-day service. Licensed & insured."
         keywords="garage door repair Suffern NY, garage door installation Suffern, emergency garage door service Suffern"
-        canonical={`${siteUrl}/suffern-ny/`}
+        canonical={buildCanonical('/suffern-ny')}
       />
       <Header />
       <Breadcrumbs />
@@ -126,10 +125,10 @@ export default function SuffernNY() {
                 Call Now: (914) 557-6816
               </a>
               <a 
-                href="#contact" 
+                href="/book-now/" 
                 className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-lg font-semibold text-lg transition-colors whitespace-nowrap"
               >
-                Get Free Quote
+                Book Now
               </a>
             </div>
           </div>
@@ -269,7 +268,7 @@ export default function SuffernNY() {
               Call (914) 557-6816
             </a>
             <a 
-              href="/contact" 
+              href="/book-now/" 
               className="border-2 border-white text-white hover:bg-white hover:text-orange-500 px-8 py-4 rounded-lg font-semibold text-lg transition-colors whitespace-nowrap"
             >
               Schedule Service
@@ -278,6 +277,7 @@ export default function SuffernNY() {
         </div>
       </section>
 
+      <NearbyAreasSection currentPath="/suffern-ny/" cityName="Suffern" />
       <ServiceLinks 
         title="Complete Garage Door Services in Suffern, NY"
         showDescription={true}

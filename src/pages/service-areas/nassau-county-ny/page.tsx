@@ -1,4 +1,4 @@
-
+import { buildCanonical } from '../../../config/canonical';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
 import Breadcrumbs from '../../../components/seo/Breadcrumbs';
@@ -6,15 +6,13 @@ import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
 import ServiceLinks from '../../../components/seo/ServiceLinks';
 
 const NassauCountyNY = () => {
-  const siteUrl = import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com';
-
   return (
     <div className="min-h-screen bg-white">
       <DynamicMetaTags 
         title="Nassau County NY Garage Door Repair | Smartest Garage Doors | 24/7"
         description="Garage door repair in Nassau County, NY. 5.0★, 392 reviews. Same-day service, emergency repairs. Licensed & insured."
         keywords="Nassau County NY garage door repair, garage door installation Nassau County, emergency garage door service"
-        canonical={`${siteUrl}/nassau-county-ny/`}
+        canonical={buildCanonical('/nassau-county-ny')}
       />
       <Header />
       <Breadcrumbs />
@@ -340,13 +338,14 @@ const NassauCountyNY = () => {
             <a href="tel:+19145576816" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap">
               Call (914) 557-6816
             </a>
-            <button className="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap">
+            <a href="/book-now/" className="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap inline-block text-center">
               Schedule Service Online
-            </button>
+            </a>
           </div>
         </div>
       </section>
 
+      <NearbyAreasSection currentPath="/nassau-county-ny/" cityName="Nassau County" />
       <ServiceLinks 
         title="Complete Garage Door Services in Nassau County, NY"
         showDescription={true}

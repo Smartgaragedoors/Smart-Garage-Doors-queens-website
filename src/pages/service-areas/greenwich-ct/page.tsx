@@ -1,5 +1,5 @@
-
 import { useEffect } from 'react';
+import { buildCanonical } from '../../../config/canonical';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
 import Services from '../../../components/feature/Services';
@@ -8,10 +8,9 @@ import Contact from '../../../components/feature/Contact';
 import Breadcrumbs from '../../../components/seo/Breadcrumbs';
 import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
 import ServiceLinks from '../../../components/seo/ServiceLinks';
+import NearbyAreasSection from '../../../components/seo/NearbyAreasSection';
 
 export default function GreenwichCTPage() {
-  const siteUrl = import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com';
-
   useEffect(() => {
     // Schema.org structured data
     const script = document.createElement('script');
@@ -53,7 +52,7 @@ export default function GreenwichCTPage() {
         title="Greenwich CT Garage Door Repair & Installation | Smartest Garage Doors"
         description="Garage door repair in Greenwich, CT. 5.0★, 392 reviews. Same-day service, emergency repairs. Licensed & insured."
         keywords="garage door repair Greenwich CT, garage door installation Greenwich, emergency garage door repair Connecticut"
-        canonical={`${siteUrl}/greenwich-ct/`}
+        canonical={buildCanonical('/greenwich-ct')}
       />
       <Header />
       <Breadcrumbs />
@@ -83,10 +82,10 @@ export default function GreenwichCTPage() {
                 Call (914) 557-6816
               </a>
               <a 
-                href="#contact"
+                href="/book-now/"
                 className="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-4 rounded-lg font-semibold text-lg transition-colors inline-flex items-center justify-center whitespace-nowrap"
               >
-                Get Free Quote
+                Book Now
               </a>
             </div>
           </div>
@@ -102,7 +101,7 @@ export default function GreenwichCTPage() {
                 Premium Garage Door Service in Greenwich, CT
               </h2>
               <p className="text-gray-600 mb-6">
-                Smart Garage Doors provides exceptional garage door services to Greenwich, Connecticut's discerning homeowners. We understand the high standards expected in Greenwich and deliver premium quality installations, repairs, and maintenance services that match the elegance of your home.
+                Smart Garage Doors provides exceptional garage door services to Greenwich, Connecticut's discerning homeowners. We understand the high standards expected in Greenwich and deliver premium quality <a href="/garage-door-installation/" className="text-blue-600 hover:text-blue-700 font-medium">installations</a>, <a href="/garage-door-repair/" className="text-blue-600 hover:text-blue-700 font-medium">repairs</a>, and maintenance services that match the elegance of your home. <a href="/emergency-garage-door-repair/" className="text-blue-600 hover:text-blue-700 font-medium">Emergency service</a> is available 24/7.
               </p>
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div className="text-center p-4 bg-white rounded-lg shadow">
@@ -146,6 +145,7 @@ export default function GreenwichCTPage() {
       <Services />
       <Reviews />
       <Contact />
+      <NearbyAreasSection currentPath="/greenwich-ct/" cityName="Greenwich" />
       <ServiceLinks 
         title="Complete Garage Door Services in Greenwich, CT"
         showDescription={true}

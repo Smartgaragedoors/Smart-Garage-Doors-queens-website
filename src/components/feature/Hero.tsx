@@ -119,13 +119,13 @@ export default function Hero() {
                   <span style={{ overflow: 'hidden', overflowX: 'hidden', overflowY: 'hidden' }}>{ctaText}</span>
                 </a>
                 <a 
-                  href="#contact"
+                  href="/book-now/"
                   onClick={() => trackEvent('cta_click', { category: 'Hero', action: 'schedule_click', label: 'Hero Schedule' })}
                   className="inline-flex items-center justify-center font-bold transition-all duration-300 cursor-pointer whitespace-nowrap bg-white hover:bg-gray-100 text-blue-900 shadow-2xl hover:shadow-3xl px-8 py-4 text-lg rounded-full transform hover:scale-105"
                   style={{ overflow: 'hidden', overflowX: 'hidden', overflowY: 'hidden' }}
                 >
                   <i className="ri-calendar-line mr-3 text-xl" style={{ overflow: 'hidden', overflowX: 'hidden', overflowY: 'hidden' }}></i>
-                  <span style={{ overflow: 'hidden', overflowX: 'hidden', overflowY: 'hidden' }}>Schedule Service</span>
+                  <span style={{ overflow: 'hidden', overflowX: 'hidden', overflowY: 'hidden' }}>Book Now</span>
                 </a>
               </div>
 

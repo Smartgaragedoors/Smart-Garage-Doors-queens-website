@@ -1,4 +1,4 @@
-
+import { buildCanonical } from '../../../config/canonical';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
 import Reviews from '../../../components/feature/Reviews';
@@ -7,15 +7,13 @@ import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
 import ServiceLinks from '../../../components/seo/ServiceLinks';
 
 const NewRochelleNY = () => {
-  const siteUrl = import.meta.env.VITE_SITE_URL || 'https://www.smartestgaragedoors.com';
-
   return (
     <div className="min-h-screen bg-white">
       <DynamicMetaTags 
         title="New Rochelle NY Garage Door Repair | Smartest Garage Doors"
         description="Garage door repair in New Rochelle, NY. 5.0★, 392 reviews. Same-day service, emergency repairs. Licensed & insured."
         keywords="New Rochelle NY garage door repair, garage door installation New Rochelle, emergency garage door service Westchester"
-        canonical={`${siteUrl}/new-rochelle-ny/`}
+        canonical={buildCanonical('/new-rochelle-ny')}
       />
       <Header />
       <Breadcrumbs />
@@ -334,16 +332,25 @@ const NewRochelleNY = () => {
           <p className="text-xl mb-8">
             Contact Smart Garage Doors today for professional garage door services in New Rochelle, NY
           </p>
-          <a
-            href="tel:(914) 557-6816"
-            className="bg-orange-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-orange-600 transition-colors inline-block whitespace-nowrap"
-          >
-            Call Now: (914) 557-6816
-          </a>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="tel:+19145576816"
+              className="bg-orange-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-orange-600 transition-colors inline-block whitespace-nowrap"
+            >
+              Call Now: (914) 557-6816
+            </a>
+            <a
+              href="/book-now/"
+              className="bg-white text-blue-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors inline-block whitespace-nowrap"
+            >
+              Book Now
+            </a>
+          </div>
         </div>
       </div>
 
       <Reviews />
+      <NearbyAreasSection currentPath="/new-rochelle-ny/" cityName="New Rochelle" />
       <ServiceLinks 
         title="Complete Garage Door Services in New Rochelle, NY"
         showDescription={true}

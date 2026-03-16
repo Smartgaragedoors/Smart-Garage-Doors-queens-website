@@ -70,8 +70,8 @@ export default function OpenerRepair() {
               <a href="tel:(914) 557-6816" className="bg-orange-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-orange-600 transition-colors whitespace-nowrap">
                 Call: (914) 557-6816
               </a>
-              <a href="#pricing" className="bg-white text-purple-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap">
-                View Pricing
+              <a href="/book-now/" className="bg-white text-purple-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap">
+                Book Now
               </a>
             </div>
           </div>
