@@ -161,6 +161,11 @@
       "permanent": true
     },
     {
+      "source": "/go/:slug",
+      "destination": "/go/:slug/",
+      "permanent": true
+    },
+    {
       "source": "/:path((?!.*\\.).*[^/])",
       "destination": "/:path/",
       "permanent": true

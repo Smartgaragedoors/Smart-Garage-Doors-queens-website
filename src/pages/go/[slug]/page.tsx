@@ -10,8 +10,14 @@ const SUPABASE_TRACK_BASE = 'https://xclttkzmmkphepxawosh.supabase.co/functions/
  *  - Redirects to Supabase track function, which handles tracking + WhatsApp redirect
  */
 const RedirectPage = () => {
-  const { slug } = useParams<{ slug: string }>();
+  const { slug: paramSlug } = useParams<{ slug: string }>();
   const [searchParams] = useSearchParams();
+
+  // Use param first; fallback to pathname if param missing (e.g. Vercel redirect edge case)
+  const slug = paramSlug || (() => {
+    const m = window.location.pathname.match(/^\/go\/([^/]+)\/?$/);
+    return m ? m[1] : '';
+  })();
 
   useEffect(() => {
     if (!slug) return;
