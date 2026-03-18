@@ -22,7 +22,7 @@ const RedirectPage = () => {
 
     const trackAndRedirect = async () => {
       try {
-        await fetch('https://xclttkzmmkphepxawosh.supabase.co/functions/v1/track/${slug}', {
+        await fetch(`https://xclttkzmmkphepxawosh.supabase.co/functions/v1/track/${encodeURIComponent(slug)}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
