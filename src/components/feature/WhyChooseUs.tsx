@@ -1,7 +1,10 @@
 import { memo } from 'react';
-import ResponsiveImage from '../base/ResponsiveImage';
+import CFImage from '../base/CFImage';
+import { getCloudflareImage } from '../../data/cloudflareImages';
 
 function WhyChooseUs() {
+  const whyImage = getCloudflareImage('whyChooseUs');
+
   const features = [
     {
       icon: 'ri-time-line',
@@ -56,14 +59,15 @@ function WhyChooseUs() {
           {/* Left: Image */}
           <div className="relative order-2 lg:order-1 w-fit mx-auto">
             <div className="relative">
-              <ResponsiveImage
-                src="https://static.readdy.ai/image/b69172f381814b1e7c2f555a7760d2b1/22be8a4aee48d1bbee63b5199aec8007.webp"
-                alt="Professional garage door technicians"
+              <CFImage
+                id={whyImage.id}
+                variant="card"
+                alt={whyImage.alt}
                 className="w-full max-w-[500px] h-auto rounded-xl shadow-xl"
                 width={500}
                 height={400}
-                priority={true}
                 sizes="(max-width: 1024px) 100vw, 500px"
+                fallbackSrc={whyImage.fallbackSrc}
               />
             </div>
           </div>

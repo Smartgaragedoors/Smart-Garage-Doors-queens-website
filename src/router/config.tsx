@@ -10,6 +10,7 @@ const ReviewsPage = lazy(() => import('../pages/reviews/page').then(module => ({
 const BlogPage = lazy(() => import('../pages/blog/page').then(module => ({ default: module.default })));
 const BlogPostPage = lazy(() => import('../pages/blog/[slug]/page').then(module => ({ default: module.default })));
 const RedirectPage = lazy(() => import('../pages/go/[slug]/page').then(module => ({ default: module.default })));
+const LPWhatsAppPage = lazy(() => import('../pages/lp/whatsapp/page').then(module => ({ default: module.default })));
 const ServiceAreasPage = lazy(() => import('../pages/service-areas/page').then(module => ({ default: module.default })));
 const NotFoundPage = lazy(() => import('../pages/NotFound'));
 
@@ -84,6 +85,10 @@ const routes: RouteObject[] = [
   {
     path: '/go/:slug/',
     element: <RedirectPage />
+  },
+  {
+    path: '/lp/whatsapp/',
+    element: <LPWhatsAppPage />
   },
   {
     path: '/service-areas/',

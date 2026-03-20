@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
 import { useLocation } from '../../contexts/LocationContext';
 import { trackPhoneClick, trackEvent } from '../../utils/analytics';
+import { getCFImageUrl, getCloudflareImage } from '../../data/cloudflareImages';
 
 export default function Hero() {
   const { location, locationName, responseTime, isLoading } = useLocation();
@@ -18,65 +18,25 @@ export default function Hero() {
     ? `Call for ${location.city} Garage Door Service`
     : 'Call (914) 557-6816';
 
-  // Get base path from vite config for proper image paths
-  const basePath = typeof __BASE_PATH__ !== 'undefined' ? __BASE_PATH__ : '/';
-  
-  // Use smaller default image for mobile-first approach
-  const [imageSize, setImageSize] = useState<'800' | '1280' | '1920'>('800');
-  const [isMobile, setIsMobile] = useState(true);
-  
-  useEffect(() => {
-    const updateImageSize = () => {
-      const width = window.innerWidth;
-      const mobile = width <= 800;
-      setIsMobile(mobile);
-      const newSize = mobile ? '800' : width >= 1920 ? '1920' : '1280';
-      if (newSize !== imageSize) {
-        setImageSize(newSize);
-      }
-    };
-    
-    // Set initial size immediately to prevent layout shift
-    updateImageSize();
-    
-    // Debounce resize to avoid excessive updates
-    let timeoutId: NodeJS.Timeout;
-    const handleResize = () => {
-      clearTimeout(timeoutId);
-      timeoutId = setTimeout(updateImageSize, 150);
-    };
-    
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      clearTimeout(timeoutId);
-    };
-  }, [imageSize]);
-  
-  // Use WebP with JPG fallback for better compression
-  const heroImageWebP = `${basePath}hero-van-${imageSize}.webp`;
-  const heroImageJpg = `${basePath}hero-van-${imageSize}.jpg`;
+  const homeHero = getCloudflareImage('homeHero');
+  const heroImageUrl = getCFImageUrl(homeHero.id, homeHero.variant ?? 'hero');
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Optimized responsive background image with WebP support */}
+      {/* Hero background via Cloudflare Images with existing gradient overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat hero-van-bg z-0"
         style={{
-          backgroundImage: `linear-gradient(rgba(30, 58, 138, 0.75), rgba(30, 58, 138, 0.65)), 
-            image-set(
-              url('${heroImageWebP}') type('image/webp'),
-              url('${heroImageJpg}') type('image/jpeg')
-            ),
-            url('${heroImageJpg}')`
+          backgroundImage: homeHero.fallbackSrc
+            ? `linear-gradient(rgba(30, 58, 138, 0.75), rgba(30, 58, 138, 0.65)), url('${heroImageUrl}'), url('${homeHero.fallbackSrc}')`
+            : `linear-gradient(rgba(30, 58, 138, 0.75), rgba(30, 58, 138, 0.65)), url('${heroImageUrl}')`
         }}
       />
-      {/* Hidden image for SEO with proper format */}
+      {/* Hidden semantic image for SEO/preload semantics */}
       <picture className="hidden" aria-hidden="true">
-        <source srcSet={heroImageWebP} type="image/webp" />
         <img 
-          src={heroImageJpg}
-          alt="Smart Garage Doors service van parked in front of a residential garage. Professional garage door repair and installation services with branded white service vehicle."
+          src={heroImageUrl}
+          alt={homeHero.alt}
           width="1280"
           height="720"
           loading="eager"

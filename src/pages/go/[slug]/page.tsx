@@ -6,14 +6,13 @@ const SUPABASE_TRACK_BASE = 'https://xclttkzmmkphepxawosh.supabase.co/functions/
 /**
  * RedirectPage
  *  - Reads :slug from /go/:slug
- *  - Preserves query params (platform, campaign, etc.)
- *  - Redirects to Supabase track function, which handles tracking + WhatsApp redirect
+ *  - Fires a tracking beacon to Supabase (non-blocking)
+ *  - Redirects to /lp/whatsapp/ with campaign=slug and all original params
  */
 const RedirectPage = () => {
   const { slug: paramSlug } = useParams<{ slug: string }>();
   const [searchParams] = useSearchParams();
 
-  // Use param first; fallback to pathname if param missing (e.g. Vercel redirect edge case)
   const slug = paramSlug || (() => {
     const m = window.location.pathname.match(/^\/go\/([^/]+)\/?$/);
     return m ? m[1] : '';
@@ -22,12 +21,27 @@ const RedirectPage = () => {
   useEffect(() => {
     if (!slug) return;
 
-    const trackUrl = new URL(`${SUPABASE_TRACK_BASE}/${encodeURIComponent(slug)}`);
+    // Fire-and-forget beacon to Supabase track function for LinkFlow logging
+    try {
+      const trackUrl = new URL(`${SUPABASE_TRACK_BASE}/${encodeURIComponent(slug)}`);
+      searchParams.forEach((value, key) => {
+        trackUrl.searchParams.set(key, value);
+      });
+      navigator.sendBeacon(trackUrl.toString());
+    } catch {
+      // Tracking failure must not block redirect
+    }
+
+    // Build LP destination with campaign=slug + preserved params
+    const lpUrl = new URL('/lp/whatsapp/', window.location.origin);
+    lpUrl.searchParams.set('campaign', slug);
     searchParams.forEach((value, key) => {
-      trackUrl.searchParams.set(key, value);
+      if (key !== 'campaign') {
+        lpUrl.searchParams.set(key, value);
+      }
     });
 
-    window.location.replace(trackUrl.toString());
+    window.location.replace(lpUrl.toString());
   }, [slug, searchParams]);
 
   return (

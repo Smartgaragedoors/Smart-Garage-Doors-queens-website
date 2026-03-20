@@ -1,7 +1,8 @@
 import { useState, memo } from 'react';
-import ResponsiveImage from '../base/ResponsiveImage';
+import CFImage from '../base/CFImage';
 
 interface Photo {
+  id: string;
   image: string;
   title: string;
   description?: string;
@@ -9,14 +10,17 @@ interface Photo {
 
 const customPhotos: Photo[] = [
     {
+      id: 'recent-work-installation-pro',
       image: 'https://static.readdy.ai/image/b69172f381814b1e7c2f555a7760d2b1/6c1b03291502bee542d52ba370b557cf.jpeg',
       title: 'Professional Garage Door Installation'
     },
     {
+      id: 'recent-work-expert-service',
       image: 'https://static.readdy.ai/image/b69172f381814b1e7c2f555a7760d2b1/5ee3fafe7c08f7d3798ff08932a9a1d9.jpeg',
       title: 'Expert Garage Door Service'
     },
     {
+      id: 'recent-work-quality-repair',
       image: 'https://static.readdy.ai/image/b69172f381814b1e7c2f555a7760d2b1/9f70538874f046536c17d5849a06e8ef.jpeg',
       title: 'Quality Garage Door Repair'
     }
@@ -24,22 +28,27 @@ const customPhotos: Photo[] = [
 
 const defaultProjects: Photo[] = [
     {
+      id: 'recent-work-gd001',
       image: 'https://readdy.ai/api/search-image?query=Professional%20garage%20door%20installation%20project%20showing%20a%20newly%20installed%20white%20residential%20garage%20door%20with%20clean%20modern%20design%2C%20technician%20in%20uniform%20completing%20final%20adjustments%2C%20suburban%20home%20exterior%20with%20driveway%2C%20bright%20daylight%2C%20high%20quality%20professional%20photography%20style&width=800&height=533&quality=85&seq=gd001&orientation=landscape',
       title: 'Door Installation Project'
     },
     {
+      id: 'recent-work-gd002',
       image: 'https://readdy.ai/api/search-image?query=Garage%20door%20repair%20service%20in%20progress%2C%20technician%20working%20on%20garage%20door%20mechanism%2C%20tools%20and%20equipment%20visible%2C%20residential%20garage%20setting%2C%20professional%20service%20quality%2C%20detailed%20repair%20work%20being%20performed%2C%20clean%20suburban%20environment&width=800&height=533&quality=85&seq=gd002&orientation=landscape',
       title: 'Garage Door Repair'
     },
     {
+      id: 'recent-work-gd003',
       image: 'https://readdy.ai/api/search-image?query=Garage%20door%20opener%20and%20light%20installation%2C%20professional%20technician%20installing%20LED%20lighting%20system%20on%20garage%20door%20opener%2C%20modern%20residential%20garage%20interior%2C%20clean%20installation%20work%2C%20bright%20lighting%20setup%2C%20professional%20service%20quality&width=800&height=533&quality=85&seq=gd003&orientation=landscape',
       title: 'Light Installation'
     },
     {
+      id: 'recent-work-gd004',
       image: 'https://readdy.ai/api/search-image?query=Professional%20garage%20door%20service%20team%20at%20work%2C%20uniformed%20technicians%20providing%20expert%20garage%20door%20maintenance%2C%20modern%20residential%20home%20exterior%2C%20professional%20service%20van%20in%20background%2C%20quality%20workmanship%20demonstration&width=800&height=533&quality=85&seq=gd004&orientation=landscape',
       title: 'Professional Service'
     },
     {
+      id: 'recent-work-gd005',
       image: 'https://readdy.ai/api/search-image?query=High%20quality%20garage%20door%20installation%20completed%2C%20beautiful%20new%20garage%20door%20on%20upscale%20residential%20home%2C%20perfect%20installation%20craftsmanship%2C%20clean%20finished%20work%2C%20satisfied%20customer%20home%20exterior%2C%20professional%20results%20showcase&width=800&height=533&quality=85&seq=gd005&orientation=landscape',
       title: 'Quality Installation'
     }
@@ -77,14 +86,15 @@ function RecentWork() {
               {displayProjects.map((project, index) => (
                 <div key={index} className="w-1/3 flex-shrink-0 px-2 min-w-0">
                   <div className="bg-white rounded-lg shadow-lg overflow-hidden w-full">
-                    <ResponsiveImage
-                      src={project.image}
+                    <CFImage
+                      id={project.id}
+                      variant="card"
                       alt={project.title}
                       className="w-full h-64 object-cover object-top"
                       width={800}
                       height={533}
-                      priority={index < 3}
                       sizes="(max-width: 768px) 50vw, 33vw"
+                      fallbackSrc={project.image}
                     />
                   </div>
                 </div>
@@ -115,14 +125,15 @@ function RecentWork() {
         <div className="md:hidden grid grid-cols-2 gap-4">
           {displayProjects.slice(0, 4).map((project, index) => (
             <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <ResponsiveImage
-                src={project.image}
+              <CFImage
+                id={project.id}
+                variant="thumbnail"
                 alt={project.title}
                 className="w-full h-40 object-cover object-top"
                 width={400}
                 height={267}
-                priority={index < 2}
                 sizes="50vw"
+                fallbackSrc={project.image}
               />
             </div>
           ))}

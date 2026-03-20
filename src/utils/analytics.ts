@@ -131,3 +131,24 @@ export const trackLocationDetection = (location: string) => {
   });
 };
 
+// Landing page events (for conversion-focused LP)
+export const trackLandingPageView = () => {
+  trackEvent('landing_page_view', { category: 'Landing Page', value: 1 });
+};
+
+export const trackLandingPageWhatsAppClick = () => {
+  trackEvent('landing_page_whatsapp_click', { category: 'Landing Page', value: 1 });
+};
+
+export const trackLandingPageCallClick = () => {
+  trackEvent('landing_page_call_click', { category: 'Landing Page', value: 1 });
+};
+
+export const trackLandingPageScroll = (depth: 50 | 90) => {
+  trackEvent(`landing_page_scroll_${depth}`, { category: 'Landing Page', value: depth });
+};
+
+export const trackLandingPageFormStart = () => {
+  trackEvent('landing_page_form_start', { category: 'Landing Page', value: 1 });
+};
+

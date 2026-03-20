@@ -166,6 +166,11 @@
       "permanent": true
     },
     {
+      "source": "/lp/:path",
+      "destination": "/lp/:path/",
+      "permanent": true
+    },
+    {
       "source": "/:path((?!.*\\.).*[^/])",
       "destination": "/:path/",
       "permanent": true
