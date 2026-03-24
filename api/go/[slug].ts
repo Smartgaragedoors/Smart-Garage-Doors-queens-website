@@ -22,6 +22,7 @@ type RedirectMode = 'direct' | 'landing';
 interface LinkRow {
   id: string;
   company_id: string;
+  workspace_id: string | null;
   slug: string;
   destination_url: string | null;
   redirect_mode: string | null;
@@ -29,11 +30,8 @@ interface LinkRow {
 }
 
 function getSupabaseUrl(): string | undefined {
-  return (
-    process.env.SUPABASE_URL?.trim() ||
-    process.env.VITE_PUBLIC_SUPABASE_URL?.trim() ||
-    undefined
-  );
+  const value = process.env.SUPABASE_URL?.trim();
+  return value && value.length > 0 ? value : undefined;
 }
 
 function getServiceRoleKey(): string | undefined {
@@ -189,7 +187,7 @@ async function fetchLinkBySlug(supabase: SupabaseClient, slug: string): Promise<
   const activeField = sanitizePgIdentifier(process.env.LINKS_IS_ACTIVE_FIELD || 'is_active', 'is_active');
   let q = supabase
     .from('links')
-    .select(`id, company_id, slug, destination_url, redirect_mode, click_count, ${activeField}`)
+    .select(`id, company_id, workspace_id, slug, destination_url, redirect_mode, click_count, ${activeField}`)
     .eq('slug', slug);
 
   /** Set LINKS_ACTIVE_FILTER=0 if your table has no boolean "active" column (not recommended). */
@@ -228,6 +226,7 @@ async function recordClick(
   const { error: insertError } = await supabase.from('click_events').insert({
     link_id: row.id,
     company_id: row.company_id,
+    workspace_id: row.workspace_id,
     clicked_at: clickedAt,
     referrer: meta.referrer,
     device_type: meta.device_type,
@@ -273,7 +272,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (!supabaseUrl || !serviceKey) {
     return misconfigured(
       res,
-      'Redirect service unavailable (missing SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY).'
+      'Redirect service unavailable: missing server env vars SUPABASE_URL and/or SUPABASE_SERVICE_ROLE_KEY. /go tracking requires one dedicated Supabase project configured via server-only env vars.'
     );
   }
 

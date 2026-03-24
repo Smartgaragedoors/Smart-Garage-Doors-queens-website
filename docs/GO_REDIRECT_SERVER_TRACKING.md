@@ -25,10 +25,14 @@ Tracking still happens **only** in the serverless function (no `sendBeacon`).
 
 | Variable | Required | Purpose |
 |----------|----------|---------|
-| `SUPABASE_URL` or `VITE_PUBLIC_SUPABASE_URL` | Yes | Supabase project URL |
+| `SUPABASE_URL` | Yes | **Server-only** Supabase project URL for `/go` tracking (no fallback) |
 | `SUPABASE_SERVICE_ROLE_KEY` | Yes | Server-only key; bypasses RLS for insert/update |
 | `LINKS_ACTIVE_FILTER` | No | Set to `0` only if `links` has **no** boolean active column (not recommended) |
 | `LINKS_IS_ACTIVE_FIELD` | No | Column name for the active flag (default `is_active`; use `active` if your schema uses that) |
+
+`/go` tracking requires **both** `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` to be present on the server.
+
+To prevent project-mixing bugs (e.g. Smart Garage Doors project vs Linkflow project), always set both vars from the **same dedicated Supabase project** and do not use client `VITE_*` vars as backend fallbacks.
 
 **Never** expose `SUPABASE_SERVICE_ROLE_KEY` in `VITE_*` or client code.
 

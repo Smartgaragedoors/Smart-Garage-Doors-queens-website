@@ -12,7 +12,8 @@
     "generate-sitemap": "node scripts/generate-sitemap.js",
     "verify-sitemap": "node scripts/verify-sitemap.js",
     "test:form": "node scripts/test-form-submission.js",
-    "test:form:local": "node scripts/test-form-submission.js http://localhost:3000"
+    "test:form:local": "node scripts/test-form-submission.js http://localhost:3000",
+    "backfill:workspaces:phase1": "node scripts/backfill-workspaces-phase1.js"
   },
   "dependencies": {
     "@stripe/react-stripe-js": "4.0.2",
