@@ -146,7 +146,7 @@ export default function DynamicMetaTags({
         robots.setAttribute('name', 'robots');
         document.head.appendChild(robots);
       }
-      robots.setAttribute('content', 'noindex, nofollow');
+      robots.setAttribute('content', 'noindex, nofollow, noarchive');
     }
 
     // Update Open Graph tags

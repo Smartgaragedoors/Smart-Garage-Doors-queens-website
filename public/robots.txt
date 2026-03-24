@@ -1,5 +1,10 @@
 User-agent: *
 
+# Tracking + campaign URLs (not site content — do not crawl)
+Disallow: /go/
+# Paid / WhatsApp LP — noindex by default; remove this line if you set VITE_LP_WHATSAPP_INDEXABLE=true and want /lp/ crawled
+Disallow: /lp/
+
 # Core site pages (booking page is intentionally indexable)
 Allow: /
 Allow: /book-now/

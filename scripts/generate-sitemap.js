@@ -23,9 +23,20 @@ const EXCLUDED_PATHS = [
   '/garage-door-installation-stamford-ct/',  // Will redirect in commit 2, exclude now
 ];
 
+// Never sitemap utility / tracking / default-noindex landing paths
+function isTrackingOrCampaignPath(path) {
+  return (
+    path.startsWith('/go') ||
+    path.startsWith('/lp/') ||
+    path === '/lp/'
+  );
+}
+
 // Helper function to check if a path should be excluded
 function isExcluded(path) {
-  return EXCLUDED_PATHS.includes(path);
+  if (EXCLUDED_PATHS.includes(path)) return true;
+  if (isTrackingOrCampaignPath(path)) return true;
+  return false;
 }
 
 // Core routes (non-service-area pages)

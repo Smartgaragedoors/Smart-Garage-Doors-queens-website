@@ -24,6 +24,9 @@ export interface LPWhatsAppConfig {
   platform?: string;
 }
 
+/** Set VITE_LP_WHATSAPP_INDEXABLE=true only if you intentionally want this LP indexed (update robots.txt: remove Disallow: /lp/). */
+const LP_WHATSAPP_INDEXABLE = import.meta.env.VITE_LP_WHATSAPP_INDEXABLE === 'true';
+
 const COMMON_PROBLEMS = [
   'Broken springs',
   'Garage door opener issues',
@@ -95,7 +98,7 @@ export default function LPWhatsAppPage() {
       <DynamicMetaTags
         title="Garage Door Repair | Message Us on WhatsApp | Smartest Garage Doors"
         description="Same-day garage door repair across NY, NJ & CT. Message us on WhatsApp for fast help. 5.0 rated, 392 reviews, licensed & insured."
-        noIndex
+        noIndex={!LP_WHATSAPP_INDEXABLE}
       />
       <Header />
 
