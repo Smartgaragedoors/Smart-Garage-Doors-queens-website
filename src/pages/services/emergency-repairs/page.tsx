@@ -75,7 +75,7 @@ export default function EmergencyRepairsPage() {
     <div className="min-h-screen bg-gray-50">
       <DynamicMetaTags 
         title="Emergency Garage Door Repair | 24/7 NY NJ CT | Smartest Garage Doors"
-        description="24/7 emergency garage door repair. 5.0★, 392 reviews. 60-90 min response. Same-day service. Licensed & insured. Call (914) 557-6816."
+        description="24/7 emergency garage door repair. 5.0★, 475 reviews. 60-90 min response. Same-day service. Licensed & insured. Call (914) 557-6816."
         keywords="emergency garage door repair, 24/7 garage door service, urgent garage door fix, broken garage door repair"
       />
       <FAQSchema faqs={faqs} />

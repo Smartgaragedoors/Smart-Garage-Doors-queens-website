@@ -14,16 +14,14 @@ import OrganizationSchema from '../../components/seo/OrganizationSchema';
 import LocalBusinessSchema from '../../components/seo/LocalBusinessSchema';
 import WebSiteSchema from '../../components/seo/WebSiteSchema';
 import { useLocation } from '../../contexts/LocationContext';
+import { BUSINESS_INFO } from '../../config/business-info';
 
-// Lazy load below-the-fold components for better initial load performance
-const RecentWork = lazy(() => import('../../components/feature/RecentWork'));
 const Reviews = lazy(() => import('../../components/feature/Reviews'));
 
 export default function HomePage() {
   const { location } = useLocation();
   const routerLocation = useRouterLocation();
 
-  // Handle hash scrolling after navigation (e.g., from /#about) with a single rAF to reduce reflow noise
   useEffect(() => {
     const hash = routerLocation.hash || window.location.hash;
     if (!hash) return;
@@ -44,26 +42,26 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen">
-      <DynamicMetaTags 
-        title="Garage Door Repair NY NJ CT | 5.0★ Same-Day Service | Smartest Garage Doors"
-        description="5.0★ rated, 392 reviews. Same-day garage door repair & installation across NY, NJ & CT. 24/7 emergency service. Licensed & insured. Call (914) 557-6816."
+      <DynamicMetaTags
+        title={`NYC Metro & Tri-State Garage Door Repair | ${BUSINESS_INFO.aggregateRating.reviewCount} Reviews | Smartest Garage Doors`}
+        description={`24/7 emergency garage door repair with dispatch from Brooklyn, Suffern, and Jackson, NJ—covering the NYC metro, Long Island, Westchester, Fairfield County CT, and Northern & Central NJ. ${BUSINESS_INFO.aggregateRating.reviewCount}+ Google reviews. Licensed & insured. Call (914) 557-6816.`}
       />
       <WebSiteSchema />
       <OrganizationSchema />
-      <LocalBusinessSchema />
+      <LocalBusinessSchema locationName={location?.city} serviceArea={location?.city || 'New York'} />
       <Header />
       <Hero />
-      <BookingCTABar title="Ready to Schedule Service?" />
-      <Services />
-      <About />
-      <WhyChooseUs />
-      <ServiceAreas />
-      <Suspense fallback={<div className="min-h-[400px]" />}>
-        <RecentWork />
-      </Suspense>
       <Suspense fallback={<div className="min-h-[400px]" />}>
         <Reviews />
       </Suspense>
+      <BookingCTABar
+        title="Need Service Today?"
+        subtitle="Call first for urgent issues. We will confirm the problem, give you a clear next step, and dispatch as quickly as possible."
+      />
+      <Services />
+      <WhyChooseUs />
+      <About />
+      <ServiceAreas />
       <Contact />
       <Footer />
     </div>

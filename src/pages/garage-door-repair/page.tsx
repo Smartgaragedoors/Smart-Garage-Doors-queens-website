@@ -72,7 +72,7 @@ export default function GarageDoorRepairPage() {
     <div className="min-h-screen bg-white">
       <DynamicMetaTags 
         title="Garage Door Repair NY NJ CT | 5.0★ Same-Day | Smartest Garage Doors"
-        description="5.0★ rated, 392 reviews. Same-day garage door repair across NY, NJ & CT. Spring replacement, opener repair, emergency service. Licensed & insured."
+        description="5.0★ rated, 475 reviews. Same-day garage door repair across NY, NJ & CT. Spring replacement, opener repair, emergency service. Licensed & insured."
       />
       <FAQSchema faqs={faqs} />
       <Header />

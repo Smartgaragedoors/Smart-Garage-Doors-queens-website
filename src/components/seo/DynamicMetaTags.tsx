@@ -71,7 +71,7 @@ export default function DynamicMetaTags({
       if (location) {
         finalDescription = `Professional garage door repair and installation services in ${locationName}. Smartest Garage Doors offers same-day service, emergency repairs, and expert installation. Licensed technicians serving ${locationName} and surrounding areas.`;
       } else {
-        finalDescription = 'Garage door stuck, broken spring, or opener not working? Smartest Garage Doors delivers same-day repair, professional installation, and trusted service homeowners rely on. Serving NY, NJ & CT. Fast response, fair pricing, satisfaction guaranteed.';
+        finalDescription = 'Garage door stuck, broken spring, or opener not working? Smartest Garage Doors delivers same-day repair across New York, New Jersey, and Connecticut with local-feeling dispatch, trusted service, and fast response.';
       }
     } else if (location && description && !description.includes(locationName)) {
       const geoPatterns = [locationName, location?.city, location?.state, 'NY', 'NJ', 'CT'];

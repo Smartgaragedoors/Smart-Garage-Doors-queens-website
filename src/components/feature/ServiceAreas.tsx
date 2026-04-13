@@ -1,8 +1,16 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
+import { BUSINESS_INFO } from '../../config/business-info';
 
 export default function ServiceAreas() {
   const mapRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
+
+  const hubParts = BUSINESS_INFO.dispatchHubs.map((h) => {
+    const city = h.id === 'jackson-nj' ? 'Jackson, NJ' : h.label.split(',')[0].trim();
+    return `${city} (${h.technician})`;
+  });
+  const hubIntro =
+    hubParts.length === 3 ? `${hubParts[0]}, ${hubParts[1]}, and ${hubParts[2]}` : hubParts.join(', ');
 
   const serviceAreas = {
     'New York': [
@@ -29,7 +37,12 @@ export default function ServiceAreas() {
       'Newtown'
     ],
     'New Jersey': [
-      'Bergen County'
+      'Bergen County',
+      'Monmouth County',
+      'Ocean County',
+      'Middlesex County',
+      'Jackson',
+      'Princeton area'
     ]
   };
 
@@ -40,13 +53,16 @@ export default function ServiceAreas() {
           {/* Left Content */}
           <div className="text-white order-2 lg:order-1 w-full">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Services <span className="text-orange-500">Areas</span>
+              Regional <span className="text-orange-500">Service Areas</span>
             </h2>
-            <p className="text-lg md:text-xl text-gray-200 mb-6">
-              Do you live in our service area?
+            <p className="text-lg md:text-xl text-gray-200 mb-4">
+              Three dispatch hubs—{hubIntro}—each covering roughly a 60+ mile radius for emergency repair and premium installs.
+            </p>
+            <p className="text-base md:text-lg text-gray-300 mb-6">
+              We prioritize high-trust markets: Long Island Gold Coast, Westchester, Fairfield County CT, Monmouth/Ocean shore, and Northern NJ—without the feel of a generic directory.
             </p>
             <h3 className="text-xl md:text-2xl font-semibold mb-6">
-              We offer professional garage door services in a variety of communities.
+              We build pages and messaging around the cities and counties people actually search from.
             </h3>
             <p className="text-gray-200 mb-8">
               Our licensed and insured team is standing by to help homeowners in:
@@ -70,7 +86,7 @@ export default function ServiceAreas() {
             </div>
 
             <p className="text-gray-200 text-sm md:text-base">
-              If you live in or around our service area, we'll be glad to give you a free estimate on your next garage door project. Connect with Smart Garage Doors today to get started.
+              If you live in or around our service area, we want the site experience to feel specific to your location, not like a generic regional directory. Connect with Smart Garage Doors today to get started.
             </p>
           </div>
 

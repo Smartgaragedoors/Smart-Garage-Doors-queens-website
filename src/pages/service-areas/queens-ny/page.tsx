@@ -397,7 +397,7 @@ const QueensNY = () => {
                     <td className="px-6 py-4 font-medium text-gray-900">Customer Reviews</td>
                     <td className="px-6 py-4 text-center">
                       <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-green-100 text-green-800">
-                        <i className="ri-star-fill text-yellow-400 mr-1"></i> 4.9/5 (150+)
+                        <i className="ri-star-fill text-yellow-400 mr-1"></i> 5.0★ (392)
                       </span>
                     </td>
                     <td className="px-6 py-4 text-center text-gray-600">Varies</td>

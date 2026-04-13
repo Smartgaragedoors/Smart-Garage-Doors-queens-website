@@ -8,21 +8,15 @@ interface BookingCTABarProps {
   className?: string;
 }
 
-/**
- * Reusable conversion strip: Call Now + Book Now with trust messaging.
- * Use below heroes or between long sections.
- */
 export default function BookingCTABar({
   title = 'Ready to Schedule Service?',
   subtitle,
   callLabel = 'Call Now',
-  bookLabel = 'Book Now',
+  bookLabel = 'Request Service',
   className = '',
 }: BookingCTABarProps) {
   return (
-    <section
-      className={`bg-gradient-to-r from-blue-900 to-blue-800 text-white py-10 ${className}`}
-    >
+    <section className={`bg-gradient-to-r from-blue-900 to-blue-800 text-white py-10 ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
           <div>
@@ -31,7 +25,7 @@ export default function BookingCTABar({
               <p className="text-blue-100 text-sm md:text-base">{subtitle}</p>
             ) : (
               <p className="text-blue-100 text-sm md:text-base">
-                Same-Day Service • Licensed & Insured • 5-Star Rated • Free Estimate
+                Same-day emergency help, upfront quotes, licensed and insured service, and 475 Google reviews.
               </p>
             )}
           </div>

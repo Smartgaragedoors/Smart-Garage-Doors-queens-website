@@ -176,6 +176,8 @@ export default function Header() {
                             <div className="space-y-1">
                               <a href="/brooklyn-ny/" role="menuitem" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Brooklyn</a>
                               <a href="/queens-ny/" role="menuitem" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Queens</a>
+                              <a href="/flushing-ny/" role="menuitem" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Flushing</a>
+                              <a href="/bronx-ny/" role="menuitem" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Bronx</a>
                               <a href="/long-island-ny/" role="menuitem" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Long Island</a>
                               <a href="/staten-island-ny/" role="menuitem" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Staten Island</a>
                               <a href="/suffern-ny/" role="menuitem" className="block text-gray-700 hover:text-orange-500 transition-colors cursor-pointer focus:bg-orange-50 focus:outline-none focus:ring-2 focus:ring-orange-500">Suffern</a>
@@ -307,6 +309,8 @@ export default function Header() {
                       <div className="text-xs font-semibold text-gray-500 mb-1">New York</div>
                       <a href="/brooklyn-ny/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Brooklyn</a>
                       <a href="/queens-ny/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Queens</a>
+                      <a href="/flushing-ny/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Flushing</a>
+                      <a href="/bronx-ny/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Bronx</a>
                       <a href="/long-island-ny/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Long Island</a>
                       <a href="/staten-island-ny/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Staten Island</a>
                       <a href="/suffern-ny/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Suffern</a>

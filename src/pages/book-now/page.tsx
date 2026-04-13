@@ -70,37 +70,29 @@ export default function BookNowPage() {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-red-600 to-red-700 text-white py-20">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('https://www.smartestgaragedoors.com/wp-content/uploads/2025/03/appointment.png')`
-          }}
-        >
-          <div className="absolute inset-0 bg-red-600/80"></div>
-        </div>
+      <section className="relative bg-gradient-to-r from-blue-900 to-blue-700 text-white py-20">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Book Your Service Now
             </h1>
             <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-              Schedule your garage door repair or installation with Smartest Garage Doors. 
+              Schedule your garage door repair or installation with Smart Garage Doors.
               Fast, reliable service across NY, NJ, and CT.
             </p>
-            <p className="text-lg md:text-xl mb-4 max-w-3xl mx-auto text-red-100 font-semibold">
-              5-star rated local technicians • Most calls booked within minutes • Same-day slots often available.
+            <p className="text-lg md:text-xl mb-4 max-w-3xl mx-auto text-blue-100 font-semibold">
+              5.0★ (392 Google Reviews) • Same-day slots available • Technician arrives in 60 min or less
             </p>
-            <p className="text-base md:text-lg mb-8 max-w-3xl mx-auto text-red-200">
-              Book garage door repair, installation, spring replacement, opener service, cable & roller, maintenance, and more.
+            <p className="text-base md:text-lg mb-8 max-w-3xl mx-auto text-blue-200">
+              Spring replacement, opener repair, cable & roller, new installation, emergency service, and more.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="tel:+19145576816" 
-                className="bg-white text-red-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors whitespace-nowrap cursor-pointer"
+              <a
+                href="tel:+19145576816"
+                className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors whitespace-nowrap cursor-pointer"
               >
                 <i className="ri-phone-fill mr-2"></i>
-                Emergency: (914) 557-6816
+                Call Now: (914) 557-6816
               </a>
             </div>
           </div>
@@ -121,10 +113,11 @@ export default function BookNowPage() {
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6" data-readdy-form id="book-now-form">
+              {/* Core fields — 4 required fields only */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                    Full Name *
+                    Your Name *
                   </label>
                   <input
                     type="text"
@@ -133,8 +126,8 @@ export default function BookNowPage() {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-sm"
-                    placeholder="Enter your full name"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm"
+                    placeholder="First and last name"
                   />
                 </div>
 
@@ -149,30 +142,14 @@ export default function BookNowPage() {
                     value={formData.phone}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-sm"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm"
                     placeholder="(555) 123-4567"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-sm"
-                    placeholder="your@email.com"
-                  />
-                </div>
-
-                <div>
                   <label htmlFor="serviceType" className="block text-sm font-medium text-gray-700 mb-2">
-                    Service Type *
+                    What do you need? *
                   </label>
                   <select
                     id="serviceType"
@@ -180,23 +157,23 @@ export default function BookNowPage() {
                     value={formData.serviceType}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-sm pr-8"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm pr-8"
                   >
                     <option value="">Select a service</option>
+                    <option value="emergency">Emergency Repair (ASAP)</option>
                     <option value="garage-door-repair">Garage Door Repair</option>
                     <option value="spring-replacement">Spring Replacement</option>
-                    <option value="opener-repair">Opener Repair/Installation</option>
-                    <option value="cable-roller-repair">Cable & Roller Repair</option>
+                    <option value="opener-repair">Opener Repair / Installation</option>
+                    <option value="cable-roller-repair">Cable &amp; Roller Repair</option>
                     <option value="installation">New Door Installation</option>
                     <option value="maintenance">Maintenance Service</option>
-                    <option value="emergency">Emergency Repair</option>
-                    <option value="other">Other</option>
+                    <option value="other">Not sure / Other</option>
                   </select>
                 </div>
 
                 <div>
                   <label htmlFor="urgency" className="block text-sm font-medium text-gray-700 mb-2">
-                    Urgency Level *
+                    How soon do you need service? *
                   </label>
                   <select
                     id="urgency"
@@ -204,83 +181,32 @@ export default function BookNowPage() {
                     value={formData.urgency}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-sm pr-8"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm pr-8"
                   >
                     <option value="">Select urgency</option>
-                    <option value="emergency">Emergency (Same Day)</option>
-                    <option value="urgent">Urgent (Within 24 hours)</option>
-                    <option value="normal">Normal (Within 2-3 days)</option>
-                    <option value="flexible">Flexible (Within a week)</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label htmlFor="preferredDate" className="block text-sm font-medium text-gray-700 mb-2">
-                    Preferred Date
-                  </label>
-                  <input
-                    type="date"
-                    id="preferredDate"
-                    name="preferredDate"
-                    value={formData.preferredDate}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-sm"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="preferredTime" className="block text-sm font-medium text-gray-700 mb-2">
-                    Preferred Time
-                  </label>
-                  <select
-                    id="preferredTime"
-                    name="preferredTime"
-                    value={formData.preferredTime}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-sm pr-8"
-                  >
-                    <option value="">Select time preference</option>
-                    <option value="morning">Morning (8AM - 12PM)</option>
-                    <option value="afternoon">Afternoon (12PM - 5PM)</option>
-                    <option value="evening">Evening (5PM - 8PM)</option>
-                    <option value="flexible">Flexible</option>
+                    <option value="emergency">Right now — emergency</option>
+                    <option value="urgent">Today or tomorrow</option>
+                    <option value="normal">Within 2–3 days</option>
+                    <option value="flexible">This week, flexible</option>
                   </select>
                 </div>
               </div>
 
-              <div>
-                <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-2">
-                  Service Address *
-                </label>
-                <input
-                  type="text"
-                  id="address"
-                  name="address"
-                  value={formData.address}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-sm"
-                  placeholder="Enter complete address including city and state"
-                />
-              </div>
-
+              {/* Optional details */}
               <div>
                 <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-2">
-                  Problem Description
+                  Anything else we should know? <span className="text-gray-400 font-normal">(optional)</span>
                 </label>
                 <textarea
                   id="description"
                   name="description"
                   value={formData.description}
                   onChange={handleInputChange}
-                  rows={4}
+                  rows={3}
                   maxLength={500}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-sm resize-none"
-                  placeholder="Please describe the issue with your garage door (max 500 characters)"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm resize-none"
+                  placeholder="e.g. door won't open, spring snapped, opener making noise..."
                 ></textarea>
-                <p className="text-xs text-gray-500 mt-1">
-                  {formData.description.length}/500 characters
-                </p>
               </div>
 
               <div className="text-center">
@@ -288,7 +214,7 @@ export default function BookNowPage() {
                   type="submit"
                   disabled={isSubmitting}
                   aria-label={isSubmitting ? "Submitting service request" : "Book service now"}
-                  className="bg-red-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-red-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap cursor-pointer focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+                  className="bg-orange-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-orange-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap cursor-pointer focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
                 >
                   {isSubmitting ? (
                     <>

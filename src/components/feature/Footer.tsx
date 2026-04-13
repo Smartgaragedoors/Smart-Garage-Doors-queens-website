@@ -6,53 +6,28 @@ function Footer() {
   const routerLocation = useLocation();
 
   const serviceAreas = useMemo(() => [
-    // New York
-    { name: 'Brooklyn', href: '/brooklyn-ny/' },
     { name: 'Queens', href: '/queens-ny/' },
+    { name: 'Brooklyn', href: '/brooklyn-ny/' },
+    { name: 'Flushing', href: '/flushing-ny/' },
     { name: 'Long Island', href: '/long-island-ny/' },
-    { name: 'Staten Island', href: '/staten-island-ny/' },
-    { name: 'Suffern', href: '/suffern-ny/' },
-    { name: 'White Plains', href: '/white-plains-ny/' },
-    { name: 'New Rochelle', href: '/new-rochelle-ny/' },
-    { name: 'Scarsdale', href: '/scarsdale-ny/' },
-    { name: 'Hauppauge', href: '/hauppauge-ny/' },
-    { name: 'Smithtown', href: '/smithtown-ny/' },
-    { name: 'Nassau County', href: '/nassau-county-ny/' },
-    { name: 'Suffolk County', href: '/suffolk-county-ny/' },
     { name: 'Westchester County', href: '/westchester-county-ny/' },
-    // Connecticut
-    { name: 'Stamford', href: '/stamford-ct/' },
-    { name: 'Greenwich', href: '/greenwich-ct/' },
-    { name: 'Darien', href: '/darien-ct/' },
-    { name: 'New Canaan', href: '/new-canaan-ct/' },
-    { name: 'Westport', href: '/westport-ct/' },
-    { name: 'Newtown', href: '/newtown-ct/' },
-    { name: 'Fairfield', href: '/fairfield-ct/' },
-    // New Jersey
-    { name: 'Teaneck', href: '/teaneck-nj/' },
-    { name: 'Elizabeth', href: '/elizabeth-nj/' },
     { name: 'Bergen County', href: '/bergen-county-nj/' }
   ], []);
 
-  // Get current page to show relevant address
   const currentPath = routerLocation.pathname;
   const currentAddress = useMemo(() => {
-    if (currentPath.includes('suffern')) {
-      return "31 Deerwood Road, Suffern, NY";
-    } else if (currentPath.includes('brooklyn')) {
-      return "71st 12th Ave, Dyker Heights, Brooklyn, NY";
-    }
-    return "141-24 70th Ave, Flushing, NY 11367";
+    if (currentPath.includes('suffern')) return '31 Deerwood Road, Suffern, NY';
+    if (currentPath.includes('brooklyn')) return '71st 12th Ave, Dyker Heights, Brooklyn, NY';
+    return '141-24 70th Ave, Flushing, NY 11367';
   }, [currentPath]);
 
   return (
     <footer className="bg-gradient-to-r from-blue-900 to-blue-800 text-white">
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Company Info */}
           <div>
-            <img 
-              src="/smart-garage-doors-logo.webp" 
+            <img
+              src="/smart-garage-doors-logo.webp"
               alt="Smart Garage Doors"
               className="h-16 w-auto mb-4"
               width="499"
@@ -62,7 +37,7 @@ function Footer() {
               fetchPriority="low"
             />
             <p className="text-gray-200 mb-4">
-              Professional garage door repair and installation services in NY, NJ &amp; CT.
+              Tri-State garage door repair and replacement with local-feeling dispatch, real reviews, and fast emergency response.
             </p>
             <div className="flex space-x-4">
               <a href="https://www.facebook.com/profile.php?id=61563773137785" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook page" className="text-gray-200 hover:text-orange-400 transition-colors">
@@ -77,33 +52,27 @@ function Footer() {
             </div>
           </div>
 
-          {/* Services */}
           <div>
             <h3 className="text-lg font-semibold text-white mb-4">Services</h3>
             <ul className="space-y-2">
               <li><a href="/emergency-garage-door-repair/" className="text-gray-200 hover:text-orange-400 transition-colors">Emergency Repairs</a></li>
-              <li><a href="/garage-door-installation/" className="text-gray-200 hover:text-orange-400 transition-colors">Installation Services</a></li>
               <li><a href="/garage-door-repair/" className="text-gray-200 hover:text-orange-400 transition-colors">Garage Door Repair</a></li>
-              <li><a href="/opener-repair-installation/" className="text-gray-200 hover:text-orange-400 transition-colors">Opener Repair</a></li>
               <li><a href="/spring-replacement/" className="text-gray-200 hover:text-orange-400 transition-colors">Spring Replacement</a></li>
-              <li><a href="/cable-roller-repair/" className="text-gray-200 hover:text-orange-400 transition-colors">Cable & Roller Repair</a></li>
-              <li><a href="/maintenance/" className="text-gray-200 hover:text-orange-400 transition-colors">Maintenance</a></li>
-              <li><a href="/book-now/" className="text-gray-200 hover:text-orange-400 transition-colors">Book Now</a></li>
-              <li><a href="/reviews/" className="text-gray-200 hover:text-orange-400 transition-colors">Reviews</a></li>
-              <li><a href="/blog/" className="text-gray-200 hover:text-orange-400 transition-colors">Blog</a></li>
+              <li><a href="/opener-repair-installation/" className="text-gray-200 hover:text-orange-400 transition-colors">Opener Repair</a></li>
+              <li><a href="/garage-door-installation/" className="text-gray-200 hover:text-orange-400 transition-colors">Installation Services</a></li>
+              <li><a href="/book-now/" className="text-gray-200 hover:text-orange-400 transition-colors">Request Service</a></li>
             </ul>
           </div>
 
-          {/* Service Areas */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Service Areas</h3>
+            <h3 className="text-lg font-semibold mb-4">Local Pages</h3>
             <ul className="space-y-2">
               <li>
                 <a href="/service-areas/" className="text-orange-400 hover:text-orange-300 font-semibold transition-colors">
                   View All Areas →
                 </a>
               </li>
-              {serviceAreas.slice(0, 6).map((area, index) => (
+              {serviceAreas.map((area, index) => (
                 <li key={index}>
                   <a href={area.href} className="text-gray-200 hover:text-orange-400 transition-colors">
                     {area.name}
@@ -113,7 +82,6 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact</h3>
             <div className="space-y-3">
@@ -131,23 +99,15 @@ function Footer() {
               </div>
               <div className="flex items-start space-x-2">
                 <i className="ri-map-pin-fill text-orange-500 mt-1" aria-hidden="true"></i>
-                <span className="text-gray-200">
-                  {currentAddress}
-                </span>
+                <span className="text-gray-200">{currentAddress}</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
         <div className="border-t border-blue-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="text-gray-200 text-sm mb-4 md:mb-0">
             © 2024 Smart Garage Doors. All rights reserved.
-          </div>
-          <div className="text-gray-200 text-sm">
-            <a href="https://readdy.ai/?origin=logo" className="hover:text-orange-400 transition-colors">
-              Website Builder
-            </a>
           </div>
         </div>
       </div>

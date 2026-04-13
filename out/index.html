@@ -176,6 +176,20 @@
       fetchpriority="high"
     />
     
+    <!-- Push LeadConnector chat widget above mobile sticky CTA bar (~72px tall) -->
+    <style>
+      @media (max-width: 1023px) {
+        /* Target all known LeadConnector widget container selectors */
+        #chat-widget-container,
+        .lc-chat-widget-container,
+        [data-widget-id="68f91895be3485765c10fbd3"],
+        iframe[src*="leadconnectorhq.com"],
+        div[class*="chat-widget"] {
+          bottom: 80px !important;
+        }
+      }
+    </style>
+
     <!-- LeadConnector Chat Widget (lazy load on first interaction or idle) -->
     <script>
       (function() {
@@ -207,15 +221,15 @@
         }
       })();
     </script>
-    <script type="module" crossorigin src="/assets/js/index-lzMRs2kC.js"></script>
+    <script type="module" crossorigin src="/assets/js/index-Ct53-Ehr.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/js/vendor-Bv-Em8ol.js">
     <link rel="modulepreload" crossorigin href="/assets/js/react-core-zAegJ4f5.js">
     <link rel="modulepreload" crossorigin href="/assets/js/i18n-vendor-WQh-luxc.js">
-    <link rel="modulepreload" crossorigin href="/assets/js/page-contact-Cww1sqr1.js">
-    <link rel="modulepreload" crossorigin href="/assets/js/page-reviews-BkBOSdSE.js">
-    <link rel="modulepreload" crossorigin href="/assets/js/page-lp-CdtqKYWt.js">
+    <link rel="modulepreload" crossorigin href="/assets/js/page-contact-ChSckBzz.js">
+    <link rel="modulepreload" crossorigin href="/assets/js/page-reviews-DyaOZTc0.js">
+    <link rel="modulepreload" crossorigin href="/assets/js/page-lp-B9ydaBWA.js">
     <link rel="modulepreload" crossorigin href="/assets/js/analytics-vendor-DXd_nf2u.js">
-    <link rel="stylesheet" crossorigin href="/assets/css/index-CTWLYdve.css">
+    <link rel="stylesheet" crossorigin href="/assets/css/index-CjmzPyCv.css">
   </head>
   <body>
     <div id="root"></div>

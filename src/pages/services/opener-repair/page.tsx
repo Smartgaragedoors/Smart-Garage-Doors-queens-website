@@ -49,7 +49,7 @@ export default function OpenerRepair() {
     <div className="min-h-screen">
       <DynamicMetaTags 
         title="Garage Door Opener Repair NY NJ CT | Same-Day | Smartest Garage Doors"
-        description="5.0★ rated, 392 reviews. Opener repair & installation. Chain, belt, wall-mount. Same-day service. NY, NJ & CT. Licensed & insured."
+        description="5.0★ rated, 475 reviews. Opener repair & installation. Chain, belt, wall-mount. Same-day service. NY, NJ & CT. Licensed & insured."
         keywords="garage door opener repair, opener installation, chain drive, belt drive, wall mount"
       />
       <FAQSchema faqs={faqs} />

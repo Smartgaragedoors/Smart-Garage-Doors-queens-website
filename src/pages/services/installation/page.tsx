@@ -109,7 +109,7 @@ export default function InstallationPage() {
     <div className="min-h-screen bg-gray-50">
       <DynamicMetaTags 
         title="Free Garage Door Installation Quote | Plan Your Project | Smartest Garage Doors"
-        description="Get a free quote for your garage door project. Explore styles, materials, openers. Residential & commercial. NY, NJ & CT. 5.0★, 392 reviews. Licensed & insured."
+        description="Get a free quote for your garage door project. Explore styles, materials, openers. Residential & commercial. NY, NJ & CT. 5.0★, 475 reviews. Licensed & insured."
         keywords="garage door installation services, free garage door quote, residential commercial garage doors, installation planning"
       />
       <FAQSchema faqs={faqs} />

@@ -97,7 +97,7 @@ export default function LPWhatsAppPage() {
     <div className="min-h-screen bg-white">
       <DynamicMetaTags
         title="Garage Door Repair | Message Us on WhatsApp | Smartest Garage Doors"
-        description="Same-day garage door repair across NY, NJ & CT. Message us on WhatsApp for fast help. 5.0 rated, 392 reviews, licensed & insured."
+        description="Same-day garage door repair across NY, NJ & CT. Message us on WhatsApp for fast help. 5.0 rated, 475 reviews, licensed & insured."
         noIndex={!LP_WHATSAPP_INDEXABLE}
       />
       <Header />

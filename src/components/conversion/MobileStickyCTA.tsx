@@ -1,10 +1,5 @@
 import { trackPhoneClick } from '../../utils/analytics';
 
-/**
- * Mobile-only sticky bottom CTA bar.
- * Call Now + Book Now for conversion-focused mobile experience.
- * Respects iPhone safe area.
- */
 export default function MobileStickyCTA() {
   return (
     <div
@@ -19,7 +14,7 @@ export default function MobileStickyCTA() {
           aria-label="Call Smart Garage Doors"
         >
           <i className="ri-phone-fill text-lg" aria-hidden="true" />
-          <span>Call Now</span>
+          <span>Call Dispatch</span>
         </a>
         <a
           href="/book-now/"
@@ -27,7 +22,7 @@ export default function MobileStickyCTA() {
           aria-label="Book garage door service online"
         >
           <i className="ri-calendar-check-line text-lg" aria-hidden="true" />
-          <span>Book Now</span>
+          <span>Get Local Quote</span>
         </a>
       </div>
     </div>

@@ -7,7 +7,7 @@ const WebSiteSchema: React.FC = () => {
     "@type": "WebSite",
     "name": BUSINESS_INFO.name,
     "url": BUSINESS_INFO.website,
-    "description": "Professional garage door repair and installation services in NY, NJ & CT. Same-day service, 24/7 emergency repairs. 5.0★ rated, 392 reviews.",
+    "description": `Professional garage door repair and installation services in NY, NJ & CT. Same-day service, 24/7 emergency repairs, and ${BUSINESS_INFO.aggregateRating.reviewCount} Google reviews.`,
     "publisher": {
       "@type": "Organization",
       "name": BUSINESS_INFO.name,

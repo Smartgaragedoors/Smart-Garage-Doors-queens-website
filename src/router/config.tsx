@@ -26,6 +26,8 @@ const InstallationPage = lazy(() => import('../pages/services/installation/page'
 
 // Service area pages
 const BrooklynNYPage = lazy(() => import('../pages/service-areas/brooklyn-ny/page').then(module => ({ default: module.default })));
+const BronxNYPage = lazy(() => import('../pages/service-areas/bronx-ny/page').then(module => ({ default: module.default })));
+const FlushingNYPage = lazy(() => import('../pages/service-areas/flushing-ny/page').then(module => ({ default: module.default })));
 const QueensNYPage = lazy(() => import('../pages/service-areas/queens-ny/page').then(module => ({ default: module.default })));
 const StamfordCTPage = lazy(() => import('../pages/service-areas/stamford-ct/page').then(module => ({ default: module.default })));
 const BergenCountyNJPage = lazy(() => import('../pages/service-areas/bergen-county-nj/page').then(module => ({ default: module.default })));
@@ -135,6 +137,10 @@ const routes: RouteObject[] = [
     element: <BrooklynNYPage />
   },
   {
+    path: '/bronx-ny/',
+    element: <BronxNYPage />
+  },
+  {
     path: '/stamford-ct/',
     element: <StamfordCTPage />
   },
@@ -152,7 +158,7 @@ const routes: RouteObject[] = [
   },
   {
     path: '/flushing-ny/',
-    element: <Navigate to="/queens-ny/" replace />
+    element: <FlushingNYPage />
   },
   {
     path: '/long-island-ny/',

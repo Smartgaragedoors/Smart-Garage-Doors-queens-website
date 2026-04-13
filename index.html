@@ -176,6 +176,20 @@
       fetchpriority="high"
     />
     
+    <!-- Push LeadConnector chat widget above mobile sticky CTA bar (~72px tall) -->
+    <style>
+      @media (max-width: 1023px) {
+        /* Target all known LeadConnector widget container selectors */
+        #chat-widget-container,
+        .lc-chat-widget-container,
+        [data-widget-id="68f91895be3485765c10fbd3"],
+        iframe[src*="leadconnectorhq.com"],
+        div[class*="chat-widget"] {
+          bottom: 80px !important;
+        }
+      }
+    </style>
+
     <!-- LeadConnector Chat Widget (lazy load on first interaction or idle) -->
     <script>
       (function() {

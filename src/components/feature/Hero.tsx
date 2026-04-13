@@ -1,40 +1,41 @@
 import { useLocation } from '../../contexts/LocationContext';
 import { trackPhoneClick, trackEvent } from '../../utils/analytics';
 import { getCFImageUrl, getCloudflareImage } from '../../data/cloudflareImages';
+import { BUSINESS_INFO } from '../../config/business-info';
 
 export default function Hero() {
   const { location, locationName, responseTime, isLoading } = useLocation();
-  
-  // For Queens, use generic regional language. For other cities, use specific city name.
-  const serviceAreaText = location && location.city !== 'Queens' && !isLoading
-    ? `Serving ${locationName} and Surrounding Areas • Multiple Locations Across NY, NJ & CT`
-    : 'Serving NY, NJ & CT with Fast, Reliable Service • Multiple Service Locations';
-  
-  const responseTimeText = location && location.city !== 'Queens' && !isLoading
-    ? `Average ${responseTime} response in ${location.city} • Available throughout the tri-state area`
-    : '24/7 Emergency Repairs • Expert Installation • Maintenance Plans';
-  
-  const ctaText = location && location.city !== 'Queens' && !isLoading
-    ? `Call for ${location.city} Garage Door Service`
-    : 'Call (914) 557-6816';
+
+  const localArea = location && !isLoading ? locationName : 'your area';
+
+  const dispatchLine =
+    'Three dispatch hubs—Brooklyn, Suffern, and Jackson, NJ—route crews for faster response across Long Island’s Gold Coast, Westchester, Fairfield County, and Northern NJ.';
+
+  const serviceAreaText = location && !isLoading
+    ? `Serving ${locationName} with the same regional dispatch network and location-specific service pages—not a distant call center.`
+    : dispatchLine;
+
+  const responseTimeText = location && !isLoading
+    ? `Need help in ${locationName}? We route by area for same-day emergency repair and premium installs—springs, openers, and full door replacements.`
+    : 'Broken spring, stuck door, or opener failure? Call now for 24/7 emergency garage door repair across the NYC metro, suburbs, and Tri-State corridor.';
+
+  const ctaText = `Call Now for ${localArea} Service`;
 
   const homeHero = getCloudflareImage('homeHero');
   const heroImageUrl = getCFImageUrl(homeHero.id, homeHero.variant ?? 'hero');
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Hero background via Cloudflare Images with existing gradient overlay */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat hero-van-bg z-0"
         style={{
           backgroundImage: homeHero.fallbackSrc
-            ? `linear-gradient(rgba(30, 58, 138, 0.75), rgba(30, 58, 138, 0.65)), url('${heroImageUrl}'), url('${homeHero.fallbackSrc}')`
-            : `linear-gradient(rgba(30, 58, 138, 0.75), rgba(30, 58, 138, 0.65)), url('${heroImageUrl}')`
+            ? `linear-gradient(rgba(30, 58, 138, 0.78), rgba(15, 23, 42, 0.72)), url('${heroImageUrl}'), url('${homeHero.fallbackSrc}')`
+            : `linear-gradient(rgba(30, 58, 138, 0.78), rgba(15, 23, 42, 0.72)), url('${heroImageUrl}')`,
         }}
       />
-      {/* Hidden semantic image for SEO/preload semantics */}
       <picture className="hidden" aria-hidden="true">
-        <img 
+        <img
           src={heroImageUrl}
           alt={homeHero.alt}
           width="1280"
@@ -44,75 +45,84 @@ export default function Hero() {
           style={{ aspectRatio: '16 / 9' }}
         />
       </picture>
-      
+
       <div className="max-w-7xl mx-auto px-4 text-center text-white relative z-10">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-            Professional <span className="text-orange-400">Garage Door</span> Services
+          <p className="text-sm md:text-base font-semibold uppercase tracking-[0.18em] text-orange-300 mb-4">
+            NYC Metro &amp; Tri-State • 24/7 Emergency
+          </p>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+            Garage Door Repair Across the <span className="text-orange-400">NYC Metro &amp; Surrounding Areas</span> Backed by{' '}
+            {BUSINESS_INFO.aggregateRating.reviewCount} Google Reviews
           </h1>
-          <p className="text-xl md:text-2xl mb-4 text-gray-100 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-2xl mb-4 text-gray-100 max-w-3xl mx-auto leading-relaxed">
             {responseTimeText}
           </p>
-          {location && !isLoading && (
-            <p className="text-lg md:text-xl mb-8 text-orange-300 max-w-3xl mx-auto font-semibold">
-              {serviceAreaText}
-            </p>
-          )}
-          {!location && !isLoading && (
-            <p className="text-lg md:text-xl mb-8 text-gray-100 max-w-3xl mx-auto">
-              {serviceAreaText}
-            </p>
-          )}
-          
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12" style={{ overflow: 'hidden', overflowX: 'hidden', overflowY: 'hidden' }}>
-                <a 
-                  href="tel:914-557-6816"
-                  onClick={() => {
-                    trackPhoneClick('914-557-6816');
-                    trackEvent('cta_click', { category: 'Hero', action: 'phone_click', label: 'Hero CTA' });
-                  }}
-                  aria-label="Call Smart Garage Doors from hero section"
-                  className="inline-flex items-center justify-center font-bold transition-all duration-300 cursor-pointer whitespace-nowrap bg-orange-500 hover:bg-orange-600 text-white shadow-2xl hover:shadow-3xl px-8 py-4 text-lg rounded-full transform hover:scale-105"
-                  style={{ overflow: 'hidden', overflowX: 'hidden', overflowY: 'hidden' }}
-                >
-                  <i className="ri-phone-line mr-3 text-xl" aria-hidden="true" style={{ overflow: 'hidden', overflowX: 'hidden', overflowY: 'hidden' }}></i>
-                  <span style={{ overflow: 'hidden', overflowX: 'hidden', overflowY: 'hidden' }}>{ctaText}</span>
-                </a>
-                <a 
-                  href="/book-now/"
-                  onClick={() => trackEvent('cta_click', { category: 'Hero', action: 'schedule_click', label: 'Hero Schedule' })}
-                  className="inline-flex items-center justify-center font-bold transition-all duration-300 cursor-pointer whitespace-nowrap bg-white hover:bg-gray-100 text-blue-900 shadow-2xl hover:shadow-3xl px-8 py-4 text-lg rounded-full transform hover:scale-105"
-                  style={{ overflow: 'hidden', overflowX: 'hidden', overflowY: 'hidden' }}
-                >
-                  <i className="ri-calendar-line mr-3 text-xl" style={{ overflow: 'hidden', overflowX: 'hidden', overflowY: 'hidden' }}></i>
-                  <span style={{ overflow: 'hidden', overflowX: 'hidden', overflowY: 'hidden' }}>Book Now</span>
-                </a>
-              </div>
+          <p
+            className={`text-base md:text-lg mb-8 max-w-3xl mx-auto ${
+              location && !isLoading ? 'text-orange-300 font-semibold' : 'text-gray-100'
+            }`}
+          >
+            {serviceAreaText}
+          </p>
 
-          {/* Trust Indicators - optimized for performance */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center" style={{ overflow: 'hidden', overflowX: 'hidden', overflowY: 'hidden' }}>
-            <div className="bg-white/10 rounded-lg p-4" style={{ backdropFilter: 'blur(4px)', willChange: 'transform', transform: 'translateZ(0)', overflow: 'hidden', overflowX: 'hidden', overflowY: 'hidden' }}>
-              <div className="text-3xl font-bold text-orange-400" style={{ overflow: 'hidden', overflowX: 'hidden', overflowY: 'hidden' }}>24/7</div>
-              <div className="text-sm text-gray-100" style={{ overflow: 'hidden', overflowX: 'hidden', overflowY: 'hidden' }}>Emergency Service</div>
+          <div
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8"
+            style={{ overflow: 'hidden' }}
+          >
+            <a
+              href="tel:914-557-6816"
+              onClick={() => {
+                trackPhoneClick('914-557-6816');
+                trackEvent('cta_click', { category: 'Hero', action: 'phone_click', label: 'Hero CTA' });
+              }}
+              aria-label="Call Smart Garage Doors from hero section"
+              className="inline-flex items-center justify-center font-bold transition-all duration-300 cursor-pointer whitespace-nowrap bg-orange-500 hover:bg-orange-600 text-white shadow-2xl hover:shadow-3xl px-8 py-4 text-lg rounded-full transform hover:scale-105"
+            >
+              <i className="ri-phone-line mr-3 text-xl" aria-hidden="true"></i>
+              <span>{ctaText}</span>
+            </a>
+            <a
+              href={BUSINESS_INFO.socialMedia.googleReviews}
+              onClick={() => trackEvent('cta_click', { category: 'Hero', action: 'reviews_click', label: 'Hero Reviews' })}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center font-bold transition-all duration-300 cursor-pointer whitespace-nowrap bg-white hover:bg-gray-100 text-blue-900 shadow-2xl hover:shadow-3xl px-8 py-4 text-lg rounded-full transform hover:scale-105"
+            >
+              <i className="ri-star-line mr-3 text-xl" aria-hidden="true"></i>
+              <span>See Real Reviews</span>
+            </a>
+          </div>
+
+          <p className="text-sm md:text-base mb-12 text-white/90 font-medium">
+            Speak with a live dispatcher now. Upfront quote before work begins.
+          </p>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div className="bg-white/10 rounded-lg p-4" style={{ backdropFilter: 'blur(4px)' }}>
+              <div className="text-3xl font-bold text-orange-400">24/7</div>
+              <div className="text-sm text-gray-100">Emergency Service</div>
             </div>
-            <div className="bg-white/10 rounded-lg p-4" style={{ backdropFilter: 'blur(4px)', willChange: 'transform', transform: 'translateZ(0)', overflow: 'hidden', overflowX: 'hidden', overflowY: 'hidden' }}>
-              <div className="text-3xl font-bold text-orange-400" style={{ overflow: 'hidden', overflowX: 'hidden', overflowY: 'hidden' }}>15+</div>
-              <div className="text-sm text-gray-100" style={{ overflow: 'hidden', overflowX: 'hidden', overflowY: 'hidden' }}>Years Experience</div>
+            <div className="bg-white/10 rounded-lg p-4" style={{ backdropFilter: 'blur(4px)' }}>
+              <div className="text-3xl font-bold text-orange-400">60 Min</div>
+              <div className="text-sm text-gray-100">Fast Local Routing</div>
             </div>
-            <div className="bg-white/10 rounded-lg p-4" style={{ backdropFilter: 'blur(4px)', willChange: 'transform', transform: 'translateZ(0)', overflow: 'hidden', overflowX: 'hidden', overflowY: 'hidden' }}>
-              <div className="text-3xl font-bold text-orange-400" style={{ overflow: 'hidden', overflowX: 'hidden', overflowY: 'hidden' }}>1000+</div>
-              <div className="text-sm text-gray-100" style={{ overflow: 'hidden', overflowX: 'hidden', overflowY: 'hidden' }}>Happy Customers</div>
+            <div className="bg-white/10 rounded-lg p-4" style={{ backdropFilter: 'blur(4px)' }}>
+              <div className="text-3xl font-bold text-orange-400">{BUSINESS_INFO.aggregateRating.reviewCount}</div>
+              <div className="text-sm text-gray-100">Google Reviews</div>
             </div>
-            <div className="bg-white/10 rounded-lg p-4" style={{ backdropFilter: 'blur(4px)', willChange: 'transform', transform: 'translateZ(0)', overflow: 'hidden', overflowX: 'hidden', overflowY: 'hidden' }}>
-              <div className="text-3xl font-bold text-orange-400" style={{ overflow: 'hidden', overflowX: 'hidden', overflowY: 'hidden' }}>100%</div>
-              <div className="text-sm text-gray-100" style={{ overflow: 'hidden', overflowX: 'hidden', overflowY: 'hidden' }}>Satisfaction</div>
+            <div className="bg-white/10 rounded-lg p-4" style={{ backdropFilter: 'blur(4px)' }}>
+              <div className="text-3xl font-bold text-orange-400">Licensed</div>
+              <div className="text-sm text-gray-100">&amp; Insured</div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Scroll Indicator - optimized for composited animation */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2" style={{ willChange: 'transform', transform: 'translateZ(0) translateX(-50%)' }}>
+      <div
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        style={{ willChange: 'transform', transform: 'translateZ(0) translateX(-50%)' }}
+      >
         <i className="ri-arrow-down-line text-white text-2xl animate-bounce" style={{ willChange: 'transform', transform: 'translateZ(0)' }}></i>
       </div>
     </section>

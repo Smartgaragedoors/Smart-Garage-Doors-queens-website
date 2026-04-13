@@ -49,6 +49,15 @@ export default function ReviewsPage() {
               Rated {BUSINESS_INFO.aggregateRating.ratingValue}★ with {BUSINESS_INFO.aggregateRating.reviewCount}+ verified reviews across the tri-state area.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href={BUSINESS_INFO.socialMedia.googleReviews}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors whitespace-nowrap cursor-pointer"
+              >
+                <i className="ri-google-fill mr-2"></i>
+                View Google Reviews
+              </a>
               <a 
                 href="tel:+19145576816" 
                 className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors whitespace-nowrap cursor-pointer"
@@ -124,19 +133,21 @@ export default function ReviewsPage() {
             Join hundreds of satisfied customers who trust Smartest Garage Doors for all their garage door needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href={BUSINESS_INFO.socialMedia.googleReviews}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition-colors whitespace-nowrap cursor-pointer"
+            >
+              <i className="ri-google-fill mr-2"></i>
+              Read Reviews on Google
+            </a>
             <a 
               href="tel:+19145576816" 
               className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors whitespace-nowrap cursor-pointer"
             >
               <i className="ri-phone-fill mr-2"></i>
               Call Now: (914) 557-6816
-            </a>
-            <a 
-              href="/book-now/" 
-              className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition-colors whitespace-nowrap cursor-pointer"
-            >
-              <i className="ri-calendar-line mr-2"></i>
-              Schedule Service
             </a>
           </div>
         </div>

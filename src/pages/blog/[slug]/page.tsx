@@ -1136,7 +1136,7 @@ export default function BlogPostPage() {
           <Link to="/blog/" className="text-blue-600 hover:text-blue-700 font-medium mb-4 inline-block">
             ← Back to Blog
           </Link>
-          <span className="inline-block bg-purple-100 text-purple-800 text-sm px-3 py-1 rounded-full ml-4">
+          <span className="inline-block bg-orange-100 text-orange-700 text-sm px-3 py-1 rounded-full ml-4">
             {post.category}
           </span>
         </div>

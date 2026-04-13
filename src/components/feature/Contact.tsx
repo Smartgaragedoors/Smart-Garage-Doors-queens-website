@@ -1,7 +1,6 @@
 import { useState, useCallback, memo } from 'react';
 import { trackFormSubmit } from '../../utils/analytics';
 import { submitForm } from '../../utils/formSubmission';
-import ResponsiveImage from '../base/ResponsiveImage';
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -49,38 +48,45 @@ function Contact() {
         <div className="text-center mb-16">
           <span className="text-orange-500 font-semibold text-lg">Contact Us</span>
           <h2 className="text-4xl font-bold text-blue-900 mt-2 mb-4">
-            Get In Touch
+            One Tri-State Team, A Local Feel for Every Caller
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Need garage door service? Contact us today for fast, reliable service
+            Calling is fastest for emergencies. If you prefer the form, tell us where you are and what the door is doing so we can route you correctly.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Left: Contact Info & Image */}
           <div>
-            {/* Real photo */}
-            <div className="mb-8 relative rounded-lg overflow-hidden shadow-xl">
-              <ResponsiveImage
-                src="https://static.readdy.ai/image/b69172f381814b1e7c2f555a7760d2b1/9f70538874f046536c17d5849a06e8ef.jpeg"
-                alt="Professional garage door service team"
-                className="w-full h-80 object-cover object-top"
-                width={600}
-                height={400}
-                priority={false}
-                sizes="(max-width: 1024px) 100vw, 600px"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-blue-900/70 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                <h3 className="text-2xl font-bold mb-2">Professional Service You Can Trust</h3>
-                <p className="text-gray-200">Licensed, insured, and ready to help 24/7</p>
-              </div>
+            <div className="mb-8 rounded-lg bg-blue-900 text-white p-8 shadow-xl">
+              <h3 className="text-2xl font-bold mb-3">Best Option for Urgent Problems</h3>
+              <p className="text-blue-100 mb-6">
+                If the garage door is unsafe, your car is trapped, or you need a same-day repair, call instead of filling out a long form.
+              </p>
+              <a
+                href="tel:914-557-6816"
+                className="inline-flex items-center justify-center font-bold transition-all duration-300 cursor-pointer whitespace-nowrap bg-orange-500 hover:bg-orange-600 text-white shadow-2xl px-8 py-4 text-lg rounded-full"
+              >
+                <i className="ri-phone-line mr-3 text-xl" aria-hidden="true"></i>
+                Call (914) 557-6816
+              </a>
             </div>
 
             <div className="space-y-6">
               <div className="flex items-start">
                 <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
-                  <i className="ri-phone-line text-white text-xl"></i>
+                  <i className="ri-map-pin-line text-white text-xl" aria-hidden="true"></i>
+                </div>
+                <div className="ml-4">
+                  <h3 className="text-lg font-bold text-blue-900 mb-1">Regional Coverage</h3>
+                  <p className="text-gray-600">
+                    New York, New Jersey, and Connecticut with location-specific service pages and local dispatch language.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start">
+                <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <i className="ri-phone-line text-white text-xl" aria-hidden="true"></i>
                 </div>
                 <div className="ml-4">
                   <h3 className="text-lg font-bold text-blue-900 mb-1">Phone</h3>
@@ -93,42 +99,16 @@ function Contact() {
 
               <div className="flex items-start">
                 <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
-                  <i className="ri-mail-line text-white text-xl"></i>
+                  <i className="ri-time-line text-white text-xl" aria-hidden="true"></i>
                 </div>
                 <div className="ml-4">
-                  <h3 className="text-lg font-bold text-blue-900 mb-1">Email</h3>
-                  <a href="mailto:info@smartgaragedoors.com" className="text-gray-600 hover:text-orange-500 transition-colors">
-                    info@smartgaragedoors.com
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start">
-                <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
-                  <i className="ri-map-pin-line text-white text-xl"></i>
-                </div>
-                <div className="ml-4">
-                  <h3 className="text-lg font-bold text-blue-900 mb-1">Service Areas</h3>
-                  <p className="text-gray-600">
-                    New York, New Jersey & Connecticut
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start">
-                <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
-                  <i className="ri-time-line text-white text-xl"></i>
-                </div>
-                <div className="ml-4">
-                  <h3 className="text-lg font-bold text-blue-900 mb-1">Hours</h3>
-                  <p className="text-gray-600">24/7 Emergency Service Available</p>
-                  <p className="text-sm text-gray-500 mt-1">Regular Hours: Mon-Sun 7AM-9PM</p>
+                  <h3 className="text-lg font-bold text-blue-900 mb-1">What Happens Next</h3>
+                  <p className="text-gray-600">We confirm your location, problem, urgency, and available dispatch window before the job is booked.</p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right: Contact Form */}
           <div className="bg-gray-50 rounded-lg p-8 shadow-lg">
             <form id="contact-form" data-readdy-form onSubmit={handleSubmit} className="space-y-6">
               <div>
@@ -148,22 +128,6 @@ function Contact() {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-blue-900 mb-2">
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition-all text-sm"
-                  placeholder="john@example.com"
-                />
-              </div>
-
-              <div>
                 <label htmlFor="phone" className="block text-sm font-semibold text-blue-900 mb-2">
                   Phone Number *
                 </label>
@@ -176,6 +140,21 @@ function Contact() {
                   required
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition-all text-sm"
                   placeholder="(555) 123-4567"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-sm font-semibold text-blue-900 mb-2">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition-all text-sm"
+                  placeholder="john@example.com"
                 />
               </div>
 
@@ -204,7 +183,7 @@ function Contact() {
 
               <div>
                 <label htmlFor="message" className="block text-sm font-semibold text-blue-900 mb-2">
-                  Message *
+                  Location + Problem *
                 </label>
                 <textarea
                   id="message"
@@ -215,28 +194,28 @@ function Contact() {
                   maxLength={500}
                   rows={4}
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition-all resize-none text-sm"
-                  placeholder="Tell us about your garage door issue..."
+                  placeholder="Example: door stuck in Stamford, spring snapped in Queens, opener dead in Bergen County..."
                 ></textarea>
                 <p className="text-xs text-gray-500 mt-1">Maximum 500 characters</p>
               </div>
 
               {submitStatus === 'success' && (
                 <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg">
-                  <p className="font-semibold">Thank you for contacting us!</p>
-                  <p className="text-sm">We'll get back to you as soon as possible.</p>
+                  <p className="font-semibold">Thank you for contacting us.</p>
+                  <p className="text-sm">We will get back to you as soon as possible.</p>
                 </div>
               )}
 
               {submitStatus === 'fallback' && (
                 <div className="bg-amber-50 border border-amber-200 text-amber-800 px-4 py-3 rounded-lg">
                   <p className="font-semibold">Your email client should open.</p>
-                  <p className="text-sm">If it didn't open or you prefer to call, please reach us at <a href="tel:914-557-6816" className="underline font-semibold">(914) 557-6816</a>.</p>
+                  <p className="text-sm">If it did not open or you prefer to call, please reach us at <a href="tel:914-557-6816" className="underline font-semibold">(914) 557-6816</a>.</p>
                 </div>
               )}
 
               {submitStatus === 'error' && (
                 <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg">
-                  <p className="font-semibold">Oops! Something went wrong.</p>
+                  <p className="font-semibold">Something went wrong.</p>
                   <p className="text-sm">Please try again or call us directly.</p>
                 </div>
               )}
@@ -248,13 +227,13 @@ function Contact() {
               >
                 {isSubmitting ? (
                   <span className="flex items-center justify-center">
-                    <i className="ri-loader-4-line animate-spin mr-2"></i>
+                    <i className="ri-loader-4-line animate-spin mr-2" aria-hidden="true"></i>
                     Sending...
                   </span>
                 ) : (
                   <span className="flex items-center justify-center">
-                    <i className="ri-send-plane-line mr-2"></i>
-                    Send Message
+                    <i className="ri-send-plane-line mr-2" aria-hidden="true"></i>
+                    Request Service
                   </span>
                 )}
               </button>

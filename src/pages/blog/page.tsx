@@ -93,8 +93,8 @@ export default function BlogPage() {
       />
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-purple-600 to-purple-700 text-white py-20">
-        <div className="absolute inset-0 bg-purple-600/80"></div>
+      <section className="relative bg-gradient-to-r from-blue-900 to-blue-700 text-white py-20">
+        <div className="absolute inset-0 bg-blue-900/80"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
@@ -106,14 +106,14 @@ export default function BlogPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
                 href="tel:+19145576816" 
-                className="bg-white text-purple-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors whitespace-nowrap cursor-pointer"
+                className="bg-white text-orange-500 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors whitespace-nowrap cursor-pointer"
               >
                 <i className="ri-phone-fill mr-2"></i>
                 Call: (914) 557-6816
               </a>
               <a 
                 href="/book-now/" 
-                className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-purple-600 transition-colors whitespace-nowrap cursor-pointer"
+                className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-orange-500 transition-colors whitespace-nowrap cursor-pointer"
               >
                 <i className="ri-calendar-line mr-2"></i>
                 Schedule Service
@@ -130,7 +130,7 @@ export default function BlogPage() {
             {categories.map((category) => (
               <button
                 key={category}
-                className="px-4 py-2 rounded-full bg-white text-gray-700 hover:bg-purple-100 hover:text-purple-700 transition-colors border border-gray-200 whitespace-nowrap cursor-pointer"
+                className="px-4 py-2 rounded-full bg-white text-gray-700 hover:bg-orange-100 hover:text-orange-600 transition-colors border border-gray-200 whitespace-nowrap cursor-pointer"
               >
                 {category}
               </button>
@@ -164,7 +164,7 @@ export default function BlogPage() {
                 </div>
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-3">
-                    <span className="inline-block bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full font-medium">
+                    <span className="inline-block bg-orange-100 text-orange-700 text-xs px-2 py-1 rounded-full font-medium">
                       {post.category}
                     </span>
                     <span className="text-sm text-gray-500">{post.readTime}</span>
@@ -179,7 +179,7 @@ export default function BlogPage() {
                     <span className="text-sm text-gray-500">{post.date}</span>
                     <Link 
                       to={`/blog/${post.slug || '#'}/`}
-                      className="text-purple-600 font-medium hover:text-purple-700 cursor-pointer"
+                      className="text-orange-500 font-medium hover:text-orange-600 cursor-pointer"
                     >
                       Read More <i className="ri-arrow-right-line ml-1"></i>
                     </Link>
@@ -192,7 +192,7 @@ export default function BlogPage() {
 
           {/* Load More Button */}
           <div className="text-center mt-12">
-            <button className="bg-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors cursor-pointer">
+            <button className="bg-blue-900 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-800 transition-colors cursor-pointer">
               Load More Articles
             </button>
           </div>
@@ -212,12 +212,12 @@ export default function BlogPage() {
             <input
               type="email"
               placeholder="Enter your email address"
-              className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
               required
             />
             <button
               type="submit"
-              className="bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors whitespace-nowrap cursor-pointer"
+              className="bg-blue-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-800 transition-colors whitespace-nowrap cursor-pointer"
             >
               Subscribe
             </button>
@@ -239,32 +239,32 @@ export default function BlogPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-white rounded-lg p-6 text-center shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <i className="ri-tools-line text-purple-600 text-xl"></i>
+              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <i className="ri-tools-line text-orange-500 text-xl"></i>
               </div>
               <h3 className="font-semibold text-gray-900 mb-2">Spring Repair</h3>
               <p className="text-sm text-gray-600">Learn about garage door spring maintenance and replacement</p>
             </div>
 
             <div className="bg-white rounded-lg p-6 text-center shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <i className="ri-shield-check-line text-purple-600 text-xl"></i>
+              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <i className="ri-shield-check-line text-orange-500 text-xl"></i>
               </div>
               <h3 className="font-semibold text-gray-900 mb-2">Safety Tips</h3>
               <p className="text-sm text-gray-600">Essential safety guidelines for garage door operation</p>
             </div>
 
             <div className="bg-white rounded-lg p-6 text-center shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <i className="ri-alarm-warning-line text-purple-600 text-xl"></i>
+              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <i className="ri-alarm-warning-line text-orange-500 text-xl"></i>
               </div>
               <h3 className="font-semibold text-gray-900 mb-2">Emergency Repair</h3>
               <p className="text-sm text-gray-600">What to do when your garage door breaks unexpectedly</p>
             </div>
 
             <div className="bg-white rounded-lg p-6 text-center shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <i className="ri-settings-3-line text-purple-600 text-xl"></i>
+              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <i className="ri-settings-3-line text-orange-500 text-xl"></i>
               </div>
               <h3 className="font-semibold text-gray-900 mb-2">Maintenance</h3>
               <p className="text-sm text-gray-600">Regular maintenance tips to extend your door's lifespan</p>
@@ -274,7 +274,7 @@ export default function BlogPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-purple-600 text-white">
+      <section className="py-16 bg-blue-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4">
             Need Professional Garage Door Service?
@@ -285,14 +285,14 @@ export default function BlogPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
               href="tel:+19145576816" 
-              className="bg-white text-purple-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors whitespace-nowrap cursor-pointer"
+              className="bg-white text-orange-500 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors whitespace-nowrap cursor-pointer"
             >
               <i className="ri-phone-fill mr-2"></i>
               Call Now: (914) 557-6816
             </a>
             <a 
               href="/book-now/" 
-              className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-purple-600 transition-colors whitespace-nowrap cursor-pointer"
+              className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-orange-500 transition-colors whitespace-nowrap cursor-pointer"
             >
               <i className="ri-calendar-line mr-2"></i>
               Schedule Service

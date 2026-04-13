@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:www.smartestgaragedoors.com)",
+      "Bash(npx tsc:*)"
+    ]
+  }
+}

@@ -43,6 +43,8 @@ export const BUSINESS_INFO = {
     instagram: "https://www.instagram.com/smartgaragedoorss/",
     googleMaps: "https://maps.app.goo.gl/GjfsFbH5kQ2smvdU8",
     googlePlaceId: "ChIJucuPoePGzGMRGWWH9YOmAX4",
+    googleReviews: "https://www.google.com/maps/place/?q=place_id:ChIJucuPoePGzGMRGWWH9YOmAX4",
+    googleWriteReview: "https://search.google.com/local/writereview?placeid=ChIJucuPoePGzGMRGWWH9YOmAX4",
   },
   openingHours: {
     monday: { opens: "00:00", closes: "23:59" },
@@ -58,7 +60,7 @@ export const BUSINESS_INFO = {
   paymentAccepted: ["Cash", "Credit Card", "Debit Card", "Bank Transfer", "Check"],
   aggregateRating: {
     ratingValue: "5.0",
-    reviewCount: "392",
+    reviewCount: "475",
     bestRating: "5",
     worstRating: "1",
   },
@@ -67,8 +69,41 @@ export const BUSINESS_INFO = {
     { type: "State", name: "New Jersey" },
     { type: "State", name: "Connecticut" },
   ],
+
+  /**
+   * Operational dispatch hubs (~60+ mile service radius each).
+   * Used for homepage/hero messaging—honest positioning without implying a storefront in every town.
+   */
+  dispatchHubs: [
+    {
+      id: 'brooklyn',
+      label: 'Brooklyn, NY',
+      technician: 'Luka',
+      coverageSummary: 'NYC, Long Island (Nassau & western Suffolk), and nearby North Shore communities',
+    },
+    {
+      id: 'suffern',
+      label: 'Suffern, NY',
+      technician: 'Ben',
+      coverageSummary: 'Rockland, Westchester, Hudson Valley corridor, Fairfield County CT, and Northern NJ',
+    },
+    {
+      id: 'jackson-nj',
+      label: 'Jackson, NJ',
+      technician: 'Yitzi',
+      coverageSummary: 'Monmouth, Ocean, Middlesex, and the central NJ shore markets',
+    },
+  ] as const,
+
+  /**
+   * High-intent, higher-income markets we explicitly serve (research: Gold Coast LI, Westchester, Fairfield CT, Monmouth shore).
+   * For copy and internal linking—not a claim of physical locations in each town.
+   */
+  premiumServiceMarkets: {
+    longIsland: ['Great Neck', 'Manhasset', 'Roslyn', 'Syosset', 'Oyster Bay'],
+    westchester: ['Scarsdale', 'Rye', 'White Plains', 'Bronxville', 'Chappaqua'],
+    fairfieldCounty: ['Greenwich', 'Stamford', 'Darien', 'New Canaan', 'Westport'],
+    newJersey: ['Rumson', 'Holmdel', 'Colts Neck', 'Spring Lake', 'Princeton'],
+  },
 };
-
-
-
 
