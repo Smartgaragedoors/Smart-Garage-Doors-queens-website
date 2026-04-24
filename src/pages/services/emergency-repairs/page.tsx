@@ -20,7 +20,7 @@ export default function EmergencyRepairsPage() {
   const faqs = [
     {
       question: `How quickly can you respond to emergency garage door repairs in ${displayLocation}?`,
-      answer: `We offer 24/7 emergency garage door repair service with fast response times throughout NY, NJ & CT. Our technicians typically arrive within 60-90 minutes for emergency calls in most areas. We have multiple service locations strategically positioned to ensure quick response times, regardless of where you're located in our service area.`,
+      answer: `We offer 24/7 emergency garage door repair throughout NY, NJ & CT. We aim to dispatch a technician as quickly as possible — response times vary based on technician availability and your location, but we prioritize urgent calls and work to reach you fast. Call us at (914) 557-6816 for a current ETA for your area.`,
     },
     {
       question: 'What situations require emergency garage door repair?',
@@ -73,9 +73,9 @@ export default function EmergencyRepairsPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <DynamicMetaTags 
+      <DynamicMetaTags
         title="Emergency Garage Door Repair | 24/7 NY NJ CT | Smartest Garage Doors"
-        description="24/7 emergency garage door repair. 5.0★, 475 reviews. 60-90 min response. Same-day service. Licensed & insured. Call (914) 557-6816."
+        description="24/7 emergency garage door repair across NY, NJ & CT. 5.0★ rated, 475 reviews. Fast response, upfront pricing, licensed & insured. Call (914) 557-6816."
         keywords="emergency garage door repair, 24/7 garage door service, urgent garage door fix, broken garage door repair"
       />
       <FAQSchema faqs={faqs} />

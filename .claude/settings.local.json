@@ -3,7 +3,12 @@
     "allow": [
       "WebSearch",
       "WebFetch(domain:www.smartestgaragedoors.com)",
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "Read(//c/Users/Danie/OneDrive/Desktop/Dan's File/Smart Garage Doors/Media/Images/Job photos/Work in action/**)",
+      "Read(//c/Users/Danie/OneDrive/Desktop/Dan's File/Smart Garage Doors/Media/Images/Job photos/Happy Customers/**)",
+      "Read(//c/Users/Danie/OneDrive/Desktop/Dan's File/Smart Garage Doors/Media/Images/Job photos/Door Installations/**)",
+      "Read(//c/Users/Danie/OneDrive/Desktop/Dan's File/Smart Garage Doors/Media/Images/Job photos/Broken Systems/**)",
+      "Read(//c/Users/Danie/OneDrive/Desktop/Dan's File/Smart Garage Doors/Media/Images/New to upload/SGD images to upload/**)"
     ]
   }
 }

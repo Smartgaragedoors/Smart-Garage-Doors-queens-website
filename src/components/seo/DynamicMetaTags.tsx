@@ -138,16 +138,14 @@ export default function DynamicMetaTags({
     }
     canonicalLink.setAttribute('href', finalCanonical);
 
-    // Update robots if noindex
-    if (noIndex) {
-      let robots = document.querySelector('meta[name="robots"]');
-      if (!robots) {
-        robots = document.createElement('meta');
-        robots.setAttribute('name', 'robots');
-        document.head.appendChild(robots);
-      }
-      robots.setAttribute('content', 'noindex, nofollow, noarchive');
+    // Update robots meta — always write explicitly so Googlebot gets a definitive signal
+    let robots = document.querySelector('meta[name="robots"]');
+    if (!robots) {
+      robots = document.createElement('meta');
+      robots.setAttribute('name', 'robots');
+      document.head.appendChild(robots);
     }
+    robots.setAttribute('content', noIndex ? 'noindex, nofollow, noarchive' : 'index, follow');
 
     // Update Open Graph tags
     const ogTitleFinal = ogTitle || finalTitle;

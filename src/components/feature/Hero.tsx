@@ -104,8 +104,8 @@ export default function Hero() {
               <div className="text-sm text-gray-100">Emergency Service</div>
             </div>
             <div className="bg-white/10 rounded-lg p-4" style={{ backdropFilter: 'blur(4px)' }}>
-              <div className="text-3xl font-bold text-orange-400">60 Min</div>
-              <div className="text-sm text-gray-100">Fast Local Routing</div>
+              <div className="text-3xl font-bold text-orange-400">Fast</div>
+              <div className="text-sm text-gray-100">Local Dispatch</div>
             </div>
             <div className="bg-white/10 rounded-lg p-4" style={{ backdropFilter: 'blur(4px)' }}>
               <div className="text-3xl font-bold text-orange-400">{BUSINESS_INFO.aggregateRating.reviewCount}</div>

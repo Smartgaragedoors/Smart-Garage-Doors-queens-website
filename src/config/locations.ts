@@ -29,6 +29,7 @@ export interface Location {
 // Existing service area locations (for directory page and reference)
 export const existingLocations: Location[] = [
   // New York
+  { slug: 'bronx-ny', city: 'Bronx', state: 'New York', stateAbbr: 'NY', county: 'Bronx County' },
   { slug: 'brooklyn-ny', city: 'Brooklyn', state: 'New York', stateAbbr: 'NY', county: 'Kings County' },
   { slug: 'queens-ny', city: 'Queens', state: 'New York', stateAbbr: 'NY', county: 'Queens County' },
   { slug: 'long-island-ny', city: 'Long Island', state: 'New York', stateAbbr: 'NY', county: 'Nassau & Suffolk Counties' },

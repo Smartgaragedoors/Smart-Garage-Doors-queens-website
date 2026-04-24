@@ -16,6 +16,13 @@ export default function TrackingRouteMeta() {
       document.head.appendChild(robots);
     }
     robots.setAttribute('content', TRACKING_ROBOTS);
+
+    return () => {
+      const currentRobots = document.querySelector('meta[name="robots"]');
+      if (currentRobots?.getAttribute('content') === TRACKING_ROBOTS) {
+        currentRobots.remove();
+      }
+    };
   }, []);
 
   return null;

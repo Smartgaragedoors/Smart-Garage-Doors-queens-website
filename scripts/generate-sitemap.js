@@ -20,7 +20,8 @@ const EXCLUDED_PATHS = [
   '/garage-door-repair-stamford-ct/',         // Redirects to /stamford-ct/
   '/garage-door-installers-white-plains-ny/', // Redirects to /white-plains-ny/
   '/garage-door-installation-suffern-ny/',    // Redirects to /suffern-ny/
-  '/garage-door-installation-stamford-ct/',  // Will redirect in commit 2, exclude now
+  '/garage-door-installation-stamford-ct/',   // Redirects to /stamford-ct/
+  '/garage-door-replacement/',                // Redirects to /garage-door-installation/
 ];
 
 // Never sitemap utility / tracking / default-noindex landing paths
@@ -66,6 +67,8 @@ function extractServiceAreaRoutes() {
     const routerConfigContent = fs.readFileSync(routerConfigPath, 'utf8');
     
     // Extract all paths that match service-area pattern: /{city}-{state}/
+    // Allows hyphens in city names (e.g. /bergen-county-nj/, /new-rochelle-ny/)
+    // Legacy redirect paths (garage-door-*, etc.) are filtered by EXCLUDED_PATHS below
     const serviceAreaPathRegex = /path:\s*['"`](\/[a-z-]+-(?:ny|nj|ct)\/)['"`]/gi;
     const matches = [...routerConfigContent.matchAll(serviceAreaPathRegex)];
     
@@ -85,7 +88,7 @@ function extractServiceAreaRoutes() {
     
     return filteredRoutes.sort((a, b) => a.path.localeCompare(b.path));
   } catch (error) {
-    console.warn('⚠️  Could not read router config, falling back to hardcoded list:', error.message);
+    console.warn('Warning: Could not read router config, falling back to hardcoded list:', error.message);
     // Fallback to hardcoded list if reading fails
     return [
       { path: '/brooklyn-ny/', priority: '0.8', changefreq: 'monthly' },
@@ -198,13 +201,13 @@ function generateSitemap() {
   const totalUrls = filteredCoreRoutes.length + serviceAreaRoutes.length + blogPosts.length;
   const excludedCount = EXCLUDED_PATHS.length;
   
-  console.log(`✅ Sitemap generated successfully at ${sitemapPath}`);
+  console.log(`Sitemap generated successfully at ${sitemapPath}`);
   console.log(`   Base URL: ${BASE_URL}`);
   console.log(`   Total URLs: ${totalUrls}`);
   console.log(`   - Core routes: ${filteredCoreRoutes.length} (${coreRoutes.length - filteredCoreRoutes.length} excluded)`);
   console.log(`   - Service areas: ${serviceAreaRoutes.length}`);
   console.log(`   - Blog posts: ${blogPosts.length}`);
-  console.log(`   ⚠️  Excluded ${excludedCount} redirected/legacy URLs from sitemap`);
+  console.log(`   Warning: Excluded ${excludedCount} redirected/legacy URLs from sitemap`);
 }
 
 generateSitemap();

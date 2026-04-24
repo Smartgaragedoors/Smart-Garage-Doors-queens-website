@@ -27,7 +27,6 @@ const InstallationPage = lazy(() => import('../pages/services/installation/page'
 // Service area pages
 const BrooklynNYPage = lazy(() => import('../pages/service-areas/brooklyn-ny/page').then(module => ({ default: module.default })));
 const BronxNYPage = lazy(() => import('../pages/service-areas/bronx-ny/page').then(module => ({ default: module.default })));
-const FlushingNYPage = lazy(() => import('../pages/service-areas/flushing-ny/page').then(module => ({ default: module.default })));
 const QueensNYPage = lazy(() => import('../pages/service-areas/queens-ny/page').then(module => ({ default: module.default })));
 const StamfordCTPage = lazy(() => import('../pages/service-areas/stamford-ct/page').then(module => ({ default: module.default })));
 const BergenCountyNJPage = lazy(() => import('../pages/service-areas/bergen-county-nj/page').then(module => ({ default: module.default })));
@@ -62,7 +61,7 @@ const routes: RouteObject[] = [
   },
   {
     path: '/home/',
-    element: <HomePage />
+    element: <Navigate to="/" replace />
   },
   {
     path: '/contact/',
@@ -158,7 +157,7 @@ const routes: RouteObject[] = [
   },
   {
     path: '/flushing-ny/',
-    element: <FlushingNYPage />
+    element: <Navigate to="/queens-ny/" replace />
   },
   {
     path: '/long-island-ny/',
@@ -255,15 +254,11 @@ const routes: RouteObject[] = [
   },
   {
     path: '/home',
-    element: <Navigate to="/home/" replace />
+    element: <Navigate to="/" replace />
   },
   {
     path: '/contact',
     element: <Navigate to="/contact/" replace />
-  },
-  {
-    path: '/blog/:slug',
-    element: <Navigate to="/blog/:slug/" replace />
   },
   {
     path: '/garage-door-repair-brooklyn-ny/',

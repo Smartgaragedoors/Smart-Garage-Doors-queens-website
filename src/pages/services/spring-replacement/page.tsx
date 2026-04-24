@@ -64,7 +64,7 @@ export default function SpringReplacementPage() {
     },
     {
       question: 'What should I do if my garage door spring breaks?',
-      answer: 'First, do NOT attempt to open or close the door manually - this is dangerous. Secure the door in its current position if possible, and immediately call a professional. Keep children and pets away from the garage. We offer 24/7 emergency spring replacement service and can typically have a technician to you within 60-90 minutes. Don\'t delay - a broken spring can lead to further damage to other components.',
+      answer: 'First, do NOT attempt to open or close the door manually — this is dangerous. Secure the door in its current position if possible, and call a professional immediately. Keep children and pets away from the garage. We offer 24/7 emergency spring replacement service and prioritize urgent calls. Call (914) 557-6816 for current availability — don\'t delay, as a broken spring can cause further damage to other components.',
     },
     {
       question: 'How do I maintain my garage door springs to extend their life?',

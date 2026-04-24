@@ -246,12 +246,20 @@ export function getServiceLinksForLocation(locationPath: string): InternalLink[]
 export function getRelatedLocations(currentLocationPath: string): InternalLink[] {
   const locationMap: Record<string, InternalLink[]> = {
     'queens-ny': [
+      { url: '/bronx-ny/', text: 'Bronx, NY' },
       { url: '/brooklyn-ny/', text: 'Brooklyn, NY' },
       { url: '/long-island-ny/', text: 'Long Island, NY' },
       { url: '/staten-island-ny/', text: 'Staten Island, NY' },
       { url: '/white-plains-ny/', text: 'White Plains, NY' },
     ],
+    'bronx-ny': [
+      { url: '/queens-ny/', text: 'Queens, NY' },
+      { url: '/brooklyn-ny/', text: 'Brooklyn, NY' },
+      { url: '/white-plains-ny/', text: 'White Plains, NY' },
+      { url: '/westchester-county-ny/', text: 'Westchester County, NY' },
+    ],
     'brooklyn-ny': [
+      { url: '/bronx-ny/', text: 'Bronx, NY' },
       { url: '/queens-ny/', text: 'Queens, NY' },
       { url: '/long-island-ny/', text: 'Long Island, NY' },
       { url: '/staten-island-ny/', text: 'Staten Island, NY' },
@@ -417,6 +425,7 @@ export function getRelatedLocations(currentLocationPath: string): InternalLink[]
   }
 
   return [
+    { url: '/bronx-ny/', text: 'Bronx, NY' },
     { url: '/queens-ny/', text: 'Queens, NY' },
     { url: '/brooklyn-ny/', text: 'Brooklyn, NY' },
     { url: '/long-island-ny/', text: 'Long Island, NY' },

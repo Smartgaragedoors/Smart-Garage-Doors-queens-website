@@ -1,5 +1,5 @@
-import { createContext, useContext, useEffect, useState, useMemo, useCallback, ReactNode } from 'react';
-import { detectLocation, getLocationDisplayName, getResponseTime, LocationData } from '../services/geolocation';
+import { createContext, useContext, useEffect, useState, useMemo, useCallback, type ReactNode } from 'react';
+import { detectLocation, getLocationDisplayName, getResponseTime, type LocationData } from '../services/geolocation';
 
 interface LocationContextType {
   location: LocationData | null;
@@ -79,7 +79,6 @@ export function useLocation() {
   }
   return context;
 }
-
 
 
 
