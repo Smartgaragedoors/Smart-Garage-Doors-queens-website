@@ -11,7 +11,7 @@ const NewRochelleNY = () => {
     <div className="min-h-screen bg-white">
       <DynamicMetaTags 
         title="New Rochelle NY Garage Door Repair | Smartest Garage Doors"
-        description="Garage door repair in New Rochelle, NY. 5.0★, 392 reviews. Same-day service, emergency repairs. Licensed & insured."
+        description="Garage door repair in New Rochelle, NY. 5.0?, 392 reviews. Same-day service, emergency repairs. Licensed & insured."
         keywords="New Rochelle NY garage door repair, garage door installation New Rochelle, emergency garage door service Westchester"
         canonical={buildCanonical('/new-rochelle-ny')}
       />
@@ -23,7 +23,7 @@ const NewRochelleNY = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: `url('https://readdy.ai/api/search-image?query=Professional%20garage%20door%20technician%20working%20on%20residential%20garage%20door%20in%20New%20Rochelle%20New%20York%20coastal%20suburban%20neighborhood%20with%20beautiful%20homes%20near%20Long%20Island%20Sound%2C%20service%20truck%20parked%20on%20residential%20street&width=1200&height=600&seq=new-rochelle-hero&orientation=landscape')`
+            backgroundImage: `url('https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/69d26d48-0700-425b-bfcd-980ccc4bbf00/hero')`
           }}
         />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

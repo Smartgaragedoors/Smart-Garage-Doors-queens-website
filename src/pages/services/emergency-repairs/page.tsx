@@ -1,4 +1,4 @@
-
+﻿
 import { useEffect } from 'react';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
@@ -86,7 +86,7 @@ export default function EmergencyRepairsPage() {
       <section className="relative bg-gradient-to-br from-red-600 to-orange-600 text-white py-20">
         <div className="absolute inset-0">
           <img 
-            src="https://readdy.ai/api/search-image?query=Emergency%20garage%20door%20repair%20service%20at%20night%20with%20bright%20emergency%20lights%2C%20professional%20technician%20working%20urgent%20%20ly%20on%20broken%20garage%20door%2C%20emergency%20van%20with%20flashing%20lights%2C%20residential%20setting%2C%20dramatic%20lighting%20showing%20urgency%20and%20professionalism&width=1200&height=600&seq=emergency-hero001&orientation=landscape"
+            src="/images/commercial-garage-door-repair-nyc-smart-garage-doors.jpg"
             alt="24/7 Emergency Garage Door Repair"
             className="w-full h-full object-cover opacity-20"
           />
@@ -100,7 +100,7 @@ export default function EmergencyRepairsPage() {
               Garage door stuck? Won't open? We provide immediate emergency repair services across NYC, Westchester, and Connecticut. Our certified technicians are available 24/7 for urgent garage door issues.
             </p>
             <p className="text-lg mb-8 text-orange-100 font-semibold">
-              Rated 5.0★ with hundreds of local reviews • Same-day tri-state response • Fully licensed and insured team.
+              Rated 5.0★ with hundreds of local reviews • Fast tri-state response — call to confirm • Fully licensed and insured team.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a 
@@ -209,7 +209,7 @@ export default function EmergencyRepairsPage() {
                 <i className="ri-time-line text-3xl text-red-600"></i>
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Fast Response</h3>
-              <p className="text-gray-600">Average 30-minute response time for emergency calls</p>
+              <p className="text-gray-600">We prioritize urgent calls and dispatch the nearest available technician as quickly as possible</p>
             </div>
 
             <div className="text-center">

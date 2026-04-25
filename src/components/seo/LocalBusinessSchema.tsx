@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { BUSINESS_INFO } from '../../config/business-info';
 
 interface LocalBusinessSchemaProps {
@@ -34,7 +34,7 @@ const LocalBusinessSchema: React.FC<LocalBusinessSchemaProps> = ({
     "@type": "LocalBusiness",
     "name": businessName,
     "legalName": BUSINESS_INFO.legalName,
-    "image": "https://static.readdy.ai/image/b69172f381814b1e7c2f555a7760d2b1/4d43fd0bc8f747590e796db153cdd63c.png",
+    "image": "https://www.smartestgaragedoors.com/hero-van-1280.webp",
     "url": BUSINESS_INFO.website,
     "telephone": BUSINESS_INFO.phoneFormatted,
     "priceRange": BUSINESS_INFO.priceRange,

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+﻿import { useEffect } from 'react';
 import { buildCanonical } from '../../../config/canonical';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
@@ -62,7 +62,7 @@ export default function WestportCTPage() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
           style={{
-            backgroundImage: `url('https://readdy.ai/api/search-image?query=Elegant%20coastal%20homes%20in%20Westport%20Connecticut%20with%20beautiful%20garage%20doors%2C%20upscale%20waterfront%20neighborhood%2C%20professional%20garage%20door%20service%2C%20sophisticated%20residential%20architecture%20near%20Long%20Island%20Sound&width=1200&height=600&seq=westport-hero&orientation=landscape')`
+            backgroundImage: `url('/images/garage-door-panel-repair-dan-hammer-smart-garage-doors.jpg')`
           }}
         ></div>
         <div className="relative max-w-7xl mx-auto px-4">
@@ -130,7 +130,7 @@ export default function WestportCTPage() {
             </div>
             <div>
               <img 
-                src="https://readdy.ai/api/search-image?query=Luxury%20garage%20door%20installation%20on%20coastal%20home%20in%20Westport%20Connecticut%2C%20professional%20technician%20working%20near%20waterfront%20property%2C%20salt-resistant%20materials%2C%20high-end%20residential%20service%20photography&width=600&height=400&quality=85&seq=westport-service&orientation=landscape"
+                src="/images/garage-door-panel-repair-dan-hammer-smart-garage-doors.jpg"
                 alt="Premium garage door service in Westport CT"
                 className="rounded-lg shadow-lg w-full h-auto object-cover"
                 width="600"

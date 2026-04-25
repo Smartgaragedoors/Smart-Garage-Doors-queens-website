@@ -5,6 +5,7 @@ import Breadcrumbs from '../../../components/seo/Breadcrumbs';
 import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
 import FAQSchema from '../../../components/seo/FAQSchema';
 import { buildCanonical } from '../../../config/canonical';
+import { getCFImageUrl } from '../../../data/cloudflareImages';
 import RelatedServices from '../../../components/seo/RelatedServices';
 import ServiceAreaLinks from '../../../components/seo/ServiceAreaLinks';
 import { useLocation } from '../../../contexts/LocationContext';
@@ -20,7 +21,7 @@ export default function CableRollerRepairPage() {
   const faqs = [
     {
       question: `How much does cable and roller repair cost in ${displayLocation}?`,
-      answer: `Cable replacement typically costs $150-$300, depending on the number of cables (single or double door) and door size. Roller replacement costs $100-$250 depending on quantity (usually 8-12 rollers) and type (nylon vs. steel). Track repair costs $150-$400 depending on severity - minor straightening vs. full track section replacement. We provide free estimates and upfront pricing before starting work with no hidden fees.`,
+      answer: `Cable, roller, and track repair costs depend on the extent of damage, door size, and parts required. We provide a free on-site estimate before any work begins so you know exactly what you're paying — no hidden fees. Call (914) 557-6816 to schedule.`,
     },
     {
       question: 'How do I know if my garage door cables or rollers need replacement?',
@@ -36,7 +37,7 @@ export default function CableRollerRepairPage() {
     },
     {
       question: `How quickly can you repair cables and rollers in ${displayLocation}?`,
-      answer: `We offer same-day cable and roller repair service throughout NY, NJ & CT. Most repairs can be completed within 1-2 hours of arrival. We stock common cable sizes and roller types in our service vehicles for quick turnaround. For specialty sizes or types, we can often source parts quickly and return the same day or next day to complete the repair.`,
+      answer: `Same-day service is often available throughout NY, NJ & CT depending on location and technician availability — call (914) 557-6816 to confirm current scheduling. We stock common cable sizes and roller types in our service vehicles, so most repairs can be completed on the first visit without additional trips.`,
     },
     {
       question: 'How often should garage door rollers be replaced?',
@@ -64,7 +65,7 @@ export default function CableRollerRepairPage() {
     },
     {
       question: `What areas do you serve for cable and roller repair services?`,
-      answer: `We provide garage door cable and roller repair services throughout New York (including Queens, Brooklyn, Long Island, Westchester County), New Jersey (Bergen County), and Connecticut (Fairfield County). We serve all areas within a 50-mile radius with same-day service available in most locations.`,
+      answer: `We provide garage door cable and roller repair services throughout New York (including Queens, Brooklyn, Long Island, Westchester County), New Jersey (Bergen County), and Connecticut (Fairfield County). Call (914) 557-6816 to confirm availability in your area.`,
     },
   ];
 
@@ -98,8 +99,8 @@ export default function CableRollerRepairPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <DynamicMetaTags 
-        title="Garage Door Cable & Roller Repair NY NJ CT | Same-Day | Smartest Garage Doors"
-        description="5.0★ rated, 475 reviews. Cable, roller, track repair. Same-day service. NY, NJ & CT. Licensed & insured."
+        title="Garage Door Cable & Roller Repair NY NJ CT | Smartest Garage Doors"
+        description="5.0★ rated, 475 reviews. Cable, roller & track repair. Fast service — call for availability. NY, NJ & CT. Licensed & insured."
         keywords="garage door cable repair, roller replacement, track repair, cable replacement"
         canonical={buildCanonical('/cable-roller-repair')}
       />
@@ -109,10 +110,10 @@ export default function CableRollerRepairPage() {
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-teal-600 to-teal-800 text-white py-20">
         <div className="absolute inset-0">
-          <img 
-            src="https://readdy.ai/api/search-image?query=Professional%20technician%20working%20on%20garage%20door%20track%20systems%20installing%20high-quality%20steel%20cables%20and%20smooth%20rollers%2C%20clean%20garage%20environment%2C%20professional%20tools%20and%20equipment%2C%20skilled%20installation%20work%2C%20modern%20track%20system%2C%20quality%20hardware%20components&width=1280&height=640&quality=85&seq=cable-hero001&orientation=landscape"
-            alt="Professional Cable and Roller Repair"
-            className="w-full h-full object-cover opacity-20"
+          <img
+            src={getCFImageUrl('1fcc6a3f-d3c8-4177-beca-3346198edb00', 'hero')}
+            alt="Ben, Smart Garage Doors technician, smiling while servicing garage door cable and roller mechanism"
+            className="w-full h-full object-cover object-center opacity-20"
             width="1280"
             height="640"
             loading="eager"
@@ -125,7 +126,7 @@ export default function CableRollerRepairPage() {
               Cable & Roller Repair Service
             </h1>
             <p className="text-xl mb-8">
-              Professional replacement of frayed cables, worn rollers, and track repair for smooth garage door operation. We service all types of garage door hardware across NYC, Westchester, and Connecticut with same-day availability.
+              Professional replacement of frayed cables, worn rollers, and track repair for smooth garage door operation. We service all types of garage door hardware across NYC, Westchester, and Connecticut. Call to check availability.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a 

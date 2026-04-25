@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+﻿import { useEffect } from 'react';
 import { buildCanonical } from '../../../config/canonical';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
@@ -62,7 +62,7 @@ export default function GreenwichCTPage() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
           style={{
-            backgroundImage: `url('https://readdy.ai/api/search-image?query=Luxury%20residential%20neighborhood%20in%20Greenwich%20Connecticut%20with%20elegant%20homes%20and%20garage%20doors%2C%20upscale%20suburban%20street%20with%20professional%20garage%20door%20service%2C%20beautiful%20landscaping%2C%20high-end%20property%20photography&width=1200&height=600&seq=greenwich-hero&orientation=landscape')`
+            backgroundImage: `url('/images/garage-door-panel-repair-dan-hammer-smart-garage-doors.jpg')`
           }}
         ></div>
         <div className="relative max-w-7xl mx-auto px-4">
@@ -130,7 +130,7 @@ export default function GreenwichCTPage() {
             </div>
             <div>
               <img 
-                src="https://readdy.ai/api/search-image?query=Elegant%20garage%20door%20installation%20on%20luxury%20home%20in%20Greenwich%20Connecticut%2C%20professional%20technician%20working%20on%20high-end%20garage%20door%2C%20upscale%20residential%20setting%2C%20premium%20service%20quality%20photography&width=600&height=400&quality=85&seq=greenwich-service&orientation=landscape"
+                src="/images/garage-door-panel-repair-dan-hammer-smart-garage-doors.jpg"
                 alt="Premium garage door service in Greenwich CT"
                 className="rounded-lg shadow-lg w-full h-auto object-cover"
                 width="600"

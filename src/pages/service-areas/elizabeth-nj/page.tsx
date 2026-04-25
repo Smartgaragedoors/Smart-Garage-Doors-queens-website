@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+﻿import { useEffect } from 'react';
 import { buildCanonical } from '../../../config/canonical';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
@@ -110,7 +110,7 @@ const ElizabethNJ = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: `url('https://readdy.ai/api/search-image?query=Professional%20garage%20door%20technician%20working%20on%20residential%20garage%20door%20in%20Elizabeth%20New%20Jersey%20diverse%20neighborhood%20with%20single%20family%20homes%20and%20apartment%20buildings%2C%20modern%20garage%20doors%2C%20service%20vehicle%20on%20residential%20street&width=1200&height=600&seq=elizabeth-hero&orientation=landscape')`
+            backgroundImage: `url('/images/garage-door-repair-team-job-site-smart-garage-doors.webp')`
           }}
         />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

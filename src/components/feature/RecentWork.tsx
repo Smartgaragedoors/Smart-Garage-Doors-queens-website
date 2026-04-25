@@ -1,143 +1,226 @@
-import { useState, memo } from 'react';
-import CFImage from '../base/CFImage';
+import { useState, memo, useCallback, useRef, useEffect } from 'react';
+import { getCFImageUrl } from '../../data/cloudflareImages';
 
 interface Photo {
-  id: string;
   image: string;
+  alt: string;
   title: string;
-  description?: string;
+  position?: string;
 }
 
-const customPhotos: Photo[] = [
-    {
-      id: 'recent-work-installation-pro',
-      image: 'https://static.readdy.ai/image/b69172f381814b1e7c2f555a7760d2b1/6c1b03291502bee542d52ba370b557cf.jpeg',
-      title: 'Professional Garage Door Installation'
-    },
-    {
-      id: 'recent-work-expert-service',
-      image: 'https://static.readdy.ai/image/b69172f381814b1e7c2f555a7760d2b1/5ee3fafe7c08f7d3798ff08932a9a1d9.jpeg',
-      title: 'Expert Garage Door Service'
-    },
-    {
-      id: 'recent-work-quality-repair',
-      image: 'https://static.readdy.ai/image/b69172f381814b1e7c2f555a7760d2b1/9f70538874f046536c17d5849a06e8ef.jpeg',
-      title: 'Quality Garage Door Repair'
-    }
-  ];
+const VISIBLE = 3;
+const GAP = 16; // px between cards
 
-const defaultProjects: Photo[] = [
-    {
-      id: 'recent-work-gd001',
-      image: 'https://readdy.ai/api/search-image?query=Professional%20garage%20door%20installation%20project%20showing%20a%20newly%20installed%20white%20residential%20garage%20door%20with%20clean%20modern%20design%2C%20technician%20in%20uniform%20completing%20final%20adjustments%2C%20suburban%20home%20exterior%20with%20driveway%2C%20bright%20daylight%2C%20high%20quality%20professional%20photography%20style&width=800&height=533&quality=85&seq=gd001&orientation=landscape',
-      title: 'Door Installation Project'
-    },
-    {
-      id: 'recent-work-gd002',
-      image: 'https://readdy.ai/api/search-image?query=Garage%20door%20repair%20service%20in%20progress%2C%20technician%20working%20on%20garage%20door%20mechanism%2C%20tools%20and%20equipment%20visible%2C%20residential%20garage%20setting%2C%20professional%20service%20quality%2C%20detailed%20repair%20work%20being%20performed%2C%20clean%20suburban%20environment&width=800&height=533&quality=85&seq=gd002&orientation=landscape',
-      title: 'Garage Door Repair'
-    },
-    {
-      id: 'recent-work-gd003',
-      image: 'https://readdy.ai/api/search-image?query=Garage%20door%20opener%20and%20light%20installation%2C%20professional%20technician%20installing%20LED%20lighting%20system%20on%20garage%20door%20opener%2C%20modern%20residential%20garage%20interior%2C%20clean%20installation%20work%2C%20bright%20lighting%20setup%2C%20professional%20service%20quality&width=800&height=533&quality=85&seq=gd003&orientation=landscape',
-      title: 'Light Installation'
-    },
-    {
-      id: 'recent-work-gd004',
-      image: 'https://readdy.ai/api/search-image?query=Professional%20garage%20door%20service%20team%20at%20work%2C%20uniformed%20technicians%20providing%20expert%20garage%20door%20maintenance%2C%20modern%20residential%20home%20exterior%2C%20professional%20service%20van%20in%20background%2C%20quality%20workmanship%20demonstration&width=800&height=533&quality=85&seq=gd004&orientation=landscape',
-      title: 'Professional Service'
-    },
-    {
-      id: 'recent-work-gd005',
-      image: 'https://readdy.ai/api/search-image?query=High%20quality%20garage%20door%20installation%20completed%2C%20beautiful%20new%20garage%20door%20on%20upscale%20residential%20home%2C%20perfect%20installation%20craftsmanship%2C%20clean%20finished%20work%2C%20satisfied%20customer%20home%20exterior%2C%20professional%20results%20showcase&width=800&height=533&quality=85&seq=gd005&orientation=landscape',
-      title: 'Quality Installation'
-    }
-  ];
+const photos: Photo[] = [
+  {
+    image: getCFImageUrl('7afb363e-9199-4fb7-599f-c037e1439b00', 'card'),
+    alt: 'Dan, Smart Garage Doors technician, smiling while installing a garage door opener',
+    title: 'Opener Install — Queens',
+    position: 'object-center',
+  },
+  {
+    image: '/images/garage-door-repair-team-job-site-smart-garage-doors.webp',
+    alt: 'Smart Garage Doors two-man team at a residential brick home installing a garage door',
+    title: 'Door Installation — Westchester',
+    position: 'object-bottom',
+  },
+  {
+    image: getCFImageUrl('1fcc6a3f-d3c8-4177-beca-3346198edb00', 'card'),
+    alt: 'Ben, Smart Garage Doors technician, smiling while working on cable and roller system',
+    title: 'Cable & Roller Repair',
+    position: 'object-center',
+  },
+  {
+    image: '/images/garage-door-repair-technician-dan-smart-garage-doors.jpg',
+    alt: 'Smart Garage Doors technician Dan repairing a garage door panel on-site',
+    title: 'Panel Repair — Queens, NY',
+    position: 'object-center',
+  },
+  {
+    image: getCFImageUrl('850dffb2-5b15-48d3-f2a5-0d4d1c95a200', 'card'),
+    alt: 'Smart Garage Doors technician drilling into garage door track hardware',
+    title: 'Track Installation',
+    position: 'object-center',
+  },
+  {
+    image: '/images/garage-door-panel-repair-dan-hammer-smart-garage-doors.jpg',
+    alt: 'Smart Garage Doors technician working on garage door panel',
+    title: 'Panel Replacement',
+    position: 'object-center',
+  },
+  {
+    image: '/images/commercial-garage-door-repair-nyc-smart-garage-doors.jpg',
+    alt: 'Smart Garage Doors technician servicing large commercial garage doors',
+    title: 'Commercial Repair — NYC',
+    position: 'object-center',
+  },
+  {
+    image: '/images/satisfied-customer-new-garage-door-smart-garage-doors.jpg',
+    alt: 'Happy homeowner with Smart Garage Doors technician after installation',
+    title: 'Happy Customer — Bronx',
+    position: 'object-top',
+  },
+  {
+    image: getCFImageUrl('45d417a3-6fc3-4605-668e-f2742f2f4100', 'card'),
+    alt: 'Interior view of a newly installed contemporary glass-panel garage door',
+    title: 'Glass Door Install — CT',
+    position: 'object-center',
+  },
+  {
+    image: '/images/garage-door-repair-technician-ben-smart-garage-doors.jpg',
+    alt: 'Smart Garage Doors technician Ben working on garage door installation',
+    title: 'Spring & Track Service',
+    position: 'object-center',
+  },
+];
 
-const displayProjects: Photo[] = [...customPhotos, ...defaultProjects];
+const MAX_SLIDE = photos.length - VISIBLE;
 
 function RecentWork() {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [slide, setSlide] = useState(0);
+  const [cardWidth, setCardWidth] = useState(0);
+  const clipRef = useRef<HTMLDivElement>(null);
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % displayProjects.length);
-  };
+  // Measure container and recompute card width on resize
+  useEffect(() => {
+    const measure = () => {
+      if (!clipRef.current) return;
+      const total = clipRef.current.offsetWidth;
+      // card width = (container - gaps between visible cards) / visible count
+      setCardWidth((total - GAP * (VISIBLE - 1)) / VISIBLE);
+    };
+    measure();
+    const ro = new ResizeObserver(measure);
+    if (clipRef.current) ro.observe(clipRef.current);
+    return () => ro.disconnect();
+  }, []);
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + displayProjects.length) % displayProjects.length);
-  };
+  const prev = useCallback(() => setSlide((s) => Math.max(0, s - 1)), []);
+  const next = useCallback(() => setSlide((s) => Math.min(MAX_SLIDE, s + 1)), []);
+
+  const canPrev = slide > 0;
+  const canNext = slide < MAX_SLIDE;
+
+  // Pixel offset per slide = one card + one gap
+  const offset = slide * (cardWidth + GAP);
 
   return (
-    <section className="py-12 md:py-20 bg-white overflow-x-hidden w-full">
-      <div className="max-w-7xl mx-auto px-4" style={{ width: '100%', maxWidth: '1280px' }}>
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">
-            Recent <span className="text-orange-500">Works</span>
-          </h2>
+    <section className="py-12 md:py-20 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4">
+
+        {/* Header row with arrows */}
+        <div className="flex items-end justify-between mb-8">
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold text-blue-900">
+              Recent <span className="text-orange-500">Jobs</span>
+            </h2>
+            <p className="text-gray-500 mt-1 text-sm md:text-base">
+              Real work, real customers — no stock photos.
+            </p>
+          </div>
+          <div className="hidden md:flex items-center gap-2">
+            <button
+              onClick={prev}
+              disabled={!canPrev}
+              className={`w-11 h-11 rounded-full border-2 flex items-center justify-center transition-all ${
+                canPrev
+                  ? 'border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white'
+                  : 'border-gray-200 text-gray-300 cursor-not-allowed'
+              }`}
+              aria-label="Previous"
+              type="button"
+            >
+              <i className="ri-arrow-left-line text-lg" aria-hidden="true" />
+            </button>
+            <button
+              onClick={next}
+              disabled={!canNext}
+              className={`w-11 h-11 rounded-full border-2 flex items-center justify-center transition-all ${
+                canNext
+                  ? 'border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white'
+                  : 'border-gray-200 text-gray-300 cursor-not-allowed'
+              }`}
+              aria-label="Next"
+              type="button"
+            >
+              <i className="ri-arrow-right-line text-lg" aria-hidden="true" />
+            </button>
+          </div>
         </div>
 
-        {/* Desktop Carousel */}
-        <div className="hidden md:block relative overflow-hidden" style={{ width: '100%', maxWidth: '100%' }}>
-          <div className="overflow-hidden" style={{ width: '100%', maxWidth: '100%' }}>
-            <div 
-              className="flex transition-transform duration-500 ease-in-out w-full"
-              style={{ transform: `translateX(-${currentSlide * (100 / 3)}%)` }}
+        {/* Desktop carousel — pixel-based, no percentage math */}
+        <div ref={clipRef} className="hidden md:block overflow-hidden w-full">
+          {cardWidth > 0 && (
+            <div
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{
+                gap: `${GAP}px`,
+                transform: `translateX(-${offset}px)`,
+              }}
             >
-              {displayProjects.map((project, index) => (
-                <div key={index} className="w-1/3 flex-shrink-0 px-2 min-w-0">
-                  <div className="bg-white rounded-lg shadow-lg overflow-hidden w-full">
-                    <CFImage
-                      id={project.id}
-                      variant="card"
-                      alt={project.title}
-                      className="w-full h-64 object-cover object-top"
-                      width={800}
-                      height={533}
-                      sizes="(max-width: 768px) 50vw, 33vw"
-                      fallbackSrc={project.image}
+              {photos.map((photo, i) => (
+                <div
+                  key={i}
+                  className="flex-shrink-0 rounded-2xl overflow-hidden shadow-md bg-white"
+                  style={{ width: `${cardWidth}px` }}
+                >
+                  <div className="overflow-hidden" style={{ height: `${Math.round(cardWidth * 0.75)}px` }}>
+                    <img
+                      src={photo.image}
+                      alt={photo.alt}
+                      className={`w-full h-full object-cover ${photo.position ?? 'object-center'} hover:scale-105 transition-transform duration-500`}
+                      width={600}
+                      height={450}
+                      loading={i < VISIBLE ? 'eager' : 'lazy'}
                     />
+                  </div>
+                  <div className="px-4 py-3 flex items-center gap-2">
+                    <i className="ri-map-pin-2-line text-orange-500 text-sm flex-shrink-0" aria-hidden="true" />
+                    <p className="text-sm font-semibold text-gray-800 truncate">{photo.title}</p>
                   </div>
                 </div>
               ))}
             </div>
-          </div>
-
-          {/* Navigation Arrows */}
-          <button 
-            onClick={prevSlide}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-orange-500 text-white p-3 rounded-full hover:bg-orange-600 transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
-            aria-label="Previous slide"
-            type="button"
-          >
-            <i className="ri-arrow-left-line text-xl" aria-hidden="true"></i>
-          </button>
-          <button 
-            onClick={nextSlide}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-orange-500 text-white p-3 rounded-full hover:bg-orange-600 transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
-            aria-label="Next slide"
-            type="button"
-          >
-            <i className="ri-arrow-right-line text-xl" aria-hidden="true"></i>
-          </button>
+          )}
         </div>
 
-        {/* Mobile Grid */}
-        <div className="md:hidden grid grid-cols-2 gap-4">
-          {displayProjects.slice(0, 4).map((project, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <CFImage
-                id={project.id}
-                variant="thumbnail"
-                alt={project.title}
-                className="w-full h-40 object-cover object-top"
-                width={400}
-                height={267}
-                sizes="50vw"
-                fallbackSrc={project.image}
-              />
+        {/* Dot indicators */}
+        <div className="hidden md:flex justify-center gap-2 mt-5">
+          {Array.from({ length: MAX_SLIDE + 1 }).map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setSlide(i)}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                i === slide ? 'bg-orange-500 w-6' : 'bg-gray-300 w-2 hover:bg-gray-400'
+              }`}
+              aria-label={`Slide ${i + 1}`}
+              type="button"
+            />
+          ))}
+        </div>
+
+        {/* Mobile — 2-col grid */}
+        <div className="md:hidden grid grid-cols-2 gap-3">
+          {photos.map((photo, i) => (
+            <div key={i} className="rounded-xl overflow-hidden shadow-md bg-white">
+              <div className="aspect-[4/3] overflow-hidden">
+                <img
+                  src={photo.image}
+                  alt={photo.alt}
+                  className={`w-full h-full object-cover ${photo.position ?? 'object-center'}`}
+                  width={400}
+                  height={300}
+                  loading="lazy"
+                />
+              </div>
+              <div className="px-3 py-2 flex items-center gap-1.5">
+                <i className="ri-map-pin-2-line text-orange-500 text-xs flex-shrink-0" aria-hidden="true" />
+                <p className="text-xs font-semibold text-gray-700 truncate">{photo.title}</p>
+              </div>
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );

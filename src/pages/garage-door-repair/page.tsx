@@ -32,7 +32,7 @@ export default function GarageDoorRepairPage() {
   const faqs = [
     {
       question: `How quickly can you repair my garage door in ${displayLocation}?`,
-      answer: `We offer same-day garage door repair service throughout ${displayRegion}. Our technicians are strategically located across our service area to ensure fast response times. Most repairs can be completed within 1-2 hours of arrival. For emergency situations, we typically respond within 60-90 minutes in most areas.`,
+      answer: `We work to schedule service as quickly as possible — same-day appointments are often available depending on your location and technician availability. Call us to confirm current availability for ${displayRegion}. For urgent situations, let us know when you call and we will prioritize your job.`,
     },
     {
       question: 'What types of garage door repairs do you handle?',
@@ -44,7 +44,7 @@ export default function GarageDoorRepairPage() {
     },
     {
       question: `How much does garage door repair cost in ${displayLocation}?`,
-      answer: `Garage door repair costs vary depending on the issue. Simple repairs like cable replacement typically range from $150-$300, while spring replacement usually costs $200-$400. Opener repairs range from $150-$350. We provide upfront pricing with no hidden fees, and our rates are consistent across all our service areas.`,
+      answer: `Garage door repair costs depend on the specific issue, parts needed, door size, and condition of existing hardware. We provide a free on-site estimate before any work begins so you know the exact total cost — including parts and labor — before we start. Call us to describe the issue and we can give you a general idea of what to expect.`,
     },
     {
       question: 'Do you offer a warranty on repairs?',
@@ -71,8 +71,8 @@ export default function GarageDoorRepairPage() {
   return (
     <div className="min-h-screen bg-white">
       <DynamicMetaTags 
-        title="Garage Door Repair NY NJ CT | 5.0★ Same-Day | Smartest Garage Doors"
-        description="5.0★ rated, 475 reviews. Same-day garage door repair across NY, NJ & CT. Spring replacement, opener repair, emergency service. Licensed & insured."
+        title="Garage Door Repair NY NJ CT | 5.0★ 475 Reviews | Smartest Garage Doors"
+        description="5.0★ rated, 475 reviews. Fast garage door repair across NY, NJ & CT. Spring replacement, opener repair, emergency service. Free estimate. Licensed & insured."
       />
       <FAQSchema faqs={faqs} />
       <Header />
@@ -86,7 +86,7 @@ export default function GarageDoorRepairPage() {
             "@context": "https://schema.org",
             "@type": "Service",
             "name": "Garage Door Repair Services",
-            "description": "Professional garage door repair services in NY, NJ & CT. Same-day service, licensed technicians, all brands.",
+            "description": "Professional garage door repair services in NY, NJ & CT. Fast response, licensed technicians, all brands.",
             "url": buildCanonical('/garage-door-repair'),
             "provider": {
               "@type": "LocalBusiness",
@@ -209,7 +209,7 @@ export default function GarageDoorRepairPage() {
                 Expert garage door repair services across NY, NJ, and CT. Fast, reliable, and affordable solutions for all your garage door problems.
               </p>
               <p className="text-lg md:text-xl mb-8 text-blue-100 font-semibold">
-                5.0★ rated by {BUSINESS_INFO.aggregateRating.reviewCount}+ homeowners • Same-day repair in most areas • Fully insured local technicians.
+                5.0★ rated by {BUSINESS_INFO.aggregateRating.reviewCount}+ homeowners • Fast response — call to confirm • Fully insured local technicians.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a 
@@ -234,7 +234,7 @@ export default function GarageDoorRepairPage() {
 
       <BookingCTABar
         title="Ready to Schedule Your Repair?"
-        subtitle="Same-day service • Licensed & insured • 5-Star rated • Free estimate"
+        subtitle="Fast response • Licensed & insured • 5-Star rated • Free estimate"
       />
 
       {/* Repair Process */}
@@ -256,7 +256,7 @@ export default function GarageDoorRepairPage() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Fast Response</h3>
               <p className="text-gray-600">
-                Same-day service available. Our technicians arrive quickly with all necessary tools and parts to diagnose your issue.
+                We prioritize urgent calls and dispatch the nearest available technician with all necessary tools and parts to diagnose your issue.
               </p>
             </div>
 
@@ -304,8 +304,8 @@ export default function GarageDoorRepairPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="bg-white rounded-lg shadow-lg p-6 border-2 border-blue-200">
               <h3 className="text-xl font-bold text-gray-900 mb-2">Basic Repairs</h3>
-              <div className="text-3xl font-bold text-blue-600 mb-1">$150-$300</div>
-              <p className="text-sm text-gray-600 mb-4">Starting price</p>
+              <div className="text-3xl font-bold text-blue-600 mb-1">$150–$450</div>
+              <p className="text-sm text-gray-500 mb-4">Typical total cost — parts & labor included</p>
               <ul className="space-y-2 text-sm text-gray-700 mb-4">
                 <li className="flex items-start">
                   <i className="ri-check-line text-green-600 mr-2 mt-0.5"></i>
@@ -325,14 +325,14 @@ export default function GarageDoorRepairPage() {
                 </li>
               </ul>
             </div>
-            
+
             <div className="bg-white rounded-lg shadow-lg p-6 border-2 border-orange-500 relative">
               <div className="absolute top-0 right-0 bg-orange-500 text-white text-xs font-semibold px-3 py-1 rounded-bl-lg">
-                POPULAR
+                MOST COMMON
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">Spring Replacement</h3>
-              <div className="text-3xl font-bold text-orange-600 mb-1">$200-$400</div>
-              <p className="text-sm text-gray-600 mb-4">Starting price</p>
+              <div className="text-3xl font-bold text-orange-600 mb-1">$200–$550</div>
+              <p className="text-sm text-gray-500 mb-4">Typical total cost — parts & labor included</p>
               <ul className="space-y-2 text-sm text-gray-700 mb-4">
                 <li className="flex items-start">
                   <i className="ri-check-line text-green-600 mr-2 mt-0.5"></i>
@@ -348,15 +348,15 @@ export default function GarageDoorRepairPage() {
                 </li>
                 <li className="flex items-start">
                   <i className="ri-check-line text-green-600 mr-2 mt-0.5"></i>
-                  <span>2-year warranty included</span>
+                  <span>Parts warranty included</span>
                 </li>
               </ul>
             </div>
-            
+
             <div className="bg-white rounded-lg shadow-lg p-6 border-2 border-green-200">
               <h3 className="text-xl font-bold text-gray-900 mb-2">Opener Repair</h3>
-              <div className="text-3xl font-bold text-green-600 mb-1">$150-$350</div>
-              <p className="text-sm text-gray-600 mb-4">Starting price</p>
+              <div className="text-3xl font-bold text-green-600 mb-1">$150–$500</div>
+              <p className="text-sm text-gray-500 mb-4">Typical total cost — parts & labor included</p>
               <ul className="space-y-2 text-sm text-gray-700 mb-4">
                 <li className="flex items-start">
                   <i className="ri-check-line text-green-600 mr-2 mt-0.5"></i>
@@ -377,13 +377,14 @@ export default function GarageDoorRepairPage() {
               </ul>
             </div>
           </div>
-          
-          <div className="mt-8 bg-white rounded-lg shadow-md p-6">
-            <p className="text-center text-gray-600 text-sm">
-              <strong>Note:</strong> All prices are estimates. Final pricing depends on your specific garage door model, 
-              parts required, and complexity. We provide free, no-obligation estimates. 
-              Call <a href="tel:914-557-6816" className="text-blue-600 font-semibold hover:text-blue-700">(914) 557-6816</a> for accurate pricing.
-            </p>
+
+          <div className="mt-8 bg-white rounded-lg border border-gray-200 p-6">
+            <div className="flex items-start gap-3">
+              <i className="ri-information-line text-blue-500 text-xl flex-shrink-0 mt-0.5" aria-hidden="true"></i>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                <strong className="text-gray-800">About these ranges:</strong> The figures above reflect typical total costs including parts and labor for standard jobs. Your actual cost depends on door size, spring type, parts required, and the overall condition of your hardware. We provide a <strong>free on-site estimate</strong> before starting any work — you will know the exact price before we touch anything.
+              </p>
+            </div>
           </div>
         </div>
       </section>

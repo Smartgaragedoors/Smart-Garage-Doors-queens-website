@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 import Header from '../../components/feature/Header';
 import Footer from '../../components/feature/Footer';
 import Breadcrumbs from '../../components/seo/Breadcrumbs';
@@ -63,7 +63,7 @@ export default function BlogPage() {
               "name": "Smart Garage Doors",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://static.readdy.ai/image/b69172f381814b1e7c2f555a7760d2b1/b5abc60311785d6f2fb733a6d104ca55.webp"
+                "url": "https://www.smartestgaragedoors.com/smart-garage-doors-logo.webp"
               }
             },
             "blogPost": [

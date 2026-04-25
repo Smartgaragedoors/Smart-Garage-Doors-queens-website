@@ -45,8 +45,8 @@ export default function GarageDoorInstallationNewYorkPage() {
   return (
     <div className="min-h-screen bg-white">
       <DynamicMetaTags 
-        title="Garage Door Installation New York | Same-Day & Replacement | Smartest Garage Doors"
-        description="New garage door installation & replacement. 5.0★, 475 reviews. Free estimates. Same-day available. Licensed & insured. Serving NY, NJ & CT."
+        title="Garage Door Installation New York | New & Replacement | Smartest Garage Doors"
+        description="New garage door installation & replacement. 5.0★, 475 reviews. Free estimates. Fast service — call for availability. Licensed & insured. Serving NY, NJ & CT."
         keywords="garage door installation, new garage door, garage door replacement, garage door installer"
       />
       <FAQSchema faqs={faqs} />
@@ -328,8 +328,8 @@ export default function GarageDoorInstallationNewYorkPage() {
                 <div className="flex items-start">
                   <img src="https://www.smartestgaragedoors.com/wp-content/uploads/2025/02/check.png" alt="Check" className="w-6 h-6 mt-1 mr-3" width="24" height="24" loading="lazy" />
                   <div>
-                    <h3 className="font-semibold text-gray-900">Same-Day Service</h3>
-                    <p className="text-gray-600">Fast installation service, often completed in the same day.</p>
+                    <h3 className="font-semibold text-gray-900">Fast Service</h3>
+                    <p className="text-gray-600">Quick scheduling — call to confirm availability for your area.</p>
                   </div>
                 </div>
               </div>

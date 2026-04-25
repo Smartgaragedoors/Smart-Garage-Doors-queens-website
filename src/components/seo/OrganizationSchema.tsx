@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { BUSINESS_INFO } from '../../config/business-info';
 
 const OrganizationSchema: React.FC = () => {
@@ -8,8 +8,8 @@ const OrganizationSchema: React.FC = () => {
     "name": BUSINESS_INFO.name,
     "legalName": BUSINESS_INFO.legalName,
     "url": BUSINESS_INFO.website,
-    "logo": "https://static.readdy.ai/image/b69172f381814b1e7c2f555a7760d2b1/b5abc60311785d6f2fb733a6d104ca55.webp",
-    "image": "https://static.readdy.ai/image/b69172f381814b1e7c2f555a7760d2b1/4d43fd0bc8f747590e796db153cdd63c.png",
+    "logo": "https://www.smartestgaragedoors.com/smart-garage-doors-logo.webp",
+    "image": "https://www.smartestgaragedoors.com/hero-van-1280.webp",
     "telephone": BUSINESS_INFO.phoneFormatted,
     "email": BUSINESS_INFO.email,
     "address": {

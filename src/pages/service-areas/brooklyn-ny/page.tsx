@@ -114,7 +114,7 @@ const BrooklynNY = () => {
     <div className="min-h-screen bg-white">
       <DynamicMetaTags 
         title="Brooklyn NY Garage Door Repair | Smartest Garage Doors | 24/7"
-        description="Garage door repair in Brooklyn, NY. 5.0★, 392 reviews. Same-day service, emergency repairs. Licensed & insured."
+        description="Garage door repair in Brooklyn, NY. 5.0?, 392 reviews. Same-day service, emergency repairs. Licensed & insured."
         keywords="Brooklyn NY garage door repair, garage door installation Brooklyn, emergency garage door service"
         canonical={buildCanonical('/brooklyn-ny')}
       />
@@ -127,7 +127,7 @@ const BrooklynNY = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: `url('https://readdy.ai/api/search-image?query=Professional%20garage%20door%20technician%20working%20on%20residential%20garage%20door%20in%20Brooklyn%20New%20York%20urban%20neighborhood%20with%20brownstone%20houses%20and%20city%20skyline%2C%20modern%20garage%20doors%2C%20service%20truck%20parked%20on%20street&width=1200&height=600&seq=brooklyn-hero&orientation=landscape')`
+            backgroundImage: `url('https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/98b4a7fc-77e3-433e-65c9-c5c7be8bc000/hero')`
           }}
         />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -427,7 +427,7 @@ const BrooklynNY = () => {
             <div className="bg-gray-50 rounded-lg p-6">
               <div className="flex items-center mb-4">
                 <div className="flex text-yellow-400">
-                  {'★'.repeat(5)}
+                  {'?'.repeat(5)}
                 </div>
               </div>
               <p className="text-gray-700 mb-4 italic">
@@ -448,7 +448,7 @@ const BrooklynNY = () => {
             <div className="bg-gray-50 rounded-lg p-6">
               <div className="flex items-center mb-4">
                 <div className="flex text-yellow-400">
-                  {'★'.repeat(5)}
+                  {'?'.repeat(5)}
                 </div>
               </div>
               <p className="text-gray-700 mb-4 italic">
@@ -469,7 +469,7 @@ const BrooklynNY = () => {
             <div className="bg-gray-50 rounded-lg p-6">
               <div className="flex items-center mb-4">
                 <div className="flex text-yellow-400">
-                  {'★'.repeat(5)}
+                  {'?'.repeat(5)}
                 </div>
               </div>
               <p className="text-gray-700 mb-4 italic">

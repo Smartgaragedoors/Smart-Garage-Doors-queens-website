@@ -6,6 +6,7 @@ import FAQSchema from '../../../components/seo/FAQSchema';
 import RelatedServices from '../../../components/seo/RelatedServices';
 import ServiceAreaLinks from '../../../components/seo/ServiceAreaLinks';
 import { useLocation } from '../../../contexts/LocationContext';
+import { getCFImageUrl } from '../../../data/cloudflareImages';
 
 export default function OpenerRepair() {
   const { location, locationName, isLoading } = useLocation();
@@ -17,7 +18,7 @@ export default function OpenerRepair() {
   const faqs = [
     {
       question: `How much does garage door opener repair cost in ${displayLocation}?`,
-      answer: `Garage door opener repair costs typically range from $150-$350, depending on the issue. Simple repairs like sensor alignment or remote programming cost $150-$200. Motor repairs or circuit board replacement cost $250-$350. We provide free estimates and upfront pricing before starting any work.`,
+      answer: `Opener repair costs depend on what's wrong — sensor alignment and remote programming are simpler jobs, while motor or circuit board replacement involves more parts and labor. We provide a free on-site diagnosis and a clear quote before starting any work, so you know the full cost upfront. Call us to describe the issue and we can give you a general estimate.`,
     },
     {
       question: 'What types of garage door openers do you repair?',
@@ -33,7 +34,7 @@ export default function OpenerRepair() {
     },
     {
       question: `How quickly can you repair my opener in ${displayLocation}?`,
-      answer: `We offer same-day garage door opener repair service throughout NY, NJ & CT. Most opener repairs can be completed within 1-2 hours. We carry common replacement parts in our service vehicles, so many repairs can be finished on the first visit.`,
+      answer: `Same-day service is often available depending on your location and technician availability. Call us to confirm — if you have an urgent situation, let us know and we will prioritize your job. We carry common parts on our trucks so many repairs can be finished on the first visit.`,
     },
     {
       question: 'Do you install new garage door openers?',
@@ -48,8 +49,8 @@ export default function OpenerRepair() {
   return (
     <div className="min-h-screen">
       <DynamicMetaTags 
-        title="Garage Door Opener Repair NY NJ CT | Same-Day | Smartest Garage Doors"
-        description="5.0★ rated, 475 reviews. Opener repair & installation. Chain, belt, wall-mount. Same-day service. NY, NJ & CT. Licensed & insured."
+        title="Garage Door Opener Repair & Installation NY NJ CT | Smartest Garage Doors"
+        description="5.0★ rated, 475 reviews. Opener repair & installation — chain, belt, wall-mount. Free estimate. NY, NJ & CT. Licensed & insured."
         keywords="garage door opener repair, opener installation, chain drive, belt drive, wall mount"
       />
       <FAQSchema faqs={faqs} />
@@ -58,8 +59,18 @@ export default function OpenerRepair() {
 
       <main>
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-purple-900 via-purple-800 to-blue-900 text-white py-20">
-          <div className="max-w-7xl mx-auto px-4 text-center">
+        <section className="relative bg-gradient-to-br from-purple-900 via-purple-800 to-blue-900 text-white py-20">
+          <div className="absolute inset-0">
+            <img
+              src={getCFImageUrl('9c8e2d0e-321d-4470-ba7c-5c1ee803d700', 'hero')}
+              alt="Smart Garage Doors technician performing garage door opener repair in Queens NY"
+              className="w-full h-full object-cover object-top opacity-20"
+              width={1600} height={900}
+              loading="eager"
+              fetchPriority="high"
+            />
+          </div>
+          <div className="relative max-w-7xl mx-auto px-4 text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Garage Door Opener Repair
             </h1>
@@ -101,8 +112,8 @@ export default function OpenerRepair() {
                 <div className="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-4">
                   <i className="ri-time-line text-3xl text-purple-600"></i>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Same-Day Service</h3>
-                <p className="text-gray-600">Fast response times with most repairs completed the same day.</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Fast Local Response</h3>
+                <p className="text-gray-600">We prioritize urgent calls — most repairs completed on the first visit.</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-4">
@@ -153,8 +164,8 @@ export default function OpenerRepair() {
                 </ul>
                 
                 <div className="text-center">
-                  <span className="text-2xl font-bold text-purple-600">$349+</span>
-                  <p className="text-sm text-gray-600">Installation included</p>
+                  <span className="text-2xl font-bold text-purple-600">$349–$550</span>
+                  <p className="text-sm text-gray-500">Typical total cost, parts & labor</p>
                 </div>
               </div>
 
@@ -183,8 +194,8 @@ export default function OpenerRepair() {
                 </ul>
                 
                 <div className="text-center mb-4">
-                  <span className="text-2xl font-bold text-purple-600">$399+</span>
-                  <p className="text-sm text-gray-600">Installation included</p>
+                  <span className="text-2xl font-bold text-purple-600">$399–$650</span>
+                  <p className="text-sm text-gray-500">Typical total cost, parts & labor</p>
                 </div>
                 
                 <div className="border-t pt-4">
@@ -230,8 +241,8 @@ export default function OpenerRepair() {
                 </ul>
                 
                 <div className="text-center">
-                  <span className="text-2xl font-bold text-purple-600">$749+</span>
-                  <p className="text-sm text-gray-600">Installation included</p>
+                  <span className="text-2xl font-bold text-purple-600">$749–$1,200</span>
+                  <p className="text-sm text-gray-500">Typical total cost, parts & labor</p>
                 </div>
               </div>
             </div>
@@ -304,7 +315,7 @@ export default function OpenerRepair() {
               Need Opener Repair Today?
             </h2>
             <p className="text-xl mb-8 text-purple-100">
-              Fast, professional service with same-day availability
+              Fast, professional service — call to confirm availability
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <button className="bg-white text-purple-600 hover:bg-gray-100 px-8 py-4 text-lg rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center justify-center whitespace-nowrap">

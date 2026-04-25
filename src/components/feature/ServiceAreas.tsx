@@ -5,10 +5,9 @@ export default function ServiceAreas() {
   const mapRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
 
-  const hubParts = BUSINESS_INFO.dispatchHubs.map((h) => {
-    const city = h.id === 'jackson-nj' ? 'Jackson, NJ' : h.label.split(',')[0].trim();
-    return `${city} (${h.technician})`;
-  });
+  const hubParts = BUSINESS_INFO.dispatchHubs.map((h) =>
+    h.id === 'jackson-nj' ? 'Jackson, NJ' : h.label.split(',')[0].trim()
+  );
   const hubIntro =
     hubParts.length === 3 ? `${hubParts[0]}, ${hubParts[1]}, and ${hubParts[2]}` : hubParts.join(', ');
 
@@ -86,7 +85,7 @@ export default function ServiceAreas() {
             </div>
 
             <p className="text-gray-200 text-sm md:text-base">
-              If you live in or around our service area, we want the site experience to feel specific to your location, not like a generic regional directory. Connect with Smart Garage Doors today to get started.
+              Call us and we will confirm coverage for your address, give you an honest arrival window, and dispatch the closest available technician.
             </p>
           </div>
 
@@ -104,10 +103,8 @@ export default function ServiceAreas() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Service Areas Map"
+                title="Smart Garage Doors service area map — NY, NJ, and CT coverage"
               ></iframe>
-              {/* Overlay to hide Google My Maps attribution */}
-              <div className="absolute top-0 left-0 right-0 h-24 md:h-28 bg-blue-900 pointer-events-none z-20 rounded-t-lg"></div>
             </div>
           </div>
         </div>

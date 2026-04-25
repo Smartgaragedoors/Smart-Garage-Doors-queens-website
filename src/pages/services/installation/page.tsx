@@ -1,4 +1,4 @@
-import Header from '../../../components/feature/Header';
+﻿import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
 import Button from '../../../components/base/Button';
 import Breadcrumbs from '../../../components/seo/Breadcrumbs';
@@ -7,6 +7,7 @@ import FAQSchema from '../../../components/seo/FAQSchema';
 import ServiceAreaLinks from '../../../components/seo/ServiceAreaLinks';
 import { useLocation } from '../../../contexts/LocationContext';
 import { submitForm } from '../../../utils/formSubmission';
+import { getCFImageUrl } from '../../../data/cloudflareImages';
 
 export default function InstallationPage() {
   const { location, locationName, isLoading } = useLocation();
@@ -120,7 +121,7 @@ export default function InstallationPage() {
       <section className="relative bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20">
         <div className="absolute inset-0">
           <img 
-            src="https://readdy.ai/api/search-image?query=Professional%20garage%20door%20installation%20showing%20modern%20residential%20garage%20with%20new%20stylish%20garage%20door%20being%20installed%20by%20skilled%20technicians%2C%20clean%20suburban%20setting%2C%20bright%20daylight%2C%20installation%20equipment%20and%20tools%20visible%2C%20professional%20work%20environment&width=1280&height=640&quality=85&seq=install-hero001&orientation=landscape"
+            src="/images/garage-door-installation-team-on-site.jpg"
             alt="Professional Garage Door Installation"
             className="w-full h-full object-cover opacity-20"
             width="1280"
@@ -166,15 +167,16 @@ export default function InstallationPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-              <img 
-                src="https://readdy.ai/api/search-image?query=Modern%20sectional%20garage%20door%20with%20clean%20lines%20and%20contemporary%20design%2C%20residential%20setting%2C%20neutral%20colors%2C%20professional%20installation%2C%20high-quality%20materials%2C%20sleek%20appearance&width=400&height=300&seq=sectional001&orientation=landscape"
-                alt="Sectional Garage Doors"
-                className="w-full h-48 object-cover"
+              <img
+                src="/images/sectional-garage-door-installation-smart-garage-doors.jpg"
+                alt="Sectional garage door installation — raised panel double door on residential home"
+                className="w-full h-52 object-cover object-center"
+                width={600} height={400} loading="lazy"
               />
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">Sectional Doors</h3>
                 <p className="text-gray-600 mb-4">
-                  Most popular choice offering excellent insulation, security, and smooth operation with various design options.
+                  The most popular style — raised panels, excellent insulation, and smooth operation. Works on nearly every home.
                 </p>
                 <ul className="text-sm text-gray-600 space-y-1">
                   <li>• Energy efficient insulation</li>
@@ -186,18 +188,19 @@ export default function InstallationPage() {
             </div>
 
             <div className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-              <img 
-                src="https://readdy.ai/api/search-image?query=Traditional%20carriage%20house%20style%20garage%20door%20with%20decorative%20hardware%20and%20classic%20design%2C%20upscale%20residential%20setting%2C%20warm%20wood%20tones%2C%20elegant%20appearance%2C%20professional%20craftsmanship&width=400&height=300&seq=carriage001&orientation=landscape"
-                alt="Carriage House Doors"
-                className="w-full h-48 object-cover"
+              <img
+                src="/images/carriage-house-garage-door-installation-smart-garage-doors.jpg"
+                alt="Carriage house garage door installation — white door with decorative windows and hardware on stone home"
+                className="w-full h-52 object-cover object-center"
+                width={600} height={400} loading="lazy"
               />
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">Carriage House</h3>
                 <p className="text-gray-600 mb-4">
-                  Classic style doors that add charm and curb appeal with traditional swing-out appearance but modern convenience.
+                  Classic curb appeal with decorative hardware and window inserts. Traditional look, modern operation.
                 </p>
                 <ul className="text-sm text-gray-600 space-y-1">
-                  <li>• Traditional aesthetic appeal</li>
+                  <li>• Traditional aesthetic</li>
                   <li>• Decorative hardware options</li>
                   <li>• Wood and steel materials</li>
                   <li>• Custom color choices</li>
@@ -206,19 +209,20 @@ export default function InstallationPage() {
             </div>
 
             <div className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-              <img 
-                src="https://readdy.ai/api/search-image?query=Contemporary%20garage%20door%20with%20glass%20panels%20and%20aluminum%20frame%2C%20modern%20architectural%20setting%2C%20sleek%20design%2C%20natural%20light%2C%20minimalist%20style%2C%20high-end%20residential%20property&width=400&height=300&seq=contemporary001&orientation=landscape"
-                alt="Contemporary Doors"
-                className="w-full h-48 object-cover"
+              <img
+                src="/images/contemporary-garage-door-installation-smart-garage-doors.jpg"
+                alt="Contemporary garage door installation — wood grain finish with offset glass panels on modern home"
+                className="w-full h-52 object-cover object-center"
+                width={600} height={400} loading="lazy"
               />
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">Contemporary</h3>
                 <p className="text-gray-600 mb-4">
-                  Modern designs with clean lines, glass panels, and aluminum frames perfect for contemporary homes.
+                  Clean horizontal lines, wood-grain finishes, and glass accents. Designed for modern and upscale homes.
                 </p>
                 <ul className="text-sm text-gray-600 space-y-1">
                   <li>• Glass panel options</li>
-                  <li>• Aluminum construction</li>
+                  <li>• Wood-grain & aluminum finishes</li>
                   <li>• Modern aesthetic</li>
                   <li>• Natural light integration</li>
                 </ul>
@@ -226,19 +230,20 @@ export default function InstallationPage() {
             </div>
 
             <div className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-              <img 
-                src="https://readdy.ai/api/search-image?query=Heavy-duty%20commercial%20garage%20door%20installation%20at%20business%20facility%2C%20industrial%20setting%2C%20large%20door%20opening%2C%20professional%20installation%20team%2C%20commercial%20grade%20materials%2C%20security%20features&width=400&height=300&seq=commercial001&orientation=landscape"
-                alt="Commercial Doors"
-                className="w-full h-48 object-cover"
+              <img
+                src="/images/commercial-glass-garage-door-installation-smart-garage-doors.jpg"
+                alt="Commercial glass garage door installation — full-view aluminum and glass door at industrial facility"
+                className="w-full h-52 object-cover object-center"
+                width={600} height={400} loading="lazy"
               />
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">Commercial</h3>
                 <p className="text-gray-600 mb-4">
-                  Heavy-duty doors designed for commercial and industrial applications with enhanced security and durability.
+                  Heavy-duty doors built for businesses, warehouses, and industrial properties with high-cycle use.
                 </p>
                 <ul className="text-sm text-gray-600 space-y-1">
                   <li>• Heavy-duty construction</li>
-                  <li>• Enhanced security features</li>
+                  <li>• Full-view glass available</li>
                   <li>• High-cycle operation</li>
                   <li>• Custom sizing available</li>
                 </ul>
@@ -246,40 +251,42 @@ export default function InstallationPage() {
             </div>
 
             <div className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-              <img 
-                src="https://readdy.ai/api/search-image?query=Insulated%20garage%20door%20cross-section%20showing%20energy%20efficient%20layers%2C%20thermal%20barrier%2C%20weather%20sealing%2C%20professional%20installation%2C%20energy%20savings%20demonstration%2C%20quality%20construction&width=400&height=300&seq=insulated001&orientation=landscape"
-                alt="Insulated Doors"
-                className="w-full h-48 object-cover"
+              <img
+                src="/images/insulated-garage-door-installation-smart-garage-doors.jpg"
+                alt="Insulated garage door installation — white raised panel door on brick home"
+                className="w-full h-52 object-cover object-top"
+                width={600} height={400} loading="lazy"
               />
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">Insulated</h3>
                 <p className="text-gray-600 mb-4">
-                  Energy-efficient doors with superior insulation to reduce energy costs and provide quieter operation.
+                  Steel doors with multi-layer insulation. Quieter, more energy-efficient, and better for attached garages.
                 </p>
                 <ul className="text-sm text-gray-600 space-y-1">
-                  <li>• Energy cost savings</li>
+                  <li>• Lower energy costs</li>
                   <li>• Noise reduction</li>
                   <li>• Temperature control</li>
-                  <li>• Durable construction</li>
+                  <li>• Durable steel construction</li>
                 </ul>
               </div>
             </div>
 
             <div className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-              <img 
-                src="https://readdy.ai/api/search-image?query=Custom%20designed%20garage%20door%20with%20unique%20architectural%20details%2C%20luxury%20residential%20setting%2C%20personalized%20design%20elements%2C%20high-end%20materials%2C%20bespoke%20craftsmanship%2C%20elegant%20appearance&width=400&height=300&seq=custom001&orientation=landscape"
-                alt="Custom Doors"
-                className="w-full h-48 object-cover"
+              <img
+                src="/images/custom-garage-door-installation-smart-garage-doors.jpg"
+                alt="Custom garage door installation — dark sectional doors on rustic wood barn garage"
+                className="w-full h-52 object-cover object-center"
+                width={600} height={400} loading="lazy"
               />
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">Custom Design</h3>
                 <p className="text-gray-600 mb-4">
-                  Fully customized doors designed to match your specific architectural requirements and personal preferences.
+                  Match your home's exact architecture. We source and install doors built to your specifications and style.
                 </p>
                 <ul className="text-sm text-gray-600 space-y-1">
-                  <li>• Personalized design</li>
+                  <li>• Personalized sizing and finish</li>
                   <li>• Premium materials</li>
-                  <li>• Unique specifications</li>
+                  <li>• Unique window configurations</li>
                   <li>• Architectural matching</li>
                 </ul>
               </div>
@@ -288,8 +295,42 @@ export default function InstallationPage() {
         </div>
       </section>
 
-      {/* Installation Process */}
+      {/* Finished work showcase */}
       <section className="py-16 bg-gray-50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-10 items-center">
+            <div className="rounded-2xl overflow-hidden shadow-xl">
+              <img
+                src={getCFImageUrl('45d417a3-6fc3-4605-668e-f2742f2f4100', 'card')}
+                alt="Interior view of a newly installed contemporary garage door with full-length glass panels and polished epoxy floor — Smart Garage Doors installation"
+                className="w-full h-auto object-cover"
+                width={800}
+                height={1000}
+                loading="lazy"
+              />
+            </div>
+            <div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">What a Finished Installation Looks Like</h2>
+              <p className="text-lg text-gray-700 mb-4">
+                Every installation we complete is tested, balanced, and cleaned before we leave. This is a contemporary glass-panel door we installed for a customer — the kind of finish you can expect when the job is done right.
+              </p>
+              <p className="text-gray-700 mb-6">
+                We work with all door styles, materials, and opener brands. Before we start, you get a full quote. After we finish, we walk you through operation and leave you with our service number in case anything ever needs attention.
+              </p>
+              <a
+                href="tel:+19145576816"
+                className="inline-flex items-center justify-center bg-blue-900 hover:bg-blue-800 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-colors"
+              >
+                <i className="ri-phone-line mr-2"></i>
+                Call to Get a Quote
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Installation Process */}
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Installation Process</h2>

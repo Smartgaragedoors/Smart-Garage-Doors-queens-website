@@ -20,7 +20,7 @@ export default function SpringReplacementPage() {
   const faqs = [
     {
       question: `How much does garage door spring replacement cost in ${displayLocation}?`,
-      answer: `Garage door spring replacement typically costs between $200-$400, depending on whether you have torsion or extension springs, the size and weight of your door, and accessibility. Torsion springs are usually more expensive ($250-$400) but last longer. Extension spring replacement costs $200-$300. Double car doors may cost $300-$500. We provide free estimates and upfront pricing with no hidden fees.`,
+      answer: `Spring replacement cost depends on the spring type (torsion vs extension), your door size and weight, and whether cables or hardware also need attention. We provide a free on-site estimate before any work begins so you know exactly what you're paying for. Call (914) 557-6816 to schedule.`,
     },
     {
       question: 'How do I know if my garage door spring is broken?',
@@ -36,7 +36,7 @@ export default function SpringReplacementPage() {
     },
     {
       question: `How quickly can you replace broken springs in ${displayLocation}?`,
-      answer: `We offer same-day garage door spring replacement service throughout NY, NJ & CT. Most spring replacements can be completed within 1-2 hours of arrival. We stock common spring sizes in our service vehicles, so repairs can often be completed on the first visit without additional trips. Emergency spring replacement is available 24/7.`,
+      answer: `Same-day spring replacement is often available throughout NY, NJ & CT depending on location and technician availability — call (914) 557-6816 to confirm current scheduling. We stock common spring sizes in our service vehicles so repairs can usually be completed on the first visit. Emergency service is available 24/7.`,
     },
     {
       question: 'How long do new garage door springs last?',
@@ -56,7 +56,7 @@ export default function SpringReplacementPage() {
     },
     {
       question: `What areas do you serve for spring replacement services?`,
-      answer: `We provide garage door spring replacement services throughout New York (including Queens, Brooklyn, Long Island, Westchester County), New Jersey (Bergen County), and Connecticut (Fairfield County). We serve all areas within a 50-mile radius and offer same-day service in most locations.`,
+      answer: `We provide garage door spring replacement services throughout New York (including Queens, Brooklyn, Long Island, Westchester County), New Jersey (Bergen County), and Connecticut (Fairfield County). Call (914) 557-6816 to confirm availability in your area.`,
     },
     {
       question: 'Can you replace springs on any brand of garage door?',
@@ -113,8 +113,8 @@ export default function SpringReplacementPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <DynamicMetaTags 
-        title="Garage Door Spring Replacement NY NJ CT | Same-Day | Smartest Garage Doors"
-        description="5.0★ rated, 475 reviews. Safe spring replacement. Torsion & extension. Same-day service. NY, NJ & CT. Licensed & insured."
+        title="Garage Door Spring Replacement NY NJ CT | Smartest Garage Doors"
+        description="5.0★ rated, 475 reviews. Safe spring replacement. Torsion & extension. Fast service — call for availability. NY, NJ & CT. Licensed & insured."
         keywords="garage door spring replacement, torsion spring repair, extension spring replacement, broken spring repair"
       />
       <FAQSchema faqs={faqs} />
@@ -142,10 +142,10 @@ export default function SpringReplacementPage() {
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-orange-600 to-red-600 text-white py-20">
         <div className="absolute inset-0">
-          <img 
-            src="https://readdy.ai/api/search-image?query=Professional%20technician%20safely%20installing%20high-quality%20garage%20door%20torsion%20springs%20in%20clean%20workshop%20environment%2C%20precision%20tools%20and%20safety%20equipment%20visible%2C%20skilled%20workmanship%20demonstration%2C%20modern%20garage%20door%20mechanism%2C%20professional%20uniform%2C%20well-lit%20workspace&width=1280&height=640&quality=85&seq=spring-hero001&orientation=landscape"
-            alt="Professional Garage Door Spring Replacement"
-            className="w-full h-full object-cover opacity-20"
+          <img
+            src="/images/garage-door-repair-technician-ben-smart-garage-doors.jpg"
+            alt="Smart Garage Doors technician performing garage door spring replacement service"
+            className="w-full h-full object-cover object-top opacity-20"
             width="1280"
             height="640"
             loading="eager"
@@ -158,7 +158,7 @@ export default function SpringReplacementPage() {
               Garage Door Spring Replacement
             </h1>
             <p className="text-xl mb-8">
-              Safe and professional replacement of broken garage door springs. We handle both torsion and extension springs with same-day service across NYC, Westchester, and Connecticut. Don't risk injury - call the professionals.
+              Safe and professional replacement of broken garage door springs. We handle both torsion and extension springs across NYC, Westchester, and Connecticut. Don't risk injury — call the professionals.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a 
@@ -197,219 +197,50 @@ export default function SpringReplacementPage() {
         </div>
       </section>
 
-      {/* Pricing Information Section */}
+      {/* Real work photo + call CTA */}
       <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Garage Door Spring Replacement Pricing
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Transparent, upfront pricing for all spring replacement services. All prices include parts, labor, and warranty.
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-8 mb-8">
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-8 border-2 border-blue-300">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Torsion Spring Replacement</h3>
-              <div className="text-4xl font-bold text-blue-600 mb-2">$250 - $400</div>
-              <p className="text-gray-600 mb-4">Starting price for single spring</p>
-              <ul className="space-y-2 text-gray-700 mb-6">
-                <li className="flex items-center">
-                  <i className="ri-check-line text-green-600 mr-2"></i>
-                  Professional installation
-                </li>
-                <li className="flex items-center">
-                  <i className="ri-check-line text-green-600 mr-2"></i>
-                  High-quality springs
-                </li>
-                <li className="flex items-center">
-                  <i className="ri-check-line text-green-600 mr-2"></i>
-                  1-2 year parts warranty
-                </li>
-                <li className="flex items-center">
-                  <i className="ri-check-line text-green-600 mr-2"></i>
-                  90-day labor warranty
-                </li>
-              </ul>
-              <p className="text-sm text-gray-600">
-                Double car doors may cost $300-$500. Price varies by door weight, spring size, and accessibility.
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-10 items-center">
+            <div className="rounded-2xl overflow-hidden shadow-xl">
+              <img
+                src="/images/garage-door-repair-technician-ben-smart-garage-doors.jpg"
+                alt="Smart Garage Doors technician replacing a garage door spring on-site"
+                className="w-full h-full object-cover"
+                width={600}
+                height={800}
+                loading="lazy"
+              />
+            </div>
+            <div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                We Handle All Spring Types
+              </h2>
+              <p className="text-lg text-gray-700 mb-4">
+                Whether your door has torsion springs above the opening or extension springs along the ceiling tracks, our technicians carry the right parts and know the system. We replace both types on all residential and commercial doors throughout NY, NJ, and CT.
               </p>
-            </div>
-            
-            <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-lg p-8 border-2 border-orange-300">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Extension Spring Replacement</h3>
-              <div className="text-4xl font-bold text-orange-600 mb-2">$200 - $300</div>
-              <p className="text-gray-600 mb-4">Starting price per pair</p>
-              <ul className="space-y-2 text-gray-700 mb-6">
-                <li className="flex items-center">
-                  <i className="ri-check-line text-green-600 mr-2"></i>
-                  Professional installation
-                </li>
-                <li className="flex items-center">
-                  <i className="ri-check-line text-green-600 mr-2"></i>
-                  Safety cables included
-                </li>
-                <li className="flex items-center">
-                  <i className="ri-check-line text-green-600 mr-2"></i>
-                  1-2 year parts warranty
-                </li>
-                <li className="flex items-center">
-                  <i className="ri-check-line text-green-600 mr-2"></i>
-                  90-day labor warranty
-                </li>
-              </ul>
-              <p className="text-sm text-gray-600">
-                Both springs typically replaced together. Price includes safety cables and professional installation.
+              <p className="text-gray-700 mb-6">
+                Every job starts with a free on-site assessment. Our tech will inspect the spring type, door weight, and condition of cables and hardware, then give you a clear quote before touching anything.
               </p>
-            </div>
-          </div>
-          
-          <div className="bg-gray-50 rounded-lg p-6">
-            <h4 className="font-semibold text-gray-900 mb-3">What Affects Spring Replacement Cost?</h4>
-            <div className="grid md:grid-cols-2 gap-4 text-sm text-gray-600">
-              <div>
-                <strong className="text-gray-900">Door Size & Weight:</strong> Larger, heavier doors require stronger (more expensive) springs.
-              </div>
-              <div>
-                <strong className="text-gray-900">Spring Type:</strong> Torsion springs cost more than extension springs but last longer.
-              </div>
-              <div>
-                <strong className="text-gray-900">Number of Springs:</strong> Double car doors typically require two springs, increasing cost.
-              </div>
-              <div>
-                <strong className="text-gray-900">Accessibility:</strong> Hard-to-reach installations may include additional labor charges.
-              </div>
-            </div>
-            <p className="mt-4 text-sm text-gray-600">
-              <strong>Free Estimates:</strong> We provide detailed, no-obligation estimates before any work begins. 
-              Call <a href="tel:914-557-6816" className="text-blue-600 font-semibold hover:text-blue-700">(914) 557-6816</a> for accurate pricing for your specific situation.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Spring Types */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Types of Garage Door Springs</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              We service and replace all types of garage door springs with high-quality components and professional installation.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* Torsion Springs */}
-            <div className="bg-gray-50 rounded-lg p-8">
-              <div className="text-center mb-6">
-                <img 
-                  src="https://readdy.ai/api/search-image?query=Garage%20door%20torsion%20spring%20system%20mounted%20above%20door%20opening%2C%20professional%20installation%20showing%20spring%20mechanism%2C%20clean%20garage%20environment%2C%20modern%20torsion%20spring%20assembly%2C%20quality%20hardware%20components&width=500&height=300&seq=torsion001&orientation=landscape"
-                  alt="Torsion Spring System"
-                  className="w-full h-48 object-cover rounded-lg mb-4"
-                  width="500"
-                  height="300"
-                  loading="lazy"
-                />
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Torsion Springs</h3>
-                <p className="text-gray-600">Mounted above the door opening</p>
-              </div>
-              
-              <div className="space-y-4">
-                <div className="flex items-start">
-                  <i className="ri-check-line text-green-600 mr-3 mt-1"></i>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Longer Lifespan</h4>
-                    <p className="text-gray-600 text-sm">Typically last 15,000-20,000 cycles vs 10,000 for extension springs</p>
+              <div className="space-y-3 mb-8">
+                {[
+                  'All spring types — torsion and extension',
+                  'Parts and labor included in every quote',
+                  'High-cycle springs available for frequent-use doors',
+                  'Parts warranty on every replacement',
+                ].map((item) => (
+                  <div key={item} className="flex items-start gap-3">
+                    <i className="ri-check-line text-orange-500 text-xl mt-0.5" aria-hidden="true"></i>
+                    <span className="text-gray-700">{item}</span>
                   </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <i className="ri-check-line text-green-600 mr-3 mt-1"></i>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Better Balance</h4>
-                    <p className="text-gray-600 text-sm">Provides more even lifting force and smoother operation</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <i className="ri-check-line text-green-600 mr-3 mt-1"></i>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Safer Design</h4>
-                    <p className="text-gray-600 text-sm">Contained system reduces risk if spring breaks</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <i className="ri-check-line text-green-600 mr-3 mt-1"></i>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Space Efficient</h4>
-                    <p className="text-gray-600 text-sm">Doesn't take up ceiling space like extension springs</p>
-                  </div>
-                </div>
+                ))}
               </div>
-              
-              <div className="mt-6 p-4 bg-orange-100 rounded-lg">
-                <p className="text-sm text-orange-800">
-                  <strong>Best for:</strong> Heavy doors, frequent use, and when maximum safety and longevity are priorities.
-                </p>
-              </div>
-            </div>
-
-            {/* Extension Springs */}
-            <div className="bg-gray-50 rounded-lg p-8">
-              <div className="text-center mb-6">
-                <img 
-                  src="https://readdy.ai/api/search-image?query=Garage%20door%20extension%20spring%20system%20along%20ceiling%20tracks%2C%20professional%20installation%20showing%20spring%20and%20cable%20assembly%2C%20residential%20garage%20setting%2C%20extension%20spring%20mechanism%2C%20safety%20cables%20visible&width=500&height=300&seq=extension001&orientation=landscape"
-                  alt="Extension Spring System"
-                  className="w-full h-48 object-cover rounded-lg mb-4"
-                  width="500"
-                  height="300"
-                  loading="lazy"
-                />
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Extension Springs</h3>
-                <p className="text-gray-600">Mounted along the ceiling tracks</p>
-              </div>
-              
-              <div className="space-y-4">
-                <div className="flex items-start">
-                  <i className="ri-check-line text-green-600 mr-3 mt-1"></i>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Lower Cost</h4>
-                    <p className="text-gray-600 text-sm">More affordable initial installation and replacement cost</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <i className="ri-check-line text-green-600 mr-3 mt-1"></i>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Easier Installation</h4>
-                    <p className="text-gray-600 text-sm">Simpler installation process in most garage configurations</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <i className="ri-check-line text-green-600 mr-3 mt-1"></i>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Good for Light Doors</h4>
-                    <p className="text-gray-600 text-sm">Adequate for lighter residential garage doors</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <i className="ri-information-line text-blue-600 mr-3 mt-1"></i>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Safety Cables Required</h4>
-                    <p className="text-gray-600 text-sm">Must include safety cables to prevent spring from flying if broken</p>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="mt-6 p-4 bg-blue-100 rounded-lg">
-                <p className="text-sm text-blue-800">
-                  <strong>Best for:</strong> Budget-conscious installations, lighter doors, and garages with limited headroom.
-                </p>
-              </div>
+              <a
+                href="tel:+19145576816"
+                className="inline-flex items-center justify-center bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-colors"
+              >
+                <i className="ri-phone-line mr-2"></i>
+                Call for a Free Quote
+              </a>
             </div>
           </div>
         </div>

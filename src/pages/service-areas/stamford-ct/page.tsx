@@ -23,7 +23,7 @@ const StamfordCT = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: `url('https://readdy.ai/api/search-image?query=Professional%20garage%20door%20technician%20working%20on%20residential%20garage%20door%20in%20Stamford%20Connecticut%20upscale%20neighborhood%20with%20modern%20homes%20and%20well-maintained%20properties%2C%20service%20truck%20parked%20on%20tree-lined%20street&width=1200&height=600&seq=stamford-hero&orientation=landscape')`
+            backgroundImage: `url('/images/garage-door-panel-repair-dan-hammer-smart-garage-doors.jpg')`
           }}
         />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

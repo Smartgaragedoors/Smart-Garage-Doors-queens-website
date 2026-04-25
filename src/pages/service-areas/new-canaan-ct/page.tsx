@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+﻿import { useEffect } from 'react';
 import { buildCanonical } from '../../../config/canonical';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
@@ -62,7 +62,7 @@ export default function NewCanaanCTPage() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
           style={{
-            backgroundImage: `url('https://readdy.ai/api/search-image?query=Charming%20residential%20neighborhood%20in%20New%20Canaan%20Connecticut%20with%20traditional%20colonial%20homes%20and%20garage%20doors%2C%20tree-lined%20streets%2C%20professional%20garage%20door%20service%2C%20classic%20New%20England%20architecture&width=1200&height=600&seq=newcanaan-hero&orientation=landscape')`
+            backgroundImage: `url('/images/garage-door-panel-repair-dan-hammer-smart-garage-doors.jpg')`
           }}
         ></div>
         <div className="relative max-w-7xl mx-auto px-4">
@@ -130,7 +130,7 @@ export default function NewCanaanCTPage() {
             </div>
             <div>
               <img 
-                src="https://readdy.ai/api/search-image?query=Traditional%20garage%20door%20installation%20on%20colonial%20home%20in%20New%20Canaan%20Connecticut%2C%20professional%20technician%20working%2C%20classic%20New%20England%20residential%20architecture%2C%20quality%20craftsmanship%20photography&width=600&height=400&quality=85&seq=newcanaan-service&orientation=landscape"
+                src="/images/garage-door-panel-repair-dan-hammer-smart-garage-doors.jpg"
                 alt="Garage door service in New Canaan CT"
                 className="rounded-lg shadow-lg w-full h-auto object-cover"
                 width="600"

@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { BUSINESS_INFO } from '../../config/business-info';
 
 interface BlogPostingSchemaProps {
@@ -49,7 +49,7 @@ const BlogPostingSchema: React.FC<BlogPostingSchemaProps> = ({
       "name": BUSINESS_INFO.name,
       "logo": {
         "@type": "ImageObject",
-        "url": "https://static.readdy.ai/image/b69172f381814b1e7c2f555a7760d2b1/b5abc60311785d6f2fb733a6d104ca55.webp",
+        "url": "https://www.smartestgaragedoors.com/smart-garage-doors-logo.webp",
       },
     },
     ...(articleSection && { articleSection }),

@@ -44,21 +44,16 @@ const Reviews = () => {
     <section id="reviews" className="py-20 bg-gray-50 overflow-x-hidden w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style={{ width: '100%', maxWidth: '1280px' }}>
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Tri-State Coverage With Local Reviews That Feel Close to Home
-          </h2>
-          <div className="flex justify-center items-center space-x-4 mb-6 flex-wrap">
-            <div className="flex items-center space-x-1 text-gray-700">
-              <div className="flex items-center">
-                {renderStars(Math.round(parseFloat(BUSINESS_INFO.aggregateRating.ratingValue)))}
-              </div>
-              <span className="text-sm font-medium ml-1">
-                {BUSINESS_INFO.aggregateRating.ratingValue} ({BUSINESS_INFO.aggregateRating.reviewCount} reviews)
-              </span>
-            </div>
+          <div className="flex justify-center items-center gap-1.5 mb-3">
+            {renderStars(Math.round(parseFloat(BUSINESS_INFO.aggregateRating.ratingValue)))}
+            <span className="text-gray-900 font-bold text-lg ml-1">{BUSINESS_INFO.aggregateRating.ratingValue}</span>
+            <span className="text-gray-500 text-sm">({BUSINESS_INFO.aggregateRating.reviewCount} reviews on Google)</span>
           </div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Real customer feedback from homeowners across Queens, Brooklyn, Westchester, Long Island, and surrounding Tri-State service areas.
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            What Homeowners Say After We Leave
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            These are real reviews from people who called us with a real problem. Read what they say about the response, the work, and the price.
           </p>
         </div>
 
@@ -124,7 +119,7 @@ const Reviews = () => {
             </a>
           </div>
           <p className="text-sm text-gray-500 max-w-2xl mx-auto">
-            We want visitors to see that while the brand serves the wider region, the service still feels local, responsive, and accountable.
+            Every review above is from a real customer across our service area. We earn them one job at a time.
           </p>
         </div>
       </div>

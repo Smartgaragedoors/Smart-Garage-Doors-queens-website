@@ -353,7 +353,7 @@ const BLOG_POSTS: Record<string, {
       
       <p>If your opener still is not working the way it should, you can <a href="/opener-repair-installation/">book a professional garage door opener repair or installation</a> so the system is reliable again.</p>
     `,
-    image: "https://readdy.ai/api/search-image?query=Professional%20technician%20repairing%20garage%20door%20opener%20motor%20unit%2C%20close-up%20of%20opener%20mechanism%2C%20residential%20garage%20setting%2C%20tools%20and%20equipment%20visible%2C%20professional%20repair%20work&width=1200&height=600&seq=opener-repair001&orientation=landscape",
+    image: "/images/garage-door-opener-repair-queens-ny-technician.jpg",
     date: "2025-01-20",
     category: "Repair",
     readTime: "10 min read",
@@ -517,7 +517,7 @@ const BLOG_POSTS: Record<string, {
       
       <p>When you are comparing quotes, make sure you are looking at qualified providers. You can <a href="/spring-replacement/">schedule garage door spring replacement with Smartest Garage Doors</a> for precise pricing and safe installation.</p>
     `,
-    image: "https://readdy.ai/api/search-image?query=Professional%20garage%20door%20spring%20replacement%20showing%20torsion%20springs%20and%20installation%20tools%2C%20residential%20garage%20setting%2C%20skilled%20technician%20working%2C%20safety%20equipment%20visible%2C%20quality%20springs%20and%20hardware&width=1200&height=600&seq=spring-cost001&orientation=landscape",
+    image: "/images/garage-door-repair-technician-ben-smart-garage-doors.jpg",
     date: "2025-01-18",
     category: "Cost Guide",
     readTime: "12 min read",
@@ -702,7 +702,7 @@ const BLOG_POSTS: Record<string, {
       <h2>Professional Garage Door Services</h2>
       <p>Smart Garage Doors provides expert garage door repair and replacement services throughout NY, NJ & CT. We offer honest assessments, transparent pricing, and professional installation. Whether you need repair or replacement, our certified technicians can help you make the best decision for your home and budget. Contact us for a free estimate and professional consultation.</p>
     `,
-    image: "https://readdy.ai/api/search-image?query=Comparison%20of%20old%20damaged%20garage%20door%20versus%20new%20modern%20garage%20door%2C%20residential%20setting%2C%20before%20and%20after%20demonstration%2C%20curb%20appeal%20improvement%2C%20professional%20installation&width=1200&height=600&seq=replace-signs001&orientation=landscape",
+    image: "/images/garage-door-repair-on-site-2.jpg",
     date: "2025-01-22",
     category: "Tips",
     readTime: "14 min read",

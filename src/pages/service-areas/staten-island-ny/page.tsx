@@ -1,4 +1,4 @@
-import { buildCanonical } from '../../../config/canonical';
+﻿import { buildCanonical } from '../../../config/canonical';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
 import Breadcrumbs from '../../../components/seo/Breadcrumbs';
@@ -22,7 +22,7 @@ const StatenIslandNY = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: `url('https://readdy.ai/api/search-image?query=Professional%20garage%20door%20technician%20working%20on%20residential%20garage%20door%20in%20Staten%20Island%20New%20York%20suburban%20neighborhood%20with%20single%20family%20homes%20and%20tree-lined%20streets%2C%20service%20truck%20parked%20on%20residential%20street&width=1200&height=600&seq=staten-island-hero&orientation=landscape')`
+            backgroundImage: `url('/images/garage-door-repair-team-job-site-smart-garage-doors.webp')`
           }}
         />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

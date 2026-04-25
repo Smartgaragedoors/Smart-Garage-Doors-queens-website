@@ -45,10 +45,10 @@ function Services() {
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">
-            Fast Garage Door Repairs for the Problems That Trigger Calls
+            What Broke? We Fix It Today.
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            We focus on the high-urgency problems that stop homeowners in their tracks and need a real technician fast, whether they are in Queens, Nassau, Westchester, North Jersey, or Connecticut.
+            Most garage door problems are urgent. We carry common parts on every truck so we can finish the job on the first visit.
           </p>
         </div>
 
@@ -71,19 +71,18 @@ function Services() {
           ))}
         </div>
 
-        <div className="mt-16 text-center">
-          <div className="bg-gradient-to-r from-blue-900 to-blue-800 rounded-lg p-12">
-            <h3 className="text-3xl font-bold text-white mb-4">Need Help Right Now?</h3>
-            <p className="text-xl text-gray-100 mb-8">Speak to a live dispatcher and get an upfront quote before work begins.</p>
-            <a
-              href="tel:914-557-6816"
-              aria-label="Call Smart Garage Doors from services section"
-              className="inline-flex items-center justify-center font-bold transition-all duration-300 cursor-pointer whitespace-nowrap bg-orange-500 hover:bg-orange-600 text-white shadow-2xl hover:shadow-3xl px-8 py-4 text-lg rounded-full transform hover:scale-105"
-            >
-              <i className="ri-phone-line mr-3 text-xl" aria-hidden="true"></i>
-              Call (914) 557-6816
-            </a>
+        <div className="mt-12 bg-orange-50 border border-orange-100 rounded-2xl p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div>
+            <p className="text-xl font-bold text-blue-900">Not sure what's wrong?</p>
+            <p className="text-gray-600 mt-1">Call us and describe what's happening. We'll tell you what it likely is and what it costs — before we come out.</p>
           </div>
+          <a
+            href="tel:+19145576816"
+            className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-7 py-4 rounded-xl shadow-md hover:shadow-lg transition-all whitespace-nowrap text-lg flex-shrink-0"
+          >
+            <i className="ri-phone-fill" aria-hidden="true"></i>
+            Call Now
+          </a>
         </div>
       </div>
     </section>

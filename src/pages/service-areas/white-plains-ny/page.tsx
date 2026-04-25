@@ -12,7 +12,7 @@ const WhitePlainsNY = () => {
     <div className="min-h-screen bg-white">
       <DynamicMetaTags 
         title="White Plains NY Garage Door Repair | Smartest Garage Doors | Licensed Technicians"
-        description="Professional garage door repair in White Plains, NY. 5.0★ rated, 392 reviews. Same-day service, emergency repairs, spring replacement. Licensed & insured."
+        description="Professional garage door repair in White Plains, NY. 5.0? rated, 392 reviews. Same-day service, emergency repairs, spring replacement. Licensed & insured."
         keywords="White Plains NY garage door repair, garage door installation White Plains, emergency garage door service Westchester"
         canonical={buildCanonical('/white-plains-ny')}
       />
@@ -24,7 +24,7 @@ const WhitePlainsNY = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: `url('https://readdy.ai/api/search-image?query=Professional%20garage%20door%20technician%20working%20on%20modern%20residential%20garage%20door%20in%20White%20Plains%20New%20York%20upscale%20suburban%20neighborhood%20with%20well-maintained%20homes%20and%20manicured%20lawns%2C%20service%20van%20parked%20on%20tree-lined%20street&width=1200&height=600&seq=white-plains-hero&orientation=landscape')`
+            backgroundImage: `url('https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/69d26d48-0700-425b-bfcd-980ccc4bbf00/hero')`
           }}
         />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

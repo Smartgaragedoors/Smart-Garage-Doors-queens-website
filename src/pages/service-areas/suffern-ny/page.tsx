@@ -94,7 +94,7 @@ export default function SuffernNY() {
     <div className="min-h-screen">
       <DynamicMetaTags 
         title="Suffern NY Garage Door Repair & Installation | Smartest Garage Doors"
-        description="Garage door repair in Suffern, NY. 5.0★, 392 reviews. 24/7 emergency, same-day service. Licensed & insured."
+        description="Garage door repair in Suffern, NY. 5.0?, 392 reviews. 24/7 emergency, same-day service. Licensed & insured."
         keywords="garage door repair Suffern NY, garage door installation Suffern, emergency garage door service Suffern"
         canonical={buildCanonical('/suffern-ny')}
       />
@@ -106,7 +106,7 @@ export default function SuffernNY() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
           style={{
-            backgroundImage: `url('https://readdy.ai/api/search-image?query=Professional%20garage%20door%20technician%20working%20on%20residential%20garage%20door%20in%20suburban%20Suffern%20New%20York%20neighborhood%2C%20modern%20house%20exterior%20with%20well-maintained%20driveway%20and%20landscaping%2C%20clear%20blue%20sky%2C%20professional%20service%20vehicle%20parked%20nearby%2C%20high%20quality%20photography%2C%20bright%20natural%20lighting%2C%20clean%20and%20organized%20work%20environment&width=1200&height=600&seq=suffern-hero&orientation=landscape')`
+            backgroundImage: `url('https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/72cf9dc6-b05d-489e-29d5-16ea0a77d200/hero')`
           }}
         ></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -242,7 +242,7 @@ export default function SuffernNY() {
             </div>
             <div className="relative">
               <img 
-                src="https://readdy.ai/api/search-image?query=Beautiful%20residential%20neighborhood%20in%20Suffern%20New%20York%20with%20well-maintained%20homes%20featuring%20various%20garage%20door%20styles%2C%20tree-lined%20streets%2C%20suburban%20setting%20with%20mountains%20in%20background%2C%20professional%20photography%2C%20bright%20daylight%2C%20clean%20and%20inviting%20atmosphere&width=600&height=400&seq=suffern-area&orientation=landscape"
+                src="/images/garage-door-repair-suffern-ny-technician.jpg"
                 alt="Suffern NY neighborhood with garage doors"
                 className="rounded-lg shadow-lg w-full h-auto object-cover object-top"
               />

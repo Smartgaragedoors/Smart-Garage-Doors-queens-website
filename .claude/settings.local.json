@@ -8,7 +8,9 @@
       "Read(//c/Users/Danie/OneDrive/Desktop/Dan's File/Smart Garage Doors/Media/Images/Job photos/Happy Customers/**)",
       "Read(//c/Users/Danie/OneDrive/Desktop/Dan's File/Smart Garage Doors/Media/Images/Job photos/Door Installations/**)",
       "Read(//c/Users/Danie/OneDrive/Desktop/Dan's File/Smart Garage Doors/Media/Images/Job photos/Broken Systems/**)",
-      "Read(//c/Users/Danie/OneDrive/Desktop/Dan's File/Smart Garage Doors/Media/Images/New to upload/SGD images to upload/**)"
+      "Read(//c/Users/Danie/OneDrive/Desktop/Dan's File/Smart Garage Doors/Media/Images/New to upload/SGD images to upload/**)",
+      "PowerShell(Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force)",
+      "PowerShell(& \"C:\\\\Users\\\\Danie\\\\OneDrive\\\\Desktop\\\\Dan's File\\\\Smart Garage Doors\\\\Media\\\\Images\\\\rename-for-website.ps1\")"
     ]
   }
 }

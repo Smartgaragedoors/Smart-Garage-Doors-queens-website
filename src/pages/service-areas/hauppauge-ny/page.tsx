@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+﻿import { useEffect } from 'react';
 import { buildCanonical } from '../../../config/canonical';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
@@ -106,7 +106,7 @@ const HauppaugeNY = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: `url('https://readdy.ai/api/search-image?query=Professional%20garage%20door%20technician%20working%20on%20residential%20garage%20door%20in%20Hauppauge%20New%20York%20suburban%20neighborhood%20with%20beautiful%20homes%20and%20tree-lined%20streets%2C%20modern%20garage%20doors%2C%20clean%20professional%20service%20truck%2C%20high%20quality%20residential%20area&width=1200&height=600&seq=hauppauge-hero&orientation=landscape')`
+            backgroundImage: `url('/images/garage-door-repair-on-site-2.jpg')`
           }}
         />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -11,7 +11,7 @@ const WestchesterCountyNY = () => {
     <div className="min-h-screen bg-white">
       <DynamicMetaTags 
         title="Westchester County NY Garage Door Repair | Smartest Garage Doors | 24/7"
-        description="Garage door repair in Westchester County, NY. 5.0★, 392 reviews. Same-day service, emergency repairs. Licensed & insured."
+        description="Garage door repair in Westchester County, NY. 5.0?, 392 reviews. Same-day service, emergency repairs. Licensed & insured."
         keywords="Westchester County NY garage door repair, garage door installation Westchester County, emergency garage door service"
         canonical={buildCanonical('/westchester-county-ny')}
       />
@@ -23,7 +23,7 @@ const WestchesterCountyNY = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: `url('https://readdy.ai/api/search-image?query=Professional%20garage%20door%20technician%20working%20on%20residential%20garage%20door%20in%20Westchester%20County%20New%20York%20upscale%20suburban%20neighborhood%20with%20luxury%20homes%20and%20manicured%20landscapes%2C%20service%20truck%20parked%20on%20tree-lined%20street&width=1200&height=600&seq=westchester-county-hero&orientation=landscape')`
+            backgroundImage: `url('https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/69d26d48-0700-425b-bfcd-980ccc4bbf00/hero')`
           }}
         />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

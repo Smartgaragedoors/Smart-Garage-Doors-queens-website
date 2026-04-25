@@ -67,7 +67,7 @@ const QueensNY = () => {
     <div className="min-h-screen bg-white">
       <DynamicMetaTags 
         title="Queens NY Garage Door Repair | Smartest Garage Doors | 24/7"
-        description="Garage door repair in Queens, NY. 5.0★, 392 reviews. Same-day service, emergency repairs. Licensed & insured."
+        description="Garage door repair in Queens, NY. 5.0?, 392 reviews. Same-day service, emergency repairs. Licensed & insured."
         keywords="Queens NY garage door repair, garage door installation Queens, emergency garage door service"
         canonical={buildCanonical('/queens-ny')}
       />
@@ -79,7 +79,7 @@ const QueensNY = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: `url('https://readdy.ai/api/search-image?query=Professional%20garage%20door%20technician%20working%20on%20residential%20garage%20door%20in%20Queens%20New%20York%20diverse%20neighborhood%20with%20single%20family%20homes%20and%20apartment%20buildings%2C%20modern%20garage%20doors%2C%20service%20vehicle%20on%20residential%20street&width=1200&height=600&seq=queens-hero&orientation=landscape')`
+            backgroundImage: `url('https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero')`
           }}
         />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -397,7 +397,7 @@ const QueensNY = () => {
                     <td className="px-6 py-4 font-medium text-gray-900">Customer Reviews</td>
                     <td className="px-6 py-4 text-center">
                       <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-green-100 text-green-800">
-                        <i className="ri-star-fill text-yellow-400 mr-1"></i> 5.0★ (392)
+                        <i className="ri-star-fill text-yellow-400 mr-1"></i> 5.0? (392)
                       </span>
                     </td>
                     <td className="px-6 py-4 text-center text-gray-600">Varies</td>
@@ -425,7 +425,7 @@ const QueensNY = () => {
             <div className="bg-gray-50 rounded-lg p-6">
               <div className="flex items-center mb-4">
                 <div className="flex text-yellow-400">
-                  {'★'.repeat(5)}
+                  {'?'.repeat(5)}
                 </div>
               </div>
               <p className="text-gray-700 mb-4 italic">
@@ -446,7 +446,7 @@ const QueensNY = () => {
             <div className="bg-gray-50 rounded-lg p-6">
               <div className="flex items-center mb-4">
                 <div className="flex text-yellow-400">
-                  {'★'.repeat(5)}
+                  {'?'.repeat(5)}
                 </div>
               </div>
               <p className="text-gray-700 mb-4 italic">
@@ -467,7 +467,7 @@ const QueensNY = () => {
             <div className="bg-gray-50 rounded-lg p-6">
               <div className="flex items-center mb-4">
                 <div className="flex text-yellow-400">
-                  {'★'.repeat(5)}
+                  {'?'.repeat(5)}
                 </div>
               </div>
               <p className="text-gray-700 mb-4 italic">

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+﻿import { useEffect } from 'react';
 import { buildCanonical } from '../../../config/canonical';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
@@ -62,7 +62,7 @@ export default function DarienCTPage() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
           style={{
-            backgroundImage: `url('https://readdy.ai/api/search-image?query=Beautiful%20residential%20homes%20in%20Darien%20Connecticut%20with%20elegant%20garage%20doors%2C%20upscale%20suburban%20neighborhood%2C%20professional%20garage%20door%20service%20truck%2C%20well-maintained%20properties%2C%20coastal%20Connecticut%20architecture&width=1200&height=600&seq=darien-hero&orientation=landscape')`
+            backgroundImage: `url('/images/garage-door-panel-repair-dan-hammer-smart-garage-doors.jpg')`
           }}
         ></div>
         <div className="relative max-w-7xl mx-auto px-4">
@@ -130,7 +130,7 @@ export default function DarienCTPage() {
             </div>
             <div>
               <img 
-                src="https://readdy.ai/api/search-image?query=Professional%20garage%20door%20installation%20in%20Darien%20Connecticut%20coastal%20home%2C%20technician%20working%20on%20weather-resistant%20garage%20door%2C%20beautiful%20residential%20neighborhood%2C%20high-quality%20service%20photography&width=600&height=400&quality=85&seq=darien-service&orientation=landscape"
+                src="/images/garage-door-panel-repair-dan-hammer-smart-garage-doors.jpg"
                 alt="Garage door service in Darien CT"
                 className="rounded-lg shadow-lg w-full h-auto object-cover"
                 width="600"

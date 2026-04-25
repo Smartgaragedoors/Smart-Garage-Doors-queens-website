@@ -12,7 +12,7 @@ const ScarsdaleNY = () => {
     <div className="min-h-screen bg-white">
       <DynamicMetaTags 
         title="Scarsdale NY Garage Door Repair | Smartest Garage Doors | 24/7"
-        description="Garage door repair in Scarsdale, NY. 5.0★, 392 reviews. Same-day service, emergency repairs. Licensed & insured."
+        description="Garage door repair in Scarsdale, NY. 5.0?, 392 reviews. Same-day service, emergency repairs. Licensed & insured."
         keywords="Scarsdale NY garage door repair, garage door installation Scarsdale, emergency garage door service"
         canonical={buildCanonical('/scarsdale-ny')}
       />
@@ -24,7 +24,7 @@ const ScarsdaleNY = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: `url('https://readdy.ai/api/search-image?query=Professional%20garage%20door%20technician%20working%20on%20residential%20garage%20door%20in%20Scarsdale%20New%20York%20luxury%20neighborhood%20with%20beautiful%20estate%20homes%20and%20manicured%20landscapes%2C%20service%20truck%20parked%20on%20tree-lined%20street&width=1200&height=600&seq=scarsdale-hero&orientation=landscape')`
+            backgroundImage: `url('https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/69d26d48-0700-425b-bfcd-980ccc4bbf00/hero')`
           }}
         />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

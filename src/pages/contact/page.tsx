@@ -1,4 +1,4 @@
-
+﻿
 import { useState } from 'react';
 import Header from '../../components/feature/Header';
 import Footer from '../../components/feature/Footer';
@@ -105,7 +105,7 @@ const ContactPage = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: `url('https://readdy.ai/api/search-image?query=Professional%20customer%20service%20representative%20helping%20customer%20schedule%20garage%20door%20repair%20appointment%2C%20modern%20office%20setting%20with%20computers%20and%20phones%2C%20friendly%20staff%20providing%20excellent%20customer%20service&width=1200&height=600&seq=contact-hero&orientation=landscape')`
+            backgroundImage: `url('/images/garage-door-repair-team-job-site-smart-garage-doors.webp')`
           }}
         />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
