@@ -248,10 +248,26 @@ const routes: RouteObject[] = [
     element: <JacksonNJPage />
   },
   // Legacy routes - redirect to new format (keep for SEO)
-  {
-    path: '/garage-door-replacement/',
-    element: <Navigate to="/garage-door-installation/" replace />
-  },
+  { path: '/garage-door-replacement/', element: <Navigate to="/garage-door-installation/" replace /> },
+  { path: '/garage-door-repair-darien-ct/', element: <Navigate to="/darien-ct/" replace /> },
+  { path: '/garage-door-repair-white-plains-ny/', element: <Navigate to="/white-plains-ny/" replace /> },
+  { path: '/garage-door-repair-suffolk-county-ny/', element: <Navigate to="/suffolk-county-ny/" replace /> },
+  { path: '/garage-door-repair-nassau-county-ny/', element: <Navigate to="/nassau-county-ny/" replace /> },
+  { path: '/garage-door-repair-westchester-county-ny/', element: <Navigate to="/westchester-county-ny/" replace /> },
+  { path: '/install-garage-door-opener-stamford-ct/', element: <Navigate to="/stamford-ct/" replace /> },
+  { path: '/service-areas/brooklyn-ny/', element: <Navigate to="/brooklyn-ny/" replace /> },
+  { path: '/service-areas/newtown-ct/', element: <Navigate to="/newtown-ct/" replace /> },
+  { path: '/service-areas/new-canaan-ct/', element: <Navigate to="/new-canaan-ct/" replace /> },
+  { path: '/how-to-repair-dented-garage-door/', element: <Navigate to="/garage-door-repair/" replace /> },
+  { path: '/garage-door-roller-repair-prevention/', element: <Navigate to="/cable-roller-repair/" replace /> },
+  { path: '/how-to-repair-garage-door-opener/', element: <Navigate to="/opener-repair-installation/" replace /> },
+  { path: '/garage-door-sensor-repair-easy-guide/', element: <Navigate to="/garage-door-repair/" replace /> },
+  { path: '/garage-door-installation-new-york/', element: <Navigate to="/garage-door-installation/" replace /> },
+  { path: '/garage-door-shifts-to-left-when-it-opens/', element: <Navigate to="/garage-door-repair/" replace /> },
+  { path: '/install-new-garage-door-opener/', element: <Navigate to="/opener-repair-installation/" replace /> },
+  { path: '/sliding-garage-doors-maintenance-tips/', element: <Navigate to="/maintenance/" replace /> },
+  { path: '/choose-right-commercial-garage-door-opener/', element: <Navigate to="/opener-repair-installation/" replace /> },
+  { path: '/types-of-garage-doors/', element: <Navigate to="/garage-door-installation/" replace /> },
   {
     path: '/home',
     element: <Navigate to="/" replace />

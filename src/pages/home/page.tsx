@@ -5,6 +5,7 @@ import Hero from '../../components/feature/Hero';
 import BookingCTABar from '../../components/conversion/BookingCTABar';
 import Services from '../../components/feature/Services';
 import RecentWork from '../../components/feature/RecentWork';
+import VideoSection from '../../components/feature/VideoSection';
 import About from '../../components/feature/About';
 import WhyChooseUs from '../../components/feature/WhyChooseUs';
 import Contact from '../../components/feature/Contact';
@@ -99,6 +100,7 @@ export default function HomePage() {
       />
       <Services />
       <RecentWork />
+      <VideoSection />
       <WhyChooseUs />
       <About />
       <CoverageStrip />
