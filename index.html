@@ -176,16 +176,18 @@
       fetchpriority="high"
     />
     
-    <!-- Push LeadConnector chat widget above mobile sticky CTA bar (~72px tall) -->
+    <!-- Hide chat widget on mobile — sticky CTA bar + header already cover those actions -->
     <style>
       @media (max-width: 1023px) {
-        /* Target all known LeadConnector widget container selectors */
         #chat-widget-container,
         .lc-chat-widget-container,
-        [data-widget-id="68f91895be3485765c10fbd3"],
-        iframe[src*="leadconnectorhq.com"],
-        div[class*="chat-widget"] {
-          bottom: 80px !important;
+        [data-widget-id],
+        div[class*="chat-widget"],
+        div[id*="chat-widget"],
+        div[class*="lc-"],
+        div[id*="lc-"],
+        iframe[src*="leadconnectorhq.com"] {
+          display: none !important;
         }
       }
     </style>
