@@ -11,7 +11,7 @@ export default function Hero() {
 
   const subheadline = resolved
     ? `Serving ${locationName} — same-day emergency repair and premium installs for springs, openers, and full door replacements.`
-    : 'Broken spring, stuck door, or opener failure? Call now for 24/7 emergency garage door repair across the NYC metro, suburbs, and Tri-State corridor.';
+    : 'Broken spring, stuck door, or opener failure? Call now for 24/7 emergency garage door repair across Queens, Long Island, and the Tri-State area.';
 
   const dispatchLine = resolved
     ? `Dispatch from Brooklyn, Suffern, and Jackson, NJ — local routing, not a distant call center.`
@@ -46,7 +46,7 @@ export default function Hero() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center text-white relative z-10 py-24">
         {/* Eyebrow */}
         <p className="text-sm md:text-base font-semibold uppercase tracking-widest text-orange-300 mb-5">
-          NYC Metro &amp; Tri-State &nbsp;•&nbsp; 24/7 Emergency
+          {localArea ? `${localArea}` : 'Tri-State Area'} &nbsp;•&nbsp; 24/7 Emergency
         </p>
 
         {/* H1 — shorter, punchier */}

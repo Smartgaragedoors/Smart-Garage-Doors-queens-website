@@ -283,7 +283,7 @@ export default function GarageDoorRepairPage() {
 
           <div className="mt-12 text-center">
             <p className="text-gray-600 mb-4">
-              Need help with a specific repair? <a href="/" className="text-blue-600 hover:text-blue-700 font-semibold">View all our services</a> or call us directly.
+              Need help with a specific repair? <a href="/service-areas/" className="text-blue-600 hover:text-blue-700 font-semibold">View all service areas</a> or call us directly.
             </p>
           </div>
         </div>

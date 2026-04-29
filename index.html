@@ -192,9 +192,10 @@
       }
     </style>
 
-    <!-- LeadConnector Chat Widget (lazy load on first interaction or idle) -->
+    <!-- LeadConnector Chat Widget (desktop only — mobile uses sticky CTA bar instead) -->
     <script>
       (function() {
+        if (window.innerWidth < 1024) return;
         var loaded = false;
         function loadChat() {
           if (loaded) return;
@@ -204,7 +205,7 @@
           s.async = true;
           s.defer = true;
           s.dataset.resourcesUrl = 'https://widgets.leadconnectorhq.com/chat-widget/loader.js';
-          s.dataset.widgetId = '68f91895be3485765c10fbd3';
+          s.dataset.widgetId = '69f205cf19133485b5550ad9';
           document.head.appendChild(s);
         }
         function trigger() {

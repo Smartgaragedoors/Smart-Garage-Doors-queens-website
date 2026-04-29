@@ -1150,10 +1150,12 @@ export default function BlogPostPage() {
             <span className="mx-2">•</span>
             <span>By {post.author}</span>
           </div>
-          <img 
-            src={image} 
+          <img
+            src={image}
             alt={imageAlt}
             className="w-full h-96 object-cover rounded-lg shadow-lg"
+            width={1200}
+            height={384}
             onError={(e) => {
               const target = e.currentTarget;
               if (target.src !== DEFAULT_BLOG_IMAGE_URL) {

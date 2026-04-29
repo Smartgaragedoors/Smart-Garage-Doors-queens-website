@@ -7,17 +7,7 @@ export default function Testimonials() {
       <div className="max-w-7xl mx-auto px-4 text-center">
         {/* Quote Icon */}
         <div className="mb-8">
-          <img 
-            src="https://www.smartestgaragedoors.com/wp-content/uploads/2025/02/qoute.png" 
-            alt=""
-            className="w-16 h-16 mx-auto"
-            loading="lazy"
-            width="64"
-            height="64"
-            decoding="async"
-            fetchpriority="low"
-            style={{ aspectRatio: '1 / 1' }}
-          />
+          <i className="ri-double-quotes-l text-6xl text-orange-400" aria-hidden="true" />
         </div>
 
         <h2 className="text-4xl font-bold text-white mb-8">Clients Testimonials</h2>

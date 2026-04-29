@@ -76,8 +76,8 @@ const FlushingNY = () => {
   return (
     <div className="min-h-screen bg-white">
       <DynamicMetaTags
-        title="Garage Door Repair Flushing NY | Smart Garage Doors | Same-Day 24/7"
-        description="Garage door repair in Flushing, Queens NY. 5.0★, 392 reviews. Same-day service, emergency repairs, spring replacement & installation. Local technicians — call (914) 557-6816."
+        title="Garage Door Repair Flushing NY | Smart Garage Doors | 24/7 Emergency"
+        description="Garage door repair in Flushing, Queens NY. 5.0★, 392 reviews. Fast service — call for availability. Emergency repairs, spring replacement & installation. Local technicians — call (914) 557-6816."
         keywords="garage door repair Flushing NY, Flushing Queens garage door, emergency garage door service Flushing, garage door spring replacement Flushing"
         canonical={buildCanonical('/flushing-ny')}
       />

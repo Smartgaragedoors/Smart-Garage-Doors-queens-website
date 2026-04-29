@@ -79,8 +79,8 @@ const BronxNY = () => {
   return (
     <div className="min-h-screen bg-white">
       <DynamicMetaTags
-        title="Bronx NY Garage Door Repair | Smart Garage Doors | 24/7 Same-Day"
-        description="Garage door repair in the Bronx, NY. 5.0 stars, 392 reviews. Same-day service, emergency repairs, spring replacement, and installation. Licensed and insured. Call (914) 557-6816."
+        title="Bronx NY Garage Door Repair | Smart Garage Doors | 24/7 Emergency"
+        description="Garage door repair in the Bronx, NY. 5.0 stars, 392 reviews. Fast service — call for availability. Emergency repairs, spring replacement & installation. Licensed and insured. Call (914) 557-6816."
         keywords="Bronx NY garage door repair, garage door spring replacement Bronx, emergency garage door service Bronx NY, garage door installation Bronx"
         canonical={buildCanonical('/bronx-ny')}
       />

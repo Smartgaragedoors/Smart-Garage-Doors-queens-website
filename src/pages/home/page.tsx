@@ -83,7 +83,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen pb-[68px] md:pb-0">
       <DynamicMetaTags
-        title={`NYC Metro & Tri-State Garage Door Repair | ${BUSINESS_INFO.aggregateRating.reviewCount} Reviews | Smartest Garage Doors`}
+        title={`Queens & Tri-State Garage Door Repair | ${BUSINESS_INFO.aggregateRating.reviewCount} Reviews | Smartest Garage Doors`}
         description={`24/7 emergency garage door repair serving New York, New Jersey, and Connecticut. ${BUSINESS_INFO.aggregateRating.reviewCount}+ Google reviews. Licensed & insured. Upfront pricing. Call (914) 557-6816.`}
       />
       <WebSiteSchema />
