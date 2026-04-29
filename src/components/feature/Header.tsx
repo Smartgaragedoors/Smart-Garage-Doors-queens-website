@@ -82,8 +82,16 @@ export default function Header() {
     return null;
   }
 
+  // Physical addresses only shown on their dedicated location pages
+  const isQueensPage = currentPath.includes('queens') || currentPath.includes('flushing');
+  const isSuffernPage = currentPath.includes('suffern');
+
   let currentAddress: string;
-  if (location) {
+  if (isQueensPage) {
+    currentAddress = '141-24 70th Ave, Flushing, NY 11367';
+  } else if (isSuffernPage) {
+    currentAddress = '31 Deerwood Road, Suffern, NY';
+  } else if (location) {
     currentAddress = buildServiceAreaText(location.city);
   } else {
     const pathCity = cityFromPath(currentPath);
