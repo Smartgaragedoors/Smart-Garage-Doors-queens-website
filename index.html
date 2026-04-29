@@ -27,7 +27,6 @@
     <link rel="dns-prefetch" href="https://maps.googleapis.com" />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://widgets.sociablekit.com" />
-    <link rel="dns-prefetch" href="https://widgets.leadconnectorhq.com" />
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     
     <!-- Favicon -->
@@ -176,54 +175,7 @@
       fetchpriority="high"
     />
     
-    <!-- Hide chat widget on mobile — sticky CTA bar + header already cover those actions -->
-    <style>
-      @media (max-width: 1023px) {
-        #chat-widget-container,
-        .lc-chat-widget-container,
-        [data-widget-id],
-        div[class*="chat-widget"],
-        div[id*="chat-widget"],
-        div[class*="lc-"],
-        div[id*="lc-"],
-        iframe[src*="leadconnectorhq.com"] {
-          display: none !important;
-        }
-      }
-    </style>
-
-    <!-- LeadConnector Chat Widget (desktop only — mobile uses sticky CTA bar instead) -->
-    <script>
-      (function() {
-        if (window.innerWidth < 1024) return;
-        var loaded = false;
-        function loadChat() {
-          if (loaded) return;
-          loaded = true;
-          var s = document.createElement('script');
-          s.src = 'https://widgets.leadconnectorhq.com/loader.js';
-          s.async = true;
-          s.defer = true;
-          s.dataset.resourcesUrl = 'https://widgets.leadconnectorhq.com/chat-widget/loader.js';
-          s.dataset.widgetId = '69f210406dc5eee00f0c9fd3';
-          document.head.appendChild(s);
-        }
-        function trigger() {
-          loadChat();
-          window.removeEventListener('click', trigger);
-          window.removeEventListener('touchstart', trigger);
-          window.removeEventListener('keydown', trigger);
-        }
-        window.addEventListener('click', trigger, { once: true, passive: true });
-        window.addEventListener('touchstart', trigger, { once: true, passive: true });
-        window.addEventListener('keydown', trigger, { once: true });
-        if ('requestIdleCallback' in window) {
-          requestIdleCallback(loadChat, { timeout: 10000 });
-        } else {
-          setTimeout(loadChat, 10000);
-        }
-      })();
-    </script>
+    <!-- Chat widget rendered by React (ChatWidget.tsx) — no external script needed -->
   </head>
   <body>
     <div id="root"></div>

@@ -3,7 +3,7 @@ import { trackPhoneClick } from '../../utils/analytics';
 export default function MobileStickyCTA() {
   return (
     <div
-      className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-gray-200 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]"
+      className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t-2 border-gray-300"
       style={{ paddingBottom: 'max(0.75rem, env(safe-area-inset-bottom))' }}
     >
       <div className="flex items-stretch divide-x divide-gray-200">

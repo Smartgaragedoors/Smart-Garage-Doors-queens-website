@@ -4,6 +4,7 @@ import { LocationProvider } from './contexts/LocationContext'
 import ErrorBoundary from './components/ErrorBoundary'
 import MobileStickyCTA from './components/conversion/MobileStickyCTA'
 import LandingPageStickyCTA from './components/conversion/LandingPageStickyCTA'
+import ChatWidget from './components/feature/ChatWidget'
 
 function StickyCTA() {
   const { pathname } = useLocation()
@@ -21,6 +22,7 @@ function App() {
             {/* Spacer so mobile sticky CTA does not cover page bottom */}
             <div className="lg:hidden h-16 flex-shrink-0" aria-hidden="true" />
             <StickyCTA />
+            <ChatWidget />
           </ErrorBoundary>
         </BrowserRouter>
       </LocationProvider>

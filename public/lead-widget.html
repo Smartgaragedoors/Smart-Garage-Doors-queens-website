@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Get a Free Estimate — Smartest Garage Doors</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      padding: 24px 16px;
+      min-height: 100vh;
+    }
+
+    .card {
+      max-width: 520px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+      padding: 32px 28px;
+    }
+
+    .logo {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #1e3a5f;
+      margin-bottom: 6px;
+    }
+
+    h1 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #1e3a5f;
+      line-height: 1.25;
+      margin-bottom: 4px;
+    }
+
+    .sub {
+      font-size: 14px;
+      color: #64748b;
+      margin-bottom: 24px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 14px;
+    }
+
+    label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 5px;
+    }
+
+    .required-star { color: #f97316; }
+
+    input, select, textarea {
+      border: 1.5px solid #d1d5db;
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 15px;
+      color: #1e293b;
+      background: #fff;
+      transition: border-color 0.15s;
+      width: 100%;
+      font-family: inherit;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #f97316;
+    }
+
+    textarea { resize: vertical; min-height: 90px; }
+
+    .hp { display: none !important; }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      background: #f97316;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: background 0.15s, transform 0.1s;
+    }
+    .btn:hover { background: #ea6c0a; }
+    .btn:active { transform: scale(0.98); }
+    .btn:disabled { background: #fdba74; cursor: not-allowed; }
+
+    .trust {
+      font-size: 12px;
+      color: #94a3b8;
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    .error-msg {
+      font-size: 13px;
+      color: #dc2626;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    /* Success state */
+    .success {
+      text-align: center;
+      padding: 16px 0;
+    }
+    .success-icon {
+      width: 64px;
+      height: 64px;
+      background: #f0fdf4;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      font-size: 32px;
+    }
+    .success h2 {
+      font-size: 20px;
+      font-weight: 800;
+      color: #1e3a5f;
+      margin-bottom: 8px;
+    }
+    .success p {
+      font-size: 14px;
+      color: #64748b;
+      line-height: 1.6;
+    }
+    .success .phone-cta {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background: #f97316;
+      color: #fff;
+      font-weight: 700;
+      font-size: 15px;
+      border-radius: 10px;
+      text-decoration: none;
+    }
+
+    @media (max-width: 400px) {
+      .card { padding: 24px 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">Smartest Garage Doors</div>
+    <h1>Get a Free Estimate</h1>
+    <p class="sub">We typically respond within 15 minutes.</p>
+
+    <form id="leadForm" novalidate>
+      <!-- Honeypot fields — invisible to real users, filled by bots -->
+      <div class="hp" aria-hidden="true">
+        <input type="text" name="website_url" tabindex="-1" autocomplete="off" />
+        <input type="text" name="_hp"         tabindex="-1" autocomplete="off" />
+      </div>
+
+      <div class="field">
+        <label for="customer_name">Your Name <span class="required-star">*</span></label>
+        <input id="customer_name" name="customer_name" type="text" autocomplete="name" required />
+      </div>
+
+      <div class="field">
+        <label for="phone">Phone Number <span class="required-star">*</span></label>
+        <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(914) 555-0100" required />
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" />
+      </div>
+
+      <div class="field">
+        <label for="address">Service Address</label>
+        <input id="address" name="address" type="text" autocomplete="street-address" placeholder="City or full address" />
+      </div>
+
+      <div class="field">
+        <label for="service">What do you need?</label>
+        <select id="service" name="service">
+          <option value="">— Select a service —</option>
+          <option value="Garage Door Repair">Garage Door Repair</option>
+          <option value="Spring Replacement">Spring Replacement</option>
+          <option value="Opener Repair / Installation">Opener Repair / Installation</option>
+          <option value="New Garage Door Installation">New Garage Door Installation</option>
+          <option value="Cable / Roller Repair">Cable / Roller Repair</option>
+          <option value="Emergency Service">Emergency Service</option>
+          <option value="Maintenance">Maintenance</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="notes">Tell us more (optional)</label>
+        <textarea id="notes" name="notes" placeholder="Describe the issue or what you need…"></textarea>
+      </div>
+
+      <button class="btn" type="submit" id="submitBtn">Request Free Estimate</button>
+      <div class="error-msg" id="errorMsg" hidden></div>
+      <p class="trust">🔒 No spam. No pressure. Licensed &amp; insured.</p>
+    </form>
+
+    <div class="success" id="successState" hidden>
+      <div class="success-icon">✅</div>
+      <h2>We got your request!</h2>
+      <p>Someone from our team will reach out shortly.<br>For emergencies, call us directly:</p>
+      <a class="phone-cta" href="tel:+19145576816">(914) 557-6816</a>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var form      = document.getElementById('leadForm');
+      var submitBtn = document.getElementById('submitBtn');
+      var errorMsg  = document.getElementById('errorMsg');
+      var success   = document.getElementById('successState');
+
+      var ENDPOINT = 'https://crm.smartestgaragedoors.com/api/webhooks/website/lead';
+
+      function showError(msg) {
+        errorMsg.textContent = msg;
+        errorMsg.hidden = false;
+      }
+
+      function hideError() {
+        errorMsg.hidden = true;
+        errorMsg.textContent = '';
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        hideError();
+
+        var customerName = document.getElementById('customer_name').value.trim();
+        if (!customerName) {
+          showError('Please enter your name.');
+          document.getElementById('customer_name').focus();
+          return;
+        }
+
+        var phone = document.getElementById('phone').value.trim();
+        if (!phone) {
+          showError('Please enter your phone number.');
+          document.getElementById('phone').focus();
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending…';
+
+        var serviceEl = document.getElementById('service');
+        var payload = {
+          customer_name: customerName,
+          phone:         phone,
+          email:         document.getElementById('email').value.trim(),
+          address:       document.getElementById('address').value.trim(),
+          service:       serviceEl ? serviceEl.value : '',
+          description:   serviceEl ? serviceEl.value : '',
+          notes:         document.getElementById('notes').value.trim(),
+          website_url:   document.querySelector('[name="website_url"]').value,
+          _hp:           document.querySelector('[name="_hp"]').value,
+          source_url:    window.location.href,
+        };
+
+        // Pass campaign param if present in URL
+        var params = new URLSearchParams(window.location.search);
+        if (params.get('campaign')) payload.campaign = params.get('campaign');
+
+        fetch(ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        })
+          .then(function (r) { return r.json(); })
+          .then(function (data) {
+            if (data.error) throw new Error(data.error);
+            form.hidden = true;
+            success.hidden = false;
+          })
+          .catch(function (err) {
+            console.error('Lead submit error:', err);
+            showError('Something went wrong. Please call us at (914) 557-6816.');
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Request Free Estimate';
+          });
+      });
+    })();
+  </script>
+</body>
+</html>
