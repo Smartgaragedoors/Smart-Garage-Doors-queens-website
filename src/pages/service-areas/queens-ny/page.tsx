@@ -515,10 +515,7 @@ const QueensNY = () => {
                 How quickly can you respond to garage door emergencies in Queens?
               </h3>
               <p className="text-gray-600">
-                Our Queens-based technicians typically respond to emergency garage door calls within 60-90 minutes 
-                throughout most Queens neighborhoods. We maintain service vehicles strategically positioned throughout 
-                the borough and our technicians know the best routes to avoid traffic and reach you quickly, even 
-                during peak traffic times. For non-emergency repairs, same-day service is available most days.
+                Our Queens-based technicians respond to emergency garage door calls throughout all Queens neighborhoods. We maintain service vehicles strategically positioned throughout the borough and our technicians know the best routes to reach you quickly. Response times vary based on technician availability and current conditions — call us for an honest estimate. For non-emergency repairs, same-day service is available most days.
               </p>
             </div>
             

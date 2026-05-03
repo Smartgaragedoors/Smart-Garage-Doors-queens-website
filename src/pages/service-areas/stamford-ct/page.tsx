@@ -326,9 +326,7 @@ const StamfordCT = () => {
                 How quickly can you respond to emergency calls in Stamford?
               </h3>
               <p className="text-gray-600">
-                Smart Garage Doors typically responds to Stamford emergency calls within 1-2 hours. 
-                Our local service vehicles and knowledge of Stamford traffic patterns help us reach 
-                you quickly when you need urgent garage door repairs.
+                Smart Garage Doors responds to Stamford emergency calls based on technician availability. Our local service vehicles and knowledge of Stamford traffic patterns help us reach you as quickly as possible — call us for an honest estimate.
               </p>
             </div>
             

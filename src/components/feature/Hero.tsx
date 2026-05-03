@@ -10,7 +10,7 @@ export default function Hero() {
   const localArea = resolved ? locationName : null;
 
   const subheadline = resolved
-    ? `Serving ${locationName} — same-day emergency repair and premium installs for springs, openers, and full door replacements.`
+    ? `Serving ${locationName} — emergency repair and premium installs for springs, openers, and full door replacements. Call for availability.`
     : 'Broken spring, stuck door, or opener failure? Call now for 24/7 emergency garage door repair across Queens, Long Island, and the Tri-State area.';
 
   const dispatchLine = resolved

@@ -93,7 +93,7 @@ const FlushingNY = () => {
             </h1>
             <p className="text-xl md:text-2xl mb-4 max-w-3xl mx-auto">
               Local garage door technicians serving Flushing and surrounding Queens neighborhoods.
-              Broken spring, stuck door, or opener failure — we respond in 60 minutes or less.
+              Broken spring, stuck door, or opener failure — call us 24/7 and we'll dispatch the nearest available technician.
             </p>
             <p className="text-lg mb-8 text-blue-200 font-semibold max-w-2xl mx-auto">
               5.0★ (392 Google Reviews) • Same-Day Service • Licensed &amp; Insured NY • 24/7
@@ -315,9 +315,7 @@ const FlushingNY = () => {
                 How quickly can you arrive for an emergency in Flushing?
               </h3>
               <p className="text-gray-600">
-                Because we're based in Flushing, our typical emergency response time is
-                30–60 minutes within the immediate Flushing area, and up to 60–90 minutes
-                for surrounding neighborhoods like Whitestone, College Point, and Fresh Meadows.
+                Because we're based in Flushing, we can reach most of Queens quickly for emergency calls. Response times depend on technician availability and current conditions — call us and we'll give you an honest estimate for your neighborhood.
               </p>
             </div>
 
@@ -367,7 +365,7 @@ const FlushingNY = () => {
           </h2>
           <p className="text-xl mb-8 text-blue-100">
             Local to Flushing, available 24/7. Call now for same-day service or get a
-            free estimate online — technician dispatches in minutes.
+            free estimate online — we'll dispatch the nearest available technician.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

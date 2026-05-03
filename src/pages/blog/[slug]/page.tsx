@@ -219,7 +219,7 @@ const BLOG_POSTS: Record<string, {
       <p>4. <strong>Call Professionals:</strong> Contact Smart Garage Doors immediately for emergency service.</p>
       
       <h2>Emergency Service Response</h2>
-      <p>We offer 24/7 emergency garage door repair throughout NY, NJ & CT. Our technicians typically arrive within 60-90 minutes to address urgent situations safely and efficiently.</p>
+      <p>We offer 24/7 emergency garage door repair throughout NY, NJ & CT. We dispatch the nearest available technician to address urgent situations safely and efficiently — call us for an honest availability estimate.</p>
       
       <p>If you are currently dealing with an urgent problem, skip the DIY steps and <a href="/emergency-garage-door-repair/">request emergency garage door repair service</a> so a technician can secure your door quickly.</p>
     `,

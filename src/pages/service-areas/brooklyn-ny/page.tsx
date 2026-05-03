@@ -81,7 +81,7 @@ const BrooklynNY = () => {
     },
     {
       question: "What's your response time for emergency calls in Brooklyn?",
-      answer: "Smart Garage Doors typically responds to Brooklyn emergency calls within 60-90 minutes throughout most Brooklyn neighborhoods. Our strategically located service vehicles and extensive knowledge of Brooklyn traffic patterns, alternate-side parking schedules, and street layouts help us reach you quickly even during peak traffic times or rush hour."
+      answer: "Smart Garage Doors responds to Brooklyn emergency calls throughout most Brooklyn neighborhoods. Our strategically located service vehicles and extensive knowledge of Brooklyn traffic patterns, alternate-side parking schedules, and street layouts help us reach you as quickly as possible. Response times vary based on technician availability and current conditions — call us and we'll give you an honest estimate."
     },
     {
       question: "Do you offer garage door maintenance plans for Brooklyn residents?",

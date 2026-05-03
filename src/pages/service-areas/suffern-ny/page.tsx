@@ -41,7 +41,7 @@ const ROCKLAND_TOWNS = [
 const FAQS = [
   {
     q: 'How quickly can you respond to garage door emergencies in Suffern?',
-    a: 'Our Suffern-based technician Ben typically arrives within 45–75 minutes for emergency calls anywhere in Rockland County. We answer 24/7, including nights, weekends, and holidays.',
+    a: 'Our Suffern-based technician Ben responds to emergency calls throughout Rockland County — we answer 24/7, including nights, weekends, and holidays. Call us and we\'ll give you an honest availability estimate based on current conditions.',
   },
   {
     q: 'Is the Suffern technician local to Rockland County?',
@@ -173,7 +173,7 @@ export default function SuffernNY() {
             <span className="text-orange-400">Suffern NY & Rockland County</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Same-day and 24/7 emergency service. Local technician arrives in 45–75 minutes — no NYC wait times.
+            Same-day and 24/7 emergency service. Local technician based in Suffern — no NYC wait times. Call for availability.
           </p>
 
           {/* Trust bar */}

@@ -304,9 +304,7 @@ const StatenIslandNY = () => {
                 What's your response time for emergency calls in Staten Island?
               </h3>
               <p className="text-gray-600">
-                Smart Garage Doors typically responds to Staten Island emergency calls within 1-2 hours. 
-                Our local service teams and knowledge of Staten Island traffic patterns help us reach 
-                you quickly throughout the borough.
+                Smart Garage Doors responds to Staten Island emergency calls based on technician availability. Our local service teams and knowledge of Staten Island traffic patterns help us reach you as quickly as possible — call us for an honest estimate.
               </p>
             </div>
             

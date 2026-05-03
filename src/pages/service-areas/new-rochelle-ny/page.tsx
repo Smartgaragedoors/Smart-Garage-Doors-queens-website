@@ -294,9 +294,7 @@ const NewRochelleNY = () => {
                 What's your response time for emergency calls in New Rochelle?
               </h3>
               <p className="text-gray-600">
-                Smart Garage Doors typically responds to New Rochelle emergency calls within 1-2 hours. 
-                Our strategic location and knowledge of Westchester County traffic patterns help us reach 
-                you quickly throughout the New Rochelle area.
+                Smart Garage Doors responds to New Rochelle emergency calls based on technician availability. Our strategic location and knowledge of Westchester County traffic patterns help us reach you as quickly as possible — call us for an honest estimate.
               </p>
             </div>
             

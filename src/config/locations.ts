@@ -76,7 +76,7 @@ export const newLocations: Location[] = [
     faqs: [
       {
         q: 'How quickly can you respond to garage door emergencies in Paramus?',
-        a: 'We provide fast emergency service throughout Paramus, typically arriving within 60-90 minutes. Our technicians are familiar with Paramus neighborhoods and can navigate efficiently to your location.',
+        a: 'We provide fast emergency service throughout Paramus. Our technicians are familiar with Paramus neighborhoods and can navigate efficiently to your location — call us and we\'ll give you an honest availability estimate.',
       },
       {
         q: 'Do you service commercial garage doors in Paramus?',
@@ -110,7 +110,7 @@ export const newLocations: Location[] = [
       },
       {
         q: 'What is your typical response time for Norwalk service calls?',
-        a: 'For emergency calls in Norwalk, we typically arrive within 60-90 minutes. For scheduled appointments, we offer flexible timing to fit your schedule.',
+        a: 'For emergency calls in Norwalk, we dispatch based on technician availability and your location. For scheduled appointments, we offer flexible timing to fit your schedule — call us for an honest availability estimate.',
       },
       {
         q: 'Do you offer garage door installation in Norwalk?',
@@ -132,7 +132,7 @@ export const newLocations: Location[] = [
     faqs: [
       {
         q: 'How quickly can you respond to garage door emergencies in Edison?',
-        a: 'We provide fast emergency service throughout Edison, typically arriving within 60-90 minutes. Our technicians are familiar with Edison neighborhoods and can navigate efficiently to your location.',
+        a: 'We provide fast emergency service throughout Edison. Our technicians are familiar with Edison neighborhoods and can navigate efficiently to your location — call us and we\'ll give you an honest availability estimate.',
       },
       {
         q: 'Do you service commercial garage doors in Edison?',

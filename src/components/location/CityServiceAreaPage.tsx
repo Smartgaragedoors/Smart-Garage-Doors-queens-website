@@ -64,7 +64,7 @@ export default function CityServiceAreaPage({ location }: CityServiceAreaPagePro
     },
     {
       label: 'Emergency response',
-      value: `We aim for 60-90 minutes in ${location.city} — call to confirm availability`,
+      value: `Response time varies — call to confirm availability in ${location.city}`,
     },
   ];
 
@@ -391,7 +391,7 @@ export default function CityServiceAreaPage({ location }: CityServiceAreaPagePro
               <li><strong>Service completion:</strong> We will complete the repair or installation and test everything to ensure it works properly.</li>
             </ol>
             <p className="mt-6">
-              For emergency situations in {location.city}, call us immediately at (914) 557-6816. We prioritize urgent repairs and aim to arrive as quickly as possible — typically within 60-90 minutes depending on technician availability and location.
+              For emergency situations in {location.city}, call us immediately at (914) 557-6816. We prioritize urgent repairs and dispatch the nearest available technician — response times vary based on technician availability and current location.
             </p>
           </div>
         </div>

@@ -69,7 +69,7 @@ const FairfieldCT = () => {
           "name": "How quickly can you respond to garage door emergencies in Fairfield?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Smart Garage Doors provides 24/7 emergency garage door repair services in Fairfield, CT. Our local technicians typically respond within 1-2 hours for urgent repairs, ensuring your home's security and your family's safety are quickly restored."
+            "text": "Smart Garage Doors provides 24/7 emergency garage door repair services in Fairfield, CT. Our local technicians respond as quickly as possible for urgent repairs, based on technician availability and current conditions — call us for an honest estimate."
           }
         },
         {
@@ -355,9 +355,7 @@ const FairfieldCT = () => {
                 How quickly can you respond to garage door emergencies in Fairfield?
               </h3>
               <p className="text-gray-600">
-                Smart Garage Doors provides 24/7 emergency garage door repair services in Fairfield, CT. 
-                Our local technicians typically respond within 1-2 hours for urgent repairs, ensuring your 
-                home's security and your family's safety are quickly restored.
+                Smart Garage Doors provides 24/7 emergency garage door repair services in Fairfield, CT. Our local technicians respond as quickly as possible for urgent repairs based on technician availability — call us for an honest estimate.
               </p>
             </div>
             

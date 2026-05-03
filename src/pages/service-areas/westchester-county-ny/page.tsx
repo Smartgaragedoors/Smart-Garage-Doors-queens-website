@@ -305,9 +305,7 @@ const WestchesterCountyNY = () => {
                 What's your response time for emergency calls in Westchester County?
               </h3>
               <p className="text-gray-600">
-                Smart Garage Doors typically responds to Westchester County emergency calls within 1-2 hours. 
-                Our strategically located service vehicles and knowledge of Westchester traffic patterns 
-                help us reach you quickly throughout the county.
+                Smart Garage Doors responds to Westchester County emergency calls based on technician availability. Our strategically located service vehicles and knowledge of Westchester traffic patterns help us reach you as quickly as possible — call us for an honest estimate.
               </p>
             </div>
             

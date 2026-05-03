@@ -2,6 +2,9 @@ interface Video {
   youtubeId: string;
   title: string;
   description: string;
+  thumbnailUrl: string;
+  uploadDate: string;
+  duration: string;
 }
 
 const VIDEOS: Video[] = [
@@ -9,12 +12,42 @@ const VIDEOS: Video[] = [
     youtubeId: 'ligJoNgOpkI',
     title: 'DO NOT Install a Tsunami Strip Before Watching This',
     description: 'Most people install garage door bottom seals the wrong way. Our tech walks you through exactly what to look for — and the mistake that causes them to fail within months.',
+    thumbnailUrl: 'https://img.youtube.com/vi/ligJoNgOpkI/maxresdefault.jpg',
+    uploadDate: '2025-01-15',
+    duration: 'PT4M30S',
   },
 ];
 
 export default function VideoSection() {
+  const videoSchemas = VIDEOS.map((v) => ({
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name: v.title,
+    description: v.description,
+    thumbnailUrl: v.thumbnailUrl,
+    uploadDate: v.uploadDate,
+    duration: v.duration,
+    embedUrl: `https://www.youtube.com/embed/${v.youtubeId}`,
+    url: `https://www.youtube.com/watch?v=${v.youtubeId}`,
+    publisher: {
+      '@type': 'Organization',
+      name: 'Smartest Garage Doors',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://www.smartestgaragedoors.com/smart-garage-doors-logo.webp',
+      },
+    },
+  }));
+
   return (
     <section className="py-16 md:py-20 bg-white">
+      {videoSchemas.map((schema, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div className="text-center mb-10">

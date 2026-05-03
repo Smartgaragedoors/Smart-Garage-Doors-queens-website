@@ -69,7 +69,7 @@ const SmithtownNY = () => {
           "name": "How quickly can you respond to garage door emergencies in Smithtown?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Smart Garage Doors provides 24/7 emergency garage door repair services in Smithtown, NY. Our local technicians typically respond within 1-2 hours for urgent repairs, ensuring your home's security and your family's safety are quickly restored."
+            "text": "Smart Garage Doors provides 24/7 emergency garage door repair services in Smithtown, NY. Our local technicians respond as quickly as possible for urgent repairs based on technician availability — call us for an honest estimate."
           }
         },
         {
@@ -355,9 +355,7 @@ const SmithtownNY = () => {
                 How quickly can you respond to garage door emergencies in Smithtown?
               </h3>
               <p className="text-gray-600">
-                Smart Garage Doors provides 24/7 emergency garage door repair services in Smithtown, NY. 
-                Our local technicians typically respond within 1-2 hours for urgent repairs, ensuring your 
-                home's security and your family's safety are quickly restored.
+                Smart Garage Doors provides 24/7 emergency garage door repair services in Smithtown, NY. Our local technicians respond as quickly as possible for urgent repairs based on technician availability — call us for an honest estimate.
               </p>
             </div>
             

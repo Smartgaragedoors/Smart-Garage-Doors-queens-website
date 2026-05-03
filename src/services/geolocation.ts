@@ -307,14 +307,8 @@ export function getLocationDisplayName(location: LocationData | null): string {
   return `${location.city}, ${location.stateCode}`;
 }
 
-// Get response time estimate based on distance
-export function getResponseTime(location: LocationData | null): string {
-  if (!location) return '45-60 minutes';
-  
-  if (location.distance <= 5) return '30-45 minutes';
-  if (location.distance <= 15) return '45-60 minutes';
-  if (location.distance <= 30) return '60-90 minutes';
-  return '90-120 minutes';
+export function getResponseTime(_location: LocationData | null): string {
+  return 'Call for availability';
 }
 
 

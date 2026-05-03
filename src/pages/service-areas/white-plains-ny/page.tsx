@@ -295,9 +295,7 @@ const WhitePlainsNY = () => {
                 How quickly can you respond to emergency calls in White Plains?
               </h3>
               <p className="text-gray-600">
-                Smart Garage Doors typically responds to White Plains emergency calls within 1-2 hours. 
-                Our strategic location and knowledge of Westchester County traffic patterns help us reach 
-                you quickly throughout the White Plains area.
+                Smart Garage Doors responds to White Plains emergency calls based on technician availability. Our strategic location and knowledge of Westchester County traffic patterns help us reach you as quickly as possible — call us for an honest estimate.
               </p>
             </div>
             

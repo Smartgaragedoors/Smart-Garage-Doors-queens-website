@@ -305,9 +305,7 @@ const LongIslandNY = () => {
                 What's your response time for emergency calls on Long Island?
               </h3>
               <p className="text-gray-600">
-                Our response time varies by location but typically ranges from 1-3 hours depending on your 
-                specific area in Nassau or Suffolk County. We maintain service vehicles strategically located 
-                across Long Island for optimal coverage.
+                Response times vary by location across Nassau and Suffolk County based on technician availability. We maintain service vehicles strategically located across Long Island — call us and we'll give you an honest estimate for your area.
               </p>
             </div>
             

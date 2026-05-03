@@ -326,9 +326,7 @@ const BergenCountyNJ = () => {
                 What's your response time for emergency calls in Bergen County?
               </h3>
               <p className="text-gray-600">
-                Smart Garage Doors typically responds to Bergen County emergency calls within 1-2 hours. 
-                Our strategically located service vehicles and knowledge of Bergen County traffic patterns 
-                help us reach you quickly throughout the county.
+                Smart Garage Doors responds to Bergen County emergency calls as quickly as possible based on technician availability. Our strategically located service vehicles and knowledge of Bergen County traffic patterns help us reach you throughout the county — call us for an honest estimate.
               </p>
             </div>
             

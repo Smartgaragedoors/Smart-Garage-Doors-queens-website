@@ -193,7 +193,7 @@ export default function TeaneckNJPage() {
                   <i className="ri-time-line text-blue-600 text-xl mt-1 mr-3"></i>
                   <div>
                     <h3 className="font-semibold text-gray-900">Response Time</h3>
-                    <p className="text-gray-600">Typically within 1-2 hours for emergency calls in the Teaneck area.</p>
+                    <p className="text-gray-600">We dispatch based on technician availability — call us for an honest estimate for the Teaneck area.</p>
                   </div>
                 </div>
                 <div className="flex items-start">

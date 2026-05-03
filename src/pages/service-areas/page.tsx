@@ -33,7 +33,7 @@ const faqs = [
   },
   {
     question: 'How quickly can you respond to service requests?',
-    answer: 'Response times vary by location, but we typically provide same-day service for most non-emergency repairs. For emergency situations, our average response time is 60-90 minutes throughout our service areas. We have multiple service locations across NY, NJ, and CT to ensure fast response times.',
+    answer: 'Response times vary by location and technician availability. For most non-emergency repairs, same-day service is available. For emergency situations, we dispatch the nearest available technician — call us for an honest estimate. We have multiple service locations across NY, NJ, and CT.',
   },
   {
     question: 'Do you service all types of garage doors?',

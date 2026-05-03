@@ -69,7 +69,7 @@ const ElizabethNJ = () => {
           "name": "How quickly can you respond to garage door emergencies in Elizabeth?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Smart Garage Doors provides 24/7 emergency garage door repair services in Elizabeth, NJ. Our local technicians typically respond within 1-2 hours for urgent repairs, ensuring your home's security and your family's safety are quickly restored."
+            "text": "Smart Garage Doors provides 24/7 emergency garage door repair services in Elizabeth, NJ. Our local technicians respond as quickly as possible for urgent repairs, based on technician availability and current conditions — call us for an honest estimate."
           }
         },
         {
@@ -370,10 +370,7 @@ const ElizabethNJ = () => {
                 How quickly can you respond to garage door emergencies in Elizabeth?
               </h3>
               <p className="text-gray-600">
-                Our Elizabeth-based technicians typically respond to emergency garage door calls within 60-90 minutes 
-                throughout most Elizabeth neighborhoods. We maintain service vehicles strategically positioned and our 
-                technicians know the best routes to avoid traffic and reach you quickly, even during peak traffic times. 
-                For non-emergency repairs, same-day service is available most days.
+                Our Elizabeth-based technicians respond to emergency garage door calls throughout most Elizabeth neighborhoods. We maintain service vehicles strategically positioned and our technicians know the best routes to reach you quickly. Response times vary based on technician availability and current conditions. For non-emergency repairs, same-day service is available most days.
               </p>
             </div>
             

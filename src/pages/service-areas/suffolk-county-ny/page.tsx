@@ -305,9 +305,7 @@ const SuffolkCountyNY = () => {
                 What's your response time for emergency calls in Suffolk County?
               </h3>
               <p className="text-gray-600">
-                Response times vary by location within Suffolk County, typically ranging from 1-3 hours 
-                depending on your specific area. We maintain service vehicles strategically located 
-                across Suffolk County for optimal coverage from west to east.
+                Response times vary by location within Suffolk County based on technician availability and your specific area. We maintain service vehicles strategically located across Suffolk County from west to east — call us for an honest estimate.
               </p>
             </div>
             

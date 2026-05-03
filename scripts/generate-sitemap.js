@@ -22,6 +22,12 @@ const EXCLUDED_PATHS = [
   '/garage-door-installation-suffern-ny/',    // Redirects to /suffern-ny/
   '/garage-door-installation-stamford-ct/',   // Redirects to /stamford-ct/
   '/garage-door-replacement/',                // Redirects to /garage-door-installation/
+  '/garage-door-repair-darien-ct/',           // Redirects to /darien-ct/
+  '/garage-door-repair-white-plains-ny/',     // Redirects to /white-plains-ny/
+  '/garage-door-repair-suffolk-county-ny/',   // Redirects to /suffolk-county-ny/
+  '/garage-door-repair-nassau-county-ny/',    // Redirects to /nassau-county-ny/
+  '/garage-door-repair-westchester-county-ny/', // Redirects to /westchester-county-ny/
+  '/install-garage-door-opener-stamford-ct/', // Redirects to /stamford-ct/
 ];
 
 // Never sitemap utility / tracking / default-noindex landing paths

@@ -95,7 +95,7 @@ const BronxNY = () => {
             </h1>
             <p className="text-xl md:text-2xl mb-4 max-w-3xl mx-auto">
               Fast, reliable garage door repair and installation throughout the Bronx.
-              Technician arrives in 60 minutes or less, 24/7, including weekends.
+              24/7 emergency service — we dispatch based on technician availability.
             </p>
             <p className="text-lg mb-8 text-blue-200 font-semibold max-w-2xl mx-auto">
               5.0 star rated (392 Google Reviews) | Licensed &amp; Insured NY | Same-Day Service
@@ -202,8 +202,7 @@ const BronxNY = () => {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">24/7 Emergency Repair</h3>
               <p className="text-gray-600">
-                Door stuck? Spring snapped? We dispatch to the Bronx around the clock, and most emergency
-                calls reach a technician within 60 minutes.
+                Door stuck? Spring snapped? We dispatch to the Bronx around the clock — call us and we'll get the nearest available technician to you.
               </p>
             </div>
 
@@ -278,9 +277,9 @@ const BronxNY = () => {
               <div className="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <i className="ri-time-line text-3xl text-orange-600"></i>
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">60-Min Response</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Fast Dispatch</h3>
               <p className="text-gray-600">
-                Our technicians reach most Bronx neighborhoods within 60 minutes for emergency calls.
+                We dispatch to all Bronx neighborhoods 24/7 — call us for current availability.
               </p>
             </div>
 
@@ -413,8 +412,7 @@ const BronxNY = () => {
                 How fast can you respond to an emergency in the Bronx?
               </h3>
               <p className="text-gray-600">
-                For emergency garage door calls in the Bronx, our technicians typically arrive within 60 minutes.
-                We dispatch from multiple service locations and know Bronx traffic patterns well.
+                For emergency garage door calls in the Bronx, we dispatch from multiple service locations and know Bronx traffic patterns well. Response times vary based on technician availability and current location — call us and we'll give you an honest estimate.
               </p>
             </div>
 
@@ -458,8 +456,7 @@ const BronxNY = () => {
             Need Garage Door Repair in the Bronx?
           </h2>
           <p className="text-xl mb-8 text-blue-100">
-            Call now or get a free estimate online. We dispatch to all Bronx neighborhoods 24/7,
-            with technicians typically arriving in 60 minutes or less for emergencies.
+            Call now or get a free estimate online. We dispatch to all Bronx neighborhoods 24/7 — call us and we'll get a technician to you as quickly as possible.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

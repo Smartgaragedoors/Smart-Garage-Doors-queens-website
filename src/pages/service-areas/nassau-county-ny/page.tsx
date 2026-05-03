@@ -304,9 +304,7 @@ const NassauCountyNY = () => {
                 What's your typical response time in Nassau County?
               </h3>
               <p className="text-gray-600">
-                Smart Garage Doors typically responds to Nassau County calls within 1-2 hours. 
-                Our strategically located service vehicles and knowledge of Nassau County traffic 
-                patterns help us reach you quickly throughout the county.
+                Smart Garage Doors responds to Nassau County emergency calls based on technician availability. Our strategically located service vehicles and knowledge of Nassau County traffic patterns help us reach you as quickly as possible — call us for an honest estimate.
               </p>
             </div>
             
