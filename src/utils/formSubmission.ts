@@ -9,6 +9,8 @@
  * Without either, the form falls back to opening the visitor’s email client (you won’t get an email unless they send it).
  */
 
+import { getAttribution } from './analytics';
+
 const WEB3FORMS_ACCESS_KEY = (import.meta.env.VITE_WEB3FORMS_ACCESS_KEY ?? '').trim();
 const FORMSPREE_FORM_ID = (import.meta.env.VITE_FORMSPREE_FORM_ID ?? '').trim();
 const SITE_URL = (import.meta.env.VITE_SITE_URL ?? 'https://www.smartestgaragedoors.com').trim();
@@ -161,6 +163,21 @@ export async function submitForm(
   data: Record<string, string | number | undefined>,
   formName?: string
 ): Promise<FormSubmissionResult> {
+  // Enrich every submission with attribution data so leads are traceable to source
+  const attr = getAttribution();
+  if (attr) {
+    data = {
+      ...data,
+      landing_page: attr.landing_page,
+      referrer: attr.referrer || undefined,
+      utm_source: attr.utm_source || undefined,
+      utm_medium: attr.utm_medium || undefined,
+      utm_campaign: attr.utm_campaign || undefined,
+      utm_term: attr.utm_term || undefined,
+      gclid: attr.gclid || undefined,
+      device_type: attr.device_type,
+    };
+  }
   // 1. Web3Forms (simplest: one key, no backend – add VITE_WEB3FORMS_ACCESS_KEY to .env)
   if (WEB3FORMS_ACCESS_KEY) {
     try {

@@ -1,9 +1,15 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/feature/Header';
 import Footer from '../components/feature/Footer';
 import DynamicMetaTags from '../components/seo/DynamicMetaTags';
+import { track404 } from '../utils/analytics';
 
 export default function NotFound() {
+  useEffect(() => {
+    track404(window.location.pathname + window.location.search);
+  }, []);
+
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <DynamicMetaTags 

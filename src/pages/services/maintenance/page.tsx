@@ -21,7 +21,7 @@ export default function MaintenancePage() {
   const faqs = [
     {
       question: `How much does garage door maintenance cost in ${displayLocation}?`,
-      answer: `Preventive maintenance visits typically cost $100-$200 depending on the service level. Annual maintenance plans offer better value and typically cost $150-$300 per year with multiple visits included. Maintenance is much more cost-effective than waiting for expensive repairs.`,
+      answer: `Our garage door maintenance plans start at $99 for a single annual visit (Basic Plan) and range up to $299 per year for quarterly service (Elite Plan). All plan prices include parts, labor, and applicable taxes — no hidden fees. Individual one-time maintenance visits typically range from $99–$299 depending on service level. Maintenance is far more cost-effective than waiting for emergency repairs.`,
     },
     {
       question: 'How often should I have my garage door maintained?',
@@ -291,6 +291,12 @@ export default function MaintenancePage() {
                 Choose Elite
               </Button>
             </div>
+          </div>
+
+          <div className="mt-8 bg-white rounded-lg border border-gray-200 p-5 max-w-3xl mx-auto">
+            <p className="text-gray-600 text-sm text-center">
+              Plan prices shown are the all-inclusive total — parts, labor, and applicable taxes. No hidden fees. Final price confirmed before any work begins.
+            </p>
           </div>
         </div>
       </section>

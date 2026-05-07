@@ -83,8 +83,8 @@ export default function HomePage() {
   return (
     <div className="min-h-screen pb-[68px] md:pb-0">
       <DynamicMetaTags
-        title={`Queens & Tri-State Garage Door Repair | ${BUSINESS_INFO.aggregateRating.reviewCount} Reviews | Smartest Garage Doors`}
-        description={`24/7 emergency garage door repair serving New York, New Jersey, and Connecticut. ${BUSINESS_INFO.aggregateRating.reviewCount}+ Google reviews. Licensed & insured. Upfront pricing. Call (914) 557-6816.`}
+        title={`Garage Door Repair | Same-Day Service | (914) 557-6816 | Smartest Garage Doors`}
+        description={`Same-day garage door repair, spring replacement, opener repair & installation. ${BUSINESS_INFO.aggregateRating.reviewCount}+ 5-star reviews. Licensed & insured. Upfront pricing. Available 24/7 — call (914) 557-6816.`}
       />
       <WebSiteSchema />
       <OrganizationSchema />
@@ -98,10 +98,10 @@ export default function HomePage() {
         title="Need Service Today?"
         subtitle="Call us and we will confirm your problem, give you a price, and dispatch the nearest tech."
       />
+      <WhyChooseUs />
       <Services />
       <RecentWork />
       <VideoSection />
-      <WhyChooseUs />
       <About />
       <CoverageStrip />
       <Contact />

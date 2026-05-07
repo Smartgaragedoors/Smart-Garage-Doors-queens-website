@@ -305,7 +305,7 @@ export default function GarageDoorRepairPage() {
             <div className="bg-white rounded-lg shadow-lg p-6 border-2 border-blue-200">
               <h3 className="text-xl font-bold text-gray-900 mb-2">Basic Repairs</h3>
               <div className="text-3xl font-bold text-blue-600 mb-1">$150–$450</div>
-              <p className="text-sm text-gray-500 mb-4">Typical total cost — parts & labor included</p>
+              <p className="text-sm text-gray-500 mb-4">Typical total cost — parts, labor & taxes included</p>
               <ul className="space-y-2 text-sm text-gray-700 mb-4">
                 <li className="flex items-start">
                   <i className="ri-check-line text-green-600 mr-2 mt-0.5"></i>
@@ -332,7 +332,7 @@ export default function GarageDoorRepairPage() {
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">Spring Replacement</h3>
               <div className="text-3xl font-bold text-orange-600 mb-1">$200–$550</div>
-              <p className="text-sm text-gray-500 mb-4">Typical total cost — parts & labor included</p>
+              <p className="text-sm text-gray-500 mb-4">Typical total cost — parts, labor & taxes included</p>
               <ul className="space-y-2 text-sm text-gray-700 mb-4">
                 <li className="flex items-start">
                   <i className="ri-check-line text-green-600 mr-2 mt-0.5"></i>
@@ -356,7 +356,7 @@ export default function GarageDoorRepairPage() {
             <div className="bg-white rounded-lg shadow-lg p-6 border-2 border-green-200">
               <h3 className="text-xl font-bold text-gray-900 mb-2">Opener Repair</h3>
               <div className="text-3xl font-bold text-green-600 mb-1">$150–$500</div>
-              <p className="text-sm text-gray-500 mb-4">Typical total cost — parts & labor included</p>
+              <p className="text-sm text-gray-500 mb-4">Typical total cost — parts, labor & taxes included</p>
               <ul className="space-y-2 text-sm text-gray-700 mb-4">
                 <li className="flex items-start">
                   <i className="ri-check-line text-green-600 mr-2 mt-0.5"></i>
@@ -382,7 +382,7 @@ export default function GarageDoorRepairPage() {
             <div className="flex items-start gap-3">
               <i className="ri-information-line text-blue-500 text-xl flex-shrink-0 mt-0.5" aria-hidden="true"></i>
               <p className="text-gray-600 text-sm leading-relaxed">
-                <strong className="text-gray-800">About these ranges:</strong> The figures above reflect typical total costs including parts and labor for standard jobs. Your actual cost depends on door size, spring type, parts required, and the overall condition of your hardware. We provide a <strong>free on-site estimate</strong> before starting any work — you will know the exact price before we touch anything.
+                <strong className="text-gray-800">About these ranges:</strong> The figures above reflect typical total costs including parts, labor, and applicable taxes for standard jobs. Your actual cost depends on door size, spring type, parts required, and the overall condition of your hardware. We provide a <strong>free on-site estimate</strong> before starting any work — you will know the exact price before we touch anything.
               </p>
             </div>
           </div>

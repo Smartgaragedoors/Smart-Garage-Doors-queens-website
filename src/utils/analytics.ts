@@ -12,31 +12,101 @@ declare global {
 
 export const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID || '';
 
-// Initialize Google Analytics - deferred for better performance
-export const initAnalytics = () => {
-  if (typeof window === 'undefined' || !GA_MEASUREMENT_ID) {
-    return;
-  }
+// Respect the explicit kill-switch (set VITE_ENABLE_ANALYTICS=false on staging/preview)
+const ANALYTICS_ENABLED = import.meta.env.VITE_ENABLE_ANALYTICS !== 'false';
 
-  // Defer GA loading until after page is interactive
-  const loadGA = () => {
-    // Load gtag script asynchronously
-    const script1 = document.createElement('script');
-    script1.async = true;
-    script1.defer = true;
-    script1.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
-    // Add error handling for script loading
-    script1.onerror = () => {
-      if (process.env.NODE_ENV === 'development') {
-        console.warn('Failed to load Google Analytics script');
-      }
-    };
-    document.head.appendChild(script1);
+// Block tracking on Vercel preview deployments and localhost
+function isAllowedOrigin(): boolean {
+  if (typeof window === 'undefined') return false;
+  const host = window.location.hostname;
+  if (host === 'localhost' || host === '127.0.0.1') return false;
+  if (host.endsWith('.vercel.app')) return false;
+  if (host.endsWith('.netlify.app')) return false;
+  return true;
+}
+
+function shouldTrack(): boolean {
+  return !!GA_MEASUREMENT_ID && ANALYTICS_ENABLED && isAllowedOrigin();
+}
+
+// ─── Attribution ─────────────────────────────────────────────────────────────
+// Captures UTM params + referrer on first page load and stores in sessionStorage
+// so every subsequent event and form submission carries the original source.
+
+export interface AttributionData {
+  landing_page: string;
+  referrer: string;
+  utm_source: string;
+  utm_medium: string;
+  utm_campaign: string;
+  utm_term: string;
+  utm_content: string;
+  gclid: string;
+  device_type: 'mobile' | 'tablet' | 'desktop';
+  captured_at: string;
+}
+
+const ATTRIBUTION_KEY = 'sgd_attribution';
+
+function detectDeviceType(): AttributionData['device_type'] {
+  if (typeof window === 'undefined') return 'desktop';
+  const ua = navigator.userAgent;
+  if (/tablet|ipad|playbook|silk/i.test(ua)) return 'tablet';
+  if (/mobile|iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(ua)) return 'mobile';
+  return 'desktop';
+}
+
+export function captureAttribution(): void {
+  if (typeof window === 'undefined') return;
+  // Only capture once per session (first touch)
+  if (sessionStorage.getItem(ATTRIBUTION_KEY)) return;
+
+  const params = new URLSearchParams(window.location.search);
+  const data: AttributionData = {
+    landing_page: window.location.pathname + window.location.search,
+    referrer: document.referrer || '',
+    utm_source: params.get('utm_source') || '',
+    utm_medium: params.get('utm_medium') || '',
+    utm_campaign: params.get('utm_campaign') || '',
+    utm_term: params.get('utm_term') || '',
+    utm_content: params.get('utm_content') || '',
+    gclid: params.get('gclid') || '',
+    device_type: detectDeviceType(),
+    captured_at: new Date().toISOString(),
   };
 
-  // Wait for page to be interactive before loading GA
+  sessionStorage.setItem(ATTRIBUTION_KEY, JSON.stringify(data));
+}
+
+export function getAttribution(): AttributionData | null {
+  if (typeof window === 'undefined') return null;
+  try {
+    const raw = sessionStorage.getItem(ATTRIBUTION_KEY);
+    return raw ? (JSON.parse(raw) as AttributionData) : null;
+  } catch {
+    return null;
+  }
+}
+
+// ─── Initialization ───────────────────────────────────────────────────────────
+
+export const initAnalytics = () => {
+  captureAttribution();
+
+  if (!shouldTrack()) return;
+
+  const loadGA = () => {
+    const script = document.createElement('script');
+    script.async = true;
+    script.defer = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+    script.onerror = () => {
+      if (import.meta.env.DEV) console.warn('Failed to load Google Analytics script');
+    };
+    document.head.appendChild(script);
+  };
+
   if (document.readyState === 'complete') {
-    // Use requestIdleCallback if available, otherwise delay
     if ('requestIdleCallback' in window) {
       requestIdleCallback(loadGA, { timeout: 2000 });
     } else {
@@ -52,15 +122,14 @@ export const initAnalytics = () => {
     });
   }
 
-  // Initialize dataLayer and gtag
   window.dataLayer = window.dataLayer || [];
-  window.gtag = function(command: GtagCommand, targetId: string, config?: GtagParams) {
+  const gtag = function (command: GtagCommand, targetId: string, config?: GtagParams) {
     window.dataLayer!.push([command, targetId, config]);
   };
-  window.gtag('js', new Date());
-  window.gtag('config', GA_MEASUREMENT_ID, {
+  window.gtag = gtag;
+  gtag('js', new Date().toISOString());
+  gtag('config', GA_MEASUREMENT_ID, {
     page_path: window.location.pathname,
-    // Minimize cookie usage
     anonymize_ip: true,
     allow_google_signals: false,
     allow_ad_personalization_signals: false,
@@ -68,17 +137,16 @@ export const initAnalytics = () => {
   });
 };
 
-// Track page views
+// ─── Core event helper ────────────────────────────────────────────────────────
+
 export const trackPageView = (path: string, title?: string) => {
-  if (typeof window === 'undefined' || !window.gtag) return;
-  
+  if (!window.gtag) return;
   window.gtag('config', GA_MEASUREMENT_ID, {
     page_path: path,
     page_title: title || document.title,
   });
 };
 
-// Track events
 export const trackEvent = (
   eventName: string,
   eventParams?: {
@@ -90,30 +158,84 @@ export const trackEvent = (
   }
 ) => {
   if (typeof window === 'undefined' || !window.gtag) return;
-  
   window.gtag('event', eventName, eventParams);
 };
 
-// Track phone clicks
-export const trackPhoneClick = (phoneNumber: string) => {
+// ─── Conversion events (mark these as key events in GA4 console) ──────────────
+
+export const trackPhoneClick = (phoneNumber: string, source?: string) => {
+  const attr = getAttribution();
   trackEvent('phone_click', {
     category: 'Contact',
     label: phoneNumber,
     value: 1,
+    source: source || 'unknown',
+    landing_page: attr?.landing_page || '',
+    utm_source: attr?.utm_source || '',
+    utm_medium: attr?.utm_medium || '',
+    utm_campaign: attr?.utm_campaign || '',
+    device_type: attr?.device_type || '',
   });
 };
 
-// Track form submissions
 export const trackFormSubmit = (formName: string, formType: string) => {
+  const attr = getAttribution();
   trackEvent('form_submit', {
     category: 'Lead Generation',
     label: formName,
     value: 1,
     form_type: formType,
+    landing_page: attr?.landing_page || '',
+    referrer: attr?.referrer || '',
+    utm_source: attr?.utm_source || '',
+    utm_medium: attr?.utm_medium || '',
+    utm_campaign: attr?.utm_campaign || '',
+    gclid: attr?.gclid || '',
+    device_type: attr?.device_type || '',
   });
 };
 
-// Track service page views
+export const trackWhatsAppClick = (source?: string) => {
+  const attr = getAttribution();
+  trackEvent('whatsapp_click', {
+    category: 'Contact',
+    label: source || 'unknown',
+    value: 1,
+    landing_page: attr?.landing_page || '',
+    utm_source: attr?.utm_source || '',
+    utm_medium: attr?.utm_medium || '',
+  });
+};
+
+export const trackBookNowClick = (source?: string) => {
+  trackEvent('book_now_click', {
+    category: 'Lead Generation',
+    label: source || 'unknown',
+    value: 1,
+  });
+};
+
+export const trackChatSubmit = (source?: string) => {
+  const attr = getAttribution();
+  trackEvent('chat_submit', {
+    category: 'Lead Generation',
+    label: source || 'chat_widget',
+    value: 1,
+    landing_page: attr?.landing_page || '',
+    utm_source: attr?.utm_source || '',
+  });
+};
+
+export const trackSmsClick = (source?: string) => {
+  trackEvent('sms_click', {
+    category: 'Contact',
+    label: source || 'unknown',
+    value: 1,
+  });
+};
+
+// ─── Page/service tracking ────────────────────────────────────────────────────
+
 export const trackServiceView = (serviceName: string) => {
   trackEvent('service_view', {
     category: 'Service Pages',
@@ -122,7 +244,6 @@ export const trackServiceView = (serviceName: string) => {
   });
 };
 
-// Track location detection
 export const trackLocationDetection = (location: string) => {
   trackEvent('location_detected', {
     category: 'User Behavior',
@@ -131,18 +252,22 @@ export const trackLocationDetection = (location: string) => {
   });
 };
 
-// Landing page events (for conversion-focused LP)
+export const track404 = (path: string) => {
+  trackEvent('page_not_found', {
+    category: 'Errors',
+    label: path,
+    page_path: path,
+  });
+};
+
+// ─── Landing page events ──────────────────────────────────────────────────────
+
 export const trackLandingPageView = () => {
   trackEvent('landing_page_view', { category: 'Landing Page', value: 1 });
 };
 
-export const trackLandingPageWhatsAppClick = () => {
-  trackEvent('landing_page_whatsapp_click', { category: 'Landing Page', value: 1 });
-};
-
-export const trackLandingPageCallClick = () => {
-  trackEvent('landing_page_call_click', { category: 'Landing Page', value: 1 });
-};
+export const trackLandingPageWhatsAppClick = () => trackWhatsAppClick('landing_page');
+export const trackLandingPageCallClick = () => trackPhoneClick('914-557-6816', 'landing_page');
 
 export const trackLandingPageScroll = (depth: 50 | 90) => {
   trackEvent(`landing_page_scroll_${depth}`, { category: 'Landing Page', value: depth });
@@ -151,4 +276,3 @@ export const trackLandingPageScroll = (depth: 50 | 90) => {
 export const trackLandingPageFormStart = () => {
   trackEvent('landing_page_form_start', { category: 'Landing Page', value: 1 });
 };
-

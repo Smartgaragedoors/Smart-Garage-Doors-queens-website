@@ -154,39 +154,29 @@ export async function detectLocation(): Promise<LocationData | null> {
       };
     }
 
-    // Check cache first - extended cache to reduce API calls
-    const cached = localStorage.getItem('detected_location');
+    // Check cache first
+    const CACHE_KEY = 'detected_location_v2'; // v2 busts any old Queens-defaulted cache
+    const cached = localStorage.getItem(CACHE_KEY);
     if (cached) {
       const cachedData = JSON.parse(cached);
       const cacheTime = cachedData.timestamp;
       const now = Date.now();
-      // Cache valid for 7 days (increased from 24 hours to reduce API calls)
-      if (now - cacheTime < 7 * 24 * 60 * 60 * 1000) {
+      // Cache valid for 24 hours
+      if (now - cacheTime < 24 * 60 * 60 * 1000) {
         return cachedData.location;
       }
     }
 
-    // Rate limiting: Check if we've made a request recently (within last 5 minutes)
+    // Rate limiting: don't hammer the API if called repeatedly
     const lastRequest = localStorage.getItem('geolocation_last_request');
     if (lastRequest) {
       const lastRequestTime = parseInt(lastRequest, 10);
       const now = Date.now();
-      // If request was made within last 5 minutes, use cached data or return default
       if (now - lastRequestTime < 5 * 60 * 1000) {
         if (cached) {
           const cachedData = JSON.parse(cached);
           return cachedData.location;
         }
-        // Return default without making API call
-        return {
-          city: 'Queens',
-          state: 'New York',
-          stateCode: 'NY',
-          latitude: QUEENS_COORDS.lat,
-          longitude: QUEENS_COORDS.lng,
-          distance: 0,
-          serviceAreaPage: '/queens-ny/',
-        };
       }
     }
 
@@ -243,7 +233,7 @@ export async function detectLocation(): Promise<LocationData | null> {
           if (locationData) {
             locationData.zipCode = data.zip;
             // Cache the result
-            localStorage.setItem('detected_location', JSON.stringify({
+            localStorage.setItem('detected_location_v2', JSON.stringify({
               location: locationData,
               timestamp: Date.now(),
             }));

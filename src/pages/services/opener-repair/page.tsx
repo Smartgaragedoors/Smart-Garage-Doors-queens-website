@@ -165,7 +165,7 @@ export default function OpenerRepair() {
                 
                 <div className="text-center">
                   <span className="text-2xl font-bold text-purple-600">$349–$550</span>
-                  <p className="text-sm text-gray-500">Typical total cost, parts & labor</p>
+                  <p className="text-sm text-gray-500">Typical total cost, parts, labor & taxes</p>
                 </div>
               </div>
 
@@ -195,7 +195,7 @@ export default function OpenerRepair() {
                 
                 <div className="text-center mb-4">
                   <span className="text-2xl font-bold text-purple-600">$399–$650</span>
-                  <p className="text-sm text-gray-500">Typical total cost, parts & labor</p>
+                  <p className="text-sm text-gray-500">Typical total cost, parts, labor & taxes</p>
                 </div>
                 
                 <div className="border-t pt-4">
@@ -242,7 +242,7 @@ export default function OpenerRepair() {
                 
                 <div className="text-center">
                   <span className="text-2xl font-bold text-purple-600">$749–$1,200</span>
-                  <p className="text-sm text-gray-500">Typical total cost, parts & labor</p>
+                  <p className="text-sm text-gray-500">Typical total cost, parts, labor & taxes</p>
                 </div>
               </div>
             </div>
