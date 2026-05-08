@@ -4,8 +4,8 @@
  */
 
 const WHATSAPP_NUMBER = '19145576816';
-const DEFAULT_MESSAGE = 'Hi, I need help with my garage door.';
-const MESSAGE_WITH_SOURCE = 'Hi, I need help with my garage door. I came from your website.';
+const DEFAULT_MESSAGE = 'Hi! I found you on your website and need help with my garage door. Can you help?';
+const MESSAGE_WITH_SOURCE = 'Hi! I found you on your website and need help with my garage door. Can you help?';
 
 export interface WhatsAppOptions {
   /** Base message. Default varies by hasTrackingParams. */

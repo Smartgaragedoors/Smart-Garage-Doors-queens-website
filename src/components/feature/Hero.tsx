@@ -1,7 +1,8 @@
 import { useLocation } from '../../contexts/LocationContext';
-import { trackPhoneClick, trackEvent } from '../../utils/analytics';
+import { trackPhoneClick, trackEvent, trackWhatsAppClick } from '../../utils/analytics';
 import { getCFImageUrl, getCloudflareImage } from '../../data/cloudflareImages';
 import { BUSINESS_INFO } from '../../config/business-info';
+import { getWhatsAppHref } from '../../utils/whatsapp';
 
 export default function Hero() {
   const { location, locationName, isLoading } = useLocation();
@@ -77,6 +78,17 @@ export default function Hero() {
           >
             <i className="ri-phone-line text-xl" aria-hidden="true" />
             Call (914) 557-6816
+          </a>
+          <a
+            href={getWhatsAppHref()}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackWhatsAppClick('hero')}
+            className="inline-flex items-center justify-center gap-3 bg-green-500 hover:bg-green-600 active:bg-green-700 text-white font-bold px-8 py-4 text-lg rounded-full shadow-xl hover:shadow-2xl transition-all duration-200 hover:scale-105 whitespace-nowrap"
+            aria-label="Message us on WhatsApp"
+          >
+            <i className="ri-whatsapp-fill text-xl" aria-hidden="true" />
+            WhatsApp Us
           </a>
           <a
             href={BUSINESS_INFO.socialMedia.googleReviews}
