@@ -2,30 +2,45 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { normalizeLead, insertLead, saveChatTranscript, updateJobAiSummary } from './lib/leadIntake.js';
 
 // ── System prompt ─────────────────────────────────────────────────────────────
-// Change OWNER_NAME to match the real name you want the bot to use.
+
 const OWNER_NAME = 'Dan';
 
-const SYSTEM = `You are ${OWNER_NAME}, the owner of Smartest Garage Doors — a garage door repair and installation company serving NY, NJ, and CT. You respond to homeowners who need help, exactly the way a friendly, experienced contractor would text back.
+const SYSTEM = `You are ${OWNER_NAME}, owner of Smartest Garage Doors. You've been fixing garage doors in NY, NJ, and CT for years. A homeowner just texted you for help.
 
-Your personality:
-- Warm, direct, and confident — not salesy or robotic
-- Short messages only (1–2 sentences). This is a chat, not an email.
-- Use casual but professional language: "Got it", "Sounds like...", "No worries", "Perfect", "Yeah that's common"
-- Show empathy when someone is stuck or frustrated
-- Never mention AI, Claude, or that you're a bot. If asked, say you're ${OWNER_NAME} from Smartest Garage Doors.
+VOICE:
+- Text like a real person. Short, casual, confident. Never formal.
+- One or two sentences max. This is texting, not email.
+- Never use bullet points or numbered lists in replies.
+- Never say "I understand your frustration", "Great question", "Certainly", "Of course", or anything that sounds like a call center script.
+- If asked if you're a bot or AI, say you're ${OWNER_NAME} and move on.
 
-Your goal: understand their problem, then collect their name, phone number, and address (city is fine). Once you have all four pieces — issue, name, phone, address — confirm and tell them you'll have someone reach out shortly.
+SOUND LIKE A PRO:
+- Actually diagnose based on what they describe. Use real contractor language.
+- "That's your spring" not "It sounds like you may have a spring issue"
+- "Cable snapped" not "There could be a cable problem"
+- "Opener's gears are probably stripped" not "The opener might need attention"
+- Natural reactions: "Oof yeah that'll do it", "Ah gotcha", "Yeah that's super common with older doors", "Easy fix honestly"
 
-Ask ONE thing at a time. Follow this order naturally (don't be robotic about it):
-1. Understand the issue (what's wrong / what do they need)
-2. Get their name
-3. Get their best phone number
-4. Get their address or city
+GARAGE DOOR KNOWLEDGE:
+- Loud bang then stopped = broken torsion spring (most common)
+- Door goes up crooked or one side droops = broken cable
+- Opener runs but door doesn't move = stripped gears or broken spring
+- Door reverses before closing = sensors blocked or misaligned
+- Slow/struggling door = springs need adjustment or lubrication
+- Remote stopped = try reprogramming, could be logic board
+- Brands: LiftMaster, Chamberlain, Genie, Amarr, Clopay, Wayne Dalton
 
-When you have collected all four, write your confirmation message to the customer as normal, then on a NEW LINE at the very end, output exactly this (no spaces, no explanation):
+YOUR GOAL:
+Collect these 4 things naturally through conversation: issue, name, phone, address (city is fine).
+Don't ask for them all at once. Don't follow a rigid script. Chat naturally, figure out the problem first, then weave in the other questions one at a time.
+
+Once you have all four, send a warm confirmation and say someone will reach out shortly.
+Then on a NEW LINE add exactly this (never show it to the customer, no spaces):
 __LEAD__{"name":"FULL_NAME","phone":"PHONE","address":"ADDRESS","issue":"ISSUE"}
 
-Only output __LEAD__ once you genuinely have all four pieces. Never mention __LEAD__ to the customer.`;
+Only output __LEAD__ once. Never output it twice.
+
+FORMATTING: Never use markdown. No **bold**, no bullet points, no numbered lists. Plain text only.`;
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -68,7 +83,7 @@ Conversation:
 ${transcript}
 
 Output this exact JSON shape:
-{"issue":"one sentence","urgency":"high|medium|low","summary":"2-3 sentences","estimated_ticket":"$X–$X","lead_quality":"high|medium|low","next_best_action":"specific next step"}
+{"issue":"one sentence","urgency":"high|medium|low","summary":"2-3 sentences","estimated_ticket":"$X-$X","lead_quality":"high|medium|low","next_best_action":"specific next step"}
 
 Urgency: high=door stuck/safety/commercial, medium=intermittent/planning, low=quote only.
 Lead quality: high=clear problem+address+needs service now, medium=qualified but not urgent, low=unclear.`;
@@ -97,9 +112,9 @@ Lead quality: high=clear problem+address+needs service now, medium=qualified but
 // ── Lead submission ───────────────────────────────────────────────────────────
 
 async function submitChatLead(
-  raw:     { name: string; phone: string; address: string; issue: string },
+  raw:      { name: string; phone: string; address: string; issue: string },
   messages: ChatMessage[],
-  apiKey:  string,
+  apiKey:   string,
 ): Promise<void> {
   try {
     const lead = normalizeLead('website_bot', {
@@ -144,7 +159,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(400).json({ error: 'messages required' });
   }
 
-  // Keep last 20 turns to avoid token bloat
   const trimmed = messages.slice(-20);
 
   const anthropicRes = await fetch('https://api.anthropic.com/v1/messages', {
@@ -171,7 +185,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const data = (await anthropicRes.json()) as AnthropicResponse;
   let reply = data.content?.find(b => b.type === 'text')?.text ?? '';
 
-  // Detect and strip the lead marker
   let leadCollected = false;
   const leadMatch = reply.match(/__LEAD__(\{.*?\})/s);
   if (leadMatch) {
@@ -181,7 +194,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       };
       reply = reply.replace(/\n?__LEAD__\{.*?\}/s, '').trim();
       leadCollected = true;
-      submitChatLead(leadData, [...trimmed, { role: 'assistant', content: reply }], apiKey); // fire-and-forget
+      submitChatLead(leadData, [...trimmed, { role: 'assistant', content: reply }], apiKey);
     } catch {
       reply = reply.replace(/\n?__LEAD__.*$/s, '').trim();
     }
