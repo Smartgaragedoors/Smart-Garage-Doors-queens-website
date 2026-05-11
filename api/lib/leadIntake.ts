@@ -1,13 +1,14 @@
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 import { Resend } from 'resend';
 
-export type LeadSource = 'thumbtack' | 'angi' | 'networx' | 'website';
+export type LeadSource = 'thumbtack' | 'angi' | 'networx' | 'website' | 'website_bot';
 
 export const PLATFORM_CONFIG: Record<LeadSource, { label: string; code: string; value: string }> = {
-  thumbtack: { label: 'Thumbtack', code: 'TT',   value: 'thumbtack' },
-  angi:      { label: 'Angies',    code: 'ANGI',  value: 'angies'   },
-  networx:   { label: 'Networx',   code: 'NX',    value: 'networx'  },
-  website:   { label: 'Website',   code: 'WEB',   value: 'website'  },
+  thumbtack:   { label: 'Thumbtack',   code: 'TT',      value: 'thumbtack'   },
+  angi:        { label: 'Angies',      code: 'ANGI',    value: 'angies'      },
+  networx:     { label: 'Networx',     code: 'NX',      value: 'networx'     },
+  website:     { label: 'Website',     code: 'WEB',     value: 'website'     },
+  website_bot: { label: 'Website Bot', code: 'WEB_BOT', value: 'website_bot' },
 };
 
 export interface NormalizedLead {
@@ -177,4 +178,71 @@ export async function insertLead(
   );
 
   return { jobId, isDuplicate: false };
+}
+
+// ── Chat transcript + AI summary ──────────────────────────────────────────────
+
+export async function saveChatTranscript(params: {
+  jobId:    string;
+  phone:    string;
+  name:     string;
+  messages: Array<{ role: 'user' | 'assistant'; content: string }>;
+}): Promise<void> {
+  const supabase = getSupabase();
+  const { jobId, phone, name, messages } = params;
+
+  const lastMsg = messages[messages.length - 1];
+  const preview = lastMsg ? lastMsg.content.slice(0, 100) : '';
+
+  const { data: conv, error: convErr } = await supabase
+    .from('customer_conversations')
+    .insert({
+      job_id:               jobId,
+      customer_phone:       phone,
+      customer_name:        name,
+      status:               'open',
+      unread_count:         messages.filter(m => m.role === 'user').length,
+      last_message_at:      new Date().toISOString(),
+      last_message_preview: preview,
+    })
+    .select('id')
+    .single();
+
+  if (convErr || !conv) {
+    console.error('[leadIntake] saveChatTranscript: conversation insert failed:', convErr?.message);
+    return;
+  }
+
+  const convId = (conv as { id: string }).id;
+
+  const { error: msgErr } = await supabase
+    .from('customer_messages')
+    .insert(
+      messages.map(msg => ({
+        conversation_id: convId,
+        job_id:          jobId,
+        direction:       msg.role === 'user' ? 'inbound'  : 'outbound',
+        sender_type:     msg.role === 'user' ? 'customer' : 'ai',
+        body:            msg.content,
+        phone:           msg.role === 'user' ? phone : null,
+        sent_at:         new Date().toISOString(),
+        message_status:  'delivered',
+      }))
+    );
+
+  if (msgErr) console.error('[leadIntake] saveChatTranscript: messages insert failed:', msgErr.message);
+}
+
+export async function updateJobAiSummary(params: {
+  jobId:            string;
+  aiSummaryJson:    Record<string, unknown>;
+  aiSuggestedReply: string;
+}): Promise<void> {
+  const supabase = getSupabase();
+  const { error } = await supabase
+    .from('all_jobs')
+    .update({ ai_summary_json: params.aiSummaryJson, ai_suggested_reply: params.aiSuggestedReply })
+    .eq('id', params.jobId);
+
+  if (error) console.error('[leadIntake] updateJobAiSummary failed:', error.message);
 }

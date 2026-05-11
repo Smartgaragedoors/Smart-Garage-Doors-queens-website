@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { normalizeLead, insertLead } from './lib/leadIntake.js';
+import { normalizeLead, insertLead, saveChatTranscript, updateJobAiSummary } from './lib/leadIntake.js';
 
 // ── System prompt ─────────────────────────────────────────────────────────────
 // Change OWNER_NAME to match the real name you want the bot to use.
@@ -47,19 +47,79 @@ function setCors(res: VercelResponse) {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 }
 
+// ── AI summary generation ─────────────────────────────────────────────────────
+
+async function generateAndSaveAiSummary(
+  apiKey: string,
+  jobId:  string,
+  messages: ChatMessage[],
+  lead: { name: string; phone: string; address: string; issue: string },
+): Promise<void> {
+  const transcript = messages
+    .map(m => `${m.role === 'user' ? 'Customer' : 'Bot'}: ${m.content}`)
+    .join('\n');
+
+  const prompt = `Analyze this garage door service chat and output ONLY valid JSON — no explanation, no markdown.
+
+Customer: ${lead.name} | Phone: ${lead.phone} | Address: ${lead.address}
+Issue: ${lead.issue}
+
+Conversation:
+${transcript}
+
+Output this exact JSON shape:
+{"issue":"one sentence","urgency":"high|medium|low","summary":"2-3 sentences","estimated_ticket":"$X–$X","lead_quality":"high|medium|low","next_best_action":"specific next step"}
+
+Urgency: high=door stuck/safety/commercial, medium=intermittent/planning, low=quote only.
+Lead quality: high=clear problem+address+needs service now, medium=qualified but not urgent, low=unclear.`;
+
+  const res = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: { 'x-api-key': apiKey, 'anthropic-version': '2023-06-01', 'content-type': 'application/json' },
+    body: JSON.stringify({ model: 'claude-haiku-4-5-20251001', max_tokens: 300, messages: [{ role: 'user', content: prompt }] }),
+  });
+
+  if (!res.ok) { console.error('[chat] AI summary failed:', await res.text()); return; }
+
+  const d = await res.json() as { content: Array<{ type: string; text: string }> };
+  const text = d.content.find(b => b.type === 'text')?.text ?? '';
+
+  let summaryJson: Record<string, unknown> = { issue: lead.issue };
+  try { summaryJson = JSON.parse(text.match(/\{[\s\S]*\}/)?.[0] ?? '{}') as Record<string, unknown>; } catch { /* use fallback */ }
+
+  const firstName = lead.name.split(' ')[0] ?? lead.name;
+  const issueLine = (summaryJson['issue'] as string | undefined ?? lead.issue).toLowerCase();
+  const suggestedReply = `Hey ${firstName}, this is Dan from Smartest Garage Doors. Got your message about ${issueLine}. I can have someone out to you shortly — what time works best?`;
+
+  await updateJobAiSummary({ jobId, aiSummaryJson: summaryJson, aiSuggestedReply: suggestedReply });
+}
+
 // ── Lead submission ───────────────────────────────────────────────────────────
 
-async function submitChatLead(raw: { name: string; phone: string; address: string; issue: string }) {
+async function submitChatLead(
+  raw:     { name: string; phone: string; address: string; issue: string },
+  messages: ChatMessage[],
+  apiKey:  string,
+): Promise<void> {
   try {
-    const lead = normalizeLead('website', {
+    const lead = normalizeLead('website_bot', {
       customer_name: raw.name,
       phone:         raw.phone,
       address:       raw.address,
       notes:         raw.issue,
-      service:       'Chat Lead',
+      service:       'Chat Bot Lead',
       source_url:    'chat-widget',
     });
-    if (lead) await insertLead('website', lead);
+    if (!lead) return;
+
+    const { jobId } = await insertLead('website_bot', lead);
+
+    saveChatTranscript({ jobId, phone: raw.phone, name: raw.name, messages })
+      .catch(err => console.error('[chat] saveChatTranscript error:', err));
+
+    generateAndSaveAiSummary(apiKey, jobId, messages, raw)
+      .catch(err => console.error('[chat] generateAndSaveAiSummary error:', err));
+
   } catch (err) {
     console.error('[chat] submitChatLead error:', err);
   }
@@ -121,7 +181,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       };
       reply = reply.replace(/\n?__LEAD__\{.*?\}/s, '').trim();
       leadCollected = true;
-      submitChatLead(leadData); // fire-and-forget
+      submitChatLead(leadData, [...trimmed, { role: 'assistant', content: reply }], apiKey); // fire-and-forget
     } catch {
       reply = reply.replace(/\n?__LEAD__.*$/s, '').trim();
     }
