@@ -39,10 +39,17 @@ export default function ChatWidget() {
     return () => clearTimeout(t);
   }, []);
 
-  // Auto-scroll to bottom
+  // Refocus input whenever bot finishes typing
+  useEffect(() => {
+    if (!isTyping && !leadCollected) {
+      inputRef.current?.focus();
+    }
+  }, [isTyping, leadCollected]);
+
+  // Auto-scroll to bottom only on new messages
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages, isTyping]);
+  }, [messages]);
 
   const sendMessage = useCallback(async () => {
     const text = input.trim();
@@ -53,7 +60,6 @@ export default function ChatWidget() {
     setMessages(updated);
     setInput('');
     setIsTyping(true);
-    inputRef.current?.focus();
 
     try {
       const res = await fetch('/api/chat', {
@@ -74,7 +80,6 @@ export default function ChatWidget() {
       ]);
     } finally {
       setIsTyping(false);
-      inputRef.current?.focus();
     }
   }, [input, isTyping, leadCollected, messages]);
 
@@ -116,7 +121,7 @@ export default function ChatWidget() {
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-3 space-y-2 bg-gray-50 scroll-smooth">
+            <div className="flex-1 overflow-y-auto p-3 space-y-2 bg-gray-50">
               {messages.map((msg, i) => (
                 <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                   <div
