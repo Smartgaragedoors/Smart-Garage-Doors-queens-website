@@ -53,6 +53,7 @@ export default function ChatWidget() {
     setMessages(updated);
     setInput('');
     setIsTyping(true);
+    inputRef.current?.focus();
 
     try {
       const res = await fetch('/api/chat', {
@@ -73,6 +74,7 @@ export default function ChatWidget() {
       ]);
     } finally {
       setIsTyping(false);
+      inputRef.current?.focus();
     }
   }, [input, isTyping, leadCollected, messages]);
 
