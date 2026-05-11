@@ -1,9 +1,9 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { normalizeLead, insertLead } from './lib/leadIntake';
+import { normalizeLead, insertLead } from './lib/leadIntake.js';
 
 // ── System prompt ─────────────────────────────────────────────────────────────
 // Change OWNER_NAME to match the real name you want the bot to use.
-const OWNER_NAME = 'Danny';
+const OWNER_NAME = 'Dan';
 
 const SYSTEM = `You are ${OWNER_NAME}, the owner of Smartest Garage Doors — a garage door repair and installation company serving NY, NJ, and CT. You respond to homeowners who need help, exactly the way a friendly, experienced contractor would text back.
 

@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import type { LeadSource } from '../lib/leadIntake';
-import { normalizeLead, insertLead } from '../lib/leadIntake';
+import type { LeadSource } from '../lib/leadIntake.js';
+import { normalizeLead, insertLead } from '../lib/leadIntake.js';
 
 // ── Platform detection ────────────────────────────────────────────────────────
 
