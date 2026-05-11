@@ -138,7 +138,6 @@ export async function insertLead(
     const { data: existing } = await supabase
       .from('all_jobs')
       .select('id')
-      .eq('platform_value', platformVal)
       .eq('external_lead_id', lead.externalLeadId)
       .maybeSingle();
     if (existing) {
@@ -149,19 +148,13 @@ export async function insertLead(
   const { data, error } = await supabase
     .from('all_jobs')
     .insert({
-      platform_id:      platformId,
-      platform_value:   platformVal,
+      lead_platform_id: platformId,
       external_lead_id: lead.externalLeadId,
-      first_name:       lead.firstName,
-      last_name:        lead.lastName,
-      phone:            lead.phone,
-      email:            lead.email,
-      address:          lead.address,
-      service_type:     lead.serviceType,
-      message:          lead.message,
-      campaign:         lead.campaign,
+      customer_name:    [lead.firstName, lead.lastName].filter(Boolean).join(' '),
+      customer_phone:   lead.phone,
+      customer_address: lead.address,
+      notes:            lead.message,
       source_url:       lead.sourceUrl,
-      raw_payload:      lead.rawPayload,
     })
     .select('id')
     .single();
