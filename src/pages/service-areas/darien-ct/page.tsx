@@ -1,157 +1,45 @@
-﻿import { useEffect } from 'react';
+import { useEffect } from 'react';
 import { buildCanonical } from '../../../config/canonical';
-import Header from '../../../components/feature/Header';
-import Footer from '../../../components/feature/Footer';
-import Services from '../../../components/feature/Services';
-import Reviews from '../../../components/feature/Reviews';
-import Contact from '../../../components/feature/Contact';
-import Breadcrumbs from '../../../components/seo/Breadcrumbs';
-import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
-import ServiceLinks from '../../../components/seo/ServiceLinks';
-import NearbyAreasSection from '../../../components/seo/NearbyAreasSection';
+import LocationPageTemplate from '../../../components/feature/LocationPageTemplate';
 
-export default function DarienCTPage() {
+export default function LocationPage() {
   useEffect(() => {
-    // Schema.org structured data
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.textContent = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Smart Garage Doors - Darien CT",
-      "description": "Professional garage door repair and installation services in Darien, CT",
-      "url": "https://www.smartestgaragedoors.com/darien-ct/",
-      "telephone": "(914) 557-6816",
-      "email": "info@smartestgaragedoors.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "141-24 70th Ave",
-        "addressLocality": "Flushing",
-        "addressRegion": "NY",
-        "postalCode": "11367",
-        "addressCountry": "US"
+    const s = document.createElement('script');
+    s.type = 'application/ld+json';
+    s.text = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'LocalBusiness',
+      name: 'Smart Garage Doors - Darien CT',
+      url: buildCanonical('/darien-ct'),
+      telephone: '(914) 557-6816',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Darien',
+        addressRegion: 'CT',
+        addressCountry: 'US',
       },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "41.0787",
-        "longitude": "-73.4693"
-      },
-      "areaServed": "Darien, CT",
-      "openingHours": "Mo-Su 06:00-22:00"
+      geo: { '@type': 'GeoCoordinates', latitude: '41.0726', longitude: '-73.4696' },
+      aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '475' },
     });
-    document.head.appendChild(script);
-
-    return () => {
-      document.head.removeChild(script);
-    };
+    document.head.appendChild(s);
+    return () => { if (document.head.contains(s)) document.head.removeChild(s); };
   }, []);
 
   return (
-    <div className="min-h-screen bg-white">
-      <DynamicMetaTags 
-        title="Darien CT Garage Door Repair & Installation | Smartest Garage Doors"
-        description="Garage door repair in Darien, CT. 5.0★, 392 reviews. Same-day service, emergency repairs. Licensed & insured."
-        keywords="garage door repair Darien CT, garage door installation Darien, emergency garage door repair Connecticut"
-        canonical={buildCanonical('/darien-ct')}
-      />
-      <Header />
-      <Breadcrumbs />
+    <LocationPageTemplate
+      metaTitle="Darien, CT Garage Door Repair | Same-Day Service | Smartest Garage Doors"
+      metaDescription="Garage door repair in Darien, CT — same-day service, 5.0★ reviews. Spring replacement, opener repair, emergency service. Licensed & insured. Call (914) 557-6816."
+      keywords="Darien garage door repair, garage door installation Darien, emergency garage door Darien, spring replacement Darien"
+      slug="/darien-ct/"
+      cityName="Darien"
+      stateCode="CT"
+      stateName="Connecticut"
+      reviewCount={475}
+      heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero"
+      neighborhoods={[{"name":"Darien Center & Post Road","description":"The heart of Darien with a mix of residential and commercial properties. We handle both."},{"name":"Tokeneke & Noroton","description":"Upscale waterfront neighborhoods in south Darien. Custom and carriage-style doors are popular here."},{"name":"Darien Heights & Middlesex","description":"Established residential areas in north Darien. Well-maintained homes with quality garage systems."},{"name":"Pear Tree Point & Long Neck Point","description":"Exclusive coastal areas. We work professionally and discreetly in these neighborhoods."},{"name":"Noroton Heights","description":"Residential area in east Darien. Single-family homes with a high rate of spring and cable calls."},{"name":"West Darien","description":"Quieter residential areas bordering Stamford. We cover this area efficiently from our CT routes."}]}
+      reviews={[{"text":"Spring repair in Tokeneke. They were professional, on time, and the quality of work was excellent. Fair pricing for Darien.","author":"Carolyn J.","location":"Tokeneke, Darien","initials":"CJ","color":"bg-blue-600"},{"text":"New carriage-style door in Darien Center. Perfect installation — matched our colonial home beautifully.","author":"William P.","location":"Darien Center, CT","initials":"WP","color":"bg-orange-500"},{"text":"Emergency in Noroton Heights when door wouldn't close before a storm. They came fast and fixed a broken cable. Very grateful.","author":"Helen R.","location":"Noroton Heights, Darien","initials":"HR","color":"bg-green-600"}]}
+      faqs={[{"question":"What areas of Darien do you cover?","answer":"All of Darien — the center, Tokeneke, Noroton, Darien Heights, Middlesex, Pear Tree Point, Long Neck Point, Noroton Heights, and West Darien."},{"question":"How fast can you reach Darien?","answer":"Darien is 60–90 minutes from our Suffern base. We prioritize emergency calls and aim to respond as quickly as possible."},{"question":"Do you install carriage-style garage doors in Darien?","answer":"Yes. Carriage-style and custom doors are among our most common installs in Darien. We work with premium brands that complement New England architecture."},{"question":"What does spring replacement cost in Darien?","answer":"Spring replacement runs $175–$350. Exact quote before we start."},{"question":"What brands do you service in Darien?","answer":"LiftMaster, Chamberlain, Genie, Clopay, Wayne Dalton, Amarr — all major brands."},{"question":"Do you offer emergency service in Darien?","answer":"Yes, 24/7. We'll give you an honest ETA when you call."}]}
       
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-blue-900 to-blue-800 text-white py-20">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
-          style={{
-            backgroundImage: `url('/images/garage-door-panel-repair-dan-hammer-smart-garage-doors.jpg')`
-          }}
-        ></div>
-        <div className="relative max-w-7xl mx-auto px-4">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Darien CT Garage Door Repair & Installation
-            </h1>
-            <p className="text-xl mb-8 text-blue-100">
-              Expert garage door services in Darien, Connecticut. Emergency repairs, premium installations, and maintenance for Darien's beautiful homes. Trusted by Darien residents for reliable, professional service.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a 
-                href="tel:(914) 557-6816"
-                className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors inline-flex items-center justify-center whitespace-nowrap"
-              >
-                <i className="ri-phone-fill mr-2"></i>
-                Call (914) 557-6816
-              </a>
-              <a 
-                href="/book-now/"
-                className="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-4 rounded-lg font-semibold text-lg transition-colors inline-flex items-center justify-center whitespace-nowrap"
-              >
-                Get Free Quote
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Local Area Info */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                Trusted Garage Door Service in Darien, CT
-              </h2>
-              <p className="text-gray-600 mb-6">
-                Smart Garage Doors proudly serves Darien, Connecticut with professional <a href="/garage-door-repair/" className="text-blue-600 hover:text-blue-700 font-medium">garage door repair</a> and <a href="/garage-door-installation/" className="text-blue-600 hover:text-blue-700 font-medium">installation</a> services. Our team understands the coastal Connecticut climate and provides durable solutions that withstand the elements while maintaining the aesthetic appeal of your Darien home. <a href="/emergency-garage-door-repair/" className="text-blue-600 hover:text-blue-700 font-medium">Emergency service</a> is available 24/7.
-              </p>
-              <div className="grid grid-cols-2 gap-4 mb-6">
-                <div className="text-center p-4 bg-white rounded-lg shadow">
-                  <div className="text-2xl font-bold text-orange-500">24/7</div>
-                  <div className="text-sm text-gray-600">Emergency Service</div>
-                </div>
-                <div className="text-center p-4 bg-white rounded-lg shadow">
-                  <div className="text-2xl font-bold text-orange-500">Weather</div>
-                  <div className="text-sm text-gray-600">Resistant Solutions</div>
-                </div>
-              </div>
-              <ul className="space-y-2 text-gray-600">
-                <li className="flex items-center">
-                  <i className="ri-check-line text-green-500 mr-2"></i>
-                  Coastal weather-resistant garage doors
-                </li>
-                <li className="flex items-center">
-                  <i className="ri-check-line text-green-500 mr-2"></i>
-                  Serving Darien and surrounding Fairfield County
-                </li>
-                <li className="flex items-center">
-                  <i className="ri-check-line text-green-500 mr-2"></i>
-                  Expert installation and repair services
-                </li>
-              </ul>
-            </div>
-            <div>
-              <img 
-                src="/images/garage-door-panel-repair-dan-hammer-smart-garage-doors.jpg"
-                alt="Garage door service in Darien CT"
-                className="rounded-lg shadow-lg w-full h-auto object-cover"
-                width="600"
-                height="400"
-                loading="lazy"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <Services />
-      <Reviews />
-      <Contact />
-      <NearbyAreasSection currentPath="/darien-ct/" cityName="Darien" />
-      <ServiceLinks 
-        title="Complete Garage Door Services in Darien, CT"
-        showDescription={true}
-        locationPath="/darien-ct/"
-      />
-      <Footer />
-    </div>
+    />
   );
 }

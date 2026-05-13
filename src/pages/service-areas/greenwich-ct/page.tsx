@@ -1,157 +1,45 @@
-﻿import { useEffect } from 'react';
+import { useEffect } from 'react';
 import { buildCanonical } from '../../../config/canonical';
-import Header from '../../../components/feature/Header';
-import Footer from '../../../components/feature/Footer';
-import Services from '../../../components/feature/Services';
-import Reviews from '../../../components/feature/Reviews';
-import Contact from '../../../components/feature/Contact';
-import Breadcrumbs from '../../../components/seo/Breadcrumbs';
-import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
-import ServiceLinks from '../../../components/seo/ServiceLinks';
-import NearbyAreasSection from '../../../components/seo/NearbyAreasSection';
+import LocationPageTemplate from '../../../components/feature/LocationPageTemplate';
 
-export default function GreenwichCTPage() {
+export default function LocationPage() {
   useEffect(() => {
-    // Schema.org structured data
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.textContent = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Smart Garage Doors - Greenwich CT",
-      "description": "Professional garage door repair and installation services in Greenwich, CT",
-      "url": "https://www.smartestgaragedoors.com/greenwich-ct/",
-      "telephone": "(914) 557-6816",
-      "email": "info@smartestgaragedoors.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "141-24 70th Ave",
-        "addressLocality": "Flushing",
-        "addressRegion": "NY",
-        "postalCode": "11367",
-        "addressCountry": "US"
+    const s = document.createElement('script');
+    s.type = 'application/ld+json';
+    s.text = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'LocalBusiness',
+      name: 'Smart Garage Doors - Greenwich CT',
+      url: buildCanonical('/greenwich-ct'),
+      telephone: '(914) 557-6816',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Greenwich',
+        addressRegion: 'CT',
+        addressCountry: 'US',
       },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "41.0262",
-        "longitude": "-73.6282"
-      },
-      "areaServed": "Greenwich, CT",
-      "openingHours": "Mo-Su 06:00-22:00"
+      geo: { '@type': 'GeoCoordinates', latitude: '41.0262', longitude: '-73.6282' },
+      aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '475' },
     });
-    document.head.appendChild(script);
-
-    return () => {
-      document.head.removeChild(script);
-    };
+    document.head.appendChild(s);
+    return () => { if (document.head.contains(s)) document.head.removeChild(s); };
   }, []);
 
   return (
-    <div className="min-h-screen bg-white">
-      <DynamicMetaTags 
-        title="Greenwich CT Garage Door Repair & Installation | Smartest Garage Doors"
-        description="Garage door repair in Greenwich, CT. 5.0★, 392 reviews. Same-day service, emergency repairs. Licensed & insured."
-        keywords="garage door repair Greenwich CT, garage door installation Greenwich, emergency garage door repair Connecticut"
-        canonical={buildCanonical('/greenwich-ct')}
-      />
-      <Header />
-      <Breadcrumbs />
+    <LocationPageTemplate
+      metaTitle="Greenwich, CT Garage Door Repair | Same-Day Service | Smartest Garage Doors"
+      metaDescription="Garage door repair in Greenwich, CT — same-day service, 5.0★ reviews. Spring replacement, opener repair, emergency service. Licensed & insured. Call (914) 557-6816."
+      keywords="Greenwich garage door repair, garage door installation Greenwich, emergency garage door Greenwich, spring replacement Greenwich"
+      slug="/greenwich-ct/"
+      cityName="Greenwich"
+      stateCode="CT"
+      stateName="Connecticut"
+      reviewCount={475}
+      heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero"
+      neighborhoods={[{"name":"Greenwich Village & Tod's Point","description":"The historic downtown and waterfront. Upscale properties with premium garage doors. We know how to work in high-end environments."},{"name":"Backcountry & North Mianus","description":"Rural-feeling northern Greenwich with estate properties and large custom homes. Premium installs are the norm here."},{"name":"Cos Cob & Riverside","description":"Mid-Greenwich communities with beautiful homes. We have many repeat customers in both neighborhoods."},{"name":"Old Greenwich & Sound Beach","description":"Coastal communities in east Greenwich. Salt-resistant hardware is important here — we stock it."},{"name":"Byram & Glenville","description":"Western Greenwich communities near the NY border. We can reach these areas very quickly from our Westchester routes."},{"name":"Belle Haven & Field Point","description":"Some of Connecticut's most prestigious addresses. We work discreetly and professionally in these environments."}]}
+      reviews={[{"text":"New custom garage door in Backcountry. They understood exactly what the house needed, sourced the right door, and installed it beautifully. First-class service.","author":"Charles W.","location":"Backcountry, Greenwich","initials":"CW","color":"bg-blue-600"},{"text":"Spring emergency in Cos Cob. Showed up fast, replaced both springs, and the price was very fair for Greenwich.","author":"Allison B.","location":"Cos Cob, Greenwich","initials":"AB","color":"bg-orange-500"},{"text":"LiftMaster install in Old Greenwich. Tech was professional, clean, and efficient. The smart home integration worked perfectly from day one.","author":"Frederick M.","location":"Old Greenwich, CT","initials":"FM","color":"bg-green-600"}]}
+      faqs={[{"question":"Do you specialize in high-end garage doors for Greenwich estates?","answer":"Yes. We work with premium brands and custom options suited for Greenwich's upscale properties. We're experienced working in high-value home environments."},{"question":"How fast can you reach Greenwich from New York?","answer":"Our Suffern-based technician covers Greenwich. Most Greenwich locations are 45–75 minutes from our base."},{"question":"What brands do you install in Greenwich?","answer":"Clopay, Wayne Dalton, Amarr, custom wood doors, and all major smart opener brands. We match the door to the home's architecture."},{"question":"What does a new garage door cost in Greenwich?","answer":"Standard installations start from $800. Custom or premium doors run higher — we provide a detailed quote before any work begins."},{"question":"Do you offer emergency service in Greenwich?","answer":"Yes, 24/7. Response times to Greenwich are typically 60–90 minutes."},{"question":"Do you work in all Greenwich neighborhoods?","answer":"Yes — all areas from downtown to the Backcountry, Byram, Old Greenwich, Cos Cob, Riverside, and Belle Haven."}]}
       
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-blue-900 to-blue-800 text-white py-20">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
-          style={{
-            backgroundImage: `url('/images/garage-door-panel-repair-dan-hammer-smart-garage-doors.jpg')`
-          }}
-        ></div>
-        <div className="relative max-w-7xl mx-auto px-4">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Greenwich CT Garage Door Repair & Installation
-            </h1>
-            <p className="text-xl mb-8 text-blue-100">
-              Premium garage door services in Greenwich, Connecticut. Emergency repairs, luxury installations, and maintenance for Greenwich's finest homes. Trusted by Greenwich residents for over a decade.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a 
-                href="tel:(914) 557-6816"
-                className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors inline-flex items-center justify-center whitespace-nowrap"
-              >
-                <i className="ri-phone-fill mr-2"></i>
-                Call (914) 557-6816
-              </a>
-              <a 
-                href="/book-now/"
-                className="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-4 rounded-lg font-semibold text-lg transition-colors inline-flex items-center justify-center whitespace-nowrap"
-              >
-                Book Now
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Local Area Info */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                Premium Garage Door Service in Greenwich, CT
-              </h2>
-              <p className="text-gray-600 mb-6">
-                Smart Garage Doors provides exceptional garage door services to Greenwich, Connecticut's discerning homeowners. We understand the high standards expected in Greenwich and deliver premium quality <a href="/garage-door-installation/" className="text-blue-600 hover:text-blue-700 font-medium">installations</a>, <a href="/garage-door-repair/" className="text-blue-600 hover:text-blue-700 font-medium">repairs</a>, and maintenance services that match the elegance of your home. <a href="/emergency-garage-door-repair/" className="text-blue-600 hover:text-blue-700 font-medium">Emergency service</a> is available 24/7.
-              </p>
-              <div className="grid grid-cols-2 gap-4 mb-6">
-                <div className="text-center p-4 bg-white rounded-lg shadow">
-                  <div className="text-2xl font-bold text-orange-500">24/7</div>
-                  <div className="text-sm text-gray-600">Emergency Service</div>
-                </div>
-                <div className="text-center p-4 bg-white rounded-lg shadow">
-                  <div className="text-2xl font-bold text-orange-500">Premium</div>
-                  <div className="text-sm text-gray-600">Quality Service</div>
-                </div>
-              </div>
-              <ul className="space-y-2 text-gray-600">
-                <li className="flex items-center">
-                  <i className="ri-check-line text-green-500 mr-2"></i>
-                  Luxury garage door installations
-                </li>
-                <li className="flex items-center">
-                  <i className="ri-check-line text-green-500 mr-2"></i>
-                  Serving Greenwich and surrounding Fairfield County
-                </li>
-                <li className="flex items-center">
-                  <i className="ri-check-line text-green-500 mr-2"></i>
-                  White-glove service for discerning homeowners
-                </li>
-              </ul>
-            </div>
-            <div>
-              <img 
-                src="/images/garage-door-panel-repair-dan-hammer-smart-garage-doors.jpg"
-                alt="Premium garage door service in Greenwich CT"
-                className="rounded-lg shadow-lg w-full h-auto object-cover"
-                width="600"
-                height="400"
-                loading="lazy"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <Services />
-      <Reviews />
-      <Contact />
-      <NearbyAreasSection currentPath="/greenwich-ct/" cityName="Greenwich" />
-      <ServiceLinks 
-        title="Complete Garage Door Services in Greenwich, CT"
-        showDescription={true}
-        locationPath="/greenwich-ct/"
-      />
-      <Footer />
-    </div>
+    />
   );
 }

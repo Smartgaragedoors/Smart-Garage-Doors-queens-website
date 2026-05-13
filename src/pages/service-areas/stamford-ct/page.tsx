@@ -1,379 +1,45 @@
+import { useEffect } from 'react';
 import { buildCanonical } from '../../../config/canonical';
-import Header from '../../../components/feature/Header';
-import Footer from '../../../components/feature/Footer';
-import Breadcrumbs from '../../../components/seo/Breadcrumbs';
-import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
-import ServiceLinks from '../../../components/seo/ServiceLinks';
-import NearbyAreasSection from '../../../components/seo/NearbyAreasSection';
+import LocationPageTemplate from '../../../components/feature/LocationPageTemplate';
 
-const StamfordCT = () => {
+export default function LocationPage() {
+  useEffect(() => {
+    const s = document.createElement('script');
+    s.type = 'application/ld+json';
+    s.text = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'LocalBusiness',
+      name: 'Smart Garage Doors - Stamford CT',
+      url: buildCanonical('/stamford-ct'),
+      telephone: '(914) 557-6816',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Stamford',
+        addressRegion: 'CT',
+        addressCountry: 'US',
+      },
+      geo: { '@type': 'GeoCoordinates', latitude: '41.0534', longitude: '-73.5387' },
+      aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '475' },
+    });
+    document.head.appendChild(s);
+    return () => { if (document.head.contains(s)) document.head.removeChild(s); };
+  }, []);
+
   return (
-    <div className="min-h-screen bg-white">
-      <DynamicMetaTags 
-        title="Stamford CT Garage Door Repair | Smartest Garage Doors | 24/7"
-        description="Garage door repair in Stamford, CT. 5.0★, 392 reviews. Same-day service, emergency repairs. Licensed & insured."
-        keywords="Stamford CT garage door repair, garage door installation Stamford, emergency garage door service"
-        canonical={buildCanonical('/stamford-ct')}
-      />
-      <Header />
-      <Breadcrumbs />
+    <LocationPageTemplate
+      metaTitle="Stamford, CT Garage Door Repair | Same-Day Service | Smartest Garage Doors"
+      metaDescription="Garage door repair in Stamford, CT — same-day service, 5.0★ reviews. Spring replacement, opener repair, emergency service. Licensed & insured. Call (914) 557-6816."
+      keywords="Stamford garage door repair, garage door installation Stamford, emergency garage door Stamford, spring replacement Stamford"
+      slug="/stamford-ct/"
+      cityName="Stamford"
+      stateCode="CT"
+      stateName="Connecticut"
+      reviewCount={475}
+      heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero"
+      neighborhoods={[{"name":"Downtown & South End","description":"Urban core with condos and commercial properties. We handle all garage door types including commercial systems."},{"name":"Shippan Point","description":"Waterfront neighborhood with upscale homes. Premium installs and quality repairs are the standard here."},{"name":"Glenbrook & Springdale","description":"Mid-city residential areas with single-family homes. High volume of spring and opener calls in these neighborhoods."},{"name":"Newfield & Long Ridge","description":"Northern Stamford's residential and semi-rural communities. Larger homes with premium garage door systems."},{"name":"Turn of River & High Ridge","description":"Established neighborhoods in northern Stamford. We service a growing number of customers here."},{"name":"Cove & Waterfront areas","description":"South Stamford coastal neighborhoods. Salt air environments — we stock corrosion-resistant hardware for these locations."}]}
+      reviews={[{"text":"Spring broke in downtown Stamford. They drove from NY, arrived in about 90 minutes, and had it fixed quickly. Professional service and fair Connecticut pricing.","author":"Ellen R.","location":"Stamford, CT","initials":"ER","color":"bg-blue-600"},{"text":"New garage door in Shippan Point. Helped us choose the right style for the neighborhood, installed it perfectly.","author":"Gregory T.","location":"Shippan, Stamford","initials":"GT","color":"bg-orange-500"},{"text":"Emergency in Glenbrook — couldn't get into my garage. They were here within 2 hours and fixed a cable issue on the spot. Lifesaver.","author":"Patricia H.","location":"Glenbrook, Stamford","initials":"PH","color":"bg-green-600"}]}
+      faqs={[{"question":"Do you serve Stamford, CT from New York?","answer":"Yes. Our Suffern-based technician covers all of Fairfield County, CT. Most Stamford locations are 45–75 minutes from our base."},{"question":"What does garage door repair cost in Stamford?","answer":"Repairs start at $150–$300, spring replacement $175–$350, opener repair $150–$350. Upfront pricing — no surprises."},{"question":"What areas of Stamford do you cover?","answer":"All of Stamford — downtown, Shippan, Glenbrook, Springdale, Newfield, Long Ridge, Turn of River, High Ridge, Cove, and surrounding areas."},{"question":"Do you handle commercial garage doors in Stamford?","answer":"Yes. We service commercial roll-up doors and commercial opener systems throughout Stamford."},{"question":"What brands do you service in Stamford?","answer":"All major brands — LiftMaster, Chamberlain, Genie, Clopay, Wayne Dalton, Amarr, and more."},{"question":"Do you offer emergency service in Stamford?","answer":"Yes, 24/7. Response times from our Suffern base to Stamford are typically 60–90 minutes."}]}
       
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-900 to-blue-700 text-white py-20">
-        <div 
-          className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{
-            backgroundImage: `url('/images/garage-door-panel-repair-dan-hammer-smart-garage-doors.jpg')`
-          }}
-        />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Stamford CT Garage Door Repair Services
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-              Expert garage door repair and installation services throughout Stamford, Connecticut. 
-              Smart Garage Doors provides reliable, professional solutions for all Stamford neighborhoods and communities.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="tel:+19145576816" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap">
-                Call Now: (914) 557-6816
-              </a>
-              <a href="/book-now/" className="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap inline-block text-center">
-                Get Free Estimate
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stamford Neighborhoods */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Our Stamford Service Coverage Area
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Smart Garage Doors provides comprehensive garage door services throughout Stamford, Connecticut. 
-              View our service area map and the neighborhoods we serve across the city.
-            </p>
-          </div>
-          
-          {/* Service Area Map */}
-          <div className="mb-12">
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4 text-center">Stamford Service Area Map</h3>
-              <div className="w-full h-96 rounded-lg overflow-hidden">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48372.558!2d-73.5387341!3d41.0534302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2a1e368b5a0e5%3A0x5479d2aa0cf8fe52!2sStamford%2C%20CT!5e0!3m2!1sen!2sus!4v1703123456789!5m2!1sen!2sus"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Stamford CT Service Area Map"
-                />
-              </div>
-              <p className="text-sm text-gray-600 mt-4 text-center">
-                Our service area covers all Stamford neighborhoods and surrounding areas. Click and drag to explore the map.
-              </p>
-            </div>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Downtown Stamford</h3>
-              <p className="text-gray-600">
-                Modern garage door solutions for downtown Stamford's luxury condominiums and high-rise buildings. 
-                We specialize in commercial-grade systems and smart technology integration for urban living.
-              </p>
-            </div>
-            
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">North Stamford</h3>
-              <p className="text-gray-600">
-                Premium garage door services for North Stamford's upscale residential neighborhoods. 
-                Our team provides high-end installations that complement the area's luxury homes and estates.
-              </p>
-            </div>
-            
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Springdale</h3>
-              <p className="text-gray-600">
-                Comprehensive garage door repair and maintenance for Springdale's established family neighborhoods. 
-                We provide reliable service with competitive pricing for Stamford's residential communities.
-              </p>
-            </div>
-            
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Glenbrook</h3>
-              <p className="text-gray-600">
-                Expert garage door services for Glenbrook's diverse housing stock. From historic homes to 
-                modern developments, we provide tailored solutions for every property type in this vibrant area.
-              </p>
-            </div>
-            
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Turn of River</h3>
-              <p className="text-gray-600">
-                Professional garage door installation and repair for Turn of River's suburban neighborhoods. 
-                Our technicians understand the needs of Stamford's family-oriented residential areas.
-              </p>
-            </div>
-            
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Newfield</h3>
-              <p className="text-gray-600">
-                Reliable garage door services for Newfield residents. We provide quality repairs and installations 
-                with personalized service that reflects Stamford's community-focused values.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services for Stamford */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Complete Garage Door Services in Stamford, CT
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Smart Garage Doors offers full-service garage door solutions throughout Stamford. Our skilled 
-              technicians provide everything from emergency repairs to luxury installations with professional excellence.
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <i className="ri-alarm-warning-line text-2xl text-blue-600"></i>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">24/7 Emergency Service</h3>
-              <p className="text-gray-600">
-                Round-the-clock emergency garage door repair throughout Stamford. Broken springs, damaged panels, 
-                or malfunctioning openers - we respond quickly to restore your security and convenience.
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <i className="ri-home-heart-line text-2xl text-blue-600"></i>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Luxury Home Specialists</h3>
-              <p className="text-gray-600">
-                Specialized garage door services for Stamford's luxury homes and estates. We offer premium 
-                materials, custom designs, and high-end features that complement upscale properties.
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <i className="ri-smartphone-line text-2xl text-blue-600"></i>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Smart Technology Integration</h3>
-              <p className="text-gray-600">
-                Advanced smart garage door systems for tech-savvy Stamford residents. WiFi connectivity, 
-                smartphone control, and home automation integration for modern convenience.
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <i className="ri-building-2-line text-2xl text-blue-600"></i>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Commercial Services</h3>
-              <p className="text-gray-600">
-                Professional commercial garage door services for Stamford businesses. From office buildings 
-                to retail centers, we provide reliable solutions for commercial properties.
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <i className="ri-tools-fill text-2xl text-blue-600"></i>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Spring & Hardware Repair</h3>
-              <p className="text-gray-600">
-                Expert spring replacement and hardware repair services in Stamford. We use premium components 
-                and professional installation techniques for long-lasting, safe operation.
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <i className="ri-calendar-check-line text-2xl text-blue-600"></i>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Maintenance Programs</h3>
-              <p className="text-gray-600">
-                Comprehensive maintenance programs for Stamford homeowners. Regular service prevents costly 
-                repairs and ensures optimal performance through Connecticut's changing seasons.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stamford Advantages */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Why Stamford Residents Trust Smart Garage Doors
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              As Stamford's premier garage door service provider, we understand the city's unique characteristics 
-              and deliver exceptional solutions that meet the high standards of Stamford communities.
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <i className="ri-map-pin-line text-3xl text-orange-600"></i>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Local Stamford Expertise</h3>
-              <p className="text-gray-600">
-                Our technicians know Stamford's neighborhoods, building codes, and local requirements. 
-                We navigate the city efficiently for faster response times and better service.
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <i className="ri-award-line text-3xl text-orange-600"></i>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Premium Quality Standards</h3>
-              <p className="text-gray-600">
-                High-quality materials and workmanship that meet Stamford's upscale standards. 
-                We use only the best components and provide superior installation techniques.
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <i className="ri-time-line text-3xl text-orange-600"></i>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Rapid Response Time</h3>
-              <p className="text-gray-600">
-                Fast response throughout Stamford with strategically located service vehicles. 
-                We understand the importance of prompt service for busy Stamford residents.
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <i className="ri-customer-service-2-line text-3xl text-orange-600"></i>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Exceptional Customer Service</h3>
-              <p className="text-gray-600">
-                Professional, courteous service that reflects Stamford's high standards. 
-                We treat every customer with respect and deliver results that exceed expectations.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Stamford Garage Door Service FAQ
-            </h2>
-          </div>
-          
-          <div className="space-y-8">
-            <div className="border-b border-gray-200 pb-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Do you service all areas of Stamford, CT?
-              </h3>
-              <p className="text-gray-600">
-                Yes, Smart Garage Doors provides comprehensive garage door services throughout all Stamford 
-                neighborhoods including Downtown, North Stamford, Springdale, Glenbrook, Turn of River, 
-                Newfield, and surrounding areas.
-              </p>
-            </div>
-            
-            <div className="border-b border-gray-200 pb-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                What types of garage doors work best in Stamford's climate?
-              </h3>
-              <p className="text-gray-600">
-                For Connecticut's climate, we recommend insulated steel or composite garage doors that 
-                withstand temperature fluctuations and moisture. These materials provide durability 
-                and energy efficiency for Stamford's seasonal weather changes.
-              </p>
-            </div>
-            
-            <div className="border-b border-gray-200 pb-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Do you work on luxury and custom garage doors in Stamford?
-              </h3>
-              <p className="text-gray-600">
-                Absolutely! We specialize in luxury garage door installation and repair for Stamford's 
-                upscale homes. Our team works with premium materials, custom designs, and high-end 
-                features that complement luxury properties.
-              </p>
-            </div>
-            
-            <div className="border-b border-gray-200 pb-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                How quickly can you respond to emergency calls in Stamford?
-              </h3>
-              <p className="text-gray-600">
-                Smart Garage Doors responds to Stamford emergency calls based on technician availability. Our local service vehicles and knowledge of Stamford traffic patterns help us reach you as quickly as possible — call us for an honest estimate.
-              </p>
-            </div>
-            
-            <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Do you offer warranties on garage door installations in Stamford?
-              </h3>
-              <p className="text-gray-600">
-                Yes, we provide comprehensive warranties on all garage door installations and major 
-                repairs in Stamford. Our warranties cover both parts and labor, giving you peace of 
-                mind and protection for your investment.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact CTA */}
-      <section className="py-16 bg-blue-900 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">
-            Need Expert Garage Door Service in Stamford, CT?
-          </h2>
-          <p className="text-xl mb-8">
-            Contact Smart Garage Doors today for professional garage door repair and installation services 
-            throughout Stamford. Our local experts are ready to provide exceptional service for your home!
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:+19145576816" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap">
-              Call (914) 557-6816
-            </a>
-            <a href="/book-now/" className="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap inline-block text-center">
-              Schedule Service Online
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <NearbyAreasSection currentPath="/stamford-ct/" cityName="Stamford" />
-      <ServiceLinks 
-        title="Complete Garage Door Services in Stamford, CT"
-        showDescription={true}
-        locationPath="/stamford-ct/"
-      />
-      <Footer />
-    </div>
+    />
   );
-};
-
-export default StamfordCT;
+}

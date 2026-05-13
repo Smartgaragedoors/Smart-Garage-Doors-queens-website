@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '../../components/feature/Header';
 import Footer from '../../components/feature/Footer';
 import DynamicMetaTags from '../../components/seo/DynamicMetaTags';
@@ -21,6 +22,7 @@ export default function BookNowPage() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState('');
+  const navigate = useNavigate();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -38,6 +40,7 @@ export default function BookNowPage() {
       const result = await submitForm(formData, 'Book Now Form');
 
       if (result.success) {
+        navigate('/book-now/thank-you/');
         setSubmitStatus(result.usedFallback ? 'fallback' : 'success');
         setFormData({
           name: '',

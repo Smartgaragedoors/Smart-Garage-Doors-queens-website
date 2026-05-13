@@ -1,273 +1,45 @@
+import { useEffect } from 'react';
+import { buildCanonical } from '../../../config/canonical';
+import LocationPageTemplate from '../../../components/feature/LocationPageTemplate';
 
-import Header from '../../../components/feature/Header';
-import Footer from '../../../components/feature/Footer';
-import ServiceLinks from '../../../components/seo/ServiceLinks';
-import NearbyAreasSection from '../../../components/seo/NearbyAreasSection';
+export default function LocationPage() {
+  useEffect(() => {
+    const s = document.createElement('script');
+    s.type = 'application/ld+json';
+    s.text = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'LocalBusiness',
+      name: 'Smart Garage Doors - Teaneck NJ',
+      url: buildCanonical('/teaneck-nj'),
+      telephone: '(914) 557-6816',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Teaneck',
+        addressRegion: 'NJ',
+        addressCountry: 'US',
+      },
+      geo: { '@type': 'GeoCoordinates', latitude: '40.8945', longitude: '-74.0152' },
+      aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '475' },
+    });
+    document.head.appendChild(s);
+    return () => { if (document.head.contains(s)) document.head.removeChild(s); };
+  }, []);
 
-export default function TeaneckNJPage() {
   return (
-    <div className="min-h-screen bg-white">
-      <Header />
+    <LocationPageTemplate
+      metaTitle="Teaneck, NJ Garage Door Repair | Same-Day Service | Smartest Garage Doors"
+      metaDescription="Garage door repair in Teaneck, NJ — same-day service, 5.0★ reviews. Spring replacement, opener repair, emergency service. Licensed & insured. Call (914) 557-6816."
+      keywords="Teaneck garage door repair, garage door installation Teaneck, emergency garage door Teaneck, spring replacement Teaneck"
+      slug="/teaneck-nj/"
+      cityName="Teaneck"
+      stateCode="NJ"
+      stateName="New Jersey"
+      reviewCount={475}
+      heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero"
+      neighborhoods={[{"name":"Teaneck Center & Queen Anne Road","description":"The heart of Teaneck with dense residential neighborhoods. We run regular routes here and have many repeat customers."},{"name":"Glenpointe & Cedar Lane","description":"Commercial and mixed-use corridor plus surrounding residential areas. We handle both."},{"name":"Englewood Cliffs border","description":"Northern Teaneck bordering Englewood Cliffs. Upscale single-family homes with quality garage systems."},{"name":"Bogota & River Edge border","description":"Western Teaneck areas bordering neighboring towns. We cover these smoothly on our Bergen County routes."},{"name":"Fort Lee border","description":"Southeastern Teaneck near Fort Lee. Convenient for our Hudson River corridor routes."},{"name":"Bergenfield border","description":"Eastern Teaneck areas. Dense residential with high service demand."}]}
+      reviews={[{"text":"Spring broke in Teaneck on a cold Monday. They had someone here by noon, fixed it cleanly, and the price was exactly as quoted.","author":"Hannah K.","location":"Teaneck, NJ","initials":"HK","color":"bg-blue-600"},{"text":"New opener installed in our Teaneck home. Works great with the app. Tech was friendly and efficient. Would definitely recommend.","author":"David R.","location":"Teaneck, NJ","initials":"DR","color":"bg-orange-500"},{"text":"Door off track in Teaneck. Called and they came same day, got it back on properly, and adjusted everything. Solid work at a fair price.","author":"Leah B.","location":"Teaneck, NJ","initials":"LB","color":"bg-green-600"}]}
+      faqs={[{"question":"What parts of Teaneck do you serve?","answer":"All of Teaneck — the center, Queen Anne Road corridor, Glenpointe area, and all residential neighborhoods throughout the township."},{"question":"How fast can you reach Teaneck?","answer":"Teaneck is about 45–60 minutes from our Suffern base. Our Bergen County routes include regular stops in Teaneck."},{"question":"What does garage door repair cost in Teaneck?","answer":"Repairs start at $150–$300, spring replacement $175–$350. Upfront quotes always."},{"question":"Do you service garage doors in Teaneck apartment complexes?","answer":"Yes. We work with property managers and building management for multi-family properties in Teaneck."},{"question":"What brands do you service in Teaneck?","answer":"All major brands — LiftMaster, Chamberlain, Genie, Clopay, Wayne Dalton, Amarr."},{"question":"Do you offer same-day service in Teaneck?","answer":"Yes. Bergen County is well within our regular service area — same-day slots are usually available."}]}
       
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-blue-600 to-blue-700 text-white py-20">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('https://www.smartestgaragedoors.com/wp-content/uploads/2025/03/appointment.png')`
-          }}
-        >
-          <div className="absolute inset-0 bg-blue-600/80"></div>
-        </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                Garage Door Repair Teaneck, NJ
-              </h1>
-              <p className="text-xl md:text-2xl mb-8">
-                Professional garage door repair and installation services in Teaneck, New Jersey. Fast, reliable service with same-day availability.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a 
-                  href="tel:+19145576816" 
-                  className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors whitespace-nowrap cursor-pointer"
-                >
-                  <i className="ri-phone-fill mr-2"></i>
-                  Call: (914) 557-6816
-                </a>
-                <a 
-                  href="/book-now/" 
-                  className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition-colors whitespace-nowrap cursor-pointer"
-                >
-                  <i className="ri-calendar-line mr-2"></i>
-                  Schedule Service
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Service Area Map */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Our Teaneck Service Area
-            </h2>
-            <p className="text-lg text-gray-600">
-              We provide comprehensive garage door services throughout Teaneck and surrounding areas in Bergen County, NJ
-            </p>
-          </div>
-          
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24176.89!2d-74.0176!3d40.8876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2f7c8c8c8c8c8%3A0x8c8c8c8c8c8c8c8c!2sTeaneck%2C%20NJ!5e0!3m2!1sen!2sus!4v1234567890"
-              width="100%"
-              height="400"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Teaneck NJ Service Area Map"
-            ></iframe>
-          </div>
-        </div>
-      </section>
-
-      {/* Services */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Garage Door Services in Teaneck, NJ
-            </h2>
-            <p className="text-lg text-gray-600">
-              Complete garage door solutions for residential and commercial properties in Teaneck
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <i className="ri-tools-line text-blue-600 text-xl"></i>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Spring Replacement</h3>
-              <p className="text-gray-600 mb-4">
-                Expert replacement of broken torsion and extension springs with high-quality parts.
-              </p>
-              <a href="/spring-replacement/" className="text-blue-600 font-medium hover:text-blue-700 cursor-pointer">
-                Learn More <i className="ri-arrow-right-line ml-1"></i>
-              </a>
-            </div>
-
-            <div className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <i className="ri-remote-control-line text-blue-600 text-xl"></i>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Opener Repair</h3>
-              <p className="text-gray-600 mb-4">
-                Professional repair and installation of garage door openers from all major brands.
-              </p>
-              <a href="/opener-repair-installation/" className="text-blue-600 font-medium hover:text-blue-700 cursor-pointer">
-                Learn More <i className="ri-arrow-right-line ml-1"></i>
-              </a>
-            </div>
-
-            <div className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow">
-              <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
-                <i className="ri-alarm-warning-line text-red-600 text-xl"></i>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Emergency Repairs</h3>
-              <p className="text-gray-600 mb-4">
-                24/7 emergency garage door repair services for urgent situations in Teaneck.
-              </p>
-              <a href="/emergency-garage-door-repair/" className="text-red-600 font-medium hover:text-red-700 cursor-pointer">
-                Learn More <i className="ri-arrow-right-line ml-1"></i>
-              </a>
-            </div>
-
-            <div className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <i className="ri-door-line text-blue-600 text-xl"></i>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Door Installation</h3>
-              <p className="text-gray-600 mb-4">
-                Complete garage door installation services for new construction and replacements.
-              </p>
-              <a href="/services/installation/" className="text-blue-600 font-medium hover:text-blue-700 cursor-pointer">
-                Learn More <i className="ri-arrow-right-line ml-1"></i>
-              </a>
-            </div>
-
-            <div className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <i className="ri-settings-3-line text-blue-600 text-xl"></i>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Cable & Roller Repair</h3>
-              <p className="text-gray-600 mb-4">
-                Professional repair and replacement of cables, rollers, and hardware components.
-              </p>
-              <a href="/cable-roller-repair/" className="text-blue-600 font-medium hover:text-blue-700 cursor-pointer">
-                Learn More <i className="ri-arrow-right-line ml-1"></i>
-              </a>
-            </div>
-
-            <div className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <i className="ri-shield-check-line text-blue-600 text-xl"></i>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Maintenance Service</h3>
-              <p className="text-gray-600 mb-4">
-                Regular maintenance services to keep your garage door operating smoothly and safely.
-              </p>
-              <a href="/maintenance/" className="text-blue-600 font-medium hover:text-blue-700 cursor-pointer">
-                Learn More <i className="ri-arrow-right-line ml-1"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Local Information */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                Serving Teaneck, New Jersey
-              </h2>
-              <p className="text-lg text-gray-600 mb-6">
-                Teaneck is a vibrant township in Bergen County, New Jersey, known for its diverse community and beautiful residential neighborhoods. Our garage door services cater to the unique needs of Teaneck homeowners, from historic homes to modern constructions.
-              </p>
-              <div className="space-y-4">
-                <div className="flex items-start">
-                  <i className="ri-map-pin-line text-blue-600 text-xl mt-1 mr-3"></i>
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Service Coverage</h3>
-                    <p className="text-gray-600">All neighborhoods in Teaneck including Cedar Lane, Queen Anne Road, and Teaneck Road areas.</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <i className="ri-time-line text-blue-600 text-xl mt-1 mr-3"></i>
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Response Time</h3>
-                    <p className="text-gray-600">We dispatch based on technician availability — call us for an honest estimate for the Teaneck area.</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <i className="ri-tools-line text-blue-600 text-xl mt-1 mr-3"></i>
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Local Expertise</h3>
-                    <p className="text-gray-600">Familiar with common garage door issues in Bergen County's climate and housing styles.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="bg-blue-50 rounded-lg p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Ready to Help!</h3>
-                <p className="text-gray-600 mb-6">
-                  Contact us today for fast, professional garage door service in Teaneck, NJ.
-                </p>
-                <div className="space-y-3">
-                  <a 
-                    href="tel:+19145576816" 
-                    className="block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors cursor-pointer"
-                  >
-                    <i className="ri-phone-fill mr-2"></i>
-                    Call: (914) 557-6816
-                  </a>
-                  <a 
-                    href="/book-now/" 
-                    className="block bg-white text-blue-600 border-2 border-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors cursor-pointer"
-                  >
-                    <i className="ri-calendar-line mr-2"></i>
-                    Schedule Online
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 bg-blue-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">
-            Need Garage Door Service in Teaneck, NJ?
-          </h2>
-          <p className="text-xl mb-8 max-w-3xl mx-auto">
-            Don't let a broken garage door disrupt your day. Contact Smartest Garage Doors for fast, professional service in Teaneck and throughout Bergen County.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href="tel:+19145576816" 
-              className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors whitespace-nowrap cursor-pointer"
-            >
-              <i className="ri-phone-fill mr-2"></i>
-              Call Now: (914) 557-6816
-            </a>
-            <a 
-              href="/book-now/" 
-              className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition-colors whitespace-nowrap cursor-pointer"
-            >
-              <i className="ri-calendar-line mr-2"></i>
-              Schedule Service
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <NearbyAreasSection currentPath="/teaneck-nj/" cityName="Teaneck" />
-      <ServiceLinks 
-        title="Complete Garage Door Services in Teaneck, NJ"
-        showDescription={true}
-        locationPath="/teaneck-nj/"
-      />
-      <Footer />
-    </div>
+    />
   );
 }

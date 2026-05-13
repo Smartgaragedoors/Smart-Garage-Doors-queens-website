@@ -6,6 +6,7 @@ import type { RouteObject } from 'react-router-dom';
 const HomePage = lazy(() => import('../pages/home/page').then(module => ({ default: module.default })));
 const ContactPage = lazy(() => import('../pages/contact/page').then(module => ({ default: module.default })));
 const BookNowPage = lazy(() => import('../pages/book-now/page').then(module => ({ default: module.default })));
+const ThankYouPage = lazy(() => import('../pages/book-now/thank-you/page').then(module => ({ default: module.default })));
 const ReviewsPage = lazy(() => import('../pages/reviews/page').then(module => ({ default: module.default })));
 const BlogPage = lazy(() => import('../pages/blog/page').then(module => ({ default: module.default })));
 const BlogPostPage = lazy(() => import('../pages/blog/[slug]/page').then(module => ({ default: module.default })));
@@ -70,6 +71,10 @@ const routes: RouteObject[] = [
   {
     path: '/book-now/',
     element: <BookNowPage />
+  },
+  {
+    path: '/book-now/thank-you/',
+    element: <ThankYouPage />
   },
   {
     path: '/reviews/',
