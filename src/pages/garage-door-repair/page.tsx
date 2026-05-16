@@ -129,9 +129,9 @@ export default function GarageDoorRepairPage() {
                   },
                   "priceSpecification": {
                     "@type": "PriceSpecification",
-                    "price": "200-400",
-                    "priceCurrency": "USD",
-                    "valueAddedTaxIncluded": false
+                    "minPrice": 200,
+                    "maxPrice": 400,
+                    "priceCurrency": "USD"
                   }
                 },
                 {
@@ -143,9 +143,9 @@ export default function GarageDoorRepairPage() {
                   },
                   "priceSpecification": {
                     "@type": "PriceSpecification",
-                    "price": "150-350",
-                    "priceCurrency": "USD",
-                    "valueAddedTaxIncluded": false
+                    "minPrice": 150,
+                    "maxPrice": 350,
+                    "priceCurrency": "USD"
                   }
                 },
                 {
@@ -157,9 +157,9 @@ export default function GarageDoorRepairPage() {
                   },
                   "priceSpecification": {
                     "@type": "PriceSpecification",
-                    "price": "150-400",
-                    "priceCurrency": "USD",
-                    "valueAddedTaxIncluded": false
+                    "minPrice": 150,
+                    "maxPrice": 400,
+                    "priceCurrency": "USD"
                   }
                 },
                 {
@@ -171,9 +171,9 @@ export default function GarageDoorRepairPage() {
                   },
                   "priceSpecification": {
                     "@type": "PriceSpecification",
-                    "price": "200-500",
-                    "priceCurrency": "USD",
-                    "valueAddedTaxIncluded": false
+                    "minPrice": 200,
+                    "maxPrice": 500,
+                    "priceCurrency": "USD"
                   }
                 }
               ]

@@ -166,7 +166,7 @@ export const newLocations: Location[] = [
       },
       {
         q: 'What is your response time for Jackson service calls?',
-        a: 'For emergency calls in Jackson, we typically arrive within 60-90 minutes. For scheduled appointments, we offer flexible timing to accommodate your schedule.',
+        a: 'Response times depend on technician availability and your location within Jackson. Call us and we\'ll give you an honest arrival estimate right away — for urgent situations, let us know and we\'ll prioritize your call.',
       },
       {
         q: 'Do you offer garage door installation for new construction in Jackson?',

@@ -60,7 +60,7 @@ export const BUSINESS_INFO = {
   paymentAccepted: ["Cash", "Credit Card", "Debit Card", "Bank Transfer", "Check"],
   aggregateRating: {
     ratingValue: "5.0",
-    reviewCount: "475",
+    reviewCount: "479",
     bestRating: "5",
     worstRating: "1",
   },

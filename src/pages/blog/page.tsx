@@ -36,7 +36,7 @@ export default function BlogPage() {
     { id: 25, slug: 'suffern-ny-garage-door-service', title: "Garage Door Service in Suffern NY: Rockland County Expert Repair", excerpt: "Professional garage door repair and installation services in Suffern, New York. Serving Rockland County.", date: "November 22, 2024", category: "Repair", readTime: "5 min read" },
   ];
 
-  const categories = ["All", "Maintenance", "Repair", "Safety", "Emergency", "Tips", "Cost Guide"];
+  const categories = ["Maintenance", "Repair", "Safety", "Emergency", "Tips", "Cost Guide"];
 
   return (
     <div className="min-h-screen bg-white">
@@ -123,19 +123,20 @@ export default function BlogPage() {
         </div>
       </section>
 
-      {/* Categories Filter */}
+      {/* Categories Navigation */}
       <section className="py-8 bg-gray-50 border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap gap-2 justify-center">
             {categories.map((category) => (
-              <button
+              <span
                 key={category}
-                className="px-4 py-2 rounded-full bg-white text-gray-700 hover:bg-orange-100 hover:text-orange-600 transition-colors border border-gray-200 whitespace-nowrap cursor-pointer"
+                className="px-4 py-2 rounded-full bg-white text-gray-700 border border-gray-200 text-sm font-medium whitespace-nowrap"
               >
                 {category}
-              </button>
+              </span>
             ))}
           </div>
+          <p className="text-center text-sm text-gray-500 mt-4">Scroll down to browse all articles</p>
         </div>
       </section>
 
@@ -190,38 +191,45 @@ export default function BlogPage() {
             })}
           </div>
 
-          {/* Load More Button */}
+          {/* CTA after articles */}
           <div className="text-center mt-12">
-            <button className="bg-blue-900 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-800 transition-colors cursor-pointer">
-              Load More Articles
-            </button>
+            <p className="text-gray-600 mb-4">Have a garage door question not covered here?</p>
+            <a
+              href="tel:+19145576816"
+              className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
+            >
+              <i className="ri-phone-fill"></i>
+              Call (914) 557-6816 — We Answer 24/7
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Newsletter Signup */}
+      {/* Service CTA */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Stay Updated with Garage Door Tips
+            Need a Garage Door Expert?
           </h2>
           <p className="text-lg text-gray-600 mb-8">
-            Subscribe to our newsletter for the latest garage door maintenance tips, repair guides, and industry news.
+            Our technicians cover Queens, Brooklyn, Long Island, Westchester, Fairfield County CT, and Bergen County NJ. Call for same-day service.
           </p>
-          <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email address"
-              className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-              required
-            />
-            <button
-              type="submit"
-              className="bg-blue-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-800 transition-colors whitespace-nowrap cursor-pointer"
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="tel:+19145576816"
+              className="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
             >
-              Subscribe
-            </button>
-          </form>
+              <i className="ri-phone-fill"></i>
+              Call (914) 557-6816
+            </a>
+            <a
+              href="/book-now/"
+              className="inline-flex items-center justify-center gap-2 bg-blue-900 hover:bg-blue-800 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
+            >
+              <i className="ri-calendar-line"></i>
+              Book a Free Estimate
+            </a>
+          </div>
         </div>
       </section>
 

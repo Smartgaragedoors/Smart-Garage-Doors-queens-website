@@ -12,7 +12,7 @@ export default function BrooklynNY() {
       url: buildCanonical('/brooklyn-ny'), telephone: '(914) 557-6816',
       address: { '@type': 'PostalAddress', streetAddress: '71st 12th Ave', addressLocality: 'Dyker Heights, Brooklyn', addressRegion: 'NY', addressCountry: 'US' },
       geo: { '@type': 'GeoCoordinates', latitude: '40.6782', longitude: '-73.9442' },
-      aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '392' },
+      aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '479' },
     });
     document.head.appendChild(s);
     return () => { if (document.head.contains(s)) document.head.removeChild(s); };
@@ -21,13 +21,13 @@ export default function BrooklynNY() {
   return (
     <LocationPageTemplate
       metaTitle="Brooklyn NY Garage Door Repair | Same-Day Service | Smartest Garage Doors"
-      metaDescription="Garage door repair in Brooklyn, NY — same-day service, 5.0★ 392 reviews. Spring replacement, opener repair, emergency service. Brownstone specialists. Call (914) 557-6816."
+      metaDescription="Garage door repair in Brooklyn, NY — same-day service, 5.0★ 479 reviews. Spring replacement, opener repair, emergency service. Brownstone specialists. Call (914) 557-6816."
       keywords="Brooklyn NY garage door repair, garage door installation Brooklyn, emergency garage door Brooklyn, brownstone garage door"
       slug="/brooklyn-ny/"
       cityName="Brooklyn"
       stateCode="NY"
       stateName="New York"
-      reviewCount={392}
+      reviewCount={479}
       heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/98b4a7fc-77e3-433e-65c9-c5c7be8bc000/hero"
       mapEmbedUrl="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96737.10733629354!2d-74.03927096718748!3d40.67818494999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24416947c2109%3A0x82765c7404007886!2sBrooklyn%2C%20NY!5e0!3m2!1sen!2sus"
       neighborhoods={[

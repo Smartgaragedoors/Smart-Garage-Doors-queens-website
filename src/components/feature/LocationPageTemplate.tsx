@@ -66,14 +66,6 @@ export interface LocationPageTemplateProps {
   mapEmbedUrl?: string;
   comparisonRows?: Array<{ feature: string; ours: string }>;
 
-  // Pricing
-  pricing?: {
-    repair?: string;
-    spring?: string;
-    opener?: string;
-    cable?: string;
-    installation?: string;
-  };
 }
 
 const PHONE     = BUSINESS_INFO.phone;
@@ -96,7 +88,7 @@ const DEFAULT_ADVANTAGES: LocationAdvantage[] = [
 ];
 
 const DEFAULT_COMPARISON: Array<{ feature: string; ours: string }> = [
-  { feature: 'Response Time',    ours: '60–90 min' },
+  { feature: 'Response Time',    ours: 'Fast Dispatch' },
   { feature: 'Same-Day Service', ours: 'Available' },
   { feature: '24/7 Emergency',   ours: 'Yes' },
   { feature: 'Upfront Pricing',  ours: 'Always' },
@@ -147,16 +139,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
     advantages = DEFAULT_ADVANTAGES,
     mapEmbedUrl,
     comparisonRows = DEFAULT_COMPARISON,
-    pricing = {},
   } = props;
-
-  const {
-    repair       = '$150–$350',
-    spring       = '$175–$350',
-    opener       = '$150–$350',
-    cable        = '$100–$250',
-    installation = 'from $800',
-  } = pricing;
 
   const city  = cityName;
   const state = stateCode;
@@ -321,36 +304,6 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ── PRICING ───────────────────────────────────────────────── */}
-      <section className="py-16 bg-blue-950 text-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold mb-3">Transparent Pricing in {city}</h2>
-            <p className="text-blue-200 max-w-xl mx-auto">
-              You get the exact price before we start. These are real ranges — not bait-and-switch numbers.
-            </p>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
-            {[
-              { label: 'Repair',        price: repair,       icon: 'ri-tools-fill' },
-              { label: 'Spring',        price: spring,       icon: 'ri-settings-4-line' },
-              { label: 'Opener',        price: opener,       icon: 'ri-remote-control-line' },
-              { label: 'Cables',        price: cable,        icon: 'ri-links-line' },
-              { label: 'New Door',      price: installation, icon: 'ri-door-open-line' },
-            ].map((item) => (
-              <div key={item.label} className="bg-blue-900 rounded-2xl p-5 text-center border border-blue-800">
-                <i className={`${item.icon} text-3xl text-orange-400 mb-2 block`} aria-hidden="true" />
-                <div className="text-lg font-bold text-white mb-1">{item.price}</div>
-                <div className="text-blue-300 text-sm">{item.label}</div>
-              </div>
-            ))}
-          </div>
-          <p className="text-center text-blue-300 text-sm mt-6">
-            Free estimates · No service call fee · Exact quote before any work begins
-          </p>
         </div>
       </section>
 

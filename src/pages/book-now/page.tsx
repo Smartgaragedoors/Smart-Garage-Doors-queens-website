@@ -84,7 +84,7 @@ export default function BookNowPage() {
               Fast, reliable service across NY, NJ, and CT.
             </p>
             <p className="text-lg md:text-xl mb-4 max-w-3xl mx-auto text-blue-100 font-semibold">
-              5.0★ (392 Google Reviews) • Same-day slots available • Technician arrives in 60 min or less
+              5.0★ (479 Google Reviews) • Same-day slots available
             </p>
             <p className="text-base md:text-lg mb-8 max-w-3xl mx-auto text-blue-200">
               Spring replacement, opener repair, cable & roller, new installation, emergency service, and more.

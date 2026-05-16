@@ -201,7 +201,7 @@ export default function ChatWidget() {
         {/* ── FAB button ── */}
         <button
           onClick={() => setIsOpen(v => !v)}
-          className="relative w-14 h-14 rounded-full bg-orange-500 hover:bg-orange-600 active:scale-95 shadow-lg flex items-center justify-center transition-all"
+          className="relative w-14 h-14 rounded-full bg-orange-500 hover:bg-orange-600 active:scale-95 shadow-lg flex items-center justify-center transition-all overflow-visible"
           aria-label={isOpen ? 'Close chat' : 'Open chat'}
         >
           <i
@@ -209,7 +209,7 @@ export default function ChatWidget() {
             aria-hidden="true"
           />
           {!isOpen && hasUnread && (
-            <span className="absolute top-0 right-0 w-3.5 h-3.5 bg-red-500 rounded-full border-2 border-white" />
+            <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full border-2 border-white" />
           )}
         </button>
       </div>
