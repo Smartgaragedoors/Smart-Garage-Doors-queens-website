@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "npm run generate-sitemap && vite build",
+    "prerender": "node scripts/prerender.mjs",
+    "build:seo": "npm run build && npm run prerender",
     "preview": "vite preview",
     "deploy": "BASE_PATH=/Smart-Garage-Doors-queens-website/ npm run build && gh-pages -d out",
     "optimize-hero": "node scripts/optimize-hero-image.js",
@@ -33,6 +35,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.30.1",
+    "@sparticuz/chromium": "^149.0.0",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react-swc": "^3.10.2",
@@ -44,6 +47,7 @@
     "globals": "^16.3.0",
     "postcss": "^8.5.6",
     "puppeteer": "^24.43.0",
+    "puppeteer-core": "^25.1.0",
     "sharp": "^0.34.5",
     "source-map": "^0.7.6",
     "tailwindcss": "^3.4.17",
