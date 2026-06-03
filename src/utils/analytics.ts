@@ -35,6 +35,7 @@ function shouldTrack(): boolean {
 
 export interface AttributionData {
   landing_page: string;
+  source_url: string;
   referrer: string;
   utm_source: string;
   utm_medium: string;
@@ -42,6 +43,7 @@ export interface AttributionData {
   utm_term: string;
   utm_content: string;
   gclid: string;
+  fbclid: string;
   device_type: 'mobile' | 'tablet' | 'desktop';
   captured_at: string;
 }
@@ -64,6 +66,7 @@ export function captureAttribution(): void {
   const params = new URLSearchParams(window.location.search);
   const data: AttributionData = {
     landing_page: window.location.pathname + window.location.search,
+    source_url: window.location.href,
     referrer: document.referrer || '',
     utm_source: params.get('utm_source') || '',
     utm_medium: params.get('utm_medium') || '',
@@ -71,6 +74,7 @@ export function captureAttribution(): void {
     utm_term: params.get('utm_term') || '',
     utm_content: params.get('utm_content') || '',
     gclid: params.get('gclid') || '',
+    fbclid: params.get('fbclid') || '',
     device_type: detectDeviceType(),
     captured_at: new Date().toISOString(),
   };
@@ -165,15 +169,35 @@ export const trackEvent = (
 
 export const trackPhoneClick = (phoneNumber: string, source?: string) => {
   const attr = getAttribution();
-  trackEvent('phone_click', {
+  trackEvent('call_click', {
     category: 'Contact',
     label: phoneNumber,
     value: 1,
     source: source || 'unknown',
     landing_page: attr?.landing_page || '',
+    source_url: attr?.source_url || '',
     utm_source: attr?.utm_source || '',
     utm_medium: attr?.utm_medium || '',
     utm_campaign: attr?.utm_campaign || '',
+    gclid: attr?.gclid || '',
+    fbclid: attr?.fbclid || '',
+    device_type: attr?.device_type || '',
+  });
+};
+
+export const trackFormStart = (formName: string, source?: string) => {
+  const attr = getAttribution();
+  trackEvent('form_start', {
+    category: 'Lead Generation',
+    label: formName,
+    value: 1,
+    source: source || formName,
+    landing_page: attr?.landing_page || '',
+    source_url: attr?.source_url || '',
+    utm_source: attr?.utm_source || '',
+    utm_campaign: attr?.utm_campaign || '',
+    gclid: attr?.gclid || '',
+    fbclid: attr?.fbclid || '',
     device_type: attr?.device_type || '',
   });
 };
@@ -186,11 +210,13 @@ export const trackFormSubmit = (formName: string, formType: string) => {
     value: 1,
     form_type: formType,
     landing_page: attr?.landing_page || '',
+    source_url: attr?.source_url || '',
     referrer: attr?.referrer || '',
     utm_source: attr?.utm_source || '',
     utm_medium: attr?.utm_medium || '',
     utm_campaign: attr?.utm_campaign || '',
     gclid: attr?.gclid || '',
+    fbclid: attr?.fbclid || '',
     device_type: attr?.device_type || '',
   });
 };
@@ -208,10 +234,15 @@ export const trackWhatsAppClick = (source?: string) => {
 };
 
 export const trackBookNowClick = (source?: string) => {
-  trackEvent('book_now_click', {
+  const attr = getAttribution();
+  trackEvent('book_click', {
     category: 'Lead Generation',
     label: source || 'unknown',
     value: 1,
+    source_url: attr?.source_url || '',
+    gclid: attr?.gclid || '',
+    fbclid: attr?.fbclid || '',
+    device_type: attr?.device_type || '',
   });
 };
 

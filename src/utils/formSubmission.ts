@@ -169,12 +169,15 @@ export async function submitForm(
     data = {
       ...data,
       landing_page: attr.landing_page,
+      source_url: attr.source_url || undefined,
       referrer: attr.referrer || undefined,
       utm_source: attr.utm_source || undefined,
       utm_medium: attr.utm_medium || undefined,
       utm_campaign: attr.utm_campaign || undefined,
       utm_term: attr.utm_term || undefined,
+      utm_content: attr.utm_content || undefined,
       gclid: attr.gclid || undefined,
+      fbclid: attr.fbclid || undefined,
       device_type: attr.device_type,
     };
   }

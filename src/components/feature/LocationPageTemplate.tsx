@@ -8,6 +8,7 @@ import ServiceLinks from '../seo/ServiceLinks';
 import NearbyAreasSection from '../seo/NearbyAreasSection';
 import { buildCanonical } from '../../config/canonical';
 import { BUSINESS_INFO } from '../../config/business-info';
+import { trackPhoneClick, trackBookNowClick } from '../../utils/analytics';
 
 export interface LocationNeighborhood {
   name: string;
@@ -181,6 +182,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href={`tel:${PHONE_TEL}`}
+                onClick={() => trackPhoneClick(PHONE, `location_hero_${cityName}`)}
                 className="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-colors shadow-lg"
               >
                 <i className="ri-phone-fill" aria-hidden="true" />
@@ -188,6 +190,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
               </a>
               <a
                 href="/book-now/"
+                onClick={() => trackBookNowClick(`location_hero_${cityName}`)}
                 className="inline-flex items-center justify-center gap-2 bg-white text-blue-900 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors shadow-lg"
               >
                 <i className="ri-calendar-line" aria-hidden="true" />
@@ -448,6 +451,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href={`tel:${PHONE_TEL}`}
+              onClick={() => trackPhoneClick(PHONE, `location_final_${cityName}`)}
               className="inline-flex items-center justify-center gap-2 bg-white text-orange-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-50 transition-colors shadow-lg"
             >
               <i className="ri-phone-fill" aria-hidden="true" />
@@ -455,6 +459,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
             </a>
             <a
               href="/book-now/"
+              onClick={() => trackBookNowClick(`location_final_${cityName}`)}
               className="inline-flex items-center justify-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-colors shadow-lg border border-orange-400"
             >
               <i className="ri-calendar-line" aria-hidden="true" />

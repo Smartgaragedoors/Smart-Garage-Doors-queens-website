@@ -1,4 +1,4 @@
-import { trackPhoneClick, trackWhatsAppClick } from '../../utils/analytics';
+import { trackPhoneClick, trackWhatsAppClick, trackBookNowClick } from '../../utils/analytics';
 import { getWhatsAppHref } from '../../utils/whatsapp';
 
 export default function MobileStickyCTA() {
@@ -33,6 +33,7 @@ export default function MobileStickyCTA() {
         </a>
         <a
           href="/book-now/"
+          onClick={() => trackBookNowClick('mobile_sticky_cta')}
           className="flex-1 flex items-center justify-center gap-1.5 bg-blue-900 hover:bg-blue-800 active:bg-blue-950 text-white font-bold py-2.5 transition-colors"
           aria-label="Book garage door service online"
         >
