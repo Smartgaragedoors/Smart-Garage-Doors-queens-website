@@ -5,7 +5,7 @@
       "schedule": "0 13 * * 1"
     }
   ],
-  "buildCommand": "BASE_PATH=/ npm run build",
+  "buildCommand": "BASE_PATH=/ npm run build:seo",
   "outputDirectory": "out",
   "framework": "vite",
   "installCommand": "npm ci",
