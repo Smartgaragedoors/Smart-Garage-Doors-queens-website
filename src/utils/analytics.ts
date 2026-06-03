@@ -25,8 +25,25 @@ function isAllowedOrigin(): boolean {
   return true;
 }
 
+// DebugView bypass: visiting any URL with ?ga_debug=1 enables analytics with
+// debug_mode on, even on preview/localhost. Lets us validate events in GA4
+// DebugView on a preview deployment without enabling real tracking for normal
+// preview visitors. Persisted for the session so SPA navigation keeps it.
+export function isDebugMode(): boolean {
+  if (typeof window === 'undefined') return false;
+  try {
+    if (new URLSearchParams(window.location.search).get('ga_debug') === '1') {
+      sessionStorage.setItem('ga_debug', '1');
+    }
+    return sessionStorage.getItem('ga_debug') === '1';
+  } catch {
+    return false;
+  }
+}
+
 function shouldTrack(): boolean {
-  return !!GA_MEASUREMENT_ID && ANALYTICS_ENABLED && isAllowedOrigin();
+  if (!GA_MEASUREMENT_ID || !ANALYTICS_ENABLED) return false;
+  return isAllowedOrigin() || isDebugMode();
 }
 
 // ─── Attribution ─────────────────────────────────────────────────────────────
@@ -138,6 +155,7 @@ export const initAnalytics = () => {
     allow_google_signals: false,
     allow_ad_personalization_signals: false,
     cookie_flags: 'SameSite=None;Secure',
+    debug_mode: isDebugMode(),
   });
 };
 
