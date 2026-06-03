@@ -15,7 +15,6 @@
  * SAFETY: Purely additive. If this step fails, the original SPA build in out/
  * is still fully functional — we simply fall back to today's behavior.
  */
-import puppeteer from 'puppeteer';
 import http from 'node:http';
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
@@ -46,6 +45,27 @@ const BLOCK = [
   'cdn.jsdelivr.net', 'cdnjs.cloudflare.com', 'fonts.googleapis.com',
   'fonts.gstatic.com', 'fonts.bunny.net', 'youtube.com', 'youtube-nocookie.com',
 ];
+
+// Launch a headless browser. Locally we use the full `puppeteer` package (its
+// bundled Chromium). In CI/Vercel builds the build container lacks Chrome's
+// system libraries (libnspr4 etc.), so we use `@sparticuz/chromium`, which
+// bundles a Chromium + the required shared libs, driven by `puppeteer-core`.
+async function launchBrowser() {
+  if (process.env.VERCEL || process.env.CI) {
+    const chromium = (await import('@sparticuz/chromium')).default;
+    const puppeteer = (await import('puppeteer-core')).default;
+    return puppeteer.launch({
+      args: chromium.args,
+      executablePath: await chromium.executablePath(),
+      headless: true,
+    });
+  }
+  const puppeteer = (await import('puppeteer')).default;
+  return puppeteer.launch({
+    headless: true,
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+  });
+}
 
 function getRoutes(sitemapXml) {
   const locs = [...sitemapXml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
@@ -92,10 +112,7 @@ async function main() {
   });
   await new Promise((r) => server.listen(PORT, r));
 
-  const browser = await puppeteer.launch({
-    headless: true,
-    args: ['--no-sandbox', '--disable-setuid-sandbox'],
-  });
+  const browser = await launchBrowser();
 
   let ok = 0, fail = 0;
   for (const route of routes) {
