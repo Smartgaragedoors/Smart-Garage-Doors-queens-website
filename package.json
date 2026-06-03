@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "npm run generate-sitemap && vite build",
     "prerender": "node scripts/prerender.mjs",
-    "build:seo": "npm run build && npm run prerender",
+    "build:seo": "npm run build && npx puppeteer browsers install chrome && npm run prerender",
     "preview": "vite preview",
     "deploy": "BASE_PATH=/Smart-Garage-Doors-queens-website/ npm run build && gh-pages -d out",
     "optimize-hero": "node scripts/optimize-hero-image.js",

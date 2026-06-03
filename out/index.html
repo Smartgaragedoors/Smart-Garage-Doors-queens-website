@@ -10,6 +10,11 @@
       gtag('config', 'AW-17709307308');
     </script>
     
+    <!-- Meta Pixel Code -->
+    <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js'); fbq('init', '1451447012973445'); fbq('track', 'PageView');</script>
+    <noscript><img height="1" width="1" src="https://www.facebook.com/tr?id=1451447012973445&ev=PageView&noscript=1"/></noscript>
+    <!-- End Meta Pixel Code -->
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#f97316" />
@@ -27,7 +32,6 @@
     <link rel="dns-prefetch" href="https://maps.googleapis.com" />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://widgets.sociablekit.com" />
-    <link rel="dns-prefetch" href="https://widgets.leadconnectorhq.com" />
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     
     <!-- Favicon -->
@@ -38,10 +42,10 @@
     <title>24/7 Garage Door Repair | Installation | Same-Day</title>
     <meta name="description" content="Garage door stuck, broken spring, or opener not working? Smartest Garage Doors delivers same-day repair, professional installation, and trusted service homeowners rely on. Serving NY & CT. Fast response, fair pricing, satisfaction guaranteed." />
     <meta name="keywords" content="garage door opener repair, chain drive, belt drive, wall mount torsion, NY, NJ, CT" />
+    <meta name="robots" content="index, follow" />
     <meta name="geo.region" content="US-NY" />
     <meta name="geo.placename" content="New York" />
     <meta name="geo.position" content="40.7128;-74.0060" />
-    <link rel="canonical" href="https://www.smartestgaragedoors.com/" />
     
     <!-- Open Graph -->
     <meta property="og:title" content="24/7 Garage Door Repair | Installation | Same-Day" />
@@ -176,62 +180,18 @@
       fetchpriority="high"
     />
     
-    <!-- Push LeadConnector chat widget above mobile sticky CTA bar (~72px tall) -->
-    <style>
-      @media (max-width: 1023px) {
-        /* Target all known LeadConnector widget container selectors */
-        #chat-widget-container,
-        .lc-chat-widget-container,
-        [data-widget-id="68f91895be3485765c10fbd3"],
-        iframe[src*="leadconnectorhq.com"],
-        div[class*="chat-widget"] {
-          bottom: 80px !important;
-        }
-      }
-    </style>
-
-    <!-- LeadConnector Chat Widget (lazy load on first interaction or idle) -->
-    <script>
-      (function() {
-        var loaded = false;
-        function loadChat() {
-          if (loaded) return;
-          loaded = true;
-          var s = document.createElement('script');
-          s.src = 'https://widgets.leadconnectorhq.com/loader.js';
-          s.async = true;
-          s.defer = true;
-          s.dataset.resourcesUrl = 'https://widgets.leadconnectorhq.com/chat-widget/loader.js';
-          s.dataset.widgetId = '68f91895be3485765c10fbd3';
-          document.head.appendChild(s);
-        }
-        function trigger() {
-          loadChat();
-          window.removeEventListener('click', trigger);
-          window.removeEventListener('touchstart', trigger);
-          window.removeEventListener('keydown', trigger);
-        }
-        window.addEventListener('click', trigger, { once: true, passive: true });
-        window.addEventListener('touchstart', trigger, { once: true, passive: true });
-        window.addEventListener('keydown', trigger, { once: true });
-        if ('requestIdleCallback' in window) {
-          requestIdleCallback(loadChat, { timeout: 10000 });
-        } else {
-          setTimeout(loadChat, 10000);
-        }
-      })();
-    </script>
-    <script type="module" crossorigin src="/assets/js/index-Ct53-Ehr.js"></script>
+    <!-- Chat widget rendered by React (ChatWidget.tsx) — no external script needed -->
+    <script type="module" crossorigin src="/assets/js/index-Ey1JOmDx.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/js/vendor-Bv-Em8ol.js">
-    <link rel="modulepreload" crossorigin href="/assets/js/react-core-zAegJ4f5.js">
+    <link rel="modulepreload" crossorigin href="/assets/js/react-core-Bn-dWVP4.js">
     <link rel="modulepreload" crossorigin href="/assets/js/i18n-vendor-WQh-luxc.js">
-    <link rel="modulepreload" crossorigin href="/assets/js/page-contact-ChSckBzz.js">
-    <link rel="modulepreload" crossorigin href="/assets/js/page-reviews-DyaOZTc0.js">
-    <link rel="modulepreload" crossorigin href="/assets/js/page-lp-B9ydaBWA.js">
+    <link rel="modulepreload" crossorigin href="/assets/js/page-contact-CsTUzPpA.js">
+    <link rel="modulepreload" crossorigin href="/assets/js/page-reviews-BKWfTQXj.js">
+    <link rel="modulepreload" crossorigin href="/assets/js/page-lp-ByTSF_B8.js">
     <link rel="modulepreload" crossorigin href="/assets/js/analytics-vendor-DXd_nf2u.js">
-    <link rel="stylesheet" crossorigin href="/assets/css/index-CjmzPyCv.css">
+    <link rel="stylesheet" crossorigin href="/assets/css/index-qSzAs7KO.css">
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"></div>
   </body>
 </html>
