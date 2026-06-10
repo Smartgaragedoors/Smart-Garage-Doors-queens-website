@@ -15,6 +15,13 @@ const WEB3FORMS_ACCESS_KEY = (import.meta.env.VITE_WEB3FORMS_ACCESS_KEY ?? '').t
 const FORMSPREE_FORM_ID = (import.meta.env.VITE_FORMSPREE_FORM_ID ?? '').trim();
 const SITE_URL = (import.meta.env.VITE_SITE_URL ?? 'https://www.smartestgaragedoors.com').trim();
 
+// CRM lead intake — same endpoint the embeddable lead widget uses. Every form
+// submission is mirrored here so it lands in the CRM under the Website platform.
+const CRM_LEAD_WEBHOOK_URL = (
+  import.meta.env.VITE_CRM_LEAD_WEBHOOK_URL ??
+  'https://crm.smartestgaragedoors.com/api/webhooks/website/lead'
+).trim();
+
 export interface FormSubmissionResult {
   success: boolean;
   message?: string;
@@ -157,6 +164,52 @@ function submitFormMailto(
 }
 
 /**
+ * Mirror the lead into the CRM (fire-and-forget). The CRM webhook parses the
+ * flat fields below (see CRM api/lib/leadIntake.ts parseFlat) and files the job
+ * under the "Website" lead platform. Failures never block the visitor's form.
+ */
+function sendLeadToCRM(
+  data: Record<string, string | number | undefined>,
+  formName?: string
+): void {
+  if (!CRM_LEAD_WEBHOOK_URL) return;
+  try {
+    const str = (v: unknown) => (v === undefined || v === null ? '' : String(v).trim());
+    const notesParts = [
+      str(data.message) || str(data.description),
+      str(data.urgency) ? `Urgency: ${str(data.urgency)}` : '',
+      str(data.preferredDate) ? `Preferred date: ${str(data.preferredDate)}` : '',
+      str(data.preferredTime) ? `Preferred time: ${str(data.preferredTime)}` : '',
+      formName ? `Form: ${formName}` : '',
+    ].filter(Boolean);
+
+    const payload: Record<string, string> = {
+      customer_name: str(data.name),
+      phone:         str(data.phone),
+      email:         str(data.email),
+      address:       str(data.address),
+      service:       str(data.serviceType) || str(data.service),
+      notes:         notesParts.join('\n') || 'Website Lead',
+      source_url:    str(data.source_url) || (typeof window !== 'undefined' ? window.location.href : ''),
+    };
+    const campaign = str(data.utm_campaign);
+    if (campaign) payload.campaign = campaign;
+
+    // keepalive so the request survives the redirect to /thank-you/
+    fetch(CRM_LEAD_WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+      keepalive: true,
+    }).catch((err) => {
+      if (import.meta.env.DEV) console.warn('[formSubmission] CRM mirror failed:', err);
+    });
+  } catch (err) {
+    if (import.meta.env.DEV) console.warn('[formSubmission] CRM mirror error:', err);
+  }
+}
+
+/**
  * Submit form data. Tries Web3Forms / Formspree first (simplest), then Resend API, then mailto.
  */
 export async function submitForm(
@@ -181,6 +234,10 @@ export async function submitForm(
       device_type: attr.device_type,
     };
   }
+
+  // Mirror every lead into the CRM (Website platform) — non-blocking
+  sendLeadToCRM(data, formName);
+
   // 1. Web3Forms (simplest: one key, no backend – add VITE_WEB3FORMS_ACCESS_KEY to .env)
   if (WEB3FORMS_ACCESS_KEY) {
     try {
