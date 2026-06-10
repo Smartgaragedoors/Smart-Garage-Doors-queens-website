@@ -169,10 +169,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       'content-type':      'application/json',
     },
     body: JSON.stringify({
-      model:      'claude-haiku-4-5-20251001',
-      max_tokens: 400,
-      system:     SYSTEM,
-      messages:   trimmed,
+      // Sonnet 4.6: much smarter diagnosis + more natural conversation than
+      // Haiku. effort:low + thinking disabled keep it snappy and cost-efficient
+      // for a fast, text-message-style chat (no slow "thinking" pauses).
+      model:         'claude-sonnet-4-6',
+      max_tokens:    400,
+      system:        SYSTEM,
+      messages:      trimmed,
+      thinking:      { type: 'disabled' },
+      output_config: { effort: 'low' },
     }),
   });
 
