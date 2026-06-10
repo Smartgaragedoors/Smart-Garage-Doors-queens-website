@@ -1,6 +1,7 @@
 import { memo, useMemo } from 'react';
 import OrganizationSchema from '../seo/OrganizationSchema';
 import { useLocation } from 'react-router-dom';
+import { BUSINESS_INFO } from '../../config/business-info';
 
 function Footer() {
   const routerLocation = useLocation();
@@ -8,7 +9,7 @@ function Footer() {
   const serviceAreas = useMemo(() => [
     { name: 'Queens', href: '/queens-ny/' },
     { name: 'Brooklyn', href: '/brooklyn-ny/' },
-    { name: 'Flushing', href: '/flushing-ny/' },
+    { name: 'Staten Island', href: '/staten-island-ny/' },
     { name: 'Long Island', href: '/long-island-ny/' },
     { name: 'Westchester County', href: '/westchester-county-ny/' },
     { name: 'Bergen County', href: '/bergen-county-nj/' }
@@ -89,7 +90,7 @@ function Footer() {
             <div className="space-y-3">
               <div className="flex items-center space-x-2">
                 <i className="ri-phone-fill text-orange-500" aria-hidden="true"></i>
-                <a href="tel:(914) 557-6816" className="text-gray-200 hover:text-orange-400 transition-colors">
+                <a href="tel:+19145576816" className="text-gray-200 hover:text-orange-400 transition-colors">
                   (914) 557-6816
                 </a>
               </div>
@@ -107,9 +108,12 @@ function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-blue-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <div className="text-gray-200 text-sm mb-4 md:mb-0">
-            © 2024 Smart Garage Doors. All rights reserved.
+        <div className="border-t border-blue-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-3">
+          <div className="text-gray-200 text-sm">
+            © {new Date().getFullYear()} Smart Garage Doors. All rights reserved.
+          </div>
+          <div className="text-gray-300 text-xs text-center md:text-right">
+            {BUSINESS_INFO.licenses.map((l) => l.label).join(' · ')} · Fully Insured
           </div>
         </div>
       </div>

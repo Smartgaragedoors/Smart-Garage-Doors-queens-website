@@ -1,5 +1,7 @@
 // Trust badge row shown right above form submit buttons — risk-reversal at the
 // moment of highest hesitation.
+import { BUSINESS_INFO } from '../../config/business-info';
+
 export default function FormTrustBadges() {
   return (
     <div className="mt-6 mb-2">
@@ -19,6 +21,9 @@ export default function FormTrustBadges() {
       </div>
       <p className="text-center text-xs text-gray-500 mt-2">
         No obligation — we confirm the price with you before any work starts.
+      </p>
+      <p className="text-center text-xs text-gray-400 mt-1">
+        {BUSINESS_INFO.licenses.map((l) => l.label).join(' · ')}
       </p>
     </div>
   );

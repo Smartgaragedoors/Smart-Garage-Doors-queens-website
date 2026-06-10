@@ -70,6 +70,9 @@ function CoverageStrip() {
           <i className="ri-phone-fill" aria-hidden="true" />
           Call (914) 557-6816 — We Answer 24/7
         </a>
+        <p className="text-sm text-gray-500 mt-3">
+          A real person answers — usually in under 30 seconds.
+        </p>
       </div>
     </section>
   );

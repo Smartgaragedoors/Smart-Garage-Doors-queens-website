@@ -10,6 +10,8 @@ import NearbyAreasSection from '../seo/NearbyAreasSection';
 import { buildCanonical } from '../../config/canonical';
 import { BUSINESS_INFO } from '../../config/business-info';
 import { getGuidesForLocation } from '../../data/locationBlogMap';
+import { getTechForLocation } from '../../data/techByLocation';
+import RecentWork from './RecentWork';
 import { trackPhoneClick, trackBookNowClick } from '../../utils/analytics';
 
 export interface LocationNeighborhood {
@@ -338,6 +340,54 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
         </div>
       </section>
 
+      {/* ── MEET YOUR TECHNICIAN ──────────────────────────────────── */}
+      {(() => {
+        const tech = getTechForLocation(slug);
+        if (!tech) return null;
+        return (
+          <section className="py-16 bg-blue-900 text-white">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex flex-col md:flex-row items-center gap-8">
+                {tech.photo ? (
+                  <img
+                    src={tech.photo}
+                    alt={tech.photoAlt || `${tech.name}, Smart Garage Doors technician`}
+                    className="w-40 h-40 rounded-2xl object-cover shadow-lg flex-shrink-0"
+                    width={160}
+                    height={160}
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="w-40 h-40 rounded-2xl bg-orange-500 flex items-center justify-center text-white text-6xl font-bold shadow-lg flex-shrink-0" aria-hidden="true">
+                    {tech.initials}
+                  </div>
+                )}
+                <div className="text-center md:text-left">
+                  <p className="text-orange-400 font-semibold text-sm uppercase tracking-wide mb-1">
+                    Your {city} Technician
+                  </p>
+                  <h2 className="text-3xl font-bold mb-3">
+                    Meet {tech.name} — based in {tech.hub}
+                  </h2>
+                  <p className="text-blue-100 leading-relaxed mb-5">{tech.blurb}</p>
+                  <a
+                    href={`tel:${PHONE_TEL}`}
+                    onClick={() => trackPhoneClick(PHONE, `location_tech_${cityName}`)}
+                    className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-xl font-bold transition-colors"
+                  >
+                    <i className="ri-phone-fill" aria-hidden="true" />
+                    Call {tech.name}'s dispatch — {PHONE}
+                  </a>
+                  <p className="text-blue-200 text-sm mt-3">
+                    A real person answers — usually in under 30 seconds.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+        );
+      })()}
+
       {/* ── NEIGHBORHOODS ─────────────────────────────────────────── */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -402,6 +452,9 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
           </div>
         </div>
       </section>
+
+      {/* ── RECENT JOBS (real photos — visual proof) ──────────────── */}
+      <RecentWork />
 
       {/* ── WHY CHOOSE US ─────────────────────────────────────────── */}
       <section className="py-16 bg-gray-50">

@@ -55,6 +55,10 @@ export const BUSINESS_INFO = {
     saturday: { opens: "00:00", closes: "23:59" },
     sunday: { opens: "00:00", closes: "23:59" },
   },
+  licenses: [
+    { region: "NY", label: "NYC DCWP License #2130164-DCWP" },
+    { region: "CT", label: "CT HIC Registration #HIC.0704479" },
+  ],
   priceRange: "$$",
   currenciesAccepted: "USD",
   paymentAccepted: ["Cash", "Credit Card", "Debit Card", "Bank Transfer", "Check"],
