@@ -1,29 +1,6 @@
-import { useEffect } from 'react';
-import { buildCanonical } from '../../../config/canonical';
 import LocationPageTemplate from '../../../components/feature/LocationPageTemplate';
 
 export default function LocationPage() {
-  useEffect(() => {
-    const s = document.createElement('script');
-    s.type = 'application/ld+json';
-    s.text = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'LocalBusiness',
-      name: 'Smart Garage Doors - New Canaan CT',
-      url: buildCanonical('/new-canaan-ct'),
-      telephone: '(914) 557-6816',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'New Canaan',
-        addressRegion: 'CT',
-        addressCountry: 'US',
-      },
-      geo: { '@type': 'GeoCoordinates', latitude: '41.1468', longitude: '-73.4950' },
-      aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '475' },
-    });
-    document.head.appendChild(s);
-    return () => { if (document.head.contains(s)) document.head.removeChild(s); };
-  }, []);
 
   return (
     <LocationPageTemplate
@@ -34,7 +11,7 @@ export default function LocationPage() {
       cityName="New Canaan"
       stateCode="CT"
       stateName="Connecticut"
-      reviewCount={475}
+      geo={{ latitude: '41.1468', longitude: '-73.4950' }}
       heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero"
       neighborhoods={[{"name":"New Canaan Center","description":"The charming village center with beautiful homes nearby. We service the full range of residential garage doors throughout the center area."},{"name":"Oenoke Ridge & Country Club Road","description":"New Canaan's most prestigious addresses. Custom garage doors are standard here — we install and service them all."},{"name":"Silver Hill & Ponus Ridge","description":"Larger homes on private lots in northern New Canaan. Estate-style properties with premium door systems."},{"name":"Weed Street & Pine Road area","description":"Classic New Canaan neighborhood feel. Colonial homes with traditional garage door styles."},{"name":"Stamford border areas","description":"Southern New Canaan near the Stamford line. We cover these areas on our Fairfield County routes."},{"name":"Wilton border area","description":"Northern New Canaan's quieter residential sections. We serve these homes on our regular Connecticut routes."}]}
       reviews={[{"text":"New custom door in New Canaan. They matched the door perfectly to our colonial home. Installation was flawless. These are professionals who take pride in their work.","author":"Catherine S.","location":"New Canaan, CT","initials":"CS","color":"bg-blue-600"},{"text":"Spring snapped in New Canaan Center. Called, they came the same afternoon, replaced both springs, and the price was very fair.","author":"Andrew L.","location":"New Canaan, CT","initials":"AL","color":"bg-orange-500"},{"text":"Opener upgrade in Ponus Ridge. Switched to a WiFi-enabled LiftMaster — tech was thorough and the setup was seamless. Very satisfied.","author":"Victoria H.","location":"Ponus Ridge, New Canaan","initials":"VH","color":"bg-green-600"}]}

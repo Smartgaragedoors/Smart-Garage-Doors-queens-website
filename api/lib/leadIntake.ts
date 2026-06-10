@@ -8,7 +8,10 @@ export const PLATFORM_CONFIG: Record<LeadSource, { label: string; code: string; 
   angi:        { label: 'Angies',      code: 'ANGI',    value: 'angies'      },
   networx:     { label: 'Networx',     code: 'NX',      value: 'networx'     },
   website:     { label: 'Website',     code: 'WEB',     value: 'website'     },
-  website_bot: { label: 'Website Bot', code: 'WEB_BOT', value: 'website_bot' },
+  // Chat-widget leads file under the same "Website" CRM platform — the CRM's
+  // lead_platforms table has no website_bot row, so a distinct value would
+  // leave lead_platform_id null. The notification email still says "Website Bot".
+  website_bot: { label: 'Website Bot', code: 'WEB_BOT', value: 'website'     },
 };
 
 export interface NormalizedLead {

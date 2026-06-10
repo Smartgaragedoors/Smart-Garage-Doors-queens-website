@@ -55,6 +55,10 @@ const NorwalkCTPage = lazy(() => import('../pages/service-areas/norwalk-ct/page'
 const EdisonNJPage = lazy(() => import('../pages/service-areas/edison-nj/page').then(module => ({ default: module.default })));
 const JacksonNJPage = lazy(() => import('../pages/service-areas/jackson-nj/page').then(module => ({ default: module.default })));
 
+// Competitor comparison pages
+const VsPrecisionGarageDoorPage = lazy(() => import('../pages/vs-precision-garage-door/page').then(module => ({ default: module.default })));
+const VsOverheadDoorPage = lazy(() => import('../pages/vs-overhead-door/page').then(module => ({ default: module.default })));
+
 const routes: RouteObject[] = [
   {
     path: '/',
@@ -251,6 +255,16 @@ const routes: RouteObject[] = [
   {
     path: '/jackson-nj/',
     element: <JacksonNJPage />
+  },
+
+  // Competitor comparison pages
+  {
+    path: '/vs-precision-garage-door/',
+    element: <VsPrecisionGarageDoorPage />
+  },
+  {
+    path: '/vs-overhead-door/',
+    element: <VsOverheadDoorPage />
   },
   // Legacy routes - redirect to new format (keep for SEO)
   { path: '/garage-door-replacement/', element: <Navigate to="/garage-door-installation/" replace /> },

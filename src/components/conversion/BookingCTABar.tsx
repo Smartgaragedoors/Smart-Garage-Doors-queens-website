@@ -1,4 +1,5 @@
-import { trackPhoneClick } from '../../utils/analytics';
+import { trackPhoneClick, trackBookNowClick } from '../../utils/analytics';
+import { BUSINESS_INFO } from '../../config/business-info';
 
 interface BookingCTABarProps {
   title?: string;
@@ -25,13 +26,14 @@ export default function BookingCTABar({
               <p className="text-blue-100 text-sm md:text-base">{subtitle}</p>
             ) : (
               <p className="text-blue-100 text-sm md:text-base">
-                Fast local response, upfront quotes, licensed and insured service, and 475 Google reviews.
+                Fast local response, upfront quotes, licensed and insured service, and {BUSINESS_INFO.aggregateRating.reviewCount} Google reviews.
               </p>
             )}
           </div>
           <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
             <a
               href="/book-now/"
+              onClick={() => trackBookNowClick('booking_cta_bar')}
               className="inline-flex items-center justify-center gap-2 bg-white text-blue-900 hover:bg-gray-100 font-semibold py-3 px-6 rounded-lg transition-colors whitespace-nowrap"
               aria-label="Book garage door service online"
             >

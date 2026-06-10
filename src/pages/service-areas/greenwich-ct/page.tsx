@@ -1,29 +1,6 @@
-import { useEffect } from 'react';
-import { buildCanonical } from '../../../config/canonical';
 import LocationPageTemplate from '../../../components/feature/LocationPageTemplate';
 
 export default function LocationPage() {
-  useEffect(() => {
-    const s = document.createElement('script');
-    s.type = 'application/ld+json';
-    s.text = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'LocalBusiness',
-      name: 'Smart Garage Doors - Greenwich CT',
-      url: buildCanonical('/greenwich-ct'),
-      telephone: '(914) 557-6816',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Greenwich',
-        addressRegion: 'CT',
-        addressCountry: 'US',
-      },
-      geo: { '@type': 'GeoCoordinates', latitude: '41.0262', longitude: '-73.6282' },
-      aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '475' },
-    });
-    document.head.appendChild(s);
-    return () => { if (document.head.contains(s)) document.head.removeChild(s); };
-  }, []);
 
   return (
     <LocationPageTemplate
@@ -34,7 +11,7 @@ export default function LocationPage() {
       cityName="Greenwich"
       stateCode="CT"
       stateName="Connecticut"
-      reviewCount={475}
+      geo={{ latitude: '41.0262', longitude: '-73.6282' }}
       heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero"
       neighborhoods={[{"name":"Greenwich Village & Tod's Point","description":"The historic downtown and waterfront. Upscale properties with premium garage doors. We know how to work in high-end environments."},{"name":"Backcountry & North Mianus","description":"Rural-feeling northern Greenwich with estate properties and large custom homes. Premium installs are the norm here."},{"name":"Cos Cob & Riverside","description":"Mid-Greenwich communities with beautiful homes. We have many repeat customers in both neighborhoods."},{"name":"Old Greenwich & Sound Beach","description":"Coastal communities in east Greenwich. Salt-resistant hardware is important here — we stock it."},{"name":"Byram & Glenville","description":"Western Greenwich communities near the NY border. We can reach these areas very quickly from our Westchester routes."},{"name":"Belle Haven & Field Point","description":"Some of Connecticut's most prestigious addresses. We work discreetly and professionally in these environments."}]}
       reviews={[{"text":"New custom garage door in Backcountry. They understood exactly what the house needed, sourced the right door, and installed it beautifully. First-class service.","author":"Charles W.","location":"Backcountry, Greenwich","initials":"CW","color":"bg-blue-600"},{"text":"Spring emergency in Cos Cob. Showed up fast, replaced both springs, and the price was very fair for Greenwich.","author":"Allison B.","location":"Cos Cob, Greenwich","initials":"AB","color":"bg-orange-500"},{"text":"LiftMaster install in Old Greenwich. Tech was professional, clean, and efficient. The smart home integration worked perfectly from day one.","author":"Frederick M.","location":"Old Greenwich, CT","initials":"FM","color":"bg-green-600"}]}

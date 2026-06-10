@@ -1,29 +1,6 @@
-import { useEffect } from 'react';
-import { buildCanonical } from '../../../config/canonical';
 import LocationPageTemplate from '../../../components/feature/LocationPageTemplate';
 
 export default function LocationPage() {
-  useEffect(() => {
-    const s = document.createElement('script');
-    s.type = 'application/ld+json';
-    s.text = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'LocalBusiness',
-      name: 'Smart Garage Doors - Scarsdale NY',
-      url: buildCanonical('/scarsdale-ny'),
-      telephone: '(914) 557-6816',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Scarsdale',
-        addressRegion: 'NY',
-        addressCountry: 'US',
-      },
-      geo: { '@type': 'GeoCoordinates', latitude: '40.9895', longitude: '-73.7846' },
-      aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '475' },
-    });
-    document.head.appendChild(s);
-    return () => { if (document.head.contains(s)) document.head.removeChild(s); };
-  }, []);
 
   return (
     <LocationPageTemplate
@@ -34,7 +11,7 @@ export default function LocationPage() {
       cityName="Scarsdale"
       stateCode="NY"
       stateName="New York"
-      reviewCount={475}
+      geo={{ latitude: '40.9895', longitude: '-73.7846' }}
       heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero"
       neighborhoods={[{"name":"Scarsdale Village","description":"The village center with beautiful homes and high-end garage doors. We install premium custom doors throughout the village."},{"name":"Fox Meadow & Quaker Ridge","description":"Scarsdale's most prestigious neighborhoods. Carriage-style and custom wood doors are our most common installs here."},{"name":"Murray Hill & Greenacres","description":"Established residential areas with large homes. We service everything from opener upgrades to full door replacements."},{"name":"Edgewood & Heathcote","description":"Eastern Scarsdale neighborhoods with a mix of colonial and contemporary homes."},{"name":"Secor Road & Crane Road areas","description":"Premium residential streets with custom homes. We specialize in high-end installations that match the home's architecture."},{"name":"Scarsdale borders (Hartsdale/Eastchester)","description":"We serve homes in the surrounding areas bordering Scarsdale — same quality, same response time."}]}
       reviews={[{"text":"New Clopay door in Fox Meadow. They helped me choose the right style, installed it beautifully, and cleaned up perfectly. Our house looks so much better.","author":"Jennifer W.","location":"Fox Meadow, Scarsdale","initials":"JW","color":"bg-blue-600"},{"text":"Spring emergency in Scarsdale Village on a Wednesday. They were here in under an hour, fixed both springs, and the price was very fair.","author":"Thomas H.","location":"Scarsdale, NY","initials":"TH","color":"bg-orange-500"},{"text":"Opener upgrade in Greenacres. Tech installed a new LiftMaster with full WiFi setup. Clean work, great price, very professional.","author":"Barbara M.","location":"Greenacres, Scarsdale","initials":"BM","color":"bg-green-600"}]}

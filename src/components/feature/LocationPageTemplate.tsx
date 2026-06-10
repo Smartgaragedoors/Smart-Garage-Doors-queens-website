@@ -4,10 +4,15 @@ import Footer from './Footer';
 import Breadcrumbs from '../seo/Breadcrumbs';
 import DynamicMetaTags from '../seo/DynamicMetaTags';
 import FAQSchema from '../seo/FAQSchema';
+import LocalBusinessSchema from '../seo/LocalBusinessSchema';
 import ServiceLinks from '../seo/ServiceLinks';
 import NearbyAreasSection from '../seo/NearbyAreasSection';
 import { buildCanonical } from '../../config/canonical';
 import { BUSINESS_INFO } from '../../config/business-info';
+import { getGuidesForLocation } from '../../data/locationBlogMap';
+import { getTechForLocation } from '../../data/techByLocation';
+import RecentWork from './RecentWork';
+import { trackPhoneClick, trackBookNowClick } from '../../utils/analytics';
 
 export interface LocationNeighborhood {
   name: string;
@@ -52,8 +57,17 @@ export interface LocationPageTemplateProps {
   stateName: string;       // e.g. 'New York'
   reviewCount?: number;
 
+  // Phone override — defaults to the global business number, but a location with
+  // its own local line (e.g. Suffern's 845 number) can pass a local number so the
+  // CTAs, tracking label, and schema all match what the customer dials.
+  phone?: string;          // display, e.g. '(845) 262-2034'
+  phoneTel?: string;       // tel: href, e.g. '+18452622034'
+
   // Hero
   heroImage?: string;
+
+  // Location coordinates for LocalBusiness schema (city center is fine)
+  geo?: { latitude: number | string; longitude: number | string };
 
   // Content
   neighborhoods: LocationNeighborhood[];
@@ -68,8 +82,8 @@ export interface LocationPageTemplateProps {
 
 }
 
-const PHONE     = BUSINESS_INFO.phone;
-const PHONE_TEL = BUSINESS_INFO.phoneFormatted;
+const PHONE_DEFAULT     = BUSINESS_INFO.phone;
+const PHONE_TEL_DEFAULT = BUSINESS_INFO.phoneFormatted;
 
 const DEFAULT_SERVICES: LocationService[] = [
   { icon: 'ri-alarm-warning-line',   title: '24/7 Emergency Repair',       description: 'Broken spring, snapped cable, door off track — we respond fast any time of day.' },
@@ -132,17 +146,23 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
   const {
     metaTitle, metaDescription, keywords, slug,
     cityName, stateCode, stateName,
-    reviewCount = 475,
+    reviewCount = Number(BUSINESS_INFO.aggregateRating.reviewCount),
     heroImage,
+    geo,
     neighborhoods, reviews, faqs,
     services = DEFAULT_SERVICES,
     advantages = DEFAULT_ADVANTAGES,
     mapEmbedUrl,
     comparisonRows = DEFAULT_COMPARISON,
+    phone = PHONE_DEFAULT,
+    phoneTel = PHONE_TEL_DEFAULT,
   } = props;
 
   const city  = cityName;
   const state = stateCode;
+  const PHONE     = phone;
+  const PHONE_TEL = phoneTel;
+  const trust     = BUSINESS_INFO.trust;
 
   return (
     <div className="min-h-screen bg-white">
@@ -153,6 +173,17 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
         canonical={buildCanonical(slug.replace(/\/$/, ''))}
       />
       <FAQSchema faqs={faqs} />
+      <LocalBusinessSchema
+        locationName={`${cityName}, ${stateCode}`}
+        serviceArea={`${cityName}, ${stateName}`}
+        customAddress={{
+          addressLocality: cityName.replace(/^the\s+/i, ''),
+          addressRegion: stateCode,
+        }}
+        slug={slug}
+        geo={geo}
+        telephone={phoneTel}
+      />
       <Header />
       <Breadcrumbs />
 
@@ -181,6 +212,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href={`tel:${PHONE_TEL}`}
+                onClick={() => trackPhoneClick(PHONE, `location_hero_${cityName}`)}
                 className="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-colors shadow-lg"
               >
                 <i className="ri-phone-fill" aria-hidden="true" />
@@ -188,6 +220,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
               </a>
               <a
                 href="/book-now/"
+                onClick={() => trackBookNowClick(`location_hero_${cityName}`)}
                 className="inline-flex items-center justify-center gap-2 bg-white text-blue-900 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors shadow-lg"
               >
                 <i className="ri-calendar-line" aria-hidden="true" />
@@ -206,6 +239,18 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
               <Stars count={5} />
               <span>5.0 · {reviewCount} Reviews</span>
             </div>
+            {trust?.establishedYear && (
+              <div className="flex items-center gap-1.5">
+                <i className="ri-calendar-check-fill text-orange-400 text-base" aria-hidden="true" />
+                <span>Serving the area since {trust.establishedYear}</span>
+              </div>
+            )}
+            {trust?.jobsCompleted && (
+              <div className="flex items-center gap-1.5">
+                <i className="ri-tools-fill text-orange-400 text-base" aria-hidden="true" />
+                <span>{trust.jobsCompleted.toLocaleString()}+ jobs completed</span>
+              </div>
+            )}
             <div className="flex items-center gap-1.5">
               <i className="ri-shield-check-fill text-orange-400 text-base" aria-hidden="true" />
               <span>Licensed &amp; Insured</span>
@@ -225,6 +270,19 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
           </div>
         </div>
       </section>
+
+      {/* ── FINANCING CALLOUT ─────────────────────────────────────── */}
+      {trust?.financingAvailable && (
+        <section className="bg-orange-50 border-b border-orange-100 py-3">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-center text-sm md:text-base text-gray-800">
+              <i className="ri-bank-card-line text-orange-500 text-lg" aria-hidden="true" />
+              <span className="font-semibold">0% financing available</span>
+              <span className="text-gray-600">on new doors &amp; openers — ask about flexible payment plans when you call.</span>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ── SERVICES ──────────────────────────────────────────────── */}
       <section className="py-16 bg-white">
@@ -281,6 +339,54 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
           </div>
         </div>
       </section>
+
+      {/* ── MEET YOUR TECHNICIAN ──────────────────────────────────── */}
+      {(() => {
+        const tech = getTechForLocation(slug);
+        if (!tech) return null;
+        return (
+          <section className="py-16 bg-blue-900 text-white">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex flex-col md:flex-row items-center gap-8">
+                {tech.photo ? (
+                  <img
+                    src={tech.photo}
+                    alt={tech.photoAlt || `${tech.name}, Smart Garage Doors technician`}
+                    className="w-40 h-40 rounded-2xl object-cover shadow-lg flex-shrink-0"
+                    width={160}
+                    height={160}
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="w-40 h-40 rounded-2xl bg-orange-500 flex items-center justify-center text-white text-6xl font-bold shadow-lg flex-shrink-0" aria-hidden="true">
+                    {tech.initials}
+                  </div>
+                )}
+                <div className="text-center md:text-left">
+                  <p className="text-orange-400 font-semibold text-sm uppercase tracking-wide mb-1">
+                    Your {city} Technician
+                  </p>
+                  <h2 className="text-3xl font-bold mb-3">
+                    Meet {tech.name} — based in {tech.hub}
+                  </h2>
+                  <p className="text-blue-100 leading-relaxed mb-5">{tech.blurb}</p>
+                  <a
+                    href={`tel:${PHONE_TEL}`}
+                    onClick={() => trackPhoneClick(PHONE, `location_tech_${cityName}`)}
+                    className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-xl font-bold transition-colors"
+                  >
+                    <i className="ri-phone-fill" aria-hidden="true" />
+                    Call {tech.name}'s dispatch — {PHONE}
+                  </a>
+                  <p className="text-blue-200 text-sm mt-3">
+                    A real person answers — usually in under 30 seconds.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+        );
+      })()}
 
       {/* ── NEIGHBORHOODS ─────────────────────────────────────────── */}
       <section className="py-16 bg-white">
@@ -346,6 +452,9 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
           </div>
         </div>
       </section>
+
+      {/* ── RECENT JOBS (real photos — visual proof) ──────────────── */}
+      <RecentWork />
 
       {/* ── WHY CHOOSE US ─────────────────────────────────────────── */}
       <section className="py-16 bg-gray-50">
@@ -448,6 +557,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href={`tel:${PHONE_TEL}`}
+              onClick={() => trackPhoneClick(PHONE, `location_final_${cityName}`)}
               className="inline-flex items-center justify-center gap-2 bg-white text-orange-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-50 transition-colors shadow-lg"
             >
               <i className="ri-phone-fill" aria-hidden="true" />
@@ -455,6 +565,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
             </a>
             <a
               href="/book-now/"
+              onClick={() => trackBookNowClick(`location_final_${cityName}`)}
               className="inline-flex items-center justify-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-colors shadow-lg border border-orange-400"
             >
               <i className="ri-calendar-line" aria-hidden="true" />
@@ -463,6 +574,36 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
           </div>
         </div>
       </section>
+
+      {/* ── LOCAL GUIDES (blog ↔ location internal links) ─────────── */}
+      {(() => {
+        const guides = getGuidesForLocation(slug);
+        if (guides.length === 0) return null;
+        return (
+          <section className="py-12 bg-white border-t border-gray-100">
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+                Garage Door Guides for {city} Homeowners
+              </h2>
+              <div className="grid sm:grid-cols-3 gap-5">
+                {guides.map((g) => (
+                  <a
+                    key={g.slug}
+                    href={`/blog/${g.slug}/`}
+                    className="block bg-gray-50 hover:bg-orange-50 border border-gray-100 rounded-xl p-5 transition-colors group"
+                  >
+                    <i className="ri-article-line text-2xl text-orange-500 mb-3 block" aria-hidden="true" />
+                    <span className="font-semibold text-gray-900 group-hover:text-orange-600 transition-colors">
+                      {g.title}
+                    </span>
+                    <span className="block text-sm text-gray-500 mt-2">Read the guide →</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+      })()}
 
       <NearbyAreasSection currentPath={slug} cityName={cityName} />
       <ServiceLinks

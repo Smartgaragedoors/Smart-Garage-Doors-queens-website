@@ -1,4 +1,5 @@
 import { memo } from 'react';
+import { BUSINESS_INFO } from '../../config/business-info';
 
 function About() {
   return (
@@ -51,7 +52,7 @@ function About() {
           {/* 3 key facts inline */}
           <div className="grid grid-cols-3 gap-4 mb-10">
             {[
-              { value: '475+', label: 'Google reviews', sub: '5.0 average' },
+              { value: `${BUSINESS_INFO.aggregateRating.reviewCount}+`, label: 'Google reviews', sub: `${BUSINESS_INFO.aggregateRating.ratingValue} average` },
               { value: '24/7', label: 'Emergency line', sub: 'Live answer' },
               { value: '$0', label: 'Estimate cost', sub: 'Price before we start' },
             ].map(({ value, label, sub }) => (

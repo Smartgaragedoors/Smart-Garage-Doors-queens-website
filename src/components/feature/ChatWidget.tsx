@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
+import { trackChatSubmit } from '../../utils/analytics';
 
 interface Message {
   role: 'user' | 'assistant';
@@ -72,7 +73,10 @@ export default function ChatWidget() {
       const data = await res.json() as { reply: string; leadCollected: boolean };
 
       setMessages(prev => [...prev, { role: 'assistant', content: data.reply }]);
-      if (data.leadCollected) setLeadCollected(true);
+      if (data.leadCollected) {
+        setLeadCollected(true);
+        trackChatSubmit('chat_widget');
+      }
     } catch {
       setMessages(prev => [
         ...prev,

@@ -1,29 +1,6 @@
-import { useEffect } from 'react';
-import { buildCanonical } from '../../../config/canonical';
 import LocationPageTemplate from '../../../components/feature/LocationPageTemplate';
 
 export default function LocationPage() {
-  useEffect(() => {
-    const s = document.createElement('script');
-    s.type = 'application/ld+json';
-    s.text = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'LocalBusiness',
-      name: 'Smart Garage Doors - White Plains NY',
-      url: buildCanonical('/white-plains-ny'),
-      telephone: '(914) 557-6816',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'White Plains',
-        addressRegion: 'NY',
-        addressCountry: 'US',
-      },
-      geo: { '@type': 'GeoCoordinates', latitude: '41.0340', longitude: '-73.7629' },
-      aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '475' },
-    });
-    document.head.appendChild(s);
-    return () => { if (document.head.contains(s)) document.head.removeChild(s); };
-  }, []);
 
   return (
     <LocationPageTemplate
@@ -34,7 +11,7 @@ export default function LocationPage() {
       cityName="White Plains"
       stateCode="NY"
       stateName="New York"
-      reviewCount={475}
+      geo={{ latitude: '41.0340', longitude: '-73.7629' }}
       heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero"
       neighborhoods={[{"name":"Downtown White Plains","description":"Urban center with mixed residential and commercial properties. We handle both apartment building garages and commercial doors downtown."},{"name":"Battle Hill & Gedney Farms","description":"Established residential neighborhoods with single-family homes and attached garages. Quick arrivals from our Suffern hub."},{"name":"Soundview & Ridgeway","description":"Mid-city neighborhoods with a mix of condo complexes and single-family homes. We service both."},{"name":"North White Plains","description":"Quieter residential area bordering Harrison. Suburban-style homes with private garages."},{"name":"Highlands & Fisher Hill","description":"Upscale neighborhoods in south White Plains. Custom door installations are popular in these areas."},{"name":"Ferris Ave & Prospect Hill","description":"Central White Plains residential areas with a steady flow of repair and maintenance calls."}]}
       reviews={[{"text":"Spring snapped in downtown White Plains midweek. They fit me in same day and had it done in under an hour. Fair price, professional tech. Very happy.","author":"Andrew K.","location":"White Plains, NY","initials":"AK","color":"bg-blue-600"},{"text":"New LiftMaster installed in Gedney Farms. Tech was on time, did clean work, and walked me through the app setup. Would recommend to anyone in Westchester.","author":"Diane L.","location":"White Plains, NY","initials":"DL","color":"bg-orange-500"},{"text":"Called for an emergency at 7pm — door wouldn't close. They showed up within the hour and fixed a cable issue. Quick, clean, and professional.","author":"Chris B.","location":"White Plains, NY","initials":"CB","color":"bg-green-600"}]}

@@ -1,29 +1,6 @@
-import { useEffect } from 'react';
-import { buildCanonical } from '../../../config/canonical';
 import LocationPageTemplate from '../../../components/feature/LocationPageTemplate';
 
 export default function LocationPage() {
-  useEffect(() => {
-    const s = document.createElement('script');
-    s.type = 'application/ld+json';
-    s.text = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'LocalBusiness',
-      name: 'Smart Garage Doors - Darien CT',
-      url: buildCanonical('/darien-ct'),
-      telephone: '(914) 557-6816',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Darien',
-        addressRegion: 'CT',
-        addressCountry: 'US',
-      },
-      geo: { '@type': 'GeoCoordinates', latitude: '41.0726', longitude: '-73.4696' },
-      aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '475' },
-    });
-    document.head.appendChild(s);
-    return () => { if (document.head.contains(s)) document.head.removeChild(s); };
-  }, []);
 
   return (
     <LocationPageTemplate
@@ -34,7 +11,7 @@ export default function LocationPage() {
       cityName="Darien"
       stateCode="CT"
       stateName="Connecticut"
-      reviewCount={475}
+      geo={{ latitude: '41.0726', longitude: '-73.4696' }}
       heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero"
       neighborhoods={[{"name":"Darien Center & Post Road","description":"The heart of Darien with a mix of residential and commercial properties. We handle both."},{"name":"Tokeneke & Noroton","description":"Upscale waterfront neighborhoods in south Darien. Custom and carriage-style doors are popular here."},{"name":"Darien Heights & Middlesex","description":"Established residential areas in north Darien. Well-maintained homes with quality garage systems."},{"name":"Pear Tree Point & Long Neck Point","description":"Exclusive coastal areas. We work professionally and discreetly in these neighborhoods."},{"name":"Noroton Heights","description":"Residential area in east Darien. Single-family homes with a high rate of spring and cable calls."},{"name":"West Darien","description":"Quieter residential areas bordering Stamford. We cover this area efficiently from our CT routes."}]}
       reviews={[{"text":"Spring repair in Tokeneke. They were professional, on time, and the quality of work was excellent. Fair pricing for Darien.","author":"Carolyn J.","location":"Tokeneke, Darien","initials":"CJ","color":"bg-blue-600"},{"text":"New carriage-style door in Darien Center. Perfect installation — matched our colonial home beautifully.","author":"William P.","location":"Darien Center, CT","initials":"WP","color":"bg-orange-500"},{"text":"Emergency in Noroton Heights when door wouldn't close before a storm. They came fast and fixed a broken cable. Very grateful.","author":"Helen R.","location":"Noroton Heights, Darien","initials":"HR","color":"bg-green-600"}]}

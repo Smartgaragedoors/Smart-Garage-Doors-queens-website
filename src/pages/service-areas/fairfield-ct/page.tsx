@@ -1,29 +1,6 @@
-import { useEffect } from 'react';
-import { buildCanonical } from '../../../config/canonical';
 import LocationPageTemplate from '../../../components/feature/LocationPageTemplate';
 
 export default function LocationPage() {
-  useEffect(() => {
-    const s = document.createElement('script');
-    s.type = 'application/ld+json';
-    s.text = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'LocalBusiness',
-      name: 'Smart Garage Doors - Fairfield CT',
-      url: buildCanonical('/fairfield-ct'),
-      telephone: '(914) 557-6816',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Fairfield',
-        addressRegion: 'CT',
-        addressCountry: 'US',
-      },
-      geo: { '@type': 'GeoCoordinates', latitude: '41.1418', longitude: '-73.2637' },
-      aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '475' },
-    });
-    document.head.appendChild(s);
-    return () => { if (document.head.contains(s)) document.head.removeChild(s); };
-  }, []);
 
   return (
     <LocationPageTemplate
@@ -34,7 +11,7 @@ export default function LocationPage() {
       cityName="Fairfield"
       stateCode="CT"
       stateName="Connecticut"
-      reviewCount={475}
+      geo={{ latitude: '41.1418', longitude: '-73.2637' }}
       heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero"
       neighborhoods={[{"name":"Fairfield Center & Post Road","description":"The town center with a mix of residential and commercial properties. We service both throughout the corridor."},{"name":"Southport Village","description":"One of Connecticut's most charming historic villages. Premium and custom garage doors are the standard here."},{"name":"Greenfield Hill","description":"Upscale neighborhood in north Fairfield. Large homes with quality garage systems."},{"name":"Jennings Beach area","description":"Waterfront and coastal community in south Fairfield. Salt-resistant hardware is important for these properties."},{"name":"Stratfield & Tunxis Hill","description":"Dense residential areas in central Fairfield. High volume of repair calls from these neighborhoods."},{"name":"Black Rock (Bridgeport border)","description":"Western Fairfield/Bridgeport area. We cover this on our Fairfield County routes."}]}
       reviews={[{"text":"Spring replacement in Southport. Came out same day, replaced both springs, did it cleanly and quickly. Exactly what you want. Great service.","author":"Howard C.","location":"Southport, Fairfield","initials":"HC","color":"bg-blue-600"},{"text":"New door in Greenfield Hill. Helped me choose the right style for our colonial. Beautiful installation. I get compliments on it from the neighbors.","author":"Judith L.","location":"Greenfield Hill, Fairfield","initials":"JL","color":"bg-orange-500"},{"text":"Emergency in Fairfield Center when my door got stuck closed. They came within 90 minutes and had it open. Very professional team.","author":"Kenneth M.","location":"Fairfield, CT","initials":"KM","color":"bg-green-600"}]}

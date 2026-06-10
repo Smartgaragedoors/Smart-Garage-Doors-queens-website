@@ -1,23 +1,6 @@
-import { useEffect } from 'react';
-import { buildCanonical } from '../../../config/canonical';
 import LocationPageTemplate from '../../../components/feature/LocationPageTemplate';
 
 export default function QueensNY() {
-  useEffect(() => {
-    const s = document.createElement('script');
-    s.type = 'application/ld+json';
-    s.text = JSON.stringify({
-      '@context': 'https://schema.org', '@type': 'LocalBusiness',
-      name: 'Smart Garage Doors - Queens NY',
-      description: 'Garage door repair and installation in Queens, New York',
-      url: buildCanonical('/queens-ny'), telephone: '(914) 557-6816',
-      address: { '@type': 'PostalAddress', streetAddress: '141-24 70th Ave', addressLocality: 'Queens', addressRegion: 'NY', addressCountry: 'US' },
-      geo: { '@type': 'GeoCoordinates', latitude: '40.7282', longitude: '-73.7949' },
-      aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '479' },
-    });
-    document.head.appendChild(s);
-    return () => { if (document.head.contains(s)) document.head.removeChild(s); };
-  }, []);
 
   return (
     <LocationPageTemplate
@@ -28,7 +11,7 @@ export default function QueensNY() {
       cityName="Queens"
       stateCode="NY"
       stateName="New York"
-      reviewCount={479}
+      geo={{ latitude: '40.7282', longitude: '-73.7949' }}
       heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero"
       mapEmbedUrl="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96708.34!2d-73.9442!3d40.7282!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258f4b00bd15f%3A0x860f6a4080430fde!2sQueens%2C%20NY!5e0!3m2!1sen!2sus"
       neighborhoods={[

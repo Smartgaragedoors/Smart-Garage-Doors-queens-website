@@ -1,29 +1,6 @@
-import { useEffect } from 'react';
-import { buildCanonical } from '../../../config/canonical';
 import LocationPageTemplate from '../../../components/feature/LocationPageTemplate';
 
 export default function LocationPage() {
-  useEffect(() => {
-    const s = document.createElement('script');
-    s.type = 'application/ld+json';
-    s.text = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'LocalBusiness',
-      name: 'Smart Garage Doors - Suffolk NY',
-      url: buildCanonical('/suffolk-county-ny'),
-      telephone: '(914) 557-6816',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Suffolk',
-        addressRegion: 'NY',
-        addressCountry: 'US',
-      },
-      geo: { '@type': 'GeoCoordinates', latitude: '40.9148', longitude: '-72.7000' },
-      aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '475' },
-    });
-    document.head.appendChild(s);
-    return () => { if (document.head.contains(s)) document.head.removeChild(s); };
-  }, []);
 
   return (
     <LocationPageTemplate
@@ -34,7 +11,7 @@ export default function LocationPage() {
       cityName="Suffolk County"
       stateCode="NY"
       stateName="New York"
-      reviewCount={475}
+      geo={{ latitude: '40.9148', longitude: '-72.7000' }}
       heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero"
       neighborhoods={[{"name":"Huntington & Cold Spring Harbor","description":"North Shore Suffolk with beautiful homes and premium garage doors. We install and service all high-end brands here."},{"name":"Smithtown & St. James","description":"Well-established mid-Suffolk communities. We run regular routes and offer quick service throughout these towns."},{"name":"Hauppauge & Commack","description":"Dense residential areas in central Suffolk. High volume of spring replacements and opener upgrades here."},{"name":"Babylon & Bay Shore","description":"South Shore communities with easy access from our routes. Fast arrivals for this part of Suffolk."},{"name":"Islip & Brentwood","description":"Central Suffolk's most populated areas. We service a large number of homes and light commercial properties here."},{"name":"Patchogue & Medford","description":"East Suffolk areas we reach efficiently. Call ahead for availability — typically same-day slots available."}]}
       reviews={[{"text":"Door spring snapped in Huntington on a Saturday. They had someone here by noon, fixed both springs, and the door is running perfectly. Quick, professional, fair.","author":"Daniel R.","location":"Huntington, Suffolk County","initials":"DR","color":"bg-blue-600"},{"text":"New opener in Smithtown. Installed fast, works great with the app. Tech was friendly and explained everything clearly. Would call again.","author":"Michelle T.","location":"Smithtown, Suffolk County","initials":"MT","color":"bg-orange-500"},{"text":"Cable broke in Babylon. They came same day, fixed it, and also adjusted the tension. Door runs smoother now than it did before it broke.","author":"George N.","location":"Babylon, Suffolk County","initials":"GN","color":"bg-green-600"}]}

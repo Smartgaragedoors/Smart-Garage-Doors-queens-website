@@ -103,7 +103,7 @@ export default function Hero() {
         </div>
 
         <p className="text-sm text-white/70 mb-2">
-          Speak with a live dispatcher. Upfront quote before work begins.
+          A real person answers — usually in under 30 seconds. Upfront quote before work begins.
         </p>
         <p className="text-xs text-white/50 mb-14 tracking-wide">
           {BUSINESS_INFO.aggregateRating.reviewCount}+ 5-Star Reviews &nbsp;•&nbsp; Same-Day Service Available &nbsp;•&nbsp; Local Tri-State Technicians &nbsp;•&nbsp; No Hidden Fees

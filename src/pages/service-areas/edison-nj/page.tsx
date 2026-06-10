@@ -1,29 +1,6 @@
-import { useEffect } from 'react';
-import { buildCanonical } from '../../../config/canonical';
 import LocationPageTemplate from '../../../components/feature/LocationPageTemplate';
 
 export default function LocationPage() {
-  useEffect(() => {
-    const s = document.createElement('script');
-    s.type = 'application/ld+json';
-    s.text = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'LocalBusiness',
-      name: 'Smart Garage Doors - Edison NJ',
-      url: buildCanonical('/edison-nj'),
-      telephone: '(914) 557-6816',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Edison',
-        addressRegion: 'NJ',
-        addressCountry: 'US',
-      },
-      geo: { '@type': 'GeoCoordinates', latitude: '40.5187', longitude: '-74.4121' },
-      aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '475' },
-    });
-    document.head.appendChild(s);
-    return () => { if (document.head.contains(s)) document.head.removeChild(s); };
-  }, []);
 
   return (
     <LocationPageTemplate
@@ -34,7 +11,7 @@ export default function LocationPage() {
       cityName="Edison"
       stateCode="NJ"
       stateName="New Jersey"
-      reviewCount={475}
+      geo={{ latitude: '40.5187', longitude: '-74.4121' }}
       heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero"
       neighborhoods={[{"name":"Edison Town Center & Oak Tree Road","description":"The commercial heart of Edison with surrounding dense residential neighborhoods. We service both residential and commercial properties."},{"name":"Metuchen border & Menlo Park Terrace","description":"Established communities in northern Edison. Strong repeat customer base in these neighborhoods."},{"name":"Piscataway border & South Edison","description":"Southern Edison communities near Piscataway. Single-family homes and townhouse developments."},{"name":"Woodbridge border & Sewaren area","description":"Eastern Edison near the Raritan Bay. We cover this area on our central NJ routes."},{"name":"North Brunswick border","description":"Northern Edison bordering North Brunswick. Suburban developments with modern garage systems."},{"name":"Rahway & Clark border","description":"Western Edison areas. We service these neighborhoods as part of our Union/Middlesex County coverage."}]}
       reviews={[{"text":"Spring replacement in Edison. Our Jackson-based tech came same day, replaced both springs, and everything works great. Fair price, professional service.","author":"Raj P.","location":"Edison, NJ","initials":"RP","color":"bg-blue-600"},{"text":"New LiftMaster opener in our Edison home. Installed fast, WiFi works great, and the tech was very knowledgeable. Highly recommend.","author":"Priya K.","location":"Edison, NJ","initials":"PK","color":"bg-orange-500"},{"text":"Emergency call in Edison when my cable snapped. Tech came same day and had it fixed in under an hour. Very grateful for the quick response.","author":"Michael T.","location":"Edison, NJ","initials":"MT","color":"bg-green-600"}]}

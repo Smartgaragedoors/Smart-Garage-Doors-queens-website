@@ -46,7 +46,7 @@ export default function GarageDoorInstallationNewYorkPage() {
     <div className="min-h-screen bg-white">
       <DynamicMetaTags 
         title="Garage Door Installation New York | New & Replacement | Smartest Garage Doors"
-        description="New garage door installation & replacement. 5.0★, 475 reviews. Free estimates. Fast service — call for availability. Licensed & insured. Serving NY, NJ & CT."
+        description="New garage door installation & replacement. 5.0★, 479 reviews. Free estimates. Fast service — call for availability. Licensed & insured. Serving NY, NJ & CT."
         keywords="garage door installation, new garage door, garage door replacement, garage door installer"
       />
       <FAQSchema faqs={faqs} />

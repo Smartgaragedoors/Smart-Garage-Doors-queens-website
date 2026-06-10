@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useLocation as useLocationContext } from '../../contexts/LocationContext';
 import { useLocation as useRouterLocation } from 'react-router-dom';
-import { trackPhoneClick } from '../../utils/analytics';
+import { trackPhoneClick, trackBookNowClick } from '../../utils/analytics';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -310,7 +310,7 @@ export default function Header() {
               <a href={contactLink} className="text-gray-700 hover:text-orange-500 font-medium transition-colors">
                 Contact
               </a>
-              <a href="/book-now/" className="text-orange-600 hover:text-orange-700 font-semibold transition-colors">
+              <a href="/book-now/" onClick={() => trackBookNowClick('header_desktop')} className="text-orange-600 hover:text-orange-700 font-semibold transition-colors">
                 Book Now
               </a>
             </div>
@@ -419,7 +419,7 @@ export default function Header() {
                 <a href={contactLink} className="block text-gray-700 hover:text-orange-500 font-medium transition-colors py-2">
                   Contact
                 </a>
-                <a href="/book-now/" className="block text-orange-600 hover:text-orange-700 font-semibold transition-colors py-2">
+                <a href="/book-now/" onClick={() => trackBookNowClick('header_mobile')} className="block text-orange-600 hover:text-orange-700 font-semibold transition-colors py-2">
                   Book Now
                 </a>
                 

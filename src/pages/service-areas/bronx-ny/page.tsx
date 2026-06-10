@@ -1,22 +1,6 @@
-import { useEffect } from 'react';
-import { buildCanonical } from '../../../config/canonical';
 import LocationPageTemplate from '../../../components/feature/LocationPageTemplate';
 
 export default function BronxNY() {
-  useEffect(() => {
-    const s = document.createElement('script');
-    s.type = 'application/ld+json';
-    s.text = JSON.stringify({
-      '@context': 'https://schema.org', '@type': 'LocalBusiness',
-      name: 'Smart Garage Doors - Bronx NY',
-      url: buildCanonical('/bronx-ny'), telephone: '(914) 557-6816',
-      address: { '@type': 'PostalAddress', addressLocality: 'Bronx', addressRegion: 'NY', addressCountry: 'US' },
-      geo: { '@type': 'GeoCoordinates', latitude: '40.8448', longitude: '-73.8648' },
-      aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '475' },
-    });
-    document.head.appendChild(s);
-    return () => { if (document.head.contains(s)) document.head.removeChild(s); };
-  }, []);
 
   return (
     <LocationPageTemplate
@@ -27,6 +11,7 @@ export default function BronxNY() {
       cityName="the Bronx"
       stateCode="NY"
       stateName="New York"
+      geo={{ latitude: '40.8448', longitude: '-73.8648' }}
       heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero"
       neighborhoods={[
         { name: 'Riverdale & Fieldston', description: 'Upscale homes with private garages — we handle premium installs and quick repairs in these hillside neighborhoods.' },

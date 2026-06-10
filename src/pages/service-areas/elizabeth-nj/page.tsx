@@ -1,29 +1,6 @@
-import { useEffect } from 'react';
-import { buildCanonical } from '../../../config/canonical';
 import LocationPageTemplate from '../../../components/feature/LocationPageTemplate';
 
 export default function LocationPage() {
-  useEffect(() => {
-    const s = document.createElement('script');
-    s.type = 'application/ld+json';
-    s.text = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'LocalBusiness',
-      name: 'Smart Garage Doors - Elizabeth NJ',
-      url: buildCanonical('/elizabeth-nj'),
-      telephone: '(914) 557-6816',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Elizabeth',
-        addressRegion: 'NJ',
-        addressCountry: 'US',
-      },
-      geo: { '@type': 'GeoCoordinates', latitude: '40.6640', longitude: '-74.2107' },
-      aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '475' },
-    });
-    document.head.appendChild(s);
-    return () => { if (document.head.contains(s)) document.head.removeChild(s); };
-  }, []);
 
   return (
     <LocationPageTemplate
@@ -34,7 +11,7 @@ export default function LocationPage() {
       cityName="Elizabeth"
       stateCode="NJ"
       stateName="New Jersey"
-      reviewCount={475}
+      geo={{ latitude: '40.6640', longitude: '-74.2107' }}
       heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero"
       neighborhoods={[{"name":"Downtown & Port Area","description":"Dense urban core and industrial waterfront. We service commercial roll-up doors and residential garages throughout."},{"name":"Elmora & Weehawken Hill","description":"Residential areas in western Elizabeth. Single-family homes with attached and detached garages."},{"name":"Peterstown & Kesbrough","description":"Historic neighborhoods in northeast Elizabeth with a mix of housing types."},{"name":"Bayway & Elizabethport","description":"Industrial and residential mix near the waterfront. Commercial and residential garage door service."},{"name":"North Elizabeth","description":"Residential neighborhoods adjacent to Hillside. We cover these on our Union County routes."},{"name":"Elizabeth border areas","description":"Communities bordering Linden, Hillside, and Union — we serve all of them."}]}
       reviews={[{"text":"Commercial roll-up door at our Elizabeth warehouse. They came next day, assessed it, and had it working within a few hours. Minimal business disruption.","author":"Victor R.","location":"Elizabeth, NJ","initials":"VR","color":"bg-blue-600"},{"text":"Spring replacement in Elmora. Called in the morning, they came same afternoon. Fast, professional, fair price.","author":"Maria S.","location":"Elmora, Elizabeth","initials":"MS","color":"bg-orange-500"},{"text":"New opener in my Elizabeth home. Tech was efficient and showed me how to set it up. Works great. Good service at a fair price.","author":"Carlos M.","location":"Elizabeth, NJ","initials":"CM","color":"bg-green-600"}]}

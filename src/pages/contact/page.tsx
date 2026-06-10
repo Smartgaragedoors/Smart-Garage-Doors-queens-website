@@ -6,6 +6,9 @@ import Breadcrumbs from '../../components/seo/Breadcrumbs';
 import DynamicMetaTags from '../../components/seo/DynamicMetaTags';
 import { buildCanonical } from '../../config/canonical';
 import { submitForm } from '../../utils/formSubmission';
+import { useRef } from 'react';
+import { trackFormStart, trackFormSubmit } from '../../utils/analytics';
+import FormTrustBadges from '../../components/conversion/FormTrustBadges';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -23,8 +26,14 @@ const ContactPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState('');
 
+  const formStarted = useRef(false);
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
+    if (!formStarted.current) {
+      formStarted.current = true;
+      trackFormStart('Contact Page Form', 'contact_page');
+    }
     setFormData(prev => ({
       ...prev,
       [name]: value
@@ -40,6 +49,10 @@ const ContactPage = () => {
       const result = await submitForm(formData, 'Contact Page Form');
 
       if (result.success) {
+        trackFormSubmit('Contact Page Form', 'contact', {
+          service_type: formData.serviceType,
+          urgency: formData.urgency,
+        });
         setSubmitStatus(result.usedFallback ? 'fallback' : 'success');
         setFormData({
           name: '',
@@ -379,7 +392,9 @@ const ContactPage = () => {
               </div>
             )}
             
-            <div className="mt-8">
+            <FormTrustBadges />
+
+            <div className="mt-4">
               <button
                 type="submit"
                 disabled={isSubmitting}

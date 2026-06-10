@@ -10,14 +10,26 @@ interface LocalBusinessSchemaProps {
     addressRegion?: string;
     postalCode?: string;
   };
+  /** Page path (e.g. '/queens-ny/') — used for a unique @id and url per location page */
+  slug?: string;
+  /** Location-specific coordinates; falls back to the primary address */
+  geo?: { latitude: number | string; longitude: number | string };
+  /** Local line override (e.g. Suffern's 845 number) so schema matches what customers dial */
+  telephone?: string;
 }
 
 const LocalBusinessSchema: React.FC<LocalBusinessSchemaProps> = ({
   locationName,
   serviceArea,
   customAddress,
+  slug,
+  geo,
+  telephone,
 }) => {
   const primaryAddress = BUSINESS_INFO.addresses[0];
+  const pageUrl = slug
+    ? `${BUSINESS_INFO.website}${slug.endsWith('/') ? slug : `${slug}/`}`
+    : `${BUSINESS_INFO.website}/`;
   const address = customAddress || {
     streetAddress: primaryAddress.streetAddress,
     addressLocality: customAddress?.addressLocality || primaryAddress.addressLocality,
@@ -32,11 +44,13 @@ const LocalBusinessSchema: React.FC<LocalBusinessSchemaProps> = ({
   const schema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
+    "@id": `${pageUrl}#localbusiness`,
+    "parentOrganization": { "@id": `${BUSINESS_INFO.website}/#organization` },
     "name": businessName,
     "legalName": BUSINESS_INFO.legalName,
     "image": "https://www.smartestgaragedoors.com/hero-van-1280.webp",
-    "url": BUSINESS_INFO.website,
-    "telephone": BUSINESS_INFO.phoneFormatted,
+    "url": pageUrl,
+    "telephone": telephone || BUSINESS_INFO.phoneFormatted,
     "priceRange": BUSINESS_INFO.priceRange,
     "paymentAccepted": BUSINESS_INFO.paymentAccepted.join(", "),
     "currenciesAccepted": BUSINESS_INFO.currenciesAccepted,
@@ -50,8 +64,8 @@ const LocalBusinessSchema: React.FC<LocalBusinessSchemaProps> = ({
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": primaryAddress.latitude.toString(),
-      "longitude": primaryAddress.longitude.toString(),
+      "latitude": (geo?.latitude ?? primaryAddress.latitude).toString(),
+      "longitude": (geo?.longitude ?? primaryAddress.longitude).toString(),
     },
     "openingHoursSpecification": [
       {

@@ -55,6 +55,10 @@ export const BUSINESS_INFO = {
     saturday: { opens: "00:00", closes: "23:59" },
     sunday: { opens: "00:00", closes: "23:59" },
   },
+  licenses: [
+    { region: "NY", label: "NYC DCWP License #2130164-DCWP" },
+    { region: "CT", label: "CT HIC Registration #HIC.0704479" },
+  ],
   priceRange: "$$",
   currenciesAccepted: "USD",
   paymentAccepted: ["Cash", "Credit Card", "Debit Card", "Bank Transfer", "Check"],
@@ -69,6 +73,22 @@ export const BUSINESS_INFO = {
     { type: "State", name: "New Jersey" },
     { type: "State", name: "Connecticut" },
   ],
+
+  /**
+   * Concrete trust signals surfaced on location pages (dated specificity ranks
+   * and converts better than generic "licensed & insured" claims).
+   *
+   * ⚠️ CONFIRM BEFORE RELYING ON THESE — they must be truthful for the legal
+   * entity (LSA / false-advertising compliance):
+   *  - establishedYear: carried over from the prior Suffern site's public claim.
+   *  - jobsCompleted: leave null until you have a defensible figure; set a number
+   *    (e.g. 5000) to surface a "5,000+ jobs completed" badge across location pages.
+   */
+  trust: {
+    establishedYear: 2010,
+    jobsCompleted: null as number | null,
+    financingAvailable: true,
+  },
 
   /**
    * Operational dispatch hubs (~60+ mile service radius each).

@@ -33,14 +33,28 @@ function CoverageStrip() {
           No routing centers. No third parties. Your call goes directly to our dispatch.
         </p>
         <div className="flex flex-wrap justify-center gap-3 mb-8">
-          {['Queens', 'Brooklyn', 'Westchester', 'Long Island', 'Stamford', 'Greenwich', 'Bergen County', 'Suffern'].map((city) => (
-            <span
+          {[
+            { city: 'Queens', path: '/queens-ny/' },
+            { city: 'Brooklyn', path: '/brooklyn-ny/' },
+            { city: 'The Bronx', path: '/bronx-ny/' },
+            { city: 'Staten Island', path: '/staten-island-ny/' },
+            { city: 'Westchester', path: '/westchester-county-ny/' },
+            { city: 'Long Island', path: '/long-island-ny/' },
+            { city: 'Suffern', path: '/suffern-ny/' },
+            { city: 'Stamford', path: '/stamford-ct/' },
+            { city: 'Greenwich', path: '/greenwich-ct/' },
+            { city: 'Fairfield', path: '/fairfield-ct/' },
+            { city: 'Bergen County', path: '/bergen-county-nj/' },
+            { city: 'Jackson NJ', path: '/jackson-nj/' },
+          ].map(({ city, path }) => (
+            <Link
               key={city}
-              className="inline-flex items-center gap-1.5 bg-white border border-gray-200 text-gray-700 text-sm font-medium px-4 py-2 rounded-full shadow-sm"
+              to={path}
+              className="inline-flex items-center gap-1.5 bg-white border border-gray-200 text-gray-700 text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:border-orange-300 hover:text-orange-600 transition-colors"
             >
               <i className="ri-map-pin-2-line text-orange-500" aria-hidden="true" />
               {city}
-            </span>
+            </Link>
           ))}
           <Link
             to="/service-areas/"
@@ -56,6 +70,9 @@ function CoverageStrip() {
           <i className="ri-phone-fill" aria-hidden="true" />
           Call (914) 557-6816 — We Answer 24/7
         </a>
+        <p className="text-sm text-gray-500 mt-3">
+          A real person answers — usually in under 30 seconds.
+        </p>
       </div>
     </section>
   );

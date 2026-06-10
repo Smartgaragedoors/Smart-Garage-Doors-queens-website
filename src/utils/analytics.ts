@@ -25,8 +25,25 @@ function isAllowedOrigin(): boolean {
   return true;
 }
 
+// DebugView bypass: visiting any URL with ?ga_debug=1 enables analytics with
+// debug_mode on, even on preview/localhost. Lets us validate events in GA4
+// DebugView on a preview deployment without enabling real tracking for normal
+// preview visitors. Persisted for the session so SPA navigation keeps it.
+export function isDebugMode(): boolean {
+  if (typeof window === 'undefined') return false;
+  try {
+    if (new URLSearchParams(window.location.search).get('ga_debug') === '1') {
+      sessionStorage.setItem('ga_debug', '1');
+    }
+    return sessionStorage.getItem('ga_debug') === '1';
+  } catch {
+    return false;
+  }
+}
+
 function shouldTrack(): boolean {
-  return !!GA_MEASUREMENT_ID && ANALYTICS_ENABLED && isAllowedOrigin();
+  if (!GA_MEASUREMENT_ID || !ANALYTICS_ENABLED) return false;
+  return isAllowedOrigin() || isDebugMode();
 }
 
 // ─── Attribution ─────────────────────────────────────────────────────────────
@@ -35,6 +52,7 @@ function shouldTrack(): boolean {
 
 export interface AttributionData {
   landing_page: string;
+  source_url: string;
   referrer: string;
   utm_source: string;
   utm_medium: string;
@@ -42,6 +60,7 @@ export interface AttributionData {
   utm_term: string;
   utm_content: string;
   gclid: string;
+  fbclid: string;
   device_type: 'mobile' | 'tablet' | 'desktop';
   captured_at: string;
 }
@@ -64,6 +83,7 @@ export function captureAttribution(): void {
   const params = new URLSearchParams(window.location.search);
   const data: AttributionData = {
     landing_page: window.location.pathname + window.location.search,
+    source_url: window.location.href,
     referrer: document.referrer || '',
     utm_source: params.get('utm_source') || '',
     utm_medium: params.get('utm_medium') || '',
@@ -71,6 +91,7 @@ export function captureAttribution(): void {
     utm_term: params.get('utm_term') || '',
     utm_content: params.get('utm_content') || '',
     gclid: params.get('gclid') || '',
+    fbclid: params.get('fbclid') || '',
     device_type: detectDeviceType(),
     captured_at: new Date().toISOString(),
   };
@@ -92,6 +113,7 @@ export function getAttribution(): AttributionData | null {
 
 export const initAnalytics = () => {
   captureAttribution();
+  initGlobalClickTracking();
 
   if (!shouldTrack()) return;
 
@@ -134,6 +156,7 @@ export const initAnalytics = () => {
     allow_google_signals: false,
     allow_ad_personalization_signals: false,
     cookie_flags: 'SameSite=None;Secure',
+    debug_mode: isDebugMode(),
   });
 };
 
@@ -163,39 +186,107 @@ export const trackEvent = (
 
 // ─── Conversion events (mark these as key events in GA4 console) ──────────────
 
+// Dedupe guard: the global delegated listener (initGlobalClickTracking) AND a
+// component-level onClick can both fire for the same physical click. Whichever
+// runs first wins; the second call within the window is dropped.
+const DEDUPE_WINDOW_MS = 400;
+const lastFired: Record<string, number> = {};
+function isDuplicate(key: string): boolean {
+  const now = Date.now();
+  if (lastFired[key] && now - lastFired[key] < DEDUPE_WINDOW_MS) return true;
+  lastFired[key] = now;
+  return false;
+}
+
+// Safety net so EVERY tel:/sms:/WhatsApp link on the site is tracked, even ones
+// without an explicit onClick handler (blog CTAs, footer, service pages, etc.).
+// Component-level handlers still run and provide richer `source` labels; the
+// dedupe guard prevents double-counting.
+export function initGlobalClickTracking(): void {
+  if (typeof document === 'undefined') return;
+  document.addEventListener(
+    'click',
+    (e) => {
+      const target = e.target as Element | null;
+      const link = target?.closest?.('a[href]') as HTMLAnchorElement | null;
+      if (!link) return;
+      const href = link.getAttribute('href') || '';
+      const source = link.getAttribute('data-track-source') || `auto:${window.location.pathname}`;
+      if (href.startsWith('tel:')) {
+        trackPhoneClick(href.replace('tel:', ''), source);
+      } else if (href.startsWith('sms:')) {
+        trackSmsClick(source);
+      } else if (href.includes('wa.me/') || href.includes('api.whatsapp.com')) {
+        trackWhatsAppClick(source);
+      }
+    },
+    { capture: true }
+  );
+}
+
 export const trackPhoneClick = (phoneNumber: string, source?: string) => {
+  if (isDuplicate(`call:${phoneNumber.replace(/\D/g, '')}`)) return;
   const attr = getAttribution();
-  trackEvent('phone_click', {
+  trackEvent('call_click', {
     category: 'Contact',
     label: phoneNumber,
     value: 1,
     source: source || 'unknown',
     landing_page: attr?.landing_page || '',
+    source_url: attr?.source_url || '',
     utm_source: attr?.utm_source || '',
     utm_medium: attr?.utm_medium || '',
     utm_campaign: attr?.utm_campaign || '',
+    gclid: attr?.gclid || '',
+    fbclid: attr?.fbclid || '',
     device_type: attr?.device_type || '',
   });
 };
 
-export const trackFormSubmit = (formName: string, formType: string) => {
+export const trackFormStart = (formName: string, source?: string) => {
+  const attr = getAttribution();
+  trackEvent('form_start', {
+    category: 'Lead Generation',
+    label: formName,
+    value: 1,
+    source: source || formName,
+    landing_page: attr?.landing_page || '',
+    source_url: attr?.source_url || '',
+    utm_source: attr?.utm_source || '',
+    utm_campaign: attr?.utm_campaign || '',
+    gclid: attr?.gclid || '',
+    fbclid: attr?.fbclid || '',
+    device_type: attr?.device_type || '',
+  });
+};
+
+export const trackFormSubmit = (
+  formName: string,
+  formType: string,
+  extras?: { service_type?: string; urgency?: string }
+) => {
   const attr = getAttribution();
   trackEvent('form_submit', {
     category: 'Lead Generation',
     label: formName,
     value: 1,
     form_type: formType,
+    service_type: extras?.service_type || '',
+    urgency: extras?.urgency || '',
     landing_page: attr?.landing_page || '',
+    source_url: attr?.source_url || '',
     referrer: attr?.referrer || '',
     utm_source: attr?.utm_source || '',
     utm_medium: attr?.utm_medium || '',
     utm_campaign: attr?.utm_campaign || '',
     gclid: attr?.gclid || '',
+    fbclid: attr?.fbclid || '',
     device_type: attr?.device_type || '',
   });
 };
 
 export const trackWhatsAppClick = (source?: string) => {
+  if (isDuplicate('whatsapp_click')) return;
   const attr = getAttribution();
   trackEvent('whatsapp_click', {
     category: 'Contact',
@@ -208,10 +299,15 @@ export const trackWhatsAppClick = (source?: string) => {
 };
 
 export const trackBookNowClick = (source?: string) => {
-  trackEvent('book_now_click', {
+  const attr = getAttribution();
+  trackEvent('book_click', {
     category: 'Lead Generation',
     label: source || 'unknown',
     value: 1,
+    source_url: attr?.source_url || '',
+    gclid: attr?.gclid || '',
+    fbclid: attr?.fbclid || '',
+    device_type: attr?.device_type || '',
   });
 };
 
@@ -227,6 +323,7 @@ export const trackChatSubmit = (source?: string) => {
 };
 
 export const trackSmsClick = (source?: string) => {
+  if (isDuplicate('sms_click')) return;
   trackEvent('sms_click', {
     category: 'Contact',
     label: source || 'unknown',

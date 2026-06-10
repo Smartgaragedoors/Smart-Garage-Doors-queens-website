@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import { getCFImageUrl } from '../../data/cloudflareImages';
+import { BUSINESS_INFO } from '../../config/business-info';
 
 const PILLARS = [
   {
@@ -16,7 +17,7 @@ const PILLARS = [
   },
   {
     icon: 'ri-star-smile-line',
-    title: '475 Five-Star Reviews.',
+    title: `${BUSINESS_INFO.aggregateRating.reviewCount} Five-Star Reviews.`,
     body: 'Every review was left by a real homeowner who called us with a real problem. We show up, fix it, and leave the garage working.',
     highlight: '5.0★ rated',
   },
@@ -87,8 +88,8 @@ function WhyChooseUs() {
                     <i key={i} className="ri-star-fill text-yellow-400 text-sm" aria-hidden="true" />
                   ))}
                 </div>
-                <p className="text-sm font-bold text-gray-900 leading-none">475+ reviews</p>
-                <p className="text-xs text-gray-500 mt-0.5">Google · 5.0 average</p>
+                <p className="text-sm font-bold text-gray-900 leading-none">{BUSINESS_INFO.aggregateRating.reviewCount}+ reviews</p>
+                <p className="text-xs text-gray-500 mt-0.5">Google · {BUSINESS_INFO.aggregateRating.ratingValue} average</p>
               </div>
             </div>
 

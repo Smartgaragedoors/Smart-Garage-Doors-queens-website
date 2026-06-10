@@ -1,29 +1,6 @@
-import { useEffect } from 'react';
-import { buildCanonical } from '../../../config/canonical';
 import LocationPageTemplate from '../../../components/feature/LocationPageTemplate';
 
 export default function LocationPage() {
-  useEffect(() => {
-    const s = document.createElement('script');
-    s.type = 'application/ld+json';
-    s.text = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'LocalBusiness',
-      name: 'Smart Garage Doors - Staten Island NY',
-      url: buildCanonical('/staten-island-ny'),
-      telephone: '(914) 557-6816',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Staten Island',
-        addressRegion: 'NY',
-        addressCountry: 'US',
-      },
-      geo: { '@type': 'GeoCoordinates', latitude: '40.5795', longitude: '-74.1502' },
-      aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '475' },
-    });
-    document.head.appendChild(s);
-    return () => { if (document.head.contains(s)) document.head.removeChild(s); };
-  }, []);
 
   return (
     <LocationPageTemplate
@@ -34,7 +11,7 @@ export default function LocationPage() {
       cityName="Staten Island"
       stateCode="NY"
       stateName="New York"
-      reviewCount={475}
+      geo={{ latitude: '40.5795', longitude: '-74.1502' }}
       heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero"
       neighborhoods={[{"name":"St. George & Stapleton","description":"North Shore neighborhoods with older homes and attached garages. Quick access from our Brooklyn hub."},{"name":"New Dorp & Great Kills","description":"Mid-Island residential areas where single-family homes with private garages are very common."},{"name":"Tottenville & Richmond Valley","description":"South Shore's suburban neighborhoods — wide streets, easy access, and plenty of garage door work."},{"name":"Bay Terrace & Westerleigh","description":"Quiet residential blocks with well-maintained homes. We service many repeat customers here."},{"name":"Mariners Harbor & Port Richmond","description":"West Shore neighborhoods we reach quickly from our Dyker Heights location."},{"name":"Grasmere & Dongan Hills","description":"East Shore communities with a mix of older and newer construction — we handle both."}]}
       reviews={[{"text":"Spring broke in New Dorp on a Friday night. They sent someone by 9pm, fixed it fast, and charged exactly what they quoted. No games.","author":"Lisa P.","location":"New Dorp, Staten Island","initials":"LP","color":"bg-blue-600"},{"text":"New opener install in Great Kills. Tech was on time, did great work, and set up the WiFi app for me. Best home service experience I've had.","author":"Frank D.","location":"Great Kills, Staten Island","initials":"FD","color":"bg-orange-500"},{"text":"Door came off track in Tottenville. Called at 8am, they were here by 10. Fixed same day. Really professional.","author":"Nina C.","location":"Tottenville, Staten Island","initials":"NC","color":"bg-green-600"}]}
