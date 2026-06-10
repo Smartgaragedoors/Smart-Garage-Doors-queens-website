@@ -11,15 +11,47 @@ const GREETING: Message = {
   content: "Hey! 👋 What's going on with your garage door?",
 };
 
+// Persist the conversation across page loads. Many CTAs on the site are plain
+// <a href> links that trigger a full page reload, which would otherwise wipe the
+// chat. sessionStorage keeps it alive for the whole browser session (across
+// navigation + refresh) and clears when the tab closes.
+const STORE_KEY = 'sgd_chat_state';
+
+interface PersistedState {
+  messages: Message[];
+  leadCollected: boolean;
+  isOpen: boolean;
+}
+
+function loadState(): PersistedState | null {
+  if (typeof window === 'undefined') return null;
+  try {
+    const raw = sessionStorage.getItem(STORE_KEY);
+    return raw ? (JSON.parse(raw) as PersistedState) : null;
+  } catch {
+    return null;
+  }
+}
+
 export default function ChatWidget() {
-  const [isOpen, setIsOpen]             = useState(false);
-  const [messages, setMessages]         = useState<Message[]>([]);
+  const restored = loadState();
+  const [isOpen, setIsOpen]             = useState(restored?.isOpen ?? false);
+  const [messages, setMessages]         = useState<Message[]>(restored?.messages ?? []);
   const [input, setInput]               = useState('');
   const [isTyping, setIsTyping]         = useState(false);
-  const [leadCollected, setLeadCollected] = useState(false);
+  const [leadCollected, setLeadCollected] = useState(restored?.leadCollected ?? false);
   const [hasUnread, setHasUnread]       = useState(false);
   const bottomRef  = useRef<HTMLDivElement>(null);
   const inputRef   = useRef<HTMLInputElement>(null);
+
+  // Persist conversation whenever it changes, so a full page reload (e.g. an
+  // <a href> CTA click) doesn't lose it.
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    try {
+      sessionStorage.setItem(STORE_KEY, JSON.stringify({ messages, leadCollected, isOpen }));
+    } catch { /* storage full / disabled — non-fatal */ }
+  }, [messages, leadCollected, isOpen]);
 
   // Show greeting once on first open
   useEffect(() => {
