@@ -1,29 +1,6 @@
-import { useEffect } from 'react';
-import { buildCanonical } from '../../../config/canonical';
 import LocationPageTemplate from '../../../components/feature/LocationPageTemplate';
 
 export default function LocationPage() {
-  useEffect(() => {
-    const s = document.createElement('script');
-    s.type = 'application/ld+json';
-    s.text = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'LocalBusiness',
-      name: 'Smart Garage Doors - New Rochelle NY',
-      url: buildCanonical('/new-rochelle-ny'),
-      telephone: '(914) 557-6816',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'New Rochelle',
-        addressRegion: 'NY',
-        addressCountry: 'US',
-      },
-      geo: { '@type': 'GeoCoordinates', latitude: '40.9115', longitude: '-73.7823' },
-      aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '475' },
-    });
-    document.head.appendChild(s);
-    return () => { if (document.head.contains(s)) document.head.removeChild(s); };
-  }, []);
 
   return (
     <LocationPageTemplate
@@ -34,7 +11,7 @@ export default function LocationPage() {
       cityName="New Rochelle"
       stateCode="NY"
       stateName="New York"
-      reviewCount={475}
+      geo={{ latitude: '40.9115', longitude: '-73.7823' }}
       heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero"
       neighborhoods={[{"name":"Downtown & Echo Bay","description":"Waterfront and urban neighborhoods in south New Rochelle. We serve both residential condos and commercial properties here."},{"name":"Wykagyl & Residence Park","description":"Upscale north New Rochelle neighborhoods with large homes and premium garage doors."},{"name":"Beechmont & Larchmont Manor","description":"Established neighborhoods bordering Larchmont. Single-family homes with a mix of older and newer garage systems."},{"name":"Jefferson Park & Eastchester","description":"Mid-city residential areas with high density. We know these streets well from regular service calls."},{"name":"North End & Pelham Gardens","description":"Northern New Rochelle neighborhoods close to the Pelham border. Quick arrivals from our Westchester routes."},{"name":"Trinity Place & Glen Island","description":"Southern waterfront area with a range of housing types. We service everything from older systems to new smart openers."}]}
       reviews={[{"text":"Door off track in New Rochelle. They were here same afternoon, got it back on track, adjusted the cables, and the door runs perfectly now.","author":"Rachel G.","location":"New Rochelle, NY","initials":"RG","color":"bg-blue-600"},{"text":"Spring replacement in Wykagyl. Professional, on time, fair price. No upselling, no nonsense. Will definitely call again.","author":"Steve J.","location":"New Rochelle, NY","initials":"SJ","color":"bg-orange-500"},{"text":"Called at 9pm when my garage door wouldn't close. Tech arrived within 90 minutes and fixed a sensor issue. Lifesaver.","author":"Maria C.","location":"New Rochelle, NY","initials":"MC","color":"bg-green-600"}]}

@@ -7,6 +7,7 @@ import DynamicMetaTags from '../../components/seo/DynamicMetaTags';
 import { buildCanonical } from '../../config/canonical';
 import { submitForm } from '../../utils/formSubmission';
 import { trackFormStart, trackFormSubmit } from '../../utils/analytics';
+import FormTrustBadges from '../../components/conversion/FormTrustBadges';
 
 export default function BookNowPage() {
   const [formData, setFormData] = useState({
@@ -47,7 +48,10 @@ export default function BookNowPage() {
       const result = await submitForm(formData, 'Book Now Form');
 
       if (result.success) {
-        trackFormSubmit('Book Now Form', 'book_now');
+        trackFormSubmit('Book Now Form', 'book_now', {
+          service_type: formData.serviceType,
+          urgency: formData.urgency,
+        });
         navigate('/book-now/thank-you/');
         setSubmitStatus(result.usedFallback ? 'fallback' : 'success');
         setFormData({
@@ -219,6 +223,8 @@ export default function BookNowPage() {
                   placeholder="e.g. door won't open, spring snapped, opener making noise..."
                 ></textarea>
               </div>
+
+              <FormTrustBadges />
 
               <div className="text-center">
                 <button

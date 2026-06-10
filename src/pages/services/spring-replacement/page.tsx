@@ -114,7 +114,7 @@ export default function SpringReplacementPage() {
     <div className="min-h-screen bg-gray-50">
       <DynamicMetaTags 
         title="Garage Door Spring Replacement NY NJ CT | Smartest Garage Doors"
-        description="5.0★ rated, 475 reviews. Safe spring replacement. Torsion & extension. Fast service — call for availability. NY, NJ & CT. Licensed & insured."
+        description="5.0★ rated, 479 reviews. Safe spring replacement. Torsion & extension. Fast service — call for availability. NY, NJ & CT. Licensed & insured."
         keywords="garage door spring replacement, torsion spring repair, extension spring replacement, broken spring repair"
       />
       <FAQSchema faqs={faqs} />

@@ -1,29 +1,6 @@
-import { useEffect } from 'react';
-import { buildCanonical } from '../../../config/canonical';
 import LocationPageTemplate from '../../../components/feature/LocationPageTemplate';
 
 export default function LocationPage() {
-  useEffect(() => {
-    const s = document.createElement('script');
-    s.type = 'application/ld+json';
-    s.text = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'LocalBusiness',
-      name: 'Smart Garage Doors - Long Island NY',
-      url: buildCanonical('/long-island-ny'),
-      telephone: '(914) 557-6816',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Long Island',
-        addressRegion: 'NY',
-        addressCountry: 'US',
-      },
-      geo: { '@type': 'GeoCoordinates', latitude: '40.7891', longitude: '-73.1350' },
-      aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '475' },
-    });
-    document.head.appendChild(s);
-    return () => { if (document.head.contains(s)) document.head.removeChild(s); };
-  }, []);
 
   return (
     <LocationPageTemplate
@@ -34,7 +11,7 @@ export default function LocationPage() {
       cityName="Long Island"
       stateCode="NY"
       stateName="New York"
-      reviewCount={475}
+      geo={{ latitude: '40.7891', longitude: '-73.1350' }}
       heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero"
       neighborhoods={[{"name":"Nassau County (North Shore)","description":"Great Neck, Manhasset, Roslyn — premium homes with high-quality garage doors. We specialize in upscale installs here."},{"name":"Nassau County (South Shore)","description":"Rockville Centre, Valley Stream, Freeport — well-established neighborhoods with high demand for repair and maintenance."},{"name":"Suffolk County (West)","description":"Huntington, Commack, Smithtown — suburban neighborhoods where we run regular routes."},{"name":"Suffolk County (East)","description":"Farmingdale, Babylon, Bay Shore — we cover these areas with same-day availability most days."},{"name":"The Hamptons & East End","description":"Seasonal and year-round homes in the Hamptons. We service all door brands and install premium custom doors."},{"name":"North Fork","description":"Quieter East End communities. We schedule service efficiently for this area — call ahead for availability."}]}
       reviews={[{"text":"Spring snapped in Great Neck on a Sunday. Called, got a real person, tech was there in 90 minutes. Replaced both springs, checked everything. Great job.","author":"Michael S.","location":"Great Neck, Long Island","initials":"MS","color":"bg-blue-600"},{"text":"New garage door install in Huntington. They helped me pick the right style, came on time, and the installation was flawless.","author":"Karen W.","location":"Huntington, Long Island","initials":"KW","color":"bg-orange-500"},{"text":"Emergency call in Valley Stream at night. They picked up, showed up, fixed it. Exactly what you hope for. Highly recommend.","author":"Jason T.","location":"Valley Stream, Long Island","initials":"JT","color":"bg-green-600"}]}

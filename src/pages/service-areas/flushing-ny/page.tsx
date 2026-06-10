@@ -1,29 +1,6 @@
-import { useEffect } from 'react';
-import { buildCanonical } from '../../../config/canonical';
 import LocationPageTemplate from '../../../components/feature/LocationPageTemplate';
 
 export default function LocationPage() {
-  useEffect(() => {
-    const s = document.createElement('script');
-    s.type = 'application/ld+json';
-    s.text = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'LocalBusiness',
-      name: 'Smart Garage Doors - Flushing NY',
-      url: buildCanonical('/flushing-ny'),
-      telephone: '(914) 557-6816',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Flushing',
-        addressRegion: 'NY',
-        addressCountry: 'US',
-      },
-      geo: { '@type': 'GeoCoordinates', latitude: '40.7670', longitude: '-73.8330' },
-      aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '475' },
-    });
-    document.head.appendChild(s);
-    return () => { if (document.head.contains(s)) document.head.removeChild(s); };
-  }, []);
 
   return (
     <LocationPageTemplate
@@ -34,7 +11,7 @@ export default function LocationPage() {
       cityName="Flushing"
       stateCode="NY"
       stateName="New York"
-      reviewCount={475}
+      geo={{ latitude: '40.7670', longitude: '-73.8330' }}
       heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero"
       neighborhoods={[{"name":"Downtown Flushing","description":"The heart of Queens' most diverse neighborhood. Dense housing with a mix of attached garages and multi-unit buildings."},{"name":"Murray Hill & Queensboro Hill","description":"Residential areas east of downtown with single-family homes and attached garages — our most common call type here."},{"name":"Auburndale & Bayside Hills","description":"Quieter residential streets north of Flushing. We have strong repeat customer bases in both areas."},{"name":"College Point & Whitestone","description":"Waterfront communities north of Flushing. Easy access, fast response."},{"name":"Fresh Meadows & Jamaica Hills","description":"Southern areas bordering Jamaica. Dense residential with a mix of housing types."},{"name":"Kissena Park & Pomonok","description":"Central Flushing neighborhoods. We run regular routes here and can usually come same day."}]}
       reviews={[{"text":"Spring snapped in Flushing on a Tuesday morning. They were here by noon, replaced both springs, and the door was back to perfect.","author":"Wei L.","location":"Flushing, Queens","initials":"WL","color":"bg-blue-600"},{"text":"New LiftMaster opener installed in College Point. Tech was fast, clean, and helped me set up the app. Excellent work.","author":"Yuki T.","location":"College Point, Queens","initials":"YT","color":"bg-orange-500"},{"text":"Called at night when my door wouldn't close. They came within 2 hours, fixed a sensor alignment issue, and the door worked perfectly.","author":"Rosa M.","location":"Flushing, Queens","initials":"RM","color":"bg-green-600"}]}

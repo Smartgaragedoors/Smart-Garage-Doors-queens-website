@@ -246,37 +246,72 @@ export default function BlogPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-white rounded-lg p-6 text-center shadow-sm hover:shadow-md transition-shadow">
+            <a href="/spring-replacement/" className="block bg-white rounded-lg p-6 text-center shadow-sm hover:shadow-md transition-shadow">
               <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-4">
                 <i className="ri-tools-line text-orange-500 text-xl"></i>
               </div>
               <h3 className="font-semibold text-gray-900 mb-2">Spring Repair</h3>
               <p className="text-sm text-gray-600">Learn about garage door spring maintenance and replacement</p>
-            </div>
+            </a>
 
-            <div className="bg-white rounded-lg p-6 text-center shadow-sm hover:shadow-md transition-shadow">
+            <a href="/garage-door-repair/" className="block bg-white rounded-lg p-6 text-center shadow-sm hover:shadow-md transition-shadow">
               <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-4">
                 <i className="ri-shield-check-line text-orange-500 text-xl"></i>
               </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Safety Tips</h3>
-              <p className="text-sm text-gray-600">Essential safety guidelines for garage door operation</p>
-            </div>
+              <h3 className="font-semibold text-gray-900 mb-2">Garage Door Repair</h3>
+              <p className="text-sm text-gray-600">All repairs — springs, cables, panels, tracks, and more</p>
+            </a>
 
-            <div className="bg-white rounded-lg p-6 text-center shadow-sm hover:shadow-md transition-shadow">
+            <a href="/emergency-garage-door-repair/" className="block bg-white rounded-lg p-6 text-center shadow-sm hover:shadow-md transition-shadow">
               <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-4">
                 <i className="ri-alarm-warning-line text-orange-500 text-xl"></i>
               </div>
               <h3 className="font-semibold text-gray-900 mb-2">Emergency Repair</h3>
               <p className="text-sm text-gray-600">What to do when your garage door breaks unexpectedly</p>
-            </div>
+            </a>
 
-            <div className="bg-white rounded-lg p-6 text-center shadow-sm hover:shadow-md transition-shadow">
+            <a href="/maintenance/" className="block bg-white rounded-lg p-6 text-center shadow-sm hover:shadow-md transition-shadow">
               <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-4">
                 <i className="ri-settings-3-line text-orange-500 text-xl"></i>
               </div>
               <h3 className="font-semibold text-gray-900 mb-2">Maintenance</h3>
               <p className="text-sm text-gray-600">Regular maintenance tips to extend your door's lifespan</p>
-            </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Guides by Location */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Guides by Location</h2>
+            <p className="text-lg text-gray-600">Local pricing, response times, and tips for your area</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[
+              { blog: 'queens-garage-door-repair-cost', area: '/queens-ny/', label: 'Queens, NY' },
+              { blog: 'brooklyn-garage-door-repair-cost', area: '/brooklyn-ny/', label: 'Brooklyn, NY' },
+              { blog: 'staten-island-garage-door-repair', area: '/staten-island-ny/', label: 'Staten Island, NY' },
+              { blog: 'long-island-garage-door-repair', area: '/long-island-ny/', label: 'Long Island, NY' },
+              { blog: 'westchester-county-garage-door-service', area: '/westchester-county-ny/', label: 'Westchester County, NY' },
+              { blog: 'white-plains-ny-garage-door-service', area: '/white-plains-ny/', label: 'White Plains, NY' },
+              { blog: 'suffern-ny-garage-door-service', area: '/suffern-ny/', label: 'Suffern, NY' },
+              { blog: 'flushing-ny-garage-door-repair', area: '/queens-ny/', label: 'Flushing (Queens), NY' },
+              { blog: 'stamford-ct-garage-door-repair', area: '/stamford-ct/', label: 'Stamford, CT' },
+              { blog: 'greenwich-ct-garage-door-repair', area: '/greenwich-ct/', label: 'Greenwich, CT' },
+              { blog: 'fairfield-ct-garage-door-service', area: '/fairfield-ct/', label: 'Fairfield, CT' },
+              { blog: 'darien-ct-garage-door-repair', area: '/darien-ct/', label: 'Darien, CT' },
+            ].map((g) => (
+              <div key={g.blog} className="bg-gray-50 rounded-lg p-4 border border-gray-100">
+                <a href={`/blog/${g.blog}/`} className="font-semibold text-gray-900 hover:text-orange-600 transition-colors block mb-1">
+                  {g.label} Guide
+                </a>
+                <a href={g.area} className="text-sm text-blue-600 hover:text-blue-800 transition-colors">
+                  Service in {g.label} →
+                </a>
+              </div>
+            ))}
           </div>
         </div>
       </section>

@@ -1,29 +1,6 @@
-import { useEffect } from 'react';
-import { buildCanonical } from '../../../config/canonical';
 import LocationPageTemplate from '../../../components/feature/LocationPageTemplate';
 
 export default function LocationPage() {
-  useEffect(() => {
-    const s = document.createElement('script');
-    s.type = 'application/ld+json';
-    s.text = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'LocalBusiness',
-      name: 'Smart Garage Doors - Nassau NY',
-      url: buildCanonical('/nassau-county-ny'),
-      telephone: '(914) 557-6816',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Nassau',
-        addressRegion: 'NY',
-        addressCountry: 'US',
-      },
-      geo: { '@type': 'GeoCoordinates', latitude: '40.7329', longitude: '-73.5900' },
-      aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '475' },
-    });
-    document.head.appendChild(s);
-    return () => { if (document.head.contains(s)) document.head.removeChild(s); };
-  }, []);
 
   return (
     <LocationPageTemplate
@@ -34,7 +11,7 @@ export default function LocationPage() {
       cityName="Nassau County"
       stateCode="NY"
       stateName="New York"
-      reviewCount={475}
+      geo={{ latitude: '40.7329', longitude: '-73.5900' }}
       heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero"
       neighborhoods={[{"name":"Great Neck & Manhasset","description":"North Shore's most prestigious addresses. We install and service premium garage doors that match the architecture of these homes."},{"name":"Garden City & Hempstead","description":"Classic Long Island communities with a mix of older and newer homes. High volume of spring and opener work here."},{"name":"Rockville Centre & Lynbrook","description":"South Shore neighborhoods where we have a strong repeat customer base. Fast arrivals from our nearby routes."},{"name":"Hicksville & Plainview","description":"Mid-Island communities with dense residential areas. We run regular service routes through both neighborhoods."},{"name":"Syosset & Woodbury","description":"Premium communities in the Oyster Bay area. Custom and carriage-style door installations are common here."},{"name":"Valley Stream & Elmont","description":"South Nassau neighborhoods we reach quickly from our Brooklyn hub via the Belt Parkway."}]}
       reviews={[{"text":"Garage door spring broke in Garden City on a cold morning. They arrived in 90 minutes, replaced both springs, and the door works better than ever.","author":"Patricia L.","location":"Garden City, Nassau County","initials":"PL","color":"bg-blue-600"},{"text":"Installed a new Clopay door in Great Neck. They helped me choose the right style and the installation looks amazing. Worth every penny.","author":"Richard K.","location":"Great Neck, Nassau County","initials":"RK","color":"bg-orange-500"},{"text":"Emergency repair in Rockville Centre at night. The tech arrived fast, fixed the cable, and had the door working within the hour.","author":"Susan M.","location":"Rockville Centre, Nassau County","initials":"SM","color":"bg-green-600"}]}

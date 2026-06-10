@@ -1,22 +1,6 @@
-import { useEffect } from 'react';
-import { buildCanonical } from '../../../config/canonical';
 import LocationPageTemplate from '../../../components/feature/LocationPageTemplate';
 
 export default function BrooklynNY() {
-  useEffect(() => {
-    const s = document.createElement('script');
-    s.type = 'application/ld+json';
-    s.text = JSON.stringify({
-      '@context': 'https://schema.org', '@type': 'LocalBusiness',
-      name: 'Smart Garage Doors - Brooklyn NY',
-      url: buildCanonical('/brooklyn-ny'), telephone: '(914) 557-6816',
-      address: { '@type': 'PostalAddress', streetAddress: '71st 12th Ave', addressLocality: 'Dyker Heights, Brooklyn', addressRegion: 'NY', addressCountry: 'US' },
-      geo: { '@type': 'GeoCoordinates', latitude: '40.6782', longitude: '-73.9442' },
-      aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '479' },
-    });
-    document.head.appendChild(s);
-    return () => { if (document.head.contains(s)) document.head.removeChild(s); };
-  }, []);
 
   return (
     <LocationPageTemplate
@@ -27,7 +11,7 @@ export default function BrooklynNY() {
       cityName="Brooklyn"
       stateCode="NY"
       stateName="New York"
-      reviewCount={479}
+      geo={{ latitude: '40.6782', longitude: '-73.9442' }}
       heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/98b4a7fc-77e3-433e-65c9-c5c7be8bc000/hero"
       mapEmbedUrl="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96737.10733629354!2d-74.03927096718748!3d40.67818494999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24416947c2109%3A0x82765c7404007886!2sBrooklyn%2C%20NY!5e0!3m2!1sen!2sus"
       neighborhoods={[

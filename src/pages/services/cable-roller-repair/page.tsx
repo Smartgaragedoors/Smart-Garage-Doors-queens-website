@@ -100,7 +100,7 @@ export default function CableRollerRepairPage() {
     <div className="min-h-screen bg-gray-50">
       <DynamicMetaTags 
         title="Garage Door Cable & Roller Repair NY NJ CT | Smartest Garage Doors"
-        description="5.0★ rated, 475 reviews. Cable, roller & track repair. Fast service — call for availability. NY, NJ & CT. Licensed & insured."
+        description="5.0★ rated, 479 reviews. Cable, roller & track repair. Fast service — call for availability. NY, NJ & CT. Licensed & insured."
         keywords="garage door cable repair, roller replacement, track repair, cable replacement"
         canonical={buildCanonical('/cable-roller-repair')}
       />

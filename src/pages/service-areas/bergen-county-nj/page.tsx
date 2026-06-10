@@ -1,29 +1,6 @@
-import { useEffect } from 'react';
-import { buildCanonical } from '../../../config/canonical';
 import LocationPageTemplate from '../../../components/feature/LocationPageTemplate';
 
 export default function LocationPage() {
-  useEffect(() => {
-    const s = document.createElement('script');
-    s.type = 'application/ld+json';
-    s.text = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'LocalBusiness',
-      name: 'Smart Garage Doors - Bergen NJ',
-      url: buildCanonical('/bergen-county-nj'),
-      telephone: '(914) 557-6816',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Bergen',
-        addressRegion: 'NJ',
-        addressCountry: 'US',
-      },
-      geo: { '@type': 'GeoCoordinates', latitude: '40.9587', longitude: '-74.0741' },
-      aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '475' },
-    });
-    document.head.appendChild(s);
-    return () => { if (document.head.contains(s)) document.head.removeChild(s); };
-  }, []);
 
   return (
     <LocationPageTemplate
@@ -34,7 +11,7 @@ export default function LocationPage() {
       cityName="Bergen County"
       stateCode="NJ"
       stateName="New Jersey"
-      reviewCount={475}
+      geo={{ latitude: '40.9587', longitude: '-74.0741' }}
       heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero"
       neighborhoods={[{"name":"Paramus & Hackensack","description":"Bergen's commercial and population centers. We run regular routes and offer fast response in both municipalities."},{"name":"Teaneck & Englewood","description":"Dense residential communities in eastern Bergen. We have a strong customer base throughout both towns."},{"name":"Ridgewood & Glen Rock","description":"Upscale residential communities in mid-Bergen. Custom and carriage-style doors are popular in these well-preserved neighborhoods."},{"name":"Fort Lee & Edgewater","description":"Hudson River communities with luxury high-rises and single-family homes. We handle both types."},{"name":"Ramsey & Mahwah","description":"Northern Bergen communities near our Suffern base. Fastest response in the county from our NY location."},{"name":"River Edge & Oradell","description":"Quiet residential areas in central Bergen. Well-maintained homes with quality garage systems."}]}
       reviews={[{"text":"Spring snapped in Paramus. They came from NY, arrived in about an hour, fixed it perfectly. Fair price and very professional.","author":"Anthony G.","location":"Paramus, Bergen County","initials":"AG","color":"bg-blue-600"},{"text":"New carriage door in Ridgewood. Beautiful job — the tech helped me pick the right style for our Tudor home. Neighbors keep asking who did the work.","author":"Donna C.","location":"Ridgewood, Bergen County","initials":"DC","color":"bg-orange-500"},{"text":"Emergency in Teaneck on a Sunday night. Opener completely dead. They came Monday morning first thing and installed a new one.","author":"Samuel L.","location":"Teaneck, Bergen County","initials":"SL","color":"bg-green-600"}]}

@@ -1,4 +1,5 @@
 import { trackPhoneClick, trackBookNowClick } from '../../utils/analytics';
+import { BUSINESS_INFO } from '../../config/business-info';
 
 interface BookingCTABarProps {
   title?: string;
@@ -25,7 +26,7 @@ export default function BookingCTABar({
               <p className="text-blue-100 text-sm md:text-base">{subtitle}</p>
             ) : (
               <p className="text-blue-100 text-sm md:text-base">
-                Fast local response, upfront quotes, licensed and insured service, and 475 Google reviews.
+                Fast local response, upfront quotes, licensed and insured service, and {BUSINESS_INFO.aggregateRating.reviewCount} Google reviews.
               </p>
             )}
           </div>

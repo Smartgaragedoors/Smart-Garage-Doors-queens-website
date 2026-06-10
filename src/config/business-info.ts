@@ -71,6 +71,22 @@ export const BUSINESS_INFO = {
   ],
 
   /**
+   * Concrete trust signals surfaced on location pages (dated specificity ranks
+   * and converts better than generic "licensed & insured" claims).
+   *
+   * ⚠️ CONFIRM BEFORE RELYING ON THESE — they must be truthful for the legal
+   * entity (LSA / false-advertising compliance):
+   *  - establishedYear: carried over from the prior Suffern site's public claim.
+   *  - jobsCompleted: leave null until you have a defensible figure; set a number
+   *    (e.g. 5000) to surface a "5,000+ jobs completed" badge across location pages.
+   */
+  trust: {
+    establishedYear: 2010,
+    jobsCompleted: null as number | null,
+    financingAvailable: true,
+  },
+
+  /**
    * Operational dispatch hubs (~60+ mile service radius each).
    * Used for homepage/hero messaging—honest positioning without implying a storefront in every town.
    */

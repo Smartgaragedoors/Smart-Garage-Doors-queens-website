@@ -1,29 +1,6 @@
-import { useEffect } from 'react';
-import { buildCanonical } from '../../../config/canonical';
 import LocationPageTemplate from '../../../components/feature/LocationPageTemplate';
 
 export default function LocationPage() {
-  useEffect(() => {
-    const s = document.createElement('script');
-    s.type = 'application/ld+json';
-    s.text = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'LocalBusiness',
-      name: 'Smart Garage Doors - Westport CT',
-      url: buildCanonical('/westport-ct'),
-      telephone: '(914) 557-6816',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Westport',
-        addressRegion: 'CT',
-        addressCountry: 'US',
-      },
-      geo: { '@type': 'GeoCoordinates', latitude: '41.1415', longitude: '-73.3579' },
-      aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '475' },
-    });
-    document.head.appendChild(s);
-    return () => { if (document.head.contains(s)) document.head.removeChild(s); };
-  }, []);
 
   return (
     <LocationPageTemplate
@@ -34,7 +11,7 @@ export default function LocationPage() {
       cityName="Westport"
       stateCode="CT"
       stateName="Connecticut"
-      reviewCount={475}
+      geo={{ latitude: '41.1415', longitude: '-73.3579' }}
       heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero"
       neighborhoods={[{"name":"Saugatuck & Downtown","description":"Westport's vibrant center with beautiful homes along the Saugatuck River. We service the full range of garage systems here."},{"name":"Greens Farms & Southport","description":"Coastal neighborhoods with premium homes and upscale garage doors. Custom installs are common in these areas."},{"name":"Compo Beach & Sherwood Island area","description":"Waterfront properties near the beach. Coastal exposure means we stock corrosion-resistant hardware for these homes."},{"name":"Coleytown & Kings Highway","description":"Northern Westport residential areas with large homes and quality garage systems."},{"name":"Long Lots & Gorham Island","description":"Prestigious Westport communities. We're experienced with the premium door brands common here."},{"name":"Westport borders (Weston/Wilton)","description":"We serve homes in the areas bordering Westport — same professional service, same response time."}]}
       reviews={[{"text":"Spring emergency in Greens Farms. Called on a Saturday, tech arrived 90 minutes later, fixed it on the spot. Clean work, fair price.","author":"Stephanie C.","location":"Greens Farms, Westport","initials":"SC","color":"bg-blue-600"},{"text":"New Wayne Dalton door in Coleytown. They guided us through the selection process, and the installation was perfect.","author":"Martin V.","location":"Coleytown, Westport","initials":"MV","color":"bg-orange-500"},{"text":"Opener died at Compo Beach house. They came same week, installed a new WiFi-enabled unit, and set everything up. Great service for coastal properties.","author":"Diane K.","location":"Compo, Westport","initials":"DK","color":"bg-green-600"}]}

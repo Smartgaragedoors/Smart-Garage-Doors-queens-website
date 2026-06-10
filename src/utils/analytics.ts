@@ -113,6 +113,7 @@ export function getAttribution(): AttributionData | null {
 
 export const initAnalytics = () => {
   captureAttribution();
+  initGlobalClickTracking();
 
   if (!shouldTrack()) return;
 
@@ -185,7 +186,46 @@ export const trackEvent = (
 
 // ─── Conversion events (mark these as key events in GA4 console) ──────────────
 
+// Dedupe guard: the global delegated listener (initGlobalClickTracking) AND a
+// component-level onClick can both fire for the same physical click. Whichever
+// runs first wins; the second call within the window is dropped.
+const DEDUPE_WINDOW_MS = 400;
+const lastFired: Record<string, number> = {};
+function isDuplicate(key: string): boolean {
+  const now = Date.now();
+  if (lastFired[key] && now - lastFired[key] < DEDUPE_WINDOW_MS) return true;
+  lastFired[key] = now;
+  return false;
+}
+
+// Safety net so EVERY tel:/sms:/WhatsApp link on the site is tracked, even ones
+// without an explicit onClick handler (blog CTAs, footer, service pages, etc.).
+// Component-level handlers still run and provide richer `source` labels; the
+// dedupe guard prevents double-counting.
+export function initGlobalClickTracking(): void {
+  if (typeof document === 'undefined') return;
+  document.addEventListener(
+    'click',
+    (e) => {
+      const target = e.target as Element | null;
+      const link = target?.closest?.('a[href]') as HTMLAnchorElement | null;
+      if (!link) return;
+      const href = link.getAttribute('href') || '';
+      const source = link.getAttribute('data-track-source') || `auto:${window.location.pathname}`;
+      if (href.startsWith('tel:')) {
+        trackPhoneClick(href.replace('tel:', ''), source);
+      } else if (href.startsWith('sms:')) {
+        trackSmsClick(source);
+      } else if (href.includes('wa.me/') || href.includes('api.whatsapp.com')) {
+        trackWhatsAppClick(source);
+      }
+    },
+    { capture: true }
+  );
+}
+
 export const trackPhoneClick = (phoneNumber: string, source?: string) => {
+  if (isDuplicate(`call:${phoneNumber.replace(/\D/g, '')}`)) return;
   const attr = getAttribution();
   trackEvent('call_click', {
     category: 'Contact',
@@ -220,13 +260,19 @@ export const trackFormStart = (formName: string, source?: string) => {
   });
 };
 
-export const trackFormSubmit = (formName: string, formType: string) => {
+export const trackFormSubmit = (
+  formName: string,
+  formType: string,
+  extras?: { service_type?: string; urgency?: string }
+) => {
   const attr = getAttribution();
   trackEvent('form_submit', {
     category: 'Lead Generation',
     label: formName,
     value: 1,
     form_type: formType,
+    service_type: extras?.service_type || '',
+    urgency: extras?.urgency || '',
     landing_page: attr?.landing_page || '',
     source_url: attr?.source_url || '',
     referrer: attr?.referrer || '',
@@ -240,6 +286,7 @@ export const trackFormSubmit = (formName: string, formType: string) => {
 };
 
 export const trackWhatsAppClick = (source?: string) => {
+  if (isDuplicate('whatsapp_click')) return;
   const attr = getAttribution();
   trackEvent('whatsapp_click', {
     category: 'Contact',
@@ -276,6 +323,7 @@ export const trackChatSubmit = (source?: string) => {
 };
 
 export const trackSmsClick = (source?: string) => {
+  if (isDuplicate('sms_click')) return;
   trackEvent('sms_click', {
     category: 'Contact',
     label: source || 'unknown',

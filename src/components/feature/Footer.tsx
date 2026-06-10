@@ -60,6 +60,8 @@ function Footer() {
               <li><a href="/spring-replacement/" className="text-gray-200 hover:text-orange-400 transition-colors">Spring Replacement</a></li>
               <li><a href="/opener-repair-installation/" className="text-gray-200 hover:text-orange-400 transition-colors">Opener Repair</a></li>
               <li><a href="/garage-door-installation/" className="text-gray-200 hover:text-orange-400 transition-colors">Installation Services</a></li>
+              <li><a href="/vs-precision-garage-door/" className="text-gray-200 hover:text-orange-400 transition-colors">vs. Precision Garage Door</a></li>
+              <li><a href="/vs-overhead-door/" className="text-gray-200 hover:text-orange-400 transition-colors">vs. Overhead Door</a></li>
               <li><a href="/book-now/" className="text-gray-200 hover:text-orange-400 transition-colors">Request Service</a></li>
             </ul>
           </div>

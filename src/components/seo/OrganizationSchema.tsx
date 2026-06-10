@@ -5,6 +5,7 @@ const OrganizationSchema: React.FC = () => {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": `${BUSINESS_INFO.website}/#organization`,
     "name": BUSINESS_INFO.name,
     "legalName": BUSINESS_INFO.legalName,
     "url": BUSINESS_INFO.website,

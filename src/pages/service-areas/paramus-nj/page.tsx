@@ -1,29 +1,6 @@
-import { useEffect } from 'react';
-import { buildCanonical } from '../../../config/canonical';
 import LocationPageTemplate from '../../../components/feature/LocationPageTemplate';
 
 export default function LocationPage() {
-  useEffect(() => {
-    const s = document.createElement('script');
-    s.type = 'application/ld+json';
-    s.text = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'LocalBusiness',
-      name: 'Smart Garage Doors - Paramus NJ',
-      url: buildCanonical('/paramus-nj'),
-      telephone: '(914) 557-6816',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Paramus',
-        addressRegion: 'NJ',
-        addressCountry: 'US',
-      },
-      geo: { '@type': 'GeoCoordinates', latitude: '40.9454', longitude: '-74.0710' },
-      aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '475' },
-    });
-    document.head.appendChild(s);
-    return () => { if (document.head.contains(s)) document.head.removeChild(s); };
-  }, []);
 
   return (
     <LocationPageTemplate
@@ -34,7 +11,7 @@ export default function LocationPage() {
       cityName="Paramus"
       stateCode="NJ"
       stateName="New Jersey"
-      reviewCount={475}
+      geo={{ latitude: '40.9454', longitude: '-74.0710' }}
       heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero"
       neighborhoods={[{"name":"Route 4 & Route 17 Corridor","description":"Paramus's retail hubs and surrounding commercial properties. We service commercial roll-up doors and warehouses throughout both corridors."},{"name":"East Paramus","description":"Residential eastern section with single-family homes. Our most common residential call area in Paramus."},{"name":"West Paramus & Century Road","description":"Mixed residential and commercial in western Paramus. We cover both types efficiently."},{"name":"Ridgewood border area","description":"Northern Paramus near Ridgewood. Upscale homes transitioning from commercial Paramus to suburban Ridgewood."},{"name":"Maywood & Fair Lawn border","description":"Eastern Paramus borders. We cover these as part of our Bergen County routes."},{"name":"Rochelle Park border","description":"Southern Paramus. Convenient access from our regular Bergen County circuit."}]}
       reviews={[{"text":"Commercial door at our Paramus location. Called, they came fast, assessed the issue and fixed it same day. No downtime for the business.","author":"Stephen C.","location":"Paramus, NJ","initials":"SC","color":"bg-blue-600"},{"text":"Spring replacement at my house in east Paramus. Tech was professional, on time, and the price was fair. Would definitely call again.","author":"Lisa R.","location":"East Paramus, NJ","initials":"LR","color":"bg-orange-500"},{"text":"New opener installed in Paramus. Works perfectly with the app. Quick job, clean installation. Very happy with the service.","author":"Adam H.","location":"Paramus, NJ","initials":"AH","color":"bg-green-600"}]}

@@ -63,6 +63,9 @@ const coreRoutes = [
   { path: '/cable-roller-repair/', priority: '0.8', changefreq: 'monthly' },
   { path: '/maintenance/', priority: '0.8', changefreq: 'monthly' },
   { path: '/services/installation/', priority: '0.8', changefreq: 'monthly' },
+  // Competitor comparison pages
+  { path: '/vs-precision-garage-door/', priority: '0.7', changefreq: 'monthly' },
+  { path: '/vs-overhead-door/', priority: '0.7', changefreq: 'monthly' },
 ];
 
 // Extract service area routes from router config
