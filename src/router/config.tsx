@@ -96,6 +96,10 @@ const VsOverheadDoorPage = lazy(() => import('../pages/vs-overhead-door/page').t
 const PhotoEstimatePage = lazy(() => import('../pages/photo-estimate/page').then(module => ({ default: module.default })));
 const SecondOpinionPage = lazy(() => import('../pages/second-opinion/page').then(module => ({ default: module.default })));
 
+// Commercial / B2B pages
+const CommercialGarageDoorRepairPage = lazy(() => import('../pages/commercial-garage-door-repair/page').then(module => ({ default: module.default })));
+const PropertyManagersPage = lazy(() => import('../pages/property-managers/page').then(module => ({ default: module.default })));
+
 // Buyer's guide pages
 const LocalVsNationalGarageDoorCompanyPage = lazy(() => import('../pages/local-vs-national-garage-door-company/page').then(module => ({ default: module.default })));
 const BestGarageDoorCompanyQueensPage = lazy(() => import('../pages/best-garage-door-company-queens/page').then(module => ({ default: module.default })));
@@ -446,6 +450,16 @@ const routes: RouteObject[] = [
   {
     path: '/second-opinion/',
     element: <SecondOpinionPage />
+  },
+
+  // Commercial / B2B pages
+  {
+    path: '/commercial-garage-door-repair/',
+    element: <CommercialGarageDoorRepairPage />
+  },
+  {
+    path: '/property-managers/',
+    element: <PropertyManagersPage />
   },
 
   // Buyer's guide pages

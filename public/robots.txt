@@ -99,5 +99,9 @@ Allow: /garage-door-installation-cost-westchester/
 Allow: /insulated-garage-door-cost-long-island/
 Allow: /liftmaster-opener-installation/
 
+# Commercial / B2B pages
+Allow: /commercial-garage-door-repair/
+Allow: /property-managers/
+
 # Sitemap
 Sitemap: https://www.smartestgaragedoors.com/sitemap.xml

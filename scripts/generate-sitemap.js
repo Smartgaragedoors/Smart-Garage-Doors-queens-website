@@ -69,6 +69,9 @@ const coreRoutes = [
   // Conversion pages
   { path: '/photo-estimate/', priority: '0.8', changefreq: 'monthly' },
   { path: '/second-opinion/', priority: '0.8', changefreq: 'monthly' },
+  // Commercial / B2B pages
+  { path: '/commercial-garage-door-repair/', priority: '0.8', changefreq: 'monthly' },
+  { path: '/property-managers/', priority: '0.8', changefreq: 'monthly' },
   // Buyer's guide + cost guide + brand pages
   { path: '/local-vs-national-garage-door-company/', priority: '0.7', changefreq: 'monthly' },
   { path: '/best-garage-door-company-queens/', priority: '0.8', changefreq: 'monthly' },
