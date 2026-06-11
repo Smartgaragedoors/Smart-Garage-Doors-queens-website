@@ -72,6 +72,13 @@ export default function ChatWidget() {
     return () => clearTimeout(t);
   }, []);
 
+  // Hide the mobile sticky CTA bar while the chat panel is open — with the
+  // keyboard up it otherwise floats mid-screen over the conversation.
+  useEffect(() => {
+    document.body.classList.toggle('chat-open', isOpen);
+    return () => document.body.classList.remove('chat-open');
+  }, [isOpen]);
+
   // Refocus input whenever bot finishes typing
   useEffect(() => {
     if (!isTyping && !leadCollected) {
@@ -216,7 +223,7 @@ export default function ChatWidget() {
                     onKeyDown={handleKeyDown}
                     placeholder="Type a message…"
                     disabled={isTyping}
-                    className="flex-1 min-w-0 border border-gray-200 rounded-xl px-3 py-2 text-sm outline-none focus:border-orange-400 disabled:opacity-50"
+                    className="flex-1 min-w-0 border border-gray-200 rounded-xl px-3 py-2 text-base outline-none focus:border-orange-400 disabled:opacity-50"
                   />
                   <button
                     onClick={sendMessage}

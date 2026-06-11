@@ -116,8 +116,8 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 overflow-visible">
-      {/* Top Bar */}
-      <div className="bg-blue-900 text-white py-1.5 md:py-2">
+      {/* Top Bar — desktop only (all its content is hidden on mobile, which left an empty blue strip) */}
+      <div className="hidden md:block bg-blue-900 text-white py-2">
         <div className="max-w-7xl mx-auto px-4 flex justify-between items-center text-xs md:text-sm">
           <div className="flex items-center space-x-3 md:space-x-6">
             <a href="mailto:info@smartestgaragedoors.com" className="hidden md:flex items-center space-x-2 hover:text-orange-400 transition-colors">
