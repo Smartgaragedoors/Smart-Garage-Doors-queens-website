@@ -149,6 +149,43 @@ builder partnerships; collect city-tagged photos + reviews and add real proof to
 **Days 61–90:** Wave 3 selective pages; remaining articles; case studies; evaluate GSC data —
 double-down on towns showing impressions; prune/merge any page with no impressions after 90 days.
 
+## 8b. High-intent page layer — SHIPPED 2026-06-11
+
+Built on the new reusable `GuidePageTemplate` (src/components/feature/GuidePageTemplate.tsx —
+hero, prose sections, cost table, criteria cards, FAQ schema, WhatsApp CTA, related links):
+
+| Page | Intent captured |
+|---|---|
+| /photo-estimate/ | "garage door photo estimate", "send photos quote" — WhatsApp funnel, now indexable |
+| /second-opinion/ | "do I really need a new garage door", quote-shoppers mid-decision |
+| /local-vs-national-garage-door-company/ | franchise-alternative searches, neutral editorial |
+| /best-garage-door-company-queens/ | "best garage door company queens" — criteria guide, no self-crowning |
+| /garage-door-replacement-cost-nassau-county/ | high-ticket replacement cost intent, Nassau |
+| /garage-door-installation-cost-westchester/ | same, Westchester |
+| /insulated-garage-door-cost-long-island/ | premium product cost intent, LI |
+| /liftmaster-opener-installation/ | brand-intent ("LiftMaster installation near me") — no dealer claims |
+
+All: prerendered (106/106 OK), FAQ schema, sitemap + robots + footer links wired,
+pricing canon consistent, compliance scan clean (no hub cities, minutes, #1 claims).
+GBP dashboard work: see docs/gbp-playbook.md.
+
+### Next in this layer (backlog, in priority order)
+1. **Cost pages wave 2:** custom garage door cost Greenwich/Fairfield County; opener
+   installation cost Great Neck/Nassau; emergency repair cost Westchester. Same template.
+2. **Buyer guides wave 2:** "best garage door companies in Nassau County",
+   "…for luxury homes in Westchester/Greenwich". Same criteria-based format.
+3. **Problem pages (city + symptom):** "garage door won't open", "broken spring",
+   "door off track" × Scarsdale/Great Neck/Greenwich/Queens — only 3–4 to start, each
+   needs unique diagnostic content (use GuidePageTemplate; WhatsApp hero).
+4. **Case-study pages (needs real jobs):** template spec — Problem → Diagnosis → Solution
+   → Parts used → Timeline → Before/after photo → CTA + city/service links. URL:
+   /projects/<service>-<town>/. Launch only with real photos; 1 per premium town as they accumulate.
+5. **Image layer (needs real photos):** replace stock-style heroes with real city-tagged
+   job photos; descriptive filenames + alt ("insulated Clopay install, Garden City NY").
+   Current alt-text hygiene is fine; the gap is photo authenticity, not markup.
+6. **Realtor/home-sale content:** "garage door upgrades before selling" blog cluster
+   (calendar item 8) + outreach page for realtor partnerships.
+
 ## 9. Standing working rules
 
 No doorway pages, no fake locations, no fabricated reviews/job history, no minute-level arrival

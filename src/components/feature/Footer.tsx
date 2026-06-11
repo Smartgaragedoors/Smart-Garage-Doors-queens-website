@@ -61,6 +61,9 @@ function Footer() {
               <li><a href="/spring-replacement/" className="text-gray-200 hover:text-orange-400 transition-colors">Spring Replacement</a></li>
               <li><a href="/opener-repair-installation/" className="text-gray-200 hover:text-orange-400 transition-colors">Opener Repair</a></li>
               <li><a href="/garage-door-installation/" className="text-gray-200 hover:text-orange-400 transition-colors">Installation Services</a></li>
+              <li><a href="/liftmaster-opener-installation/" className="text-gray-200 hover:text-orange-400 transition-colors">LiftMaster Installation</a></li>
+              <li><a href="/photo-estimate/" className="text-gray-200 hover:text-orange-400 transition-colors">Free Photo Estimate</a></li>
+              <li><a href="/second-opinion/" className="text-gray-200 hover:text-orange-400 transition-colors">Get a Second Opinion</a></li>
               <li><a href="/vs-precision-garage-door/" className="text-gray-200 hover:text-orange-400 transition-colors">vs. Precision Garage Door</a></li>
               <li><a href="/vs-overhead-door/" className="text-gray-200 hover:text-orange-400 transition-colors">vs. Overhead Door</a></li>
               <li><a href="/book-now/" className="text-gray-200 hover:text-orange-400 transition-colors">Request Service</a></li>
@@ -82,6 +85,14 @@ function Footer() {
                   </a>
                 </li>
               ))}
+            </ul>
+            <h3 className="text-lg font-semibold mb-4 mt-6">Guides</h3>
+            <ul className="space-y-2">
+              <li><a href="/garage-door-replacement-cost-nassau-county/" className="text-gray-200 hover:text-orange-400 transition-colors">Nassau County Cost Guide</a></li>
+              <li><a href="/garage-door-installation-cost-westchester/" className="text-gray-200 hover:text-orange-400 transition-colors">Westchester Cost Guide</a></li>
+              <li><a href="/insulated-garage-door-cost-long-island/" className="text-gray-200 hover:text-orange-400 transition-colors">Insulated Door Cost Guide</a></li>
+              <li><a href="/best-garage-door-company-queens/" className="text-gray-200 hover:text-orange-400 transition-colors">Choosing a Company in Queens</a></li>
+              <li><a href="/local-vs-national-garage-door-company/" className="text-gray-200 hover:text-orange-400 transition-colors">Local vs. National Companies</a></li>
             </ul>
           </div>
 

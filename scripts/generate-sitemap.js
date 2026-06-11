@@ -66,6 +66,16 @@ const coreRoutes = [
   // Competitor comparison pages
   { path: '/vs-precision-garage-door/', priority: '0.7', changefreq: 'monthly' },
   { path: '/vs-overhead-door/', priority: '0.7', changefreq: 'monthly' },
+  // Conversion pages
+  { path: '/photo-estimate/', priority: '0.8', changefreq: 'monthly' },
+  { path: '/second-opinion/', priority: '0.8', changefreq: 'monthly' },
+  // Buyer's guide + cost guide + brand pages
+  { path: '/local-vs-national-garage-door-company/', priority: '0.7', changefreq: 'monthly' },
+  { path: '/best-garage-door-company-queens/', priority: '0.8', changefreq: 'monthly' },
+  { path: '/garage-door-replacement-cost-nassau-county/', priority: '0.8', changefreq: 'monthly' },
+  { path: '/garage-door-installation-cost-westchester/', priority: '0.8', changefreq: 'monthly' },
+  { path: '/insulated-garage-door-cost-long-island/', priority: '0.8', changefreq: 'monthly' },
+  { path: '/liftmaster-opener-installation/', priority: '0.8', changefreq: 'monthly' },
 ];
 
 // Extract service area routes from router config

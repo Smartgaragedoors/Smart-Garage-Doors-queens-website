@@ -92,6 +92,20 @@ const RedBankNJPage = lazy(() => import('../pages/service-areas/red-bank-nj/page
 const VsPrecisionGarageDoorPage = lazy(() => import('../pages/vs-precision-garage-door/page').then(module => ({ default: module.default })));
 const VsOverheadDoorPage = lazy(() => import('../pages/vs-overhead-door/page').then(module => ({ default: module.default })));
 
+// Conversion pages
+const PhotoEstimatePage = lazy(() => import('../pages/photo-estimate/page').then(module => ({ default: module.default })));
+const SecondOpinionPage = lazy(() => import('../pages/second-opinion/page').then(module => ({ default: module.default })));
+
+// Buyer's guide pages
+const LocalVsNationalGarageDoorCompanyPage = lazy(() => import('../pages/local-vs-national-garage-door-company/page').then(module => ({ default: module.default })));
+const BestGarageDoorCompanyQueensPage = lazy(() => import('../pages/best-garage-door-company-queens/page').then(module => ({ default: module.default })));
+
+// Cost guide + brand pages
+const ReplacementCostNassauPage = lazy(() => import('../pages/garage-door-replacement-cost-nassau-county/page').then(module => ({ default: module.default })));
+const InstallationCostWestchesterPage = lazy(() => import('../pages/garage-door-installation-cost-westchester/page').then(module => ({ default: module.default })));
+const InsulatedCostLongIslandPage = lazy(() => import('../pages/insulated-garage-door-cost-long-island/page').then(module => ({ default: module.default })));
+const LiftMasterInstallationPage = lazy(() => import('../pages/liftmaster-opener-installation/page').then(module => ({ default: module.default })));
+
 const routes: RouteObject[] = [
   {
     path: '/',
@@ -422,6 +436,44 @@ const routes: RouteObject[] = [
   {
     path: '/vs-overhead-door/',
     element: <VsOverheadDoorPage />
+  },
+
+  // Conversion pages
+  {
+    path: '/photo-estimate/',
+    element: <PhotoEstimatePage />
+  },
+  {
+    path: '/second-opinion/',
+    element: <SecondOpinionPage />
+  },
+
+  // Buyer's guide pages
+  {
+    path: '/local-vs-national-garage-door-company/',
+    element: <LocalVsNationalGarageDoorCompanyPage />
+  },
+  {
+    path: '/best-garage-door-company-queens/',
+    element: <BestGarageDoorCompanyQueensPage />
+  },
+
+  // Cost guide + brand pages
+  {
+    path: '/garage-door-replacement-cost-nassau-county/',
+    element: <ReplacementCostNassauPage />
+  },
+  {
+    path: '/garage-door-installation-cost-westchester/',
+    element: <InstallationCostWestchesterPage />
+  },
+  {
+    path: '/insulated-garage-door-cost-long-island/',
+    element: <InsulatedCostLongIslandPage />
+  },
+  {
+    path: '/liftmaster-opener-installation/',
+    element: <LiftMasterInstallationPage />
   },
   // Legacy routes - redirect to new format (keep for SEO)
   { path: '/garage-door-replacement/', element: <Navigate to="/garage-door-installation/" replace /> },

@@ -89,5 +89,15 @@ Allow: /vs-precision-garage-door/
 Allow: /vs-overhead-door/
 Allow: /service-areas/
 
+# Conversion + buyer's guide + cost guide + brand pages
+Allow: /photo-estimate/
+Allow: /second-opinion/
+Allow: /local-vs-national-garage-door-company/
+Allow: /best-garage-door-company-queens/
+Allow: /garage-door-replacement-cost-nassau-county/
+Allow: /garage-door-installation-cost-westchester/
+Allow: /insulated-garage-door-cost-long-island/
+Allow: /liftmaster-opener-installation/
+
 # Sitemap
 Sitemap: https://www.smartestgaragedoors.com/sitemap.xml
