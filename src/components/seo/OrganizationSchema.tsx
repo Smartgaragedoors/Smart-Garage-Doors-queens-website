@@ -33,13 +33,9 @@ const OrganizationSchema: React.FC = () => {
       BUSINESS_INFO.socialMedia.instagram,
       BUSINESS_INFO.socialMedia.googleMaps,
     ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": BUSINESS_INFO.aggregateRating.ratingValue,
-      "reviewCount": BUSINESS_INFO.aggregateRating.reviewCount,
-      "bestRating": BUSINESS_INFO.aggregateRating.bestRating,
-      "worstRating": BUSINESS_INFO.aggregateRating.worstRating,
-    },
+    // NOTE: aggregateRating intentionally lives ONLY on LocalBusinessSchema.
+    // Emitting it on multiple entities on one page triggers GSC's critical
+    // "Review has multiple aggregate ratings" error.
   };
 
   return (

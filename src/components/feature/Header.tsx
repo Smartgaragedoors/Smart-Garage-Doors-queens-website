@@ -371,9 +371,9 @@ export default function Header() {
             </div>
           </div>
 
-          {/* Mobile Menu */}
+          {/* Mobile Menu — solid bg + full available height so it never looks cut off or "behind" the page */}
           {isMenuOpen && (
-            <div id="mobile-menu" className="lg:hidden border-t border-gray-200 py-4 max-h-96 overflow-y-auto">
+            <div id="mobile-menu" className="lg:hidden border-t border-gray-200 py-4 bg-white shadow-xl max-h-[calc(100dvh-9rem)] overflow-y-auto overscroll-contain">
               <div className="space-y-2">
                 <a href="/" className="block text-gray-700 hover:text-orange-500 font-medium transition-colors py-2">
                   Home

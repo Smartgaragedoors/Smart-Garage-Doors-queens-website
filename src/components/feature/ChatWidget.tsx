@@ -129,7 +129,8 @@ export default function ChatWidget() {
   return (
     <>
       {/* Container: sits above mobile sticky bar (bottom-20) on mobile, normal on desktop */}
-      <div className="fixed bottom-20 lg:bottom-6 right-4 lg:right-6 z-50 flex flex-col items-end gap-2">
+      {/* z-45: above page content/sticky CTA (z-40) but below the header + mobile menu (z-50) */}
+      <div className="fixed bottom-20 lg:bottom-6 right-4 lg:right-6 z-[45] flex flex-col items-end gap-2">
 
         {/* ── Chat panel ── */}
         {isOpen && (

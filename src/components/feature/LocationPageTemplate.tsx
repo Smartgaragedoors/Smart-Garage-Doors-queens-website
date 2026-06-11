@@ -488,26 +488,26 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
               How We Compare in {city}
             </h2>
           </div>
-          <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
+          <div className="rounded-2xl overflow-x-auto border border-gray-200 shadow-sm">
             <table className="w-full">
               <thead>
                 <tr className="bg-blue-900 text-white text-sm">
-                  <th className="px-6 py-4 text-left font-semibold">Feature</th>
-                  <th className="px-6 py-4 text-center font-semibold">Smartest Garage Doors</th>
-                  <th className="px-6 py-4 text-center font-semibold text-gray-300">Typical Competitor</th>
+                  <th className="px-3 sm:px-6 py-4 text-left font-semibold">Feature</th>
+                  <th className="px-3 sm:px-6 py-4 text-center font-semibold">Smartest Garage Doors</th>
+                  <th className="px-3 sm:px-6 py-4 text-center font-semibold text-gray-300">Typical Competitor</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
                 {comparisonRows.map((row, i) => (
                   <tr key={i} className={i % 2 === 1 ? 'bg-gray-50' : 'bg-white'}>
-                    <td className="px-6 py-4 font-medium text-gray-900 text-sm">{row.feature}</td>
-                    <td className="px-6 py-4 text-center">
+                    <td className="px-3 sm:px-6 py-4 font-medium text-gray-900 text-sm">{row.feature}</td>
+                    <td className="px-3 sm:px-6 py-4 text-center">
                       <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">
                         <i className="ri-check-line" aria-hidden="true" />
                         {row.ours}
                       </span>
                     </td>
-                    <td className="px-6 py-4 text-center text-gray-400 text-sm">Varies</td>
+                    <td className="px-3 sm:px-6 py-4 text-center text-gray-400 text-sm">Varies</td>
                   </tr>
                 ))}
               </tbody>

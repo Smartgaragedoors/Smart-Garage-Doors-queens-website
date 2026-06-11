@@ -218,7 +218,7 @@ export default function GuidePageTemplate(props: GuidePageTemplateProps) {
             <div className="text-center mb-10">
               <h2 className="text-3xl font-bold text-gray-900 mb-3">{costTable.title}</h2>
             </div>
-            <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm bg-white">
+            <div className="rounded-2xl overflow-x-auto border border-gray-200 shadow-sm bg-white">
               <table className="w-full">
                 <thead>
                   <tr className="bg-blue-900 text-white text-sm">

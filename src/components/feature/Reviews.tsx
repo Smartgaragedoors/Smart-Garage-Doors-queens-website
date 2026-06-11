@@ -1,4 +1,3 @@
-import ReviewSchema from '../seo/ReviewSchema';
 import { BUSINESS_INFO } from '../../config/business-info';
 import { STATIC_REVIEWS } from '../../data/staticReviews';
 
@@ -124,7 +123,7 @@ const Reviews = () => {
         </div>
       </div>
 
-      <ReviewSchema aggregateRating={BUSINESS_INFO.aggregateRating} />
+      {/* aggregateRating schema lives only on LocalBusinessSchema (GSC: one per page) */}
     </section>
   );
 };

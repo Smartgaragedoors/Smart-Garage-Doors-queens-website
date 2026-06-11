@@ -145,7 +145,7 @@ export default function ComparisonPageTemplate(props: ComparisonPageTemplateProp
             </h2>
             <p className="text-gray-600">How we compare on the things homeowners care about most.</p>
           </div>
-          <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm bg-white">
+          <div className="rounded-2xl overflow-x-auto border border-gray-200 shadow-sm bg-white">
             <table className="w-full">
               <thead>
                 <tr className="bg-blue-900 text-white text-sm">

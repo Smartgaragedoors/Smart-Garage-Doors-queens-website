@@ -5,7 +5,6 @@ import Breadcrumbs from '../../components/seo/Breadcrumbs';
 import DynamicMetaTags from '../../components/seo/DynamicMetaTags';
 import FAQSchema from '../../components/seo/FAQSchema';
 import LocalBusinessSchema from '../../components/seo/LocalBusinessSchema';
-import ReviewSchema from '../../components/seo/ReviewSchema';
 import ServiceLinks from '../../components/seo/ServiceLinks';
 import NearbyAreasSection from '../../components/seo/NearbyAreasSection';
 import BookingCTABar from '../../components/conversion/BookingCTABar';
@@ -84,14 +83,7 @@ export default function CityServiceAreaPage({ location }: CityServiceAreaPagePro
           addressRegion: location.stateAbbr,
         }}
       />
-      <ReviewSchema
-        aggregateRating={{
-          ratingValue: BUSINESS_INFO.aggregateRating.ratingValue,
-          reviewCount: BUSINESS_INFO.aggregateRating.reviewCount,
-          bestRating: BUSINESS_INFO.aggregateRating.bestRating,
-          worstRating: BUSINESS_INFO.aggregateRating.worstRating,
-        }}
-      />
+
       {faqsForSchema.length > 0 && <FAQSchema faqs={faqsForSchema} />}
       <Header />
       <Breadcrumbs />
