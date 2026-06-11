@@ -28,7 +28,7 @@ export default function BronxNY() {
       ]}
       faqs={[
         { question: 'What areas of the Bronx do you cover?', answer: 'The entire Bronx — Riverdale, Fieldston, Pelham Bay, Throgs Neck, Fordham, Morris Park, Parkchester, City Island, Mott Haven, Co-op City, Kingsbridge, and everywhere in between.' },
-        { question: 'How fast can you reach the Bronx for an emergency?', answer: 'We typically reach most Bronx locations within 60–90 minutes for emergencies. Response time depends on current call volume and traffic, but we always give an honest estimate when you call.' },
+        { question: 'How fast can you reach the Bronx for an emergency?', answer: 'Our technicians cover the Bronx every week. Emergency calls are prioritized, and we always give an honest estimate when you call.' },
         { question: 'Do you work on commercial garage doors in the Bronx?', answer: 'Yes. We service both residential and commercial garage doors throughout the Bronx, including roll-up doors and multi-unit building systems.' },
         { question: 'What does spring replacement cost in the Bronx?', answer: 'Spring replacement runs $175–$350 depending on spring type and size. We give you the exact price before starting — no surprise charges.' },
         { question: 'Do you work in Bronx apartment buildings?', answer: 'Yes. We coordinate with building management, work around residents, and handle all access requirements for apartment building garages.' },

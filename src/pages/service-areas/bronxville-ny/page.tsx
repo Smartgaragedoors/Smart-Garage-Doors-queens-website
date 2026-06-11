@@ -1,0 +1,22 @@
+import LocationPageTemplate from '../../../components/feature/LocationPageTemplate';
+
+export default function LocationPage() {
+
+  return (
+    <LocationPageTemplate
+      metaTitle="Bronxville, NY Garage Door Repair & Custom Door Installation | Smartest Garage Doors"
+      metaDescription="Garage door repair & custom installation in Bronxville, NY. Doors matched to Tudor & landmark-style homes, quiet smart openers, same-day repair. Insured. (914) 557-6816."
+      keywords="Bronxville garage door repair, garage door installation Bronxville NY, custom garage doors Bronxville, garage door spring replacement Bronxville, quiet garage door opener Westchester"
+      slug="/bronxville-ny/"
+      cityName="Bronxville"
+      stateCode="NY"
+      stateName="New York"
+      geo={{ latitude: '40.9382', longitude: '-73.8326' }}
+      heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero"
+      neighborhoods={[{"name":"Lawrence Park","description":"Bronxville's famous hilltop of storybook Tudors and artist-colony homes on narrow winding lanes. Many garages here are detached and tucked into tight lots — we install custom doors with period-appropriate detailing sized precisely to older openings."},{"name":"Sagamore Park","description":"An elegant pocket of Tudors and colonials near the village center. Carriage-house doors with decorative strap hinges and divided-light windows are a natural fit, and we pair them with quiet belt-drive openers."},{"name":"Cedar Knolls","description":"A wooded neighborhood of stately stone and stucco homes. We help homeowners choose insulated doors with custom panel profiles and finishes that complement original masonry and slate."},{"name":"Village center & Pondfield area","description":"Homes within walking distance of the Bronxville train station, many with detached garages off rear alleys and shared drives. We service aging doors, replace worn springs and cables, and upgrade openers to compact, quiet WiFi models."},{"name":"Avon Road & Masterton area","description":"Gracious colonials and Tudors on Bronxville's quiet residential streets. Frequent projects include insulated door replacements and LiftMaster belt-drive installs where bedrooms sit above or beside the garage."},{"name":"Bronxville borders (Tuckahoe/Eastchester)","description":"We serve homes just over the village line in Tuckahoe and Eastchester with the same premium parts, upfront pricing, and warranty-backed workmanship."}]}
+      reviews={[]}
+      faqs={[{"question":"What does a new garage door installation cost in Bronxville?","answer":"New installation starts from $800 for standard doors; premium insulated, carriage-style, and custom wood doors run higher. Because many Bronxville garages have non-standard openings, we measure on site and provide a detailed quote before any work begins."},{"question":"Should I repair or replace my Bronxville garage door?","answer":"If the door suits the house and the panels are sound, repair is usually the right call — most repairs run $150–$300, spring replacement $175–$350, and opener repair $150–$350. If the door is failing or clashes with the home's architecture, we'll show you replacement options honestly, with no pressure."},{"question":"Can you install a quiet opener with smartphone control?","answer":"Yes. We install LiftMaster belt-drive openers that run whisper-quiet compared to old chain drives — a real benefit on Bronxville's compact lots where garages sit close to bedrooms and neighbors. Full WiFi and myQ app setup is included with every install."},{"question":"Who covers Bronxville service calls?","answer":"Bronxville is served by our Westchester-area technician, who works the county full time. We give you an honest ETA when you call, and same-day appointments are often available."},{"question":"Can you match a garage door to my Tudor or landmark-style home?","answer":"That's exactly the work we love in Bronxville. For Lawrence Park and Sagamore Park homes, we offer carriage-house designs, custom panel layouts, arched-window inserts, and wrought-style hardware from Clopay, Wayne Dalton, and custom builders that respect the village's storybook architecture."},{"question":"My garage is detached on a narrow lot — can you still work on it?","answer":"Yes. Detached garages on tight Bronxville lots are routine for us. We handle low-headroom tracks, undersized openings, and older framing, and we can fit compact openers and custom-sized doors where standard equipment won't work."}]}
+
+    />
+  );
+}

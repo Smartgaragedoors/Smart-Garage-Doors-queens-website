@@ -1,0 +1,22 @@
+import LocationPageTemplate from '../../../components/feature/LocationPageTemplate';
+
+export default function LocationPage() {
+
+  return (
+    <LocationPageTemplate
+      metaTitle="Bayside, NY Garage Door Repair & Insulated Door Installation | Smartest Garage Doors"
+      metaDescription="Garage door repair & installation in Bayside, Queens. Insulated doors built for bay weather, smart WiFi openers, same-day repair. Licensed & insured. Call (914) 557-6816."
+      keywords="Bayside garage door repair, garage door installation Bayside Queens, insulated garage doors Bayside, garage door spring replacement Bayside, smart garage door opener Bayside"
+      slug="/bayside-ny/"
+      cityName="Bayside"
+      stateCode="NY"
+      stateName="New York"
+      geo={{ latitude: '40.7686', longitude: '-73.7693' }}
+      heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero"
+      neighborhoods={[{"name":"Bayside Gables","description":"A private waterside enclave of large single-family homes near Little Neck Bay. Insulated double-car doors and premium carriage-style designs hold up well to the wind and salt air coming off the water."},{"name":"Bay Terrace","description":"Colonials, split-levels, and townhome communities with attached garages. Insulated steel doors and quiet belt-drive openers are a smart fit where the garage sits below or beside living space."},{"name":"Oakland Gardens","description":"Postwar colonials, capes, and split-levels, most with attached single-car garages. We handle spring and cable repairs, opener upgrades, and full door replacements sized for these classic Queens garages."},{"name":"Bayside Hills","description":"Well-kept brick colonials and Tudors south of the LIE. Raised-panel and carriage-style insulated doors complement the brickwork, and smart WiFi openers add convenience and security."},{"name":"Bell Boulevard corridor","description":"A mix of detached homes and small multi-family properties off Bayside's main strip. We service residential doors throughout the corridor, from quick repairs to complete door-and-opener packages."},{"name":"Douglaston, Little Neck & Whitestone borders","description":"We cover the neighboring communities around Bayside with the same services — repairs, insulated door installations, and opener upgrades handled by our Queens team."}]}
+      reviews={[]}
+      faqs={[{"question":"What does a new garage door installation cost in Bayside?","answer":"New installation starts from $800 for standard doors; premium insulated, carriage-style, and custom wood doors run higher. You get a detailed quote before any work begins, with door, hardware, and labor itemized."},{"question":"Is it worth repairing my older Bayside garage door or should I replace it?","answer":"If the panels and tracks are in good shape, repairs are usually the right call — most repairs run $150–$300, spring replacement $175–$350, and opener repairs $150–$350. If the door is uninsulated, rusting, or failing repeatedly, a new insulated door often pays for itself in comfort and reliability. We'll give you a straight recommendation on site."},{"question":"Can you install a quiet, smartphone-controlled opener?","answer":"Yes. We install LiftMaster belt-drive openers — the quietest option for Bayside's attached garages — and set up the WiFi app so you can open, close, and monitor the door from your phone. Remotes and keypads are programmed before we leave."},{"question":"How fast can you get to Bayside?","answer":"Our Queens team covers Bayside and the surrounding neighborhoods every day. We give you an honest ETA when you call, and same-day appointments are often available."},{"question":"Does weather off Little Neck Bay affect garage doors in Bayside?","answer":"It can. Wind-driven moisture and temperature swings are hard on uninsulated doors, seals, and hardware. We recommend insulated steel doors with quality bottom seals and weatherstripping for homes in Bayside Gables, Bay Terrace, and other areas close to the bay."},{"question":"Do you service split-level and colonial homes with attached garages in Oakland Gardens?","answer":"Yes — attached single-car garages on splits and colonials are some of the most common setups in Bayside. We repair and replace doors in these standard sizes regularly and recommend belt-drive openers so operation stays quiet under bedrooms and living areas."}]}
+
+    />
+  );
+}

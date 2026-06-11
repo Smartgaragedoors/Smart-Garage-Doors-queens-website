@@ -15,7 +15,6 @@ const TODAY = new Date().toISOString().split('T')[0];
 // These should not be indexed as they redirect to canonical URLs
 const EXCLUDED_PATHS = [
   '/home/',                                    // Redirects to /
-  '/flushing-ny/',                            // Redirects to /queens-ny/
   '/garage-door-repair-brooklyn-ny/',         // Redirects to /brooklyn-ny/
   '/garage-door-repair-stamford-ct/',         // Redirects to /stamford-ct/
   '/garage-door-installers-white-plains-ny/', // Redirects to /white-plains-ny/
@@ -28,6 +27,7 @@ const EXCLUDED_PATHS = [
   '/garage-door-repair-nassau-county-ny/',    // Redirects to /nassau-county-ny/
   '/garage-door-repair-westchester-county-ny/', // Redirects to /westchester-county-ny/
   '/install-garage-door-opener-stamford-ct/', // Redirects to /stamford-ct/
+  '/greatneck-ny/',                           // Redirects to /great-neck-ny/
 ];
 
 // Never sitemap utility / tracking / default-noindex landing paths

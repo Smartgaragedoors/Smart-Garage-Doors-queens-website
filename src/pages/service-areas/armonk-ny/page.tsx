@@ -1,0 +1,22 @@
+import LocationPageTemplate from '../../../components/feature/LocationPageTemplate';
+
+export default function LocationPage() {
+
+  return (
+    <LocationPageTemplate
+      metaTitle="Armonk, NY Garage Door Installation, Battery-Backup Openers & Repair | Smartest Garage Doors"
+      metaDescription="Garage door repair & premium installation in Armonk, NY. Battery-backup smart openers, insulated doors for detached garages, custom styles. Licensed & insured. (914) 557-6816."
+      keywords="Armonk garage door repair, garage door installation Armonk NY, battery backup garage door opener Armonk, insulated garage doors North Castle, custom garage doors Westchester"
+      slug="/armonk-ny/"
+      cityName="Armonk"
+      stateCode="NY"
+      stateName="New York"
+      geo={{ latitude: '41.1265', longitude: '-73.7140' }}
+      heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero"
+      neighborhoods={[{"name":"Windmill Farm","description":"A classic Armonk community of mid-century homes on wooded lots, where tree-related outages are a fact of life. Battery-backup smart openers keep the garage working when the power doesn't."},{"name":"Whippoorwill","description":"Estate properties along winding wooded roads, many with detached and multi-bay garages. Insulated custom doors and openers with battery backup and WiFi monitoring suit these secluded homes."},{"name":"Thomas Wright area","description":"Established streets near the heart of town with colonials and custom builds. Carriage-house and raised-panel doors with quiet belt-drive openers fit the neighborhood's character, installed cleanly and warranty-backed."},{"name":"Armonk hamlet","description":"Homes around the downtown hamlet, from classic capes to newer construction. Insulated doors and smart opener upgrades modernize these garages with upfront pricing on every option."},{"name":"North Castle estates","description":"Larger properties throughout the town of North Castle with oversized and detached garages. Estate-scale custom wood doors, coordinated multi-bay styling, and integrated smart access are all within our wheelhouse."},{"name":"Banksville border","description":"We serve the communities along the Banksville and Connecticut border with the same full service — repairs, spring replacement, opener upgrades, and premium door installations."}]}
+      reviews={[]}
+      faqs={[{"question":"Do you install custom and premium garage doors in Armonk?","answer":"Yes. New installation starts from $800 for standard doors; premium insulated, carriage-style, and custom wood doors run higher. We provide a detailed quote before any work begins, with design options matched to your home — from wooded-lot contemporaries to North Castle estates."},{"question":"Should I repair my existing door or invest in a new one?","answer":"If the door's structure is sound, repair is usually the smarter move — repairs run $150–$300, spring replacement $175–$350, and opener repairs $150–$350. For older uninsulated doors, especially on detached garages, upgrading to an insulated model is often worth it. We assess honestly and let you decide."},{"question":"What opener do you recommend for a quiet, connected garage?","answer":"We typically install LiftMaster belt-drive openers with built-in WiFi and battery backup. They're the quietest on the market, and in Armonk the battery backup matters: when a storm takes down lines, your door still opens and closes normally."},{"question":"How quickly can you get to Armonk?","answer":"Our Westchester-area technician covers Armonk, North Castle, and the surrounding communities. Same-day appointments are often available, and we give you an exact ETA the moment you call."},{"question":"My power goes out a lot — can I still use my garage door?","answer":"Yes, with the right opener. Armonk's wooded roads make outages common, and a LiftMaster opener with integrated battery backup runs the door through dozens of cycles on battery alone. We can add battery backup as part of any opener upgrade or full door-and-opener package."},{"question":"What do you recommend for a detached garage in the trees?","answer":"Detached garages in Windmill Farm and Whippoorwill benefit from insulated doors with full perimeter weather sealing — they keep out cold, moisture, and pests, and protect whatever you store inside. Pair that with a WiFi opener with battery backup and you can check and control the garage from the house, even in an outage."}]}
+
+    />
+  );
+}

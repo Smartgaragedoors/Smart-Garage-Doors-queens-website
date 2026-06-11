@@ -1,0 +1,22 @@
+import LocationPageTemplate from '../../../components/feature/LocationPageTemplate';
+
+export default function LocationPage() {
+
+  return (
+    <LocationPageTemplate
+      metaTitle="Jamaica Estates, NY Garage Door Repair & Carriage Door Installation | Smartest Garage Doors"
+      metaDescription="Garage door repair & premium installation in Jamaica Estates, NY. Architecture-matched carriage doors for Tudor homes, smart openers, security upgrades. (914) 557-6816."
+      keywords="Jamaica Estates garage door repair, garage door installation Jamaica Estates NY, carriage house garage doors Jamaica Estates, Tudor garage doors Queens, garage door opener Holliswood"
+      slug="/jamaica-estates-ny/"
+      cityName="Jamaica Estates"
+      stateCode="NY"
+      stateName="New York"
+      geo={{ latitude: '40.7180', longitude: '-73.7837' }}
+      heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero"
+      neighborhoods={[{"name":"Jamaica Estates core","description":"Tudor revivals and center-hall colonials on winding, tree-lined streets north of Hillside Avenue. Architecture-matched carriage-house doors with decorative hardware and divided-light windows preserve the neighborhood's landmark character."},{"name":"Holliswood","description":"Spacious homes on hilly, curving roads with generous setbacks and attached garages. Quiet belt-drive openers and insulated custom doors fit these substantial properties, with smart controls for added security."},{"name":"Jamaica Hills","description":"A mix of Tudors, colonials, and brick homes on the slopes near the Grand Central Parkway. We handle spring and cable repairs, opener upgrades, and full premium door replacements throughout the hills."},{"name":"Fresh Meadows","description":"Post-war colonials, capes, and ranches with single and double attached garages. Insulated steel doors and WiFi-enabled openers are the most requested upgrades for these family homes."},{"name":"Utopia","description":"Quiet residential blocks around Utopia Parkway with well-maintained single-family homes. Raised-panel and carriage-style doors in insulated steel give these houses lasting curb appeal with low maintenance."},{"name":"Hillcrest","description":"Detached brick homes and tidy colonials between Union Turnpike and the parkway. We provide everything from same-day repairs to complete door-and-opener packages with warranty-backed installation."}]}
+      reviews={[]}
+      faqs={[{"question":"What does a premium garage door installation cost in Jamaica Estates?","answer":"New installation starts from $800 for standard doors. Premium insulated, carriage-style, and custom wood doors — the styles most requested for Jamaica Estates Tudors and colonials — run higher depending on design, size, and materials. We provide a detailed quote before any work begins."},{"question":"Is it better to repair my existing garage door or replace it?","answer":"If the door's structure is sound, repair is usually the smarter move — repairs run $150–$300, spring replacement $175–$350, and opener repairs $150–$350. For older doors that no longer suit the home's architecture, a replacement carriage-style door can transform the front of the house. We assess honestly and let you decide."},{"question":"What opener do you recommend for a quiet, connected garage?","answer":"We install LiftMaster belt-drive openers with built-in WiFi. They're dramatically quieter than chain drives — ideal for attached garages under bedrooms — and the smartphone app lets you check and control the door from anywhere."},{"question":"Do you offer same-day garage door service in Jamaica Estates?","answer":"Our technicians cover Jamaica Estates and the surrounding communities. Same-day appointments are often available, and we give you an exact ETA the moment you call."},{"question":"Can you match a garage door to a Tudor home in Jamaica Estates?","answer":"Yes — it's one of our specialties. We help you select carriage-house profiles, arched and divided-light window options, dark finishes, and wrought-iron-style hardware that complement Tudor and center-hall colonial architecture, so the new door looks like it was always part of the house."},{"question":"Do you handle garage door security upgrades?","answer":"We do. Smart openers with rolling-code remotes, automatic-close timers, smartphone open/close alerts, and battery backup add real security for Jamaica Estates and Holliswood properties. We can build these into any door-and-opener package."}]}
+
+    />
+  );
+}

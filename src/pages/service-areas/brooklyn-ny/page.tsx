@@ -36,7 +36,7 @@ export default function BrooklynNY() {
         { question: 'What brands do you service in Brooklyn?', answer: 'All major brands: LiftMaster, Chamberlain, Genie, Clopay, Wayne Dalton, Amarr, Raynor, CHI, and more.' },
       ]}
       comparisonRows={[
-        { feature: 'Response Time',       ours: '60–90 min' },
+        { feature: 'Response Time',       ours: 'Fast dispatch — honest ETA when you call' },
         { feature: 'Same-Day Service',    ours: 'Available' },
         { feature: 'Brownstone Experience', ours: 'Specialized' },
         { feature: 'Parking Expertise',   ours: 'Urban Experts' },

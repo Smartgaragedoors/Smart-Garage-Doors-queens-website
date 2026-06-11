@@ -54,6 +54,39 @@ const ParamusNJPage = lazy(() => import('../pages/service-areas/paramus-nj/page'
 const NorwalkCTPage = lazy(() => import('../pages/service-areas/norwalk-ct/page').then(module => ({ default: module.default })));
 const EdisonNJPage = lazy(() => import('../pages/service-areas/edison-nj/page').then(module => ({ default: module.default })));
 const JacksonNJPage = lazy(() => import('../pages/service-areas/jackson-nj/page').then(module => ({ default: module.default })));
+const FlushingNYPage = lazy(() => import('../pages/service-areas/flushing-ny/page').then(module => ({ default: module.default })));
+
+// Premium-market service area pages (Tier 1 rollout)
+const ForestHillsNYPage = lazy(() => import('../pages/service-areas/forest-hills-ny/page').then(module => ({ default: module.default })));
+const BaysideNYPage = lazy(() => import('../pages/service-areas/bayside-ny/page').then(module => ({ default: module.default })));
+const GreatNeckNYPage = lazy(() => import('../pages/service-areas/great-neck-ny/page').then(module => ({ default: module.default })));
+const ManhassetNYPage = lazy(() => import('../pages/service-areas/manhasset-ny/page').then(module => ({ default: module.default })));
+const RoslynNYPage = lazy(() => import('../pages/service-areas/roslyn-ny/page').then(module => ({ default: module.default })));
+const PortWashingtonNYPage = lazy(() => import('../pages/service-areas/port-washington-ny/page').then(module => ({ default: module.default })));
+const GardenCityNYPage = lazy(() => import('../pages/service-areas/garden-city-ny/page').then(module => ({ default: module.default })));
+const RyeNYPage = lazy(() => import('../pages/service-areas/rye-ny/page').then(module => ({ default: module.default })));
+const BronxvilleNYPage = lazy(() => import('../pages/service-areas/bronxville-ny/page').then(module => ({ default: module.default })));
+const LarchmontNYPage = lazy(() => import('../pages/service-areas/larchmont-ny/page').then(module => ({ default: module.default })));
+const ChappaquaNYPage = lazy(() => import('../pages/service-areas/chappaqua-ny/page').then(module => ({ default: module.default })));
+const RidgewoodNJPage = lazy(() => import('../pages/service-areas/ridgewood-nj/page').then(module => ({ default: module.default })));
+const TenaflyNJPage = lazy(() => import('../pages/service-areas/tenafly-nj/page').then(module => ({ default: module.default })));
+const RumsonNJPage = lazy(() => import('../pages/service-areas/rumson-nj/page').then(module => ({ default: module.default })));
+const HolmdelNJPage = lazy(() => import('../pages/service-areas/holmdel-nj/page').then(module => ({ default: module.default })));
+
+// Premium-market service area pages (Wave 2)
+const WhitestoneNYPage = lazy(() => import('../pages/service-areas/whitestone-ny/page').then(module => ({ default: module.default })));
+const JamaicaEstatesNYPage = lazy(() => import('../pages/service-areas/jamaica-estates-ny/page').then(module => ({ default: module.default })));
+const SyossetNYPage = lazy(() => import('../pages/service-areas/syosset-ny/page').then(module => ({ default: module.default })));
+const OysterBayNYPage = lazy(() => import('../pages/service-areas/oyster-bay-ny/page').then(module => ({ default: module.default })));
+const RockvilleCentreNYPage = lazy(() => import('../pages/service-areas/rockville-centre-ny/page').then(module => ({ default: module.default })));
+const OldWestburyNYPage = lazy(() => import('../pages/service-areas/old-westbury-ny/page').then(module => ({ default: module.default })));
+const MamaroneckNYPage = lazy(() => import('../pages/service-areas/mamaroneck-ny/page').then(module => ({ default: module.default })));
+const HarrisonNYPage = lazy(() => import('../pages/service-areas/harrison-ny/page').then(module => ({ default: module.default })));
+const ArmonkNYPage = lazy(() => import('../pages/service-areas/armonk-ny/page').then(module => ({ default: module.default })));
+const AlpineNJPage = lazy(() => import('../pages/service-areas/alpine-nj/page').then(module => ({ default: module.default })));
+const FortLeeNJPage = lazy(() => import('../pages/service-areas/fort-lee-nj/page').then(module => ({ default: module.default })));
+const ColtsNeckNJPage = lazy(() => import('../pages/service-areas/colts-neck-nj/page').then(module => ({ default: module.default })));
+const RedBankNJPage = lazy(() => import('../pages/service-areas/red-bank-nj/page').then(module => ({ default: module.default })));
 
 // Competitor comparison pages
 const VsPrecisionGarageDoorPage = lazy(() => import('../pages/vs-precision-garage-door/page').then(module => ({ default: module.default })));
@@ -166,7 +199,7 @@ const routes: RouteObject[] = [
   },
   {
     path: '/flushing-ny/',
-    element: <Navigate to="/queens-ny/" replace />
+    element: <FlushingNYPage />
   },
   {
     path: '/long-island-ny/',
@@ -255,6 +288,130 @@ const routes: RouteObject[] = [
   {
     path: '/jackson-nj/',
     element: <JacksonNJPage />
+  },
+
+  // Premium-market service area pages (Tier 1 rollout)
+  {
+    path: '/forest-hills-ny/',
+    element: <ForestHillsNYPage />
+  },
+  {
+    path: '/bayside-ny/',
+    element: <BaysideNYPage />
+  },
+  {
+    path: '/great-neck-ny/',
+    element: <GreatNeckNYPage />
+  },
+  {
+    path: '/greatneck-ny/',
+    element: <Navigate to="/great-neck-ny/" replace />
+  },
+  {
+    path: '/greatneck/',
+    element: <Navigate to="/great-neck-ny/" replace />
+  },
+  {
+    path: '/manhasset-ny/',
+    element: <ManhassetNYPage />
+  },
+  {
+    path: '/roslyn-ny/',
+    element: <RoslynNYPage />
+  },
+  {
+    path: '/port-washington-ny/',
+    element: <PortWashingtonNYPage />
+  },
+  {
+    path: '/garden-city-ny/',
+    element: <GardenCityNYPage />
+  },
+  {
+    path: '/rye-ny/',
+    element: <RyeNYPage />
+  },
+  {
+    path: '/bronxville-ny/',
+    element: <BronxvilleNYPage />
+  },
+  {
+    path: '/larchmont-ny/',
+    element: <LarchmontNYPage />
+  },
+  {
+    path: '/chappaqua-ny/',
+    element: <ChappaquaNYPage />
+  },
+  {
+    path: '/ridgewood-nj/',
+    element: <RidgewoodNJPage />
+  },
+  {
+    path: '/tenafly-nj/',
+    element: <TenaflyNJPage />
+  },
+  {
+    path: '/rumson-nj/',
+    element: <RumsonNJPage />
+  },
+  {
+    path: '/holmdel-nj/',
+    element: <HolmdelNJPage />
+  },
+
+  // Premium-market service area pages (Wave 2)
+  {
+    path: '/whitestone-ny/',
+    element: <WhitestoneNYPage />
+  },
+  {
+    path: '/jamaica-estates-ny/',
+    element: <JamaicaEstatesNYPage />
+  },
+  {
+    path: '/syosset-ny/',
+    element: <SyossetNYPage />
+  },
+  {
+    path: '/oyster-bay-ny/',
+    element: <OysterBayNYPage />
+  },
+  {
+    path: '/rockville-centre-ny/',
+    element: <RockvilleCentreNYPage />
+  },
+  {
+    path: '/old-westbury-ny/',
+    element: <OldWestburyNYPage />
+  },
+  {
+    path: '/mamaroneck-ny/',
+    element: <MamaroneckNYPage />
+  },
+  {
+    path: '/harrison-ny/',
+    element: <HarrisonNYPage />
+  },
+  {
+    path: '/armonk-ny/',
+    element: <ArmonkNYPage />
+  },
+  {
+    path: '/alpine-nj/',
+    element: <AlpineNJPage />
+  },
+  {
+    path: '/fort-lee-nj/',
+    element: <FortLeeNJPage />
+  },
+  {
+    path: '/colts-neck-nj/',
+    element: <ColtsNeckNJPage />
+  },
+  {
+    path: '/red-bank-nj/',
+    element: <RedBankNJPage />
   },
 
   // Competitor comparison pages

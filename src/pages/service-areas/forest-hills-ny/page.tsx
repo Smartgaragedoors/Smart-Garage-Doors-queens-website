@@ -1,0 +1,22 @@
+import LocationPageTemplate from '../../../components/feature/LocationPageTemplate';
+
+export default function LocationPage() {
+
+  return (
+    <LocationPageTemplate
+      metaTitle="Forest Hills, NY Garage Door Repair & Custom Door Installation | Smartest Garage Doors"
+      metaDescription="Garage door repair & custom installation in Forest Hills, Queens. Carriage-style & insulated doors, quiet smart openers, same-day repair. Licensed & insured. (914) 557-6816."
+      keywords="Forest Hills garage door repair, garage door installation Forest Hills, carriage style garage doors Forest Hills, garage door opener Forest Hills Queens, spring replacement Forest Hills"
+      slug="/forest-hills-ny/"
+      cityName="Forest Hills"
+      stateCode="NY"
+      stateName="New York"
+      geo={{ latitude: '40.7195', longitude: '-73.8448' }}
+      heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero"
+      neighborhoods={[{"name":"Forest Hills Gardens","description":"A landmark-quality planned community of Tudor and storybook-style homes. Carriage-house and custom wood-look doors pair beautifully with the Gardens' architecture, and we help homeowners choose styles that respect the neighborhood's character."},{"name":"Cord Meyer","description":"Stately detached homes on tree-lined streets north of Queens Boulevard. Insulated steel and carriage-style doors with upgraded hardware suit these larger single-family properties."},{"name":"Van Court & Holder Place area","description":"Charming brick and Tudor homes near Station Square, many with compact attached garages. We recommend quiet belt-drive LiftMaster openers so door operation isn't heard inside the house."},{"name":"Forest Hills South","description":"Co-op and condo buildings with shared and private garages. We service building garage doors and gate operators as well as individual residents' units, coordinating with management as needed."},{"name":"North Forest Hills (near Rego Park border)","description":"Attached and semi-attached brick homes where the garage sits directly under living space. Insulated doors and smooth, quiet openers make a noticeable difference in comfort and noise."},{"name":"Kew Gardens & Rego Park borders","description":"We serve the surrounding blocks bordering Forest Hills with the same services — repairs, spring replacement, opener upgrades, and full door installations."}]}
+      reviews={[]}
+      faqs={[{"question":"Do you install premium garage doors in Forest Hills?","answer":"Yes. New installation starts from $800 for standard doors; premium insulated, carriage-style, and custom wood doors run higher. We provide a detailed quote before any work begins, and we help you choose a style that suits Forest Hills' Tudor and brick architecture."},{"question":"Should I repair or replace my garage door in Forest Hills?","answer":"If the door panels are sound and the issue is a spring, cable, roller, or opener, a repair usually makes sense — repairs run $150–$300 and spring replacement $175–$350. If the door is badly dented, rotting, uninsulated, or repeatedly failing, replacement is often the better long-term value. We give you an honest assessment either way."},{"question":"My garage is attached and the opener wakes the house. What do you recommend?","answer":"A LiftMaster belt-drive opener is the quietest option for attached Forest Hills garages — far smoother than older chain drives. We install it, set up the WiFi app on your phone, and program remotes and keypads before we leave."},{"question":"How fast can you get to Forest Hills?","answer":"Forest Hills is right in our home borough — our Queens team covers it daily. We give you an honest ETA when you call, and same-day appointments are often available."},{"question":"Can you match a new door to a Forest Hills Gardens-style home?","answer":"Absolutely. For Tudor and storybook-style homes we typically recommend carriage-house designs with decorative hardware and wood-look or true wood finishes. We bring samples and design options so the new door complements the home rather than clashing with it."},{"question":"Do you work on co-op and condo garage doors in Forest Hills?","answer":"Yes. We service both individual residents' garage doors and shared building garage doors and gates. We can provide documentation of our license and insurance to your management company or board before work begins."}]}
+
+    />
+  );
+}

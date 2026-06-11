@@ -1,0 +1,22 @@
+import LocationPageTemplate from '../../../components/feature/LocationPageTemplate';
+
+export default function LocationPage() {
+
+  return (
+    <LocationPageTemplate
+      metaTitle="Fort Lee, NJ Garage Door Repair & Premium Installation | Smartest Garage Doors"
+      metaDescription="Garage door repair & premium installation in Fort Lee, NJ. Residential & building garage doors, smart WiFi openers, same-day repair. Licensed & insured. (914) 557-6816."
+      keywords="Fort Lee garage door repair, garage door installation Fort Lee NJ, building garage doors Fort Lee, smart garage door opener Fort Lee, townhouse garage doors Bergen County"
+      slug="/fort-lee-nj/"
+      cityName="Fort Lee"
+      stateCode="NJ"
+      stateName="New Jersey"
+      geo={{ latitude: '40.8509', longitude: '-73.9701' }}
+      heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero"
+      neighborhoods={[{"name":"Palisade","description":"High-rise buildings and condos along the Palisade cliffs, many with shared parking garages. We service building garage doors, gates, and commercial-grade operators alongside private residential doors."},{"name":"Coytesville","description":"One of Fort Lee's oldest neighborhoods, with classic single-family homes on compact lots. Insulated steel and carriage-style doors paired with quiet belt-drive openers fit these attached and detached garages well."},{"name":"Fort Lee Historic District","description":"Streets of older colonials and Victorians near Fort Lee Historic Park. Carriage-house doors with period-appropriate windows and hardware preserve character while adding modern insulation and smart openers."},{"name":"Englewood Cliffs Border","description":"Larger single-family homes and newer builds along the northern edge toward Englewood Cliffs. Premium insulated double-car doors and WiFi-enabled openers with battery backup suit these properties."},{"name":"Linwood Park Area","description":"A residential pocket of townhouses and single-family homes, many with attached garages. We handle the narrower door sizes and tight track clearances common in townhouse garages with clean, precise installation."},{"name":"Main Street Corridor","description":"Mixed-use blocks where storefronts, light commercial spaces, and residences sit side by side. We install and repair both residential doors and light commercial roll-up and sectional doors along the corridor."}]}
+      reviews={[]}
+      faqs={[{"question":"Do you install premium garage doors in Fort Lee?","answer":"Yes. New installation starts from $800 for standard doors; premium insulated, carriage-style, and custom wood doors run higher. We provide a detailed quote before any work begins, with design options matched to your home or building."},{"question":"Should I repair my existing door or invest in a new one?","answer":"If the door's structure is sound, repair is usually the smarter move — repairs run $150–$300, spring replacement $175–$350, and opener repairs $150–$350. For older uninsulated doors, an upgrade to an insulated model often pays off in comfort and curb appeal. We assess honestly and let you decide."},{"question":"What opener do you recommend for a quiet, connected garage?","answer":"We typically install LiftMaster belt-drive openers with built-in WiFi. They're the quietest on the market — important for townhouses and attached garages — and we set up the smartphone app so you can monitor and control the door from anywhere."},{"question":"How quickly can you get to Fort Lee?","answer":"Our Bergen County technician covers Fort Lee and the surrounding towns along the Palisades. Same-day appointments are often available, and we give you an exact ETA the moment you call."},{"question":"Do you service building and parking garage doors in Fort Lee?","answer":"Yes. We repair and install commercial-grade overhead doors, roll-up gates, and operators for condo buildings, co-ops, and parking garages — common along Palisade and the high-rise corridor. We work with property managers and boards and provide documentation for building records."},{"question":"Can you fit a garage door for a townhouse with a narrow garage?","answer":"Absolutely. Townhouse garages in Linwood Park and similar developments often need single-car doors with low-headroom tracks and compact openers. We measure precisely, recommend the right hardware, and deliver a clean, warranty-backed installation."}]}
+
+    />
+  );
+}

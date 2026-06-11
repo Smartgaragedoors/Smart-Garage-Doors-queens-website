@@ -29,7 +29,7 @@ export default function QueensNY() {
       ]}
       faqs={[
         { question: 'Which Queens neighborhoods do you serve?', answer: 'All of them — Astoria, Flushing, Forest Hills, Jamaica, Bayside, Elmhurst, Corona, Long Island City, Whitestone, Kew Gardens, Little Neck, St. Albans, Rego Park, Woodside, Sunnyside, Jackson Heights, Fresh Meadows, and everywhere in between.' },
-        { question: 'How fast can you get to Queens for an emergency?', answer: 'We have technicians based in Queens and the surrounding area. For emergencies, we aim for 60–90 minutes. Response time varies depending on time of day and current calls, but we\'ll always give you an honest ETA when you call.' },
+        { question: 'How fast can you get to Queens for an emergency?', answer: 'We have technicians based in Queens and the surrounding area. Emergency calls are prioritized, and we\'ll always give you an honest ETA when you call.' },
         { question: 'Do you work on garage doors in Queens apartment buildings?', answer: 'Yes. We work with property managers and building supers regularly. We handle access coordination, understand building requirements, and work without disrupting other residents.' },
         { question: 'What does a spring replacement cost in Queens?', answer: 'Spring replacement in Queens typically runs $175–$350 for one spring, depending on the spring type and size. We quote the exact price before starting — no surprises.' },
         { question: 'What garage door brands do you service in Queens?', answer: 'All major brands: LiftMaster, Chamberlain, Genie, Clopay, Wayne Dalton, Amarr, Raynor, CHI, and more. If it\'s a garage door, we can fix it.' },

@@ -1,0 +1,22 @@
+import LocationPageTemplate from '../../../components/feature/LocationPageTemplate';
+
+export default function LocationPage() {
+
+  return (
+    <LocationPageTemplate
+      metaTitle="Great Neck, NY Garage Door Repair & Custom Door Installation | Smartest Garage Doors"
+      metaDescription="Garage door repair & custom installation in Great Neck, NY. Custom wood & carriage-house doors, smart WiFi openers, same-day repair. Licensed & insured. (914) 557-6816."
+      keywords="Great Neck garage door repair, custom garage doors Great Neck, garage door installation Great Neck NY, carriage house garage doors Kings Point, garage door opener Great Neck"
+      slug="/great-neck-ny/"
+      cityName="Great Neck"
+      stateCode="NY"
+      stateName="New York"
+      geo={{ latitude: '40.8007', longitude: '-73.7285' }}
+      heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero"
+      neighborhoods={[{"name":"Kings Point","description":"Waterfront estates and gated properties on the peninsula's northern tip. Custom wood doors, oversized double-car doors, and integrated gate and opener systems suit these large homes, with security features built in."},{"name":"Great Neck Estates","description":"An incorporated village of grand colonials, Tudors, and Mediterranean-style homes. We recommend carriage-house and custom doors designed to match each home's architecture rather than off-the-shelf looks."},{"name":"Russell Gardens","description":"A planned garden village with distinctive 1920s and 1930s homes. Period-appropriate carriage-style doors with decorative hardware preserve the character these streets are known for."},{"name":"Saddle Rock","description":"A small waterside village of substantial single-family homes. Insulated double-car doors and quiet belt-drive openers are a natural fit for attached garages near the water."},{"name":"Great Neck Plaza & Village of Great Neck","description":"The commercial heart and surrounding residential blocks, including condos and co-ops with shared garages. We handle both private residential doors and building garage doors and gates."},{"name":"Lake Success & Thomaston borders","description":"We serve the communities bordering Great Neck with the same full service — repairs, spring replacement, opener upgrades, and premium door installations."}]}
+      reviews={[]}
+      faqs={[{"question":"Do you install custom and premium garage doors in Great Neck?","answer":"Yes — custom work is a specialty here. New installation starts from $800 for standard doors; premium insulated, carriage-style, and custom wood doors run higher. We provide a detailed quote before any work begins, with design options matched to your home."},{"question":"Should I repair my existing door or invest in a new one?","answer":"If the structure of the door is sound, repair is usually the smarter move — repairs run $150–$300, spring replacement $175–$350, and opener repairs $150–$350. For older uninsulated doors on larger Great Neck homes, an upgrade to an insulated custom door often improves both energy efficiency and curb appeal. We assess honestly and let you decide."},{"question":"What opener do you recommend for a quiet, connected garage?","answer":"We typically install LiftMaster belt-drive openers with built-in WiFi. They're the quietest on the market, and we set up the smartphone app so you can monitor and control the door remotely — useful for larger properties and frequent travelers."},{"question":"How fast can you get to Great Neck?","answer":"Our North Shore team covers Great Neck and the surrounding peninsula communities every week. We give you an honest ETA when you call, and same-day appointments are often available."},{"question":"Can you match a garage door to a Tudor or colonial home in Great Neck Estates?","answer":"Yes. We carry carriage-house, raised-panel, and custom wood designs from premium manufacturers and help you select profiles, windows, finishes, and hardware that complement Tudor, colonial, and contemporary architecture. Clean installation and warranty-backed work come standard."},{"question":"Do you handle security upgrades along with garage doors?","answer":"We do. Smart openers with rolling-code remotes, automatic-close timers, smartphone alerts, and battery backup add real security for Kings Point and Saddle Rock properties. We can include these in any door-and-opener package."}]}
+
+    />
+  );
+}

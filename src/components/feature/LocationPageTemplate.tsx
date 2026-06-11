@@ -413,7 +413,8 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
         </div>
       </section>
 
-      {/* ── REVIEWS ───────────────────────────────────────────────── */}
+      {/* ── REVIEWS (skipped when a location has no attributable quotes) ── */}
+      {reviews.length > 0 && (
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -452,6 +453,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
           </div>
         </div>
       </section>
+      )}
 
       {/* ── RECENT JOBS (real photos — visual proof) ──────────────── */}
       <RecentWork />

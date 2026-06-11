@@ -1,0 +1,22 @@
+import LocationPageTemplate from '../../../components/feature/LocationPageTemplate';
+
+export default function LocationPage() {
+
+  return (
+    <LocationPageTemplate
+      metaTitle="Manhasset, NY Garage Door Repair & Custom Door Installation | Smartest Garage Doors"
+      metaDescription="Garage door repair & custom installation in Manhasset, NY. Doors matched to your home's architecture, quiet smart openers, same-day repair. Licensed & insured. (914) 557-6816."
+      keywords="Manhasset garage door repair, garage door installation Manhasset NY, custom garage doors Manhasset, garage door opener Plandome, carriage style garage doors Manhasset"
+      slug="/manhasset-ny/"
+      cityName="Manhasset"
+      stateCode="NY"
+      stateName="New York"
+      geo={{ latitude: '40.7979', longitude: '-73.6996' }}
+      heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero"
+      neighborhoods={[{"name":"Plandome","description":"A trio of villages — Plandome, Plandome Heights, and Plandome Manor — with stately homes near Manhasset Bay. Custom wood and carriage-house doors with premium hardware suit these properties, and insulated construction handles the bayside weather."},{"name":"Munsey Park","description":"A planned village of classic colonials on uniform, tree-lined streets. Carriage-style and raised-panel doors in traditional colors keep curb appeal consistent with the neighborhood's character."},{"name":"Strathmore","description":"Mid-century Levitt-built colonials and capes with attached garages. Insulated steel doors and quiet LiftMaster belt-drive openers are the upgrades we most often recommend for these homes."},{"name":"Flower Hill","description":"Larger lots and a mix of traditional and contemporary homes between Manhasset and Roslyn. Double-car insulated doors, custom designs, and full door-plus-opener packages fit these properties well."},{"name":"North Strathmore & Manhasset Bay area","description":"Homes closer to the water where wind and moisture wear on doors, seals, and springs. We recommend insulated doors with quality weather sealing and corrosion-resistant hardware."},{"name":"Manhasset Valley & Americana area","description":"The blocks around the Americana Manhasset and Northern Boulevard, mixing residences with commercial properties. We service residential garage doors throughout, from quick spring repairs to complete replacements."}]}
+      reviews={[]}
+      faqs={[{"question":"What does a new garage door installation cost in Manhasset?","answer":"New installation starts from $800 for standard doors; premium insulated, carriage-style, and custom wood doors run higher. We provide a detailed quote before any work begins, and we walk you through design options that fit your home and budget."},{"question":"My door still works but looks dated. Repair or replace?","answer":"If it's mechanically sound, a repair or tune-up ($150–$300, springs $175–$350) keeps it running. But in Manhasset, the garage door is often the largest single element of the front facade — if curb appeal is the goal, a new carriage-style or custom door transforms the look of the house. We'll give you an honest read on which makes sense."},{"question":"What's the quietest opener for an attached garage?","answer":"A LiftMaster belt-drive opener. It runs far quieter than chain drives — important when the garage sits under or beside bedrooms, as in many Strathmore and Munsey Park colonials. We install it, set up the WiFi smartphone app, and program all remotes and keypads."},{"question":"How fast can you get to Manhasset?","answer":"Our North Shore team covers Manhasset and the surrounding communities every week. We give you an honest ETA when you call, and same-day appointments are often available."},{"question":"Can you match a new door to my home's architecture?","answer":"Yes — that's central to how we work in Manhasset. Whether it's a Munsey Park colonial, a Plandome traditional, or a contemporary in Flower Hill, we help you select door style, panel profile, windows, color, and hardware so the door looks original to the house. Installation is clean and warranty-backed."},{"question":"Do you offer complete door and opener packages?","answer":"We do, and it's usually the best value for Manhasset homeowners replacing an older system. One visit covers the new insulated door, a quiet LiftMaster WiFi opener, new tracks and hardware, haul-away of the old door, and full programming — all quoted upfront."}]}
+
+    />
+  );
+}

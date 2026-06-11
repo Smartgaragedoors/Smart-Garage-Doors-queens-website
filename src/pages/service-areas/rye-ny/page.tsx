@@ -1,0 +1,22 @@
+import LocationPageTemplate from '../../../components/feature/LocationPageTemplate';
+
+export default function LocationPage() {
+
+  return (
+    <LocationPageTemplate
+      metaTitle="Rye, NY Garage Door Repair & Custom Door Installation | Smartest Garage Doors"
+      metaDescription="Garage door repair & installation in Rye, NY. Weather-resistant insulated doors for Sound-side homes, quiet smart openers, same-day repair. Licensed & insured. (914) 557-6816."
+      keywords="Rye NY garage door repair, garage door installation Rye NY, insulated garage doors Rye, garage door spring replacement Rye, smart garage door opener Westchester"
+      slug="/rye-ny/"
+      cityName="Rye"
+      stateCode="NY"
+      stateName="New York"
+      geo={{ latitude: '40.9807', longitude: '-73.6837' }}
+      heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero"
+      neighborhoods={[{"name":"Greenhaven","description":"A waterfront enclave of substantial colonials and shingle-style homes near Milton Harbor. With direct exposure to Long Island Sound weather, we recommend insulated doors with reinforced struts, quality weather seals, and corrosion-resistant hardware."},{"name":"Milton Point","description":"Some of Rye's most coveted streets, close to the water and the beach clubs. Custom and carriage-style doors with marine-grade hinges, tracks, and fasteners hold up best in the salt air here."},{"name":"Indian Village","description":"A storybook neighborhood of Tudors and cottages on winding lanes. We help homeowners choose doors with period-appropriate panel designs, window inserts, and decorative hardware that suit these distinctive homes."},{"name":"Rye Gardens","description":"Established blocks of classic colonials and capes. Frequent projects include insulated door replacements, broken spring and cable repair, and quiet LiftMaster belt-drive opener upgrades."},{"name":"Loudon Woods & Glen Oaks","description":"Wooded streets with larger contemporary and traditional homes. We install premium insulated doors and smart openers with battery backup — useful when storms knock out power along the Sound shore."},{"name":"Downtown Rye & Central Avenue area","description":"Homes near the village center and Rye train station, many with detached garages. We service older doors, replace worn springs and rollers, and upgrade tired openers to quiet WiFi-enabled models."}]}
+      reviews={[]}
+      faqs={[{"question":"What does a new garage door installation cost in Rye?","answer":"New installation starts from $800 for standard doors; premium insulated, carriage-style, and custom wood doors run higher. We provide a detailed quote before any work begins so you can compare options with real numbers."},{"question":"Should I repair or replace my garage door in Rye?","answer":"Most problems are repairable: typical repairs run $150–$300, spring replacement $175–$350, and opener repair $150–$350. If your door is uninsulated, corroded from coastal exposure, or the panels are failing, replacement often pays for itself in comfort and curb appeal. We give you a straight recommendation either way."},{"question":"Do you install quiet smart openers in Rye?","answer":"Yes. Our go-to is the LiftMaster belt-drive line — far quieter than chain-drive units and ideal for attached garages. Every installation includes full WiFi setup with the myQ app, plus battery backup options for storm-prone Sound-side neighborhoods."},{"question":"Who services Rye, and how fast can you get here?","answer":"Rye is covered by our Westchester-area technician, who handles the county full time. We give you an honest ETA when you call, and same-day appointments are often available."},{"question":"What garage doors hold up best near Long Island Sound?","answer":"For Greenhaven, Milton Point, and other shoreline streets, we recommend insulated steel or composite doors with factory-baked finishes, galvanized tracks, stainless hardware, and full perimeter weather seals. They resist salt-air corrosion and keep coastal wind and damp out of the garage."},{"question":"Can you match a door to Rye's colonial and Tudor architecture?","answer":"Yes — that's a big part of what we do in Rye. We carry carriage-house and custom panel designs from Clopay, Wayne Dalton, and Amarr, with window grilles, finishes, and hardware selected to complement colonials, Tudors, and shingle-style homes."}]}
+
+    />
+  );
+}

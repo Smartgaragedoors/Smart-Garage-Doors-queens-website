@@ -1,0 +1,22 @@
+import LocationPageTemplate from '../../../components/feature/LocationPageTemplate';
+
+export default function LocationPage() {
+
+  return (
+    <LocationPageTemplate
+      metaTitle="Larchmont, NY Garage Door Repair & Custom Door Installation | Smartest Garage Doors"
+      metaDescription="Garage door repair & installation in Larchmont, NY. Insulated weather-resistant doors, carriage styles, quiet smart openers, same-day repair. Insured. (914) 557-6816."
+      keywords="Larchmont garage door repair, garage door installation Larchmont NY, carriage style garage doors Larchmont, garage door spring replacement Larchmont, insulated garage doors Westchester"
+      slug="/larchmont-ny/"
+      cityName="Larchmont"
+      stateCode="NY"
+      stateName="New York"
+      geo={{ latitude: '40.9279', longitude: '-73.7518' }}
+      heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero"
+      neighborhoods={[{"name":"Larchmont Manor","description":"The village's historic heart, with grand Victorians and shingle-style homes near Manor Park and the Sound. We install carriage-house and custom doors with period detailing, built to stand up to salt air off the water."},{"name":"Larchmont Gardens","description":"A leafy neighborhood of Tudors and colonials around the Gardens Lake. Insulated doors with traditional panel designs are the most popular choice here, paired with quiet LiftMaster belt-drive openers."},{"name":"Pinebrook","description":"Established streets of colonials and capes on the Mamaroneck Town side of Larchmont. We handle spring and cable replacement, roller and track repair, and full insulated door upgrades with clean installation."},{"name":"Village center & Palmer Avenue area","description":"Homes near the Larchmont train station, many with older detached garages. We service aging hardware, fit custom-sized doors to original openings, and upgrade tired openers to compact WiFi-enabled models."},{"name":"Howell Park area","description":"Quiet blocks of distinguished colonials and Tudors. Architectural matching matters here — we help homeowners choose panel profiles, window grilles, and finishes that complement the home."},{"name":"Larchmont borders (Mamaroneck/New Rochelle)","description":"We serve surrounding streets in Mamaroneck and New Rochelle with the same premium parts, upfront pricing, and warranty-backed workmanship as the village itself."}]}
+      reviews={[]}
+      faqs={[{"question":"What does a new garage door installation cost in Larchmont?","answer":"New installation starts from $800 for standard doors; premium insulated, carriage-style, and custom wood doors run higher. We measure on site and give you a detailed quote before any work begins."},{"question":"Is it smarter to repair or replace my Larchmont garage door?","answer":"If the panels are solid, repair usually wins: most repairs run $150–$300, spring replacement $175–$350, and opener repair $150–$350. If the door is uninsulated, weathered from Sound-side exposure, or out of step with the home, we'll lay out replacement options honestly so you can decide."},{"question":"Do you install quiet smart openers in Larchmont?","answer":"Yes. We install LiftMaster belt-drive openers — far quieter than chain drives, which matters in Larchmont homes with rooms above the garage. Every install includes WiFi and myQ app setup, and battery backup is available for storm season."},{"question":"Who handles Larchmont service calls?","answer":"Larchmont is covered by our Westchester-area technician, dedicated to the county full time. We give you an honest ETA when you call, and same-day appointments are often available."},{"question":"What doors do you recommend for homes near the Sound?","answer":"For Larchmont Manor and other streets close to the water, we recommend insulated steel or composite doors with factory-baked finishes, galvanized tracks, stainless hardware, and full weather seals. They resist salt-air corrosion, cut drafts, and keep the garage comfortable year-round."},{"question":"Can you match a door to my Victorian or colonial home?","answer":"Absolutely. Larchmont's Victorians, colonials, and Tudors deserve more than a builder-grade door. We offer carriage-house designs, custom panel layouts, divided-light windows, and decorative hardware from Clopay, Wayne Dalton, and Amarr chosen to suit the home's era and style."}]}
+
+    />
+  );
+}

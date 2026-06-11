@@ -50,6 +50,43 @@ Allow: /paramus-nj/
 Allow: /norwalk-ct/
 Allow: /edison-nj/
 Allow: /jackson-nj/
+
+# Premium-market service area pages (Tier 1 rollout)
+Allow: /flushing-ny/
+Allow: /forest-hills-ny/
+Allow: /bayside-ny/
+Allow: /great-neck-ny/
+Allow: /manhasset-ny/
+Allow: /roslyn-ny/
+Allow: /port-washington-ny/
+Allow: /garden-city-ny/
+Allow: /rye-ny/
+Allow: /bronxville-ny/
+Allow: /larchmont-ny/
+Allow: /chappaqua-ny/
+Allow: /ridgewood-nj/
+Allow: /tenafly-nj/
+Allow: /rumson-nj/
+Allow: /holmdel-nj/
+
+# Premium-market service area pages (Wave 2)
+Allow: /whitestone-ny/
+Allow: /jamaica-estates-ny/
+Allow: /syosset-ny/
+Allow: /oyster-bay-ny/
+Allow: /rockville-centre-ny/
+Allow: /old-westbury-ny/
+Allow: /mamaroneck-ny/
+Allow: /harrison-ny/
+Allow: /armonk-ny/
+Allow: /alpine-nj/
+Allow: /fort-lee-nj/
+Allow: /colts-neck-nj/
+Allow: /red-bank-nj/
+
+# Competitor comparison pages
+Allow: /vs-precision-garage-door/
+Allow: /vs-overhead-door/
 Allow: /service-areas/
 
 # Sitemap
