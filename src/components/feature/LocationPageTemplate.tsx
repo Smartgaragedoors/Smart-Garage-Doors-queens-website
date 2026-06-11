@@ -209,7 +209,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
               Same-day service, upfront pricing, and a 1-year warranty on every job.
               Licensed &amp; insured. Available 24/7.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div data-hero-cta className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href={`tel:${PHONE_TEL}`}
                 onClick={() => trackPhoneClick(PHONE, `location_hero_${cityName}`)}

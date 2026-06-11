@@ -11,7 +11,6 @@ import WhyChooseUs from '../../components/feature/WhyChooseUs';
 import Contact from '../../components/feature/Contact';
 import Header from '../../components/feature/Header';
 import Footer from '../../components/feature/Footer';
-import MobileStickyCTA from '../../components/conversion/MobileStickyCTA';
 import DynamicMetaTags from '../../components/seo/DynamicMetaTags';
 import OrganizationSchema from '../../components/seo/OrganizationSchema';
 import LocalBusinessSchema from '../../components/seo/LocalBusinessSchema';
@@ -197,7 +196,7 @@ export default function HomePage() {
       <CoverageStrip />
       <Contact />
       <Footer />
-      <MobileStickyCTA />
+      {/* MobileStickyCTA is rendered globally in App.tsx — rendering it here too stacked two identical bars */}
     </div>
   );
 }

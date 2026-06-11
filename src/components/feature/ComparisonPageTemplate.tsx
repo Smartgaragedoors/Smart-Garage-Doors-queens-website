@@ -106,7 +106,7 @@ export default function ComparisonPageTemplate(props: ComparisonPageTemplateProp
             An honest, side-by-side look at how Smartest Garage Doors stacks up against {competitorName} —
             so you can choose with confidence.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div data-hero-cta className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href={`tel:${PHONE_TEL}`}
               onClick={() => trackPhoneClick(PHONE, `comparison_hero_${competitorName}`)}

@@ -98,7 +98,7 @@ export default function CityServiceAreaPage({ location }: CityServiceAreaPagePro
               {location.serviceAreaText ||
                 `Expert garage door repair and installation services throughout ${location.city}, ${location.state}. Smartest Garage Doors provides reliable, professional solutions for homes and businesses across ${location.city}.`}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div data-hero-cta className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/book-now/"
                 className="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap inline-flex items-center justify-center"

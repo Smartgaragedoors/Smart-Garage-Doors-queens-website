@@ -146,7 +146,7 @@ export default function GuidePageTemplate(props: GuidePageTemplateProps) {
           <p className="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
             {subheadline}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div data-hero-cta className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href={`tel:${PHONE_TEL}`}
               onClick={() => trackPhoneClick(PHONE, `guide_hero_${trackSource}`)}
