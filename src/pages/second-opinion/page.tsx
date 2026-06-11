@@ -7,6 +7,7 @@ export default function SecondOpinionPage() {
       metaDescription="Told you need a whole new garage door or opener? Send us photos and the other quote — a real technician will tell you honestly whether a $200-$350 repair solves it or replacement genuinely makes sense. Free."
       keywords="garage door second opinion, do I really need a new garage door, garage door replacement second opinion, told I need new garage door, garage door quote too high"
       slug="/second-opinion/"
+      heroImage="techDanSmiling"
       badge="Free Second Opinion"
       headline="They Said You Need a New Garage Door. Do You?"
       subheadline="Before you spend thousands, send us photos and the other company's quote. A real technician will tell you honestly whether a repair solves it — or whether replacement genuinely makes sense."

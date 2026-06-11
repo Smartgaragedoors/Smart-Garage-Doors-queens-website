@@ -7,6 +7,7 @@ export default function LiftMasterOpenerInstallationPage() {
       metaDescription="Professional LiftMaster garage door opener installation across NY and NJ — quiet belt-drive and wall-mount models, myQ WiFi setup, battery backup, and honest repair-vs-replace advice. $450–$900 installed."
       keywords="LiftMaster installation near me, LiftMaster opener installation Queens, LiftMaster opener Long Island, LiftMaster installer NJ, belt drive garage door opener installation"
       slug="/liftmaster-opener-installation/"
+      heroImage="openerRepairHero"
       badge="Opener Installation"
       headline="LiftMaster Garage Door Opener Installation"
       subheadline="We install and service LiftMaster openers every week across Queens, Brooklyn, Long Island, Westchester, and North Jersey — quiet belt drives, myQ WiFi setup on your phone, and battery backup for when the power goes out."

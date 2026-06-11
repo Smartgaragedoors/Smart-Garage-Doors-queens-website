@@ -7,6 +7,7 @@ export default function InsulatedGarageDoorCostLongIslandPage() {
       metaDescription="Insulated garage door prices for Long Island homes in 2026 — double vs. triple layer, R-values explained simply, polystyrene vs. polyurethane, and an honest take on when insulation is worth it."
       keywords="insulated garage door cost Long Island, insulated garage doors Long Island, are insulated garage doors worth it, garage door R-value, polyurethane garage door"
       slug="/insulated-garage-door-cost-long-island/"
+      heroImage="doorInteriorWindows"
       badge="2026 Buyer's Guide"
       headline="Insulated Garage Door Cost on Long Island"
       subheadline="Double vs. triple layer, R-values in plain English, and an honest answer to whether an insulated door is worth it for your home."

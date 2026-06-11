@@ -7,6 +7,7 @@ export default function PhotoEstimatePage() {
       metaDescription="Text 2-3 photos of your garage door and get an honest price range from a real technician — before anyone comes out. Free, no-obligation photo estimates for repairs, springs, openers, and new doors."
       keywords="garage door photo estimate, send photos garage door quote, text pictures garage door repair, garage door estimate without visit, garage door quote by photo"
       slug="/photo-estimate/"
+      heroImage="teamPhoto"
       badge="Free Photo Estimate"
       headline="Text Us Photos. Get a Real Price Before We Come Out."
       subheadline="Snap 2-3 pictures of your garage door, spring, or opener and a real technician — not a bot — replies with an honest assessment and a price range. Free, no obligation, no pressure."

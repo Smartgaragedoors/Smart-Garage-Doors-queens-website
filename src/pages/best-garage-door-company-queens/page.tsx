@@ -7,6 +7,7 @@ export default function BestGarageDoorCompanyQueensPage() {
       metaDescription="What 'best' actually means for a Queens garage — quiet openers for attached brick garages, custom fits for pre-war openings, co-op approvals, and the checklist to compare any company before you hire. From a company based in Queens."
       keywords="best garage door company Queens, best garage door repair Queens, top garage door companies Queens NY, garage door repair Queens, Queens garage door installation"
       slug="/best-garage-door-company-queens/"
+      heroImage="queensHero"
       badge="Queens Buyer's Guide"
       headline="How to Choose the Best Garage Door Company in Queens"
       subheadline="Nobody can honestly crown themselves 'the best' — but a Queens homeowner can absolutely figure out which company is best for their garage. Here's the checklist, the red flags, and how we measure against it."

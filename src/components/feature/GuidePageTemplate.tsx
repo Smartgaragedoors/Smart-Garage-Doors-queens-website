@@ -7,6 +7,7 @@ import FAQSchema from '../seo/FAQSchema';
 import ServiceLinks from '../seo/ServiceLinks';
 import { buildCanonical } from '../../config/canonical';
 import { BUSINESS_INFO } from '../../config/business-info';
+import { cloudflareImages, getCFBackgroundImage } from '../../data/cloudflareImages';
 import { getWhatsAppHref } from '../../utils/whatsapp';
 import { trackPhoneClick, trackBookNowClick, trackWhatsAppClick } from '../../utils/analytics';
 
@@ -49,6 +50,7 @@ export interface GuidePageTemplateProps {
   badge?: string;            // small eyebrow text above H1
   headline: string;          // H1
   subheadline: string;
+  heroImage?: keyof typeof cloudflareImages; // background photo behind the hero
   showWhatsAppHero?: boolean;
   whatsAppMessage?: string;  // prefilled WhatsApp text
 
@@ -99,12 +101,14 @@ function FAQAccordion({ faqs }: { faqs: GuideFAQ[] }) {
 export default function GuidePageTemplate(props: GuidePageTemplateProps) {
   const {
     metaTitle, metaDescription, keywords, slug,
-    badge, headline, subheadline, showWhatsAppHero, whatsAppMessage,
+    badge, headline, subheadline, heroImage, showWhatsAppHero, whatsAppMessage,
     intro, sections, costTable, criteria, faqs, bottomLine,
     relatedLinks, ctaHeadline, ctaText,
   } = props;
 
   const trackSource = slug.replace(/\//g, '') || 'guide';
+  const heroImg = heroImage ? cloudflareImages[heroImage] : null;
+  const reviewCount = BUSINESS_INFO.aggregateRating.reviewCount;
 
   return (
     <div className="min-h-screen bg-white">
@@ -120,6 +124,16 @@ export default function GuidePageTemplate(props: GuidePageTemplateProps) {
 
       {/* ── HERO ──────────────────────────────────────────────────── */}
       <section className="relative bg-gradient-to-br from-blue-900 to-blue-800 text-white">
+        {heroImg && (
+          <>
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: getCFBackgroundImage(heroImg.id, 'hero', heroImg.fallbackSrc) }}
+              aria-hidden="true"
+            />
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-950/90 via-blue-900/85 to-blue-900/75" aria-hidden="true" />
+          </>
+        )}
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-24 text-center">
           {badge && (
             <span className="inline-block bg-blue-700/60 text-blue-100 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
@@ -165,6 +179,28 @@ export default function GuidePageTemplate(props: GuidePageTemplateProps) {
           </div>
         </div>
       </section>
+
+      {/* ── TRUST BAND ────────────────────────────────────────────── */}
+      <div className="bg-blue-950 text-blue-100">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-4 flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm font-medium">
+          <span className="inline-flex items-center gap-2">
+            <i className="ri-shield-check-line text-orange-400 text-base" aria-hidden="true" />
+            Licensed &amp; Insured
+          </span>
+          <span className="inline-flex items-center gap-2">
+            <i className="ri-star-fill text-yellow-400 text-base" aria-hidden="true" />
+            {reviewCount}+ Five-Star Reviews
+          </span>
+          <span className="inline-flex items-center gap-2">
+            <i className="ri-time-line text-orange-400 text-base" aria-hidden="true" />
+            24/7 Emergency Line
+          </span>
+          <span className="inline-flex items-center gap-2">
+            <i className="ri-verified-badge-line text-orange-400 text-base" aria-hidden="true" />
+            1-Year Parts &amp; Labor Warranty
+          </span>
+        </div>
+      </div>
 
       {/* ── INTRO ─────────────────────────────────────────────────── */}
       <section className="py-14 bg-white">

@@ -7,6 +7,7 @@ export default function LocalVsNationalGarageDoorCompanyPage() {
       metaDescription="Franchise or independent? An honest breakdown of how national garage door brands and local companies differ on dispatch, pricing structure, warranties, and accountability — plus 7 questions to ask any company before you hire."
       keywords="local vs national garage door company, garage door franchise vs local, Precision Garage Door alternatives, alternatives to national garage door companies, independent garage door company"
       slug="/local-vs-national-garage-door-company/"
+      heroImage="teamPhoto"
       badge="Honest Buyer's Guide"
       headline="Local vs. National Garage Door Company: What Actually Differs"
       subheadline="Franchises and independents are built differently — not better or worse, just differently. Here's how each one actually works, so you know what you're buying before anyone rings your doorbell."

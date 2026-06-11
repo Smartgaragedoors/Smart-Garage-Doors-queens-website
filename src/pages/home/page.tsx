@@ -78,6 +78,79 @@ function CoverageStrip() {
   );
 }
 
+function CommercialStrip() {
+  return (
+    <section className="bg-blue-950 text-white py-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-10">
+          <span className="inline-block bg-blue-800/60 text-blue-100 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
+            Commercial &amp; Property Management
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-3">
+            One Door Vendor for Your Whole Portfolio
+          </h2>
+          <p className="text-blue-200 max-w-2xl mx-auto text-lg">
+            Warehouses, loading docks, rolling gates, parking garages, and multi-property buildings —
+            with COIs, per-property documentation, and maintenance programs built for facilities teams.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-10">
+          <Link
+            to="/commercial-garage-door-repair/"
+            className="group bg-blue-900/60 border border-blue-800 rounded-2xl p-8 hover:bg-blue-900 hover:border-orange-500/50 transition-colors"
+          >
+            <div className="w-12 h-12 rounded-xl bg-orange-500/20 text-orange-400 flex items-center justify-center mb-4">
+              <i className="ri-building-2-line text-2xl" aria-hidden="true" />
+            </div>
+            <h3 className="text-xl font-bold mb-2 group-hover:text-orange-400 transition-colors">
+              Commercial Door Repair
+            </h3>
+            <p className="text-blue-200 text-sm leading-relaxed mb-4">
+              Overhead doors, rolling steel gates, loading docks, high-cycle springs, and commercial
+              operators. Priority dispatch — because a dead bay door stops revenue.
+            </p>
+            <span className="text-orange-400 font-semibold text-sm">Learn more →</span>
+          </Link>
+          <Link
+            to="/property-managers/"
+            className="group bg-blue-900/60 border border-blue-800 rounded-2xl p-8 hover:bg-blue-900 hover:border-orange-500/50 transition-colors"
+          >
+            <div className="w-12 h-12 rounded-xl bg-orange-500/20 text-orange-400 flex items-center justify-center mb-4">
+              <i className="ri-community-line text-2xl" aria-hidden="true" />
+            </div>
+            <h3 className="text-xl font-bold mb-2 group-hover:text-orange-400 transition-colors">
+              For Property Managers
+            </h3>
+            <p className="text-blue-200 text-sm leading-relaxed mb-4">
+              One contact for every property. COI per building, photo documentation on every job,
+              per-property invoicing, and preventive maintenance across your portfolio.
+            </p>
+            <span className="text-orange-400 font-semibold text-sm">Set up a vendor account →</span>
+          </Link>
+        </div>
+        <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm text-blue-200">
+          <span className="inline-flex items-center gap-2">
+            <i className="ri-checkbox-circle-line text-orange-400" aria-hidden="true" />
+            COI on request
+          </span>
+          <span className="inline-flex items-center gap-2">
+            <i className="ri-checkbox-circle-line text-orange-400" aria-hidden="true" />
+            Multi-location accounts across NY, NJ &amp; CT
+          </span>
+          <span className="inline-flex items-center gap-2">
+            <i className="ri-checkbox-circle-line text-orange-400" aria-hidden="true" />
+            Maintenance contracts
+          </span>
+          <span className="inline-flex items-center gap-2">
+            <i className="ri-checkbox-circle-line text-orange-400" aria-hidden="true" />
+            24/7 emergency line
+          </span>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function HomePage() {
   const { location } = useLocation();
   const routerLocation = useRouterLocation();
@@ -118,6 +191,7 @@ export default function HomePage() {
       <WhyChooseUs />
       <Services />
       <RecentWork />
+      <CommercialStrip />
       <VideoSection />
       <About />
       <CoverageStrip />

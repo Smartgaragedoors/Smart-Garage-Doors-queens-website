@@ -7,6 +7,7 @@ export default function CommercialGarageDoorRepairPage() {
       metaDescription="Commercial overhead door, rolling gate, and loading dock door repair across NY, NJ & CT. 24/7 emergency line, COI on request, high-cycle parts, documented work, and preventive maintenance plans for facilities teams."
       keywords="commercial garage door repair, commercial overhead door repair, loading dock door repair, rolling gate repair, commercial garage door repair near me, commercial garage door repair Queens, commercial garage door repair Long Island, commercial garage door repair Westchester, commercial garage door repair NJ"
       slug="/commercial-garage-door-repair/"
+      heroImage="homeHero"
       badge="Commercial & Industrial"
       headline="Commercial Garage Door Repair Across NY, NJ & CT"
       subheadline="Overhead doors, rolling steel gates, and loading dock doors — repaired by technicians who understand that a down door means stopped trucks and lost revenue. 24/7 emergency line, COI on request, documented work on every job."

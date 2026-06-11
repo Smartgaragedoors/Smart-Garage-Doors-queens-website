@@ -7,6 +7,7 @@ export default function PropertyManagersPage() {
       metaDescription="A garage door vendor built for property and facilities managers: per-property invoicing, photo documentation on every job, COIs per building, priority response for tenant-affecting outages, and preventive maintenance across your portfolio in NY, NJ & CT."
       keywords="garage door vendor for property managers, garage door repair property management, building garage door service NY, parking garage door repair, condo garage door vendor, HOA garage door service"
       slug="/property-managers/"
+      heroImage="teamPhoto"
       badge="For Property & Facilities Managers"
       headline="The Garage Door Vendor Your Portfolio Has Been Missing"
       subheadline="One contact, per-property invoicing, photo documentation on every job, COIs for every building, and priority response when a door outage is affecting tenants. Serving property and facilities managers across NY, NJ & CT."

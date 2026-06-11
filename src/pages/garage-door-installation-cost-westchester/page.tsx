@@ -7,6 +7,7 @@ export default function GarageDoorInstallationCostWestchesterPage() {
       metaDescription="What a new garage door costs in Westchester County in 2026 — installed ranges for steel, insulated, carriage-style, and custom doors, plus what matters for stone colonials, tudors, and older village garages."
       keywords="garage door installation cost Westchester, new garage door Westchester County, garage door replacement Scarsdale, carriage garage door Westchester"
       slug="/garage-door-installation-cost-westchester/"
+      heroImage="westchesterHero"
       badge="2026 Cost Guide"
       headline="Garage Door Installation Cost in Westchester County"
       subheadline="Honest installed price ranges for Westchester homes — from standard steel to carriage-style and custom doors built to suit stone colonials, tudors, and historic villages."
