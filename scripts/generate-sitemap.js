@@ -171,8 +171,32 @@ const blogPosts = [
   { slug: 'suffern-ny-garage-door-service', priority: '0.7', changefreq: 'monthly' },
 ];
 
+// Content-folder blog posts (content/blog/*.json) — the Post Automation tool
+// publishes here; hand-authored posts live here too.
+function extractContentBlogPosts() {
+  const contentDir = path.join(__dirname, '..', 'content', 'blog');
+  if (!fs.existsSync(contentDir)) return [];
+  const posts = [];
+  for (const file of fs.readdirSync(contentDir)) {
+    if (!file.endsWith('.json')) continue;
+    try {
+      const data = JSON.parse(fs.readFileSync(path.join(contentDir, file), 'utf8'));
+      if (data.slug) posts.push({ slug: data.slug, priority: '0.7', changefreq: 'monthly' });
+    } catch (e) {
+      console.warn(`Warning: skipping invalid content/blog/${file}: ${e.message}`);
+    }
+  }
+  return posts;
+}
+
 function generateSitemap() {
   const serviceAreaRoutes = extractServiceAreaRoutes();
+  // Merge content-folder posts with the hardcoded list (content posts win on duplicate slugs)
+  const contentPosts = extractContentBlogPosts();
+  const hardcodedSlugs = new Set(blogPosts.map((p) => p.slug));
+  for (const p of contentPosts) {
+    if (!hardcodedSlugs.has(p.slug)) blogPosts.push(p);
+  }
   
   // Filter core routes to exclude redirected URLs
   const filteredCoreRoutes = coreRoutes.filter(route => !isExcluded(route.path));

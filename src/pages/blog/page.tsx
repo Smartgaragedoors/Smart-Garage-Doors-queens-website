@@ -4,11 +4,30 @@ import Footer from '../../components/feature/Footer';
 import Breadcrumbs from '../../components/seo/Breadcrumbs';
 import DynamicMetaTags from '../../components/seo/DynamicMetaTags';
 import { getBlogImage } from '../../data/blogImages';
+import { CONTENT_BLOG_LIST } from '../../data/contentBlogPosts';
 
 const DEFAULT_BLOG_IMAGE_URL = "/hero-van-1280.webp";
 
+function formatPostDate(iso: string): string {
+  const d = new Date(`${iso}T12:00:00`);
+  return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+
 export default function BlogPage() {
+  // Content-folder posts (incl. Post Automation publishes) lead the list, newest first
+  const contentPosts = CONTENT_BLOG_LIST.map((p, i) => ({
+    id: 1000 + i,
+    slug: p.slug,
+    title: p.title,
+    excerpt: p.description,
+    date: formatPostDate(p.date),
+    category: p.category,
+    readTime: p.readTime,
+    image: p.image,
+  }));
+
   const blogPosts = [
+    ...contentPosts,
     { id: 1, slug: 'signs-you-need-new-garage-door', title: "Signs You Need a New Garage Door: When to Replace vs Repair", excerpt: "Complete guide to determining when you need a new garage door versus repair. Learn the warning signs, cost considerations, and decision framework.", date: "January 22, 2025", category: "Tips", readTime: "14 min read" },
     { id: 2, slug: 'cost-of-garage-door-spring-replacement', title: "Cost of Garage Door Spring Replacement: Complete Pricing Guide 2025", excerpt: "Comprehensive guide to garage door spring replacement costs in 2025. Learn pricing factors, average costs by spring type, and how to get accurate estimates.", date: "January 18, 2025", category: "Cost Guide", readTime: "12 min read" },
     { id: 3, slug: 'how-to-fix-garage-door-opener', title: "How to Fix Garage Door Opener: Common Issues and Solutions", excerpt: "Complete troubleshooting guide for garage door opener problems. Learn how to diagnose and fix common opener issues, when to call professionals, and preventive maintenance tips.", date: "January 20, 2025", category: "Repair", readTime: "10 min read" },
@@ -145,7 +164,9 @@ export default function BlogPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map((post) => {
-              const { image, imageAlt } = getBlogImage(post.slug);
+              const fromMap = getBlogImage(post.slug);
+              const image = 'image' in post && post.image ? post.image : fromMap.image;
+              const imageAlt = 'image' in post && post.image ? post.title : fromMap.imageAlt;
               return (
               <article key={post.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
                 <div className="aspect-w-16 aspect-h-9">

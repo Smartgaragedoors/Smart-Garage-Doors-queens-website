@@ -7,6 +7,7 @@ import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
 import FAQSchema from '../../../components/seo/FAQSchema';
 import BlogPostingSchema from '../../../components/seo/BlogPostingSchema';
 import { getBlogImage } from '../../../data/blogImages';
+import { CONTENT_BLOG_POSTS } from '../../../data/contentBlogPosts';
 import { buildCanonical, CANONICAL_BASE } from '../../../config/canonical';
 
 const DEFAULT_BLOG_IMAGE_URL = "/hero-van-1280.webp";
@@ -1076,7 +1077,9 @@ function getBlogHelpText(slug: string): React.ReactNode {
 
 export default function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
-  const post = slug ? BLOG_POSTS[slug] : null;
+  // Hardcoded posts first, then content-folder posts (Post Automation publishes there)
+  const post = slug ? BLOG_POSTS[slug] ?? CONTENT_BLOG_POSTS[slug] : null;
+  const isContentPost = !!(slug && !BLOG_POSTS[slug] && CONTENT_BLOG_POSTS[slug]);
 
   // Scroll to top when opening a post so content is visible (fixes landing at bottom)
   useEffect(() => {
@@ -1105,7 +1108,10 @@ export default function BlogPostPage() {
   }
 
   const postUrl = buildCanonical(`/blog/${post.slug}`);
-  const { image, imageAlt } = getBlogImage(post.slug);
+  // Content posts carry their own image; legacy posts use the curated map
+  const { image, imageAlt } = isContentPost
+    ? { image: post.image, imageAlt: post.title }
+    : getBlogImage(post.slug);
   const ogImageUrl = image.startsWith("http") ? image : `${CANONICAL_BASE}${image}`;
 
   return (
