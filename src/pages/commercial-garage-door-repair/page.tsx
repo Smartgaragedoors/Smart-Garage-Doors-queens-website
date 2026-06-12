@@ -155,6 +155,8 @@ export default function CommercialGarageDoorRepairPage() {
           { label: 'Westchester County, NY', href: '/westchester-county-ny/' },
           { label: 'Bergen County, NJ', href: '/bergen-county-nj/' },
           { label: 'For Property Managers', href: '/property-managers/' },
+          { label: 'Maintenance Contracts (Guide)', href: '/blog/commercial-garage-door-maintenance-contracts/' },
+          { label: 'High-Cycle Springs Explained (Guide)', href: '/blog/commercial-garage-door-spring-cycle-ratings/' },
         ],
       }}
       ctaHeadline="Get Your Door Back in Service"

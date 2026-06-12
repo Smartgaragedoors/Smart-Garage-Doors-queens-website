@@ -144,6 +144,8 @@ export default function PropertyManagersPage() {
           { label: 'Emergency Garage Door Repair', href: '/emergency-garage-door-repair/' },
           { label: 'Garage Door Installation', href: '/garage-door-installation/' },
           { label: 'Photo Estimate', href: '/photo-estimate/' },
+          { label: 'Vendor Vetting Checklist (Guide)', href: '/blog/property-manager-garage-door-vendor-checklist/' },
+          { label: 'Parking Garage Gate Repair (Guide)', href: '/blog/parking-garage-door-gate-repair-buildings/' },
         ],
       }}
       ctaHeadline="Set Up a Vendor Account"
