@@ -1,7 +1,14 @@
 /**
- * Static customer reviews for display when Supabase/Google API is not available.
- * Keeps the reviews section visually identical without external API calls.
+ * Customer reviews for the native (prerendered) reviews section.
+ *
+ * Source of truth, in order of preference:
+ *   1. src/data/googleReviews.generated.json — REAL Google reviews pulled from
+ *      GoHighLevel at build time (see scripts/fetch-reviews.mjs). Baked into the
+ *      static HTML, so they're indexable + fast, unlike a third-party iframe.
+ *   2. The CURATED_FALLBACK below — used only until the GHL fetch is configured
+ *      (GHL_API_TOKEN + GHL_LOCATION_ID), or if a fetch returns nothing.
  */
+import generated from './googleReviews.generated.json';
 
 export interface StaticReview {
   id: string;
@@ -22,7 +29,7 @@ const twoMonthsAgo = now - 60 * 24 * 3600;
 const threeMonthsAgo = now - 90 * 24 * 3600;
 const fourMonthsAgo = now - 120 * 24 * 3600;
 
-export const STATIC_REVIEWS: StaticReview[] = [
+const CURATED_FALLBACK: StaticReview[] = [
   {
     id: 'rachel-g-1',
     author_name: 'Rachel G.',
@@ -72,3 +79,26 @@ export const STATIC_REVIEWS: StaticReview[] = [
     relative_time_description: '4 months ago',
   },
 ];
+
+// Map the build-time generated reviews (real Google reviews from GHL) to the
+// display shape; fall back to the curated set until the GHL fetch is wired up.
+interface GeneratedReview {
+  id: string;
+  author_name: string;
+  rating: number;
+  text: string;
+  time: number;
+}
+
+const generatedReviews: StaticReview[] = ((generated as { reviews?: GeneratedReview[] }).reviews ?? []).map(
+  (r) => ({ ...r }),
+);
+
+export const STATIC_REVIEWS: StaticReview[] =
+  generatedReviews.length > 0 ? generatedReviews : CURATED_FALLBACK;
+
+/** Live aggregate from the last GHL fetch, when available (else null). */
+export const GENERATED_REVIEW_STATS: { reviewCount: string | null; ratingValue: string | null } = {
+  reviewCount: (generated as { reviewCount?: string | null }).reviewCount ?? null,
+  ratingValue: (generated as { ratingValue?: string | null }).ratingValue ?? null,
+};
