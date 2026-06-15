@@ -145,10 +145,16 @@ export const initAnalytics = () => {
   }
 
   window.dataLayer = window.dataLayer || [];
-  const gtag = function (command: GtagCommand, targetId: string, config?: GtagParams) {
-    window.dataLayer!.push([command, targetId, config]);
-  };
-  window.gtag = gtag;
+  // gtag.js consumes the raw `arguments` object from the dataLayer (the canonical
+  // pattern, identical to index.html). The previous version pushed a plain array
+  // ([command, targetId, config]); config/page_view still worked, but custom
+  // events (call_click, form_submit, book_now_click, whatsapp_click) were silently
+  // dropped — the cause of the near-zero conversions recorded in GA4.
+  function gtag(_command?: GtagCommand, _targetId?: string, _config?: GtagParams) {
+    // eslint-disable-next-line prefer-rest-params
+    window.dataLayer!.push(arguments as unknown);
+  }
+  window.gtag = gtag as typeof window.gtag;
   gtag('js', new Date().toISOString());
   gtag('config', GA_MEASUREMENT_ID, {
     page_path: window.location.pathname,

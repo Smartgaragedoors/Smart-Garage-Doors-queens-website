@@ -13,6 +13,7 @@
     "optimize-hero": "node scripts/optimize-hero-image.js",
     "generate-sitemap": "node scripts/generate-sitemap.js",
     "fetch-reviews": "node scripts/fetch-reviews.mjs",
+    "seo-report": "node scripts/seo-report.mjs",
     "verify-sitemap": "node scripts/verify-sitemap.js",
     "test:form": "node scripts/test-form-submission.js",
     "test:form:local": "node scripts/test-form-submission.js http://localhost:3000",
