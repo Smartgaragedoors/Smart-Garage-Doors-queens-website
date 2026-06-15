@@ -5,7 +5,12 @@ export default {
       "./src/**/*.{js,ts,jsx,tsx}",
     ],
     theme: {
-      extend: {},
+      extend: {
+        fontFamily: {
+          // Premium serif used for hero/section headlines (design system: Newsreader)
+          newsreader: ['Newsreader', 'Georgia', 'Times New Roman', 'serif'],
+        },
+      },
     },
     plugins: [],
   }

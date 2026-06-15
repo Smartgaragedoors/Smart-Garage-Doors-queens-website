@@ -187,28 +187,51 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
       <Header />
       <Breadcrumbs />
 
-      {/* ── HERO ──────────────────────────────────────────────────── */}
-      <section className="relative bg-gradient-to-br from-blue-900 to-blue-800 text-white overflow-hidden">
+      {/* ── HERO (premium ink/serif — matches homepage) ───────────── */}
+      <section className="relative bg-[#161D29] text-white overflow-hidden">
         {heroImage && (
           <div
-            className="absolute inset-0 bg-cover bg-center opacity-15"
+            className="absolute inset-0 bg-cover bg-center opacity-25"
             style={{ backgroundImage: `url('${heroImage}')` }}
             aria-hidden="true"
           />
         )}
+        {/* Ink scrim keeps the local hero photo legible */}
+        <div
+          className="absolute inset-0"
+          style={{ background: 'linear-gradient(rgba(22,29,41,0.86), rgba(11,15,23,0.82))' }}
+          aria-hidden="true"
+        />
+        {/* Decorative amber corner glow */}
+        <div
+          className="absolute top-0 right-0 w-[420px] h-[420px] pointer-events-none hidden md:block"
+          style={{ background: 'radial-gradient(circle at 75% 25%, rgba(217,100,31,0.16), transparent 64%)' }}
+          aria-hidden="true"
+        />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <Stars />
-              <span className="text-blue-200 text-sm font-medium">{reviewCount} verified reviews</span>
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-5 leading-tight">
+            {/* Eyebrow — green live dot + local label */}
+            <p className="flex items-center justify-center gap-2.5 text-xs md:text-sm font-semibold uppercase tracking-[0.16em] text-[#E8915A] mb-5">
+              <span
+                className="inline-block w-[7px] h-[7px] rounded-full bg-[#3FAE72]"
+                style={{ boxShadow: '0 0 0 4px rgba(63,174,114,0.25)' }}
+                aria-hidden="true"
+              />
+              {city}, {state} · Licensed &amp; Insured · 24/7 Live Answer
+            </p>
+            {/* H1 — keyword + location preserved for local SEO, premium serif */}
+            <h1 className="font-newsreader font-medium text-4xl md:text-5xl lg:text-6xl mb-5 leading-[1.05] tracking-[-0.02em]">
               Garage Door Repair in {city}, {state}
             </h1>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-200 mb-6 max-w-2xl mx-auto leading-relaxed">
               Same-day service, upfront pricing, and a 1-year warranty on every job.
               Licensed &amp; insured. Available 24/7.
             </p>
+            {/* Featured offer — $0 service call with any repair */}
+            <div className="inline-flex items-center gap-3 mb-8 px-5 py-2.5 rounded-full bg-[rgba(217,100,31,0.14)] border border-[rgba(232,145,90,0.45)]">
+              <span className="font-newsreader italic text-xl text-[#F2B98C] leading-none">$0</span>
+              <span className="text-sm font-semibold text-white">service call with any repair</span>
+            </div>
             <div data-hero-cta className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href={`tel:${PHONE_TEL}`}
@@ -226,6 +249,17 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
                 <i className="ri-calendar-line" aria-hidden="true" />
                 Book Free Estimate
               </a>
+            </div>
+            {/* Trust row */}
+            <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-7 text-sm text-gray-300">
+              <span className="flex items-center gap-1.5">
+                <span className="text-[#F2B98C]" aria-hidden="true">★★★★★</span>
+                <strong className="text-white">5.0</strong> · {reviewCount} reviews
+              </span>
+              <span aria-hidden="true">·</span>
+              <span>Same-day service</span>
+              <span aria-hidden="true">·</span>
+              <span>No call center — local dispatch</span>
             </div>
           </div>
         </div>
