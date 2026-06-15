@@ -69,6 +69,11 @@ function Contact() {
                 <i className="ri-phone-line mr-3 text-xl" aria-hidden="true"></i>
                 Call (914) 557-6816
               </a>
+              <p className="mt-4 text-sm text-blue-100 flex flex-wrap items-center gap-x-3 gap-y-1">
+                <span><i className="ri-star-fill text-yellow-400 mr-1" aria-hidden="true"></i>5.0 · 479 reviews</span>
+                <span aria-hidden="true">·</span>
+                <span>$0 service call with any repair</span>
+              </p>
             </div>
 
             <div className="space-y-6">

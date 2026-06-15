@@ -23,14 +23,20 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background image */}
+      {/* Background image — premium ink/charcoal scrim (design system) keeps hero photo legible */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
         style={{
           backgroundImage: homeHero.fallbackSrc
-            ? `linear-gradient(rgba(15, 30, 90, 0.82), rgba(10, 20, 50, 0.76)), url('${heroImageUrl}'), url('${homeHero.fallbackSrc}')`
-            : `linear-gradient(rgba(15, 30, 90, 0.82), rgba(10, 20, 50, 0.76)), url('${heroImageUrl}')`,
+            ? `linear-gradient(rgba(22, 29, 41, 0.88), rgba(11, 15, 23, 0.82)), url('${heroImageUrl}'), url('${homeHero.fallbackSrc}')`
+            : `linear-gradient(rgba(22, 29, 41, 0.88), rgba(11, 15, 23, 0.82)), url('${heroImageUrl}')`,
         }}
+      />
+      {/* Decorative amber corner glow (design accent) */}
+      <div
+        className="absolute top-0 right-0 w-[420px] h-[420px] z-0 pointer-events-none hidden md:block"
+        style={{ background: 'radial-gradient(circle at 75% 25%, rgba(217,100,31,0.16), transparent 64%)' }}
+        aria-hidden="true"
       />
       {/* Preload hint — hidden from layout */}
       <img
@@ -45,15 +51,20 @@ export default function Hero() {
       />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center text-white relative z-10 py-24">
-        {/* Eyebrow */}
-        <p className="text-sm md:text-base font-semibold uppercase tracking-widest text-orange-300 mb-5">
-          {localArea ? `${localArea}` : 'Tri-State Area'} &nbsp;•&nbsp; 24/7 Emergency
+        {/* Eyebrow — green "live answer" dot + amber label (premium design system) */}
+        <p className="flex items-center justify-center gap-2.5 text-xs md:text-sm font-semibold uppercase tracking-[0.16em] text-[#E8915A] mb-5">
+          <span
+            className="inline-block w-[7px] h-[7px] rounded-full bg-[#3FAE72]"
+            style={{ boxShadow: '0 0 0 4px rgba(63,174,114,0.25)' }}
+            aria-hidden="true"
+          />
+          {localArea ? `${localArea}` : 'Tri-State'} · Licensed &amp; Insured · 24/7 Live Answer
         </p>
 
-        {/* H1 — shorter, punchier */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-[1.08] tracking-tight">
+        {/* H1 — keyword-rich + location-dynamic for SEO, premium serif treatment */}
+        <h1 className="font-newsreader font-medium text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6 leading-[1.05] tracking-[-0.02em]">
           Garage Door Repair{' '}
-          <span className="text-orange-400">You Can Count On</span>
+          <span className="text-[#F2B98C] italic">You Can Count On</span>
           {localArea ? ` in ${localArea}` : ' Across the Tri-State'}
         </h1>
 
@@ -61,9 +72,15 @@ export default function Hero() {
         <p className="text-lg md:text-xl mb-3 text-gray-200 max-w-3xl mx-auto leading-relaxed">
           {subheadline}
         </p>
-        <p className="text-sm md:text-base mb-10 max-w-2xl mx-auto text-gray-300">
+        <p className="text-sm md:text-base mb-6 max-w-2xl mx-auto text-gray-300">
           {dispatchLine}
         </p>
+
+        {/* Featured offer — owner-approved: $0 service call with any repair */}
+        <div className="inline-flex items-center gap-3 mb-9 px-5 py-2.5 rounded-full bg-[rgba(217,100,31,0.14)] border border-[rgba(232,145,90,0.45)]">
+          <span className="font-newsreader italic text-xl text-[#F2B98C] leading-none">$0</span>
+          <span className="text-sm font-semibold text-white">service call with any repair</span>
+        </div>
 
         {/* CTAs — data-hero-cta: the mobile sticky bar stays hidden while this block is visible */}
         <div data-hero-cta className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
@@ -105,24 +122,24 @@ export default function Hero() {
         <p className="text-sm text-white/70 mb-2">
           A real person answers — usually in under 30 seconds. Upfront quote before work begins.
         </p>
-        <p className="text-xs text-white/50 mb-14 tracking-wide">
-          {BUSINESS_INFO.aggregateRating.reviewCount}+ 5-Star Reviews &nbsp;•&nbsp; Same-Day Service Available &nbsp;•&nbsp; Local Tri-State Technicians &nbsp;•&nbsp; No Hidden Fees
+        <p className="text-xs text-white/55 mb-14 tracking-wide">
+          ★★★★★ {BUSINESS_INFO.aggregateRating.ratingValue} · {BUSINESS_INFO.aggregateRating.reviewCount} Google Reviews &nbsp;•&nbsp; Same-Day Service &nbsp;•&nbsp; No Call Center — Local Dispatch &nbsp;•&nbsp; Licensed &amp; Insured
         </p>
 
-        {/* Stats bar */}
+        {/* Stats bar — serif numerals (design system); values sourced from business-info.ts */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
           {[
-            { value: '24/7', label: 'Emergency Service' },
-            { value: '5.0★', label: 'Average Rating' },
-            { value: `${BUSINESS_INFO.aggregateRating.reviewCount}+`, label: 'Google Reviews' },
-            { value: 'Licensed', label: '& Insured' },
+            { value: `${BUSINESS_INFO.aggregateRating.reviewCount}+`, label: '5-Star Google Reviews' },
+            { value: '24/7', label: 'Live Emergency Answer' },
+            { value: '$0', label: 'Service Call w/ Repair' },
+            { value: 'NY·NJ·CT', label: 'Licensed & Insured' },
           ].map(({ value, label }) => (
             <div
               key={label}
-              className="bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl p-4 text-center"
+              className="bg-white/[0.07] backdrop-blur-sm border border-white/10 rounded-xl p-4 text-center"
             >
-              <div className="text-2xl font-bold text-orange-400 leading-none">{value}</div>
-              <div className="text-xs text-gray-300 mt-1">{label}</div>
+              <div className="font-newsreader text-2xl md:text-[27px] text-[#F2B98C] leading-none">{value}</div>
+              <div className="text-xs text-gray-300 mt-1.5">{label}</div>
             </div>
           ))}
         </div>

@@ -31,9 +31,10 @@ export default function ThankYouPage() {
           <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
             <i className="ri-check-double-line text-4xl text-green-600" aria-hidden="true" />
           </div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-4">You're all set!</h1>
+          <h1 className="font-newsreader font-medium text-4xl text-gray-900 mb-4 tracking-[-0.02em]">You're all set!</h1>
           <p className="text-lg text-gray-600 mb-2">
             We got your request and someone will reach out shortly to confirm your appointment.
+            Remember: <strong className="text-gray-900">$0 service call</strong> when we do the repair.
           </p>
           <p className="text-gray-500 mb-10">
             Need us faster? Call directly:
