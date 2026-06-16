@@ -84,52 +84,20 @@ export default function BookNowPage() {
       />
       <Header />
       
-      {/* Hero Section — premium ink/serif (matches homepage & location pages) */}
-      <section className="relative bg-[#161D29] text-white py-20 overflow-hidden">
-        {/* Decorative amber corner glow */}
-        <div
-          className="absolute top-0 right-0 w-[420px] h-[420px] pointer-events-none hidden md:block"
-          style={{ background: 'radial-gradient(circle at 75% 25%, rgba(217,100,31,0.16), transparent 64%)' }}
-          aria-hidden="true"
-        />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            {/* Eyebrow — green live dot */}
-            <p className="flex items-center justify-center gap-2.5 text-xs md:text-sm font-semibold uppercase tracking-[0.16em] text-[#E8915A] mb-5">
-              <span
-                className="inline-block w-[7px] h-[7px] rounded-full bg-[#3FAE72]"
-                style={{ boxShadow: '0 0 0 4px rgba(63,174,114,0.25)' }}
-                aria-hidden="true"
-              />
-              Tri-State · Licensed &amp; Insured · 24/7 Live Answer
-            </p>
-            <h1 className="font-newsreader font-medium text-4xl md:text-6xl mb-6 leading-[1.05] tracking-[-0.02em]">
-              Book Your Garage Door Service
-            </h1>
-            <p className="text-xl md:text-2xl mb-6 max-w-3xl mx-auto text-gray-200">
-              Schedule your garage door repair or installation with Smart Garage Doors.
-              Fast, reliable service across NY, NJ, and CT.
-            </p>
-            {/* Featured offer — $0 service call with any repair */}
-            <div className="inline-flex items-center gap-3 mb-7 px-5 py-2.5 rounded-full bg-[rgba(217,100,31,0.14)] border border-[rgba(232,145,90,0.45)]">
-              <span className="font-newsreader italic text-xl text-[#F2B98C] leading-none">$0</span>
-              <span className="text-sm font-semibold text-white">service call with any repair</span>
-            </div>
-            <p className="text-base md:text-lg mb-8 max-w-3xl mx-auto text-gray-300 flex flex-wrap items-center justify-center gap-x-2">
-              <span className="text-[#F2B98C]" aria-hidden="true">★★★★★</span>
-              <strong className="text-white">5.0</strong>
-              <span>· 479 Google Reviews · Same-day slots available</span>
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="tel:+19145576816"
-                className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors whitespace-nowrap cursor-pointer"
-              >
-                <i className="ri-phone-fill mr-2"></i>
-                Call Now: (914) 557-6816
-              </a>
-            </div>
-          </div>
+      {/* Compact header — booking form is the first thing visitors see (no scrolling) */}
+      <section className="relative bg-[#161D29] text-white py-7 overflow-hidden">
+        <div className="relative max-w-3xl mx-auto px-4 text-center">
+          <p className="flex items-center justify-center gap-2.5 text-xs font-semibold uppercase tracking-[0.16em] text-[#E8915A] mb-2">
+            <span
+              className="inline-block w-[7px] h-[7px] rounded-full bg-[#3FAE72]"
+              style={{ boxShadow: '0 0 0 4px rgba(63,174,114,0.25)' }}
+              aria-hidden="true"
+            />
+            5.0 ★ · 479 Google Reviews · Same-day slots · $0 service call w/ repair
+          </p>
+          <h1 className="font-newsreader font-medium text-3xl md:text-4xl leading-[1.05] tracking-[-0.02em]">
+            Book Your Garage Door Service
+          </h1>
         </div>
       </section>
 

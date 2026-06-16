@@ -2,6 +2,7 @@ import { memo, useMemo } from 'react';
 import OrganizationSchema from '../seo/OrganizationSchema';
 import { useLocation } from 'react-router-dom';
 import { BUSINESS_INFO } from '../../config/business-info';
+import { trackBookNowClick } from '../../utils/analytics';
 
 function Footer() {
   const routerLocation = useLocation();
@@ -68,7 +69,7 @@ function Footer() {
               <li><a href="/second-opinion/" className="text-gray-200 hover:text-orange-400 transition-colors">Get a Second Opinion</a></li>
               <li><a href="/vs-precision-garage-door/" className="text-gray-200 hover:text-orange-400 transition-colors">vs. Precision Garage Door</a></li>
               <li><a href="/vs-overhead-door/" className="text-gray-200 hover:text-orange-400 transition-colors">vs. Overhead Door</a></li>
-              <li><a href="/book-now/" className="text-gray-200 hover:text-orange-400 transition-colors">Request Service</a></li>
+              <li><a href="/book-now/" onClick={() => trackBookNowClick('footer')} className="text-gray-200 hover:text-orange-400 transition-colors">Request Service</a></li>
             </ul>
           </div>
 

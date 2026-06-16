@@ -1,5 +1,5 @@
 import { useLocation } from '../../contexts/LocationContext';
-import { trackPhoneClick, trackEvent, trackWhatsAppClick } from '../../utils/analytics';
+import { trackPhoneClick, trackEvent, trackWhatsAppClick, trackBookNowClick } from '../../utils/analytics';
 import { getCFImageUrl, getCloudflareImage } from '../../data/cloudflareImages';
 import { BUSINESS_INFO } from '../../config/business-info';
 import { getWhatsAppHref } from '../../utils/whatsapp';
@@ -22,7 +22,7 @@ export default function Hero() {
   const heroImageUrl = getCFImageUrl(homeHero.id, homeHero.variant ?? 'hero');
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[80vh] md:min-h-[86vh] flex items-center justify-center overflow-hidden">
       {/* Background image — premium ink/charcoal scrim (design system) keeps hero photo legible */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
@@ -50,7 +50,7 @@ export default function Hero() {
         fetchPriority="high"
       />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center text-white relative z-10 py-24">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center text-white relative z-10 py-14 md:py-16">
         {/* Eyebrow — green "live answer" dot + amber label (premium design system) */}
         <p className="flex items-center justify-center gap-2.5 text-xs md:text-sm font-semibold uppercase tracking-[0.16em] text-[#E8915A] mb-5">
           <span
@@ -95,6 +95,18 @@ export default function Hero() {
           >
             <i className="ri-phone-line text-xl" aria-hidden="true" />
             Call (914) 557-6816
+          </a>
+          <a
+            href="/book-now/"
+            onClick={() => {
+              trackBookNowClick('hero');
+              trackEvent('cta_click', { category: 'Hero', action: 'book_click', label: 'Hero Book Online' });
+            }}
+            aria-label="Book garage door service online"
+            className="inline-flex items-center justify-center gap-3 bg-blue-900 hover:bg-blue-800 active:bg-blue-950 text-white font-bold px-8 py-4 text-lg rounded-full shadow-xl hover:shadow-2xl transition-all duration-200 hover:scale-105 whitespace-nowrap"
+          >
+            <i className="ri-calendar-check-line text-xl" aria-hidden="true" />
+            Book Online
           </a>
           <a
             href={getWhatsAppHref()}
