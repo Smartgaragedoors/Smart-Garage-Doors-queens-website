@@ -343,6 +343,34 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
         </div>
       </section>
 
+      {/* ── EXPLORE SERVICES (internal links to money/service pages) ── */}
+      <section className="pb-14 bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-center text-sm font-semibold uppercase tracking-wide text-gray-500 mb-4">
+            Garage door services we offer in {city}
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            {[
+              { href: '/garage-door-repair/', label: 'Garage Door Repair' },
+              { href: '/garage-door-installation-new-york/', label: 'New Door Installation' },
+              { href: '/services/spring-replacement/', label: 'Spring Replacement' },
+              { href: '/services/opener-repair/', label: 'Opener Repair & Install' },
+              { href: '/services/cable-roller-repair/', label: 'Cable & Roller Repair' },
+              { href: '/services/emergency-repairs/', label: '24/7 Emergency Repair' },
+              { href: '/commercial-garage-door-repair/', label: 'Commercial Garage Doors' },
+            ].map((s) => (
+              <a
+                key={s.href}
+                href={s.href}
+                className="rounded-full border border-gray-200 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-800 transition-colors hover:border-orange-300 hover:bg-orange-50"
+              >
+                {s.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── HOW IT WORKS ──────────────────────────────────────────── */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
