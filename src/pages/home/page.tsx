@@ -173,7 +173,7 @@ export default function HomePage() {
     <div className="min-h-screen pb-[68px] md:pb-0">
       <DynamicMetaTags
         title={`Garage Door Repair | Same-Day Service | (914) 557-6816 | Smartest Garage Doors`}
-        description={`Same-day garage door repair, spring replacement, opener repair & installation. ${BUSINESS_INFO.aggregateRating.reviewCount}+ 5-star reviews. Licensed & insured. Upfront pricing. Available 24/7 — call (914) 557-6816.`}
+        description={`⭐ ${BUSINESS_INFO.aggregateRating.ratingValue} · ${BUSINESS_INFO.aggregateRating.reviewCount} reviews. Same-day garage door repair, spring & opener fix & installation. $0 service call with any repair · licensed & insured · 24/7 — call (914) 557-6816.`}
       />
       <WebSiteSchema />
       <OrganizationSchema />
