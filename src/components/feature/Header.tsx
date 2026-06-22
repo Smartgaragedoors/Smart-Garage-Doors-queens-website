@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useLocation as useLocationContext } from '../../contexts/LocationContext';
 import { useLocation as useRouterLocation } from 'react-router-dom';
 import { trackPhoneClick, trackBookNowClick } from '../../utils/analytics';
+import AnnouncementBar from './AnnouncementBar';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -115,7 +116,11 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 overflow-visible">
+    <>
+      {/* Slim, non-sticky promo bar — sits above the sticky nav in normal flow so it
+          scrolls away and never overlaps the bottom mobile sticky CTA. */}
+      <AnnouncementBar />
+      <header className="sticky top-0 z-50 overflow-visible">
       {/* Top Bar — desktop only (all its content is hidden on mobile, which left an empty blue strip) */}
       <div className="hidden md:block bg-blue-900 text-white py-2">
         <div className="max-w-7xl mx-auto px-4 flex justify-between items-center text-xs md:text-sm">
@@ -476,6 +481,7 @@ export default function Header() {
           )}
         </div>
       </nav>
-    </header>
+      </header>
+    </>
   );
 }

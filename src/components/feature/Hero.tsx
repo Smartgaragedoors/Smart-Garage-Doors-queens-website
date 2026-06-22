@@ -3,9 +3,18 @@ import { trackPhoneClick, trackEvent, trackWhatsAppClick, trackBookNowClick } fr
 import { getCFImageUrl, getCloudflareImage } from '../../data/cloudflareImages';
 import { BUSINESS_INFO } from '../../config/business-info';
 import { getWhatsAppHref } from '../../utils/whatsapp';
+import HeroQuoteForm from '../conversion/HeroQuoteForm';
 
 export default function Hero() {
   const { location, locationName, isLoading } = useLocation();
+
+  // Preview toggle: ?card=light renders the solid white form card; default is dark glass.
+  // (Lets the owner compare both styles on one preview URL before we lock one in.)
+  const cardVariant =
+    typeof window !== 'undefined' &&
+    new URLSearchParams(window.location.search).get('card') === 'light'
+      ? 'light'
+      : 'glass';
 
   const resolved = location && !isLoading;
   const localArea = resolved ? locationName : null;
@@ -14,9 +23,9 @@ export default function Hero() {
     ? `Serving ${locationName} — emergency repair and premium installs for springs, openers, and full door replacements. Call for availability.`
     : 'Broken spring, stuck door, or opener failure? Call now for 24/7 emergency garage door repair across Queens, Long Island, and the Tri-State area.';
 
-  const dispatchLine = resolved
-    ? `Dispatch from Brooklyn, Suffern, and Jackson, NJ — local routing, not a distant call center.`
-    : 'Three dispatch hubs across NY, NJ, and CT — route crews for faster local response.';
+  const localLine = resolved
+    ? `Local technicians serving ${locationName} — fast response, not a distant call center.`
+    : 'Local technicians across NY, NJ & CT — fast response, not a distant call center.';
 
   const homeHero = getCloudflareImage('homeHero');
   const heroImageUrl = getCFImageUrl(homeHero.id, homeHero.variant ?? 'hero');
@@ -50,7 +59,9 @@ export default function Hero() {
         fetchPriority="high"
       />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center text-white relative z-10 py-14 md:py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 text-white relative z-10 py-14 md:py-16 w-full">
+       <div className="grid lg:grid-cols-[1.25fr_0.95fr] gap-10 lg:gap-14 items-center">
+        <div className="text-center">
         {/* Eyebrow — green "live answer" dot + amber label (premium design system) */}
         <p className="flex items-center justify-center gap-2.5 text-xs md:text-sm font-semibold uppercase tracking-[0.16em] text-[#E8915A] mb-5">
           <span
@@ -73,7 +84,7 @@ export default function Hero() {
           {subheadline}
         </p>
         <p className="text-sm md:text-base mb-6 max-w-2xl mx-auto text-gray-300">
-          {dispatchLine}
+          {localLine}
         </p>
 
         {/* Featured offer — owner-approved: $0 service call with any repair */}
@@ -155,6 +166,13 @@ export default function Hero() {
             </div>
           ))}
         </div>
+        </div>
+
+        {/* Right column — additive lead-capture form (phone CTA above stays dominant) */}
+        <div className="w-full">
+          <HeroQuoteForm variant={cardVariant} />
+        </div>
+       </div>
       </div>
 
       {/* Scroll arrow — no conflicting transforms */}
