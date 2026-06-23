@@ -10,6 +10,11 @@ export interface LocationData {
   longitude: number;
   distance: number; // Distance from Queens in miles
   serviceAreaPage?: string;
+  // True ONLY when the visitor was genuinely matched to a service area via live IP
+  // detection. The various Queens fallbacks leave this falsy so UI can show neutral,
+  // city-agnostic copy instead of telling an out-of-area visitor we're "local" to a
+  // city that isn't theirs. SEO/meta still use the Queens default independently.
+  detected?: boolean;
 }
 
 export interface DetectedLocation {
@@ -155,7 +160,7 @@ export async function detectLocation(): Promise<LocationData | null> {
     }
 
     // Check cache first
-    const CACHE_KEY = 'detected_location_v2'; // v2 busts any old Queens-defaulted cache
+    const CACHE_KEY = 'detected_location_v3'; // v3 adds the `detected` flag; busts older caches
     const cached = localStorage.getItem(CACHE_KEY);
     if (cached) {
       const cachedData = JSON.parse(cached);
@@ -232,8 +237,9 @@ export async function detectLocation(): Promise<LocationData | null> {
 
           if (locationData) {
             locationData.zipCode = data.zip;
+            locationData.detected = true; // genuine live match — safe to show the visitor's city
             // Cache the result
-            localStorage.setItem('detected_location_v2', JSON.stringify({
+            localStorage.setItem('detected_location_v3', JSON.stringify({
               location: locationData,
               timestamp: Date.now(),
             }));

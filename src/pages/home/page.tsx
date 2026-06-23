@@ -2,6 +2,7 @@ import { useEffect, lazy, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocation as useRouterLocation } from 'react-router-dom';
 import Hero from '../../components/feature/Hero';
+import TrustBar from '../../components/feature/TrustBar';
 import BookingCTABar from '../../components/conversion/BookingCTABar';
 import Services from '../../components/feature/Services';
 import RecentWork from '../../components/feature/RecentWork';
@@ -180,6 +181,7 @@ export default function HomePage() {
       <LocalBusinessSchema locationName={location?.city} serviceArea={location?.city || 'New York'} />
       <Header />
       <Hero />
+      <TrustBar />
       <Suspense fallback={<div className="min-h-[400px] bg-gray-50" />}>
         <Reviews />
       </Suspense>
