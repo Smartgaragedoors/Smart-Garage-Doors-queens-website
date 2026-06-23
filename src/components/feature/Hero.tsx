@@ -6,14 +6,16 @@ import { getWhatsAppHref } from '../../utils/whatsapp';
 import HeroQuoteForm from '../conversion/HeroQuoteForm';
 
 export default function Hero() {
-  const { location, locationName, isLoading } = useLocation();
+  const { location, locationName } = useLocation();
 
-  const resolved = location && !isLoading;
-  const localArea = resolved ? locationName : null;
+  // Only personalize to a city when the visitor was GENUINELY detected in our service
+  // area. Otherwise (IP lookup off, detection failed, or out-of-area → all default to
+  // Queens internally) show neutral Tri-State copy so we never tell someone in another
+  // city that we're "local" to a city that isn't theirs.
+  const localArea = location?.detected ? locationName : null;
 
-  const subheadline = resolved
-    ? `Emergency repair and premium installs for springs, openers, and full door replacements — by local technicians serving ${locationName}, not a distant call center.`
-    : 'Broken spring, stuck door, or opener failure? 24/7 emergency repair across Queens, Long Island & the Tri-State — local technicians, not a distant call center.';
+  const subheadline =
+    'Broken spring, stuck door, or opener failure? Emergency repair and premium installs by local technicians across NY, NJ & CT — not a distant call center.';
 
   const homeHero = getCloudflareImage('homeHero');
   const heroImageUrl = getCFImageUrl(homeHero.id, homeHero.variant ?? 'hero');
