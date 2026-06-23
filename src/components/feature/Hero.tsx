@@ -12,12 +12,8 @@ export default function Hero() {
   const localArea = resolved ? locationName : null;
 
   const subheadline = resolved
-    ? `Serving ${locationName} — emergency repair and premium installs for springs, openers, and full door replacements. Call for availability.`
-    : 'Broken spring, stuck door, or opener failure? Call now for 24/7 emergency garage door repair across Queens, Long Island, and the Tri-State area.';
-
-  const localLine = resolved
-    ? `Local technicians serving ${locationName} — fast response, not a distant call center.`
-    : 'Local technicians across NY, NJ & CT — fast response, not a distant call center.';
+    ? `Emergency repair and premium installs for springs, openers, and full door replacements — by local technicians serving ${locationName}, not a distant call center.`
+    : 'Broken spring, stuck door, or opener failure? 24/7 emergency repair across Queens, Long Island & the Tri-State — local technicians, not a distant call center.';
 
   const homeHero = getCloudflareImage('homeHero');
   const heroImageUrl = getCFImageUrl(homeHero.id, homeHero.variant ?? 'hero');
@@ -72,11 +68,8 @@ export default function Hero() {
         </h1>
 
         {/* Sub-headline — changes once location resolves */}
-        <p className="text-lg md:text-xl mb-3 text-gray-200 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-lg md:text-xl mb-7 text-gray-200 max-w-2xl mx-auto leading-relaxed">
           {subheadline}
-        </p>
-        <p className="text-sm md:text-base mb-6 max-w-2xl mx-auto text-gray-300">
-          {localLine}
         </p>
 
         {/* Featured offer — owner-approved: $0 service call with any repair */}
@@ -134,30 +127,10 @@ export default function Hero() {
           </a>
         </div>
 
-        <p className="text-sm text-white/70 mb-2">
-          A real person answers — usually in under 30 seconds. Upfront quote before work begins.
+        {/* Single trust line — one rating proof (eyebrow already covers licensed / 24-7) */}
+        <p className="text-sm text-white/70">
+          ★★★★★ {BUSINESS_INFO.aggregateRating.ratingValue} from {BUSINESS_INFO.aggregateRating.reviewCount} Google reviews
         </p>
-        <p className="text-xs text-white/55 mb-14 tracking-wide">
-          ★★★★★ {BUSINESS_INFO.aggregateRating.ratingValue} · {BUSINESS_INFO.aggregateRating.reviewCount} Google Reviews &nbsp;•&nbsp; Same-Day Service &nbsp;•&nbsp; No Call Center — Local Dispatch &nbsp;•&nbsp; Licensed &amp; Insured
-        </p>
-
-        {/* Stats bar — serif numerals (design system); values sourced from business-info.ts */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
-          {[
-            { value: `${BUSINESS_INFO.aggregateRating.reviewCount}+`, label: '5-Star Google Reviews' },
-            { value: '24/7', label: 'Live Emergency Answer' },
-            { value: '$0', label: 'Service Call w/ Repair' },
-            { value: 'NY·NJ·CT', label: 'Licensed & Insured' },
-          ].map(({ value, label }) => (
-            <div
-              key={label}
-              className="bg-white/[0.07] backdrop-blur-sm border border-white/10 rounded-xl p-4 text-center"
-            >
-              <div className="font-newsreader text-2xl md:text-[27px] text-[#F2B98C] leading-none">{value}</div>
-              <div className="text-xs text-gray-300 mt-1.5">{label}</div>
-            </div>
-          ))}
-        </div>
         </div>
 
         {/* Right column — additive lead-capture form (phone CTA above stays dominant) */}

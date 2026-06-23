@@ -227,7 +227,7 @@ export default function HeroQuoteForm({ variant = 'glass' }: HeroQuoteFormProps)
         )}
 
         <p className={`text-center text-[11px] ${microClass}`}>
-          A real person answers — usually under 30 seconds · $0 service call with any repair
+          No obligation · upfront price before any work begins
         </p>
       </form>
     </div>
