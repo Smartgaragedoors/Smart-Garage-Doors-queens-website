@@ -36,3 +36,8 @@ Thumbs.db
 *.temp
 
 .vercel
+
+# Design handoff assets + QA screenshot output (kept local, not built)
+Handoff design/
+.design_handoff/
+screenshots/
