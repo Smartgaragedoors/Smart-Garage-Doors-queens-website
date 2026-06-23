@@ -8,14 +8,6 @@ import HeroQuoteForm from '../conversion/HeroQuoteForm';
 export default function Hero() {
   const { location, locationName, isLoading } = useLocation();
 
-  // Preview toggle: ?card=light renders the solid white form card; default is dark glass.
-  // (Lets the owner compare both styles on one preview URL before we lock one in.)
-  const cardVariant =
-    typeof window !== 'undefined' &&
-    new URLSearchParams(window.location.search).get('card') === 'light'
-      ? 'light'
-      : 'glass';
-
   const resolved = location && !isLoading;
   const localArea = resolved ? locationName : null;
 
@@ -170,7 +162,7 @@ export default function Hero() {
 
         {/* Right column — additive lead-capture form (phone CTA above stays dominant) */}
         <div className="w-full">
-          <HeroQuoteForm variant={cardVariant} />
+          <HeroQuoteForm />
         </div>
        </div>
       </div>
