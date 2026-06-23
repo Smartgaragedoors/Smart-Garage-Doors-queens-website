@@ -6,8 +6,9 @@
  *
  * This is the single top strip for the whole site (it replaced the old separate
  * desktop "blue top bar"):
- *   - ALL viewports: the owner-approved offer ($0 service call with any completed
- *     repair) + a one-tap phone CTA.
+ *   - ALL viewports: a trust message ("a real person answers 24/7") + a one-tap
+ *     phone CTA. The $0 offer is NOT repeated here — it lives in the hero, so the
+ *     bar stays a distinct, non-duplicated signal (design handoff §3).
  *   - Desktop (md+): also the visitor's LOCAL serving area, email, and socials —
  *     so there is one clean bar instead of two stacked strips.
  *
@@ -54,11 +55,18 @@ export default function AnnouncementBar() {
           </a>
         </div>
 
-        {/* Center: the owner-approved offer */}
-        <p className="md:flex-1 text-center text-[11px] sm:text-sm font-medium leading-snug">
-          <span className="font-newsreader italic text-[#F2B98C]">$0</span>{' '}
-          <span className="font-semibold">Service Call</span> With Any Completed Repair
-          <span className="hidden sm:inline"> — Same-Day Appointments Available</span>
+        {/* Center: trust message (the $0 offer lives in the hero — not duplicated here, per design handoff §3) */}
+        <p className="md:flex-1 text-center text-[11px] sm:text-sm font-medium leading-snug flex items-center justify-center gap-1.5">
+          <span
+            className="inline-block w-[7px] h-[7px] rounded-full bg-[#3FAE72] animate-pulse shrink-0"
+            style={{ boxShadow: '0 0 0 3px rgba(63,174,114,0.25)' }}
+            aria-hidden="true"
+          />
+          <span>
+            A real person answers <span className="font-semibold">24/7</span>
+            <span className="hidden sm:inline"> — usually in under 30 seconds</span>
+            <span className="text-gray-400"> · NY · NJ · CT</span>
+          </span>
         </p>
 
         {/* Right: phone CTA (+ socials on desktop) */}
