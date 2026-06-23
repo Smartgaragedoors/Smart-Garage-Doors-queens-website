@@ -185,7 +185,7 @@ export default function HeroQuoteForm({ variant = 'glass' }: HeroQuoteFormProps)
           />
         </div>
 
-        {/* TCPA SMS consent — required. Wording below is a DRAFT pending owner approval. */}
+        {/* TCPA SMS consent — required. Wording owner-approved 2026-06-23. */}
         <label className={`flex items-start gap-2.5 text-[11px] leading-snug ${consentText}`}>
           <input
             type="checkbox"
