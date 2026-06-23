@@ -1,8 +1,7 @@
 import { useLocation } from '../../contexts/LocationContext';
-import { trackPhoneClick, trackEvent, trackWhatsAppClick, trackBookNowClick } from '../../utils/analytics';
+import { trackPhoneClick, trackEvent } from '../../utils/analytics';
 import { getCFImageUrl, getCloudflareImage } from '../../data/cloudflareImages';
 import { BUSINESS_INFO } from '../../config/business-info';
-import { getWhatsAppHref } from '../../utils/whatsapp';
 import HeroQuoteForm from '../conversion/HeroQuoteForm';
 
 export default function Hero() {
@@ -14,8 +13,10 @@ export default function Hero() {
   // city that we're "local" to a city that isn't theirs.
   const localArea = location?.detected ? locationName : null;
 
+  // Keyword-rich subhead (preserves "garage door repair" + service keywords + the
+  // local-feel / no-call-center framing) WITHOUT ever naming dispatch hubs.
   const subheadline =
-    'Broken spring, stuck door, or opener failure? Emergency repair and premium installs by local technicians across NY, NJ & CT — not a distant call center.';
+    'Emergency garage door repair and premium installs — springs, openers, cables, rolling gates & loading docks. Fast local dispatch across NY · NJ · CT, never a distant call center.';
 
   const homeHero = getCloudflareImage('homeHero');
   const heroImageUrl = getCFImageUrl(homeHero.id, homeHero.variant ?? 'hero');
@@ -49,94 +50,94 @@ export default function Hero() {
         fetchPriority="high"
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 text-white relative z-10 py-14 md:py-16 w-full">
-       <div className="grid lg:grid-cols-[1.25fr_0.95fr] gap-10 lg:gap-14 items-center">
-        <div className="text-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 text-white relative z-10 py-12 md:py-16 w-full">
+       <div className="grid lg:grid-cols-[1.05fr_minmax(0,420px)] gap-10 lg:gap-14 items-center">
+        <div className="text-center lg:text-left">
         {/* Eyebrow — green "live answer" dot + amber label (premium design system) */}
-        <p className="flex items-center justify-center gap-2.5 text-xs md:text-sm font-semibold uppercase tracking-[0.16em] text-[#E8915A] mb-5">
+        <p className="inline-flex items-center gap-2.5 text-[11px] sm:text-xs md:text-sm font-bold md:font-semibold uppercase tracking-[0.14em] md:tracking-[0.16em] text-[#E8915A] mb-5">
           <span
-            className="inline-block w-[7px] h-[7px] rounded-full bg-[#3FAE72]"
+            className="inline-block w-[7px] h-[7px] rounded-full bg-[#3FAE72] animate-pulse"
             style={{ boxShadow: '0 0 0 4px rgba(63,174,114,0.25)' }}
             aria-hidden="true"
           />
           {localArea ? `${localArea}` : 'Tri-State'} · Licensed &amp; Insured · 24/7 Live Answer
         </p>
 
-        {/* H1 — keyword-rich + location-dynamic for SEO, premium serif treatment */}
-        <h1 className="font-newsreader font-medium text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6 leading-[1.05] tracking-[-0.02em]">
-          Garage Door Repair{' '}
-          <span className="text-[#F2B98C] italic">You Can Count On</span>
-          {localArea ? ` in ${localArea}` : ' Across the Tri-State'}
+        {/* H1 — emotional serif lead (design handoff) with keyword-rich subhead below for SEO.
+            Shorter accent line on mobile, fuller line on desktop. */}
+        <h1 className="font-newsreader font-medium text-[clamp(2.1rem,9vw,2.75rem)] md:text-6xl lg:text-7xl mb-5 leading-[1.05] tracking-[-0.02em] text-balance">
+          Garage door stuck?{' '}
+          <span className="text-[#F2B98C] italic block sm:inline">
+            <span className="md:hidden">We answer 24/7.</span>
+            <span className="hidden md:inline">We answer — and we show up.</span>
+          </span>
         </h1>
 
-        {/* Sub-headline — changes once location resolves */}
-        <p className="text-lg md:text-xl mb-7 text-gray-200 max-w-2xl mx-auto leading-relaxed">
+        {/* Sub-headline — keyword-rich, location-aware, no hubs named */}
+        <p className="text-base md:text-xl mb-7 text-gray-200 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+          {localArea ? `Serving ${localArea} and the wider Tri-State. ` : ''}
           {subheadline}
         </p>
 
-        {/* Featured offer — owner-approved: $0 service call with any repair */}
-        <div className="inline-flex items-center gap-3 mb-9 px-5 py-2.5 rounded-full bg-[rgba(217,100,31,0.14)] border border-[rgba(232,145,90,0.45)]">
-          <span className="font-newsreader italic text-xl text-[#F2B98C] leading-none">$0</span>
-          <span className="text-sm font-semibold text-white">service call with any repair</span>
+        {/* Featured offer — subtle tinted badge (lower visual weight than Call Now) */}
+        <div className="inline-flex items-center gap-3 mb-8 px-4 py-2.5 rounded-xl md:rounded-full bg-[rgba(217,100,31,0.16)] border border-[rgba(232,145,90,0.45)]">
+          <span className="flex items-center justify-center w-6 h-6 rounded-md bg-orange-500 text-white text-sm font-extrabold leading-none md:hidden" aria-hidden="true">✓</span>
+          <span className="font-newsreader italic text-xl text-[#F2B98C] leading-none hidden md:inline">$0</span>
+          <span className="text-sm font-semibold text-white">
+            <span className="md:hidden">Free Service Call </span>
+            <span className="hidden md:inline">service call </span>
+            <span className="font-normal text-[#f0c9ad] md:text-white md:font-semibold">· with any repair</span>
+          </span>
         </div>
 
-        {/* CTAs — data-hero-cta: the mobile sticky bar stays hidden while this block is visible */}
-        <div data-hero-cta className="flex flex-col sm:flex-row sm:flex-wrap gap-4 justify-center items-center mb-6">
+        {/* CTAs — ONE dominant Call Now (lean hierarchy per handoff).
+            data-hero-cta: the mobile sticky bar stays hidden while this block is visible. */}
+        <div data-hero-cta className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start items-stretch sm:items-center mb-6">
           <a
-            href="tel:914-557-6816"
+            href="tel:+19145576816"
             onClick={() => {
               trackPhoneClick('914-557-6816');
-              trackEvent('cta_click', { category: 'Hero', action: 'phone_click', label: 'Hero CTA' });
+              trackEvent('cta_click', { category: 'Hero', action: 'phone_click', label: 'hero_call_now' });
             }}
             aria-label="Call Smart Garage Doors now"
-            className="inline-flex items-center justify-center gap-3 bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-bold px-8 py-4 text-lg rounded-full shadow-xl hover:shadow-2xl transition-all duration-200 hover:scale-105 whitespace-nowrap"
+            className="inline-flex items-center justify-center gap-3 bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-extrabold px-8 py-4 text-lg sm:text-xl rounded-2xl sm:rounded-full shadow-xl hover:shadow-2xl transition-all duration-200 sm:hover:scale-105 whitespace-nowrap"
           >
-            <i className="ri-phone-line text-xl" aria-hidden="true" />
+            <i className="ri-phone-fill text-xl" aria-hidden="true" />
             Call (914) 557-6816
           </a>
+          {/* Mobile-only secondary: scroll to the quote form below */}
           <a
-            href="/book-now/"
-            onClick={() => {
-              trackBookNowClick('hero');
-              trackEvent('cta_click', { category: 'Hero', action: 'book_click', label: 'Hero Book Online' });
-            }}
-            aria-label="Book garage door service online"
-            className="inline-flex items-center justify-center gap-3 bg-blue-900 hover:bg-blue-800 active:bg-blue-950 text-white font-bold px-8 py-4 text-lg rounded-full shadow-xl hover:shadow-2xl transition-all duration-200 hover:scale-105 whitespace-nowrap"
+            href="#hero-quote-form"
+            onClick={() => trackEvent('cta_click', { category: 'Hero', action: 'request_online', label: 'request_online' })}
+            className="sm:hidden inline-flex items-center justify-center gap-2 min-h-[52px] text-white font-bold text-base rounded-2xl border-[1.5px] border-white/25 bg-white/[0.07] active:bg-white/[0.13] transition-colors px-5"
           >
-            <i className="ri-calendar-check-line text-xl" aria-hidden="true" />
-            Book Online
-          </a>
-          <a
-            href={getWhatsAppHref()}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => trackWhatsAppClick('hero')}
-            className="inline-flex items-center justify-center gap-3 bg-green-500 hover:bg-green-600 active:bg-green-700 text-white font-bold px-8 py-4 text-lg rounded-full shadow-xl hover:shadow-2xl transition-all duration-200 hover:scale-105 whitespace-nowrap"
-            aria-label="Message us on WhatsApp"
-          >
-            <i className="ri-whatsapp-fill text-xl" aria-hidden="true" />
-            WhatsApp Us
-          </a>
-          <a
-            href={BUSINESS_INFO.socialMedia.googleReviews}
-            onClick={() => trackEvent('cta_click', { category: 'Hero', action: 'reviews_click', label: 'Hero Reviews' })}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold px-8 py-4 text-lg rounded-full shadow-xl hover:shadow-2xl backdrop-blur-sm transition-all duration-200 hover:scale-105 whitespace-nowrap"
-          >
-            <i className="ri-star-fill text-yellow-400 text-xl" aria-hidden="true" />
-            {BUSINESS_INFO.aggregateRating.reviewCount} Google Reviews
+            <span className="underline underline-offset-4 decoration-[#F2B98C]/80">Request service online</span> →
           </a>
         </div>
 
-        {/* Single trust line — one rating proof (eyebrow already covers licensed / 24-7) */}
-        <p className="text-sm text-white/70">
-          ★★★★★ {BUSINESS_INFO.aggregateRating.ratingValue} from {BUSINESS_INFO.aggregateRating.reviewCount} Google reviews
-        </p>
+        {/* Secondary vendor link — desktop (commercial / property managers) */}
+        <a
+          href="/property-managers/"
+          onClick={() => trackEvent('cta_click', { category: 'Hero', action: 'vendor_link', label: 'vendor_account' })}
+          className="hidden sm:inline-flex items-center gap-1.5 text-[15px] font-semibold text-white/90 hover:text-white border-b-[1.5px] border-[#F2B98C]/50 hover:border-white pb-0.5 mb-7 transition-colors"
+        >
+          Property manager? Set up a vendor account →
+        </a>
+
+        {/* Trust row — rating proof + same-day / upfront (two clean lines on mobile) */}
+        <div className="flex flex-col sm:flex-row sm:flex-wrap gap-x-3.5 gap-y-1.5 justify-center lg:justify-start items-center text-sm text-[#cdd9ea]">
+          <span className="inline-flex items-center gap-2">
+            <span className="text-[#F5A623] tracking-[1px]" aria-hidden="true">★★★★★</span>
+            <b className="text-white">{BUSINESS_INFO.aggregateRating.ratingValue}</b>
+            <span>· {BUSINESS_INFO.aggregateRating.reviewCount} Google reviews</span>
+          </span>
+          <span className="hidden sm:inline opacity-40" aria-hidden="true">|</span>
+          <span className="font-semibold sm:font-normal">Same-Day Service · Upfront Pricing</span>
+        </div>
         </div>
 
         {/* Right column — additive lead-capture form (phone CTA above stays dominant) */}
-        <div className="w-full">
+        <div id="hero-quote-form" className="w-full scroll-mt-28">
           <HeroQuoteForm />
         </div>
        </div>

@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useLocation as useLocationContext } from '../../contexts/LocationContext';
 import { useLocation as useRouterLocation } from 'react-router-dom';
 import { trackPhoneClick, trackBookNowClick } from '../../utils/analytics';
 import AnnouncementBar from './AnnouncementBar';
@@ -10,97 +9,10 @@ export default function Header() {
   const [isServiceAreasOpen, setIsServiceAreasOpen] = useState(false);
   const [isCommercialOpen, setIsCommercialOpen] = useState(false);
   
-  const { location, locationName } = useLocationContext();
   const routerLocation = useRouterLocation();
 
-  // Get current page to show relevant address
+  // Get current page to determine contact/about link behavior
   const currentPath = routerLocation.pathname;
-
-  // Surrounding areas shown alongside each detected city
-  const NEARBY_AREAS: Record<string, string> = {
-    'Queens': 'Brooklyn & Long Island',
-    'Flushing': 'Queens & Long Island',
-    'Astoria': 'Queens & Long Island City',
-    'Long Island City': 'Queens & Brooklyn',
-    'Forest Hills': 'Queens & Brooklyn',
-    'Jamaica': 'Queens & Long Island',
-    'Brooklyn': 'Queens & Staten Island',
-    'Dyker Heights': 'Brooklyn & Staten Island',
-    'Long Island': 'Nassau County & Queens',
-    'Nassau County': 'Long Island & Queens',
-    'Suffolk County': 'Long Island & Nassau County',
-    'Staten Island': 'Brooklyn & New Jersey',
-    'Bronx': 'Queens & Westchester',
-    'White Plains': 'New Rochelle & Scarsdale',
-    'New Rochelle': 'White Plains & Westchester',
-    'Scarsdale': 'White Plains & New Rochelle',
-    'Suffern': 'Westchester & New Jersey',
-    'Westchester County': 'White Plains & New Rochelle',
-    'Stamford': 'Greenwich & Darien',
-    'Greenwich': 'Stamford & Darien',
-    'Darien': 'Greenwich & Stamford',
-    'New Canaan': 'Greenwich & Darien',
-    'Westport': 'Fairfield & Norwalk',
-    'Fairfield': 'Westport & Norwalk',
-    'Newtown': 'Fairfield & Westport',
-    'Norwalk': 'Westport & Stamford',
-    'Teaneck': 'Bergen County & NYC',
-    'Bergen County': 'Teaneck & NYC',
-    'Hauppauge': 'Smithtown & Long Island',
-    'Smithtown': 'Hauppauge & Long Island',
-  };
-
-  function buildServiceAreaText(city: string): string {
-    const nearby = NEARBY_AREAS[city];
-    return nearby ? `Serving ${city}, ${nearby}` : `Serving ${city} & Surrounding Areas`;
-  }
-
-  // Derive city from route path when no IP location is available
-  function cityFromPath(path: string): string | null {
-    if (path.includes('brooklyn')) return 'Brooklyn';
-    if (path.includes('suffern')) return 'Suffern';
-    if (path.includes('queens') || path.includes('flushing')) return 'Queens';
-    if (path.includes('bronx')) return 'Bronx';
-    if (path.includes('staten-island')) return 'Staten Island';
-    if (path.includes('long-island')) return 'Long Island';
-    if (path.includes('nassau-county')) return 'Nassau County';
-    if (path.includes('suffolk-county')) return 'Suffolk County';
-    if (path.includes('white-plains')) return 'White Plains';
-    if (path.includes('new-rochelle')) return 'New Rochelle';
-    if (path.includes('scarsdale')) return 'Scarsdale';
-    if (path.includes('westchester')) return 'Westchester County';
-    if (path.includes('stamford')) return 'Stamford';
-    if (path.includes('greenwich')) return 'Greenwich';
-    if (path.includes('darien')) return 'Darien';
-    if (path.includes('new-canaan')) return 'New Canaan';
-    if (path.includes('westport')) return 'Westport';
-    if (path.includes('fairfield')) return 'Fairfield';
-    if (path.includes('newtown')) return 'Newtown';
-    if (path.includes('norwalk')) return 'Norwalk';
-    if (path.includes('teaneck')) return 'Teaneck';
-    if (path.includes('bergen-county')) return 'Bergen County';
-    if (path.includes('hauppauge')) return 'Hauppauge';
-    if (path.includes('smithtown')) return 'Smithtown';
-    return null;
-  }
-
-  // Physical addresses only shown on their dedicated location pages
-  const isQueensPage = currentPath.includes('queens') || currentPath.includes('flushing');
-  const isSuffernPage = currentPath.includes('suffern');
-
-  let currentAddress: string;
-  if (isQueensPage) {
-    currentAddress = '141-24 70th Ave, Flushing, NY 11367';
-  } else if (isSuffernPage) {
-    currentAddress = '31 Deerwood Road, Suffern, NY';
-  } else if (location) {
-    currentAddress = buildServiceAreaText(location.city);
-  } else {
-    const pathCity = cityFromPath(currentPath);
-    currentAddress = pathCity
-      ? buildServiceAreaText(pathCity)
-      : 'Serving NY, NJ & CT';
-  }
 
   // Determine contact link: use #contact on home page for smooth scroll, /contact/ on other pages
   const contactLink = (currentPath === '/' || currentPath === '/home/' || currentPath === '/home') ? '#contact' : '/contact/';
@@ -121,33 +33,6 @@ export default function Header() {
           scrolls away and never overlaps the bottom mobile sticky CTA. */}
       <AnnouncementBar />
       <header className="sticky top-0 z-50 overflow-visible">
-      {/* Top Bar — desktop only (all its content is hidden on mobile, which left an empty blue strip) */}
-      <div className="hidden md:block bg-blue-900 text-white py-2">
-        <div className="max-w-7xl mx-auto px-4 flex justify-between items-center text-xs md:text-sm">
-          <div className="flex items-center space-x-3 md:space-x-6">
-            <a href="mailto:info@smartestgaragedoors.com" className="hidden md:flex items-center space-x-2 hover:text-orange-400 transition-colors">
-              <i className="ri-mail-line" aria-hidden="true"></i>
-              <span>info@smartestgaragedoors.com</span>
-            </a>
-            <div className="hidden md:flex items-center space-x-2">
-              <i className="ri-map-pin-line" aria-hidden="true"></i>
-              <span>{currentAddress}</span>
-            </div>
-          </div>
-          <div className="flex items-center space-x-2 md:space-x-4">
-            <a href="https://www.facebook.com/profile.php?id=61563773137785" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook page" className="hidden md:block hover:text-orange-400 transition-colors">
-              <i className="ri-facebook-fill" aria-hidden="true"></i>
-            </a>
-            <a href="https://www.instagram.com/smartgaragedoorss/" target="_blank" rel="noopener noreferrer" aria-label="Visit our Instagram page" className="hidden md:block hover:text-orange-400 transition-colors">
-              <i className="ri-instagram-fill" aria-hidden="true"></i>
-            </a>
-            <a href="https://maps.app.goo.gl/GjfsFbH5kQ2smvdU8" target="_blank" rel="noopener noreferrer" aria-label="View our location on Google Maps" className="hidden md:block hover:text-orange-400 transition-colors">
-              <i className="ri-map-pin-fill" aria-hidden="true"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-
       {/* Main Navigation */}
       <nav className="bg-white shadow-lg relative z-50" style={{ overflow: 'visible' }}>
         <div className="max-w-7xl mx-auto px-4" style={{ overflow: 'visible' }}>
