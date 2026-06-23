@@ -86,7 +86,7 @@ export default function Hero() {
         </div>
 
         {/* CTAs — data-hero-cta: the mobile sticky bar stays hidden while this block is visible */}
-        <div data-hero-cta className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
+        <div data-hero-cta className="flex flex-col sm:flex-row sm:flex-wrap gap-4 justify-center items-center mb-6">
           <a
             href="tel:914-557-6816"
             onClick={() => {
