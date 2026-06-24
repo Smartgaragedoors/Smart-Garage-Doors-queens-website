@@ -90,6 +90,12 @@ export default function Hero() {
           </span>
         </div>
 
+        {/* Trust line — real-person reassurance directly above the call CTA */}
+        <p className="flex items-start sm:items-center gap-2 mb-3 text-[15px] md:text-base font-semibold text-white max-w-xl mx-auto lg:mx-0 text-left">
+          <i className="ri-customer-service-2-fill text-[#3FAE72] text-lg mt-0.5 sm:mt-0 flex-shrink-0" aria-hidden="true" />
+          <span>Call now — a real person will answer and give you a clear arrival window.</span>
+        </p>
+
         {/* CTAs — ONE dominant Call Now (lean hierarchy per handoff).
             data-hero-cta: the mobile sticky bar stays hidden while this block is visible. */}
         <div data-hero-cta className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start items-stretch sm:items-center mb-6">

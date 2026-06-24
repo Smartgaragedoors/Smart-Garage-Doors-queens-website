@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom';
 import { useLocation as useRouterLocation } from 'react-router-dom';
 import Hero from '../../components/feature/Hero';
 import TrustBar from '../../components/feature/TrustBar';
+import CommonProblems from '../../components/feature/CommonProblems';
 import BookingCTABar from '../../components/conversion/BookingCTABar';
 import Services from '../../components/feature/Services';
 import RecentWork from '../../components/feature/RecentWork';
+import HomeFAQ from '../../components/feature/HomeFAQ';
 import VideoSection from '../../components/feature/VideoSection';
 import About from '../../components/feature/About';
 import WhyChooseUs from '../../components/feature/WhyChooseUs';
@@ -23,16 +25,16 @@ const Reviews = lazy(() => import('../../components/feature/Reviews'));
 
 function CoverageStrip() {
   return (
-    <section className="bg-gray-50 border-y border-gray-200 py-14">
+    <section className="bg-gray-50 border-y border-gray-200 py-10 md:py-14">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
         <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-3">
           We Come to You — Anywhere in New York, New Jersey, or Connecticut
         </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto mb-8 text-base md:text-lg">
+        <p className="text-gray-600 max-w-2xl mx-auto mb-6 md:mb-8 text-sm md:text-lg">
           Call us, tell us your city, and we will confirm your technician and give you an honest arrival window.
-          No routing centers. No third parties. Your call goes directly to our dispatch.
+          <span className="hidden md:inline"> No routing centers. No third parties. Your call goes directly to our dispatch.</span>
         </p>
-        <div className="flex flex-wrap justify-center gap-3 mb-8">
+        <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-6 md:mb-8">
           {[
             { city: 'Queens', path: '/queens-ny/' },
             { city: 'Brooklyn', path: '/brooklyn-ny/' },
@@ -80,24 +82,25 @@ function CoverageStrip() {
 
 function CommercialStrip() {
   return (
-    <section className="bg-blue-950 text-white py-16">
+    <section className="bg-blue-950 text-white py-12 md:py-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10">
+        <div className="text-center mb-6 md:mb-8">
           <span className="inline-block bg-blue-800/60 text-blue-100 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
             Commercial &amp; Property Management
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-3">
+          <h2 className="text-2xl md:text-4xl font-bold mb-3">
             One Door Vendor for Your Whole Portfolio
           </h2>
-          <p className="text-blue-200 max-w-2xl mx-auto text-lg">
-            Warehouses, loading docks, rolling gates, parking garages, and multi-property buildings —
-            with COIs, per-property documentation, and maintenance programs built for facilities teams.
+          <p className="text-blue-200 max-w-2xl mx-auto text-base md:text-lg">
+            For property managers, businesses, warehouses, storefronts, and rental properties —
+            overhead doors, rolling steel gates, and loading docks kept running, with COIs,
+            per-property documentation, and maintenance programs built for your team.
           </p>
         </div>
-        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-10">
+        <div className="grid md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto mb-6 md:mb-8">
           <Link
             to="/commercial-garage-door-repair/"
-            className="group bg-blue-900/60 border border-blue-800 rounded-2xl p-8 hover:bg-blue-900 hover:border-orange-500/50 transition-colors"
+            className="group bg-blue-900/60 border border-blue-800 rounded-2xl p-6 md:p-7 hover:bg-blue-900 hover:border-orange-500/50 transition-colors"
           >
             <div className="w-12 h-12 rounded-xl bg-orange-500/20 text-orange-400 flex items-center justify-center mb-4">
               <i className="ri-building-2-line text-2xl" aria-hidden="true" />
@@ -105,15 +108,15 @@ function CommercialStrip() {
             <h3 className="text-xl font-bold mb-2 group-hover:text-orange-400 transition-colors">
               Commercial Door Repair
             </h3>
-            <p className="text-blue-200 text-sm leading-relaxed mb-4">
+            <p className="hidden md:block text-blue-200 text-sm leading-relaxed mb-4">
               Overhead doors, rolling steel gates, loading docks, high-cycle springs, and commercial
               operators. Priority dispatch — because a dead bay door stops revenue.
             </p>
-            <span className="text-orange-400 font-semibold text-sm">Learn more →</span>
+            <span className="text-orange-400 font-semibold text-sm mt-2 md:mt-0 inline-block">Learn more →</span>
           </Link>
           <Link
             to="/property-managers/"
-            className="group bg-blue-900/60 border border-blue-800 rounded-2xl p-8 hover:bg-blue-900 hover:border-orange-500/50 transition-colors"
+            className="group bg-blue-900/60 border border-blue-800 rounded-2xl p-6 md:p-7 hover:bg-blue-900 hover:border-orange-500/50 transition-colors"
           >
             <div className="w-12 h-12 rounded-xl bg-orange-500/20 text-orange-400 flex items-center justify-center mb-4">
               <i className="ri-community-line text-2xl" aria-hidden="true" />
@@ -121,14 +124,27 @@ function CommercialStrip() {
             <h3 className="text-xl font-bold mb-2 group-hover:text-orange-400 transition-colors">
               For Property Managers
             </h3>
-            <p className="text-blue-200 text-sm leading-relaxed mb-4">
+            <p className="hidden md:block text-blue-200 text-sm leading-relaxed mb-4">
               One contact for every property. COI per building, photo documentation on every job,
               per-property invoicing, and preventive maintenance across your portfolio.
             </p>
-            <span className="text-orange-400 font-semibold text-sm">Set up a vendor account →</span>
+            <span className="text-orange-400 font-semibold text-sm mt-2 md:mt-0 inline-block">Set up a vendor account →</span>
           </Link>
         </div>
-        <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm text-blue-200">
+        {/* Primary commercial CTA */}
+        <div className="flex flex-col items-center gap-3">
+          <a
+            href="/commercial-garage-door-repair/"
+            className="inline-flex items-center gap-2.5 bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-105 text-base md:text-lg"
+          >
+            <i className="ri-briefcase-4-line text-xl" aria-hidden="true" />
+            Request Commercial Service
+          </a>
+          <p className="text-blue-300 text-xs md:text-sm">
+            COI on request · multi-location accounts across NY, NJ &amp; CT · 24/7 emergency line
+          </p>
+        </div>
+        <div className="hidden md:flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm text-blue-200 mt-6">
           <span className="inline-flex items-center gap-2">
             <i className="ri-checkbox-circle-line text-orange-400" aria-hidden="true" />
             COI on request
@@ -173,7 +189,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen pb-[68px] md:pb-0">
       <DynamicMetaTags
-        title={`Garage Door Repair | Same-Day Service | (914) 557-6816 | Smartest Garage Doors`}
+        title={`Garage Door Repair | Same-Day Service | (914) 557-6816 | Smart Garage Doors`}
         description={`⭐ ${BUSINESS_INFO.aggregateRating.ratingValue} · ${BUSINESS_INFO.aggregateRating.reviewCount} reviews. Same-day garage door repair, spring & opener fix & installation. $0 service call with any repair · licensed & insured · 24/7 — call (914) 557-6816.`}
       />
       <WebSiteSchema />
@@ -182,21 +198,33 @@ export default function HomePage() {
       <Header />
       <Hero />
       <TrustBar />
+      {/* Customer-language symptom links — quick "yes, they fix MY problem" reassurance */}
+      <CommonProblems />
+      {/* Trust + real technician photo pulled high (answer fast · clear price · trusted) */}
+      <WhyChooseUs />
       <Suspense fallback={<div className="min-h-[400px] bg-gray-50" />}>
         <Reviews />
       </Suspense>
+      <Services />
+      <RecentWork />
       <BookingCTABar
         title="Need Service Today?"
         subtitle="Call us and we will confirm your problem, give you a price, and dispatch the nearest tech."
       />
-      <WhyChooseUs />
-      <Services />
-      <RecentWork />
       <CommercialStrip />
-      <VideoSection />
-      <About />
+      <HomeFAQ />
+      {/* Secondary content — kept for desktop + SEO, hidden on mobile to keep the
+          phone funnel short and avoid duplicating the trust/about proof above. */}
+      <div className="hidden md:block">
+        <VideoSection />
+        <About />
+      </div>
       <CoverageStrip />
-      <Contact />
+      {/* Full contact form is desktop-only — the hero quote form is the mobile lead
+          path, so the long second form here would just duplicate it on a phone. */}
+      <div className="hidden md:block">
+        <Contact />
+      </div>
       <Footer />
       {/* MobileStickyCTA is rendered globally in App.tsx — rendering it here too stacked two identical bars */}
     </div>

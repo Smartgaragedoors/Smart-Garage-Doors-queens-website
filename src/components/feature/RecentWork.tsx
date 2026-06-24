@@ -5,6 +5,8 @@ interface Photo {
   image: string;
   alt: string;
   title: string;
+  /** short outcome shown under the title — proof the job got finished */
+  result: string;
   position?: string;
 }
 
@@ -16,60 +18,70 @@ const photos: Photo[] = [
     image: getCFImageUrl('7afb363e-9199-4fb7-599f-c037e1439b00', 'card'),
     alt: 'Dan, Smart Garage Doors technician, smiling while installing a garage door opener',
     title: 'Opener Install — Queens',
+    result: 'New opener up and running, same visit',
     position: 'object-center',
   },
   {
     image: '/images/garage-door-repair-team-job-site-smart-garage-doors.webp',
     alt: 'Smart Garage Doors two-man team at a residential brick home installing a garage door',
     title: 'Door Installation — Westchester',
+    result: 'Full door replaced in a day',
     position: 'object-bottom',
   },
   {
     image: getCFImageUrl('1fcc6a3f-d3c8-4177-beca-3346198edb00', 'card'),
     alt: 'Ben, Smart Garage Doors technician, smiling while working on cable and roller system',
-    title: 'Cable & Roller Repair',
+    title: 'Cable & Roller Repair — Long Island',
+    result: 'Snapped cable fixed, back on track',
     position: 'object-center',
   },
   {
     image: '/images/garage-door-repair-technician-dan-smart-garage-doors.jpg',
     alt: 'Smart Garage Doors technician Dan repairing a garage door panel on-site',
     title: 'Panel Repair — Queens, NY',
+    result: 'Damaged panel restored same day',
     position: 'object-center',
   },
   {
     image: getCFImageUrl('850dffb2-5b15-48d3-f2a5-0d4d1c95a200', 'card'),
     alt: 'Smart Garage Doors technician drilling into garage door track hardware',
-    title: 'Track Installation',
+    title: 'Track Installation — Brooklyn',
+    result: 'Re-tracked, smooth and quiet',
     position: 'object-center',
   },
   {
     image: '/images/garage-door-panel-repair-dan-hammer-smart-garage-doors.jpg',
     alt: 'Smart Garage Doors technician working on garage door panel',
-    title: 'Panel Replacement',
+    title: 'Panel Replacement — Bronx',
+    result: 'Dented section swapped out',
     position: 'object-center',
   },
   {
     image: '/images/commercial-garage-door-repair-nyc-smart-garage-doors.jpg',
     alt: 'Smart Garage Doors technician servicing large commercial garage doors',
     title: 'Commercial Repair — NYC',
+    result: 'Bay door back in service same day',
     position: 'object-center',
   },
   {
     image: '/images/satisfied-customer-new-garage-door-smart-garage-doors.jpg',
     alt: 'Happy homeowner with Smart Garage Doors technician after installation',
-    title: 'Happy Customer — Bronx',
+    title: 'Spring Replacement — Bronx',
+    result: 'Broken spring fixed in one visit',
     position: 'object-top',
   },
   {
     image: getCFImageUrl('45d417a3-6fc3-4605-668e-f2742f2f4100', 'card'),
     alt: 'Interior view of a newly installed contemporary glass-panel garage door',
-    title: 'Glass Door Install — CT',
+    title: 'Glass Door Install — Stamford, CT',
+    result: 'Custom glass door installed',
     position: 'object-center',
   },
   {
     image: '/images/garage-door-repair-technician-ben-smart-garage-doors.jpg',
     alt: 'Smart Garage Doors technician Ben working on garage door installation',
-    title: 'Spring & Track Service',
+    title: 'Spring & Track Service — Bergen County',
+    result: 'New springs, door re-balanced',
     position: 'object-center',
   },
 ];
@@ -105,11 +117,11 @@ function RecentWork() {
   const offset = slide * (cardWidth + GAP);
 
   return (
-    <section className="py-12 md:py-20 bg-gray-50">
+    <section className="py-12 md:py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4">
 
         {/* Header row with arrows */}
-        <div className="flex items-end justify-between mb-8">
+        <div className="flex items-end justify-between mb-6">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-blue-900">
               Recent <span className="text-orange-500">Jobs</span>
@@ -164,7 +176,7 @@ function RecentWork() {
                   className="flex-shrink-0 rounded-2xl overflow-hidden shadow-md bg-white"
                   style={{ width: `${cardWidth}px` }}
                 >
-                  <div className="overflow-hidden" style={{ height: `${Math.round(cardWidth * 0.75)}px` }}>
+                  <div className="overflow-hidden" style={{ height: `${Math.round(cardWidth * 0.62)}px` }}>
                     <img
                       src={photo.image}
                       alt={photo.alt}
@@ -174,9 +186,15 @@ function RecentWork() {
                       loading={i < VISIBLE ? 'eager' : 'lazy'}
                     />
                   </div>
-                  <div className="px-4 py-3 flex items-center gap-2">
-                    <i className="ri-map-pin-2-line text-orange-500 text-sm flex-shrink-0" aria-hidden="true" />
-                    <p className="text-sm font-semibold text-gray-800 truncate">{photo.title}</p>
+                  <div className="px-4 py-3">
+                    <p className="flex items-center gap-2 text-sm font-semibold text-gray-800">
+                      <i className="ri-map-pin-2-line text-orange-500 text-sm flex-shrink-0" aria-hidden="true" />
+                      <span className="truncate">{photo.title}</span>
+                    </p>
+                    <p className="flex items-center gap-1.5 text-xs text-green-700 mt-1">
+                      <i className="ri-checkbox-circle-fill text-green-500 flex-shrink-0" aria-hidden="true" />
+                      <span className="truncate">{photo.result}</span>
+                    </p>
                   </div>
                 </div>
               ))}
@@ -199,9 +217,9 @@ function RecentWork() {
           ))}
         </div>
 
-        {/* Mobile — 2-col grid */}
+        {/* Mobile — 2-col grid, trimmed to 6 for a shorter scroll */}
         <div className="md:hidden grid grid-cols-2 gap-3">
-          {photos.map((photo, i) => (
+          {photos.slice(0, 6).map((photo, i) => (
             <div key={i} className="rounded-xl overflow-hidden shadow-md bg-white">
               <div className="aspect-[4/3] overflow-hidden">
                 <img
@@ -213,9 +231,15 @@ function RecentWork() {
                   loading="lazy"
                 />
               </div>
-              <div className="px-3 py-2 flex items-center gap-1.5">
-                <i className="ri-map-pin-2-line text-orange-500 text-xs flex-shrink-0" aria-hidden="true" />
-                <p className="text-xs font-semibold text-gray-700 truncate">{photo.title}</p>
+              <div className="px-3 py-2">
+                <p className="flex items-center gap-1.5 text-xs font-semibold text-gray-800">
+                  <i className="ri-map-pin-2-line text-orange-500 text-xs flex-shrink-0" aria-hidden="true" />
+                  <span className="truncate">{photo.title}</span>
+                </p>
+                <p className="flex items-center gap-1 text-[11px] text-green-700 mt-0.5">
+                  <i className="ri-checkbox-circle-fill text-green-500 text-xs flex-shrink-0" aria-hidden="true" />
+                  <span className="truncate">{photo.result}</span>
+                </p>
               </div>
             </div>
           ))}

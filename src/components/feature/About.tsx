@@ -3,11 +3,11 @@ import { BUSINESS_INFO } from '../../config/business-info';
 
 function About() {
   return (
-    <section id="about" className="py-16 lg:py-24 bg-white">
+    <section id="about" className="py-12 lg:py-16 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Two real customer photos — visual proof at a glance */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-14">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-10">
           <div className="rounded-2xl overflow-hidden shadow-md aspect-[4/3]">
             <img
               src="/images/happy-customer-garage-door-repair-smart-garage-doors.jpg"
@@ -39,18 +39,18 @@ function About() {
           <span className="inline-block px-4 py-1.5 bg-orange-100 text-orange-600 font-semibold rounded-full text-sm mb-5">
             About Us
           </span>
-          <h2 className="text-4xl lg:text-5xl font-bold text-blue-900 mb-6 leading-tight">
+          <h2 className="text-3xl lg:text-4xl font-bold text-blue-900 mb-5 leading-tight">
             Real Technicians. Real Reviews. Real Local Service.
           </h2>
-          <p className="text-lg text-gray-700 leading-relaxed mb-5">
+          <p className="text-lg text-gray-700 leading-relaxed mb-4">
             When your garage door breaks, you are usually under pressure — the car is stuck, the door won't close, or a spring snapped loud enough to scare the whole house. You need someone who answers fast and sends a real technician, not a call center that farms the job out.
           </p>
-          <p className="text-gray-600 leading-relaxed mb-8">
+          <p className="text-gray-600 leading-relaxed mb-6">
             We built Smart Garage Doors around one idea: show up, fix it right, and leave you with our number in case anything ever needs attention. Our techs carry common parts on every truck so most jobs finish on the first visit. We quote the price before we start, and we don't charge you for the estimate.
           </p>
 
           {/* 3 key facts inline */}
-          <div className="grid grid-cols-3 gap-4 mb-10">
+          <div className="grid grid-cols-3 gap-4 mb-8">
             {[
               { value: `${BUSINESS_INFO.aggregateRating.reviewCount}+`, label: 'Google reviews', sub: `${BUSINESS_INFO.aggregateRating.ratingValue} average` },
               { value: '24/7', label: 'Emergency line', sub: 'Live answer' },

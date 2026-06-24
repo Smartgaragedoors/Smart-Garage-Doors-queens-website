@@ -40,25 +40,25 @@ const Reviews = () => {
   };
 
   return (
-    <section id="reviews" className="py-14 md:py-20 bg-gray-50 overflow-x-hidden w-full">
+    <section id="reviews" className="py-12 md:py-16 bg-gray-50 overflow-x-hidden w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style={{ width: '100%', maxWidth: '1280px' }}>
-        <div className="text-center mb-8 md:mb-16">
+        <div className="text-center mb-6 md:mb-10">
           <div className="flex justify-center items-center gap-1.5 mb-3">
             {renderStars(Math.round(parseFloat(BUSINESS_INFO.aggregateRating.ratingValue)))}
             <span className="text-gray-900 font-bold text-lg ml-1">{BUSINESS_INFO.aggregateRating.ratingValue}</span>
             <span className="text-gray-500 text-sm">({BUSINESS_INFO.aggregateRating.reviewCount} reviews on Google)</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
             What Homeowners Say After We Leave
           </h2>
-          <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="hidden md:block text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
             These are real reviews from people who called us with a real problem. Read what they say about the response, the work, and the price.
           </p>
         </div>
 
         {/* Mobile: horizontal swipe carousel (one card + a peek of the next) so the
             section stays compact; md+: the familiar responsive grid. */}
-        <div className="mb-8 md:mb-12">
+        <div className="mb-6 md:mb-8">
           <div
             className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory -mx-4 px-4 md:mx-0 md:px-0 pb-4 md:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
@@ -107,7 +107,7 @@ const Reviews = () => {
         </div>
 
         <div className="text-center space-y-4">
-          <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
+          <div className="flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-6">
             <a
               href={BUSINESS_INFO.socialMedia.googleReviews}
               target="_blank"
@@ -117,16 +117,17 @@ const Reviews = () => {
               <i className="ri-google-fill mr-2" aria-hidden="true"></i>
               View All Google Reviews
             </a>
+            {/* Call button hidden on mobile — sticky bar already carries it */}
             <a
               href="tel:+19145576816"
               aria-label="Call Smart Garage Doors from reviews section"
-              className="inline-flex items-center px-8 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors whitespace-nowrap cursor-pointer"
+              className="hidden sm:inline-flex items-center px-8 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors whitespace-nowrap cursor-pointer"
             >
               <i className="ri-phone-fill mr-2" aria-hidden="true"></i>
               Call (914) 557-6816
             </a>
           </div>
-          <p className="text-sm text-gray-500 max-w-2xl mx-auto">
+          <p className="hidden md:block text-sm text-gray-500 max-w-2xl mx-auto">
             Every review above is from a real customer across our service area. We earn them one job at a time.
           </p>
         </div>
