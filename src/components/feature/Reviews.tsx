@@ -40,28 +40,32 @@ const Reviews = () => {
   };
 
   return (
-    <section id="reviews" className="py-20 bg-gray-50 overflow-x-hidden w-full">
+    <section id="reviews" className="py-14 md:py-20 bg-gray-50 overflow-x-hidden w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style={{ width: '100%', maxWidth: '1280px' }}>
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 md:mb-16">
           <div className="flex justify-center items-center gap-1.5 mb-3">
             {renderStars(Math.round(parseFloat(BUSINESS_INFO.aggregateRating.ratingValue)))}
             <span className="text-gray-900 font-bold text-lg ml-1">{BUSINESS_INFO.aggregateRating.ratingValue}</span>
             <span className="text-gray-500 text-sm">({BUSINESS_INFO.aggregateRating.reviewCount} reviews on Google)</span>
           </div>
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             What Homeowners Say After We Leave
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
             These are real reviews from people who called us with a real problem. Read what they say about the response, the work, and the price.
           </p>
         </div>
 
-        <div className="mb-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Mobile: horizontal swipe carousel (one card + a peek of the next) so the
+            section stays compact; md+: the familiar responsive grid. */}
+        <div className="mb-8 md:mb-12">
+          <div
+            className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory -mx-4 px-4 md:mx-0 md:px-0 pb-4 md:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
             {reviews.map((review, index) => (
               <div
                 key={`${review.author_name}-${review.time}-${index}`}
-                className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"
+                className="bg-white rounded-lg shadow-md p-5 md:p-6 hover:shadow-lg transition-shadow snap-start shrink-0 w-[82%] sm:w-[55%] md:w-auto"
               >
                 <div className="flex items-start mb-4">
                   {review.profile_photo_url ? (
@@ -91,10 +95,15 @@ const Reviews = () => {
                     </div>
                   </div>
                 </div>
-                <p className="text-gray-600 leading-relaxed line-clamp-5">{review.text}</p>
+                <p className="text-gray-600 leading-relaxed line-clamp-4">{review.text}</p>
               </div>
             ))}
           </div>
+          {/* Swipe affordance — mobile only */}
+          <p className="md:hidden text-center text-xs text-gray-400 mt-3">
+            <i className="ri-arrow-left-right-line align-middle mr-1" aria-hidden="true" />
+            Swipe to read more reviews
+          </p>
         </div>
 
         <div className="text-center space-y-4">
