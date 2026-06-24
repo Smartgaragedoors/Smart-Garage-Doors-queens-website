@@ -25,34 +25,34 @@ const PILLARS = [
 
 function WhyChooseUs() {
   return (
-    <section className="py-16 lg:py-24 bg-blue-900 text-white">
+    <section className="py-12 lg:py-16 bg-blue-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <div className="text-center mb-14">
+        <div className="text-center mb-8 lg:mb-10">
           <span className="inline-block px-4 py-1.5 bg-orange-500/20 text-orange-300 font-semibold rounded-full text-sm mb-4 tracking-wide uppercase">
             Why Us
           </span>
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4 leading-tight">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-3 lg:mb-4 leading-tight">
             Three Things That Matter When Your Garage Door Breaks
           </h2>
-          <p className="text-blue-200 max-w-2xl mx-auto text-lg">
+          <p className="text-blue-200 max-w-2xl mx-auto text-base lg:text-lg">
             Speed, honesty, and a job done right. That is the whole model.
           </p>
         </div>
 
-        {/* Content grid */}
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        {/* Content grid — real technician photo first on mobile (trust, high on page) */}
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
           {/* Left — pillars */}
-          <div className="space-y-6">
+          <div className="space-y-4 lg:space-y-6 order-last lg:order-first">
             {PILLARS.map(({ icon, title, body, highlight }) => (
-              <div key={title} className="flex gap-5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl p-6 transition-colors">
-                <div className="flex-shrink-0 w-14 h-14 bg-orange-500 rounded-xl flex items-center justify-center">
-                  <i className={`${icon} text-2xl text-white`} aria-hidden="true" />
+              <div key={title} className="flex gap-4 lg:gap-5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl p-4 lg:p-6 transition-colors">
+                <div className="flex-shrink-0 w-12 h-12 lg:w-14 lg:h-14 bg-orange-500 rounded-xl flex items-center justify-center">
+                  <i className={`${icon} text-xl lg:text-2xl text-white`} aria-hidden="true" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-1">{title}</h3>
+                  <h3 className="text-lg lg:text-xl font-bold text-white mb-1">{title}</h3>
                   <p className="text-blue-200 text-sm leading-relaxed mb-2">{body}</p>
                   <span className="inline-block bg-orange-500/20 text-orange-300 text-xs font-semibold px-3 py-1 rounded-full">
                     {highlight}
@@ -72,11 +72,11 @@ function WhyChooseUs() {
 
           {/* Right — photo + social proof */}
           <div className="flex flex-col items-center lg:items-end gap-5">
-            <div className="relative w-full max-w-sm lg:max-w-none">
+            <div className="relative w-full max-w-[240px] lg:max-w-none">
               <img
                 src={getCFImageUrl('7afb363e-9199-4fb7-599f-c037e1439b00', 'card')}
                 alt="Dan, Smart Garage Doors technician, smiling on the job — the face of a real local service company"
-                className="w-full max-w-sm lg:max-w-md rounded-2xl shadow-2xl object-cover mx-auto lg:mx-0"
+                className="w-full max-h-[280px] lg:max-h-[440px] max-w-[240px] lg:max-w-md rounded-2xl shadow-2xl object-cover object-top mx-auto lg:mx-0"
                 width={480}
                 height={640}
                 loading="lazy"
@@ -93,15 +93,15 @@ function WhyChooseUs() {
               </div>
             </div>
 
-            {/* CTA */}
+            {/* CTA — hidden on mobile (hero + sticky bar already carry the call) */}
             <a
               href="tel:+19145576816"
-              className="inline-flex items-center gap-2.5 bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-105 text-lg mt-6"
+              className="hidden lg:inline-flex items-center gap-2.5 bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-105 text-lg mt-6"
             >
               <i className="ri-phone-fill text-xl" aria-hidden="true" />
               Call (914) 557-6816
             </a>
-            <p className="text-blue-300 text-sm">Live dispatch, not a call center.</p>
+            <p className="text-blue-300 text-sm text-center lg:text-left">Live dispatch, not a call center.</p>
           </div>
 
         </div>

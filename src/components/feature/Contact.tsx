@@ -43,20 +43,22 @@ function Contact() {
   }, []);
 
   return (
-    <section id="contact" className="py-20 bg-white">
+    <section id="contact" className="py-12 md:py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <span className="text-orange-500 font-semibold text-lg">Contact Us</span>
-          <h2 className="text-4xl font-bold text-blue-900 mt-2 mb-4">
+        <div className="text-center mb-8 md:mb-10">
+          <span className="text-orange-500 font-semibold text-base md:text-lg">Contact Us</span>
+          <h2 className="text-2xl md:text-4xl font-bold text-blue-900 mt-2 mb-3 md:mb-4">
             One Tri-State Team, A Local Feel for Every Caller
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-gray-600 max-w-2xl mx-auto text-sm md:text-base">
             Calling is fastest for emergencies. If you prefer the form, tell us where you are and what the door is doing so we can route you correctly.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          <div>
+          {/* Trust/info column — hidden on mobile (duplicates the rating, $0 offer and
+              phone shown higher up); the form is what mobile users need here. */}
+          <div className="hidden lg:block">
             <div className="mb-8 rounded-lg bg-blue-900 text-white p-8 shadow-xl">
               <h3 className="text-2xl font-bold mb-3">Best Option for Urgent Problems</h3>
               <p className="text-blue-100 mb-6">
@@ -114,8 +116,8 @@ function Contact() {
             </div>
           </div>
 
-          <div className="bg-gray-50 rounded-lg p-8 shadow-lg">
-            <form id="contact-form" data-readdy-form onSubmit={handleSubmit} className="space-y-6">
+          <div className="bg-gray-50 rounded-lg p-5 md:p-8 shadow-lg">
+            <form id="contact-form" data-readdy-form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold text-blue-900 mb-2">
                   Full Name *

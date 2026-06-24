@@ -27,7 +27,16 @@ const STATS: Stat[] = [
 export default function TrustBar() {
   return (
     <section className="bg-[#16335B] text-white border-t-[3px] border-orange-500">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-5 md:py-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-y-5 gap-x-4 text-center">
+      {/* Mobile: one compact trust line (keeps the band short above the fold). */}
+      <p className="sm:hidden flex flex-wrap items-center justify-center gap-x-2 gap-y-1 px-4 py-3 text-[13px] font-semibold text-center">
+        <span className="text-[#F2B98C]"><span className="text-[#F5A623]" aria-hidden="true">★ </span>{BUSINESS_INFO.aggregateRating.reviewCount}+ reviews</span>
+        <span className="text-white/30" aria-hidden="true">·</span>
+        <span className="text-[#bccbe0]">Licensed &amp; insured</span>
+        <span className="text-white/30" aria-hidden="true">·</span>
+        <span className="text-[#bccbe0]">Same-day availability</span>
+      </p>
+      {/* sm+: full 5-stat band */}
+      <div className="hidden sm:grid max-w-6xl mx-auto px-4 sm:px-6 py-5 md:py-6 grid-cols-3 lg:grid-cols-5 gap-y-5 gap-x-4 text-center">
         {STATS.map((stat, i) => (
           <div
             key={stat.label}
