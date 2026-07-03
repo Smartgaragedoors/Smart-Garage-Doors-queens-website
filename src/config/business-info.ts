@@ -5,7 +5,9 @@ import generatedReviews from '../data/googleReviews.generated.json';
 // reviews (see Post Automation's reviewsSyncService -> googleReviews.generated.json).
 // Fall back to a fixed snapshot only if that file hasn't been populated yet.
 const liveReviewCount = (generatedReviews as { reviewCount?: string | null }).reviewCount;
-const liveRatingValue = (generatedReviews as { ratingValue?: string | null }).ratingValue;
+const rawLiveRatingValue = (generatedReviews as { ratingValue?: string | null }).ratingValue;
+// Always one decimal place ("5" -> "5.0") to match existing "X.X★" display copy sitewide.
+const liveRatingValue = rawLiveRatingValue ? Number(rawLiveRatingValue).toFixed(1) : null;
 
 export const BUSINESS_INFO = {
   name: "Smart Garage Doors",
