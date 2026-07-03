@@ -1,4 +1,12 @@
 // Centralized business information for NAP consistency and SEO
+import generatedReviews from '../data/googleReviews.generated.json';
+
+// aggregateRating.reviewCount/ratingValue are kept live by syncing real Google
+// reviews (see Post Automation's reviewsSyncService -> googleReviews.generated.json).
+// Fall back to a fixed snapshot only if that file hasn't been populated yet.
+const liveReviewCount = (generatedReviews as { reviewCount?: string | null }).reviewCount;
+const liveRatingValue = (generatedReviews as { ratingValue?: string | null }).ratingValue;
+
 export const BUSINESS_INFO = {
   name: "Smart Garage Doors",
   legalName: "Smart Garage Doors",
@@ -63,8 +71,8 @@ export const BUSINESS_INFO = {
   currenciesAccepted: "USD",
   paymentAccepted: ["Cash", "Credit Card", "Debit Card", "Bank Transfer", "Check"],
   aggregateRating: {
-    ratingValue: "5.0",
-    reviewCount: "479",
+    ratingValue: liveRatingValue || "5.0",
+    reviewCount: liveReviewCount || "479",
     bestRating: "5",
     worstRating: "1",
   },
