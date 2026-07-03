@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Red Bank, NJ Garage Door Repair & Carriage-House Installation | Smartest Garage Doors"
+      metaTitle="Red Bank, NJ Garage Door Repair & Carriage-House Installation | Smart Garage Doors"
       metaDescription="Garage door repair & premium installation in Red Bank, NJ. Carriage-house doors for Victorian homes, insulated river-climate doors, quiet openers. (914) 557-6816."
       keywords="Red Bank garage door repair, carriage house garage doors Red Bank NJ, garage door installation Red Bank, insulated garage doors Monmouth County, quiet garage door opener Red Bank"
       slug="/red-bank-nj/"

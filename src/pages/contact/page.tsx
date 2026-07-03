@@ -78,8 +78,8 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen bg-white">
       <DynamicMetaTags 
-        title="Contact Us | Garage Door Repair NY NJ CT | Smartest Garage Doors"
-        description="Contact Smartest Garage Doors for fast, professional garage door repair and installation services. Serving NY, NJ & CT. Call (914) 557-6816 or schedule online."
+        title="Contact Us | Garage Door Repair NY NJ CT | Smart Garage Doors"
+        description="Contact Smart Garage Doors for fast, professional garage door repair and installation services. Serving NY, NJ & CT. Call (914) 557-6816 or schedule online."
         canonical={buildCanonical('/contact')}
       />
       <Header />

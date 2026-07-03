@@ -78,7 +78,7 @@ export default function MaintenancePage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <DynamicMetaTags 
-        title="Garage Door Maintenance Plans | NY NJ CT | Smartest Garage Doors"
+        title="Garage Door Maintenance Plans | NY NJ CT | Smart Garage Doors"
         description="Preventive garage door maintenance. Extend door life, avoid costly repairs. 5.0★, 479 reviews. Annual plans. NY, NJ & CT."
         keywords="garage door maintenance, preventive maintenance, maintenance plans, annual garage door service"
       />

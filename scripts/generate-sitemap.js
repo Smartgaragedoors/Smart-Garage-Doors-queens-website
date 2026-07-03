@@ -173,15 +173,32 @@ const blogPosts = [
 
 // Content-folder blog posts (content/blog/*.json) — the Post Automation tool
 // publishes here; hand-authored posts live here too.
+function canonicalBlogSlug(slug) {
+  const match = slug.match(/-([a-z0-9]{4})$/i);
+  if (!match) return slug;
+  const suffix = match[1];
+  if (/[a-z]/i.test(suffix) && /[0-9]/.test(suffix)) {
+    return slug.slice(0, -5);
+  }
+  return slug;
+}
+
 function extractContentBlogPosts() {
   const contentDir = path.join(__dirname, '..', 'content', 'blog');
   if (!fs.existsSync(contentDir)) return [];
   const posts = [];
+  const seen = new Set();
   for (const file of fs.readdirSync(contentDir)) {
     if (!file.endsWith('.json')) continue;
     try {
       const data = JSON.parse(fs.readFileSync(path.join(contentDir, file), 'utf8'));
-      if (data.slug) posts.push({ slug: data.slug, priority: '0.7', changefreq: 'monthly' });
+      if (data.slug) {
+        const slug = canonicalBlogSlug(data.slug);
+        if (!seen.has(slug)) {
+          seen.add(slug);
+          posts.push({ slug, priority: '0.7', changefreq: 'monthly' });
+        }
+      }
     } catch (e) {
       console.warn(`Warning: skipping invalid content/blog/${file}: ${e.message}`);
     }

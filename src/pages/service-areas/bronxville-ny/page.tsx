@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Bronxville, NY Garage Door Repair & Custom Door Installation | Smartest Garage Doors"
+      metaTitle="Bronxville, NY Garage Door Repair & Custom Door Installation | Smart Garage Doors"
       metaDescription="Garage door repair & custom installation in Bronxville, NY. Doors matched to Tudor & landmark-style homes, quiet smart openers, same-day repair. Insured. (914) 557-6816."
       keywords="Bronxville garage door repair, garage door installation Bronxville NY, custom garage doors Bronxville, garage door spring replacement Bronxville, quiet garage door opener Westchester"
       slug="/bronxville-ny/"

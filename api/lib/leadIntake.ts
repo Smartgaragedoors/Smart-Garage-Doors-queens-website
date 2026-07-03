@@ -103,7 +103,7 @@ async function notifyAdmins(lead: NormalizedLead, platform: LeadSource, jobId: s
   }
 
   const resend = new Resend(apiKey);
-  const from   = process.env.FROM_EMAIL?.trim() || 'Smartest Garage Doors <onboarding@resend.dev>';
+  const from   = process.env.FROM_EMAIL?.trim() || 'Smart Garage Doors <onboarding@resend.dev>';
   const label  = PLATFORM_CONFIG[platform].label;
   const name   = [lead.firstName, lead.lastName].filter(Boolean).join(' ') || 'Unknown';
 

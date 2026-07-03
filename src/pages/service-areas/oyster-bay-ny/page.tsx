@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Oyster Bay, NY Garage Door Repair & Custom Wood Door Installation | Smartest Garage Doors"
+      metaTitle="Oyster Bay, NY Garage Door Repair & Custom Wood Door Installation | Smart Garage Doors"
       metaDescription="Garage door repair & custom installation in Oyster Bay, NY. Salt-air resistant hardware, custom wood doors, estate-scale installs for waterfront homes. (914) 557-6816."
       keywords="Oyster Bay garage door repair, custom wood garage doors Oyster Bay, garage door installation Oyster Bay NY, waterfront garage doors Nassau County, garage door opener Mill Neck"
       slug="/oyster-bay-ny/"

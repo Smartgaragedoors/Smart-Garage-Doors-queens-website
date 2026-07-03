@@ -103,7 +103,7 @@ export default function ComparisonPageTemplate(props: ComparisonPageTemplateProp
             {headline}
           </h1>
           <p className="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
-            An honest, side-by-side look at how Smartest Garage Doors stacks up against {competitorName} —
+            An honest, side-by-side look at how Smart Garage Doors stacks up against {competitorName} —
             so you can choose with confidence.
           </p>
           <div data-hero-cta className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -141,7 +141,7 @@ export default function ComparisonPageTemplate(props: ComparisonPageTemplateProp
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-gray-900 mb-3">
-              Smartest Garage Doors vs. {competitorName}
+              Smart Garage Doors vs. {competitorName}
             </h2>
             <p className="text-gray-600">How we compare on the things homeowners care about most.</p>
           </div>
@@ -150,7 +150,7 @@ export default function ComparisonPageTemplate(props: ComparisonPageTemplateProp
               <thead>
                 <tr className="bg-blue-900 text-white text-sm">
                   <th className="px-4 sm:px-6 py-4 text-left font-semibold">What Matters</th>
-                  <th className="px-4 sm:px-6 py-4 text-center font-semibold">Smartest Garage Doors</th>
+                  <th className="px-4 sm:px-6 py-4 text-center font-semibold">Smart Garage Doors</th>
                   <th className="px-4 sm:px-6 py-4 text-center font-semibold text-gray-300">{competitorName}</th>
                 </tr>
               </thead>

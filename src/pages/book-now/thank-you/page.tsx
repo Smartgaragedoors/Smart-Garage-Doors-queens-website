@@ -19,8 +19,8 @@ export default function ThankYouPage() {
   return (
     <div className="min-h-screen bg-white">
       <DynamicMetaTags
-        title="Booking Confirmed | Smartest Garage Doors"
-        description="Thanks for booking with Smartest Garage Doors. We'll be in touch shortly to confirm your appointment."
+        title="Booking Confirmed | Smart Garage Doors"
+        description="Thanks for booking with Smart Garage Doors. We'll be in touch shortly to confirm your appointment."
         canonical={buildCanonical('/book-now/thank-you')}
         noIndex={true}
       />

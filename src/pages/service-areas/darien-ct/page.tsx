@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Darien, CT Garage Door Repair | Same-Day Service | Smartest Garage Doors"
+      metaTitle="Darien, CT Garage Door Repair | Same-Day Service | Smart Garage Doors"
       metaDescription="Garage door repair in Darien, CT — same-day service, 5.0★ reviews. Spring replacement, opener repair, emergency service. Licensed & insured. Call (914) 557-6816."
       keywords="Darien garage door repair, garage door installation Darien, emergency garage door Darien, spring replacement Darien"
       slug="/darien-ct/"

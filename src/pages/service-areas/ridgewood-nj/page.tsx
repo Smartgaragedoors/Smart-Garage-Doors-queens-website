@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Ridgewood, NJ Garage Door Repair & Carriage-House Door Installation | Smartest Garage Doors"
+      metaTitle="Ridgewood, NJ Garage Door Repair & Carriage-House Door Installation | Smart Garage Doors"
       metaDescription="Garage door service in Ridgewood, NJ — carriage-house and insulated doors, quiet belt-drive openers, same-day repair. Licensed & insured. Call (914) 557-6816."
       keywords="Ridgewood garage door repair, garage door installation Ridgewood NJ, carriage house garage doors Ridgewood, garage door spring replacement Ridgewood, quiet garage door opener Bergen County"
       slug="/ridgewood-nj/"

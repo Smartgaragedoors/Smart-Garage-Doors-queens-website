@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Suffern, NY Garage Door Repair | Same-Day Service | Smartest Garage Doors"
+      metaTitle="Suffern, NY Garage Door Repair | Same-Day Service | Smart Garage Doors"
       metaDescription="Garage door repair in Suffern, NY — same-day service, 5.0★ reviews. Spring replacement, opener repair, emergency service. Licensed & insured. Call (845) 262-2034."
       keywords="Suffern garage door repair, garage door installation Suffern, emergency garage door Suffern, spring replacement Suffern"
       slug="/suffern-ny/"

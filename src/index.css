@@ -104,6 +104,21 @@ div[class*="absolute"][class*="top-full"][class*="z-["] {
   opacity: 1 !important;
 }
 
+/* Blog article typography helpers (works with @tailwindcss/typography) */
+.blog-content .blog-cta-callout {
+  margin-top: 2rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 0.75rem;
+  background: linear-gradient(to bottom right, #eff6ff, #fff7ed);
+  border: 1px solid #dbeafe;
+}
+
+.blog-content .blog-cta-callout p {
+  margin-bottom: 0;
+  font-weight: 500;
+  color: #1e3a5f;
+}
+
 /* Optimize font loading */
 @layer base {
   html {

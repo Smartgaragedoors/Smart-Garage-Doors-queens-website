@@ -150,7 +150,7 @@ export default function ChatWidget() {
                 <i className="ri-customer-service-2-fill text-white text-base" aria-hidden="true" />
               </div>
               <div className="flex-1 min-w-0">
-                <div className="text-sm font-bold text-white leading-tight">Smartest Garage Doors</div>
+                <div className="text-sm font-bold text-white leading-tight">Smart Garage Doors</div>
                 <div className="text-xs text-blue-200 leading-tight">
                   {isTyping ? 'Typing…' : 'Typically replies in seconds'}
                 </div>
@@ -236,7 +236,7 @@ export default function ChatWidget() {
                 </div>
               )}
               <p className="text-[10px] text-gray-400 text-center mt-1.5">
-                Smartest Garage Doors · NY, NJ & CT
+                Smart Garage Doors · NY, NJ & CT
               </p>
             </div>
           </div>

@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Colts Neck, NJ Custom Garage Door Installation & Repair | Smartest Garage Doors"
+      metaTitle="Colts Neck, NJ Custom Garage Door Installation & Repair | Smart Garage Doors"
       metaDescription="Premium garage door installation & repair in Colts Neck, NJ. Estate-scale custom doors, three-car garage packages, smart openers. Licensed & insured. (914) 557-6816."
       keywords="Colts Neck garage door installation, custom garage doors Colts Neck NJ, estate garage doors Monmouth County, garage door repair Colts Neck, three car garage doors Colts Neck"
       slug="/colts-neck-nj/"

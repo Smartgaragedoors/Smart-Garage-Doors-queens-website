@@ -78,7 +78,7 @@ export default function BookNowPage() {
   return (
     <div className="min-h-screen bg-white">
       <DynamicMetaTags 
-        title="Book Garage Door Service | Repair & Installation | Smartest Garage Doors"
+        title="Book Garage Door Service | Repair & Installation | Smart Garage Doors"
         description="Book your garage door repair or installation online in under 60 seconds. Fast response — emergency appointments often available across NY, NJ & CT with a 5-star rated local team."
         canonical={buildCanonical('/book-now')}
       />

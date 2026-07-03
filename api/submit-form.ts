@@ -4,7 +4,7 @@ import { Resend } from 'resend';
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const NOTIFICATION_EMAIL = (process.env.NOTIFICATION_EMAIL ?? '').trim();
-const FROM_EMAIL = (process.env.FROM_EMAIL ?? 'Smartest Garage Doors <onboarding@resend.dev>').trim();
+const FROM_EMAIL = (process.env.FROM_EMAIL ?? 'Smart Garage Doors <onboarding@resend.dev>').trim();
 
 function buildEmailBody(data: Record<string, string | number | undefined>, formName?: string): string {
   const timestamp = new Date().toISOString();
@@ -40,7 +40,7 @@ function buildHtmlEmail(data: Record<string, string | number | undefined>, formN
   <table style="width:100%;border-collapse:collapse;margin-top:16px">
     ${rows.join('')}
   </table>
-  <p style="margin-top:24px;font-size:12px;color:#999">Smartest Garage Doors - Form submission</p>
+  <p style="margin-top:24px;font-size:12px;color:#999">Smart Garage Doors - Form submission</p>
 </body>
 </html>`;
 }
@@ -83,8 +83,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     const { formName, ...formData } = body;
     const subject = formName
-      ? `${formName} - Smartest Garage Doors`
-      : 'Contact Form - Smartest Garage Doors';
+      ? `${formName} - Smart Garage Doors`
+      : 'Contact Form - Smart Garage Doors';
 
     const textBody = buildEmailBody(formData, formName);
     const htmlBody = buildHtmlEmail(formData, formName);

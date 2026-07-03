@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Rye, NY Garage Door Repair & Custom Door Installation | Smartest Garage Doors"
+      metaTitle="Rye, NY Garage Door Repair & Custom Door Installation | Smart Garage Doors"
       metaDescription="Garage door repair & installation in Rye, NY. Weather-resistant insulated doors for Sound-side homes, quiet smart openers, same-day repair. Licensed & insured. (914) 557-6816."
       keywords="Rye NY garage door repair, garage door installation Rye NY, insulated garage doors Rye, garage door spring replacement Rye, smart garage door opener Westchester"
       slug="/rye-ny/"

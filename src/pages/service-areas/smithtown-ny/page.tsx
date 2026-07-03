@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Smithtown, NY Garage Door Repair | Same-Day Service | Smartest Garage Doors"
+      metaTitle="Smithtown, NY Garage Door Repair | Same-Day Service | Smart Garage Doors"
       metaDescription="Garage door repair in Smithtown, NY — same-day service, 5.0★ reviews. Spring replacement, opener repair, emergency service. Licensed & insured. Call (914) 557-6816."
       keywords="Smithtown garage door repair, garage door installation Smithtown, emergency garage door Smithtown, spring replacement Smithtown"
       slug="/smithtown-ny/"

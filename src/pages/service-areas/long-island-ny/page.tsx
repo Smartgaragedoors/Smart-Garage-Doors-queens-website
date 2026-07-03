@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Long Island, NY Garage Door Repair | Same-Day Service | Smartest Garage Doors"
+      metaTitle="Long Island, NY Garage Door Repair | Same-Day Service | Smart Garage Doors"
       metaDescription="Garage door repair in Long Island, NY — same-day service, 5.0★ reviews. Spring replacement, opener repair, emergency service. Licensed & insured. Call (914) 557-6816."
       keywords="Long Island garage door repair, garage door installation Long Island, emergency garage door Long Island, spring replacement Long Island"
       slug="/long-island-ny/"

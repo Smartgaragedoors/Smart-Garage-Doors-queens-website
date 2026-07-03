@@ -14,7 +14,7 @@ export default function BestGarageDoorCompanyQueensPage() {
       showWhatsAppHero={false}
       intro={[
         'Type "best garage door company Queens" into Google and you\'ll get a wall of companies all claiming the title. That\'s not how "best" works. The best company for a Forest Hills attached garage sharing a wall with a bedroom is not necessarily the best one for a detached pre-war garage off an alley in Ridgewood. The honest version of this page is a set of criteria — what actually matters for Queens garages specifically — plus the red flags that should end a phone call early.',
-        'We\'ll be transparent about our angle: Smartest Garage Doors is based right here in Queens, in Flushing, and we built the company around the checklist below. We\'ll state plainly how we measure against each criterion and let you judge. Use the same checklist on every other company you call — that\'s exactly what it\'s for.',
+        'We\'ll be transparent about our angle: Smart Garage Doors is based right here in Queens, in Flushing, and we built the company around the checklist below. We\'ll state plainly how we measure against each criterion and let you judge. Use the same checklist on every other company you call — that\'s exactly what it\'s for.',
       ]}
       criteria={{
         title: 'What to Compare Before You Hire',
@@ -118,7 +118,7 @@ export default function BestGarageDoorCompanyQueensPage() {
           answer: 'Almost always, yes. Pre-war Queens garages frequently have openings that are narrower, lower, or less square than modern standard sizes, which calls for a custom-fit door rather than forcing a stock panel. Custom-fit doors cost more than standard sizes, but they seal correctly, travel correctly, and don\'t fight the structure. We measure the opening during the estimate and tell you honestly whether it also needs framing correction first.',
         },
       ]}
-      bottomLine="No company gets to declare itself the best garage door company in Queens — including us. What a Queens homeowner can do is hold every company to the same six criteria: full price in writing before work starts, real reviews from real Queens neighborhoods, license and insurance you can verify, a warranty on paper, genuine quiet-and-smart opener expertise for attached garages, and same-day availability when it counts. We're based in Flushing, we built Smartest Garage Doors around that exact list, and we win comparisons by being measurable, not by being loud. Call us, run us through the checklist, and decide for yourself."
+      bottomLine="No company gets to declare itself the best garage door company in Queens — including us. What a Queens homeowner can do is hold every company to the same six criteria: full price in writing before work starts, real reviews from real Queens neighborhoods, license and insurance you can verify, a warranty on paper, genuine quiet-and-smart opener expertise for attached garages, and same-day availability when it counts. We're based in Flushing, we built Smart Garage Doors around that exact list, and we win comparisons by being measurable, not by being loud. Call us, run us through the checklist, and decide for yourself."
       relatedLinks={{
         title: 'Queens Neighborhoods We Serve',
         links: [

@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Chappaqua, NY Garage Door Repair & Custom Door Installation | Smartest Garage Doors"
+      metaTitle="Chappaqua, NY Garage Door Repair & Custom Door Installation | Smart Garage Doors"
       metaDescription="Premium garage door service in Chappaqua, NY — custom and insulated doors, quiet smart openers, same-day repair. Licensed & insured. Call (914) 557-6816."
       keywords="Chappaqua garage door repair, garage door installation Chappaqua NY, custom garage doors Chappaqua, garage door spring replacement Chappaqua, smart garage door opener Westchester"
       slug="/chappaqua-ny/"

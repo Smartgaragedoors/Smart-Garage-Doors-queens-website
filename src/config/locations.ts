@@ -156,7 +156,7 @@ export const newLocations: Location[] = [
     nearbyAreas: ['Elizabeth', 'Bergen County', 'Paramus', 'Teaneck'],
     neighborhoods: ['Menlo Park', 'Metuchen', 'Highland Park', 'Piscataway', 'Woodbridge'],
     coordinates: { lat: 40.5187, lng: -74.4121 },
-    serviceAreaText: 'Professional garage door repair and installation services in Edison, New Jersey. Smartest Garage Doors provides fast, reliable service throughout Edison and surrounding Middlesex County communities.',
+    serviceAreaText: 'Professional garage door repair and installation services in Edison, New Jersey. Smart Garage Doors provides fast, reliable service throughout Edison and surrounding Middlesex County communities.',
     uniqueAngle: 'Edison is a diverse suburban community with a mix of residential neighborhoods and commercial areas. Our technicians understand the varied garage door needs of Edison homeowners, from traditional single-family homes to modern developments.',
     faqs: [
       {

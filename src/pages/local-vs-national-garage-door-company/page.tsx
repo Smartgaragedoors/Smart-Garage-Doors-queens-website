@@ -115,14 +115,14 @@ export default function LocalVsNationalGarageDoorCompanyPage() {
         },
         {
           question: 'What\'s a good alternative to a national garage door company?',
-          answer: 'A well-run independent that can answer all seven questions in this guide: who\'s coming, price before work starts, written parts-and-labor warranty, license and insurance, same-day availability, full installation capability, and reviews naming your area. We built Smartest Garage Doors around exactly that checklist — and we\'d encourage you to hold any company you call, including us, to it.',
+          answer: 'A well-run independent that can answer all seven questions in this guide: who\'s coming, price before work starts, written parts-and-labor warranty, license and insurance, same-day availability, full installation capability, and reviews naming your area. We built Smart Garage Doors around exactly that checklist — and we\'d encourage you to hold any company you call, including us, to it.',
         },
         {
           question: 'Does it matter who actually answers the phone?',
           answer: 'More than most people expect. With centralized call-center dispatch, the person booking your appointment may have limited knowledge of your specific technician, truck stock, or realistic timing. With direct local dispatch, the person on the phone typically knows exactly who\'s available and what\'s on the truck. Neither is automatically better — but it explains why arrival estimates and on-site quotes can feel very different between the two models.',
         },
       ]}
-      bottomLine="Franchises offer brand consistency, established processes, and national backing; independents offer one layer of accountability, locally made decisions, and a quote from the same hands that do the work. Neither model wins on paper — the company in front of you does, or doesn't. Smartest Garage Doors is an independent local company built deliberately around the checklist above: full price quoted before work starts, a written 1-year parts and labor warranty, licensed and insured technicians, same-day appointments often available, and a 24/7 emergency line. Run us through the seven questions yourself — that's what they're for."
+      bottomLine="Franchises offer brand consistency, established processes, and national backing; independents offer one layer of accountability, locally made decisions, and a quote from the same hands that do the work. Neither model wins on paper — the company in front of you does, or doesn't. Smart Garage Doors is an independent local company built deliberately around the checklist above: full price quoted before work starts, a written 1-year parts and labor warranty, licensed and insured technicians, same-day appointments often available, and a 24/7 emergency line. Run us through the seven questions yourself — that's what they're for."
       relatedLinks={{
         title: 'Compare Us Directly',
         links: [

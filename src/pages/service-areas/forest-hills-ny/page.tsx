@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Forest Hills, NY Garage Door Repair & Custom Door Installation | Smartest Garage Doors"
+      metaTitle="Forest Hills, NY Garage Door Repair & Custom Door Installation | Smart Garage Doors"
       metaDescription="Garage door repair & custom installation in Forest Hills, Queens. Carriage-style & insulated doors, quiet smart openers, same-day repair. Licensed & insured. (914) 557-6816."
       keywords="Forest Hills garage door repair, garage door installation Forest Hills, carriage style garage doors Forest Hills, garage door opener Forest Hills Queens, spring replacement Forest Hills"
       slug="/forest-hills-ny/"

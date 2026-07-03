@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Westport, CT Garage Door Repair | Same-Day Service | Smartest Garage Doors"
+      metaTitle="Westport, CT Garage Door Repair | Same-Day Service | Smart Garage Doors"
       metaDescription="Garage door repair in Westport, CT — same-day service, 5.0★ reviews. Spring replacement, opener repair, emergency service. Licensed & insured. Call (914) 557-6816."
       keywords="Westport garage door repair, garage door installation Westport, emergency garage door Westport, spring replacement Westport"
       slug="/westport-ct/"

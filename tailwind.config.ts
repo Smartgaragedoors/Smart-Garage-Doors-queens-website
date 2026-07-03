@@ -1,3 +1,5 @@
+import typography from '@tailwindcss/typography';
+
 /** @type {import('tailwindcss').Config} */
 export default {
     content: [
@@ -10,7 +12,14 @@ export default {
           // Premium serif used for hero/section headlines (design system: Newsreader)
           newsreader: ['Newsreader', 'Georgia', 'Times New Roman', 'serif'],
         },
+        typography: {
+          DEFAULT: {
+            css: {
+              maxWidth: 'none',
+            },
+          },
+        },
       },
     },
-    plugins: [],
+    plugins: [typography],
   }

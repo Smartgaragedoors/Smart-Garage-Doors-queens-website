@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Armonk, NY Garage Door Installation, Battery-Backup Openers & Repair | Smartest Garage Doors"
+      metaTitle="Armonk, NY Garage Door Installation, Battery-Backup Openers & Repair | Smart Garage Doors"
       metaDescription="Garage door repair & premium installation in Armonk, NY. Battery-backup smart openers, insulated doors for detached garages, custom styles. Licensed & insured. (914) 557-6816."
       keywords="Armonk garage door repair, garage door installation Armonk NY, battery backup garage door opener Armonk, insulated garage doors North Castle, custom garage doors Westchester"
       slug="/armonk-ny/"

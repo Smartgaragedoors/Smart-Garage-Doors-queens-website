@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Rumson, NJ Garage Door Repair & Wind-Rated Door Installation | Smartest Garage Doors"
+      metaTitle="Rumson, NJ Garage Door Repair & Wind-Rated Door Installation | Smart Garage Doors"
       metaDescription="Garage door service in Rumson, NJ — wind-rated insulated doors, corrosion-resistant hardware, smart openers, same-day repair. Licensed & insured. (914) 557-6816."
       keywords="Rumson garage door repair, garage door installation Rumson NJ, wind rated garage doors Rumson, garage door spring replacement Rumson, custom carriage garage doors Monmouth County"
       slug="/rumson-nj/"

@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Port Washington, NY Garage Door Repair & Custom Door Installation | Smartest Garage Doors"
+      metaTitle="Port Washington, NY Garage Door Repair & Custom Door Installation | Smart Garage Doors"
       metaDescription="Garage door repair & installation in Port Washington, NY. Insulated, salt-air-resistant doors, quiet smart openers, same-day repair. Licensed & insured. (914) 557-6816."
       keywords="Port Washington garage door repair, garage door installation Port Washington NY, insulated garage doors Port Washington, garage door spring replacement Port Washington, smart garage door opener Nassau County"
       slug="/port-washington-ny/"

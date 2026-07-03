@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Staten Island, NY Garage Door Repair | Same-Day Service | Smartest Garage Doors"
+      metaTitle="Staten Island, NY Garage Door Repair | Same-Day Service | Smart Garage Doors"
       metaDescription="Garage door repair in Staten Island, NY — same-day service, 5.0★ reviews. Spring replacement, opener repair, emergency service. Licensed & insured. Call (914) 557-6816."
       keywords="Staten Island garage door repair, garage door installation Staten Island, emergency garage door Staten Island, spring replacement Staten Island"
       slug="/staten-island-ny/"

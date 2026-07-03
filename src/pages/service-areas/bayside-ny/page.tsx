@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Bayside, NY Garage Door Repair & Insulated Door Installation | Smartest Garage Doors"
+      metaTitle="Bayside, NY Garage Door Repair & Insulated Door Installation | Smart Garage Doors"
       metaDescription="Garage door repair & installation in Bayside, Queens. Insulated doors built for bay weather, smart WiFi openers, same-day repair. Licensed & insured. Call (914) 557-6816."
       keywords="Bayside garage door repair, garage door installation Bayside Queens, insulated garage doors Bayside, garage door spring replacement Bayside, smart garage door opener Bayside"
       slug="/bayside-ny/"

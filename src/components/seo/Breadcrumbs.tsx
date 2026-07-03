@@ -1,6 +1,8 @@
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { buildCanonical } from '../../config/canonical';
+import { usePageMeta } from '../../context/PageMetaContext';
+import { stripAutomationSlugSuffix } from '../../utils/blogFormat';
 
 interface BreadcrumbItem {
   label: string;
@@ -10,6 +12,7 @@ interface BreadcrumbItem {
 export default function Breadcrumbs() {
   const location = useLocation();
   const pathname = location.pathname;
+  const { breadcrumbLabel } = usePageMeta();
 
   // Don't show breadcrumbs on homepage
   if (pathname === '/' || pathname === '/home') {
@@ -22,14 +25,28 @@ export default function Breadcrumbs() {
   const segments = pathname.split('/').filter(Boolean);
 
   let currentPath = '';
-  segments.forEach((segment, _index) => {
+  segments.forEach((segment, index) => {
     currentPath += `/${segment}`;
+    const isLast = index === segments.length - 1;
     
     // Format label from segment
     let label = segment
       .split('-')
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(' ');
+
+    // Blog post slug: use page title when provided, else strip automation suffix
+    if (segments[0] === 'blog' && isLast && segment !== 'blog') {
+      if (breadcrumbLabel) {
+        label = breadcrumbLabel;
+      } else {
+        const cleaned = stripAutomationSlugSuffix(segment);
+        label = cleaned
+          .split('-')
+          .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(' ');
+      }
+    }
 
     // Handle special cases
     if (segment === 'garage-door-repair') {

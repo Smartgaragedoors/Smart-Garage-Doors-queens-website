@@ -176,7 +176,7 @@ async function generateSeoAnalysis(params: {
   const { curr, prev, sources, topPages, queries, gscPages } = params;
   const quickWins = queries.filter(q => q.impressions > 50 && q.ctr < 0.03);
 
-  const prompt = `You are a senior SEO consultant giving a weekly briefing to the owner of Smartest Garage Doors — a garage door repair and installation company serving Queens NY, Brooklyn NY, Westchester NY, Nassau County NY, New Jersey, and Connecticut.
+  const prompt = `You are a senior SEO consultant giving a weekly briefing to the owner of Smart Garage Doors — a garage door repair and installation company serving Queens NY, Brooklyn NY, Westchester NY, Nassau County NY, New Jersey, and Connecticut.
 
 THIS WEEK'S DATA:
 
@@ -298,7 +298,7 @@ function buildEmail(params: {
 
   <div style="background:#1e3a5f;padding:20px 24px;border-radius:8px 8px 0 0;">
     <h1 style="color:#fff;margin:0;font-size:20px;">📊 Weekly SEO & Analytics Report</h1>
-    <p style="color:#93c5fd;margin:4px 0 0;font-size:14px;">Smartest Garage Doors · ${weekLabel}</p>
+    <p style="color:#93c5fd;margin:4px 0 0;font-size:14px;">Smart Garage Doors · ${weekLabel}</p>
   </div>
 
   <div style="background:#fff;padding:24px;border:1px solid #e5e7eb;border-top:none;border-radius:0 0 8px 8px;">
@@ -358,7 +358,7 @@ function buildEmail(params: {
     </table>
 
     <p style="margin-top:24px;font-size:12px;color:#9ca3af;text-align:center;">
-      Smartest Garage Doors · NY, NJ &amp; CT<br>
+      Smart Garage Doors · NY, NJ &amp; CT<br>
       <a href="https://analytics.google.com" style="color:#9ca3af;">GA4</a> &nbsp;·&nbsp;
       <a href="https://search.google.com/search-console" style="color:#9ca3af;">Search Console</a>
     </p>
@@ -400,7 +400,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     const resendKey = process.env.RESEND_API_KEY?.trim();
     const toEmail   = process.env.NOTIFICATION_EMAIL?.trim() ?? 'danielabraham128@gmail.com';
-    const fromEmail = process.env.FROM_EMAIL?.trim() ?? 'Smartest Garage Doors <onboarding@resend.dev>';
+    const fromEmail = process.env.FROM_EMAIL?.trim() ?? 'Smart Garage Doors <onboarding@resend.dev>';
 
     if (!resendKey) throw new Error('RESEND_API_KEY not set');
 

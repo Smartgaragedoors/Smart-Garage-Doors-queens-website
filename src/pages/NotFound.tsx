@@ -13,7 +13,7 @@ export default function NotFound() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <DynamicMetaTags 
-        title="404 - Page Not Found | Smartest Garage Doors"
+        title="404 - Page Not Found | Smart Garage Doors"
         description="The page you're looking for doesn't exist or has been moved."
         noIndex={true}
       />

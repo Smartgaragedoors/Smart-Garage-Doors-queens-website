@@ -88,7 +88,7 @@ export default function LPWhatsAppPage() {
   const headline = config.headline ?? 'Garage Door Repair Without the Runaround';
   const subheadline =
     config.subheadline ??
-    'Same-day garage door repair, opener repair, spring replacement, and emergency service across NY, NJ & CT. Message Smartest Garage Doors on WhatsApp now and get help fast.';
+    'Same-day garage door repair, opener repair, spring replacement, and emergency service across NY, NJ & CT. Message Smart Garage Doors on WhatsApp now and get help fast.';
 
   const reviews = STATIC_REVIEWS.slice(0, 3);
   const lpHero = getCloudflareImage('lpWhatsappHero');
@@ -96,7 +96,7 @@ export default function LPWhatsAppPage() {
   return (
     <div className="min-h-screen bg-white">
       <DynamicMetaTags
-        title="Garage Door Repair | Message Us on WhatsApp | Smartest Garage Doors"
+        title="Garage Door Repair | Message Us on WhatsApp | Smart Garage Doors"
         description="Same-day garage door repair across NY, NJ & CT. Message us on WhatsApp for fast help. 5.0 rated, 479 reviews, licensed & insured."
         noIndex={!LP_WHATSAPP_INDEXABLE}
       />

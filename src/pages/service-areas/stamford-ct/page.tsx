@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Stamford, CT Garage Door Repair | Same-Day Service | Smartest Garage Doors"
+      metaTitle="Stamford, CT Garage Door Repair | Same-Day Service | Smart Garage Doors"
       metaDescription="Garage door repair in Stamford, CT — same-day service, 5.0★ reviews. Spring replacement, opener repair, emergency service. Licensed & insured. Call (914) 557-6816."
       keywords="Stamford garage door repair, garage door installation Stamford, emergency garage door Stamford, spring replacement Stamford"
       slug="/stamford-ct/"

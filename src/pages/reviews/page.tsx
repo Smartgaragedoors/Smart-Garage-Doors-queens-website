@@ -28,8 +28,8 @@ export default function ReviewsPage() {
   return (
     <div className="min-h-screen bg-white">
       <DynamicMetaTags 
-        title="Customer Reviews | 5-Star Garage Door Service NY NJ CT | Smartest Garage Doors"
-        description="Read real customer reviews for Smartest Garage Doors. 5.0 star rating with hundreds of verified reviews across New York, New Jersey & Connecticut for repair and installation."
+        title="Customer Reviews | 5-Star Garage Door Service NY NJ CT | Smart Garage Doors"
+        description="Read real customer reviews for Smart Garage Doors. 5.0 star rating with hundreds of verified reviews across New York, New Jersey & Connecticut for repair and installation."
         canonical={buildCanonical('/reviews')}
       />
       <Header />
@@ -130,7 +130,7 @@ export default function ReviewsPage() {
             Experience Our 5-Star Service
           </h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto">
-            Join hundreds of satisfied customers who trust Smartest Garage Doors for all their garage door needs.
+            Join hundreds of satisfied customers who trust Smart Garage Doors for all their garage door needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

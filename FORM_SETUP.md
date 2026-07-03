@@ -14,7 +14,7 @@ If you **don't** receive emails when someone submits the Book Now or Contact for
 4. In **Vercel** → Project → Settings → Environment Variables, add:
    - `RESEND_API_KEY` = your Resend API key
    - `NOTIFICATION_EMAIL` = email where you want leads (e.g. `info@smartestgaragedoors.com`)
-   - `FROM_EMAIL` = `Smartest Garage Doors <noreply@smartestgaragedoors.com>` (use your verified domain)
+   - `FROM_EMAIL` = `Smart Garage Doors <noreply@smartestgaragedoors.com>` (use your verified domain)
 5. **Redeploy** the project.
 
 Submissions will be emailed to `NOTIFICATION_EMAIL` with all lead details, form name, and timestamp.

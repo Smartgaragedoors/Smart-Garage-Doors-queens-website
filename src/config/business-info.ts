@@ -1,6 +1,6 @@
 // Centralized business information for NAP consistency and SEO
 export const BUSINESS_INFO = {
-  name: "Smartest Garage Doors",
+  name: "Smart Garage Doors",
   legalName: "Smart Garage Doors",
   phone: "(914) 557-6816",
   phoneFormatted: "+19145576816",

@@ -56,7 +56,7 @@ const ReviewSchema: React.FC<ReviewSchemaProps> = ({
   const schema: LocalBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "Smartest Garage Doors",
+    "name": "Smart Garage Doors",
   };
 
   // Add individual reviews if provided

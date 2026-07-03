@@ -316,6 +316,16 @@
     { "source": "/garage-door-roller-repair-prevention/", "destination": "/cable-roller-repair/", "permanent": true },
     { "source": "/how-to-repair-garage-door-opener", "destination": "/opener-repair-installation/", "permanent": true },
     { "source": "/how-to-repair-garage-door-opener/", "destination": "/opener-repair-installation/", "permanent": true },
+    {
+      "source": "/blog/modern-glass-garage-door-install-queens-b77j/",
+      "destination": "/blog/modern-glass-garage-door-install-queens/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/modern-glass-garage-door-install-queens-b77j",
+      "destination": "/blog/modern-glass-garage-door-install-queens/",
+      "permanent": true
+    },
     { "source": "/garage-door-sensor-repair-easy-guide", "destination": "/garage-door-repair/", "permanent": true },
     { "source": "/garage-door-sensor-repair-easy-guide/", "destination": "/garage-door-repair/", "permanent": true },
     { "source": "/garage-door-installation-new-york", "destination": "/garage-door-installation/", "permanent": true },

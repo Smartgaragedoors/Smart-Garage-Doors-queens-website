@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Flushing, NY Garage Door Repair | Same-Day Service | Smartest Garage Doors"
+      metaTitle="Flushing, NY Garage Door Repair | Same-Day Service | Smart Garage Doors"
       metaDescription="Garage door repair in Flushing, NY — same-day service, 5.0★ reviews. Spring replacement, opener repair, emergency service. Licensed & insured. Call (914) 557-6816."
       keywords="Flushing garage door repair, garage door installation Flushing, emergency garage door Flushing, spring replacement Flushing"
       slug="/flushing-ny/"

@@ -87,8 +87,8 @@ async function submitWeb3Forms(
 ): Promise<FormSubmissionResult> {
   const formData = new FormData();
   formData.append('access_key', WEB3FORMS_ACCESS_KEY);
-  formData.append('subject', formName ? `${formName} - Smartest Garage Doors` : 'Contact Form - Smartest Garage Doors');
-  formData.append('from_name', 'Smartest Garage Doors Website');
+  formData.append('subject', formName ? `${formName} - Smart Garage Doors` : 'Contact Form - Smart Garage Doors');
+  formData.append('from_name', 'Smart Garage Doors Website');
   formData.append('message', buildMessageBody(data));
 
   Object.entries(data).forEach(([key, value]) => {
@@ -117,7 +117,7 @@ async function submitFormspree(
   formName?: string
 ): Promise<FormSubmissionResult> {
   const payload: Record<string, string> = {
-    _subject: formName ? `${formName} - Smartest Garage Doors` : 'Contact Form - Smartest Garage Doors',
+    _subject: formName ? `${formName} - Smart Garage Doors` : 'Contact Form - Smart Garage Doors',
     _format: 'plain',
     message: buildMessageBody(data),
   };
@@ -152,7 +152,7 @@ function submitFormMailto(
   formName?: string
 ): FormSubmissionResult {
   const email = 'info@smartestgaragedoors.com';
-  const subject = encodeURIComponent(formName ? `${formName} - Smartest Garage Doors` : 'Contact Form - Smartest Garage Doors');
+  const subject = encodeURIComponent(formName ? `${formName} - Smart Garage Doors` : 'Contact Form - Smart Garage Doors');
   const body = encodeURIComponent(buildMessageBody(data));
   const mailtoLink = `mailto:${email}?subject=${subject}&body=${body}`;
   window.location.href = mailtoLink;

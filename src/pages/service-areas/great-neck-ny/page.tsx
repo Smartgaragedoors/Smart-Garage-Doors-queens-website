@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Great Neck, NY Garage Door Repair & Custom Door Installation | Smartest Garage Doors"
+      metaTitle="Great Neck, NY Garage Door Repair & Custom Door Installation | Smart Garage Doors"
       metaDescription="Garage door repair & custom installation in Great Neck, NY. Custom wood & carriage-house doors, smart WiFi openers, same-day repair. Licensed & insured. (914) 557-6816."
       keywords="Great Neck garage door repair, custom garage doors Great Neck, garage door installation Great Neck NY, carriage house garage doors Kings Point, garage door opener Great Neck"
       slug="/great-neck-ny/"

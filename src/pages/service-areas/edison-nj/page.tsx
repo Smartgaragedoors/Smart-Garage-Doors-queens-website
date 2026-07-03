@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Edison, NJ Garage Door Repair | Same-Day Service | Smartest Garage Doors"
+      metaTitle="Edison, NJ Garage Door Repair | Same-Day Service | Smart Garage Doors"
       metaDescription="Garage door repair in Edison, NJ — same-day service, 5.0★ reviews. Spring replacement, opener repair, emergency service. Licensed & insured. Call (914) 557-6816."
       keywords="Edison garage door repair, garage door installation Edison, emergency garage door Edison, spring replacement Edison"
       slug="/edison-nj/"

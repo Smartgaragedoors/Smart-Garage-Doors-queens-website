@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Holmdel, NJ Garage Door Repair & Premium Door Installation | Smartest Garage Doors"
+      metaTitle="Holmdel, NJ Garage Door Repair & Premium Door Installation | Smart Garage Doors"
       metaDescription="Garage door service in Holmdel, NJ — insulated doors, quiet smart openers, full door & opener packages, same-day repair. Licensed & insured. (914) 557-6816."
       keywords="Holmdel garage door repair, garage door installation Holmdel NJ, insulated garage doors Holmdel, garage door spring replacement Holmdel, quiet garage door opener Monmouth County"
       slug="/holmdel-nj/"

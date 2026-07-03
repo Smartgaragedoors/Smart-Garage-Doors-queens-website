@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Jamaica Estates, NY Garage Door Repair & Carriage Door Installation | Smartest Garage Doors"
+      metaTitle="Jamaica Estates, NY Garage Door Repair & Carriage Door Installation | Smart Garage Doors"
       metaDescription="Garage door repair & premium installation in Jamaica Estates, NY. Architecture-matched carriage doors for Tudor homes, smart openers, security upgrades. (914) 557-6816."
       keywords="Jamaica Estates garage door repair, garage door installation Jamaica Estates NY, carriage house garage doors Jamaica Estates, Tudor garage doors Queens, garage door opener Holliswood"
       slug="/jamaica-estates-ny/"

@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Manhasset, NY Garage Door Repair & Custom Door Installation | Smartest Garage Doors"
+      metaTitle="Manhasset, NY Garage Door Repair & Custom Door Installation | Smart Garage Doors"
       metaDescription="Garage door repair & custom installation in Manhasset, NY. Doors matched to your home's architecture, quiet smart openers, same-day repair. Licensed & insured. (914) 557-6816."
       keywords="Manhasset garage door repair, garage door installation Manhasset NY, custom garage doors Manhasset, garage door opener Plandome, carriage style garage doors Manhasset"
       slug="/manhasset-ny/"

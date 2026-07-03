@@ -46,7 +46,7 @@ export default function CityServiceAreaPage({ location }: CityServiceAreaPagePro
 
   const metaDescription =
     location.serviceAreaText ||
-    `Professional garage door repair and installation services in ${location.city}, ${location.stateAbbr}. Smartest Garage Doors offers same-day service, emergency repairs, and expert installation throughout ${location.city} and surrounding areas.`;
+    `Professional garage door repair and installation services in ${location.city}, ${location.stateAbbr}. Smart Garage Doors offers same-day service, emergency repairs, and expert installation throughout ${location.city} and surrounding areas.`;
 
   const localReasons = [
     `Fast dispatch coverage across ${countyLabel}`,
@@ -70,7 +70,7 @@ export default function CityServiceAreaPage({ location }: CityServiceAreaPagePro
   return (
     <div className="min-h-screen bg-white">
       <DynamicMetaTags
-        title={`Garage Door Repair in ${location.city}, ${location.stateAbbr} | Smartest Garage Doors`}
+        title={`Garage Door Repair in ${location.city}, ${location.stateAbbr} | Smart Garage Doors`}
         description={metaDescription}
         keywords={`${location.city} ${location.stateAbbr} garage door repair, garage door installation ${location.city}, emergency garage door service ${location.city}`}
         canonical={canonicalUrl}
@@ -96,7 +96,7 @@ export default function CityServiceAreaPage({ location }: CityServiceAreaPagePro
             </h1>
             <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
               {location.serviceAreaText ||
-                `Expert garage door repair and installation services throughout ${location.city}, ${location.state}. Smartest Garage Doors provides reliable, professional solutions for homes and businesses across ${location.city}.`}
+                `Expert garage door repair and installation services throughout ${location.city}, ${location.state}. Smart Garage Doors provides reliable, professional solutions for homes and businesses across ${location.city}.`}
             </p>
             <div data-hero-cta className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -166,7 +166,7 @@ export default function CityServiceAreaPage({ location }: CityServiceAreaPagePro
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed">
               {location.uniqueAngle ||
-                `Smartest Garage Doors provides professional garage door repair and installation throughout ${location.city}, ${location.stateAbbr}. Our technicians serve ${location.city}${location.county ? ` and ${location.county}` : ' and surrounding areas'} with same-day service, emergency repairs, and expert installation.`}
+                `Smart Garage Doors provides professional garage door repair and installation throughout ${location.city}, ${location.stateAbbr}. Our technicians serve ${location.city}${location.county ? ` and ${location.county}` : ' and surrounding areas'} with same-day service, emergency repairs, and expert installation.`}
             </p>
             <p className="text-lg text-gray-700 leading-relaxed mt-4">
               Whether you need <a href="/garage-door-repair/" className="text-blue-600 hover:text-blue-700 font-medium">garage door repair</a>, <a href="/garage-door-installation/" className="text-blue-600 hover:text-blue-700 font-medium">new door installation</a>, or <a href="/emergency-garage-door-repair/" className="text-blue-600 hover:text-blue-700 font-medium">24/7 emergency service</a>, our licensed technicians provide fast, reliable solutions for {location.city} homeowners and businesses.
@@ -179,7 +179,7 @@ export default function CityServiceAreaPage({ location }: CityServiceAreaPagePro
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Why Customers in {location.city} Choose Smartest Garage Doors
+              Why Customers in {location.city} Choose Smart Garage Doors
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Local homeowners and businesses in {location.city} count on us for honest estimates, same-day availability, and technicians who know the area. Here is what sets us apart.

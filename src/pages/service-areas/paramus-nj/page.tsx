@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Paramus, NJ Garage Door Repair | Same-Day Service | Smartest Garage Doors"
+      metaTitle="Paramus, NJ Garage Door Repair | Same-Day Service | Smart Garage Doors"
       metaDescription="Garage door repair in Paramus, NJ — same-day service, 5.0★ reviews. Spring replacement, opener repair, emergency service. Licensed & insured. Call (914) 557-6816."
       keywords="Paramus garage door repair, garage door installation Paramus, emergency garage door Paramus, spring replacement Paramus"
       slug="/paramus-nj/"

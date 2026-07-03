@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Fort Lee, NJ Garage Door Repair & Premium Installation | Smartest Garage Doors"
+      metaTitle="Fort Lee, NJ Garage Door Repair & Premium Installation | Smart Garage Doors"
       metaDescription="Garage door repair & premium installation in Fort Lee, NJ. Residential & building garage doors, smart WiFi openers, same-day repair. Licensed & insured. (914) 557-6816."
       keywords="Fort Lee garage door repair, garage door installation Fort Lee NJ, building garage doors Fort Lee, smart garage door opener Fort Lee, townhouse garage doors Bergen County"
       slug="/fort-lee-nj/"

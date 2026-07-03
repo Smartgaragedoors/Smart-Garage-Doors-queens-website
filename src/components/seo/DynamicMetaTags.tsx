@@ -37,8 +37,8 @@ export default function DynamicMetaTags({
       const path = routerLocation.pathname;
       if (path.includes('/garage-door-repair')) {
         finalTitle = location
-          ? `Garage Door Repair ${locationName} | Same-Day Service | Smartest Garage Doors`
-          : 'Garage Door Repair Queens NY | Same-Day Service | Smartest Garage Doors';
+          ? `Garage Door Repair ${locationName} | Same-Day Service | Smart Garage Doors`
+          : 'Garage Door Repair Queens NY | Same-Day Service | Smart Garage Doors';
       } else if (path.includes('/garage-door-installation')) {
         finalTitle = location
           ? `Garage Door Installation ${locationName} | Professional Service`
@@ -69,9 +69,9 @@ export default function DynamicMetaTags({
     let finalDescription = description;
     if (!finalDescription) {
       if (location) {
-        finalDescription = `Professional garage door repair and installation services in ${locationName}. Smartest Garage Doors offers same-day service, emergency repairs, and expert installation. Licensed technicians serving ${locationName} and surrounding areas.`;
+        finalDescription = `Professional garage door repair and installation services in ${locationName}. Smart Garage Doors offers same-day service, emergency repairs, and expert installation. Licensed technicians serving ${locationName} and surrounding areas.`;
       } else {
-        finalDescription = 'Garage door stuck, broken spring, or opener not working? Smartest Garage Doors delivers same-day repair across New York, New Jersey, and Connecticut with local-feeling dispatch, trusted service, and fast response.';
+        finalDescription = 'Garage door stuck, broken spring, or opener not working? Smart Garage Doors delivers same-day repair across New York, New Jersey, and Connecticut with local-feeling dispatch, trusted service, and fast response.';
       }
     } else if (location && description && !description.includes(locationName)) {
       const geoPatterns = [locationName, location?.city, location?.state, 'NY', 'NJ', 'CT'];

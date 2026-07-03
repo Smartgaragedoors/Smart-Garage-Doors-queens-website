@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Alpine, NJ Custom Garage Door Installation & Repair | Smartest Garage Doors"
+      metaTitle="Alpine, NJ Custom Garage Door Installation & Repair | Smart Garage Doors"
       metaDescription="Premium garage door installation & repair in Alpine, NJ. Custom wood estate doors, smart secure openers, discreet clean installation. Licensed & insured. (914) 557-6816."
       keywords="Alpine NJ garage door installation, custom garage doors Alpine, estate garage doors Bergen County, garage door repair Alpine NJ, smart garage door opener Alpine"
       slug="/alpine-nj/"

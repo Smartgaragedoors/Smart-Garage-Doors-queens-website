@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Syosset, NY Garage Door Repair & Premium Door Installation | Smartest Garage Doors"
+      metaTitle="Syosset, NY Garage Door Repair & Premium Door Installation | Smart Garage Doors"
       metaDescription="Garage door repair & premium installation in Syosset, NY. Insulated doors for large colonials, three-car garages, full door & opener packages. Licensed & insured. (914) 557-6816."
       keywords="Syosset garage door repair, garage door installation Syosset NY, insulated garage doors Syosset, three car garage doors Nassau County, garage door opener Syosset"
       slug="/syosset-ny/"

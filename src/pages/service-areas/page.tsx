@@ -57,7 +57,7 @@ export default function ServiceAreasPage() {
   return (
     <div className="min-h-screen bg-white">
       <DynamicMetaTags
-        title="Service Areas | Garage Door Repair NY NJ CT | Smartest Garage Doors"
+        title="Service Areas | Garage Door Repair NY NJ CT | Smart Garage Doors"
         description="Professional garage door services throughout New York, New Jersey, and Connecticut. Serving Brooklyn, Queens, Stamford, Greenwich, Bergen County, and more. Same-day service and 24/7 emergency repairs available."
         keywords="garage door service areas, NY garage door repair, NJ garage door repair, CT garage door repair, tri-state garage door service"
         canonical={buildCanonical('/service-areas')}
@@ -89,7 +89,7 @@ export default function ServiceAreasPage() {
               Comprehensive Garage Door Services Across the Tri-State Area
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Smartest Garage Doors provides professional garage door repair, installation, and maintenance services 
+              Smart Garage Doors provides professional garage door repair, installation, and maintenance services 
               throughout New York, New Jersey, and Connecticut. With multiple service locations and experienced technicians, 
               we deliver fast, reliable service to homeowners and businesses across our entire coverage area.
             </p>

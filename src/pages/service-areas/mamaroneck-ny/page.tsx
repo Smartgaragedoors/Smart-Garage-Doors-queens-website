@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Mamaroneck, NY Garage Door Repair & Coastal-Grade Door Installation | Smartest Garage Doors"
+      metaTitle="Mamaroneck, NY Garage Door Repair & Coastal-Grade Door Installation | Smart Garage Doors"
       metaDescription="Garage door repair & installation in Mamaroneck, NY. Weather-resistant insulated doors, carriage styles, smart WiFi openers. Licensed & insured. (914) 557-6816."
       keywords="Mamaroneck garage door repair, garage door installation Mamaroneck NY, insulated garage doors Mamaroneck, carriage house garage doors Westchester, garage door opener Mamaroneck"
       slug="/mamaroneck-ny/"

@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Harrison, NY Custom Garage Door Installation & Repair | Smartest Garage Doors"
+      metaTitle="Harrison, NY Custom Garage Door Installation & Repair | Smart Garage Doors"
       metaDescription="Garage door repair & custom installation in Harrison, NY. Custom doors for estates & colonials, quiet belt-drive openers, full packages. Licensed & insured. (914) 557-6816."
       keywords="Harrison garage door repair, custom garage doors Harrison NY, garage door installation Purchase NY, quiet garage door opener Harrison, carriage house garage doors Westchester"
       slug="/harrison-ny/"

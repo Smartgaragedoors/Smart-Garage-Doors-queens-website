@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Whitestone, NY Garage Door Repair & Insulated Door Installation | Smartest Garage Doors"
+      metaTitle="Whitestone, NY Garage Door Repair & Insulated Door Installation | Smart Garage Doors"
       metaDescription="Garage door repair & premium installation in Whitestone, NY. Insulated doors for waterfront homes, custom Malba designs, quiet WiFi openers. Licensed & insured. (914) 557-6816."
       keywords="Whitestone garage door repair, garage door installation Whitestone NY, insulated garage doors Whitestone, custom garage doors Malba, garage door opener Whitestone Queens"
       slug="/whitestone-ny/"

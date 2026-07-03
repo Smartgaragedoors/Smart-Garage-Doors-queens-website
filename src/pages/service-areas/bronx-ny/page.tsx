@@ -4,7 +4,7 @@ export default function BronxNY() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Bronx NY Garage Door Repair | Same-Day Service | Smartest Garage Doors"
+      metaTitle="Bronx NY Garage Door Repair | Same-Day Service | Smart Garage Doors"
       metaDescription="Garage door repair in the Bronx, NY — same-day service, 5.0★ reviews. Spring replacement, opener repair, emergency service. Licensed & insured. Call (914) 557-6816."
       keywords="Bronx NY garage door repair, garage door installation Bronx, emergency garage door Bronx, spring replacement Bronx"
       slug="/bronx-ny/"

@@ -152,7 +152,7 @@ Allow: /contact/
      <div className="min-h-screen">
 -      <DynamicMetaTags />
 +      <DynamicMetaTags 
-+        title="Garage Door Repair NY NJ CT | 5.0★ Same-Day Service | Smartest Garage Doors"
++        title="Garage Door Repair NY NJ CT | 5.0★ Same-Day Service | Smart Garage Doors"
 +        description="5.0★ rated, 392 reviews. Same-day garage door repair & installation across NY, NJ & CT. 24/7 emergency service. Licensed & insured. Call (914) 557-6816."
 +      />
 +      <WebSiteSchema />
@@ -172,7 +172,7 @@ Allow: /contact/
        <DynamicMetaTags 
 -        title="Professional Garage Door Repair Services | Same-Day Service"
 -        description="Expert garage door repair services across NY, NJ, and CT. Fast, reliable, and affordable solutions for all your garage door problems. Same-day service available."
-+        title="Garage Door Repair NY NJ CT | 5.0★ Same-Day | Smartest Garage Doors"
++        title="Garage Door Repair NY NJ CT | 5.0★ Same-Day | Smart Garage Doors"
 +        description="5.0★ rated, 392 reviews. Same-day garage door repair across NY, NJ & CT. Spring replacement, opener repair, emergency service. Licensed & insured."
        />
 ```
@@ -192,7 +192,7 @@ Allow: /contact/
 -        title="Emergency Garage Door Repair NYC | 24/7 Service | Same-Day Response"
 -        description="24/7 emergency garage door repair in NYC, Westchester, and Connecticut. Fast response, professional technicians, immediate solutions for broken garage doors. Available 24/7."
 -        keywords="emergency garage door repair, 24/7 garage door service, urgent garage door fix, broken garage door repair, emergency technician"
-+        title="Emergency Garage Door Repair | 24/7 NY NJ CT | Smartest Garage Doors"
++        title="Emergency Garage Door Repair | 24/7 NY NJ CT | Smart Garage Doors"
 +        description="24/7 emergency garage door repair. 5.0★, 392 reviews. 60-90 min response. Same-day service. Licensed & insured. Call (914) 557-6816."
 +        keywords="emergency garage door repair, 24/7 garage door service, urgent garage door fix, broken garage door repair"
        />
@@ -212,7 +212,7 @@ Allow: /contact/
 -        title="Garage Door Installation NY NJ CT | Professional Installation Services"
 -        description="Professional garage door installation services in NY, NJ & CT. Expert installation of all garage door styles and brands. Same-day service available. Licensed and insured technicians."
 -        keywords="garage door installation, new garage door installation, garage door installer, professional garage door installation"
-+        title="Garage Door Installation NY NJ CT | New Doors & Replacements | Smartest Garage Doors"
++        title="Garage Door Installation NY NJ CT | New Doors & Replacements | Smart Garage Doors"
 +        description="New garage door installation & replacement. 5.0★, 392 reviews. Free estimates. Same-day available. Licensed & insured. Serving NY, NJ & CT."
 +        keywords="garage door installation, new garage door, garage door replacement, garage door installer"
        />
@@ -229,7 +229,7 @@ Allow: /contact/
 
 ```diff
        <DynamicMetaTags 
-         title="Garage Door Installation Services & Free Quotes | Smartest Garage Doors"
+         title="Garage Door Installation Services & Free Quotes | Smart Garage Doors"
 -        description="Plan your next garage door installation with a free, detailed quote. We handle residential and commercial installations across NY, NJ & CT with full warranty and expert guidance on styles, materials, and openers."
 -        keywords="garage door installation services, free garage door quote, residential and commercial garage doors, professional installation team"
 +        description="Plan your garage door project with a free quote. Styles, materials, openers. Residential & commercial. NY, NJ & CT. 5.0★, 392 reviews. Licensed & insured."
@@ -251,7 +251,7 @@ Allow: /contact/
 -        title="Garage Door Spring Replacement NYC | Torsion & Extension Springs | Same-Day Service"
 -        description="Professional garage door spring replacement in NYC, Westchester, and Connecticut. Safe installation of torsion and extension springs. Same-day service available."
 -        keywords="garage door spring replacement, torsion spring repair, extension spring replacement, broken spring repair, spring installation"
-+        title="Garage Door Spring Replacement NY NJ CT | Same-Day | Smartest Garage Doors"
++        title="Garage Door Spring Replacement NY NJ CT | Same-Day | Smart Garage Doors"
 +        description="5.0★ rated, 392 reviews. Safe spring replacement. Torsion & extension. Same-day service. NY, NJ & CT. Licensed & insured."
 +        keywords="garage door spring replacement, torsion spring repair, extension spring replacement, broken spring repair"
        />
@@ -271,7 +271,7 @@ Allow: /contact/
 -        title="Garage Door Opener Repair NY NJ CT | Same-Day Service | Smart Garage Doors"
 -        description="Professional garage door opener repair services in NY, NJ & CT. Chain drive, belt drive, and wall mount torsion systems. Fast, reliable service with warranty."
 -        keywords="garage door opener repair, chain drive, belt drive, wall mount torsion, NY, NJ, CT"
-+        title="Garage Door Opener Repair NY NJ CT | Same-Day | Smartest Garage Doors"
++        title="Garage Door Opener Repair NY NJ CT | Same-Day | Smart Garage Doors"
 +        description="5.0★ rated, 392 reviews. Opener repair & installation. Chain, belt, wall-mount. Same-day service. NY, NJ & CT. Licensed & insured."
 +        keywords="garage door opener repair, opener installation, chain drive, belt drive, wall mount"
        />
@@ -291,7 +291,7 @@ Allow: /contact/
 -        title="Garage Door Cable & Roller Repair NYC | Track Repair | Same-Day Service"
 -        description="Professional garage door cable and roller repair in NYC, Westchester, and Connecticut. Track alignment, cable replacement, roller installation. Same-day service."
 -        keywords="garage door cable repair, roller replacement, track repair, cable replacement, garage door tracks, roller installation"
-+        title="Garage Door Cable & Roller Repair NY NJ CT | Same-Day | Smartest Garage Doors"
++        title="Garage Door Cable & Roller Repair NY NJ CT | Same-Day | Smart Garage Doors"
 +        description="5.0★ rated, 392 reviews. Cable, roller, track repair. Same-day service. NY, NJ & CT. Licensed & insured."
 +        keywords="garage door cable repair, roller replacement, track repair, cable replacement"
          canonical={...}
@@ -312,7 +312,7 @@ Allow: /contact/
 -        title="Garage Door Maintenance Plans NYC | Preventive Service | Smart Garage Doors"
 -        description="Professional garage door maintenance plans in NYC, Westchester, and Connecticut. Preventive maintenance to extend door life and prevent costly repairs."
 -        keywords="garage door maintenance, preventive maintenance, maintenance plans, garage door service, annual maintenance"
-+        title="Garage Door Maintenance Plans | NY NJ CT | Smartest Garage Doors"
++        title="Garage Door Maintenance Plans | NY NJ CT | Smart Garage Doors"
 +        description="Preventive garage door maintenance. Extend door life, avoid costly repairs. 5.0★, 392 reviews. Annual plans. NY, NJ & CT."
 +        keywords="garage door maintenance, preventive maintenance, maintenance plans, annual garage door service"
        />
@@ -352,7 +352,7 @@ Allow: /contact/
      <div className="min-h-screen bg-white">
        <DynamicMetaTags 
 -        title={`${post.title} | Smart Garage Doors Blog`}
-+        title={`${post.title} | Smartest Garage Doors Blog`}
++        title={`${post.title} | Smart Garage Doors Blog`}
          description={post.description}
          keywords={...}
 +        canonical={postUrl}
@@ -392,7 +392,7 @@ Allow: /contact/
 -      title="White Plains NY Garage Door Repair | Smart Garage Doors | Licensed Technicians"
 -      description="Professional garage door repair services in White Plains, NY. Smart Garage Doors offers emergency repairs..."
 -      keywords="... Smart Garage Doors"
-+      title="White Plains NY Garage Door Repair | Smartest Garage Doors | Licensed Technicians"
++      title="White Plains NY Garage Door Repair | Smart Garage Doors | Licensed Technicians"
 +      description="Professional garage door repair in White Plains, NY. 5.0★ rated, 392 reviews. Same-day service, emergency repairs, spring replacement. Licensed & insured."
 +      keywords="White Plains NY garage door repair, garage door installation White Plains, emergency garage door service Westchester"
        canonical={...}
@@ -407,22 +407,22 @@ Allow: /contact/
 
 | URL | Old Title | New Title | Old Meta Description | New Meta Description | Canonical |
 |-----|-----------|-----------|----------------------|----------------------|-----------|
-| `/` | (fallback) | Garage Door Repair NY NJ CT \| 5.0★ Same-Day Service \| Smartest Garage Doors | (fallback) | 5.0★ rated, 392 reviews. Same-day garage door repair & installation across NY, NJ & CT. 24/7 emergency service. Licensed & insured. Call (914) 557-6816. | (auto) |
-| `/garage-door-repair/` | Professional Garage Door Repair Services \| Same-Day Service | Garage Door Repair NY NJ CT \| 5.0★ Same-Day \| Smartest Garage Doors | Expert garage door repair services across NY, NJ, and CT. Fast, reliable, and affordable solutions for all your garage door problems. Same-day service available. | 5.0★ rated, 392 reviews. Same-day garage door repair across NY, NJ & CT. Spring replacement, opener repair, emergency service. Licensed & insured. | (auto) |
-| `/emergency-garage-door-repair/` | Emergency Garage Door Repair NYC \| 24/7 Service \| Same-Day Response | Emergency Garage Door Repair \| 24/7 NY NJ CT \| Smartest Garage Doors | 24/7 emergency garage door repair in NYC, Westchester, and Connecticut. Fast response, professional technicians, immediate solutions for broken garage doors. Available 24/7. | 24/7 emergency garage door repair. 5.0★, 392 reviews. 60-90 min response. Same-day service. Licensed & insured. Call (914) 557-6816. | (auto) |
-| `/garage-door-installation/` | Garage Door Installation NY NJ CT \| Professional Installation Services | Garage Door Installation NY NJ CT \| New Doors & Replacements \| Smartest Garage Doors | Professional garage door installation services in NY, NJ & CT. Expert installation of all garage door styles and brands. Same-day service available. Licensed and insured technicians. | New garage door installation & replacement. 5.0★, 392 reviews. Free estimates. Same-day available. Licensed & insured. Serving NY, NJ & CT. | (auto) |
-| `/services/installation/` | Garage Door Installation Services & Free Quotes \| Smartest Garage Doors | (unchanged) | Plan your next garage door installation with a free, detailed quote. We handle residential and commercial installations across NY, NJ & CT with full warranty and expert guidance on styles, materials, and openers. | Plan your garage door project with a free quote. Styles, materials, openers. Residential & commercial. NY, NJ & CT. 5.0★, 392 reviews. Licensed & insured. | (auto) |
-| `/spring-replacement/` | Garage Door Spring Replacement NYC \| Torsion & Extension Springs \| Same-Day Service | Garage Door Spring Replacement NY NJ CT \| Same-Day \| Smartest Garage Doors | Professional garage door spring replacement in NYC, Westchester, and Connecticut. Safe installation of torsion and extension springs. Same-day service available. | 5.0★ rated, 392 reviews. Safe spring replacement. Torsion & extension. Same-day service. NY, NJ & CT. Licensed & insured. | (auto) |
-| `/opener-repair-installation/` | Garage Door Opener Repair NY NJ CT \| Same-Day Service \| Smart Garage Doors | Garage Door Opener Repair NY NJ CT \| Same-Day \| Smartest Garage Doors | Professional garage door opener repair services in NY, NJ & CT. Chain drive, belt drive, and wall mount torsion systems. Fast, reliable service with warranty. | 5.0★ rated, 392 reviews. Opener repair & installation. Chain, belt, wall-mount. Same-day service. NY, NJ & CT. Licensed & insured. | (auto) |
-| `/cable-roller-repair/` | Garage Door Cable & Roller Repair NYC \| Track Repair \| Same-Day Service | Garage Door Cable & Roller Repair NY NJ CT \| Same-Day \| Smartest Garage Doors | Professional garage door cable and roller repair in NYC, Westchester, and Connecticut. Track alignment, cable replacement, roller installation. Same-day service. | 5.0★ rated, 392 reviews. Cable, roller, track repair. Same-day service. NY, NJ & CT. Licensed & insured. | `.../cable-roller-repair/` |
-| `/maintenance/` | Garage Door Maintenance Plans NYC \| Preventive Service \| Smart Garage Doors | Garage Door Maintenance Plans \| NY NJ CT \| Smartest Garage Doors | Professional garage door maintenance plans in NYC, Westchester, and Connecticut. Preventive maintenance to extend door life and prevent costly repairs. | Preventive garage door maintenance. Extend door life, avoid costly repairs. 5.0★, 392 reviews. Annual plans. NY, NJ & CT. | (auto) |
-| `/queens-ny/` | Queens NY Garage Door Repair \| Smart Garage Doors \| 24/7 Emergency Service | Queens NY Garage Door Repair \| Smartest Garage Doors \| 24/7 | Professional garage door repair services in Queens, NY. Smart Garage Doors offers emergency repairs, spring replacement, opener installation throughout Queens neighborhoods. Licensed technicians serving all Queens areas. | Garage door repair in Queens, NY. 5.0★, 392 reviews. Same-day service, emergency repairs. Licensed & insured. | `.../queens-ny/` |
-| `/brooklyn-ny/` | Brooklyn NY Garage Door Repair \| Smart Garage Doors \| 24/7 Emergency Service | Brooklyn NY Garage Door Repair \| Smartest Garage Doors \| 24/7 | Professional garage door repair services in Brooklyn, NY. Smart Garage Doors offers emergency repairs, spring replacement, opener installation throughout Brooklyn neighborhoods. Licensed technicians serving all Brooklyn areas. | Garage door repair in Brooklyn, NY. 5.0★, 392 reviews. Same-day service, emergency repairs. Licensed & insured. | `.../brooklyn-ny/` |
-| `/long-island-ny/` | Long Island NY Garage Door Repair \| Smart Garage Doors \| 24/7 Emergency Service | Long Island NY Garage Door Repair \| Smartest Garage Doors \| 24/7 | Professional garage door repair services in Long Island, NY. Smart Garage Doors offers emergency repairs, spring replacement, opener installation throughout Nassau and Suffolk Counties. Licensed technicians serving all Long Island areas. | Garage door repair on Long Island, NY. 5.0★, 392 reviews. Nassau & Suffolk. Same-day service, emergency repairs. Licensed & insured. | `.../long-island-ny/` |
-| `/white-plains-ny/` | White Plains NY Garage Door Repair \| Smart Garage Doors \| Licensed Technicians | White Plains NY Garage Door Repair \| Smartest Garage Doors \| Licensed Technicians | Professional garage door repair services in White Plains, NY. Smart Garage Doors offers emergency repairs, spring replacement, opener installation throughout White Plains and surrounding Westchester County areas. | Professional garage door repair in White Plains, NY. 5.0★ rated, 392 reviews. Same-day service, emergency repairs, spring replacement. Licensed & insured. | `.../white-plains-ny/` |
-| `/stamford-ct/` | Stamford CT Garage Door Repair \| Smart Garage Doors \| 24/7 Emergency Service | Stamford CT Garage Door Repair \| Smartest Garage Doors \| 24/7 | Professional garage door repair services in Stamford, CT. Smart Garage Doors offers emergency repairs, spring replacement, opener installation throughout Stamford neighborhoods. Licensed technicians serving all Stamford areas. | Garage door repair in Stamford, CT. 5.0★, 392 reviews. Same-day service, emergency repairs. Licensed & insured. | `.../stamford-ct/` |
-| `/westchester-county-ny/` | Westchester County NY Garage Door Repair \| Smart Garage Doors \| 24/7 Emergency Service | Westchester County NY Garage Door Repair \| Smartest Garage Doors \| 24/7 | Professional garage door repair services in Westchester County, NY. Smart Garage Doors offers emergency repairs, spring replacement, opener installation throughout Westchester County neighborhoods. Licensed technicians serving all Westchester County areas. | Garage door repair in Westchester County, NY. 5.0★, 392 reviews. Same-day service, emergency repairs. Licensed & insured. | `.../westchester-county-ny/` |
-| `/blog/:slug/` | {title} \| Smart Garage Doors Blog | {title} \| Smartest Garage Doors Blog | (post.description) | (unchanged) | `.../blog/{slug}/` |
+| `/` | (fallback) | Garage Door Repair NY NJ CT \| 5.0★ Same-Day Service \| Smart Garage Doors | (fallback) | 5.0★ rated, 392 reviews. Same-day garage door repair & installation across NY, NJ & CT. 24/7 emergency service. Licensed & insured. Call (914) 557-6816. | (auto) |
+| `/garage-door-repair/` | Professional Garage Door Repair Services \| Same-Day Service | Garage Door Repair NY NJ CT \| 5.0★ Same-Day \| Smart Garage Doors | Expert garage door repair services across NY, NJ, and CT. Fast, reliable, and affordable solutions for all your garage door problems. Same-day service available. | 5.0★ rated, 392 reviews. Same-day garage door repair across NY, NJ & CT. Spring replacement, opener repair, emergency service. Licensed & insured. | (auto) |
+| `/emergency-garage-door-repair/` | Emergency Garage Door Repair NYC \| 24/7 Service \| Same-Day Response | Emergency Garage Door Repair \| 24/7 NY NJ CT \| Smart Garage Doors | 24/7 emergency garage door repair in NYC, Westchester, and Connecticut. Fast response, professional technicians, immediate solutions for broken garage doors. Available 24/7. | 24/7 emergency garage door repair. 5.0★, 392 reviews. 60-90 min response. Same-day service. Licensed & insured. Call (914) 557-6816. | (auto) |
+| `/garage-door-installation/` | Garage Door Installation NY NJ CT \| Professional Installation Services | Garage Door Installation NY NJ CT \| New Doors & Replacements \| Smart Garage Doors | Professional garage door installation services in NY, NJ & CT. Expert installation of all garage door styles and brands. Same-day service available. Licensed and insured technicians. | New garage door installation & replacement. 5.0★, 392 reviews. Free estimates. Same-day available. Licensed & insured. Serving NY, NJ & CT. | (auto) |
+| `/services/installation/` | Garage Door Installation Services & Free Quotes \| Smart Garage Doors | (unchanged) | Plan your next garage door installation with a free, detailed quote. We handle residential and commercial installations across NY, NJ & CT with full warranty and expert guidance on styles, materials, and openers. | Plan your garage door project with a free quote. Styles, materials, openers. Residential & commercial. NY, NJ & CT. 5.0★, 392 reviews. Licensed & insured. | (auto) |
+| `/spring-replacement/` | Garage Door Spring Replacement NYC \| Torsion & Extension Springs \| Same-Day Service | Garage Door Spring Replacement NY NJ CT \| Same-Day \| Smart Garage Doors | Professional garage door spring replacement in NYC, Westchester, and Connecticut. Safe installation of torsion and extension springs. Same-day service available. | 5.0★ rated, 392 reviews. Safe spring replacement. Torsion & extension. Same-day service. NY, NJ & CT. Licensed & insured. | (auto) |
+| `/opener-repair-installation/` | Garage Door Opener Repair NY NJ CT \| Same-Day Service \| Smart Garage Doors | Garage Door Opener Repair NY NJ CT \| Same-Day \| Smart Garage Doors | Professional garage door opener repair services in NY, NJ & CT. Chain drive, belt drive, and wall mount torsion systems. Fast, reliable service with warranty. | 5.0★ rated, 392 reviews. Opener repair & installation. Chain, belt, wall-mount. Same-day service. NY, NJ & CT. Licensed & insured. | (auto) |
+| `/cable-roller-repair/` | Garage Door Cable & Roller Repair NYC \| Track Repair \| Same-Day Service | Garage Door Cable & Roller Repair NY NJ CT \| Same-Day \| Smart Garage Doors | Professional garage door cable and roller repair in NYC, Westchester, and Connecticut. Track alignment, cable replacement, roller installation. Same-day service. | 5.0★ rated, 392 reviews. Cable, roller, track repair. Same-day service. NY, NJ & CT. Licensed & insured. | `.../cable-roller-repair/` |
+| `/maintenance/` | Garage Door Maintenance Plans NYC \| Preventive Service \| Smart Garage Doors | Garage Door Maintenance Plans \| NY NJ CT \| Smart Garage Doors | Professional garage door maintenance plans in NYC, Westchester, and Connecticut. Preventive maintenance to extend door life and prevent costly repairs. | Preventive garage door maintenance. Extend door life, avoid costly repairs. 5.0★, 392 reviews. Annual plans. NY, NJ & CT. | (auto) |
+| `/queens-ny/` | Queens NY Garage Door Repair \| Smart Garage Doors \| 24/7 Emergency Service | Queens NY Garage Door Repair \| Smart Garage Doors \| 24/7 | Professional garage door repair services in Queens, NY. Smart Garage Doors offers emergency repairs, spring replacement, opener installation throughout Queens neighborhoods. Licensed technicians serving all Queens areas. | Garage door repair in Queens, NY. 5.0★, 392 reviews. Same-day service, emergency repairs. Licensed & insured. | `.../queens-ny/` |
+| `/brooklyn-ny/` | Brooklyn NY Garage Door Repair \| Smart Garage Doors \| 24/7 Emergency Service | Brooklyn NY Garage Door Repair \| Smart Garage Doors \| 24/7 | Professional garage door repair services in Brooklyn, NY. Smart Garage Doors offers emergency repairs, spring replacement, opener installation throughout Brooklyn neighborhoods. Licensed technicians serving all Brooklyn areas. | Garage door repair in Brooklyn, NY. 5.0★, 392 reviews. Same-day service, emergency repairs. Licensed & insured. | `.../brooklyn-ny/` |
+| `/long-island-ny/` | Long Island NY Garage Door Repair \| Smart Garage Doors \| 24/7 Emergency Service | Long Island NY Garage Door Repair \| Smart Garage Doors \| 24/7 | Professional garage door repair services in Long Island, NY. Smart Garage Doors offers emergency repairs, spring replacement, opener installation throughout Nassau and Suffolk Counties. Licensed technicians serving all Long Island areas. | Garage door repair on Long Island, NY. 5.0★, 392 reviews. Nassau & Suffolk. Same-day service, emergency repairs. Licensed & insured. | `.../long-island-ny/` |
+| `/white-plains-ny/` | White Plains NY Garage Door Repair \| Smart Garage Doors \| Licensed Technicians | White Plains NY Garage Door Repair \| Smart Garage Doors \| Licensed Technicians | Professional garage door repair services in White Plains, NY. Smart Garage Doors offers emergency repairs, spring replacement, opener installation throughout White Plains and surrounding Westchester County areas. | Professional garage door repair in White Plains, NY. 5.0★ rated, 392 reviews. Same-day service, emergency repairs, spring replacement. Licensed & insured. | `.../white-plains-ny/` |
+| `/stamford-ct/` | Stamford CT Garage Door Repair \| Smart Garage Doors \| 24/7 Emergency Service | Stamford CT Garage Door Repair \| Smart Garage Doors \| 24/7 | Professional garage door repair services in Stamford, CT. Smart Garage Doors offers emergency repairs, spring replacement, opener installation throughout Stamford neighborhoods. Licensed technicians serving all Stamford areas. | Garage door repair in Stamford, CT. 5.0★, 392 reviews. Same-day service, emergency repairs. Licensed & insured. | `.../stamford-ct/` |
+| `/westchester-county-ny/` | Westchester County NY Garage Door Repair \| Smart Garage Doors \| 24/7 Emergency Service | Westchester County NY Garage Door Repair \| Smart Garage Doors \| 24/7 | Professional garage door repair services in Westchester County, NY. Smart Garage Doors offers emergency repairs, spring replacement, opener installation throughout Westchester County neighborhoods. Licensed technicians serving all Westchester County areas. | Garage door repair in Westchester County, NY. 5.0★, 392 reviews. Same-day service, emergency repairs. Licensed & insured. | `.../westchester-county-ny/` |
+| `/blog/:slug/` | {title} \| Smart Garage Doors Blog | {title} \| Smart Garage Doors Blog | (post.description) | (unchanged) | `.../blog/{slug}/` |
 
 ---
 
@@ -719,7 +719,7 @@ const serviceAreas = getServiceAreaLinksForService(serviceType).slice(0, maxLink
 1. **Schema duplication:** Home page has both `LocalBusinessSchema` and an inline LocalBusiness in `useEffect`; no deduplication done.
 2. **Brooklyn, Stamford, Bergen:** "Schedule Service Online" still links to `/contact` instead of `/book-now/`.
 3. **Suffern:** Hero CTA still uses `href="/contact"` instead of `/book-now/`.
-4. **Bergen County meta:** Title/description still use "Smart Garage Doors" instead of "Smartest Garage Doors".
+4. **Bergen County meta:** Title/description still use "Smart Garage Doors" instead of "Smart Garage Doors".
 5. **Blog-to-service links:** Some blog posts already have internal links; no systematic audit or expansion of blog-to-service/city links.
 6. **Flushing page:** `/flushing-ny/` redirects to `/queens-ny/`; flushing page file is updated but not used.
 7. **LocationData / Location exports:** Pre-existing TypeScript/import warnings remain.

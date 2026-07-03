@@ -555,7 +555,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
               <thead>
                 <tr className="bg-blue-900 text-white text-sm">
                   <th className="px-3 sm:px-6 py-4 text-left font-semibold">Feature</th>
-                  <th className="px-3 sm:px-6 py-4 text-center font-semibold">Smartest Garage Doors</th>
+                  <th className="px-3 sm:px-6 py-4 text-center font-semibold">Smart Garage Doors</th>
                   <th className="px-3 sm:px-6 py-4 text-center font-semibold text-gray-300">Typical Competitor</th>
                 </tr>
               </thead>

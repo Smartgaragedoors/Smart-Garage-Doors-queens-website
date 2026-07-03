@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Roslyn, NY Garage Door Repair & Custom Door Installation | Smartest Garage Doors"
+      metaTitle="Roslyn, NY Garage Door Repair & Custom Door Installation | Smart Garage Doors"
       metaDescription="Garage door repair & custom installation in Roslyn, NY. Insulated & custom doors for village and estate homes, quiet smart openers, same-day repair. Licensed & insured. (914) 557-6816."
       keywords="Roslyn garage door repair, garage door installation Roslyn NY, custom garage doors Roslyn Estates, garage door spring replacement Roslyn Heights, garage door opener East Hills"
       slug="/roslyn-ny/"

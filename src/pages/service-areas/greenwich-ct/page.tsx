@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Greenwich, CT Garage Door Repair | Same-Day Service | Smartest Garage Doors"
+      metaTitle="Greenwich, CT Garage Door Repair | Same-Day Service | Smart Garage Doors"
       metaDescription="Garage door repair in Greenwich, CT — same-day service, 5.0★ reviews. Spring replacement, opener repair, emergency service. Licensed & insured. Call (914) 557-6816."
       keywords="Greenwich garage door repair, garage door installation Greenwich, emergency garage door Greenwich, spring replacement Greenwich"
       slug="/greenwich-ct/"

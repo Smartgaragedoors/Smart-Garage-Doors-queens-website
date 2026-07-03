@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Rockville Centre, NY Garage Door Repair & Carriage Door Installation | Smartest Garage Doors"
+      metaTitle="Rockville Centre, NY Garage Door Repair & Carriage Door Installation | Smart Garage Doors"
       metaDescription="Garage door repair & premium installation in Rockville Centre, NY. Carriage-style doors for village colonials, quiet belt-drive openers, upfront pricing. (914) 557-6816."
       keywords="Rockville Centre garage door repair, garage door installation Rockville Centre NY, carriage house garage doors Rockville Centre, quiet garage door opener Nassau County, garage door replacement RVC"
       slug="/rockville-centre-ny/"

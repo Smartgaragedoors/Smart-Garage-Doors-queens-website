@@ -1,13 +1,15 @@
 import { useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, Navigate } from 'react-router-dom';
 import Header from '../../../components/feature/Header';
 import Footer from '../../../components/feature/Footer';
 import Breadcrumbs from '../../../components/seo/Breadcrumbs';
 import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
 import FAQSchema from '../../../components/seo/FAQSchema';
 import BlogPostingSchema from '../../../components/seo/BlogPostingSchema';
+import BlogPostTemplate from '../../../components/feature/BlogPostTemplate';
+import { PageMetaProvider } from '../../../context/PageMetaContext';
 import { getBlogImage } from '../../../data/blogImages';
-import { CONTENT_BLOG_POSTS } from '../../../data/contentBlogPosts';
+import { getContentBlogPost, getContentBlogSlugRedirect, getRelatedBlogPosts } from '../../../data/contentBlogPosts';
 import { buildCanonical, CANONICAL_BASE } from '../../../config/canonical';
 
 const DEFAULT_BLOG_IMAGE_URL = "/hero-van-1280.webp";
@@ -516,7 +518,7 @@ const BLOG_POSTS: Record<string, {
       <h2>Professional Spring Replacement Services</h2>
       <p>Smart Garage Doors provides expert spring replacement services throughout NY, NJ & CT. We offer same-day service, transparent pricing, and comprehensive warranties. Our certified technicians safely replace all spring types with high-quality components and professional installation. Contact us for a free estimate and fast, reliable spring replacement service.</p>
       
-      <p>When you are comparing quotes, make sure you are looking at qualified providers. You can <a href="/spring-replacement/">schedule garage door spring replacement with Smartest Garage Doors</a> for precise pricing and safe installation.</p>
+      <p>When you are comparing quotes, make sure you are looking at qualified providers. You can <a href="/spring-replacement/">schedule garage door spring replacement with Smart Garage Doors</a> for precise pricing and safe installation.</p>
     `,
     image: "/images/garage-door-repair-technician-ben-smart-garage-doors.jpg",
     date: "2025-01-18",
@@ -1061,6 +1063,8 @@ function getBlogHelpText(slug: string): React.ReactNode {
     'stamford-ct-garage-door-repair': { service: 'garage door repair', serviceUrl: '/garage-door-repair/', city: 'Stamford', cityUrl: '/stamford-ct/' },
     'how-to-choose-right-garage-door': { service: 'garage door installation', serviceUrl: '/garage-door-installation/' },
     'signs-you-need-new-garage-door': { service: 'garage door installation', serviceUrl: '/garage-door-installation/' },
+    'modern-glass-garage-door-install-queens': { service: 'garage door installation', serviceUrl: '/garage-door-installation/', city: 'Queens', cityUrl: '/queens-ny/' },
+    'best-garage-doors-luxury-homes-queens': { service: 'garage door installation', serviceUrl: '/garage-door-installation/', city: 'Queens', cityUrl: '/queens-ny/' },
   };
   const l = links[slug];
   if (l) {
@@ -1077,14 +1081,19 @@ function getBlogHelpText(slug: string): React.ReactNode {
 
 export default function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
+  const redirectSlug = slug ? getContentBlogSlugRedirect(slug) : null;
   // Hardcoded posts first, then content-folder posts (Post Automation publishes there)
-  const post = slug ? BLOG_POSTS[slug] ?? CONTENT_BLOG_POSTS[slug] : null;
-  const isContentPost = !!(slug && !BLOG_POSTS[slug] && CONTENT_BLOG_POSTS[slug]);
+  const post = slug ? BLOG_POSTS[slug] ?? getContentBlogPost(slug) : null;
+  const isContentPost = !!(slug && !BLOG_POSTS[slug] && getContentBlogPost(slug));
 
   // Scroll to top when opening a post so content is visible (fixes landing at bottom)
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [slug]);
+
+  if (redirectSlug) {
+    return <Navigate to={`/blog/${redirectSlug}/`} replace />;
+  }
 
   if (!post) {
     return (
@@ -1110,14 +1119,23 @@ export default function BlogPostPage() {
   const postUrl = buildCanonical(`/blog/${post.slug}`);
   // Content posts carry their own image; legacy posts use the curated map
   const { image, imageAlt } = isContentPost
-    ? { image: post.image, imageAlt: post.title }
+    ? { image: post.image, imageAlt: 'imageAlt' in post ? post.imageAlt : post.title }
     : getBlogImage(post.slug);
   const ogImageUrl = image.startsWith("http") ? image : `${CANONICAL_BASE}${image}`;
 
+  const contentPost = isContentPost && slug ? getContentBlogPost(slug) : undefined;
+  const relatedPosts = getRelatedBlogPosts(post.slug, 3).map((p) => ({
+    slug: p.slug,
+    title: p.title,
+    category: p.category,
+    readTime: p.readTime,
+  }));
+
   return (
+    <PageMetaProvider value={{ breadcrumbLabel: post.title }}>
     <div className="min-h-screen bg-white">
       <DynamicMetaTags 
-        title={`${post.title} | Smartest Garage Doors Blog`}
+        title={`${post.title} | Smart Garage Doors Blog`}
         description={post.description}
         keywords={`${post.category.toLowerCase()}, garage door repair, ${post.title.toLowerCase()}`}
         canonical={postUrl}
@@ -1136,72 +1154,28 @@ export default function BlogPostPage() {
       {post.faqs && <FAQSchema faqs={post.faqs} />}
       <Header />
       <Breadcrumbs />
-      
-      <article className="max-w-4xl mx-auto px-4 py-12">
-        <div className="mb-8">
-          <Link to="/blog/" className="text-blue-600 hover:text-blue-700 font-medium mb-4 inline-block">
-            ← Back to Blog
-          </Link>
-          <span className="inline-block bg-orange-100 text-orange-700 text-sm px-3 py-1 rounded-full ml-4">
-            {post.category}
-          </span>
-        </div>
 
-        <header className="mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">{post.title}</h1>
-          <div className="flex items-center text-gray-600 text-sm mb-6">
-            <span>{post.date}</span>
-            <span className="mx-2">•</span>
-            <span>{post.readTime}</span>
-            <span className="mx-2">•</span>
-            <span>By {post.author}</span>
-          </div>
-          <img
-            src={image}
-            alt={imageAlt}
-            className="w-full h-96 object-cover rounded-lg shadow-lg"
-            width={1200}
-            height={384}
-            onError={(e) => {
-              const target = e.currentTarget;
-              if (target.src !== DEFAULT_BLOG_IMAGE_URL) {
-                target.onerror = null;
-                target.src = DEFAULT_BLOG_IMAGE_URL;
-                target.alt = post.title;
-              }
-            }}
-          />
-        </header>
-
-        <div 
-          className="prose prose-lg max-w-none"
-          dangerouslySetInnerHTML={{ __html: post.content }}
-        />
-
-        <div className="mt-12 pt-8 border-t border-gray-200">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">Need Professional Help?</h3>
-          <p className="text-gray-600 mb-6">
-            {getBlogHelpText(post.slug)}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <a 
-              href="tel:+19145576816" 
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center"
-            >
-              Call (914) 557-6816
-            </a>
-            <a 
-              href="/book-now/" 
-              className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center"
-            >
-              Schedule Service
-            </a>
-          </div>
-        </div>
-      </article>
+      <BlogPostTemplate
+        title={post.title}
+        description={post.description}
+        content={post.content}
+        image={image}
+        imageAlt={imageAlt}
+        date={post.date}
+        category={post.category}
+        readTime={post.readTime}
+        author={post.author}
+        city={contentPost?.city}
+        service={contentPost?.service}
+        faqs={post.faqs}
+        relatedPosts={relatedPosts}
+        helpText={getBlogHelpText(post.slug)}
+        defaultImageUrl={DEFAULT_BLOG_IMAGE_URL}
+      />
 
       <Footer />
     </div>
+    </PageMetaProvider>
   );
 }
 

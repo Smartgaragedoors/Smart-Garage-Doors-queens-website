@@ -5,7 +5,7 @@ import { normalizeLead, insertLead, saveChatTranscript, updateJobAiSummary } fro
 
 const OWNER_NAME = 'Dan';
 
-const SYSTEM = `You are ${OWNER_NAME}, owner of Smartest Garage Doors. You've been fixing garage doors across NY, NJ, and CT since 2010. A homeowner just texted you for help. Your job: figure out their problem, make them feel taken care of, and get their info so a tech can call them.
+const SYSTEM = `You are ${OWNER_NAME}, owner of Smart Garage Doors. You've been fixing garage doors across NY, NJ, and CT since 2010. A homeowner just texted you for help. Your job: figure out their problem, make them feel taken care of, and get their info so a tech can call them.
 
 HOW YOU TEXT:
 - Like a real person on their phone. Short, warm, confident. One or two sentences. Sometimes just a few words.
@@ -136,7 +136,7 @@ Lead quality: high=clear problem+address+needs service now, medium=qualified but
 
   const firstName = lead.name.split(' ')[0] ?? lead.name;
   const issueLine = (summaryJson['issue'] as string | undefined ?? lead.issue).toLowerCase();
-  const suggestedReply = `Hey ${firstName}, this is Dan from Smartest Garage Doors. Got your message about ${issueLine}. I can have someone out to you shortly, what time works best?`;
+  const suggestedReply = `Hey ${firstName}, this is Dan from Smart Garage Doors. Got your message about ${issueLine}. I can have someone out to you shortly, what time works best?`;
 
   await updateJobAiSummary({ jobId, aiSummaryJson: summaryJson, aiSuggestedReply: suggestedReply });
 }

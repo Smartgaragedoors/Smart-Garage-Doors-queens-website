@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Elizabeth, NJ Garage Door Repair | Same-Day Service | Smartest Garage Doors"
+      metaTitle="Elizabeth, NJ Garage Door Repair | Same-Day Service | Smart Garage Doors"
       metaDescription="Garage door repair in Elizabeth, NJ — same-day service, 5.0★ reviews. Spring replacement, opener repair, emergency service. Licensed & insured. Call (914) 557-6816."
       keywords="Elizabeth garage door repair, garage door installation Elizabeth, emergency garage door Elizabeth, spring replacement Elizabeth"
       slug="/elizabeth-nj/"

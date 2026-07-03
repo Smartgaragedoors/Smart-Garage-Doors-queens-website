@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Garden City, NY Garage Door Repair & Custom Installation | Smartest Garage Doors"
+      metaTitle="Garden City, NY Garage Door Repair & Custom Installation | Smart Garage Doors"
       metaDescription="Premium garage door service in Garden City, NY. Carriage-house & custom doors, quiet belt-drive smart openers, same-day repair. Licensed & insured. (914) 557-6816."
       keywords="Garden City garage door repair, garage door installation Garden City NY, carriage house garage doors Garden City, garage door spring replacement Garden City, quiet garage door opener Nassau"
       slug="/garden-city-ny/"

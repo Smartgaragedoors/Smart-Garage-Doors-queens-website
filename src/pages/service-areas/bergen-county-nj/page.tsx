@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Bergen County, NJ Garage Door Repair | Same-Day Service | Smartest Garage Doors"
+      metaTitle="Bergen County, NJ Garage Door Repair | Same-Day Service | Smart Garage Doors"
       metaDescription="Garage door repair in Bergen County, NJ — same-day service, 5.0★ reviews. Spring replacement, opener repair, emergency service. Licensed & insured. Call (914) 557-6816."
       keywords="Bergen County garage door repair, garage door installation Bergen County, emergency garage door Bergen County, spring replacement Bergen County"
       slug="/bergen-county-nj/"

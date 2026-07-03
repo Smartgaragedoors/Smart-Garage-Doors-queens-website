@@ -10,7 +10,7 @@ const STATIC_REVIEWS = [
   {
     author_name: 'Sarah M.',
     rating: 5,
-    text: 'Excellent service! They fixed my garage door spring the same day I called. Professional, fast, and reasonably priced. Highly recommend Smartest Garage Doors!',
+    text: 'Excellent service! They fixed my garage door spring the same day I called. Professional, fast, and reasonably priced. Highly recommend Smart Garage Doors!',
     time: Math.floor(Date.now() / 1000) - 14 * 24 * 3600,
     relative_time_description: '2 weeks ago',
   },

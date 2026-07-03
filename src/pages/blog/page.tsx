@@ -55,7 +55,7 @@ export default function BlogPage() {
     { id: 25, slug: 'suffern-ny-garage-door-service', title: "Garage Door Service in Suffern NY: Rockland County Expert Repair", excerpt: "Professional garage door repair and installation services in Suffern, New York. Serving Rockland County.", date: "November 22, 2024", category: "Repair", readTime: "5 min read" },
   ];
 
-  const categories = ["Maintenance", "Repair", "Safety", "Emergency", "Tips", "Cost Guide"];
+  const categories = ["Guides", "Installation", "Maintenance", "Repair", "Safety", "Emergency", "Tips", "Cost Guide"];
 
   return (
     <div className="min-h-screen bg-white">
@@ -168,12 +168,16 @@ export default function BlogPage() {
               const image = 'image' in post && post.image ? post.image : fromMap.image;
               const imageAlt = 'image' in post && post.image ? post.title : fromMap.imageAlt;
               return (
-              <article key={post.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+              <Link
+                key={post.id}
+                to={`/blog/${post.slug || '#'}/`}
+                className="group block bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2"
+              >
                 <div className="aspect-w-16 aspect-h-9">
                   <img 
                     src={image} 
                     alt={imageAlt}
-                    className="w-full h-48 object-cover"
+                    className="w-full h-48 object-cover group-hover:scale-[1.02] transition-transform duration-300"
                     onError={(e) => {
                       const target = e.currentTarget;
                       if (target.src !== DEFAULT_BLOG_IMAGE_URL) {
@@ -191,7 +195,7 @@ export default function BlogPage() {
                     </span>
                     <span className="text-sm text-gray-500">{post.readTime}</span>
                   </div>
-                  <h2 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
+                  <h2 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-orange-600 transition-colors">
                     {post.title}
                   </h2>
                   <p className="text-gray-600 mb-4 line-clamp-3">
@@ -199,15 +203,12 @@ export default function BlogPage() {
                   </p>
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-gray-500">{post.date}</span>
-                    <Link 
-                      to={`/blog/${post.slug || '#'}/`}
-                      className="text-orange-500 font-medium hover:text-orange-600 cursor-pointer"
-                    >
-                      Read More <i className="ri-arrow-right-line ml-1"></i>
-                    </Link>
+                    <span className="text-orange-500 font-medium group-hover:text-orange-600">
+                      Read More <i className="ri-arrow-right-line ml-1" aria-hidden="true"></i>
+                    </span>
                   </div>
                 </div>
-              </article>
+              </Link>
               );
             })}
           </div>

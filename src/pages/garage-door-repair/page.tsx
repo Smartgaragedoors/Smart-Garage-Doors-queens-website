@@ -71,7 +71,7 @@ export default function GarageDoorRepairPage() {
   return (
     <div className="min-h-screen bg-white">
       <DynamicMetaTags 
-        title="Garage Door Repair NY NJ CT | 5.0★ 479 reviews | Smartest Garage Doors"
+        title="Garage Door Repair NY NJ CT | 5.0★ 479 reviews | Smart Garage Doors"
         description="5.0★ rated, 479 reviews. Fast garage door repair across NY, NJ & CT. Spring replacement, opener repair, emergency service. Free estimate. Licensed & insured."
       />
       <FAQSchema faqs={faqs} />
@@ -434,7 +434,7 @@ export default function GarageDoorRepairPage() {
             Need Garage Door Repair? We're Here to Help!
           </h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto">
-            Don't let a broken garage door disrupt your day. Contact Smartest Garage Doors for fast, professional repair services.
+            Don't let a broken garage door disrupt your day. Contact Smart Garage Doors for fast, professional repair services.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 

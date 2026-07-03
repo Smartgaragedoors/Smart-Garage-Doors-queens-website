@@ -1,4 +1,4 @@
-# Google Business Profile Playbook — Smartest Garage Doors
+# Google Business Profile Playbook — Smart Garage Doors
 
 Dashboard work (not code). Last updated: 2026-06-11.
 

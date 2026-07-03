@@ -1,4 +1,4 @@
-# CTR-Focused SEO Audit: Smartest Garage Doors
+# CTR-Focused SEO Audit: Smart Garage Doors
 
 ## Executive Summary
 
@@ -104,29 +104,29 @@ export default defineConfig({
 
 | File | URL | title | og:image | DynamicMetaTags | Manual meta |
 |------|-----|-------|----------|-----------------|-------------|
-| home/page.tsx | / | Garage Door Repair NY NJ CT \| 5.0★ Same-Day \| Smartest Garage Doors | MISSING (not passed) | Y | Y (schema useEffect) |
-| contact/page.tsx | /contact/ | Contact Us \| Garage Door Repair NY NJ CT \| Smartest Garage Doors | MISSING | Y | N |
-| book-now/page.tsx | /book-now/ | Book Garage Door Service \| Same-Day Repair & Installation \| Smartest Garage Doors | MISSING | Y | N |
-| reviews/page.tsx | /reviews/ | Customer Reviews \| 5-Star Garage Door Service NY NJ CT \| Smartest Garage Doors | MISSING | Y | N |
+| home/page.tsx | / | Garage Door Repair NY NJ CT \| 5.0★ Same-Day \| Smart Garage Doors | MISSING (not passed) | Y | Y (schema useEffect) |
+| contact/page.tsx | /contact/ | Contact Us \| Garage Door Repair NY NJ CT \| Smart Garage Doors | MISSING | Y | N |
+| book-now/page.tsx | /book-now/ | Book Garage Door Service \| Same-Day Repair & Installation \| Smart Garage Doors | MISSING | Y | N |
+| reviews/page.tsx | /reviews/ | Customer Reviews \| 5-Star Garage Door Service NY NJ CT \| Smart Garage Doors | MISSING | Y | N |
 | blog/page.tsx | /blog/ | Garage Door Blog \| Expert Tips & Maintenance Guides \| Smart Garage Doors | MISSING | Y | N |
-| blog/[slug]/page.tsx | /blog/{slug}/ | {post.title} \| Smartest Garage Doors Blog | SET (ogImage prop) | Y | N |
-| garage-door-repair/page.tsx | /garage-door-repair/ | Garage Door Repair NY NJ CT \| 5.0★ Same-Day \| Smartest Garage Doors | MISSING | Y | N |
-| garage-door-installation-new-york/page.tsx | /garage-door-installation/ | Garage Door Installation NY NJ CT \| New Doors & Replacements \| Smartest Garage Doors | MISSING | Y | N |
-| services/emergency-repairs/page.tsx | /emergency-garage-door-repair/ | Emergency Garage Door Repair \| 24/7 NY NJ CT \| Smartest Garage Doors | MISSING | Y | N |
-| service-areas/bergen-county-nj/page.tsx | /bergen-county-nj/ | Bergen County NJ Garage Door Repair \| Smartest Garage Doors \| 24/7 Emergency Service | MISSING | Y | N |
-| service-areas/brooklyn-ny/page.tsx | /brooklyn-ny/ | Brooklyn NY Garage Door Repair \| Smartest Garage Doors \| 24/7 | MISSING | Y | Y (schema useEffect) |
+| blog/[slug]/page.tsx | /blog/{slug}/ | {post.title} \| Smart Garage Doors Blog | SET (ogImage prop) | Y | N |
+| garage-door-repair/page.tsx | /garage-door-repair/ | Garage Door Repair NY NJ CT \| 5.0★ Same-Day \| Smart Garage Doors | MISSING | Y | N |
+| garage-door-installation-new-york/page.tsx | /garage-door-installation/ | Garage Door Installation NY NJ CT \| New Doors & Replacements \| Smart Garage Doors | MISSING | Y | N |
+| services/emergency-repairs/page.tsx | /emergency-garage-door-repair/ | Emergency Garage Door Repair \| 24/7 NY NJ CT \| Smart Garage Doors | MISSING | Y | N |
+| service-areas/bergen-county-nj/page.tsx | /bergen-county-nj/ | Bergen County NJ Garage Door Repair \| Smart Garage Doors \| 24/7 Emergency Service | MISSING | Y | N |
+| service-areas/brooklyn-ny/page.tsx | /brooklyn-ny/ | Brooklyn NY Garage Door Repair \| Smart Garage Doors \| 24/7 | MISSING | Y | Y (schema useEffect) |
 
 ## DynamicMetaTags Fallback Logic (no props / no location)
 
 When `title` is not passed and path matches:
-- `/garage-door-repair` → `Garage Door Repair Queens NY | Same-Day Service | Smartest Garage Doors` (or `Garage Door Repair ${locationName} | ...` if location)
+- `/garage-door-repair` → `Garage Door Repair Queens NY | Same-Day Service | Smart Garage Doors` (or `Garage Door Repair ${locationName} | ...` if location)
 - `/garage-door-installation` → `Garage Door Installation Queens NY | Professional Service`
 - `/emergency` → `Emergency Garage Door Repair Queens NY | 24/7 Service`
 - Else → `24/7 Garage Door Repair Queens NY | Installation | Same-Day`
 
 When `description` is not passed:
-- With location → `Professional garage door repair and installation services in ${locationName}. Smartest Garage Doors offers...`
-- No location → `Garage door stuck, broken spring, or opener not working? Smartest Garage Doors delivers same-day repair...`
+- With location → `Professional garage door repair and installation services in ${locationName}. Smart Garage Doors offers...`
+- No location → `Garage door stuck, broken spring, or opener not working? Smart Garage Doors delivers same-day repair...`
 
 **geoPatterns (title):** `[locationName, location?.city, location?.state, 'NY', 'NJ', 'CT', 'queens', 'brooklyn', 'long island', 'stamford', 'westchester', 'nassau', 'suffolk', 'bergen']`
 

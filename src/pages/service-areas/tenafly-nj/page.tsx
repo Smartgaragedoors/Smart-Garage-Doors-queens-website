@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Tenafly, NJ Garage Door Repair & Custom Wood Door Installation | Smartest Garage Doors"
+      metaTitle="Tenafly, NJ Garage Door Repair & Custom Wood Door Installation | Smart Garage Doors"
       metaDescription="Premium garage door service in Tenafly, NJ — custom wood and insulated doors, smart access, same-day repair. Licensed & insured. Call (914) 557-6816."
       keywords="Tenafly garage door repair, garage door installation Tenafly NJ, custom wood garage doors Tenafly, garage door spring replacement Tenafly, smart garage door opener Bergen County"
       slug="/tenafly-nj/"

@@ -4,7 +4,7 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Old Westbury, NY Custom Garage Door Installation & Estate Door Service | Smartest Garage Doors"
+      metaTitle="Old Westbury, NY Custom Garage Door Installation & Estate Door Service | Smart Garage Doors"
       metaDescription="Custom garage door installation & repair in Old Westbury, NY. Estate-scale wood doors, oversized multi-bay garages, smart openers. Licensed & insured. (914) 557-6816."
       keywords="Old Westbury garage door installation, custom garage doors Old Westbury, estate garage doors Nassau County, oversized garage doors Old Westbury NY, garage door repair Old Westbury"
       slug="/old-westbury-ny/"
