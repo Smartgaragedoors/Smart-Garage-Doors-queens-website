@@ -1,6 +1,91 @@
 {
-  "reviews": [],
-  "reviewCount": null,
-  "ratingValue": null,
-  "fetchedAt": null
+  "reviews": [
+    {
+      "id": "AbFvOqk31z_rs7paduSzozB_teMmPhOEnJwe8cuL3QBXyWYe8TTc484saVwWrVNEo7PNPJka2PZijw",
+      "author_name": "Ilyas A.",
+      "rating": 5,
+      "text": "Had a pleasure working with Ben and discussing options for my garage door. He is very professional, meticulous, and responsive. He took time to review everything and ensured every detail was covered.",
+      "time": 1782924316
+    },
+    {
+      "id": "AbFvOqlFj7vC1Sd2qYnmjIWrbj6i3tXEoRiP6Zoq5PiTMq_3ExpwzHTV-Ops2xe9t7G0AO3gwdpUkA",
+      "author_name": "Carl B.",
+      "rating": 5,
+      "text": "Great team, good communication, and efficient work. They scheduled a same day visit when I called and ultimately suggested that I repair my current doors instead of installing new ones. They priced out both options (both very reasonable) and I ended up going with the door repair with new openers. Everything works great now. Definitely recommend!",
+      "time": 1782920126
+    },
+    {
+      "id": "AbFvOqk4RFxYJeVg3J5N5-4MGJkXDpQtdDxdFqJXeGG6WpzPmZxS_aAbsKp5paGGFU4d2Wnc1PrCqg",
+      "author_name": "Luis G.",
+      "rating": 5,
+      "text": "Amazing service and quality work! Showed up on a Sunday to evaluate my door that had a spring broken. Ordered the part and came the next day to make the repair super quick. Highly recommend! 5 stars all way.",
+      "time": 1782778919
+    },
+    {
+      "id": "AbFvOqlbPGSmePXQfVtquwsgD2iiXtSqxCPn4DkwcJubDihTJPu24A6wiAQtPXjmC4jurOIeVnQI",
+      "author_name": "Hilya J.",
+      "rating": 5,
+      "text": "Great service, fast installation, very transparent, professional and easy to communicate,  they delivered exactly what was requested, most importantly the BEST PRICE!!\nThank you guys for your amazing work 🙌.\nHighly recommend 👌.",
+      "time": 1782764641
+    },
+    {
+      "id": "AbFvOqk7jGmsxu7I2zuPZVqgV_ntTGhuWwRpIPTZn48JJkA1TEdF6eyxuGEyBXaLUEQNv0zWtc3kPg",
+      "author_name": "Shay Y.",
+      "rating": 5,
+      "text": "i had an excellent experience with Smart Garage Doors. They quickly understood the issue, and fixed it in minutes. While other companies suggested I get a new system, Smart Garage Doors thought outside the box to save me money, and fix the problem. Very grateful to have found them!",
+      "time": 1782742216
+    },
+    {
+      "id": "AbFvOqn3HeT_Xi7wddk0eznp9DuYqEFopFKCHkLXKjYoG84Y8BmzdObfwhgsEFQhMHf5LQ0YmMmYQA",
+      "author_name": "Stephen O.",
+      "rating": 5,
+      "text": "Ben was very professional and knowledgeable . He was able to get our garage door working in a timely manner!!!",
+      "time": 1782676985
+    },
+    {
+      "id": "AbFvOqkPvfuB_3UZP6J9QyiyNf5EXF38C0G_SEev1IGjg7XksVCvw-rl2NFOOiE1i1j215NmBDz4Dw",
+      "author_name": "Vicki C.",
+      "rating": 5,
+      "text": "We recently had our garage door springs and cables replaced, and the service was outstanding from start to finish. The technician arrived on time, was professional, knowledgeable.\n\nThe installation was completed quickly, and the garage door now operates smoothly and quietly.\n\nI highly recommend this company to anyone in need of garage door repairs!⭐️⭐️⭐️⭐️⭐️⭐️⭐️",
+      "time": 1782492982
+    },
+    {
+      "id": "AbFvOqlMsuRgMvBJw8gENb9gfOyc_wgn9tI9Ji_iVxcg2SStk2HGHJfItcpwVDDv_6qhy_ClpjQkaw",
+      "author_name": "Elliot G.",
+      "rating": 5,
+      "text": "I called several companies in the area and smart garage doors was by far the best. Not only were they the first one to call me back, they also had the best price. Their service and follow-up is incredible. They are really good at what they do and it shows.",
+      "time": 1782136265
+    },
+    {
+      "id": "AbFvOqnm8-oALm_KWEsMnJPeuYXbLnaEL493fKpxlX-omKiQW8aqPeO1H-MfyxEJCGj3dBzLfslI",
+      "author_name": "Marcus G.",
+      "rating": 5,
+      "text": "had a great experience with Smart Garage Doors. They responded quickly, came out right away, and thoroughly checked my garage doors. They explained everything clearly and made sure the issue was taken care of. I’m very happy with the outcome and the service they provided. Thank you to the team for the prompt and professional help!",
+      "time": 1781966586
+    },
+    {
+      "id": "AbFvOqn2l5TuI4zIhAWLFUZ0uqsP3S9WJNigUyQbhR9F0q8oMRjud1UmXShZrrb8TvK8qD_r6OyPPw",
+      "author_name": "B&S F.",
+      "rating": 5,
+      "text": "Ben was wonderful to work with! Professional, clear, and fairly priced. Absolutely recommend.",
+      "time": 1781717944
+    },
+    {
+      "id": "AbFvOqmjuooBzQtmff_baFdAKI-4yVVhBwelTvrC-ns01_6H92l5nVFUYDvAhDm_uxx4khot-yDP",
+      "author_name": "elmo D.",
+      "rating": 5,
+      "text": "Very professional and easy to deal with.",
+      "time": 1781714562
+    },
+    {
+      "id": "AbFvOqkeASI3Q3l1igF4NuupG45HMHrEKVzs-evmP-13mBx3SCurBeTcSoDy9SynZxU6J406H6MfTw",
+      "author_name": "Kevin T.",
+      "rating": 5,
+      "text": "Found them on Google maps. Excellent communication. I needed some preventative maintenance. Very quick to give in-person quote. Very flexible with appointments. Glad I found them. Would use their services again.",
+      "time": 1781563045
+    }
+  ],
+  "reviewCount": "105",
+  "ratingValue": "5",
+  "fetchedAt": "2026-07-03"
 }
