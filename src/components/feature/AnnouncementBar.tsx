@@ -39,7 +39,7 @@ export default function AnnouncementBar() {
 
   return (
     <div className="bg-[#161D29] text-white" role="region" aria-label="Promotion and contact">
-      <div className="max-w-7xl mx-auto px-3 sm:px-4 py-2 flex flex-wrap md:flex-nowrap items-center justify-center md:justify-between gap-x-3 gap-y-1">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 py-1.5 flex flex-wrap md:flex-nowrap items-center justify-center md:justify-between gap-x-3 gap-y-1">
         {/* Left (desktop only): visitor's local serving area + email */}
         <div className="hidden md:flex items-center gap-x-4 text-xs text-gray-300 min-w-0">
           <span className="flex items-center gap-1.5 min-w-0">
@@ -75,7 +75,7 @@ export default function AnnouncementBar() {
             href={PHONE_HREF}
             data-track-source="announcement_bar"
             aria-label={`Call Smart Garage Doors now at ${PHONE_DISPLAY}`}
-            className="inline-flex items-center gap-1.5 rounded-full bg-orange-500 hover:bg-orange-600 active:bg-orange-700 px-2.5 sm:px-3 py-1 text-[11px] sm:text-sm font-semibold text-white transition-colors whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-1 focus:ring-offset-[#161D29]"
+            className="inline-flex items-center gap-1.5 rounded-full bg-orange-500 hover:bg-orange-600 active:bg-orange-700 px-2.5 sm:px-3 py-2.5 sm:py-1 min-h-[44px] sm:min-h-0 text-[11px] sm:text-sm font-semibold text-white transition-colors whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-1 focus:ring-offset-[#161D29]"
           >
             <i className="ri-phone-fill" aria-hidden="true" />
             <span className="hidden sm:inline">Call </span>{PHONE_DISPLAY}

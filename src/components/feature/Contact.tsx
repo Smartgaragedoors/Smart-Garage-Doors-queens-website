@@ -1,6 +1,7 @@
 import { useState, useCallback, memo } from 'react';
-import { trackFormSubmit } from '../../utils/analytics';
+import { trackFormSubmit, trackPhoneClick } from '../../utils/analytics';
 import { submitForm } from '../../utils/formSubmission';
+import { BUSINESS_INFO } from '../../config/business-info';
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -66,13 +67,14 @@ function Contact() {
               </p>
               <a
                 href="tel:914-557-6816"
+                onClick={() => trackPhoneClick('(914) 557-6816', 'contact_urgent_box')}
                 className="inline-flex items-center justify-center font-bold transition-all duration-300 cursor-pointer whitespace-nowrap bg-orange-500 hover:bg-orange-600 text-white shadow-2xl px-8 py-4 text-lg rounded-full"
               >
                 <i className="ri-phone-line mr-3 text-xl" aria-hidden="true"></i>
                 Call (914) 557-6816
               </a>
               <p className="mt-4 text-sm text-blue-100 flex flex-wrap items-center gap-x-3 gap-y-1">
-                <span><i className="ri-star-fill text-yellow-400 mr-1" aria-hidden="true"></i>5.0 · 479 reviews</span>
+                <span><i className="ri-star-fill text-yellow-400 mr-1" aria-hidden="true"></i>{BUSINESS_INFO.aggregateRating.ratingValue} · {BUSINESS_INFO.aggregateRating.reviewCount} reviews</span>
                 <span aria-hidden="true">·</span>
                 <span>$0 service call with any repair</span>
               </p>
@@ -97,7 +99,11 @@ function Contact() {
                 </div>
                 <div className="ml-4">
                   <h3 className="text-lg font-bold text-blue-900 mb-1">Phone</h3>
-                  <a href="tel:914-557-6816" className="text-gray-600 hover:text-orange-500 transition-colors">
+                  <a
+                    href="tel:914-557-6816"
+                    onClick={() => trackPhoneClick('(914) 557-6816', 'contact_info_card')}
+                    className="text-gray-600 hover:text-orange-500 transition-colors"
+                  >
                     (914) 557-6816
                   </a>
                   <p className="text-sm text-gray-500 mt-1">24/7 Emergency Service</p>
@@ -216,7 +222,7 @@ function Contact() {
               {submitStatus === 'fallback' && (
                 <div className="bg-amber-50 border border-amber-200 text-amber-800 px-4 py-3 rounded-lg">
                   <p className="font-semibold">Your email client should open.</p>
-                  <p className="text-sm">If it did not open or you prefer to call, please reach us at <a href="tel:914-557-6816" className="underline font-semibold">(914) 557-6816</a>.</p>
+                  <p className="text-sm">If it did not open or you prefer to call, please reach us at <a href="tel:914-557-6816" onClick={() => trackPhoneClick('(914) 557-6816', 'contact_fallback_message')} className="underline font-semibold">(914) 557-6816</a>.</p>
                 </div>
               )}
 

@@ -5,6 +5,7 @@ import Header from '../../components/feature/Header';
 import Footer from '../../components/feature/Footer';
 import DynamicMetaTags from '../../components/seo/DynamicMetaTags';
 import { buildCanonical } from '../../config/canonical';
+import { BUSINESS_INFO } from '../../config/business-info';
 import { submitForm } from '../../utils/formSubmission';
 import { trackFormStart, trackFormSubmit } from '../../utils/analytics';
 import FormTrustBadges from '../../components/conversion/FormTrustBadges';
@@ -93,7 +94,7 @@ export default function BookNowPage() {
               style={{ boxShadow: '0 0 0 4px rgba(63,174,114,0.25)' }}
               aria-hidden="true"
             />
-            5.0 ★ · 479 Google Reviews · Same-day slots · $0 service call w/ repair
+            {BUSINESS_INFO.aggregateRating.ratingValue} ★ · {BUSINESS_INFO.aggregateRating.reviewCount} Google Reviews · Same-day slots · $0 service call w/ repair
           </p>
           <h1 className="font-newsreader font-medium text-3xl md:text-4xl leading-[1.05] tracking-[-0.02em]">
             Book Your Garage Door Service

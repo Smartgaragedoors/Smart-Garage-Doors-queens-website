@@ -9,6 +9,7 @@ import RelatedServices from '../../../components/seo/RelatedServices';
 import ServiceAreaLinks from '../../../components/seo/ServiceAreaLinks';
 import { useLocation } from '../../../contexts/LocationContext';
 import { submitForm } from '../../../utils/formSubmission';
+import { BUSINESS_INFO } from '../../../config/business-info';
 
 export default function MaintenancePage() {
   const { location, locationName, isLoading } = useLocation();
@@ -79,7 +80,7 @@ export default function MaintenancePage() {
     <div className="min-h-screen bg-gray-50">
       <DynamicMetaTags 
         title="Garage Door Maintenance Plans | NY NJ CT | Smart Garage Doors"
-        description="Preventive garage door maintenance. Extend door life, avoid costly repairs. 5.0★, 479 reviews. Annual plans. NY, NJ & CT."
+        description={`Preventive garage door maintenance. Extend door life, avoid costly repairs. ${BUSINESS_INFO.aggregateRating.ratingValue}★, ${BUSINESS_INFO.aggregateRating.reviewCount} reviews. Annual plans. NY, NJ & CT.`}
         keywords="garage door maintenance, preventive maintenance, maintenance plans, annual garage door service"
       />
       <FAQSchema faqs={faqs} />

@@ -1,11 +1,12 @@
 import LocationPageTemplate from '../../../components/feature/LocationPageTemplate';
+import { BUSINESS_INFO } from '../../../config/business-info';
 
 export default function BrooklynNY() {
 
   return (
     <LocationPageTemplate
       metaTitle="Brooklyn NY Garage Door Repair | Same-Day Service | Smart Garage Doors"
-      metaDescription="Garage door repair in Brooklyn, NY — same-day service, 5.0★ 479 reviews. Spring replacement, opener repair, emergency service. Brownstone specialists. Call (914) 557-6816."
+      metaDescription={`Garage door repair in Brooklyn, NY — same-day service, ${BUSINESS_INFO.aggregateRating.ratingValue}★ ${BUSINESS_INFO.aggregateRating.reviewCount} reviews. Spring replacement, opener repair, emergency service. Brownstone specialists. Call (914) 557-6816.`}
       keywords="Brooklyn NY garage door repair, garage door installation Brooklyn, emergency garage door Brooklyn, brownstone garage door"
       slug="/brooklyn-ny/"
       cityName="Brooklyn"
@@ -22,11 +23,7 @@ export default function BrooklynNY() {
         { name: 'Carroll Gardens & Cobble Hill', description: 'Landmark brownstones with unique hardware requirements. We work carefully to preserve the character of older buildings.' },
         { name: 'Sheepshead Bay & Marine Park', description: 'Suburban-style homes in South Brooklyn. Easy access and quick arrivals from our Bay Ridge location.' },
       ]}
-      reviews={[
-        { text: 'Spring snapped in Park Slope on a Saturday. Called, got a real person, tech arrived in 90 minutes. Clean work, fair price. Exactly what you want in an emergency.', author: 'James M.', location: 'Park Slope, Brooklyn', initials: 'JM', color: 'bg-blue-600' },
-        { text: 'Couldn\'t close my garage door in Williamsburg on a Sunday afternoon. They were here in under 2 hours and fixed it quickly. Professional and reasonably priced.', author: 'Amanda R.', location: 'Williamsburg, Brooklyn', initials: 'AR', color: 'bg-orange-500' },
-        { text: 'New smart opener install in Dyker Heights. Tech was thorough, showed me everything, and the app setup was painless. Best contractor experience I\'ve had in Brooklyn.', author: 'Robert T.', location: 'Dyker Heights, Brooklyn', initials: 'RT', color: 'bg-green-600' },
-      ]}
+      reviews={[]}
       faqs={[
         { question: 'Do you service all Brooklyn neighborhoods?', answer: 'Yes — Park Slope, Williamsburg, Dyker Heights, Bay Ridge, Sheepshead Bay, Brooklyn Heights, Carroll Gardens, Greenpoint, Crown Heights, Bed-Stuy, Sunset Park, Bensonhurst, Coney Island, Brighton Beach, and everywhere else in Brooklyn.' },
         { question: 'How do you handle parking and access in Brooklyn?', answer: 'Our Brooklyn technicians know alternate-side schedules, double-parking norms, and building access requirements. We coordinate with building management when needed and work efficiently in tight spaces.' },

@@ -1,11 +1,12 @@
 import LocationPageTemplate from '../../../components/feature/LocationPageTemplate';
+import { BUSINESS_INFO } from '../../../config/business-info';
 
 export default function QueensNY() {
 
   return (
     <LocationPageTemplate
       metaTitle="Queens NY Garage Door Repair | Same-Day Service | Smart Garage Doors"
-      metaDescription="Garage door repair in Queens, NY — same-day service, 5.0★ 479 reviews. Spring replacement, opener repair, emergency service. Licensed & insured. Call (914) 557-6816."
+      metaDescription={`Garage door repair in Queens, NY — same-day service, ${BUSINESS_INFO.aggregateRating.ratingValue}★ ${BUSINESS_INFO.aggregateRating.reviewCount} reviews. Spring replacement, opener repair, emergency service. Licensed & insured. Call (914) 557-6816.`}
       keywords="Queens NY garage door repair, garage door installation Queens, emergency garage door Queens, spring replacement Queens"
       slug="/queens-ny/"
       cityName="Queens"

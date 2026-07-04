@@ -10,6 +10,7 @@ import RelatedServices from '../../../components/seo/RelatedServices';
 import ServiceAreaLinks from '../../../components/seo/ServiceAreaLinks';
 import { useLocation } from '../../../contexts/LocationContext';
 import { submitForm } from '../../../utils/formSubmission';
+import { BUSINESS_INFO } from '../../../config/business-info';
 
 export default function CableRollerRepairPage() {
   const { location, locationName, isLoading } = useLocation();
@@ -100,7 +101,7 @@ export default function CableRollerRepairPage() {
     <div className="min-h-screen bg-gray-50">
       <DynamicMetaTags 
         title="Garage Door Cable & Roller Repair NY NJ CT | Smart Garage Doors"
-        description="5.0★ rated, 479 reviews. Cable, roller & track repair. Fast service — call for availability. NY, NJ & CT. Licensed & insured."
+        description={`${BUSINESS_INFO.aggregateRating.ratingValue}★ rated, ${BUSINESS_INFO.aggregateRating.reviewCount} reviews. Cable, roller & track repair. Fast service — call for availability. NY, NJ & CT. Licensed & insured.`}
         keywords="garage door cable repair, roller replacement, track repair, cable replacement"
         canonical={buildCanonical('/cable-roller-repair')}
       />

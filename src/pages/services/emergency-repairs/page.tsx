@@ -9,6 +9,7 @@ import FAQSchema from '../../../components/seo/FAQSchema';
 import ServiceAreaLinks from '../../../components/seo/ServiceAreaLinks';
 import { useLocation } from '../../../contexts/LocationContext';
 import { submitForm } from '../../../utils/formSubmission';
+import { BUSINESS_INFO } from '../../../config/business-info';
 
 export default function EmergencyRepairsPage() {
   const { location, locationName, isLoading } = useLocation();
@@ -75,7 +76,7 @@ export default function EmergencyRepairsPage() {
     <div className="min-h-screen bg-gray-50">
       <DynamicMetaTags
         title="Emergency Garage Door Repair | 24/7 NY NJ CT | Smart Garage Doors"
-        description="24/7 emergency garage door repair across NY, NJ & CT. 5.0★ rated, 479 reviews. Fast response, upfront pricing, licensed & insured. Call (914) 557-6816."
+        description={`24/7 emergency garage door repair across NY, NJ & CT. ${BUSINESS_INFO.aggregateRating.ratingValue}★ rated, ${BUSINESS_INFO.aggregateRating.reviewCount} reviews. Fast response, upfront pricing, licensed & insured. Call (914) 557-6816.`}
         keywords="emergency garage door repair, 24/7 garage door service, urgent garage door fix, broken garage door repair"
       />
       <FAQSchema faqs={faqs} />

@@ -134,11 +134,19 @@ export default defineConfig({
             // All other node_modules - smaller vendor libraries
             return 'vendor';
           }
-          // Split large page components for better code splitting
+          // Split large page components for better code splitting.
+          // Capture the full path between "pages/" and the "page.tsx" filename so
+          // nested per-item routes (service-areas/<city>, services/<service>) each
+          // get their own unique chunk name instead of collapsing into one shared
+          // chunk keyed off just the first segment (e.g. all 57 city pages used to
+          // merge into a single "page-service-areas" chunk, defeating their
+          // individual lazy() imports in router/config.tsx).
           if (id.includes('/pages/') && !id.includes('home')) {
-            const match = id.match(/pages\/([^/]+)/);
+            const nested = id.match(/pages\/(.+?)\/page(?:\.tsx|\.jsx|\.ts|\.js)?$/);
+            const match = nested || id.match(/pages\/([^/]+)/);
             if (match) {
-              return `page-${match[1]}`;
+              const key = match[1].replace(/\//g, '-').replace(/[[\]]/g, '');
+              return `page-${key}`;
             }
           }
         },

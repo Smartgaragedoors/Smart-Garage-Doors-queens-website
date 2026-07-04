@@ -8,6 +8,7 @@ import FAQSchema from '../../../components/seo/FAQSchema';
 import ServiceAreaLinks from '../../../components/seo/ServiceAreaLinks';
 import { useLocation } from '../../../contexts/LocationContext';
 import { submitForm } from '../../../utils/formSubmission';
+import { BUSINESS_INFO } from '../../../config/business-info';
 
 export default function SpringReplacementPage() {
   const { location, locationName, isLoading } = useLocation();
@@ -114,7 +115,7 @@ export default function SpringReplacementPage() {
     <div className="min-h-screen bg-gray-50">
       <DynamicMetaTags 
         title="Garage Door Spring Replacement NY NJ CT | Smart Garage Doors"
-        description="5.0★ rated, 479 reviews. Safe spring replacement. Torsion & extension. Fast service — call for availability. NY, NJ & CT. Licensed & insured."
+        description={`${BUSINESS_INFO.aggregateRating.ratingValue}★ rated, ${BUSINESS_INFO.aggregateRating.reviewCount} reviews. Safe spring replacement. Torsion & extension. Fast service — call for availability. NY, NJ & CT. Licensed & insured.`}
         keywords="garage door spring replacement, torsion spring repair, extension spring replacement, broken spring repair"
       />
       <FAQSchema faqs={faqs} />

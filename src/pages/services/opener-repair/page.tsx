@@ -7,6 +7,7 @@ import RelatedServices from '../../../components/seo/RelatedServices';
 import ServiceAreaLinks from '../../../components/seo/ServiceAreaLinks';
 import { useLocation } from '../../../contexts/LocationContext';
 import { getCFImageUrl } from '../../../data/cloudflareImages';
+import { BUSINESS_INFO } from '../../../config/business-info';
 
 export default function OpenerRepair() {
   const { location, locationName, isLoading } = useLocation();
@@ -50,7 +51,7 @@ export default function OpenerRepair() {
     <div className="min-h-screen">
       <DynamicMetaTags 
         title="Garage Door Opener Repair & Installation NY NJ CT | Smart Garage Doors"
-        description="5.0★ rated, 479 reviews. Opener repair & installation — chain, belt, wall-mount. Free estimate. NY, NJ & CT. Licensed & insured."
+        description={`${BUSINESS_INFO.aggregateRating.ratingValue}★ rated, ${BUSINESS_INFO.aggregateRating.reviewCount} reviews. Opener repair & installation — chain, belt, wall-mount. Free estimate. NY, NJ & CT. Licensed & insured.`}
         keywords="garage door opener repair, opener installation, chain drive, belt drive, wall mount"
       />
       <FAQSchema faqs={faqs} />

@@ -71,8 +71,8 @@ export default function GarageDoorRepairPage() {
   return (
     <div className="min-h-screen bg-white">
       <DynamicMetaTags 
-        title="Garage Door Repair NY NJ CT | 5.0★ 479 reviews | Smart Garage Doors"
-        description="5.0★ rated, 479 reviews. Fast garage door repair across NY, NJ & CT. Spring replacement, opener repair, emergency service. Free estimate. Licensed & insured."
+        title={`Garage Door Repair NY NJ CT | ${BUSINESS_INFO.aggregateRating.ratingValue}★ ${BUSINESS_INFO.aggregateRating.reviewCount} reviews | Smart Garage Doors`}
+        description={`${BUSINESS_INFO.aggregateRating.ratingValue}★ rated, ${BUSINESS_INFO.aggregateRating.reviewCount} reviews. Fast garage door repair across NY, NJ & CT. Spring replacement, opener repair, emergency service. Free estimate. Licensed & insured.`}
       />
       <FAQSchema faqs={faqs} />
       <Header />

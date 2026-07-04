@@ -5,6 +5,7 @@ import Breadcrumbs from '../../components/seo/Breadcrumbs';
 import DynamicMetaTags from '../../components/seo/DynamicMetaTags';
 import FAQSchema from '../../components/seo/FAQSchema';
 import ServiceAreaLinks from '../../components/seo/ServiceAreaLinks';
+import { BUSINESS_INFO } from '../../config/business-info';
 
 export default function GarageDoorInstallationNewYorkPage() {
   const faqs = [
@@ -46,7 +47,7 @@ export default function GarageDoorInstallationNewYorkPage() {
     <div className="min-h-screen bg-white">
       <DynamicMetaTags 
         title="Garage Door Installation New York | New & Replacement | Smart Garage Doors"
-        description="New garage door installation & replacement. 5.0★, 479 reviews. Free estimates. Fast service — call for availability. Licensed & insured. Serving NY, NJ & CT."
+        description={`New garage door installation & replacement. ${BUSINESS_INFO.aggregateRating.ratingValue}★, ${BUSINESS_INFO.aggregateRating.reviewCount} reviews. Free estimates. Fast service — call for availability. Licensed & insured. Serving NY, NJ & CT.`}
         keywords="garage door installation, new garage door, garage door replacement, garage door installer"
       />
       <FAQSchema faqs={faqs} />
