@@ -247,19 +247,15 @@ img[fetchpriority="high"] {
     max-width: 100vw !important;
   }
   
-  /* Prevent any element from causing horizontal overflow - but NOT dropdown menus */
-  section:not(.dropdown-menu):not([class*="dropdown-menu"]):not(:has(div[class*="absolute"][class*="top-full"])), 
-  div:not(.dropdown-menu):not([class*="dropdown-menu"]):not(:has(div[class*="absolute"][class*="top-full"])), 
-  main:not(.dropdown-menu):not([class*="dropdown-menu"]):not(:has(div[class*="absolute"][class*="top-full"])), 
-  article:not(.dropdown-menu):not([class*="dropdown-menu"]):not(:has(div[class*="absolute"][class*="top-full"])), 
-  aside:not(.dropdown-menu):not([class*="dropdown-menu"]):not(:has(div[class*="absolute"][class*="top-full"])), 
-  header:not(.dropdown-menu):not([class*="dropdown-menu"]):not(:has(div[class*="absolute"][class*="top-full"])), 
-  footer:not(.dropdown-menu):not([class*="dropdown-menu"]):not(:has(div[class*="absolute"][class*="top-full"])), 
-  nav:not(.dropdown-menu):not([class*="dropdown-menu"]):not(:has(div[class*="absolute"][class*="top-full"])) {
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-  
+  /* NOTE: a blanket `div/section/main/... { max-width: 100% }` rule used to live
+     here. Its compounded `:not()` chain (each :not(.class)/:not([attr])/:not(:has())
+     adds specificity) made it beat plain Tailwind `.max-w-*` utility classes on
+     any element that didn't happen to contain a dropdown-like nested node —
+     silently stretching cards/sections (max-w-lg, max-w-3xl, etc.) to their
+     parent's full width on wide viewports instead of respecting their intended
+     cap. The `body, html` rule above already prevents real horizontal overflow
+     safely, without fighting component-level width utilities. Removed 2026-07-05. */
+
   /* CRITICAL: Ensure nav and header allow dropdowns to overflow */
   nav,
   header nav,
