@@ -323,7 +323,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
       <section className="py-8 md:py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-3">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
               Garage Door Services in {city}, {state}
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -345,7 +345,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
       </section>
 
       {/* ── EXPLORE SERVICES (internal links to money/service pages) ── */}
-      <section className="pb-14 bg-white">
+      <section className="pb-8 md:pb-12 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-center text-sm font-semibold uppercase tracking-wide text-gray-500 mb-4">
             Garage door services we offer in {city}
@@ -376,7 +376,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
       <section className="py-8 md:py-12 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-3">How It Works</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">How It Works</h2>
             <p className="text-lg text-gray-600">Simple, fast, and stress-free from start to finish.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
@@ -429,7 +429,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
                   <p className="text-orange-400 font-semibold text-sm uppercase tracking-wide mb-1">
                     Your {city} Technician
                   </p>
-                  <h2 className="text-3xl font-bold mb-3">
+                  <h2 className="text-2xl md:text-3xl font-bold mb-3">
                     Meet {tech.name} — based in {tech.hub}
                   </h2>
                   <p className="text-blue-100 leading-relaxed mb-5">{tech.blurb}</p>
@@ -455,7 +455,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
       <section className="py-8 md:py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-3">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
               Serving All of {city}, {state}
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -481,7 +481,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
       <section className="py-8 md:py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-2">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
               What {city} Customers Say
             </h2>
             <p className="text-gray-600">Real reviews from your neighbors</p>
@@ -525,7 +525,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
       <section className="py-8 md:py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-3">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
               Why {city} Homeowners Choose Us
             </h2>
           </div>
@@ -547,7 +547,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
       <section className="py-8 md:py-12 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-3">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
               How We Compare in {city}
             </h2>
           </div>
@@ -583,7 +583,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
       <section className="py-8 md:py-12 bg-gray-50">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-3">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
               {city} Garage Door FAQ
             </h2>
             <p className="text-gray-600">Common questions from {city} homeowners</p>
@@ -613,7 +613,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
       {/* ── FINAL CTA ─────────────────────────────────────────────── */}
       <section className="py-8 md:py-12 bg-orange-500 text-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-3">
+          <h2 className="text-2xl md:text-3xl font-bold mb-3">
             Need a Garage Door Tech in {city}?
           </h2>
           <p className="text-orange-100 text-lg mb-8">
@@ -645,7 +645,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
         const guides = getGuidesForLocation(slug);
         if (guides.length === 0) return null;
         return (
-          <section className="py-12 bg-white border-t border-gray-100">
+          <section className="py-8 md:py-12 bg-white border-t border-gray-100">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
                 Garage Door Guides for {city} Homeowners

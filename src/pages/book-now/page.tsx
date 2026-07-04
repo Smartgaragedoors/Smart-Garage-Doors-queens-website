@@ -170,6 +170,7 @@ export default function BookNowPage() {
                     <option value="cable-roller-repair">Cable &amp; Roller Repair</option>
                     <option value="installation">New Door Installation</option>
                     <option value="maintenance">Maintenance Service</option>
+                    <option value="commercial-property-management">Commercial / Property Management</option>
                     <option value="other">Not sure / Other</option>
                   </select>
                 </div>

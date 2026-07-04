@@ -10,6 +10,7 @@ import { BUSINESS_INFO } from '../../config/business-info';
 import { cloudflareImages, getCFBackgroundImage } from '../../data/cloudflareImages';
 import { getWhatsAppHref } from '../../utils/whatsapp';
 import { trackPhoneClick, trackBookNowClick, trackWhatsAppClick } from '../../utils/analytics';
+import CommercialLeadForm from '../conversion/CommercialLeadForm';
 
 export interface GuideSection {
   heading: string;
@@ -68,6 +69,11 @@ export interface GuidePageTemplateProps {
   // Final CTA
   ctaHeadline?: string;
   ctaText?: string;
+
+  // B2B lead capture — shows a company/portfolio-aware form below the trust
+  // bar instead of funneling commercial visitors through the residential
+  // book-now form (no company/portfolio fields, reads as "book my house call").
+  showCommercialLeadForm?: boolean;
 }
 
 const PHONE = BUSINESS_INFO.phone;
@@ -103,7 +109,7 @@ export default function GuidePageTemplate(props: GuidePageTemplateProps) {
     metaTitle, metaDescription, keywords, slug,
     badge, headline, subheadline, heroImage, showWhatsAppHero, whatsAppMessage,
     intro, sections, costTable, criteria, faqs, bottomLine,
-    relatedLinks, ctaHeadline, ctaText,
+    relatedLinks, ctaHeadline, ctaText, showCommercialLeadForm,
   } = props;
 
   const trackSource = slug.replace(/\//g, '') || 'guide';
@@ -122,28 +128,42 @@ export default function GuidePageTemplate(props: GuidePageTemplateProps) {
       <Header />
       <Breadcrumbs />
 
-      {/* ── HERO ──────────────────────────────────────────────────── */}
-      <section className="relative bg-gradient-to-br from-blue-900 to-blue-800 text-white">
+      {/* ── HERO (premium ink/serif — matches homepage + LocationPageTemplate) ── */}
+      <section className="relative bg-[#161D29] text-white overflow-hidden">
         {heroImg && (
-          <>
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: getCFBackgroundImage(heroImg.id, 'hero', heroImg.fallbackSrc) }}
-              aria-hidden="true"
-            />
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-950/90 via-blue-900/85 to-blue-900/75" aria-hidden="true" />
-          </>
+          <div
+            className="absolute inset-0 bg-cover bg-center opacity-25"
+            style={{ backgroundImage: getCFBackgroundImage(heroImg.id, 'hero', heroImg.fallbackSrc) }}
+            aria-hidden="true"
+          />
         )}
+        {/* Ink scrim keeps the background photo legible */}
+        <div
+          className="absolute inset-0"
+          style={{ background: 'linear-gradient(rgba(22,29,41,0.86), rgba(11,15,23,0.82))' }}
+          aria-hidden="true"
+        />
+        {/* Decorative amber corner glow */}
+        <div
+          className="absolute top-0 right-0 w-[420px] h-[420px] pointer-events-none hidden md:block"
+          style={{ background: 'radial-gradient(circle at 75% 25%, rgba(217,100,31,0.16), transparent 64%)' }}
+          aria-hidden="true"
+        />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14 lg:py-24 text-center">
           {badge && (
-            <span className="inline-block bg-blue-700/60 text-blue-100 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
+            <p className="flex items-center justify-center gap-2.5 text-xs md:text-sm font-semibold uppercase tracking-[0.16em] text-[#E8915A] mb-5">
+              <span
+                className="inline-block w-[7px] h-[7px] rounded-full bg-[#3FAE72]"
+                style={{ boxShadow: '0 0 0 4px rgba(63,174,114,0.25)' }}
+                aria-hidden="true"
+              />
               {badge}
-            </span>
+            </p>
           )}
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-5 leading-tight">
+          <h1 className="font-newsreader font-medium text-4xl md:text-5xl lg:text-6xl mb-5 leading-[1.05] tracking-[-0.02em]">
             {headline}
           </h1>
-          <p className="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed">
             {subheadline}
           </p>
           <div data-hero-cta className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -177,12 +197,24 @@ export default function GuidePageTemplate(props: GuidePageTemplateProps) {
               </a>
             )}
           </div>
+          {/* Trust row */}
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-7 text-sm text-gray-300">
+            <span className="flex items-center gap-1.5">
+              <span className="text-[#F2B98C]" aria-hidden="true">★★★★★</span>
+              <strong className="text-white">{BUSINESS_INFO.aggregateRating.ratingValue}</strong> · {reviewCount}+ reviews
+            </span>
+            <span aria-hidden="true">·</span>
+            <span>Licensed &amp; Insured</span>
+            <span aria-hidden="true">·</span>
+            <span>24/7 Emergency Line</span>
+          </div>
         </div>
       </section>
 
-      {/* ── TRUST BAND ────────────────────────────────────────────── */}
-      <div className="bg-blue-950 text-blue-100">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-4 flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm font-medium">
+      {/* ── TRUST BAR ─────────────────────────────────────────────── */}
+      {/* Same ink-navy + orange-accent treatment as the homepage TrustBar.tsx band */}
+      <section className="bg-[#16335B] text-white border-t-[3px] border-orange-500 py-4">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm font-medium">
           <span className="inline-flex items-center gap-2">
             <i className="ri-shield-check-line text-orange-400 text-base" aria-hidden="true" />
             Licensed &amp; Insured
@@ -200,10 +232,19 @@ export default function GuidePageTemplate(props: GuidePageTemplateProps) {
             1-Year Parts &amp; Labor Warranty
           </span>
         </div>
-      </div>
+      </section>
+
+      {/* ── B2B LEAD FORM ─────────────────────────────────────────── */}
+      {showCommercialLeadForm && (
+        <section className="py-8 md:py-12 bg-gray-50">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <CommercialLeadForm />
+          </div>
+        </section>
+      )}
 
       {/* ── INTRO ─────────────────────────────────────────────────── */}
-      <section className="py-14 bg-white">
+      <section className="py-8 md:py-12 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
           {intro.map((para, i) => (
             <p key={i} className="text-gray-700 leading-relaxed text-lg">{para}</p>
@@ -213,10 +254,10 @@ export default function GuidePageTemplate(props: GuidePageTemplateProps) {
 
       {/* ── COST TABLE ────────────────────────────────────────────── */}
       {costTable && (
-        <section className="py-14 bg-gray-50">
+        <section className="py-8 md:py-12 bg-gray-50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-10">
-              <h2 className="text-3xl font-bold text-gray-900 mb-3">{costTable.title}</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">{costTable.title}</h2>
             </div>
             <div className="rounded-2xl overflow-x-auto border border-gray-200 shadow-sm bg-white">
               <table className="w-full">
@@ -245,10 +286,10 @@ export default function GuidePageTemplate(props: GuidePageTemplateProps) {
 
       {/* ── CRITERIA CARDS ────────────────────────────────────────── */}
       {criteria && (
-        <section className="py-14 bg-gray-50">
+        <section className="py-8 md:py-12 bg-gray-50">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-10">
-              <h2 className="text-3xl font-bold text-gray-900 mb-3">{criteria.title}</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">{criteria.title}</h2>
               {criteria.intro && <p className="text-gray-600 max-w-2xl mx-auto">{criteria.intro}</p>}
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -268,7 +309,7 @@ export default function GuidePageTemplate(props: GuidePageTemplateProps) {
 
       {/* ── PROSE SECTIONS ────────────────────────────────────────── */}
       {sections.map((section, i) => (
-        <section key={i} className={`py-12 ${i % 2 === 1 ? 'bg-gray-50' : 'bg-white'}`}>
+        <section key={i} className={`py-8 md:py-12 ${i % 2 === 1 ? 'bg-gray-50' : 'bg-white'}`}>
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">{section.heading}</h2>
             <div className="space-y-4">
@@ -292,7 +333,7 @@ export default function GuidePageTemplate(props: GuidePageTemplateProps) {
 
       {/* ── BOTTOM LINE ───────────────────────────────────────────── */}
       {bottomLine && (
-        <section className="py-12 bg-white">
+        <section className="py-8 md:py-12 bg-white">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">The Bottom Line</h2>
             <p className="text-gray-700 leading-relaxed text-lg">{bottomLine}</p>
@@ -301,10 +342,10 @@ export default function GuidePageTemplate(props: GuidePageTemplateProps) {
       )}
 
       {/* ── FAQ ───────────────────────────────────────────────────── */}
-      <section className="py-14 bg-gray-50">
+      <section className="py-8 md:py-12 bg-gray-50">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-3">Common Questions</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">Common Questions</h2>
           </div>
           <FAQAccordion faqs={faqs} />
         </div>
@@ -312,7 +353,7 @@ export default function GuidePageTemplate(props: GuidePageTemplateProps) {
 
       {/* ── RELATED LINKS ─────────────────────────────────────────── */}
       {relatedLinks && relatedLinks.links.length > 0 && (
-        <section className="py-12 bg-white">
+        <section className="py-8 md:py-12 bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">{relatedLinks.title}</h2>
             <div className="flex flex-wrap justify-center gap-3">
@@ -334,7 +375,7 @@ export default function GuidePageTemplate(props: GuidePageTemplateProps) {
       {/* ── FINAL CTA ─────────────────────────────────────────────── */}
       <section className="py-8 md:py-12 bg-orange-500 text-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-3">{ctaHeadline ?? 'Get an Honest Quote Today'}</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-3">{ctaHeadline ?? 'Get an Honest Quote Today'}</h2>
           <p className="text-orange-100 text-lg mb-8">
             {ctaText ?? 'Same-day availability, upfront pricing, and a 1-year warranty. Call now or book online.'}
           </p>

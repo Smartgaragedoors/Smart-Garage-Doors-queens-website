@@ -13,6 +13,7 @@ export default function PropertyManagersPage() {
       subheadline="One contact, per-property invoicing, photo documentation on every job, COIs for every building, and priority response when a door outage is affecting tenants. Serving property and facilities managers across NY, NJ & CT."
       showWhatsAppHero={true}
       whatsAppMessage="Hi — I manage properties and want to set up a vendor account / send photos of a door issue at one of our buildings."
+      showCommercialLeadForm={true}
       intro={[
         'If you manage buildings, you already know the problem with garage door vendors: they’re easy to find when you don’t need one and impossible to reach when a parking garage door is stuck open at 7am and your phone is filling up with tenant complaints. What you need isn’t a repair — it’s a vendor relationship: someone who answers, shows up when they said, documents the work, and sends an invoice your bookkeeper doesn’t have to chase.',
         'That’s the relationship we’re built for. We service parking garage doors and gates in condo, co-op, and rental buildings, tenant garage doors in HOA communities, and commercial bays in mixed-use buildings — across the NYC boroughs, Long Island, Westchester, northern and central New Jersey, and Fairfield County, CT. Our recurring accounts include multi-property relationships, among them a logistics operator we now cover at facilities in two states.',

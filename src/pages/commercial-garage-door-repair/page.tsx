@@ -13,6 +13,7 @@ export default function CommercialGarageDoorRepairPage() {
       subheadline="Overhead doors, rolling steel gates, and loading dock doors — repaired by technicians who understand that a down door means stopped trucks and lost revenue. 24/7 emergency line, COI on request, documented work on every job."
       showWhatsAppHero={true}
       whatsAppMessage="Hi — we have a commercial door/gate issue. Sending photos for a fast assessment."
+      showCommercialLeadForm={true}
       intro={[
         'A residential garage door that breaks is an inconvenience. A commercial bay door that breaks is a bottleneck: trucks can’t load, deliveries back up, and every hour the door stays down costs real money. That’s why we run commercial calls differently — priority dispatch on the emergency line, technicians who carry high-cycle commercial parts, and a written record of what was done so your facilities file is always current.',
         'We repair and service commercial overhead sectional doors, rolling steel service doors and security gates, loading dock doors, and the commercial operators that drive them — across Queens, Brooklyn, the Bronx, Long Island, Westchester, northern and central New Jersey, and Fairfield County, CT. Logistics operators with facilities in New York and New Jersey rely on us for recurring door service, and when one of our commercial clients opened a need at a second facility out of state, we covered that too.',

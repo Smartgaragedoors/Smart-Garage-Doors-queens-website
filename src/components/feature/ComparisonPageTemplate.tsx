@@ -92,17 +92,27 @@ export default function ComparisonPageTemplate(props: ComparisonPageTemplateProp
       <Header />
       <Breadcrumbs />
 
-      {/* ── HERO ──────────────────────────────────────────────────── */}
-      <section className="relative bg-gradient-to-br from-blue-900 to-blue-800 text-white">
+      {/* ── HERO (premium ink/serif — matches homepage + LocationPageTemplate) ── */}
+      <section className="relative bg-[#161D29] text-white overflow-hidden">
+        {/* Decorative amber corner glow */}
+        <div
+          className="absolute top-0 right-0 w-[420px] h-[420px] pointer-events-none hidden md:block"
+          style={{ background: 'radial-gradient(circle at 75% 25%, rgba(217,100,31,0.16), transparent 64%)' }}
+          aria-hidden="true"
+        />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14 lg:py-24 text-center">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <Stars />
-            <span className="text-blue-200 text-sm font-medium">{reviewCount} verified reviews</span>
-          </div>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-5 leading-tight">
+          <p className="flex items-center justify-center gap-2.5 text-xs md:text-sm font-semibold uppercase tracking-[0.16em] text-[#E8915A] mb-5">
+            <span
+              className="inline-block w-[7px] h-[7px] rounded-full bg-[#3FAE72]"
+              style={{ boxShadow: '0 0 0 4px rgba(63,174,114,0.25)' }}
+              aria-hidden="true"
+            />
+            {reviewCount} Verified Reviews · Licensed &amp; Insured
+          </p>
+          <h1 className="font-newsreader font-medium text-4xl md:text-5xl lg:text-6xl mb-5 leading-[1.05] tracking-[-0.02em]">
             {headline}
           </h1>
-          <p className="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed">
             An honest, side-by-side look at how Smart Garage Doors stacks up against {competitorName} —
             so you can choose with confidence.
           </p>
@@ -124,11 +134,22 @@ export default function ComparisonPageTemplate(props: ComparisonPageTemplateProp
               Request a Complimentary Estimate
             </a>
           </div>
+          {/* Trust row */}
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-7 text-sm text-gray-300">
+            <span className="flex items-center gap-1.5">
+              <Stars />
+              <strong className="text-white">{BUSINESS_INFO.aggregateRating.ratingValue}</strong> · {reviewCount} reviews
+            </span>
+            <span aria-hidden="true">·</span>
+            <span>Same-day service</span>
+            <span aria-hidden="true">·</span>
+            <span>1-Year Warranty</span>
+          </div>
         </div>
       </section>
 
       {/* ── INTRO ─────────────────────────────────────────────────── */}
-      <section className="py-14 bg-white">
+      <section className="py-8 md:py-12 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
           {intro.map((para, i) => (
             <p key={i} className="text-gray-700 leading-relaxed text-lg">{para}</p>
@@ -137,10 +158,10 @@ export default function ComparisonPageTemplate(props: ComparisonPageTemplateProp
       </section>
 
       {/* ── COMPARISON TABLE ──────────────────────────────────────── */}
-      <section className="py-14 bg-gray-50">
+      <section className="py-8 md:py-12 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-3">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
               Smart Garage Doors vs. {competitorName}
             </h2>
             <p className="text-gray-600">How we compare on the things homeowners care about most.</p>
@@ -178,7 +199,7 @@ export default function ComparisonPageTemplate(props: ComparisonPageTemplateProp
       </section>
 
       {/* ── BOTTOM LINE ───────────────────────────────────────────── */}
-      <section className="py-14 bg-white">
+      <section className="py-8 md:py-12 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">The Bottom Line</h2>
           <p className="text-gray-700 leading-relaxed text-lg">{bottomLine}</p>
@@ -186,10 +207,10 @@ export default function ComparisonPageTemplate(props: ComparisonPageTemplateProp
       </section>
 
       {/* ── FAQ ───────────────────────────────────────────────────── */}
-      <section className="py-14 bg-gray-50">
+      <section className="py-8 md:py-12 bg-gray-50">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-3">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
               {competitorName} vs. Us — Common Questions
             </h2>
           </div>
@@ -200,7 +221,7 @@ export default function ComparisonPageTemplate(props: ComparisonPageTemplateProp
       {/* ── FINAL CTA ─────────────────────────────────────────────── */}
       <section className="py-8 md:py-12 bg-orange-500 text-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-3">Get an Honest Quote Today</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-3">Get an Honest Quote Today</h2>
           <p className="text-orange-100 text-lg mb-8">
             Same-day service, upfront pricing, and a 1-year warranty. Call now or book online.
           </p>

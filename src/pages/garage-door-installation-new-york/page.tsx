@@ -123,15 +123,15 @@ export default function GarageDoorInstallationNewYorkPage() {
               </p>
               <div className="space-y-2 text-sm text-gray-600">
                 <div className="flex items-center">
-                  <img src="https://www.smartestgaragedoors.com/wp-content/uploads/2025/02/check.png" alt="Check" className="w-4 h-4 mr-2" width="16" height="16" loading="lazy" />
+                  <i className="ri-check-line text-orange-500 mr-2" aria-hidden="true" />
                   <span>Single & Double Car Garages</span>
                 </div>
                 <div className="flex items-center">
-                  <img src="https://www.smartestgaragedoors.com/wp-content/uploads/2025/02/check.png" alt="Check" className="w-4 h-4 mr-2" width="16" height="16" loading="lazy" />
+                  <i className="ri-check-line text-orange-500 mr-2" aria-hidden="true" />
                   <span>All Door Materials</span>
                 </div>
                 <div className="flex items-center">
-                  <img src="https://www.smartestgaragedoors.com/wp-content/uploads/2025/02/check.png" alt="Check" className="w-4 h-4 mr-2" width="16" height="16" loading="lazy" />
+                  <i className="ri-check-line text-orange-500 mr-2" aria-hidden="true" />
                   <span>Opener Installation</span>
                 </div>
               </div>
@@ -147,15 +147,15 @@ export default function GarageDoorInstallationNewYorkPage() {
               </p>
               <div className="space-y-2 text-sm text-gray-600">
                 <div className="flex items-center">
-                  <img src="https://www.smartestgaragedoors.com/wp-content/uploads/2025/02/check.png" alt="Check" className="w-4 h-4 mr-2" width="16" height="16" loading="lazy" />
+                  <i className="ri-check-line text-orange-500 mr-2" aria-hidden="true" />
                   <span>Roll-Up Doors</span>
                 </div>
                 <div className="flex items-center">
-                  <img src="https://www.smartestgaragedoors.com/wp-content/uploads/2025/02/check.png" alt="Check" className="w-4 h-4 mr-2" width="16" height="16" loading="lazy" />
+                  <i className="ri-check-line text-orange-500 mr-2" aria-hidden="true" />
                   <span>Sectional Doors</span>
                 </div>
                 <div className="flex items-center">
-                  <img src="https://www.smartestgaragedoors.com/wp-content/uploads/2025/02/check.png" alt="Check" className="w-4 h-4 mr-2" width="16" height="16" loading="lazy" />
+                  <i className="ri-check-line text-orange-500 mr-2" aria-hidden="true" />
                   <span>High-Speed Doors</span>
                 </div>
               </div>
@@ -171,15 +171,15 @@ export default function GarageDoorInstallationNewYorkPage() {
               </p>
               <div className="space-y-2 text-sm text-gray-600">
                 <div className="flex items-center">
-                  <img src="https://www.smartestgaragedoors.com/wp-content/uploads/2025/02/check.png" alt="Check" className="w-4 h-4 mr-2" width="16" height="16" loading="lazy" />
+                  <i className="ri-check-line text-orange-500 mr-2" aria-hidden="true" />
                   <span>WiFi Connectivity</span>
                 </div>
                 <div className="flex items-center">
-                  <img src="https://www.smartestgaragedoors.com/wp-content/uploads/2025/02/check.png" alt="Check" className="w-4 h-4 mr-2" width="16" height="16" loading="lazy" />
+                  <i className="ri-check-line text-orange-500 mr-2" aria-hidden="true" />
                   <span>App Control</span>
                 </div>
                 <div className="flex items-center">
-                  <img src="https://www.smartestgaragedoors.com/wp-content/uploads/2025/02/check.png" alt="Check" className="w-4 h-4 mr-2" width="16" height="16" loading="lazy" />
+                  <i className="ri-check-line text-orange-500 mr-2" aria-hidden="true" />
                   <span>Security Features</span>
                 </div>
               </div>
@@ -299,35 +299,35 @@ export default function GarageDoorInstallationNewYorkPage() {
               </h2>
               <div className="space-y-4">
                 <div className="flex items-start">
-                  <img src="https://www.smartestgaragedoors.com/wp-content/uploads/2025/02/check.png" alt="Check" className="w-6 h-6 mt-1 mr-3" width="24" height="24" loading="lazy" />
+                  <i className="ri-check-line text-orange-500 text-xl mt-1 mr-3" aria-hidden="true" />
                   <div>
                     <h3 className="font-semibold text-gray-900">Professional Installation</h3>
                     <p className="text-gray-600">Expert installation by certified technicians with years of experience.</p>
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <img src="https://www.smartestgaragedoors.com/wp-content/uploads/2025/02/check.png" alt="Check" className="w-6 h-6 mt-1 mr-3" width="24" height="24" loading="lazy" />
+                  <i className="ri-check-line text-orange-500 text-xl mt-1 mr-3" aria-hidden="true" />
                   <div>
                     <h3 className="font-semibold text-gray-900">Quality Materials</h3>
                     <p className="text-gray-600">We use only premium garage doors from trusted manufacturers.</p>
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <img src="https://www.smartestgaragedoors.com/wp-content/uploads/2025/02/check.png" alt="Check" className="w-6 h-6 mt-1 mr-3" width="24" height="24" loading="lazy" />
+                  <i className="ri-check-line text-orange-500 text-xl mt-1 mr-3" aria-hidden="true" />
                   <div>
                     <h3 className="font-semibold text-gray-900">Warranty Coverage</h3>
                     <p className="text-gray-600">Comprehensive warranty on both parts and installation labor.</p>
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <img src="https://www.smartestgaragedoors.com/wp-content/uploads/2025/02/check.png" alt="Check" className="w-6 h-6 mt-1 mr-3" width="24" height="24" loading="lazy" />
+                  <i className="ri-check-line text-orange-500 text-xl mt-1 mr-3" aria-hidden="true" />
                   <div>
                     <h3 className="font-semibold text-gray-900">Free Estimates</h3>
                     <p className="text-gray-600">Detailed free estimates with transparent pricing and no hidden fees.</p>
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <img src="https://www.smartestgaragedoors.com/wp-content/uploads/2025/02/check.png" alt="Check" className="w-6 h-6 mt-1 mr-3" width="24" height="24" loading="lazy" />
+                  <i className="ri-check-line text-orange-500 text-xl mt-1 mr-3" aria-hidden="true" />
                   <div>
                     <h3 className="font-semibold text-gray-900">Fast Service</h3>
                     <p className="text-gray-600">Quick scheduling — call to confirm availability for your area.</p>
