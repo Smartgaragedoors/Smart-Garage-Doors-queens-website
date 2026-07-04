@@ -95,6 +95,7 @@ const VsOverheadDoorPage = lazy(() => import('../pages/vs-overhead-door/page').t
 // Conversion pages
 const PhotoEstimatePage = lazy(() => import('../pages/photo-estimate/page').then(module => ({ default: module.default })));
 const SecondOpinionPage = lazy(() => import('../pages/second-opinion/page').then(module => ({ default: module.default })));
+const ReportIssuePage = lazy(() => import('../pages/report/page').then(module => ({ default: module.default })));
 
 // Commercial / B2B pages
 const CommercialGarageDoorRepairPage = lazy(() => import('../pages/commercial-garage-door-repair/page').then(module => ({ default: module.default })));
@@ -450,6 +451,10 @@ const routes: RouteObject[] = [
   {
     path: '/second-opinion/',
     element: <SecondOpinionPage />
+  },
+  {
+    path: '/report/',
+    element: <ReportIssuePage />
   },
 
   // Commercial / B2B pages
