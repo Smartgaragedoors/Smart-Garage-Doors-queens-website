@@ -170,7 +170,6 @@ export default defineConfig({
   },
   server: {
     port: 3042,
-    strictPort: true,
     host: '0.0.0.0',
   }
 })

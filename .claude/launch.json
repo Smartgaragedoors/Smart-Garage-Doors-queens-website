@@ -5,7 +5,8 @@
       "name": "vite-dev",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev"],
-      "port": 3042
+      "port": 3042,
+      "autoPort": true
     },
     {
       "name": "vite-dev-alt",
