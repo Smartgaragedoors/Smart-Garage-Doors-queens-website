@@ -114,7 +114,7 @@ const ContactPage = () => {
       />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-900 to-blue-700 text-white py-20">
+      <section className="relative bg-gradient-to-br from-blue-900 to-blue-700 text-white py-10 md:py-14">
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
@@ -143,7 +143,7 @@ const ContactPage = () => {
       </section>
 
       {/* Contact Options */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-8 md:py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -181,7 +181,7 @@ const ContactPage = () => {
               <a href="#schedule-form" className="text-blue-600 font-semibold hover:text-blue-700">
                 Schedule Now
               </a>
-              <p className="text-sm text-gray-500 mt-2">Response within 2 hours</p>
+              <p className="text-sm text-gray-500 mt-2">We respond fast — call for the quickest answer</p>
             </div>
             
             <div className="bg-white p-8 rounded-lg shadow-md text-center">
@@ -202,7 +202,7 @@ const ContactPage = () => {
       </section>
 
       {/* Scheduling Form */}
-      <section id="schedule-form" className="py-16 bg-white">
+      <section id="schedule-form" className="py-8 md:py-12 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -376,7 +376,7 @@ const ContactPage = () => {
             
             {submitStatus === 'success' && (
               <div className="mt-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
-                Thank you! Your service request has been submitted. We'll contact you within 2 hours to confirm your appointment.
+                Thank you! Your service request has been submitted. We'll contact you shortly to confirm your appointment.
               </div>
             )}
 
@@ -408,7 +408,7 @@ const ContactPage = () => {
       </section>
 
       {/* Service Areas */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-8 md:py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">

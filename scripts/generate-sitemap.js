@@ -13,6 +13,13 @@ const TODAY = new Date().toISOString().split('T')[0];
 
 // URLs that redirect to other pages - EXCLUDE from sitemap
 // These should not be indexed as they redirect to canonical URLs
+//
+// NOTE: this list does NOT need to (and does not) enumerate every legacy
+// Navigate redirect in src/router/config.tsx. The sitemap is built only from
+// coreRoutes (below) plus a regex scrape of service-area paths — a legacy
+// redirect that isn't in either of those sources can never end up in the
+// sitemap regardless of whether it's listed here. Only add a path here if it
+// could otherwise collide with coreRoutes or the service-area regex match.
 const EXCLUDED_PATHS = [
   '/home/',                                    // Redirects to /
   '/garage-door-repair-brooklyn-ny/',         // Redirects to /brooklyn-ny/

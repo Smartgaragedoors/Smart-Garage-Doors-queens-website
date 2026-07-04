@@ -1,6 +1,28 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- LCP: preload the hero image FIRST, before any analytics/tracking script
+         gets a chance to run — the browser should discover this the instant it
+         starts parsing <head>, not after three third-party scripts execute. -->
+    <link
+      rel="preload"
+      as="image"
+      href="/hero-van-1280.webp"
+      imagesrcset="/hero-van-800.webp 800w, /hero-van-1280.webp 1280w, /hero-van-1920.webp 1920w"
+      imagesizes="100vw"
+      type="image/webp"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="/hero-van-1280.jpg"
+      imagesrcset="/hero-van-800.jpg 800w, /hero-van-1280.jpg 1280w, /hero-van-1920.jpg 1920w"
+      imagesizes="100vw"
+      type="image/jpeg"
+      fetchpriority="high"
+    />
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17709307308"></script>
     <script>
@@ -178,27 +200,7 @@
     </script>
     <!-- Prefetch non-critical external resources - defer to avoid blocking -->
     <!-- Note: SociableKit widget is now loaded via Intersection Observer to prevent forced reflows -->
-    
-    <!-- Preload hero image set for faster LCP -->
-    <link
-      rel="preload"
-      as="image"
-      href="/hero-van-1280.webp"
-      imagesrcset="/hero-van-800.webp 800w, /hero-van-1280.webp 1280w, /hero-van-1920.webp 1920w"
-      imagesizes="100vw"
-      type="image/webp"
-      fetchpriority="high"
-    />
-    <link
-      rel="preload"
-      as="image"
-      href="/hero-van-1280.jpg"
-      imagesrcset="/hero-van-800.jpg 800w, /hero-van-1280.jpg 1280w, /hero-van-1920.jpg 1920w"
-      imagesizes="100vw"
-      type="image/jpeg"
-      fetchpriority="high"
-    />
-    
+
     <!-- Chat widget rendered by React (ChatWidget.tsx) — no external script needed -->
   </head>
   <body>

@@ -197,6 +197,21 @@ export default function BookNowPage() {
 
               {/* Optional details */}
               <div>
+                <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-2">
+                  ZIP Code or City <span className="text-gray-400 font-normal">(optional, helps us route your tech)</span>
+                </label>
+                <input
+                  type="text"
+                  id="address"
+                  name="address"
+                  value={formData.address}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm"
+                  placeholder="e.g. Queens, NY or 11367"
+                />
+              </div>
+
+              <div>
                 <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-2">
                   Anything else we should know? <span className="text-gray-400 font-normal">(optional)</span>
                 </label>

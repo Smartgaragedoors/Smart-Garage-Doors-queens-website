@@ -94,7 +94,7 @@ export default function ComparisonPageTemplate(props: ComparisonPageTemplateProp
 
       {/* ── HERO ──────────────────────────────────────────────────── */}
       <section className="relative bg-gradient-to-br from-blue-900 to-blue-800 text-white">
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-24 text-center">
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14 lg:py-24 text-center">
           <div className="flex items-center justify-center gap-2 mb-4">
             <Stars />
             <span className="text-blue-200 text-sm font-medium">{reviewCount} verified reviews</span>
@@ -121,7 +121,7 @@ export default function ComparisonPageTemplate(props: ComparisonPageTemplateProp
               className="inline-flex items-center justify-center gap-2 bg-white text-blue-900 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors shadow-lg"
             >
               <i className="ri-calendar-line" aria-hidden="true" />
-              Book Free Estimate
+              Request a Complimentary Estimate
             </a>
           </div>
         </div>
@@ -198,7 +198,7 @@ export default function ComparisonPageTemplate(props: ComparisonPageTemplateProp
       </section>
 
       {/* ── FINAL CTA ─────────────────────────────────────────────── */}
-      <section className="py-16 bg-orange-500 text-white">
+      <section className="py-8 md:py-12 bg-orange-500 text-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-3">Get an Honest Quote Today</h2>
           <p className="text-orange-100 text-lg mb-8">
@@ -219,7 +219,7 @@ export default function ComparisonPageTemplate(props: ComparisonPageTemplateProp
               className="inline-flex items-center justify-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-colors shadow-lg border border-orange-400"
             >
               <i className="ri-calendar-line" aria-hidden="true" />
-              Book Online
+              Request a Complimentary Estimate
             </a>
           </div>
         </div>

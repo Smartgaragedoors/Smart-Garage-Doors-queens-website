@@ -4,7 +4,7 @@ export default function GarageDoorReplacementCostNassauCountyPage() {
   return (
     <GuidePageTemplate
       metaTitle="Garage Door Replacement Cost in Nassau County (2026 Prices)"
-      metaDescription="What a new garage door really costs in Nassau County and across Long Island in 2026 — installed price ranges for steel, insulated, carriage-style, and custom doors, plus what's included in an honest quote."
+      metaDescription="What a new garage door costs in Nassau County & Long Island in 2026 — installed price ranges for steel, insulated, carriage, and custom doors."
       keywords="garage door replacement cost Nassau County, new garage door cost Long Island, garage door installation price Nassau, insulated garage door Long Island"
       slug="/garage-door-replacement-cost-nassau-county/"
       heroImage="doorInteriorWindows"

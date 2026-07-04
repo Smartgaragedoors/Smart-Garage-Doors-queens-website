@@ -3,10 +3,11 @@
  *
  * Source of truth, in order of preference:
  *   1. src/data/googleReviews.generated.json — REAL Google reviews pulled from
- *      GoHighLevel at build time (see scripts/fetch-reviews.mjs). Baked into the
+ *      the Google Business Profile API by the Post Automation app (see
+ *      C:\App Projects\Post Automation lib/services/gbpService.ts +
+ *      reviewsSyncService.ts) and committed here via GitHub. Baked into the
  *      static HTML, so they're indexable + fast, unlike a third-party iframe.
- *   2. The CURATED_FALLBACK below — used only until the GHL fetch is configured
- *      (GHL_API_TOKEN + GHL_LOCATION_ID), or if a fetch returns nothing.
+ *   2. The CURATED_FALLBACK below — used only if that file is ever empty.
  */
 import generated from './googleReviews.generated.json';
 

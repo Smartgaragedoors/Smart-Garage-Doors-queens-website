@@ -6,7 +6,7 @@ export default function BrooklynNY() {
   return (
     <LocationPageTemplate
       metaTitle="Brooklyn NY Garage Door Repair | Same-Day Service | Smart Garage Doors"
-      metaDescription={`Garage door repair in Brooklyn, NY — same-day service, ${BUSINESS_INFO.aggregateRating.ratingValue}★ ${BUSINESS_INFO.aggregateRating.reviewCount} reviews. Spring replacement, opener repair, emergency service. Brownstone specialists. Call (914) 557-6816.`}
+      metaDescription={`Garage door repair in Brooklyn, NY — same-day service, ${BUSINESS_INFO.aggregateRating.ratingValue}★ ${BUSINESS_INFO.aggregateRating.reviewCount} reviews. Brownstone specialists. Licensed & insured.`}
       keywords="Brooklyn NY garage door repair, garage door installation Brooklyn, emergency garage door Brooklyn, brownstone garage door"
       slug="/brooklyn-ny/"
       cityName="Brooklyn"

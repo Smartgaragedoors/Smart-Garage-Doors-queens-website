@@ -66,7 +66,10 @@
       border: 1.5px solid #d1d5db;
       border-radius: 8px;
       padding: 10px 12px;
-      font-size: 15px;
+      /* 16px, not 15px: this widget is served standalone (outside the React
+         build) so it doesn't inherit the app's global 16px iOS-zoom-prevention
+         floor — anything under 16px makes Safari auto-zoom the page on focus. */
+      font-size: 16px;
       color: #1e293b;
       background: #fff;
       transition: border-color 0.15s;
@@ -162,7 +165,7 @@
 <body>
   <div class="card">
     <div class="logo">Smart Garage Doors</div>
-    <h1>Get a Free Estimate</h1>
+    <h1>Request a Complimentary Estimate</h1>
     <p class="sub">We'll be in touch shortly.</p>
 
     <form id="leadForm" novalidate>
@@ -212,7 +215,7 @@
         <textarea id="notes" name="notes" placeholder="Describe the issue or what you need…"></textarea>
       </div>
 
-      <button class="btn" type="submit" id="submitBtn">Request Free Estimate</button>
+      <button class="btn" type="submit" id="submitBtn">Request a Complimentary Estimate</button>
       <div class="error-msg" id="errorMsg" hidden></div>
       <p class="trust">🔒 No spam. No pressure. Licensed &amp; insured.</p>
     </form>
@@ -298,7 +301,7 @@
             console.error('Lead submit error:', err);
             showError('Something went wrong. Please call us at (914) 557-6816.');
             submitBtn.disabled = false;
-            submitBtn.textContent = 'Request Free Estimate';
+            submitBtn.textContent = 'Request a Complimentary Estimate';
           });
       });
     })();

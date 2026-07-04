@@ -29,13 +29,13 @@ export default function ReviewsPage() {
     <div className="min-h-screen bg-white">
       <DynamicMetaTags 
         title="Customer Reviews | 5-Star Garage Door Service NY NJ CT | Smart Garage Doors"
-        description="Read real customer reviews for Smart Garage Doors. 5.0 star rating with hundreds of verified reviews across New York, New Jersey & Connecticut for repair and installation."
+        description="Real customer reviews for Smart Garage Doors — 5.0 star rating across New York, New Jersey & Connecticut for repair and installation."
         canonical={buildCanonical('/reviews')}
       />
       <Header />
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-blue-600 to-blue-700 text-white py-20">
+      <section className="relative bg-gradient-to-r from-blue-600 to-blue-700 text-white py-10 md:py-14">
         <div className="absolute inset-0 bg-blue-600/80"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
@@ -78,7 +78,7 @@ export default function ReviewsPage() {
       </section>
 
       {/* Reviews Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-8 md:py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -124,7 +124,7 @@ export default function ReviewsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-blue-600 text-white">
+      <section className="py-8 md:py-12 bg-blue-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4">
             Experience Our 5-Star Service

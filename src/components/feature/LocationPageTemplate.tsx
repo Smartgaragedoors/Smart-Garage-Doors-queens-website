@@ -208,7 +208,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
           style={{ background: 'radial-gradient(circle at 75% 25%, rgba(217,100,31,0.16), transparent 64%)' }}
           aria-hidden="true"
         />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14 lg:py-28">
           <div className="max-w-3xl mx-auto text-center">
             {/* Eyebrow — green live dot + local label */}
             <p className="flex items-center justify-center gap-2.5 text-xs md:text-sm font-semibold uppercase tracking-[0.16em] text-[#E8915A] mb-5">
@@ -247,7 +247,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
                 className="inline-flex items-center justify-center gap-2 bg-white text-blue-900 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors shadow-lg"
               >
                 <i className="ri-calendar-line" aria-hidden="true" />
-                Book Free Estimate
+                Request a Complimentary Estimate
               </a>
             </div>
             {/* Trust row */}
@@ -266,7 +266,8 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
       </section>
 
       {/* ── TRUST BAR ─────────────────────────────────────────────── */}
-      <section className="bg-blue-950 text-white py-4">
+      {/* Same ink-navy + orange-accent treatment as the homepage TrustBar.tsx band */}
+      <section className="bg-[#16335B] text-white border-t-[3px] border-orange-500 py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 text-sm font-medium">
             <div className="flex items-center gap-2">
@@ -319,7 +320,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
       )}
 
       {/* ── SERVICES ──────────────────────────────────────────────── */}
-      <section className="py-16 bg-white">
+      <section className="py-8 md:py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-3">
@@ -372,7 +373,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
       </section>
 
       {/* ── HOW IT WORKS ──────────────────────────────────────────── */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-8 md:py-12 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-3">How It Works</h2>
@@ -407,7 +408,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
         const tech = getTechForLocation(slug);
         if (!tech) return null;
         return (
-          <section className="py-16 bg-blue-900 text-white">
+          <section className="py-8 md:py-12 bg-blue-900 text-white">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex flex-col md:flex-row items-center gap-8">
                 {tech.photo ? (
@@ -451,7 +452,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
       })()}
 
       {/* ── NEIGHBORHOODS ─────────────────────────────────────────── */}
-      <section className="py-16 bg-white">
+      <section className="py-8 md:py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-3">
@@ -477,7 +478,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
 
       {/* ── REVIEWS (skipped when a location has no attributable quotes) ── */}
       {reviews.length > 0 && (
-      <section className="py-16 bg-white">
+      <section className="py-8 md:py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-2">
@@ -521,7 +522,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
       <RecentWork />
 
       {/* ── WHY CHOOSE US ─────────────────────────────────────────── */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-8 md:py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-3">
@@ -543,7 +544,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
       </section>
 
       {/* ── COMPARISON TABLE ──────────────────────────────────────── */}
-      <section className="py-16 bg-white">
+      <section className="py-8 md:py-12 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-gray-900 mb-3">
@@ -579,7 +580,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
       </section>
 
       {/* ── FAQ ───────────────────────────────────────────────────── */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-8 md:py-12 bg-gray-50">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-gray-900 mb-3">
@@ -610,7 +611,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
       )}
 
       {/* ── FINAL CTA ─────────────────────────────────────────────── */}
-      <section className="py-16 bg-orange-500 text-white">
+      <section className="py-8 md:py-12 bg-orange-500 text-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-3">
             Need a Garage Door Tech in {city}?
@@ -633,7 +634,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
               className="inline-flex items-center justify-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-colors shadow-lg border border-orange-400"
             >
               <i className="ri-calendar-line" aria-hidden="true" />
-              Book Online
+              Request a Complimentary Estimate
             </a>
           </div>
         </div>

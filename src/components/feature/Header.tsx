@@ -34,25 +34,21 @@ export default function Header() {
       <AnnouncementBar />
       <header className="sticky top-0 z-50 overflow-visible">
       {/* Main Navigation */}
-      <nav className="bg-white shadow-lg relative z-50" style={{ overflow: 'visible' }}>
+      <nav className="bg-white border-b border-gray-200 shadow-sm relative z-50" style={{ overflow: 'visible' }}>
         <div className="max-w-7xl mx-auto px-4" style={{ overflow: 'visible' }}>
-          <div className="flex justify-between items-center py-3 md:py-4 relative" style={{ overflow: 'visible' }}>
+          <div className="flex justify-between items-center py-2.5 md:py-3 relative" style={{ overflow: 'visible' }}>
             {/* Logo */}
             <div className="flex items-center">
-              <a href="/" className="flex items-center space-x-2 md:space-x-3" aria-label="Smart Garage Doors Home">
+              <a href="/" className="inline-block" aria-label="Smart Garage Doors Home">
                 <img 
                   src="/smart-garage-doors-logo.webp" 
-                  alt="Smart Garage Doors logo"
-                  className="h-8 md:h-12 w-auto"
+                  alt="Smart Garage Doors"
+                  className="h-8 md:h-10 w-auto"
                   loading="eager"
                   fetchPriority="high"
                   width="499"
                   height="160"
                 />
-                <div>
-                  <h2 className="text-base md:text-xl font-bold text-gray-900">Smart Garage Doors</h2>
-                  <p className="text-xs md:text-sm text-gray-600 hidden sm:block">Professional Garage Door Services</p>
-                </div>
               </a>
             </div>
 
@@ -184,6 +180,13 @@ export default function Header() {
                           </div>
                         </div>
                       </div>
+                      <a
+                        href="/service-areas/"
+                        role="menuitem"
+                        className="block mt-4 pt-3 border-t border-gray-200 text-orange-500 hover:text-orange-600 font-semibold transition-colors"
+                      >
+                        View All Service Areas →
+                      </a>
                     </div>
                   </div>
                 )}
@@ -238,10 +241,10 @@ export default function Header() {
 
             {/* CTA Button & Mobile Menu */}
             <div className="flex items-center space-x-2 md:space-x-4">
-              <a 
-                href="tel:(914) 557-6816" 
+              <a
+                href="tel:(914) 557-6816"
                 onClick={() => trackPhoneClick('(914) 557-6816')}
-                className="bg-orange-500 hover:bg-orange-600 text-white px-3 md:px-4 py-2 rounded-lg font-semibold transition-colors whitespace-nowrap text-sm md:text-base"
+                className="border-[1.5px] border-orange-500 text-orange-600 hover:bg-orange-50 px-3 md:px-4 py-2.5 md:py-2 min-h-[44px] md:min-h-0 flex items-center rounded-lg font-semibold transition-colors whitespace-nowrap text-sm md:text-base"
               >
                 <i className="ri-phone-fill mr-1 md:mr-2"></i>
                 <span className="hidden sm:inline">(914) 557-6816</span>
@@ -326,6 +329,7 @@ export default function Header() {
                       <a href="/bergen-county-nj/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Bergen County</a>
                     </div>
                   </div>
+                  <a href="/service-areas/" className="block mt-2 pl-4 text-orange-500 hover:text-orange-600 font-semibold text-sm">View All Service Areas →</a>
                 </div>
 
                 <div>

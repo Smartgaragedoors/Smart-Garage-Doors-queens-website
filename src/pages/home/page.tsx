@@ -2,7 +2,6 @@ import { useEffect, lazy, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocation as useRouterLocation } from 'react-router-dom';
 import Hero from '../../components/feature/Hero';
-import TrustBar from '../../components/feature/TrustBar';
 import CommonProblems from '../../components/feature/CommonProblems';
 import BookingCTABar from '../../components/conversion/BookingCTABar';
 import Services from '../../components/feature/Services';
@@ -20,12 +19,13 @@ import LocalBusinessSchema from '../../components/seo/LocalBusinessSchema';
 import WebSiteSchema from '../../components/seo/WebSiteSchema';
 import { useLocation } from '../../contexts/LocationContext';
 import { BUSINESS_INFO } from '../../config/business-info';
+import { trackPhoneClick } from '../../utils/analytics';
 
 const Reviews = lazy(() => import('../../components/feature/Reviews'));
 
 function CoverageStrip() {
   return (
-    <section className="bg-gray-50 border-y border-gray-200 py-10 md:py-14">
+    <section className="bg-gray-50 border-y border-gray-200 py-8 md:py-12">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
         <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-3">
           We Come to You — Anywhere in New York, New Jersey, or Connecticut
@@ -67,7 +67,7 @@ function CoverageStrip() {
         </div>
         <a
           href="tel:+19145576816"
-          className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-105 text-lg"
+          className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-full shadow-md hover:shadow-lg transition-all text-base"
         >
           <i className="ri-phone-fill" aria-hidden="true" />
           Call (914) 557-6816 — We Answer 24/7
@@ -82,13 +82,13 @@ function CoverageStrip() {
 
 function CommercialStrip() {
   return (
-    <section className="bg-blue-950 text-white py-12 md:py-16">
+    <section className="bg-blue-950 text-white py-8 md:py-12">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-6 md:mb-8">
           <span className="inline-block bg-blue-800/60 text-blue-100 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
             Commercial &amp; Property Management
           </span>
-          <h2 className="text-2xl md:text-4xl font-bold mb-3">
+          <h2 className="text-2xl md:text-3xl font-bold mb-3">
             One Door Vendor for Your Whole Portfolio
           </h2>
           <p className="text-blue-200 max-w-2xl mx-auto text-base md:text-lg">
@@ -131,14 +131,15 @@ function CommercialStrip() {
             <span className="text-orange-400 font-semibold text-sm mt-2 md:mt-0 inline-block">Set up a vendor account →</span>
           </Link>
         </div>
-        {/* Primary commercial CTA */}
+        {/* Primary commercial CTA — a call, not a 3rd link to the same page as the card above */}
         <div className="flex flex-col items-center gap-3">
           <a
-            href="/commercial-garage-door-repair/"
-            className="inline-flex items-center gap-2.5 bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-105 text-base md:text-lg"
+            href={`tel:${BUSINESS_INFO.phoneFormatted}`}
+            onClick={() => trackPhoneClick(BUSINESS_INFO.phone, 'homepage_commercial_strip')}
+            className="inline-flex items-center gap-2.5 bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-full shadow-md hover:shadow-lg transition-all text-base"
           >
-            <i className="ri-briefcase-4-line text-xl" aria-hidden="true" />
-            Request Commercial Service
+            <i className="ri-phone-fill text-xl" aria-hidden="true" />
+            Call for Commercial Service
           </a>
           <p className="text-blue-300 text-xs md:text-sm">
             COI on request · multi-location accounts across NY, NJ &amp; CT · 24/7 emergency line
@@ -197,7 +198,8 @@ export default function HomePage() {
       <LocalBusinessSchema locationName={location?.city} serviceArea={location?.city || 'New York'} />
       <Header />
       <Hero />
-      <TrustBar />
+      {/* TrustBar removed — the hero trust row (rating · same-day · 24/7 eyebrow) is the
+          single trust moment up top; repeating it in a second navy band added weight only. */}
       {/* Customer-language symptom links — quick "yes, they fix MY problem" reassurance */}
       <CommonProblems />
       {/* Trust + real technician photo pulled high (answer fast · clear price · trusted) */}
