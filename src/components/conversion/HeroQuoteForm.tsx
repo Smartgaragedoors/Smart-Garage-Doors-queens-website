@@ -110,7 +110,7 @@ export default function HeroQuoteForm({ variant = 'glass' }: HeroQuoteFormProps)
         Get Your $0 Service Call
       </h2>
       <p className={`text-sm mt-1.5 mb-5 ${subClass}`}>
-        Tell us what's wrong — we'll text or call you right back with a free quote.
+        Tell us what's wrong — we'll text or call you right back with a complimentary quote.
       </p>
 
       <form onSubmit={handleSubmit} className="space-y-3.5 text-left" noValidate>
@@ -215,7 +215,7 @@ export default function HeroQuoteForm({ variant = 'glass' }: HeroQuoteFormProps)
           ) : (
             <>
               <i className="ri-send-plane-fill" aria-hidden="true" />
-              Get My Free Quote
+              Get My Complimentary Quote
             </>
           )}
         </button>

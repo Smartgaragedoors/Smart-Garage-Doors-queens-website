@@ -130,7 +130,7 @@ export default function LocalVsNationalGarageDoorCompanyPage() {
           { label: 'vs. Overhead Door', href: '/vs-overhead-door/' },
           { label: 'Get a Second Opinion', href: '/second-opinion/' },
           { label: 'Read Our Reviews', href: '/reviews/' },
-          { label: 'Book a Free Estimate', href: '/book-now/' },
+          { label: 'Request a Complimentary Estimate', href: '/book-now/' },
         ],
       }}
       ctaHeadline="Put Us Through the Checklist"

@@ -117,13 +117,13 @@ function RecentWork() {
   const offset = slide * (cardWidth + GAP);
 
   return (
-    <section className="py-12 md:py-16 bg-gray-50">
+    <section className="py-8 md:py-12 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4">
 
         {/* Header row with arrows */}
         <div className="flex items-end justify-between mb-6">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-blue-900">
+            <h2 className="text-2xl md:text-3xl font-bold text-blue-900">
               Recent <span className="text-orange-500">Jobs</span>
             </h2>
             <p className="text-gray-500 mt-1 text-sm md:text-base">
@@ -173,7 +173,7 @@ function RecentWork() {
               {photos.map((photo, i) => (
                 <div
                   key={i}
-                  className="flex-shrink-0 rounded-2xl overflow-hidden shadow-md bg-white"
+                  className="flex-shrink-0 rounded-2xl overflow-hidden border border-gray-200 shadow-sm bg-white"
                   style={{ width: `${cardWidth}px` }}
                 >
                   <div className="overflow-hidden" style={{ height: `${Math.round(cardWidth * 0.62)}px` }}>
@@ -220,7 +220,7 @@ function RecentWork() {
         {/* Mobile — 2-col grid, trimmed to 6 for a shorter scroll */}
         <div className="md:hidden grid grid-cols-2 gap-3">
           {photos.slice(0, 6).map((photo, i) => (
-            <div key={i} className="rounded-xl overflow-hidden shadow-md bg-white">
+            <div key={i} className="rounded-xl overflow-hidden border border-gray-200 shadow-sm bg-white">
               <div className="aspect-[4/3] overflow-hidden">
                 <img
                   src={photo.image}

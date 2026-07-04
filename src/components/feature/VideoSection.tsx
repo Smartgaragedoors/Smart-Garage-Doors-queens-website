@@ -80,7 +80,7 @@ export default function VideoSection() {
   }));
 
   return (
-    <section className="py-12 md:py-14 bg-white">
+    <section className="py-8 md:py-12 bg-white">
       {videoSchemas.map((schema, i) => (
         <script
           key={i}
@@ -91,7 +91,7 @@ export default function VideoSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div className="text-center mb-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-3">
+          <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-3">
             Watch Us <span className="text-orange-500">Work</span>
           </h2>
           <p className="text-gray-500 text-base md:text-lg max-w-xl mx-auto">

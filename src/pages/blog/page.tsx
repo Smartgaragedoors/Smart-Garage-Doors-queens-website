@@ -112,7 +112,7 @@ export default function BlogPage() {
       />
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-blue-900 to-blue-700 text-white py-20">
+      <section className="relative bg-gradient-to-r from-blue-900 to-blue-700 text-white py-10 md:py-14">
         <div className="absolute inset-0 bg-blue-900/80"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
@@ -160,7 +160,7 @@ export default function BlogPage() {
       </section>
 
       {/* Blog Posts */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-8 md:py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map((post) => {
@@ -228,7 +228,7 @@ export default function BlogPage() {
       </section>
 
       {/* Service CTA */}
-      <section className="py-16 bg-white">
+      <section className="py-8 md:py-12 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
             Need a Garage Door Expert?
@@ -249,14 +249,14 @@ export default function BlogPage() {
               className="inline-flex items-center justify-center gap-2 bg-blue-900 hover:bg-blue-800 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
             >
               <i className="ri-calendar-line"></i>
-              Book a Free Estimate
+              Request a Complimentary Estimate
             </a>
           </div>
         </div>
       </section>
 
       {/* Popular Topics */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-8 md:py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -304,7 +304,7 @@ export default function BlogPage() {
       </section>
 
       {/* Guides by Location */}
-      <section className="py-16 bg-white">
+      <section className="py-8 md:py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Guides by Location</h2>
@@ -339,7 +339,7 @@ export default function BlogPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-blue-900 text-white">
+      <section className="py-8 md:py-12 bg-blue-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4">
             Need Professional Garage Door Service?

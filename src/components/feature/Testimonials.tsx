@@ -3,7 +3,7 @@ import Button from '../base/Button';
 
 export default function Testimonials() {
   return (
-    <section id="reviews" className="py-20 bg-blue-900">
+    <section id="reviews" className="py-10 md:py-14 bg-blue-900">
       <div className="max-w-7xl mx-auto px-4 text-center">
         {/* Quote Icon */}
         <div className="mb-8">

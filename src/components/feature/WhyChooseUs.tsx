@@ -25,7 +25,7 @@ const PILLARS = [
 
 function WhyChooseUs() {
   return (
-    <section className="py-12 lg:py-16 bg-blue-900 text-white">
+    <section className="py-8 lg:py-12 bg-blue-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
@@ -33,7 +33,7 @@ function WhyChooseUs() {
           <span className="inline-block px-4 py-1.5 bg-orange-500/20 text-orange-300 font-semibold rounded-full text-sm mb-4 tracking-wide uppercase">
             Why Us
           </span>
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-3 lg:mb-4 leading-tight">
+          <h2 className="text-2xl md:text-3xl font-bold mb-3 lg:mb-4 leading-tight">
             Three Things That Matter When Your Garage Door Breaks
           </h2>
           <p className="text-blue-200 max-w-2xl mx-auto text-base lg:text-lg">
@@ -76,13 +76,13 @@ function WhyChooseUs() {
               <img
                 src={getCFImageUrl('7afb363e-9199-4fb7-599f-c037e1439b00', 'card')}
                 alt="Dan, Smart Garage Doors technician, smiling on the job — the face of a real local service company"
-                className="w-full max-h-[280px] lg:max-h-[440px] max-w-[240px] lg:max-w-md rounded-2xl shadow-2xl object-cover object-top mx-auto lg:mx-0"
+                className="w-full max-h-[280px] lg:max-h-[440px] max-w-[240px] lg:max-w-md rounded-2xl shadow-lg object-cover object-top mx-auto lg:mx-0"
                 width={480}
                 height={640}
                 loading="lazy"
               />
               {/* Floating review badge */}
-              <div className="absolute -bottom-4 -left-4 bg-white text-gray-900 rounded-2xl px-5 py-3 shadow-xl">
+              <div className="absolute -bottom-4 -left-4 bg-white text-gray-900 rounded-2xl px-5 py-3 shadow-lg">
                 <div className="flex items-center gap-1.5 mb-0.5">
                   {[...Array(5)].map((_, i) => (
                     <i key={i} className="ri-star-fill text-yellow-400 text-sm" aria-hidden="true" />
@@ -96,7 +96,7 @@ function WhyChooseUs() {
             {/* CTA — hidden on mobile (hero + sticky bar already carry the call) */}
             <a
               href="tel:+19145576816"
-              className="hidden lg:inline-flex items-center gap-2.5 bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-105 text-lg mt-6"
+              className="hidden lg:inline-flex items-center gap-2.5 border-2 border-white/40 hover:border-white hover:bg-white/10 text-white font-bold px-8 py-3.5 rounded-full transition-colors text-lg mt-6"
             >
               <i className="ri-phone-fill text-xl" aria-hidden="true" />
               Call (914) 557-6816

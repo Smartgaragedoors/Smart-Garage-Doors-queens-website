@@ -88,7 +88,7 @@ export default function CityServiceAreaPage({ location }: CityServiceAreaPagePro
       <Header />
       <Breadcrumbs />
 
-      <section className="relative bg-gradient-to-br from-blue-900 to-blue-700 text-white py-20">
+      <section className="relative bg-gradient-to-br from-blue-900 to-blue-700 text-white py-10 md:py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
@@ -104,7 +104,7 @@ export default function CityServiceAreaPage({ location }: CityServiceAreaPagePro
                 className="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap inline-flex items-center justify-center"
               >
                 <i className="ri-calendar-line mr-2"></i>
-                Get Free Estimate
+                Get a Complimentary Estimate
               </Link>
               <a
                 href="tel:+19145576816"
@@ -158,7 +158,7 @@ export default function CityServiceAreaPage({ location }: CityServiceAreaPagePro
         </div>
       </section>
 
-      <section className="py-16 bg-white">
+      <section className="py-8 md:py-12 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="prose prose-lg max-w-none">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -175,7 +175,7 @@ export default function CityServiceAreaPage({ location }: CityServiceAreaPagePro
         </div>
       </section>
 
-      <section className="py-16 bg-blue-50">
+      <section className="py-8 md:py-12 bg-blue-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -198,7 +198,7 @@ export default function CityServiceAreaPage({ location }: CityServiceAreaPagePro
         </div>
       </section>
 
-      <section className="py-16 bg-gray-50">
+      <section className="py-8 md:py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -223,7 +223,7 @@ export default function CityServiceAreaPage({ location }: CityServiceAreaPagePro
       </section>
 
       {(nearbyAreas.length > 0 || neighborhoods.length > 0) && (
-        <section className="py-16 bg-white">
+        <section className="py-8 md:py-12 bg-white">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-10">
               {nearbyAreas.length > 0 && (
@@ -266,7 +266,7 @@ export default function CityServiceAreaPage({ location }: CityServiceAreaPagePro
         </section>
       )}
 
-      <section className="py-16 bg-blue-50">
+      <section className="py-8 md:py-12 bg-blue-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
             Who We Help in {location.city}
@@ -282,7 +282,7 @@ export default function CityServiceAreaPage({ location }: CityServiceAreaPagePro
         </div>
       </section>
 
-      <section className="py-16 bg-white">
+      <section className="py-8 md:py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -304,7 +304,7 @@ export default function CityServiceAreaPage({ location }: CityServiceAreaPagePro
         </div>
       </section>
 
-      <section className="py-16 bg-gray-50">
+      <section className="py-8 md:py-12 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">
@@ -337,7 +337,7 @@ export default function CityServiceAreaPage({ location }: CityServiceAreaPagePro
         </div>
       </section>
 
-      <section className="py-16 bg-gray-50">
+      <section className="py-8 md:py-12 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white p-8 rounded-lg shadow-md">
             <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
@@ -366,7 +366,7 @@ export default function CityServiceAreaPage({ location }: CityServiceAreaPagePro
         </div>
       </section>
 
-      <section className="py-16 bg-white">
+      <section className="py-8 md:py-12 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
             How to Book Service in {location.city}
@@ -390,7 +390,7 @@ export default function CityServiceAreaPage({ location }: CityServiceAreaPagePro
       </section>
 
       {location.faqs && location.faqs.length > 2 && (
-        <section className="py-16 bg-gray-50">
+        <section className="py-8 md:py-12 bg-gray-50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -414,7 +414,7 @@ export default function CityServiceAreaPage({ location }: CityServiceAreaPagePro
         </section>
       )}
 
-      <section className="py-16 bg-white">
+      <section className="py-8 md:py-12 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -441,7 +441,7 @@ export default function CityServiceAreaPage({ location }: CityServiceAreaPagePro
         </div>
       </section>
 
-      <section className="py-16 bg-gradient-to-r from-blue-900 to-blue-800 text-white">
+      <section className="py-8 md:py-12 bg-gradient-to-r from-blue-900 to-blue-800 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4">
             Ready for Professional Garage Door Service in {location.city}?
@@ -455,7 +455,7 @@ export default function CityServiceAreaPage({ location }: CityServiceAreaPagePro
               className="bg-white text-blue-900 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap inline-flex items-center justify-center"
             >
               <i className="ri-calendar-line mr-2"></i>
-              Get Free Estimate
+              Get a Complimentary Estimate
             </Link>
             <a
               href="tel:+19145576816"

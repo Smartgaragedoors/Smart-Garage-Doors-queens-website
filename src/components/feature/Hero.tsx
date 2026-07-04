@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useLocation } from '../../contexts/LocationContext';
 import { trackPhoneClick, trackEvent } from '../../utils/analytics';
 import { getCFImageUrl, getCloudflareImage } from '../../data/cloudflareImages';
@@ -6,6 +7,9 @@ import HeroQuoteForm from '../conversion/HeroQuoteForm';
 
 export default function Hero() {
   const { location, locationName } = useLocation();
+  // Below lg the quote form stays collapsed behind "Request service online" so the
+  // hero reads headline → call → trust without a full form pushing content down.
+  const [showForm, setShowForm] = useState(false);
 
   // Only personalize to a city when the visitor was GENUINELY detected in our service
   // area. Otherwise (IP lookup off, detection failed, or out-of-area → all default to
@@ -22,7 +26,7 @@ export default function Hero() {
   const heroImageUrl = getCFImageUrl(homeHero.id, homeHero.variant ?? 'hero');
 
   return (
-    <section className="relative min-h-[80vh] md:min-h-[86vh] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[70vh] md:min-h-[74vh] flex items-center justify-center overflow-hidden">
       {/* Background image — premium ink/charcoal scrim (design system) keeps hero photo legible */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
@@ -50,7 +54,7 @@ export default function Hero() {
         fetchPriority="high"
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 text-white relative z-10 py-12 md:py-16 w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 text-white relative z-10 py-10 md:py-12 w-full">
        <div className="grid lg:grid-cols-[1.05fr_minmax(0,420px)] gap-10 lg:gap-14 items-center">
         <div className="text-center lg:text-left">
         {/* Eyebrow — green "live answer" dot + amber label (premium design system) */}
@@ -65,7 +69,7 @@ export default function Hero() {
 
         {/* H1 — emotional serif lead (design handoff) with keyword-rich subhead below for SEO.
             Shorter accent line on mobile, fuller line on desktop. */}
-        <h1 className="font-newsreader font-medium text-[clamp(2.1rem,9vw,2.75rem)] md:text-6xl lg:text-7xl mb-5 leading-[1.05] tracking-[-0.02em] text-balance">
+        <h1 className="font-newsreader font-medium text-[clamp(2rem,8vw,2.5rem)] md:text-5xl lg:text-6xl mb-5 leading-[1.05] tracking-[-0.02em] text-balance">
           Garage door stuck?{' '}
           <span className="text-[#F2B98C] italic block sm:inline">
             <span className="md:hidden">We answer 24/7.</span>
@@ -74,7 +78,7 @@ export default function Hero() {
         </h1>
 
         {/* Sub-headline — keyword-rich, location-aware, no hubs named */}
-        <p className="text-base md:text-xl mb-7 text-gray-200 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+        <p className="text-base md:text-lg mb-6 text-gray-200 max-w-xl mx-auto lg:mx-0 leading-relaxed">
           {localArea ? `Serving ${localArea} and the wider Tri-State. ` : ''}
           {subheadline}
         </p>
@@ -106,16 +110,23 @@ export default function Hero() {
               trackEvent('cta_click', { category: 'Hero', action: 'phone_click', label: 'hero_call_now' });
             }}
             aria-label="Call Smart Garage Doors now"
-            className="inline-flex items-center justify-center gap-3 bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-extrabold px-8 py-4 text-lg sm:text-xl rounded-2xl sm:rounded-full shadow-xl hover:shadow-2xl transition-all duration-200 sm:hover:scale-105 whitespace-nowrap"
+            className="inline-flex items-center justify-center gap-3 bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-extrabold px-7 py-3.5 text-lg rounded-2xl sm:rounded-full shadow-lg hover:shadow-xl transition-all duration-200 whitespace-nowrap"
           >
             <i className="ri-phone-fill text-xl" aria-hidden="true" />
             Call (914) 557-6816
           </a>
-          {/* Mobile-only secondary: scroll to the quote form below */}
+          {/* Below lg: reveal the collapsed quote form, then scroll to it */}
           <a
             href="#hero-quote-form"
-            onClick={() => trackEvent('cta_click', { category: 'Hero', action: 'request_online', label: 'request_online' })}
-            className="sm:hidden inline-flex items-center justify-center gap-2 min-h-[52px] text-white font-bold text-base rounded-2xl border-[1.5px] border-white/25 bg-white/[0.07] active:bg-white/[0.13] transition-colors px-5"
+            onClick={(e) => {
+              e.preventDefault();
+              setShowForm(true);
+              trackEvent('cta_click', { category: 'Hero', action: 'request_online', label: 'request_online' });
+              requestAnimationFrame(() => {
+                document.getElementById('hero-quote-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              });
+            }}
+            className="lg:hidden inline-flex items-center justify-center gap-2 min-h-[52px] text-white font-bold text-base rounded-2xl sm:rounded-full border-[1.5px] border-white/25 bg-white/[0.07] active:bg-white/[0.13] transition-colors px-5"
           >
             <span className="underline underline-offset-4 decoration-[#F2B98C]/80">Request service online</span> →
           </a>
@@ -142,8 +153,9 @@ export default function Hero() {
         </div>
         </div>
 
-        {/* Right column — additive lead-capture form (phone CTA above stays dominant) */}
-        <div id="hero-quote-form" className="w-full scroll-mt-28">
+        {/* Right column — additive lead-capture form (phone CTA above stays dominant).
+            Collapsed below lg until "Request service online" is tapped. */}
+        <div id="hero-quote-form" className={`w-full scroll-mt-28 ${showForm ? '' : 'hidden lg:block'}`}>
           <HeroQuoteForm />
         </div>
        </div>

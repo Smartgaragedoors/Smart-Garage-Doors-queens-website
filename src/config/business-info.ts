@@ -137,3 +137,13 @@ export const BUSINESS_INFO = {
   },
 };
 
+/** Customer-facing CTAs use "complimentary"; meta/FAQ copy keeps "free" for SEO. */
+export const MARKETING_COPY = {
+  bookEstimate: 'Request a Complimentary Estimate',
+  getEstimate: 'Get a Complimentary Estimate',
+  requestQuote: 'Request a Complimentary Quote',
+  getQuote: 'Get a Complimentary Quote',
+  getMyQuote: 'Get My Complimentary Quote',
+  callForQuote: 'Call for a Complimentary Quote',
+} as const;
+

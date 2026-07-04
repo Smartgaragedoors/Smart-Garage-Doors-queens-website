@@ -46,11 +46,11 @@ const FAQS = [
 
 function HomeFAQ() {
   return (
-    <section id="faq" className="bg-gray-50 py-12 md:py-16">
+    <section id="faq" className="bg-gray-50 py-8 md:py-12">
       <FAQSchema faqs={FAQS} />
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-6 md:mb-10">
-          <h2 className="text-2xl md:text-4xl font-bold text-blue-900 mb-2 md:mb-3">
+          <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-2 md:mb-3">
             Garage Door Questions, Answered
           </h2>
           <p className="text-gray-600 text-sm md:text-base">

@@ -41,10 +41,10 @@ function Services() {
   ];
 
   return (
-    <section id="services" className="py-12 md:py-16 bg-white">
+    <section id="services" className="py-8 md:py-12 bg-white">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-8 md:mb-10">
-          <h2 className="text-2xl md:text-4xl font-bold text-blue-900 mb-3 md:mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-3 md:mb-4">
             What Broke? We Fix It Today.
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto text-sm md:text-base">
@@ -58,12 +58,12 @@ function Services() {
             <a
               key={index}
               href={service.link}
-              className="bg-gray-50 rounded-xl md:rounded-lg p-4 md:p-6 hover:shadow-xl transition-all duration-300 cursor-pointer group flex flex-col items-center text-center md:items-start md:text-left"
+              className="bg-white border border-gray-200 rounded-xl p-4 md:p-6 hover:shadow-md hover:border-orange-300 transition-all duration-300 cursor-pointer group flex flex-col items-center text-center md:items-start md:text-left"
             >
-              <div className="w-12 h-12 md:w-16 md:h-16 bg-orange-500 rounded-full flex items-center justify-center mb-3 md:mb-4 group-hover:bg-orange-600 transition-colors">
-                <i className={`${service.icon} text-2xl md:text-3xl text-white`} aria-hidden="true"></i>
+              <div className="w-12 h-12 md:w-14 md:h-14 bg-orange-500 rounded-full flex items-center justify-center mb-3 md:mb-4 group-hover:bg-orange-600 transition-colors">
+                <i className={`${service.icon} text-2xl text-white`} aria-hidden="true"></i>
               </div>
-              <h3 className="text-sm md:text-xl font-bold text-blue-900 leading-tight md:mb-3">{service.title}</h3>
+              <h3 className="text-sm md:text-lg font-bold text-blue-900 leading-tight md:mb-2">{service.title}</h3>
               <p className="hidden md:block text-gray-600 mb-4">{service.description}</p>
               <span className="hidden md:inline-flex text-orange-500 font-semibold items-center group-hover:text-orange-600">
                 Learn More <i className="ri-arrow-right-line ml-2" aria-hidden="true"></i>

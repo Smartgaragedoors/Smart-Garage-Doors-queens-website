@@ -40,7 +40,7 @@ const Reviews = () => {
   };
 
   return (
-    <section id="reviews" className="py-12 md:py-16 bg-gray-50 overflow-x-hidden w-full">
+    <section id="reviews" className="py-8 md:py-12 bg-gray-50 overflow-x-hidden w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style={{ width: '100%', maxWidth: '1280px' }}>
         <div className="text-center mb-6 md:mb-10">
           <div className="flex justify-center items-center gap-1.5 mb-3">
@@ -48,7 +48,7 @@ const Reviews = () => {
             <span className="text-gray-900 font-bold text-lg ml-1">{BUSINESS_INFO.aggregateRating.ratingValue}</span>
             <span className="text-gray-500 text-sm">({BUSINESS_INFO.aggregateRating.reviewCount} reviews on Google)</span>
           </div>
-          <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3 md:mb-4">
             What Homeowners Say After We Leave
           </h2>
           <p className="hidden md:block text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
@@ -65,7 +65,7 @@ const Reviews = () => {
             {reviews.map((review, index) => (
               <div
                 key={`${review.author_name}-${review.time}-${index}`}
-                className="bg-white rounded-lg shadow-md p-5 md:p-6 hover:shadow-lg transition-shadow snap-start shrink-0 w-[82%] sm:w-[55%] md:w-auto"
+                className="bg-white rounded-lg border border-gray-200 shadow-sm p-5 md:p-6 hover:shadow-md transition-shadow snap-start shrink-0 w-[82%] sm:w-[55%] md:w-auto"
               >
                 <div className="flex items-start mb-4">
                   {review.profile_photo_url ? (

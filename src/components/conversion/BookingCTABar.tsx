@@ -17,15 +17,15 @@ export default function BookingCTABar({
   className = '',
 }: BookingCTABarProps) {
   return (
-    <section className={`bg-gradient-to-r from-blue-900 to-blue-800 text-white py-10 ${className}`}>
+    <section className={`bg-gray-50 border-y border-gray-200 py-8 ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
           <div>
-            <h2 className="text-xl md:text-2xl font-bold mb-1">{title}</h2>
+            <h2 className="text-xl md:text-2xl font-bold mb-1 text-blue-900">{title}</h2>
             {subtitle ? (
-              <p className="text-blue-100 text-sm md:text-base">{subtitle}</p>
+              <p className="text-gray-600 text-sm md:text-base">{subtitle}</p>
             ) : (
-              <p className="text-blue-100 text-sm md:text-base">
+              <p className="text-gray-600 text-sm md:text-base">
                 Fast local response, upfront quotes, licensed and insured service, and {BUSINESS_INFO.aggregateRating.reviewCount} Google reviews.
               </p>
             )}
@@ -34,7 +34,7 @@ export default function BookingCTABar({
             <a
               href="/book-now/"
               onClick={() => trackBookNowClick('booking_cta_bar')}
-              className="inline-flex items-center justify-center gap-2 bg-white text-blue-900 hover:bg-gray-100 font-semibold py-3 px-6 rounded-lg transition-colors whitespace-nowrap"
+              className="inline-flex items-center justify-center gap-2 bg-white border border-gray-300 text-blue-900 hover:border-blue-900/40 font-semibold py-3 px-6 rounded-lg transition-colors whitespace-nowrap"
               aria-label="Book garage door service online"
             >
               <i className="ri-calendar-check-line" aria-hidden="true" />
