@@ -215,8 +215,10 @@ export default function Header() {
                     onMouseLeave={() => setIsCommercialOpen(false)}
                   >
                     <a href="/commercial-garage-door-repair/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Commercial Door Repair</a>
+                    <a href="/loading-dock-door-repair/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Loading Dock Door Repair</a>
+                    <a href="/rolling-steel-gate-repair/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Rolling Steel Gate Repair</a>
                     <a href="/property-managers/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">For Property Managers</a>
-                    <a href="/maintenance/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Maintenance Programs</a>
+                    <a href="/commercial-maintenance-contracts/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Maintenance Contracts</a>
                   </div>
                 )}
               </div>
@@ -336,8 +338,10 @@ export default function Header() {
                   <div className="text-gray-700 font-medium py-2">Commercial</div>
                   <div className="space-y-1 pl-4">
                     <a href="/commercial-garage-door-repair/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Commercial Door Repair</a>
+                    <a href="/loading-dock-door-repair/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Loading Dock Door Repair</a>
+                    <a href="/rolling-steel-gate-repair/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Rolling Steel Gate Repair</a>
                     <a href="/property-managers/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">For Property Managers</a>
-                    <a href="/maintenance/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Maintenance Programs</a>
+                    <a href="/commercial-maintenance-contracts/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Maintenance Contracts</a>
                   </div>
                 </div>
 

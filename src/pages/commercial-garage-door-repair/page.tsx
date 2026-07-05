@@ -148,16 +148,17 @@ export default function CommercialGarageDoorRepairPage() {
       ]}
       bottomLine="A commercial door that’s down is a bay that’s not earning. We answer 24/7, dispatch commercial calls first, carry high-cycle parts on the truck, document every job with photos, and provide COIs on request — whether you need one repair today or a vendor who covers every facility you manage across NY, NJ, and CT."
       relatedLinks={{
-        title: 'Commercial Service Areas',
+        title: 'Commercial Services & Service Areas',
         links: [
+          { label: 'Loading Dock Door Repair', href: '/loading-dock-door-repair/' },
+          { label: 'Rolling Steel Gate Repair', href: '/rolling-steel-gate-repair/' },
+          { label: 'Maintenance Contracts', href: '/commercial-maintenance-contracts/' },
+          { label: 'For Property Managers', href: '/property-managers/' },
           { label: 'Queens, NY', href: '/queens-ny/' },
           { label: 'Brooklyn, NY', href: '/brooklyn-ny/' },
           { label: 'Long Island, NY', href: '/long-island-ny/' },
           { label: 'Westchester County, NY', href: '/westchester-county-ny/' },
           { label: 'Bergen County, NJ', href: '/bergen-county-nj/' },
-          { label: 'For Property Managers', href: '/property-managers/' },
-          { label: 'Maintenance Contracts (Guide)', href: '/blog/commercial-garage-door-maintenance-contracts/' },
-          { label: 'High-Cycle Springs Explained (Guide)', href: '/blog/commercial-garage-door-spring-cycle-ratings/' },
         ],
       }}
       ctaHeadline="Get Your Door Back in Service"

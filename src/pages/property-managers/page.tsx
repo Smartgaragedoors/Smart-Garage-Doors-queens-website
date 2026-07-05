@@ -141,9 +141,10 @@ export default function PropertyManagersPage() {
         title: 'Related Services',
         links: [
           { label: 'Commercial Garage Door Repair', href: '/commercial-garage-door-repair/' },
-          { label: 'Maintenance & Tune-Ups', href: '/maintenance/' },
+          { label: 'Rolling Steel Gate Repair', href: '/rolling-steel-gate-repair/' },
+          { label: 'Loading Dock Door Repair', href: '/loading-dock-door-repair/' },
+          { label: 'Maintenance Contracts', href: '/commercial-maintenance-contracts/' },
           { label: 'Emergency Garage Door Repair', href: '/emergency-garage-door-repair/' },
-          { label: 'Garage Door Installation', href: '/garage-door-installation/' },
           { label: 'Photo Estimate', href: '/photo-estimate/' },
           { label: 'Vendor Vetting Checklist (Guide)', href: '/blog/property-manager-garage-door-vendor-checklist/' },
           { label: 'Parking Garage Gate Repair (Guide)', href: '/blog/parking-garage-door-gate-repair-buildings/' },
