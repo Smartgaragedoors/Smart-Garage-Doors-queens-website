@@ -114,6 +114,30 @@ async function main() {
 
   const browser = await launchBrowser();
 
+  // Renders one route and returns its HTML, or null if the app never painted
+  // real content (empty <div id="root">) within the wait window — a timing
+  // race we've seen intermittently, not a render error (see prerender-homepage-
+  // flaky memory). Caller retries on null instead of writing an empty shell.
+  async function renderOnce(page, route) {
+    await page.goto(`${ORIGIN}${route}`, { waitUntil: 'domcontentloaded', timeout: 30000 });
+    // Wait until the app has rendered content AND injected canonical + title.
+    await page.waitForFunction(() => {
+      const root = document.getElementById('root');
+      return root && root.children.length > 0 &&
+        document.querySelector('link[rel="canonical"]') &&
+        document.title && document.title.length > 0;
+    }, { timeout: 15000 }).catch(() => {});
+    // Small settle for schema <script> injection.
+    await new Promise((r) => setTimeout(r, 500));
+
+    const hasContent = await page.evaluate(() => {
+      const root = document.getElementById('root');
+      return !!root && root.children.length > 0;
+    });
+    if (!hasContent) return null;
+    return page.content();
+  }
+
   let ok = 0, fail = 0;
   for (const route of routes) {
     const page = await browser.newPage();
@@ -126,18 +150,25 @@ async function main() {
         return r.continue();
       });
       page.on('console', () => {}); // swallow app console noise
-      await page.goto(`${ORIGIN}${route}`, { waitUntil: 'domcontentloaded', timeout: 30000 });
-      // Wait until the app has rendered content AND injected canonical + title.
-      await page.waitForFunction(() => {
-        const root = document.getElementById('root');
-        return root && root.children.length > 0 &&
-          document.querySelector('link[rel="canonical"]') &&
-          document.title && document.title.length > 0;
-      }, { timeout: 15000 }).catch(() => {});
-      // Small settle for schema <script> injection.
-      await new Promise((r) => setTimeout(r, 500));
 
-      const html = await page.content();
+      let html = null;
+      const ATTEMPTS = 3;
+      for (let attempt = 1; attempt <= ATTEMPTS && !html; attempt++) {
+        html = await renderOnce(page, route);
+        if (!html && attempt < ATTEMPTS) {
+          console.warn(`[prerender] ⚠ ${route} — empty root on attempt ${attempt}, retrying`);
+        }
+      }
+
+      if (!html) {
+        // Never write an empty-rooted shell — leave whatever vite's own build
+        // already put at this path (or none) rather than shipping a page
+        // Google will see as thin/duplicate boilerplate.
+        fail++;
+        console.warn(`[prerender] ✗ ${route} — empty root after ${ATTEMPTS} attempts, skipped`);
+        continue;
+      }
+
       const dir = join(OUT, route);
       await mkdir(dir, { recursive: true });
       await writeFile(join(dir, 'index.html'), html, 'utf8');

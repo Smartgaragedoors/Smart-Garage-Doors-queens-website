@@ -339,7 +339,17 @@
     { "source": "/choose-right-commercial-garage-door-opener", "destination": "/opener-repair-installation/", "permanent": true },
     { "source": "/choose-right-commercial-garage-door-opener/", "destination": "/opener-repair-installation/", "permanent": true },
     { "source": "/types-of-garage-doors", "destination": "/garage-door-installation/", "permanent": true },
-    { "source": "/types-of-garage-doors/", "destination": "/garage-door-installation/", "permanent": true }
+    { "source": "/types-of-garage-doors/", "destination": "/garage-door-installation/", "permanent": true },
+    { "source": "/garage-door-installation-stamford-ct", "destination": "/stamford-ct/", "permanent": true },
+    { "source": "/garage-door-installation-stamford-ct/", "destination": "/stamford-ct/", "permanent": true },
+    { "source": "/greatneck-ny", "destination": "/great-neck-ny/", "permanent": true },
+    { "source": "/greatneck-ny/", "destination": "/great-neck-ny/", "permanent": true },
+    { "source": "/greatneck", "destination": "/great-neck-ny/", "permanent": true },
+    { "source": "/greatneck/", "destination": "/great-neck-ny/", "permanent": true },
+    { "source": "/garage-door-repair-greenwich-ct", "destination": "/greenwich-ct/", "permanent": true },
+    { "source": "/garage-door-repair-greenwich-ct/", "destination": "/greenwich-ct/", "permanent": true },
+    { "source": "/garage-door-bottom-seal-replacement", "destination": "/garage-door-repair/", "permanent": true },
+    { "source": "/garage-door-bottom-seal-replacement/", "destination": "/garage-door-repair/", "permanent": true }
   ],
   "rewrites": [
     {
