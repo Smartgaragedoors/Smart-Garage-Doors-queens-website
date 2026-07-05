@@ -10,6 +10,7 @@ import HomeFAQ from '../../components/feature/HomeFAQ';
 import VideoSection from '../../components/feature/VideoSection';
 import About from '../../components/feature/About';
 import WhyChooseUs from '../../components/feature/WhyChooseUs';
+import BrandsServed from '../../components/feature/BrandsServed';
 import Contact from '../../components/feature/Contact';
 import Header from '../../components/feature/Header';
 import Footer from '../../components/feature/Footer';
@@ -204,6 +205,7 @@ export default function HomePage() {
       <CommonProblems />
       {/* Trust + real technician photo pulled high (answer fast · clear price · trusted) */}
       <WhyChooseUs />
+      <BrandsServed />
       <Suspense fallback={<div className="min-h-[400px] bg-gray-50" />}>
         <Reviews />
       </Suspense>

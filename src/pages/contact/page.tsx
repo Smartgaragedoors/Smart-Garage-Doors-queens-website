@@ -23,6 +23,7 @@ const ContactPage = () => {
     message: ''
   });
 
+  const [smsConsent, setSmsConsent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState('');
 
@@ -46,7 +47,10 @@ const ContactPage = () => {
     setSubmitStatus('');
 
     try {
-      const result = await submitForm(formData, 'Contact Page Form');
+      const result = await submitForm(
+        { ...formData, smsConsent: smsConsent ? 'Yes (opted in to SMS)' : 'No' },
+        'Contact Page Form'
+      );
 
       if (result.success) {
         trackFormSubmit('Contact Page Form', 'contact', {
@@ -65,6 +69,7 @@ const ContactPage = () => {
           preferredTime: '',
           message: ''
         });
+        setSmsConsent(false);
       } else {
         setSubmitStatus('error');
       }
@@ -392,6 +397,23 @@ const ContactPage = () => {
               </div>
             )}
             
+            {/* TCPA SMS consent — required. Identical wording to HeroQuoteForm.tsx (owner-approved 2026-06-23). */}
+            <label className="mt-6 flex items-start gap-2.5 text-[11px] leading-snug text-gray-500">
+              <input
+                type="checkbox"
+                required
+                checked={smsConsent}
+                onChange={(e) => setSmsConsent(e.target.checked)}
+                className="mt-0.5 h-4 w-4 shrink-0 rounded border-gray-400 text-orange-500 focus:ring-orange-500"
+              />
+              <span>
+                By checking this box, I agree to receive text messages from Smartest Garage
+                Doors about my service request at the number provided. Message frequency varies.
+                Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. Consent is
+                not a condition of purchase.
+              </span>
+            </label>
+
             <FormTrustBadges />
 
             <div className="mt-4">

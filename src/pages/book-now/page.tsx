@@ -23,6 +23,7 @@ export default function BookNowPage() {
     preferredTime: ''
   });
 
+  const [smsConsent, setSmsConsent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState('');
   const formStarted = useRef(false);
@@ -46,7 +47,10 @@ export default function BookNowPage() {
     setIsSubmitting(true);
     
     try {
-      const result = await submitForm(formData, 'Book Now Form');
+      const result = await submitForm(
+        { ...formData, smsConsent: smsConsent ? 'Yes (opted in to SMS)' : 'No' },
+        'Book Now Form'
+      );
 
       if (result.success) {
         trackFormSubmit('Book Now Form', 'book_now', {
@@ -66,6 +70,7 @@ export default function BookNowPage() {
           preferredDate: '',
           preferredTime: ''
         });
+        setSmsConsent(false);
       } else {
         setSubmitStatus('error');
       }
@@ -227,6 +232,23 @@ export default function BookNowPage() {
                   placeholder="e.g. door won't open, spring snapped, opener making noise..."
                 ></textarea>
               </div>
+
+              {/* TCPA SMS consent — required. Identical wording to HeroQuoteForm.tsx (owner-approved 2026-06-23). */}
+              <label className="flex items-start gap-2.5 text-[11px] leading-snug text-gray-500">
+                <input
+                  type="checkbox"
+                  required
+                  checked={smsConsent}
+                  onChange={(e) => setSmsConsent(e.target.checked)}
+                  className="mt-0.5 h-4 w-4 shrink-0 rounded border-gray-400 text-orange-500 focus:ring-orange-500"
+                />
+                <span>
+                  By checking this box, I agree to receive text messages from Smartest Garage
+                  Doors about my service request at the number provided. Message frequency varies.
+                  Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. Consent is
+                  not a condition of purchase.
+                </span>
+              </label>
 
               <FormTrustBadges />
 

@@ -231,6 +231,12 @@ export default function GuidePageTemplate(props: GuidePageTemplateProps) {
             <i className="ri-verified-badge-line text-orange-400 text-base" aria-hidden="true" />
             1-Year Parts &amp; Labor Warranty
           </span>
+          {BUSINESS_INFO.trust.financingAvailable && (
+            <span className="inline-flex items-center gap-2">
+              <i className="ri-bank-card-line text-orange-400 text-base" aria-hidden="true" />
+              Financing &amp; 0% Promotional Options Available
+            </span>
+          )}
         </div>
       </section>
 
