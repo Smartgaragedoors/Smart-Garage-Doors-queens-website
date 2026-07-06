@@ -28,3 +28,4 @@ The full pre-deploy checklist is in
 - [`docs/growth-and-commercial-plan.md`](docs/growth-and-commercial-plan.md) — competitor analysis + 30/60/90 roadmap
 - [`docs/gbp-playbook.md`](docs/gbp-playbook.md) — Google Business Profile checklist (dashboard work)
 - [`docs/fable-website-brain/09-known-risks-and-next-actions.md`](docs/fable-website-brain/09-known-risks-and-next-actions.md) — current top-10 action list
+- [`docs/fable-brain/backlinks/`](docs/fable-brain/backlinks/README.md) — the multi-site backlink/authority system (SGD + Zack & Elle + Trojan): policy, prospect CSV, playbooks, weekly workflow
