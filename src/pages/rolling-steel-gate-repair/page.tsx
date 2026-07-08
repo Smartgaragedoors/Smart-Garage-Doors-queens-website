@@ -16,7 +16,7 @@ export default function RollingSteelGateRepairPage() {
       showCommercialLeadForm={true}
       intro={[
         'A rolling steel gate fails at the worst possible moment — stuck open at closing time, or jammed shut the morning you need to open. Either way, it stops being a maintenance item and becomes a security and revenue problem the second it happens.',
-        'We repair rolling steel service doors and storefront security gates across Queens, Brooklyn, the Bronx, Long Island, Westchester, northern and central New Jersey, and Fairfield County, CT — slat replacement, barrel spring adjustment and replacement, bottom bar and guide repair, and both manual chain-hoist and motorized gate service. If a gate is stuck right now, call the number above for priority dispatch. If it can wait, send photos over WhatsApp and we\'ll tell you what it needs before we roll.',
+        'We repair rolling steel service doors and storefront security gates across Queens, Brooklyn, the Bronx, Staten Island, Long Island (Nassau & Suffolk), Westchester and Rockland counties, Bergen, Passaic, Hudson, and Essex counties in New Jersey, and Fairfield County, CT — slat replacement, barrel spring adjustment and replacement, bottom bar and guide repair, and both manual chain-hoist and motorized gate service, on gates from all major manufacturers including Cornell, Atlas, Wayne Dalton, Cookson, and McKeon. If a gate is stuck right now, call the number above for priority dispatch. If it can wait, send photos over WhatsApp and we\'ll tell you what it needs before we roll.',
       ]}
       criteria={{
         title: 'What We Fix on a Rolling Gate',
@@ -80,6 +80,18 @@ export default function RollingSteelGateRepairPage() {
             'Add street-level exposure — weather, road grime, and the occasional impact from a delivery truck or forced-entry attempt — and a rolling gate genuinely needs a different maintenance rhythm than an interior door. Businesses that get ahead of it with scheduled inspection catch a worn barrel spring or a bent guide before it becomes a Saturday-morning emergency call.',
           ],
         },
+        {
+          heading: 'Who We Serve',
+          paragraphs: [
+            'Rolling gate work comes from a few recurring building types, each with its own reason the gate has to work every single day:',
+          ],
+          bullets: [
+            'Retail storefronts — the gate is the last thing that closes at night and the first thing that opens; downtime is lost sales, full stop',
+            'Warehouses & loading docks — service-door-style rolling gates on high-traffic bays (see our loading dock door repair page for the door-and-leveler side)',
+            'Parking facilities — vehicle entry/exit gates that cycle hundreds of times a day and take the occasional impact',
+            'Banks, pharmacies & other security-sensitive tenants — where a gate that won\'t fully close is treated as an incident, not a maintenance ticket',
+          ],
+        },
       ]}
       faqs={[
         {
@@ -107,8 +119,13 @@ export default function RollingSteelGateRepairPage() {
           answer:
             'Yes. Manual chain-hoist gates and motorized operators (motor, gearbox, limit switches, remotes/keypads) both fall under our commercial gate service, including full operator replacement when repair no longer makes sense.',
         },
+        {
+          question: 'What rolling gate brands do you service?',
+          answer:
+            'All major manufacturers — Cornell, Atlas, Wayne Dalton, Cookson, and McKeon among them — plus most rolling steel gate brands you\'ll find on a commercial storefront or loading dock. If you\'re not sure who made yours, a photo of the barrel housing or the data plate is usually enough to identify it.',
+        },
       ]}
-      bottomLine="A rolling gate that won't move is either a security problem or a revenue problem, and both need an answer today. We repair storefront and security gates across NY, NJ & CT — slats, barrel springs, guides, and operators — with a 24/7 emergency line and priority dispatch for commercial calls."
+      bottomLine="A rolling gate that won't move is either a security problem or a revenue problem, and both need an answer today. We repair storefront and security gates across Queens, Brooklyn, Staten Island, Long Island, Westchester, Rockland, Bergen, Passaic, Hudson, Essex, and Fairfield County, CT — slats, barrel springs, guides, and operators — with a 24/7 emergency line and priority dispatch for commercial calls."
       relatedLinks={{
         title: 'Related Commercial Services',
         links: [
@@ -116,6 +133,7 @@ export default function RollingSteelGateRepairPage() {
           { label: 'For Property Managers', href: '/property-managers/' },
           { label: 'Loading Dock Door Repair', href: '/loading-dock-door-repair/' },
           { label: 'Maintenance Contracts', href: '/commercial-maintenance-contracts/' },
+          { label: 'Commercial — Long Island', href: '/commercial-long-island-ny/' },
           { label: 'Parking Garage Gate Repair (Guide)', href: '/blog/parking-garage-door-gate-repair-buildings/' },
         ],
       }}

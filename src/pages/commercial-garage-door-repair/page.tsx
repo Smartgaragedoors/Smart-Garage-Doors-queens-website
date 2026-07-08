@@ -154,6 +154,7 @@ export default function CommercialGarageDoorRepairPage() {
           { label: 'Rolling Steel Gate Repair', href: '/rolling-steel-gate-repair/' },
           { label: 'Maintenance Contracts', href: '/commercial-maintenance-contracts/' },
           { label: 'For Property Managers', href: '/property-managers/' },
+          { label: 'Commercial — Long Island', href: '/commercial-long-island-ny/' },
           { label: 'Queens, NY', href: '/queens-ny/' },
           { label: 'Brooklyn, NY', href: '/brooklyn-ny/' },
           { label: 'Long Island, NY', href: '/long-island-ny/' },

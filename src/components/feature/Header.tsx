@@ -219,6 +219,7 @@ export default function Header() {
                     <a href="/rolling-steel-gate-repair/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Rolling Steel Gate Repair</a>
                     <a href="/property-managers/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">For Property Managers</a>
                     <a href="/commercial-maintenance-contracts/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Maintenance Contracts</a>
+                    <a href="/commercial-long-island-ny/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Commercial — Long Island</a>
                   </div>
                 )}
               </div>
@@ -342,6 +343,7 @@ export default function Header() {
                     <a href="/rolling-steel-gate-repair/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Rolling Steel Gate Repair</a>
                     <a href="/property-managers/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">For Property Managers</a>
                     <a href="/commercial-maintenance-contracts/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Maintenance Contracts</a>
+                    <a href="/commercial-long-island-ny/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Commercial — Long Island</a>
                   </div>
                 </div>
 

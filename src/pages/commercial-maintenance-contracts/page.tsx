@@ -18,6 +18,7 @@ export default function CommercialMaintenanceContractsPage() {
         'Every facilities manager has lived this one: a bay door dies at 7am with a trailer backed up to it, and somebody upstairs wants to know why a known wear item took the dock down. The door didn\'t fail suddenly — it failed predictably, after months of telegraphing it through fraying cables and a spring near the end of its rated cycle life.',
         'Commercial doors are one of the few pieces of building equipment that are simultaneously mission-critical and almost universally run to failure. We build preventive maintenance programs that change that: scheduled inspections, a written per-door asset record, and priority dispatch when something does break between visits.',
         'The practical first step isn\'t signing anything — it\'s a baseline survey. A technician walks every door and gate at your facility, documents condition and estimated remaining spring life, and flags anything needing immediate attention. Call to set one up.',
+        'We run maintenance programs for warehouses, distribution centers, retail storefronts, and residential/commercial buildings across Queens, Brooklyn, Staten Island, Long Island, Westchester and Rockland counties, Bergen, Passaic, Hudson, and Essex counties in New Jersey, and Fairfield County, CT — with fast-cycling doors and levelers at food & beverage and cold-storage facilities, and documented visit records for pharma and manufacturing accounts that answer to their own compliance audits.',
       ]}
       criteria={{
         title: 'What a Real Maintenance Contract Includes',
@@ -118,7 +119,7 @@ export default function CommercialMaintenanceContractsPage() {
             'With a baseline survey, not a signature. A technician walks every door at your facility, documents condition and estimated remaining spring life, and flags anything needing immediate attention. From there we group doors by duty cycle and propose a visit schedule and pricing in writing.',
         },
       ]}
-      bottomLine="Running commercial doors to failure is a budgeting strategy — just a bad one. We build maintenance programs across NY, NJ & CT: documented quarterly inspections, per-door asset records, priority breakdown dispatch, and pricing fixed in writing before the first visit. Call for a baseline survey."
+      bottomLine="Running commercial doors to failure is a budgeting strategy — just a bad one. We build maintenance programs for warehouses, distribution centers, retail, and multi-site portfolios across Queens, Brooklyn, Staten Island, Long Island, Westchester, Rockland, Bergen, Passaic, Hudson, Essex, and Fairfield County, CT: documented quarterly inspections, per-door asset records, priority breakdown dispatch, and pricing fixed in writing before the first visit. Call for a baseline survey."
       relatedLinks={{
         title: 'Related Commercial Services',
         links: [
@@ -126,6 +127,7 @@ export default function CommercialMaintenanceContractsPage() {
           { label: 'For Property Managers', href: '/property-managers/' },
           { label: 'Loading Dock Door Repair', href: '/loading-dock-door-repair/' },
           { label: 'Rolling Steel Gate Repair', href: '/rolling-steel-gate-repair/' },
+          { label: 'Commercial — Long Island', href: '/commercial-long-island-ny/' },
           { label: 'Maintenance Contracts Guide (Blog)', href: '/blog/commercial-garage-door-maintenance-contracts/' },
           { label: 'High-Cycle Spring Ratings (Blog)', href: '/blog/commercial-garage-door-spring-cycle-ratings/' },
         ],
