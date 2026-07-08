@@ -11,6 +11,15 @@ fetches). Update when business facts change.
   positioning; owner priority = commercial (warehouses, docks, property managers).
 - **Tech:** Vite/React + Puppeteer prerender, Vercel. Site brain:
   `docs/fable-website-brain/` — its rules govern all on-site work.
+- **Two real physical locations (confirmed 2026-07-06, matches
+  `src/config/business-info.ts`):** Flushing (141-24 70th Ave, Flushing, NY 11367,
+  (914) 557-6816 — the main GBP listing, 486 reviews) and Suffern (31 Deerwood
+  Road, Suffern, NY 10901, (845) 262-2034 — its own GBP listing, 105 reviews, own
+  local line). Full NAP-per-location detail: `local-citations-plan.md`.
+- **Manufacturer dealer/distributor targets (confirmed 2026-07-06):** Clopay,
+  Amarr, Raynor, Overhead Door, Garaga, C.H.I., Haas, Wayne Dalton — apply for
+  locator/dealer-directory inclusion; never claim authorized-dealer status
+  publicly until a manufacturer confirms it in writing.
 - **Priority link targets (deep pages, not just homepage):**
   `/commercial-garage-door-repair/`, `/loading-dock-door-repair/`,
   `/property-managers/`, `/commercial-maintenance-contracts/`, top city pages

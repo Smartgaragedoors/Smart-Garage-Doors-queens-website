@@ -33,3 +33,4 @@ links is recorded but never the goal — leads, sales, and rankings are.
 | Week of | Site | Prospected | Contacted | Replies | Won | Citations | Assets shipped | Notes |
 |---|---|---|---|---|---|---|---|---|
 | 2026-07-06 | ALL | 39 rows seeded | 0 | 0 | 0 | 0 | Brain system created | Baseline week — system created; outreach starts after owner unblocks (see handoff asks) |
+| 2026-07-06 (same day, follow-up) | SGD | +6 dealer-locator rows (Amarr/Raynor/Overhead Door/Garaga/CHI/Haas — Wayne Dalton + Clopay/LiftMaster unblocked from prior 2) | 0 | 0 | 0 | 0 | none | Owner answered 3 blockers: manufacturer dealer-locator target list (8 brands, all confirmed with real URLs), both real GBP locations' NAP (Flushing + Suffern, correct per-location phones), address-display policy (show real address). Duplicate Suffern GBP still needs owner to remove in-dashboard. |
