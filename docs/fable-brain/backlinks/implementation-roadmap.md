@@ -17,8 +17,15 @@
    categories — competitors are there, we're not).
 6. **[AI+OWNER] SGD citation Tier 1 sweep** — Bing, Apple, Yelp, Angi, Nextdoor,
    one per week per `local-citations-plan.md`.
-7. **[AI] SGD: expand `/loading-dock-door-repair/` to the page-1 recipe** (ready-
-   made prompt exists in the website brain's handoff file).
+7. ~~**[AI] SGD: expand `/loading-dock-door-repair/` to the page-1 recipe**~~ —
+   DONE 2026-07-06: named counties, named equipment brands (Kelley, Nordock,
+   Serco, Pentalift, Blue Giant, Rite-Hite), dock-leveler section, named
+   verticals, case study. Same treatment applied to `/rolling-steel-gate-repair/`
+   and `/commercial-maintenance-contracts/`, plus a new location-specific page
+   (`/commercial-long-island-ny/`). See `docs/fable-website-brain/10-decision-log.md`.
+   Still open: real (or owner-anonymized) case studies beyond the one reused
+   reference, and a Northern NJ counterpart once Long Island's indexing is
+   observed.
 8. **[OWNER decision] Memberships:** IDA + one chamber now; BOMA/IREM when
    commercial revenue justifies; Avetta/ISNetworld started early (slow).
 9. **[AI drafts→OWNER sends] First outreach wave:** SGD property-manager lane

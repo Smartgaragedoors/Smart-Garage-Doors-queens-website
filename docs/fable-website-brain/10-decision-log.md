@@ -6,6 +6,45 @@ commit history so the log starts complete.)
 
 ---
 
+## 2026-07-06 — Completed the page-1 commercial SEO plan (content depth + new Long Island page)
+
+- **Decision:** Closed the gap between the 3 commercial pages shipped 2026-07-05
+  and what the page-1 competitive research actually required. Added to
+  `/loading-dock-door-repair/`: named counties (Bergen, Passaic, Hudson, Essex NJ;
+  Rockland, Nassau, Suffolk, Staten Island NY), a "Dock Leveler Repair" card + FAQs
+  naming Kelley/Nordock/Serco/Pentalift/Blue Giant/Rite-Hite, a "Who We Serve"
+  section naming verticals (cold storage, pharma/manufacturing, logistics/3PL,
+  property management), and expanded the existing anonymized "national logistics
+  company" reference into a fuller case-study paragraph. Same treatment (named
+  counties + manufacturer names + verticals) applied to
+  `/rolling-steel-gate-repair/` (Cornell, Atlas, Wayne Dalton, Cookson, McKeon) and
+  `/commercial-maintenance-contracts/`. Built new
+  `/commercial-long-island-ny/` — the location-specific commercial page pattern
+  the plan called for testing first, using real Long Island industrial geography
+  (Hauppauge Industrial Park, Route 110/Melville/Farmingdale corridor, Bohemia,
+  Ronkonkoma) — and cross-linked it from all 4 sibling commercial pages, the
+  Header dropdown, and the sitemap.
+- **Why:** the user asked directly whether the page-1 plan had been implemented;
+  checking the actual code showed the container pages existed but none of the
+  content that makes them rank did (verified: zero named equipment brands, only
+  one generic county mention each, no case studies, no location-specific page).
+- **SEO impact:** matches the verified page-1 recipe (1,200+ words of real
+  regional copy, named counties, named brands) found in the 2026-07-05 competitive
+  research. No new business facts invented — brand names follow the same
+  "we service all major brands" pattern already used sitewide for openers/doors,
+  not an authorized-dealer claim; the case study reuses the same already-approved
+  anonymous reference, just given more prominence.
+- **Files:** loading-dock-door-repair, rolling-steel-gate-repair,
+  commercial-maintenance-contracts, commercial-garage-door-repair (relatedLinks),
+  new commercial-long-island-ny, router/config.tsx, generate-sitemap.js,
+  Header.tsx.
+- **Risks:** low — additive content only, no removed claims or URLs. Verified tsc
+  clean, build clean, prerender 124/124 (up from 123), live-checked in preview
+  (mobile + desktop, no overflow, dropdown confirmed).
+- **Follow-up:** real (or owner-anonymized) case studies still needed beyond the
+  one reused reference; watch `/commercial-long-island-ny/` indexing before
+  building the Northern NJ counterpart (per the plan's own sequencing).
+
 ## 2026-07-06 — Created the Fable Website Brain; scrubbed dead widget remnants; deleted dead components
 
 - **Decision:** 11 brain docs in `docs/fable-website-brain/` grounded in the

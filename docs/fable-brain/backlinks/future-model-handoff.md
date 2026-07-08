@@ -46,6 +46,11 @@ queue → editorial/PR lanes once proof exists.
   IGI), showroom 62 W 47th St, active blog, NO review platform, sells on eBay too.
 - SGD commercial competitor set + page-1 recipe: researched with URLs (see
   competitor map). ThomasNet/IDA/BOMA/IREM/Avetta identified as the trade lanes.
+  Recipe execution on-site (named counties, named equipment brands, verticals,
+  case study, new `/commercial-long-island-ny/` page) is DONE 2026-07-06 — see
+  `docs/fable-website-brain/10-decision-log.md`. What's still open is off-site
+  (the trade-lane listings above) plus real case studies beyond the one reused
+  reference.
 - The system's home is this folder in the SGD Queens Site repo (the owner's main
   working repo) even though it covers three businesses.
 - **SGD NAP, confirmed 2026-07-06:** Flushing (141-24 70th Ave, Flushing, NY

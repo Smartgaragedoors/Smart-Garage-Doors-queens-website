@@ -41,11 +41,10 @@ is what remains.
 
 - Online booking with real dispatch windows (growth-plan P4 — needs owner's
   calendar/CRM decision, "only expose real, dispatchable windows").
-- Commercial case studies + per-vertical pages (cold storage, 3PL, property
-  management) — the page-1 plan's biggest open content play.
-- Per-city commercial pages (`/commercial/long-island/`) — build 1–2 first, watch
-  indexing (`07`).
 - Review-velocity automation (ask every completed job — SOP in gbp-playbook).
+- A second location-specific commercial page (Northern NJ) — the plan calls for
+  watching `/commercial-long-island-ny/`'s indexing first before expanding the
+  pattern (shipped 2026-07-06, see decision log).
 
 ## Top 10 next actions
 
@@ -53,14 +52,19 @@ is what remains.
    page-1 plan against real data.
 2. **Owner: rotate the leaked CRM DB password** (different repo, but same owner —
    see the CRM brain; it's still outstanding).
-3. Resubmit sitemap + Request Indexing for the newest pages (3 commercial pages,
-   recent blog posts) in GSC.
+3. Resubmit sitemap + Request Indexing for the newest pages (4 commercial pages
+   incl. the new `/commercial-long-island-ny/`, recent blog posts) in GSC.
 4. Deep-content upgrade for the 10 highest-opportunity location pages: real photos,
    real city-tagged reviews (owner supplies), unique FAQs — attack risk #2.
-5. Write `/loading-dock-door-repair/` up to the page-1 recipe: 1,200+ words, named
-   counties, named equipment brands (Kelley, Nordock, Serco, Pentalift…), then one
-   anonymized case study.
-6. Owner: ThomasNet listing + NAP citation cleanup (cheap, table stakes).
+5. ~~Write `/loading-dock-door-repair/` up to the page-1 recipe~~ — DONE 2026-07-06
+   (see decision log): named counties, named equipment brands, dock-leveler
+   section, named verticals, case study. Also done on rolling-steel-gate-repair
+   and commercial-maintenance-contracts, plus a new location-specific commercial
+   page. **Next step in this thread, not yet done:** real (or owner-anonymized)
+   case studies beyond the one reused reference, and a second location-specific
+   commercial page (Northern NJ) once Long Island's indexing is observed.
+6. Owner: ThomasNet listing + NAP citation cleanup (cheap, table stakes) — see
+   `docs/fable-brain/backlinks/local-citations-plan.md`, now has confirmed NAP.
 7. Migrate the remaining wp-content images to Cloudflare once access exists.
 8. Add a prerender CI check (fail deploy if any route renders empty / count drops).
 9. Verify GA4 event flow end-to-end (esp. whatsapp_click) once access lands; fix
