@@ -108,6 +108,7 @@ const CommercialLongIslandPage = lazy(() => import('../pages/commercial-long-isl
 // Buyer's guide pages
 const LocalVsNationalGarageDoorCompanyPage = lazy(() => import('../pages/local-vs-national-garage-door-company/page').then(module => ({ default: module.default })));
 const BestGarageDoorCompanyQueensPage = lazy(() => import('../pages/best-garage-door-company-queens/page').then(module => ({ default: module.default })));
+const BestGarageDoorCompanyTriStatePage = lazy(() => import('../pages/best-garage-door-company-tri-state/page').then(module => ({ default: module.default })));
 
 // Cost guide + brand pages
 const ReplacementCostNassauPage = lazy(() => import('../pages/garage-door-replacement-cost-nassau-county/page').then(module => ({ default: module.default })));
@@ -496,6 +497,10 @@ const routes: RouteObject[] = [
   {
     path: '/best-garage-door-company-queens/',
     element: <BestGarageDoorCompanyQueensPage />
+  },
+  {
+    path: '/best-garage-door-company-tri-state/',
+    element: <BestGarageDoorCompanyTriStatePage />
   },
 
   // Cost guide + brand pages

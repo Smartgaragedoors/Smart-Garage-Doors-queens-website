@@ -1,5 +1,6 @@
 ﻿import React from 'react';
 import { BUSINESS_INFO } from '../../config/business-info';
+import { STATIC_REVIEWS } from '../../data/staticReviews';
 
 interface LocalBusinessSchemaProps {
   locationName?: string;
@@ -95,6 +96,22 @@ const LocalBusinessSchema: React.FC<LocalBusinessSchemaProps> = ({
       "bestRating": BUSINESS_INFO.aggregateRating.bestRating,
       "worstRating": BUSINESS_INFO.aggregateRating.worstRating,
     },
+    // Individual Review examples (real Google reviews, see src/data/staticReviews.ts)
+    // nested inside this single LocalBusiness entity. This is a different pattern from
+    // aggregateRating and does NOT reintroduce the GSC "multiple aggregate ratings on a
+    // page" bug — that bug was caused by aggregateRating appearing on more than one
+    // @type entity on the same page. A `review` array of individual Review objects
+    // (no aggregateRating of their own) is safe and recommended by schema.org.
+    "review": STATIC_REVIEWS.slice(0, 5).map((r) => ({
+      "@type": "Review",
+      "author": { "@type": "Person", "name": r.author_name },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": r.rating,
+        "bestRating": 5,
+      },
+      "reviewBody": r.text,
+    })),
     "areaServed": serviceArea 
       ? [
           {

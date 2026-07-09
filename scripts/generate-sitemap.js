@@ -86,6 +86,7 @@ const coreRoutes = [
   // Buyer's guide + cost guide + brand pages
   { path: '/local-vs-national-garage-door-company/', priority: '0.7', changefreq: 'monthly' },
   { path: '/best-garage-door-company-queens/', priority: '0.8', changefreq: 'monthly' },
+  { path: '/best-garage-door-company-tri-state/', priority: '0.9', changefreq: 'monthly' },
   { path: '/garage-door-replacement-cost-nassau-county/', priority: '0.8', changefreq: 'monthly' },
   { path: '/garage-door-installation-cost-westchester/', priority: '0.8', changefreq: 'monthly' },
   { path: '/insulated-garage-door-cost-long-island/', priority: '0.8', changefreq: 'monthly' },

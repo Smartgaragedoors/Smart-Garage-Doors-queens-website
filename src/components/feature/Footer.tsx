@@ -98,6 +98,7 @@ function Footer() {
               <li><a href="/garage-door-installation-cost-westchester/" className="text-gray-200 hover:text-orange-400 transition-colors">Westchester Cost Guide</a></li>
               <li><a href="/insulated-garage-door-cost-long-island/" className="text-gray-200 hover:text-orange-400 transition-colors">Insulated Door Cost Guide</a></li>
               <li><a href="/best-garage-door-company-queens/" className="text-gray-200 hover:text-orange-400 transition-colors">Choosing a Company in Queens</a></li>
+              <li><a href="/best-garage-door-company-tri-state/" className="text-gray-200 hover:text-orange-400 transition-colors">Best Company in the Tri-State Area</a></li>
               <li><a href="/local-vs-national-garage-door-company/" className="text-gray-200 hover:text-orange-400 transition-colors">Local vs. National Companies</a></li>
             </ul>
           </div>

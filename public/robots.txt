@@ -103,5 +103,67 @@ Allow: /liftmaster-opener-installation/
 Allow: /commercial-garage-door-repair/
 Allow: /property-managers/
 
+# AI / Answer Engine crawlers (AEO/GEO) — explicit allow, same policy as User-agent: *
+# (Allow: / covers everything not explicitly disallowed; see wildcard block above for the full page list)
+User-agent: GPTBot
+Disallow: /go/
+Disallow: /lp/
+Allow: /
+
+User-agent: ChatGPT-User
+Disallow: /go/
+Disallow: /lp/
+Allow: /
+
+User-agent: OAI-SearchBot
+Disallow: /go/
+Disallow: /lp/
+Allow: /
+
+User-agent: PerplexityBot
+Disallow: /go/
+Disallow: /lp/
+Allow: /
+
+User-agent: Perplexity-User
+Disallow: /go/
+Disallow: /lp/
+Allow: /
+
+User-agent: ClaudeBot
+Disallow: /go/
+Disallow: /lp/
+Allow: /
+
+User-agent: Claude-User
+Disallow: /go/
+Disallow: /lp/
+Allow: /
+
+User-agent: Claude-SearchBot
+Disallow: /go/
+Disallow: /lp/
+Allow: /
+
+User-agent: Google-Extended
+Disallow: /go/
+Disallow: /lp/
+Allow: /
+
+User-agent: Applebot-Extended
+Disallow: /go/
+Disallow: /lp/
+Allow: /
+
+User-agent: CCBot
+Disallow: /go/
+Disallow: /lp/
+Allow: /
+
+User-agent: Amazonbot
+Disallow: /go/
+Disallow: /lp/
+Allow: /
+
 # Sitemap
 Sitemap: https://www.smartestgaragedoors.com/sitemap.xml

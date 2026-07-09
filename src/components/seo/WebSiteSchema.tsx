@@ -16,6 +16,14 @@ const WebSiteSchema: React.FC = () => {
       "legalName": BUSINESS_INFO.legalName,
       "url": BUSINESS_INFO.website,
     },
+    // Flags the homepage hero headline (src/components/feature/Hero.tsx — the single
+    // <h1> on the page) and the FAQ section (src/components/feature/HomeFAQ.tsx,
+    // id="faq", answers rendered in crawlable <details>/<summary> markup) as the best
+    // candidates for voice-assistant / AI Overview short-answer extraction.
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": ["h1", "#faq"],
+    },
   };
 
   return (
