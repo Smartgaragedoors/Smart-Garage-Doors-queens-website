@@ -3,9 +3,9 @@ import GuidePageTemplate from '../../components/feature/GuidePageTemplate';
 export default function InsulatedGarageDoorCostLongIslandPage() {
   return (
     <GuidePageTemplate
-      metaTitle="Insulated Garage Door Cost on Long Island (2026 Guide)"
-      metaDescription="Insulated garage door prices for Long Island homes in 2026 — double vs. triple layer, R-values explained simply, polystyrene vs. polyurethane, and an honest take on when insulation is worth it."
-      keywords="insulated garage door cost Long Island, insulated garage doors Long Island, are insulated garage doors worth it, garage door R-value, polyurethane garage door"
+      metaTitle="Garage Door Insulation Cost (2026) | Long Island Guide"
+      metaDescription="What garage door insulation costs in 2026 — R-values explained, double vs. triple layer, and real installed prices for Long Island homes."
+      keywords="garage door insulation, insulated garage door cost Long Island, insulated garage doors Long Island, are insulated garage doors worth it, garage door R-value, polyurethane garage door"
       slug="/insulated-garage-door-cost-long-island/"
       heroImage="doorInteriorWindows"
       badge="2026 Buyer's Guide"
@@ -14,6 +14,7 @@ export default function InsulatedGarageDoorCostLongIslandPage() {
       showWhatsAppHero={true}
       whatsAppMessage="Hi, I'm on Long Island and considering an insulated garage door. Can I send photos of my current door for a quote?"
       intro={[
+        "Garage door insulation adds a foam core — polystyrene board or injected polyurethane — behind the steel skin to cut heat loss, deaden noise, and stiffen the panel. It's sold as a step up from a standard single-layer door, either built into a new door or, in some cases, retrofitted.",
         "Insulated garage doors are the most common upgrade we install on Long Island, and also the one with the most confusing marketing around it. R-values, layer counts, foam types — it's a lot of jargon for what comes down to a simple question: will this door make your home more comfortable, and is the price difference worth it?",
         "The short version: if your garage is attached to the house — and on most Nassau and Suffolk homes it is — an insulated door usually earns its cost in comfort, quietness, and durability. If your garage is detached and unheated, you can often skip it. This guide gives you the details to decide, plus real installed prices.",
         "Want a specific number? Text us photos of your current door and we'll tell you exactly what an insulated replacement runs for your opening — priced upfront before any work begins.",

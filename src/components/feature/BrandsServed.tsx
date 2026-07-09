@@ -1,19 +1,55 @@
-// Text-only "brands serviced" trust row. Deliberately NOT a logo wall — using
-// real manufacturer logo marks without a licensing agreement is a trademark
-// risk, so brand names are rendered as styled text badges (typography only,
-// no imagery). These are the same brands already named in FAQ answers across
-// the site (see src/config/locations.ts, commercial-garage-door-repair,
-// queens-ny service-area page).
+import { useState } from 'react';
+
+// Real manufacturer logo marks are used here per the site owner's explicit,
+// fully-informed decision (owner was told this carries trademark risk absent
+// a licensing agreement and chose to proceed anyway). Logo files must live at
+// /public/images/brands/{slug}-logo.svg. If a file is missing/404s, the
+// onError handler below swaps that brand back to the original text-badge
+// style so the section never renders broken.
+//
+// Files the owner needs to add to public/images/brands/ :
+//   clopay-logo.svg        (Clopay)
+//   amarr-logo.svg          (Amarr)
+//   chi-logo.svg            (CHI)
+//   liftmaster-logo.svg     (LiftMaster)
+//   chamberlain-logo.svg    (Chamberlain)
+//   wayne-dalton-logo.svg   (Wayne Dalton)
+//   raynor-logo.svg         (Raynor)
+//   genie-logo.svg          (Genie)
 const BRANDS = [
-  'Clopay',
-  'Amarr',
-  'CHI',
-  'LiftMaster',
-  'Chamberlain',
-  'Wayne Dalton',
-  'Raynor',
-  'Genie',
+  { name: 'Clopay', slug: 'clopay' },
+  { name: 'Amarr', slug: 'amarr' },
+  { name: 'CHI', slug: 'chi' },
+  { name: 'LiftMaster', slug: 'liftmaster' },
+  { name: 'Chamberlain', slug: 'chamberlain' },
+  { name: 'Wayne Dalton', slug: 'wayne-dalton' },
+  { name: 'Raynor', slug: 'raynor' },
+  { name: 'Genie', slug: 'genie' },
 ];
+
+function BrandLogo({ name, slug }: { name: string; slug: string }) {
+  const [failed, setFailed] = useState(false);
+
+  if (failed) {
+    return (
+      <span className="inline-flex items-center bg-gray-50 border border-gray-200 text-gray-700 font-semibold text-sm md:text-base px-4 py-2 rounded-full">
+        {name}
+      </span>
+    );
+  }
+
+  return (
+    <div className="inline-flex items-center justify-center bg-gray-50 border border-gray-200 rounded-lg px-5 py-3 h-16 md:h-20 w-32 md:w-40">
+      <img
+        src={`/images/brands/${slug}-logo.svg`}
+        alt={`${name} logo`}
+        className="h-10 md:h-12 max-w-full object-contain grayscale opacity-70 transition-all duration-200 hover:grayscale-0 hover:opacity-100"
+        loading="lazy"
+        onError={() => setFailed(true)}
+      />
+    </div>
+  );
+}
 
 export default function BrandsServed() {
   return (
@@ -25,14 +61,9 @@ export default function BrandsServed() {
         <p className="text-gray-600 max-w-2xl mx-auto mb-6 md:mb-8 text-sm md:text-base">
           Whatever's on your garage, our technicians have trained on it — no brand steers us toward a sale.
         </p>
-        <div className="flex flex-wrap justify-center gap-2.5 md:gap-3">
+        <div className="flex flex-wrap justify-center items-center gap-2.5 md:gap-3">
           {BRANDS.map((brand) => (
-            <span
-              key={brand}
-              className="inline-flex items-center bg-gray-50 border border-gray-200 text-gray-700 font-semibold text-sm md:text-base px-4 py-2 rounded-full"
-            >
-              {brand}
-            </span>
+            <BrandLogo key={brand.slug} name={brand.name} slug={brand.slug} />
           ))}
         </div>
       </div>

@@ -90,6 +90,7 @@ const coreRoutes = [
   { path: '/garage-door-installation-cost-westchester/', priority: '0.8', changefreq: 'monthly' },
   { path: '/insulated-garage-door-cost-long-island/', priority: '0.8', changefreq: 'monthly' },
   { path: '/liftmaster-opener-installation/', priority: '0.8', changefreq: 'monthly' },
+  { path: '/pedestrian-garage-doors/', priority: '0.8', changefreq: 'monthly' },
 ];
 
 // Extract service area routes from router config

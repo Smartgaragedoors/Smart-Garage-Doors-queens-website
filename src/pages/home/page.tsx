@@ -5,6 +5,7 @@ import Hero from '../../components/feature/Hero';
 import CommonProblems from '../../components/feature/CommonProblems';
 import BookingCTABar from '../../components/conversion/BookingCTABar';
 import Services from '../../components/feature/Services';
+import DoorTypesGallery from '../../components/feature/DoorTypesGallery';
 import RecentWork from '../../components/feature/RecentWork';
 import HomeFAQ from '../../components/feature/HomeFAQ';
 import VideoSection from '../../components/feature/VideoSection';
@@ -191,8 +192,8 @@ export default function HomePage() {
   return (
     <div className="min-h-screen pb-[68px] md:pb-0">
       <DynamicMetaTags
-        title={`Garage Door Repair | Same-Day Service | (914) 557-6816 | Smart Garage Doors`}
-        description={`⭐ ${BUSINESS_INFO.aggregateRating.ratingValue} · ${BUSINESS_INFO.aggregateRating.reviewCount} reviews. Same-day garage door repair, spring & opener fix & installation. $0 service call with any repair · licensed & insured · 24/7 — call (914) 557-6816.`}
+        title={`Smart Garage Doors | ⭐${BUSINESS_INFO.aggregateRating.ratingValue} (${BUSINESS_INFO.aggregateRating.reviewCount}+ Reviews) | Same-Day Repair`}
+        description={`Rated ${BUSINESS_INFO.aggregateRating.ratingValue}/5 (${BUSINESS_INFO.aggregateRating.reviewCount}+ Google reviews). Same-day garage door repair, springs, openers, install — NY, NJ & CT. $0 service call with repair · 24/7 — (914) 557-6816.`}
       />
       <WebSiteSchema />
       <OrganizationSchema />
@@ -210,6 +211,7 @@ export default function HomePage() {
         <Reviews />
       </Suspense>
       <Services />
+      <DoorTypesGallery />
       <RecentWork />
       <BookingCTABar
         title="Need Service Today?"

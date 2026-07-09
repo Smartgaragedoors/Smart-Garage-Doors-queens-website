@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useLocation } from '../../contexts/LocationContext';
 import { trackPhoneClick, trackEvent } from '../../utils/analytics';
 import { getCFImageUrl, getCloudflareImage } from '../../data/cloudflareImages';
@@ -7,9 +6,6 @@ import HeroQuoteForm from '../conversion/HeroQuoteForm';
 
 export default function Hero() {
   const { location, locationName } = useLocation();
-  // Below lg the quote form stays collapsed behind "Request service online" so the
-  // hero reads headline → call → trust without a full form pushing content down.
-  const [showForm, setShowForm] = useState(false);
 
   // Only personalize to a city when the visitor was GENUINELY detected in our service
   // area. Otherwise (IP lookup off, detection failed, or out-of-area → all default to
@@ -100,7 +96,8 @@ export default function Hero() {
           <span>Call now — a real person will answer and give you a clear arrival window.</span>
         </p>
 
-        {/* CTAs — ONE dominant Call Now (lean hierarchy per handoff).
+        {/* CTAs — ONE dominant Call Now (lean hierarchy per handoff). Form below is
+            additive, not a second competing CTA button, so it stays out of this row.
             data-hero-cta: the mobile sticky bar stays hidden while this block is visible. */}
         <div data-hero-cta className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start items-stretch sm:items-center mb-6">
           <a
@@ -115,21 +112,13 @@ export default function Hero() {
             <i className="ri-phone-fill text-xl" aria-hidden="true" />
             Call (914) 557-6816
           </a>
-          {/* Below lg: reveal the collapsed quote form, then scroll to it */}
-          <a
-            href="#hero-quote-form"
-            onClick={(e) => {
-              e.preventDefault();
-              setShowForm(true);
-              trackEvent('cta_click', { category: 'Hero', action: 'request_online', label: 'request_online' });
-              requestAnimationFrame(() => {
-                document.getElementById('hero-quote-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              });
-            }}
-            className="lg:hidden inline-flex items-center justify-center gap-2 min-h-[52px] text-white font-bold text-base rounded-2xl sm:rounded-full border-[1.5px] border-white/25 bg-white/[0.07] active:bg-white/[0.13] transition-colors px-5"
-          >
-            <span className="underline underline-offset-4 decoration-[#F2B98C]/80">Request service online</span> →
-          </a>
+        </div>
+
+        {/* Below lg: quote form shown inline, always visible (no tap required — owner
+            wants zero friction to start filling it out). Sits below the dominant Call
+            Now button so phone stays the #1 path; this is the secondary/additive path. */}
+        <div className="lg:hidden mb-6">
+          <HeroQuoteForm />
         </div>
 
         {/* Secondary vendor link — desktop (commercial / property managers) */}
@@ -153,9 +142,9 @@ export default function Hero() {
         </div>
         </div>
 
-        {/* Right column — additive lead-capture form (phone CTA above stays dominant).
-            Collapsed below lg until "Request service online" is tapped. */}
-        <div id="hero-quote-form" className={`w-full scroll-mt-28 ${showForm ? '' : 'hidden lg:block'}`}>
+        {/* Right column — desktop only. Below lg the same form renders inline above
+            (see the lg:hidden block near the CTAs) instead of in this column. */}
+        <div className="hidden lg:block w-full">
           <HeroQuoteForm />
         </div>
        </div>

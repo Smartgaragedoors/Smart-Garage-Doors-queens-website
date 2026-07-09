@@ -28,6 +28,10 @@ export default function EmergencyRepairsPage() {
       answer: 'Emergency garage door repair is needed when your door is stuck open or closed, there\'s a safety hazard (like a broken spring that could cause injury), the door won\'t close and you\'re leaving your property unsecured, or there\'s a malfunction that prevents you from accessing or leaving your garage. We respond to all urgent situations 24/7.',
     },
     {
+      question: 'Is same-day emergency garage door repair really available?',
+      answer: 'Yes. Same-day service is available for emergency calls throughout our NY, NJ & CT coverage area, including Brooklyn, Queens, Long Island, Westchester County, Bergen County NJ, and Fairfield County CT. Call (914) 557-6816 and we\'ll work to get a technician to you the same day whenever possible — exact timing depends on current demand and your location.',
+    },
+    {
       question: 'Do you charge extra for emergency service calls?',
       answer: 'Our emergency service rates are competitive and transparent. While emergency calls may have slightly higher rates due to immediate dispatch and after-hours service, we always provide upfront pricing. We never surprise customers with hidden fees. Many emergency repairs can be completed quickly and affordably.',
     },
@@ -41,7 +45,7 @@ export default function EmergencyRepairsPage() {
     },
     {
       question: `What areas do you serve for emergency garage door repair?`,
-      answer: `We provide 24/7 emergency garage door repair throughout New York (Queens, Brooklyn, Long Island, Westchester County), New Jersey (Bergen County), and Connecticut (Fairfield County). With multiple service locations, we can quickly respond to emergencies throughout our entire coverage area.`,
+      answer: `We provide 24/7 emergency garage door repair throughout New York (Queens, Brooklyn, Long Island, Westchester County), New Jersey (Bergen County), and Connecticut (Fairfield County). Same-day service is available across our entire coverage area — call to confirm availability for your address.`,
     },
   ];
 
@@ -75,9 +79,9 @@ export default function EmergencyRepairsPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <DynamicMetaTags
-        title="Emergency Garage Door Repair | 24/7 NY NJ CT | Smart Garage Doors"
-        description={`24/7 emergency garage door repair across NY, NJ & CT. ${BUSINESS_INFO.aggregateRating.ratingValue}★ rated, ${BUSINESS_INFO.aggregateRating.reviewCount} reviews. Fast response, upfront pricing, licensed & insured. Call (914) 557-6816.`}
-        keywords="emergency garage door repair, 24/7 garage door service, urgent garage door fix, broken garage door repair"
+        title="24/7 Emergency Garage Door Repair | Same-Day Service NY NJ CT"
+        description={`Garage door stuck or broken? 24/7 emergency repair, same-day service across NY, NJ & CT. ${BUSINESS_INFO.aggregateRating.ratingValue}★ rated, ${BUSINESS_INFO.aggregateRating.reviewCount} reviews. Call now: (914) 557-6816.`}
+        keywords="emergency garage door repair, 24/7 garage door repair, same day garage door repair, emergency garage door service, 24 hour garage door repair, emergency garage door repair Brooklyn"
       />
       <FAQSchema faqs={faqs} />
       <Header />
@@ -95,13 +99,13 @@ export default function EmergencyRepairsPage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              24/7 Emergency Garage Door Repair
+              24/7 Emergency Garage Door Repair — Same-Day Service
             </h1>
             <p className="text-xl mb-4">
-              Garage door stuck? Won't open? We provide immediate emergency repair services across NYC, Westchester, and Connecticut. Our certified technicians are available 24/7 for urgent garage door issues.
+              Garage door stuck? Won't open? We provide 24/7 emergency and same-day garage door repair across NYC (including Brooklyn), Westchester, New Jersey, and Connecticut. Our certified technicians handle urgent garage door issues any day of the week, including nights, weekends, and holidays.
             </p>
             <p className="text-lg mb-8 text-orange-100 font-semibold">
-              Rated 5.0★ with hundreds of local reviews • Fast tri-state response — call to confirm • Fully licensed and insured team.
+              Rated 5.0★ with hundreds of local reviews • Same-day emergency service available • Fully licensed and insured team.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a 
@@ -150,7 +154,7 @@ export default function EmergencyRepairsPage() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Broken Springs</h3>
               <p className="text-gray-600">
-                Snapped garage door springs aredangerous. Our emergency technicians safely replace broken springs immediately.
+                Snapped garage door springs are dangerous. Our emergency technicians safely replace broken springs immediately.
               </p>
             </div>
 

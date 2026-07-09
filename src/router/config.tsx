@@ -114,6 +114,7 @@ const ReplacementCostNassauPage = lazy(() => import('../pages/garage-door-replac
 const InstallationCostWestchesterPage = lazy(() => import('../pages/garage-door-installation-cost-westchester/page').then(module => ({ default: module.default })));
 const InsulatedCostLongIslandPage = lazy(() => import('../pages/insulated-garage-door-cost-long-island/page').then(module => ({ default: module.default })));
 const LiftMasterInstallationPage = lazy(() => import('../pages/liftmaster-opener-installation/page').then(module => ({ default: module.default })));
+const PedestrianGarageDoorsPage = lazy(() => import('../pages/pedestrian-garage-doors/page').then(module => ({ default: module.default })));
 
 const routes: RouteObject[] = [
   {
@@ -513,6 +514,10 @@ const routes: RouteObject[] = [
   {
     path: '/liftmaster-opener-installation/',
     element: <LiftMasterInstallationPage />
+  },
+  {
+    path: '/pedestrian-garage-doors/',
+    element: <PedestrianGarageDoorsPage />
   },
   // Legacy routes - redirect to new format (keep for SEO)
   { path: '/garage-door-replacement/', element: <Navigate to="/garage-door-installation/" replace /> },
