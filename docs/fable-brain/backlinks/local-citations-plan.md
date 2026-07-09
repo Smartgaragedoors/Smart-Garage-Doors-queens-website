@@ -51,7 +51,12 @@ NAP-inconsistency failure mode this plan exists to prevent.
 From verified competitive research (2026-07-05 page-1 plan):
 - **ThomasNet** — competitors (Overhead Door Co. of the Meadowlands, LoadingDock.com)
   hold indexed category listings for Overhead Doors / Dock Equipment in this region.
-  Create/claim listing. Free tier exists.
+  **Correction 2026-07-09:** the "free tier exists" note above was wrong — a real
+  paid ThomasNet supplier plan typically runs $7,000–$10,000/year; only a bare-bones
+  free basic profile (no real visibility) is actually free. Owner got approved
+  2026-07-09 — confirm which tier before spending anything further. Profile content
+  (description, catalog, personnel) drafted in a separate review doc, not yet
+  submitted.
 - **IDA (International Door Association, doors.org)** — member directory +
   commercial dealer recognition lists. Membership = citation + industry trust badge.
 - **BOMA / IREM local chapters (NY/NJ/CT)** — membership-gated Allied-Member/vendor

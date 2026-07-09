@@ -49,7 +49,7 @@ export const BUSINESS_INFO = {
     },
   ],
   socialMedia: {
-    facebook: "https://www.facebook.com/profile.php?id=61563773137785",
+    facebook: "https://www.facebook.com/smartgaragedoorss",
     instagram: "https://www.instagram.com/smartgaragedoorss/",
     googleMaps: "https://maps.app.goo.gl/GjfsFbH5kQ2smvdU8",
     googlePlaceId: "ChIJucuPoePGzGMRGWWH9YOmAX4",
@@ -68,6 +68,7 @@ export const BUSINESS_INFO = {
   licenses: [
     { region: "NY", label: "NYC DCWP License #2130164-DCWP" },
     { region: "CT", label: "CT HIC Registration #HIC.0704479" },
+    { region: "NJ", label: "NJ Home Improvement Contractor Registration #13VH14195600" },
   ],
   priceRange: "$$",
   currenciesAccepted: "USD",
