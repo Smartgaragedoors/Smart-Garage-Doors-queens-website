@@ -35,6 +35,7 @@ export default function QueensNY() {
         { question: 'What does a spring replacement cost in Queens?', answer: 'Spring replacement in Queens typically runs $175–$350 for one spring, depending on the spring type and size. We quote the exact price before starting — no surprises.' },
         { question: 'What garage door brands do you service in Queens?', answer: 'All major brands: LiftMaster, Chamberlain, Genie, Clopay, Wayne Dalton, Amarr, Raynor, CHI, and more. If it\'s a garage door, we can fix it.' },
         { question: 'Do you offer financing for new garage door installation in Queens?', answer: 'Yes. We offer flexible payment options for garage door installations. Call us to discuss what works for your budget.' },
+        { question: 'Is Smart Garage Doors a good choice for garage door repair in Queens?', answer: `Yes — we're rated ${BUSINESS_INFO.aggregateRating.ratingValue}★ across ${BUSINESS_INFO.aggregateRating.reviewCount} Google reviews, hold NYC DCWP License #2130164-DCWP, and give upfront pricing before any work starts, with no hidden fees. For a full side-by-side comparison against other Queens garage door companies, see our full comparison guide at /best-garage-door-company-queens/.` },
       ]}
     />
   );

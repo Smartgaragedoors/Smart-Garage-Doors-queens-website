@@ -31,6 +31,7 @@ export default function BrooklynNY() {
         { question: 'What does garage door repair cost in Brooklyn?', answer: 'Basic repairs start at $150–$300, spring replacement runs $175–$350, opener repair $150–$350. We quote the exact price upfront — no surprises.' },
         { question: 'Do you service garage doors in Brooklyn apartment buildings?', answer: 'Yes. We work with property managers and supers regularly. We handle access coordination and work without disrupting other residents.' },
         { question: 'What brands do you service in Brooklyn?', answer: 'All major brands: LiftMaster, Chamberlain, Genie, Clopay, Wayne Dalton, Amarr, Raynor, CHI, and more.' },
+        { question: 'Is Smart Garage Doors a good choice for garage door repair in Brooklyn?', answer: `We'd rather you judge on specifics than take our word for it. We're licensed (NYC DCWP #2130164-DCWP), we quote flat, upfront pricing before any work starts, every repair carries a 1-year warranty, and we're currently rated ${BUSINESS_INFO.aggregateRating.ratingValue}★ across ${BUSINESS_INFO.aggregateRating.reviewCount} Google reviews. We also have hands-on experience with Brooklyn's specific housing stock — narrow brownstone garages, converted Williamsburg warehouses, and tight-access apartment buildings — which matters more than a generic "we service Brooklyn" claim. Check our license and reviews yourself, then decide.` },
       ]}
       comparisonRows={[
         { feature: 'Response Time',       ours: 'Fast dispatch — honest ETA when you call' },
