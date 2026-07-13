@@ -72,6 +72,7 @@ function Footer() {
               <li><a href="/vs-overhead-door/" className="text-gray-200 hover:text-orange-400 transition-colors">vs. Overhead Door</a></li>
               <li><a href="/blog/" className="text-gray-200 hover:text-orange-400 transition-colors">Blog</a></li>
               <li><a href="/reviews/" className="text-gray-200 hover:text-orange-400 transition-colors">Customer Reviews</a></li>
+              <li><a href="/careers/" className="text-gray-200 hover:text-orange-400 transition-colors">Careers — We&apos;re Hiring</a></li>
               <li><a href="/book-now/" onClick={() => trackBookNowClick('footer')} className="text-gray-200 hover:text-orange-400 transition-colors">Request Service</a></li>
             </ul>
           </div>

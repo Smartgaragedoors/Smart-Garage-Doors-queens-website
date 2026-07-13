@@ -83,6 +83,8 @@ const coreRoutes = [
   { path: '/rolling-steel-gate-repair/', priority: '0.8', changefreq: 'monthly' },
   { path: '/commercial-maintenance-contracts/', priority: '0.8', changefreq: 'monthly' },
   { path: '/commercial-long-island-ny/', priority: '0.8', changefreq: 'monthly' },
+  // Recruiting
+  { path: '/careers/', priority: '0.6', changefreq: 'monthly' },
   // Buyer's guide + cost guide + brand pages
   { path: '/local-vs-national-garage-door-company/', priority: '0.7', changefreq: 'monthly' },
   { path: '/best-garage-door-company-queens/', priority: '0.8', changefreq: 'monthly' },

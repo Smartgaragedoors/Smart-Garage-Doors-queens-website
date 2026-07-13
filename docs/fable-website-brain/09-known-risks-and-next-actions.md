@@ -62,6 +62,15 @@ is what remains.
    see the CRM brain; it's still outstanding).
 3. Resubmit sitemap + Request Indexing for the newest pages (4 commercial pages
    incl. the new `/commercial-long-island-ny/`, recent blog posts) in GSC.
+   **2026-07-13 status:** `/commercial-long-island-ny/` inspected — "URL is
+   unknown to Google" (never crawled since the 07-06 ship). Programmatic
+   submission attempted and BLOCKED on two ~5-min owner steps: (a) enable the
+   Web Search Indexing API in GCP project 135100098993
+   (console.developers.google.com/apis/api/indexing.googleapis.com/overview?project=135100098993),
+   (b) add `https://smartestgaragedoors.com/` as a URL-prefix property in GSC
+   and grant the service account Owner (the Sitemaps API can't use the domain
+   property). Until then: owner can Request Indexing manually in the GSC UI for
+   the 6 commercial URLs + `/careers/`.
 4. Deep-content upgrade for the 10 highest-opportunity location pages: real photos,
    real city-tagged reviews (owner supplies), unique FAQs — attack risk #2.
 5. ~~Write `/loading-dock-door-repair/` up to the page-1 recipe~~ — DONE 2026-07-06
