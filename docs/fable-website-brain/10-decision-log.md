@@ -6,6 +6,38 @@ commit history so the log starts complete.)
 
 ---
 
+## 2026-07-13 — /careers/ recruiting page (commit `938f929`)
+
+- **Decision:** Built the careers page as a standalone page, NOT on
+  GuidePageTemplate — that template's CTAs (estimate/book-now/service links)
+  sell service, the wrong ask for a job applicant. Same visual system (ink
+  hero, py-8 md:py-12, flat cards), recruiting-specific CTAs only.
+- **Why:** Owner wants to hire technicians across the tri-state + eastern PA.
+  Also a trust signal for commercial buyers (visibly hiring = established).
+- **Key choices:** 3 JobPosting JSON-LD blocks (Google Jobs eligibility, free
+  recruiting channel); `CareersApplicationForm` runs through the same
+  `submitForm` pipeline with `serviceType: 'careers-application'` so
+  applications land in email + CRM but are distinguishable from leads; inline
+  success state instead of the service thank-you page; recruitment-specific
+  contact-consent wording (the owner-approved TCPA text is service-request
+  copy — flagged `TODO(owner)` to review before any automated SMS to
+  applicants); no pay/benefits claims (never invent business facts).
+- **PA rule respected:** PA appears only as a hiring region — no PA *service*
+  pages until dispatch there is real (one intent, one page).
+- **Follow-up:** owner review of consent wording; bump `DATE_POSTED` in
+  `src/pages/careers/page.tsx` when openings genuinely change.
+
+## 2026-07-13 — GSC MCP access live; first data-driven audit (commit `65b47da`)
+
+- **Finding:** GSC read access now works in Claude Code sessions. 28d data:
+  138 clicks / 67K imp / pos 17.2. The 45 "position drop" alerts were mostly
+  a 2026-07-12 flood of low-position impressions, not a collapse. All 5 money
+  pages verified serving full prerendered HTML.
+- **Finding:** `/commercial-long-island-ny/` was "URL unknown to Google" a full
+  week after shipping — programmatic indexing push blocked on 2 owner GCP
+  steps (see `09`). Northern NJ commercial page stays on hold per the
+  watch-LI-indexing decision.
+
 ## 2026-07-06 — Completed the page-1 commercial SEO plan (content depth + new Long Island page)
 
 - **Decision:** Closed the gap between the 3 commercial pages shipped 2026-07-05
