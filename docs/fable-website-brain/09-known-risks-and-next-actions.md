@@ -6,12 +6,20 @@ is what remains.
 
 ## Highest risks
 
-1. **Flying blind on analytics.** GSC/GA4 programmatic access is built (Post
-   Automation app, `docs/gsc-ga4-setup.md` there) but NOT activated — owner owes:
-   apply one DB migration, enable 2 Google Cloud APIs, confirm account access, set
-   2 env vars, visit the connect URL. Until then every priority call is inference.
-   Last real numbers (June): avg position 14.6, 0.3% CTR, ~35→75 of ~240 pages
-   indexed — page 2 for money terms.
+1. ~~**Flying blind on analytics.**~~ **PARTIALLY RESOLVED 2026-07-13:** a GSC
+   MCP connection is now live in Claude Code sessions (site_snapshot, quick_wins,
+   alerts, custom queries all verified working). GA4 event verification still
+   pending. Real numbers (28d to 2026-07-12): 138 clicks, 67K impressions, 0.2%
+   CTR, avg position 17.2. Daily data shows high volatility, not a collapse —
+   impressions fell ~2/3 around 06-29 while position improved; a 07-12 flood of
+   low-position impressions (4,129 @ pos 27) triggered 45 GSC alerts that are
+   mostly noise. Live-checked 5 money pages 2026-07-13: all serve full prerendered
+   HTML + schema. Commercial pages barely surface yet: `/commercial-garage-door-
+   repair/` pos 55.3 / 12 impressions; the commercial *blog* posts rank far better
+   (spring-cycle-ratings pos 7.3). Quick-win queries sitting at pos 5-10 with ~0%
+   CTR: "garage door insulation" (812 imp), "garage door repair" (818 imp),
+   "garage door repair queens" (151 imp, pos 6.6), "garage door cable replacement"
+   (144 imp, pos 5.4).
 2. **Location-page content quality vs Google's scaled-content policies.** The
    technical indexing causes were fixed; the remaining "crawled – not indexed"
    pages need genuine per-city depth (real reviews, real photos, unique FAQs) —
