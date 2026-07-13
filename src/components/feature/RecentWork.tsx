@@ -14,6 +14,58 @@ const VISIBLE = 3;
 const GAP = 16; // px between cards
 
 const photos: Photo[] = [
+  // Real job photos supplied by the owner 2026-07 (Drive "Smart Garage Doors"
+  // folder). Titles avoid city claims until the owner maps each photo to its
+  // town — add "— <City>" once confirmed, never guess.
+  {
+    image: '/images/jobs/wood-grain-raised-panel-garage-door-install.webp',
+    alt: 'Newly installed wood-grain steel raised-panel garage door with a row of insulated windows on a new-construction shingle home',
+    title: 'New Install — Wood-Grain Steel',
+    result: 'Raised panels + insulated window row',
+    position: 'object-center',
+  },
+  {
+    image: '/images/jobs/brown-raised-panel-double-garage-doors-brick-home.webp',
+    alt: 'Two matching brown raised-panel garage doors with windows installed on a brick home',
+    title: 'Double Door Replacement',
+    result: 'Two matching doors, one visit',
+    position: 'object-center',
+  },
+  {
+    image: '/images/jobs/commercial-loading-dock-door-installation.webp',
+    alt: 'White insulated commercial loading dock door installed inside a dock shelter at a warehouse',
+    title: 'Commercial Dock Door — Warehouse',
+    result: 'Insulated dock door back in service',
+    position: 'object-center',
+  },
+  {
+    image: '/images/jobs/white-garage-doors-decorative-windows-brick-building.webp',
+    alt: 'Pair of white garage doors with decorative arched window inserts on a brick residential building',
+    title: 'Two-Door Install — Decorative Glass',
+    result: 'Matched pair with window inserts',
+    position: 'object-center',
+  },
+  {
+    image: '/images/jobs/wide-double-garage-door-window-inserts.webp',
+    alt: 'Wide double garage door with two rows of divided-light window inserts, freshly installed',
+    title: 'Double-Width Door Install',
+    result: 'Flush panels, full window row',
+    position: 'object-center',
+  },
+  {
+    image: '/images/jobs/mahogany-wood-grain-raised-panel-garage-door.webp',
+    alt: 'Mahogany wood-grain raised-panel garage door after full replacement',
+    title: 'Wood-Grain Door — Mahogany Finish',
+    result: 'Full raised-panel replacement',
+    position: 'object-center',
+  },
+  {
+    image: '/images/jobs/flush-panel-garage-door-new-install.webp',
+    alt: 'New white flush-panel insulated garage door installed during a garage renovation',
+    title: 'Renovation Install — Flush Panel',
+    result: 'New insulated door in fresh opening',
+    position: 'object-center',
+  },
   {
     image: getCFImageUrl('7afb363e-9199-4fb7-599f-c037e1439b00', 'card'),
     alt: 'Dan, Smart Garage Doors technician, smiling while installing a garage door opener',

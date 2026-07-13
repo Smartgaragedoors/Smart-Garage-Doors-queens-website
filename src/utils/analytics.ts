@@ -10,7 +10,11 @@ declare global {
   }
 }
 
-export const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID || '';
+// G-GBBR220BZD is the site's real GA4 measurement id — verified 2026-07-14 by
+// reading the deployed Google tag's destination config (gtag/js?id=AW-17709307308
+// lists it as the linked GA4 destination; owner confirmed GA4 account 347177237).
+// The env var still wins when set (e.g. to disable or swap properties).
+export const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID || 'G-GBBR220BZD';
 
 // Respect the explicit kill-switch (set VITE_ENABLE_ANALYTICS=false on staging/preview)
 const ANALYTICS_ENABLED = import.meta.env.VITE_ENABLE_ANALYTICS !== 'false';
