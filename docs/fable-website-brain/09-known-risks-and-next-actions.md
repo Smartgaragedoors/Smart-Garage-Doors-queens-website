@@ -78,15 +78,17 @@ is what remains.
    see the CRM brain; it's still outstanding).
 3. Resubmit sitemap + Request Indexing for the newest pages (4 commercial pages
    incl. the new `/commercial-long-island-ny/`, recent blog posts) in GSC.
-   **2026-07-13 status:** `/commercial-long-island-ny/` inspected — "URL is
-   unknown to Google" (never crawled since the 07-06 ship). Programmatic
-   submission attempted and BLOCKED on two ~5-min owner steps: (a) enable the
-   Web Search Indexing API in GCP project 135100098993
-   (console.developers.google.com/apis/api/indexing.googleapis.com/overview?project=135100098993),
-   (b) add `https://smartestgaragedoors.com/` as a URL-prefix property in GSC
-   and grant the service account Owner (the Sitemaps API can't use the domain
-   property). Until then: owner can Request Indexing manually in the GSC UI for
-   the 6 commercial URLs + `/careers/`.
+   **RESOLVED 2026-07-13 (evening):** owner enabled the Indexing API, added
+   both URL-prefix properties (www + non-www), and set the service account
+   (sgd-mcp-reader@sgd-site-reports.iam.gserviceaccount.com) to **Owner** —
+   note: "Full" permission is NOT enough for the Sitemaps/Indexing APIs, and
+   permission changes took ~90 min to propagate (all API calls, including
+   previously-working reads, returned "Insufficient Permission" during the
+   window — don't panic-debug that again, just wait). Sitemap resubmitted +
+   10 URLs batch-submitted via the Indexing API (4 commercial pages incl.
+   northern-nj, property-managers, commercial hub, careers, insulation,
+   cable-roller). GSC write access is now fully working for future sessions;
+   daily Indexing API quota is 200 URLs.
 4. Deep-content upgrade for the 10 highest-opportunity location pages: real photos,
    real city-tagged reviews (owner supplies), unique FAQs — attack risk #2.
 5. ~~Write `/loading-dock-door-repair/` up to the page-1 recipe~~ — DONE 2026-07-06
