@@ -100,9 +100,9 @@ export default function CableRollerRepairPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <DynamicMetaTags 
-        title="Garage Door Cable & Roller Repair NY NJ CT | Smart Garage Doors"
-        description={`${BUSINESS_INFO.aggregateRating.ratingValue}★ rated, ${BUSINESS_INFO.aggregateRating.reviewCount} reviews. Cable, roller & track repair. Fast service — call for availability. NY, NJ & CT. Licensed & insured.`}
-        keywords="garage door cable repair, roller replacement, track repair, cable replacement"
+        title="Garage Door Cable Replacement & Roller Repair | NY, NJ & CT"
+        description={`Snapped or frayed garage door cable? ${BUSINESS_INFO.aggregateRating.ratingValue}★ rated (${BUSINESS_INFO.aggregateRating.reviewCount}+ reviews). Same-day cable replacement, roller & track repair across NY, NJ & CT. Licensed & insured.`}
+        keywords="garage door cable replacement, garage door cable repair, roller replacement, track repair"
         canonical={buildCanonical('/cable-roller-repair')}
       />
       <Header />

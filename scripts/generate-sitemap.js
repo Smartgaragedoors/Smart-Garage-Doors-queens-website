@@ -85,6 +85,7 @@ const coreRoutes = [
   { path: '/commercial-long-island-ny/', priority: '0.8', changefreq: 'monthly' },
   // Recruiting
   { path: '/careers/', priority: '0.6', changefreq: 'monthly' },
+  { path: '/garage-door-insulation/', priority: '0.8', changefreq: 'monthly' },
   // Buyer's guide + cost guide + brand pages
   { path: '/local-vs-national-garage-door-company/', priority: '0.7', changefreq: 'monthly' },
   { path: '/best-garage-door-company-queens/', priority: '0.8', changefreq: 'monthly' },
@@ -248,8 +249,12 @@ function generateSitemap() {
 `;
   });
 
-  // Add service area routes
-  serviceAreaRoutes.forEach(route => {
+  // Add service area routes — skipping any path already emitted as a core
+  // route. A page can legitimately be both (e.g. /commercial-long-island-ny/
+  // is in coreRoutes AND matches the service-area regex), which used to
+  // produce a duplicate <url> entry in the sitemap.
+  const coreRoutePaths = new Set(filteredCoreRoutes.map(route => route.path));
+  serviceAreaRoutes.filter(route => !coreRoutePaths.has(route.path)).forEach(route => {
     xml += `  <url>
     <loc>${BASE_URL}${route.path}</loc>
     <lastmod>${TODAY}</lastmod>

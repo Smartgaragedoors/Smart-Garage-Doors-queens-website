@@ -108,6 +108,9 @@ const CommercialLongIslandPage = lazy(() => import('../pages/commercial-long-isl
 // Recruiting
 const CareersPage = lazy(() => import('../pages/careers/page').then(module => ({ default: module.default })));
 
+// Insulation guide
+const GarageDoorInsulationPage = lazy(() => import('../pages/garage-door-insulation/page').then(module => ({ default: module.default })));
+
 // Buyer's guide pages
 const LocalVsNationalGarageDoorCompanyPage = lazy(() => import('../pages/local-vs-national-garage-door-company/page').then(module => ({ default: module.default })));
 const BestGarageDoorCompanyQueensPage = lazy(() => import('../pages/best-garage-door-company-queens/page').then(module => ({ default: module.default })));
@@ -496,6 +499,12 @@ const routes: RouteObject[] = [
   {
     path: '/careers/',
     element: <CareersPage />
+  },
+
+  // Insulation guide
+  {
+    path: '/garage-door-insulation/',
+    element: <GarageDoorInsulationPage />
   },
 
   // Buyer's guide pages

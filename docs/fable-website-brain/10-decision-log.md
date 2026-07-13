@@ -6,6 +6,30 @@ commit history so the log starts complete.)
 
 ---
 
+## 2026-07-13 — Batch 2: GA4 diagnosis, prerender CI gate, sitemap dedup, insulation page
+
+- **GA4 finding (the big one):** `VITE_GA_MEASUREMENT_ID` is set nowhere — the
+  app's GA4 initialization has never run in production (confirmed by grepping
+  the live bundle: no `G-` id exists). All GA4 event data to date arrived only
+  because `index.html`'s Google Ads `gtag()` is global and `trackEvent` calls
+  piggyback through it. Owner fix documented in `09` (add the env var in
+  Vercel). Do NOT "fix" this by hardcoding an invented id.
+- **Prerender CI gate:** `prerender.mjs` previously exited 0 even with failed
+  routes — a partial prerender would deploy silently. Now exits 1 on any
+  failure, ok≠total, or <100 routes (sitemap-collapse floor). The header
+  SAFETY comment was updated to match; risk #4 in `09` closed.
+- **Sitemap duplicate:** `/commercial-long-island-ny/` was emitted twice
+  (coreRoutes + service-area regex both match). Generator now skips
+  service-area matches already emitted as core routes.
+- **CTR quick-wins from live GSC data:** the homepage was ranking pos ~7.7 for
+  "garage door insulation" (812 imp/28d, 0% CTR — title says "Same-Day
+  Repair") with no page targeting the intent. Built
+  `/garage-door-insulation/` (GuidePageTemplate; generic technical truths
+  only, prices deferred to the LI cost guide; retrofit kits described
+  neutrally — we did not claim a kit-install service). Retitled
+  `/cable-roller-repair/` to lead with "Cable Replacement" (pos 5.4, 0 clicks
+  while the homepage soaked the query).
+
 ## 2026-07-13 — /careers/ recruiting page (commit `938f929`)
 
 - **Decision:** Built the careers page as a standalone page, NOT on

@@ -12,8 +12,11 @@
  * in the INITIAL HTML response. The React bundle still hydrates on top, so the
  * live app, forms, analytics, and design are unchanged.
  *
- * SAFETY: Purely additive. If this step fails, the original SPA build in out/
- * is still fully functional — we simply fall back to today's behavior.
+ * SAFETY: If any route fails to render (or the route count collapses), the
+ * script exits nonzero and the Vercel build FAILS — the previous known-good
+ * deployment stays live instead of shipping empty shells to Google. This gate
+ * was added 2026-07-13 per brain 09 risk #4; a flaky prerender once shipped a
+ * contentless homepage.
  */
 import http from 'node:http';
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
@@ -185,6 +188,20 @@ async function main() {
   await browser.close();
   await new Promise((r) => server.close(r));
   console.log(`[prerender] done: ${ok} ok, ${fail} failed, ${routes.length} total`);
+
+  // CI gate: a deploy with missing/empty pages is worse than no deploy — Google
+  // would recrawl those routes as raw SPA shells. Fail the build (Vercel keeps
+  // the previous deployment live) if any route failed, if the count doesn't add
+  // up, or if the sitemap itself collapsed below the floor of known-good routes.
+  const MIN_ROUTES = 100;
+  if (fail > 0 || ok !== routes.length || ok < MIN_ROUTES) {
+    console.error(
+      `[prerender] GATE FAILED: ${ok}/${routes.length} rendered, ${fail} failed` +
+      (ok < MIN_ROUTES ? ` (below the ${MIN_ROUTES}-route floor — sitemap collapse?)` : '') +
+      ' — refusing to ship this build.'
+    );
+    process.exit(1);
+  }
 }
 
 main().catch((e) => { console.error('[prerender] fatal', e); process.exit(1); });

@@ -28,9 +28,25 @@ is what remains.
    site sits on page 2. Off-site work (owner/marketing): ThomasNet, IDA membership,
    BOMA/IREM chapters, Avetta/ISNetworld for commercial procurement, local/trade
    links. From the page-1 plan.
-4. **Prerender is a single point of SEO failure.** Hardened (retry + refuse-empty)
-   but unmonitored — a silent regression would drop Google to empty shells. No CI
-   gate exists on "123 ok, 0 failed."
+4. ~~**Prerender is a single point of SEO failure.**~~ **FIXED 2026-07-13:**
+   `scripts/prerender.mjs` now exits nonzero if any route fails, the ok count
+   mismatches the route count, or fewer than 100 routes render (sitemap-collapse
+   floor) — a failing prerender now fails the Vercel build and the previous
+   deployment stays live. Previously it exited 0 regardless, so a partial
+   failure would have deployed empty shells silently.
+5. **GA4 is not actually installed — diagnosed 2026-07-13.** `analytics.ts`
+   loads GA4 from `VITE_GA_MEASUREMENT_ID`, but that env var is set NOWHERE
+   (no env file, not in Vercel — confirmed absent from the live production
+   bundle). `shouldTrack()` is always false, so the app's GA4 init never runs.
+   The ONLY reason GA4 showed any June data: `index.html` defines a global
+   `gtag()` for the two Google Ads tags (AW-17709307308, AW-11306665258), and
+   the app's `trackEvent` calls piggyback through it — reaching GA4 only if
+   the Google tag has the GA4 property configured as an extra destination
+   server-side. This makes event delivery fragile and unauditable, and likely
+   explains dropped/missing events (whatsapp_click 0). **Owner fix (~5 min):
+   GA4 Admin → Data streams → copy the `G-XXXXXXXXXX` Measurement ID → add
+   `VITE_GA_MEASUREMENT_ID` env var in Vercel project settings → redeploy.**
+   The code path is already built and correct.
 
 ## Smaller known issues
 
