@@ -143,6 +143,7 @@ export default function InsulatedGarageDoorCostLongIslandPage() {
       relatedLinks={{
         title: 'Long Island Areas We Serve',
         links: [
+          { label: 'Garage Door Insulation Guide', href: '/garage-door-insulation/' },
           { label: 'Long Island, NY', href: '/long-island-ny/' },
           { label: 'Nassau County, NY', href: '/nassau-county-ny/' },
           { label: 'Suffolk County, NY', href: '/suffolk-county-ny/' },

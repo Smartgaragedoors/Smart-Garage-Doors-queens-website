@@ -112,6 +112,7 @@ export default function CommercialLongIslandPage() {
           { label: 'Commercial Maintenance Contracts', href: '/commercial-maintenance-contracts/' },
           { label: 'Commercial Garage Door Repair', href: '/commercial-garage-door-repair/' },
           { label: 'For Property Managers', href: '/property-managers/' },
+          { label: 'Commercial — Northern NJ', href: '/commercial-northern-nj/' },
           { label: 'Long Island, NY (Residential)', href: '/long-island-ny/' },
         ],
       }}

@@ -155,6 +155,7 @@ export default function CommercialGarageDoorRepairPage() {
           { label: 'Maintenance Contracts', href: '/commercial-maintenance-contracts/' },
           { label: 'For Property Managers', href: '/property-managers/' },
           { label: 'Commercial — Long Island', href: '/commercial-long-island-ny/' },
+          { label: 'Commercial — Northern NJ', href: '/commercial-northern-nj/' },
           { label: 'Queens, NY', href: '/queens-ny/' },
           { label: 'Brooklyn, NY', href: '/brooklyn-ny/' },
           { label: 'Long Island, NY', href: '/long-island-ny/' },

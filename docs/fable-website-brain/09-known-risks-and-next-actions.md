@@ -66,9 +66,9 @@ is what remains.
 - Online booking with real dispatch windows (growth-plan P4 — needs owner's
   calendar/CRM decision, "only expose real, dispatchable windows").
 - Review-velocity automation (ask every completed job — SOP in gbp-playbook).
-- A second location-specific commercial page (Northern NJ) — the plan calls for
-  watching `/commercial-long-island-ny/`'s indexing first before expanding the
-  pattern (shipped 2026-07-06, see decision log).
+- ~~A second location-specific commercial page (Northern NJ)~~ — SHIPPED
+  2026-07-13 (`/commercial-northern-nj/`); owner overrode the watch-LI-first
+  gate. See decision log.
 
 ## Top 10 next actions
 

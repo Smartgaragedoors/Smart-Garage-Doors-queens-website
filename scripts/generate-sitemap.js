@@ -83,6 +83,7 @@ const coreRoutes = [
   { path: '/rolling-steel-gate-repair/', priority: '0.8', changefreq: 'monthly' },
   { path: '/commercial-maintenance-contracts/', priority: '0.8', changefreq: 'monthly' },
   { path: '/commercial-long-island-ny/', priority: '0.8', changefreq: 'monthly' },
+  { path: '/commercial-northern-nj/', priority: '0.8', changefreq: 'monthly' },
   // Recruiting
   { path: '/careers/', priority: '0.6', changefreq: 'monthly' },
   { path: '/garage-door-insulation/', priority: '0.8', changefreq: 'monthly' },

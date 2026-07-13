@@ -6,6 +6,20 @@ commit history so the log starts complete.)
 
 ---
 
+## 2026-07-13 — Batch 3: /commercial-northern-nj/ shipped (owner overrode the wait-gate)
+
+- **Decision:** Built the Northern NJ commercial page ahead of observing
+  `/commercial-long-island-ny/`'s indexing (the prior gate), on the owner's
+  explicit "get everything done without stopping" directive. LI's page was
+  still "URL unknown to Google" at ship time — indexing requests for both are
+  queued (API blocked on a connector auth issue; owner requesting manually in
+  the GSC UI meanwhile).
+- Geography kept inside already-published commercial counties (Bergen,
+  Passaic, Hudson, Essex + Elizabeth). Meadowlands/port-corridor references
+  are real NJ industrial geography, not client claims. NJ HIC #13VH14195600
+  cited from `business-info.ts`. Cross-linked from the commercial hub and the
+  LI commercial page.
+
 ## 2026-07-13 — Batch 2: GA4 diagnosis, prerender CI gate, sitemap dedup, insulation page
 
 - **GA4 finding (the big one):** `VITE_GA_MEASUREMENT_ID` is set nowhere — the
