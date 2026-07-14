@@ -12,6 +12,20 @@ export default function LocationPage() {
       stateCode="NY"
       stateName="New York"
       geo={{ latitude: '40.7891', longitude: '-73.1350' }}
+      localJobPhotos={[
+        {
+          image: '/images/jobs/brown-raised-panel-double-garage-doors-brick-home.webp',
+          alt: 'Two matching brown raised-panel garage doors with windows installed on a Long Island, NY brick home',
+          title: 'Double Door Replacement',
+          result: 'Two matching doors, one visit',
+        },
+        {
+          image: '/images/jobs/wide-double-garage-door-window-inserts.webp',
+          alt: 'Wide double garage door with two rows of divided-light window inserts, freshly installed on Long Island, NY',
+          title: 'Double-Width Door Install',
+          result: 'Flush panels, full window row',
+        },
+      ]}
       heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero"
       neighborhoods={[{"name":"Nassau County (North Shore)","description":"Great Neck, Manhasset, Roslyn — premium homes with high-quality garage doors. We specialize in upscale installs here."},{"name":"Nassau County (South Shore)","description":"Rockville Centre, Valley Stream, Freeport — well-established neighborhoods with high demand for repair and maintenance."},{"name":"Suffolk County (West)","description":"Huntington, Commack, Smithtown — suburban neighborhoods where we run regular routes."},{"name":"Suffolk County (East)","description":"Farmingdale, Babylon, Bay Shore — we cover these areas with same-day availability most days."},{"name":"The Hamptons & East End","description":"Seasonal and year-round homes in the Hamptons. We service all door brands and install premium custom doors."},{"name":"North Fork","description":"Quieter East End communities. We schedule service efficiently for this area — call ahead for availability."}]}
       reviews={[{"text":"Spring snapped in Great Neck on a Sunday. Called, got a real person, tech was there in 90 minutes. Replaced both springs, checked everything. Great job.","author":"Michael S.","location":"Great Neck, Long Island","initials":"MS","color":"bg-blue-600"},{"text":"New garage door install in Huntington. They helped me pick the right style, came on time, and the installation was flawless.","author":"Karen W.","location":"Huntington, Long Island","initials":"KW","color":"bg-orange-500"},{"text":"Emergency call in Valley Stream at night. They picked up, showed up, fixed it. Exactly what you hope for. Highly recommend.","author":"Jason T.","location":"Valley Stream, Long Island","initials":"JT","color":"bg-green-600"}]}

@@ -14,6 +14,14 @@ export default function LocationPage() {
       geo={{ latitude: '41.1148', longitude: '-74.1496' }}
       phone="(845) 262-2034"
       phoneTel="+18452622034"
+      localJobPhotos={[
+        {
+          image: '/images/jobs/mahogany-wood-grain-raised-panel-garage-door.webp',
+          alt: 'Mahogany wood-grain raised-panel garage door after full replacement in Suffern, NY',
+          title: 'Wood-Grain Door — Mahogany Finish',
+          result: 'Full raised-panel replacement',
+        },
+      ]}
       heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero"
       neighborhoods={[{"name":"Suffern Village","description":"Our home base. We're as local as it gets — our Suffern technician lives and works here. Fastest response time of any location we serve."},{"name":"Airmont & Montebello","description":"Neighboring communities we reach in minutes. We have longtime customers throughout both villages."},{"name":"Wesley Hills & Pomona","description":"Rockland communities just north of Suffern. Quick arrivals from our base."},{"name":"Mahwah & Ramsey NJ","description":"Just across the state line. We serve northern Bergen County with the same fast response as Suffern."},{"name":"Hillburn & Tuxedo","description":"Small communities along the NY/NJ border. We know these roads well."},{"name":"Sloatsburg & Tuxedo Park","description":"Route 17 corridor communities. We cover this stretch regularly."}]}
       reviews={[{"text":"Great team, good communication, and efficient work. They scheduled a same day visit when I called and ultimately suggested that I repair my current doors instead of installing new ones. They priced out both options (both very reasonable) and I ended up going with the door repair with new openers. Everything works great now. Definitely recommend!","author":"Carl B.","location":"Suffern, NY","initials":"CB","color":"bg-blue-600"},{"text":"Amazing service and quality work! Showed up on a Sunday to evaluate my door that had a spring broken. Ordered the part and came the next day to make the repair super quick. Highly recommend! 5 stars all way.","author":"Luis G.","location":"Suffern, NY","initials":"LG","color":"bg-orange-500"},{"text":"We recently had our garage door springs and cables replaced, and the service was outstanding from start to finish. The technician arrived on time, was professional, knowledgeable. The installation was completed quickly, and the garage door now operates smoothly and quietly. I highly recommend this company to anyone in need of garage door repairs!","author":"Vicki C.","location":"Suffern, NY","initials":"VC","color":"bg-green-600"},{"text":"Had a pleasure working with Ben and discussing options for my garage door. He is very professional, meticulous, and responsive. He took time to review everything and ensured every detail was covered.","author":"Ilyas A.","location":"Suffern, NY","initials":"IA","color":"bg-purple-600"}]}

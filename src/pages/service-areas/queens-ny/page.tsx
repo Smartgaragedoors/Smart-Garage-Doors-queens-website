@@ -15,6 +15,20 @@ export default function QueensNY() {
       geo={{ latitude: '40.7282', longitude: '-73.7949' }}
       heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero"
       mapEmbedUrl="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96708.34!2d-73.9442!3d40.7282!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258f4b00bd15f%3A0x860f6a4080430fde!2sQueens%2C%20NY!5e0!3m2!1sen!2sus"
+      localJobPhotos={[
+        {
+          image: '/images/jobs/wood-grain-raised-panel-garage-door-install.webp',
+          alt: 'Newly installed wood-grain steel raised-panel garage door with insulated windows on a Queens, NY home',
+          title: 'New Install — Wood-Grain Steel',
+          result: 'Raised panels + insulated window row',
+        },
+        {
+          image: '/images/jobs/commercial-loading-dock-door-installation.webp',
+          alt: 'White insulated commercial loading dock door installed at a Queens, NY warehouse',
+          title: 'Commercial Dock Door — Queens',
+          result: 'Insulated dock door back in service',
+        },
+      ]}
       neighborhoods={[
         { name: 'Astoria & Long Island City', description: 'Fast service for Astoria\'s dense residential blocks and LIC\'s converted lofts. We know the parking situation — our guys get in and out without drama.' },
         { name: 'Flushing & Whitestone', description: 'Deep coverage in Flushing and Whitestone. Lots of attached garages here — we\'ve fixed hundreds in these neighborhoods.' },

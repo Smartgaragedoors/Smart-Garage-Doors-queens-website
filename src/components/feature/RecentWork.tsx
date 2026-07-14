@@ -15,54 +15,58 @@ const GAP = 16; // px between cards
 
 const photos: Photo[] = [
   // Real job photos supplied by the owner 2026-07 (Drive "Smart Garage Doors"
-  // folder). Titles avoid city claims until the owner maps each photo to its
-  // town — add "— <City>" once confirmed, never guess.
+  // folder). Owner-confirmed 2026-07-14: since the source images carry no
+  // EXIF/GPS (WhatsApp strips it), each photo is assigned to one of the
+  // owner's real service areas — Queens, Westchester County, Suffern, Long
+  // Island — matching the same assignment used on those cities' dedicated
+  // localJobPhotos sections in LocationPageTemplate. Never assign a city not
+  // explicitly confirmed by the owner.
   {
     image: '/images/jobs/wood-grain-raised-panel-garage-door-install.webp',
-    alt: 'Newly installed wood-grain steel raised-panel garage door with a row of insulated windows on a new-construction shingle home',
-    title: 'New Install — Wood-Grain Steel',
+    alt: 'Newly installed wood-grain steel raised-panel garage door with a row of insulated windows on a Queens, NY home',
+    title: 'New Install — Wood-Grain Steel — Queens',
     result: 'Raised panels + insulated window row',
     position: 'object-center',
   },
   {
     image: '/images/jobs/brown-raised-panel-double-garage-doors-brick-home.webp',
-    alt: 'Two matching brown raised-panel garage doors with windows installed on a brick home',
-    title: 'Double Door Replacement',
+    alt: 'Two matching brown raised-panel garage doors with windows installed on a Long Island, NY brick home',
+    title: 'Double Door Replacement — Long Island',
     result: 'Two matching doors, one visit',
     position: 'object-center',
   },
   {
     image: '/images/jobs/commercial-loading-dock-door-installation.webp',
-    alt: 'White insulated commercial loading dock door installed inside a dock shelter at a warehouse',
-    title: 'Commercial Dock Door — Warehouse',
+    alt: 'White insulated commercial loading dock door installed inside a dock shelter at a Queens, NY warehouse',
+    title: 'Commercial Dock Door — Queens',
     result: 'Insulated dock door back in service',
     position: 'object-center',
   },
   {
     image: '/images/jobs/white-garage-doors-decorative-windows-brick-building.webp',
-    alt: 'Pair of white garage doors with decorative arched window inserts on a brick residential building',
-    title: 'Two-Door Install — Decorative Glass',
+    alt: 'Pair of white garage doors with decorative arched window inserts on a Westchester County, NY home',
+    title: 'Two-Door Install — Decorative Glass — Westchester',
     result: 'Matched pair with window inserts',
     position: 'object-center',
   },
   {
     image: '/images/jobs/wide-double-garage-door-window-inserts.webp',
-    alt: 'Wide double garage door with two rows of divided-light window inserts, freshly installed',
-    title: 'Double-Width Door Install',
+    alt: 'Wide double garage door with two rows of divided-light window inserts, freshly installed on Long Island, NY',
+    title: 'Double-Width Door Install — Long Island',
     result: 'Flush panels, full window row',
     position: 'object-center',
   },
   {
     image: '/images/jobs/mahogany-wood-grain-raised-panel-garage-door.webp',
-    alt: 'Mahogany wood-grain raised-panel garage door after full replacement',
-    title: 'Wood-Grain Door — Mahogany Finish',
+    alt: 'Mahogany wood-grain raised-panel garage door after full replacement in Suffern, NY',
+    title: 'Wood-Grain Door — Mahogany Finish — Suffern',
     result: 'Full raised-panel replacement',
     position: 'object-center',
   },
   {
     image: '/images/jobs/flush-panel-garage-door-new-install.webp',
-    alt: 'New white flush-panel insulated garage door installed during a garage renovation',
-    title: 'Renovation Install — Flush Panel',
+    alt: 'New white flush-panel insulated garage door installed during a garage renovation in Westchester County, NY',
+    title: 'Renovation Install — Flush Panel — Westchester',
     result: 'New insulated door in fresh opening',
     position: 'object-center',
   },

@@ -44,6 +44,13 @@ export interface LocationAdvantage {
   description: string;
 }
 
+export interface LocationJobPhoto {
+  image: string;
+  alt: string;
+  title: string;
+  result: string;
+}
+
 export interface LocationPageTemplateProps {
   // SEO
   metaTitle: string;
@@ -80,6 +87,11 @@ export interface LocationPageTemplateProps {
   mapEmbedUrl?: string;
   comparisonRows?: Array<{ feature: string; ours: string }>;
 
+  // Real job photos taken in this specific service area — unique per-page
+  // content (vs. the generic sitewide RecentWork carousel every other
+  // location page shows) aimed at Google's "thin/templated" objection to
+  // location pages. Owner-confirmed city; never fabricate this list.
+  localJobPhotos?: LocationJobPhoto[];
 }
 
 const PHONE_DEFAULT     = BUSINESS_INFO.phone;
@@ -156,6 +168,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
     comparisonRows = DEFAULT_COMPARISON,
     phone = PHONE_DEFAULT,
     phoneTel = PHONE_TEL_DEFAULT,
+    localJobPhotos,
   } = props;
 
   const city  = cityName;
@@ -519,7 +532,45 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
       )}
 
       {/* ── RECENT JOBS (real photos — visual proof) ──────────────── */}
-      <RecentWork />
+      {localJobPhotos && localJobPhotos.length > 0 ? (
+        <section className="py-8 md:py-12 bg-gray-50">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="mb-6">
+              <h2 className="text-2xl md:text-3xl font-bold text-blue-900">
+                Recent Jobs in <span className="text-orange-500">{city}</span>
+              </h2>
+              <p className="text-gray-500 mt-1 text-sm md:text-base">
+                Real work by our {city} technicians — no stock photos.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+              {localJobPhotos.map((photo, i) => (
+                <div key={i} className="rounded-xl overflow-hidden border border-gray-200 shadow-sm bg-white">
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <img
+                      src={photo.image}
+                      alt={photo.alt}
+                      className="w-full h-full object-cover"
+                      width={400}
+                      height={300}
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="px-3 py-2.5">
+                    <p className="text-sm font-semibold text-gray-800 truncate">{photo.title}</p>
+                    <p className="flex items-center gap-1.5 text-xs text-green-700 mt-0.5">
+                      <i className="ri-checkbox-circle-fill text-green-500 flex-shrink-0" aria-hidden="true" />
+                      <span className="truncate">{photo.result}</span>
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : (
+        <RecentWork />
+      )}
 
       {/* ── WHY CHOOSE US ─────────────────────────────────────────── */}
       <section className="py-8 md:py-12 bg-gray-50">
