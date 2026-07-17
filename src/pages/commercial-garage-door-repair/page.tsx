@@ -151,6 +151,7 @@ export default function CommercialGarageDoorRepairPage() {
         title: 'Commercial Services & Service Areas',
         links: [
           { label: 'Loading Dock Door Repair', href: '/loading-dock-door-repair/' },
+          { label: 'Overhead Door Repair', href: '/overhead-door-repair/' },
           { label: 'Rolling Steel Gate Repair', href: '/rolling-steel-gate-repair/' },
           { label: 'Maintenance Contracts', href: '/commercial-maintenance-contracts/' },
           { label: 'For Property Managers', href: '/property-managers/' },

@@ -112,6 +112,9 @@ const CareersPage = lazy(() => import('../pages/careers/page').then(module => ({
 // Insulation guide
 const GarageDoorInsulationPage = lazy(() => import('../pages/garage-door-insulation/page').then(module => ({ default: module.default })));
 
+// Overhead door service page
+const OverheadDoorRepairPage = lazy(() => import('../pages/overhead-door-repair/page').then(module => ({ default: module.default })));
+
 // Buyer's guide pages
 const LocalVsNationalGarageDoorCompanyPage = lazy(() => import('../pages/local-vs-national-garage-door-company/page').then(module => ({ default: module.default })));
 const BestGarageDoorCompanyQueensPage = lazy(() => import('../pages/best-garage-door-company-queens/page').then(module => ({ default: module.default })));
@@ -510,6 +513,12 @@ const routes: RouteObject[] = [
   {
     path: '/garage-door-insulation/',
     element: <GarageDoorInsulationPage />
+  },
+
+  // Overhead door service page
+  {
+    path: '/overhead-door-repair/',
+    element: <OverheadDoorRepairPage />
   },
 
   // Buyer's guide pages
