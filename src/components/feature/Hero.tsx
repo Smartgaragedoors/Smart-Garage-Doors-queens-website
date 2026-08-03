@@ -13,10 +13,6 @@ export default function Hero() {
   // city that we're "local" to a city that isn't theirs.
   const localArea = location?.detected ? locationName : null;
 
-  // Keyword-rich subhead (preserves "garage door repair" + service keywords + the
-  // local-feel / no-call-center framing) WITHOUT ever naming dispatch hubs.
-  const subheadline =
-    'Emergency garage door repair and premium installs — springs, openers, cables, rolling gates & loading docks. Fast local dispatch across NY · NJ · CT, never a distant call center.';
 
   const homeHero = getCloudflareImage('homeHero');
   const heroImageUrl = getCFImageUrl(homeHero.id, homeHero.variant ?? 'hero');
@@ -73,14 +69,32 @@ export default function Hero() {
           </span>
         </h1>
 
-        {/* Sub-headline — keyword-rich, location-aware, no hubs named */}
-        <p className="text-base md:text-lg mb-6 text-gray-200 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-          {localArea ? `Serving ${localArea} and the wider Tri-State. ` : ''}
-          {subheadline}
+        {/* Social proof directly under the headline — the visitor sees the rating
+            BEFORE any CTA (moved up from the hero footer per CRO hierarchy:
+            headline → proof → CTA). */}
+        <p className="flex items-center justify-center lg:justify-start gap-2 mb-4 text-[15px] md:text-base text-[#cdd9ea]">
+          <span className="text-[#F5A623] tracking-[1px]" aria-hidden="true">★★★★★</span>
+          <b className="text-white">{BUSINESS_INFO.aggregateRating.ratingValue}</b>
+          <span>· {BUSINESS_INFO.aggregateRating.reviewCount}+ Google reviews</span>
         </p>
 
+        {/* Sub-headline — scannable stacked lines instead of a paragraph (people
+            scan, not read). Keeps the SEO keywords: "garage door repair", the
+            service list, the tri-state coverage, and the no-call-center framing. */}
+        <div className="mb-5 text-gray-200 max-w-xl mx-auto lg:mx-0 space-y-1 leading-snug">
+          <p className="text-base md:text-lg font-semibold text-white">
+            Emergency garage door repair &amp; premium installs — NY · NJ · CT
+          </p>
+          <p className="text-sm md:text-base">
+            Springs · Openers · Cables · Off-track doors · Rolling gates &amp; docks
+          </p>
+          <p className="text-sm md:text-base">
+            {localArea ? `Serving ${localArea} — fast` : 'Fast'} local dispatch, never a distant call center.
+          </p>
+        </div>
+
         {/* Featured offer — subtle tinted badge (lower visual weight than Call Now) */}
-        <div className="inline-flex items-center gap-3 mb-8 px-4 py-2.5 rounded-xl md:rounded-full bg-[rgba(217,100,31,0.16)] border border-[rgba(232,145,90,0.45)]">
+        <div className="inline-flex items-center gap-3 mb-5 md:mb-7 px-4 py-2.5 rounded-xl md:rounded-full bg-[rgba(217,100,31,0.16)] border border-[rgba(232,145,90,0.45)]">
           <span className="flex items-center justify-center w-6 h-6 rounded-md bg-orange-500 text-white text-sm font-extrabold leading-none md:hidden" aria-hidden="true">✓</span>
           <span className="font-newsreader italic text-xl text-[#F2B98C] leading-none hidden md:inline">$0</span>
           <span className="text-sm font-semibold text-white">
@@ -99,7 +113,7 @@ export default function Hero() {
         {/* CTAs — ONE dominant Call Now (lean hierarchy per handoff). Form below is
             additive, not a second competing CTA button, so it stays out of this row.
             data-hero-cta: the mobile sticky bar stays hidden while this block is visible. */}
-        <div data-hero-cta className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start items-stretch sm:items-center mb-6">
+        <div data-hero-cta className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start items-stretch sm:items-center mb-3">
           <a
             href="tel:+19145576816"
             onClick={() => {
@@ -113,6 +127,23 @@ export default function Hero() {
             Call (914) 557-6816
           </a>
         </div>
+
+        {/* Compact trust badges — one row on mobile, directly under the Call CTA
+            (risk-reduction at the exact moment of decision). */}
+        <p className="flex flex-wrap justify-center lg:justify-start items-center gap-x-3 gap-y-1 mb-6 text-[13px] md:text-sm text-[#cdd9ea]">
+          <span className="inline-flex items-center gap-1.5">
+            <i className="ri-checkbox-circle-fill text-[#3FAE72]" aria-hidden="true" />
+            Same-Day Service
+          </span>
+          <span className="inline-flex items-center gap-1.5">
+            <i className="ri-checkbox-circle-fill text-[#3FAE72]" aria-hidden="true" />
+            Licensed &amp; Insured
+          </span>
+          <span className="inline-flex items-center gap-1.5">
+            <i className="ri-checkbox-circle-fill text-[#3FAE72]" aria-hidden="true" />
+            Upfront Pricing
+          </span>
+        </p>
 
         {/* Below lg: quote form shown inline, always visible (no tap required — owner
             wants zero friction to start filling it out). Sits below the dominant Call
@@ -130,16 +161,8 @@ export default function Hero() {
           Property manager? Set up a vendor account →
         </a>
 
-        {/* Trust row — rating proof + same-day / upfront (two clean lines on mobile) */}
-        <div className="flex flex-col sm:flex-row sm:flex-wrap gap-x-3.5 gap-y-1.5 justify-center lg:justify-start items-center text-sm text-[#cdd9ea]">
-          <span className="inline-flex items-center gap-2">
-            <span className="text-[#F5A623] tracking-[1px]" aria-hidden="true">★★★★★</span>
-            <b className="text-white">{BUSINESS_INFO.aggregateRating.ratingValue}</b>
-            <span>· {BUSINESS_INFO.aggregateRating.reviewCount} Google reviews</span>
-          </span>
-          <span className="hidden sm:inline opacity-40" aria-hidden="true">|</span>
-          <span className="font-semibold sm:font-normal">Same-Day Service · Upfront Pricing</span>
-        </div>
+        {/* (Rating proof moved directly under the H1; same-day/upfront moved to the
+            badge row under the Call CTA — no duplicate trust rows down here.) */}
         </div>
 
         {/* Right column — desktop only. Below lg the same form renders inline above
