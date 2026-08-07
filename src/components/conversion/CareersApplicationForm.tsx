@@ -1,287 +1,230 @@
-import { useState, useRef } from 'react';
+import { useRef, useState } from 'react';
 import { submitForm } from '../../utils/formSubmission';
 import { trackFormStart, trackFormSubmit } from '../../utils/analytics';
 
-/**
- * Job application form for /careers/. Deliberately separate from the lead
- * forms: different fields (experience, role), no portfolio/service framing,
- * and an inline success state instead of the service thank-you page (which
- * reads as "your repair is booked").
- *
- * Submissions flow through the same submitForm pipeline (email + CRM mirror)
- * with serviceType 'careers-application' so applications are distinguishable
- * from customer leads in the inbox and CRM.
- */
-
 const ROLE_OPTIONS = [
-  { value: '', label: 'Select the role you’re applying for' },
-  { value: 'Garage Door Technician (Residential)', label: 'Garage Door Technician — Residential' },
-  { value: 'Commercial Door / Rolling Gate Technician', label: 'Commercial Door / Rolling Gate Technician' },
-  { value: 'Installer / Installer Helper', label: 'Installer / Installer Helper' },
-  { value: 'Other', label: 'Other / not sure yet' },
+  'Garage Door Service Technician',
+  'Garage Door Installer',
+  'Commercial Door / Rolling Gate Technician',
+  'Installer Helper',
+  'Not sure — match me to the right role',
 ];
 
-const EXPERIENCE_OPTIONS = [
-  { value: '', label: 'Select years of experience' },
-  { value: 'No door experience (trade background)', label: 'No door experience — other trade background' },
-  { value: '1-2 years', label: '1–2 years' },
-  { value: '3-5 years', label: '3–5 years' },
-  { value: '5+ years', label: '5+ years' },
+const EXPERIENCE_OPTIONS = ['Less than 1 year', '1–2 years', '3–5 years', '5+ years'];
+const WORK_OPTIONS = ['Full-time', 'Per job / subcontractor', 'Commission-based', 'Open to different options'];
+const SKILL_OPTIONS = [
+  'Torsion & extension springs',
+  'Cables, rollers & tracks',
+  'Garage door openers',
+  'Residential door installation',
+  'Commercial overhead doors',
+  'Rolling gates / grilles',
+  'Dock equipment',
+  'Sales / estimates',
 ];
+
+type FormData = {
+  name: string;
+  phone: string;
+  email: string;
+  cityState: string;
+  role: string;
+  experience: string;
+  workPreference: string;
+  skills: string[];
+  driversLicense: string;
+  ownVehicle: string;
+  availability: string;
+  onCall: string;
+  startDate: string;
+  earningsExpectation: string;
+  referenceOne: string;
+  referenceTwo: string;
+  interviewDay: string;
+  interviewTime: string;
+  message: string;
+};
+
+const initialData: FormData = {
+  name: '', phone: '', email: '', cityState: '', role: '', experience: '', workPreference: '',
+  skills: [], driversLicense: '', ownVehicle: '', availability: '', onCall: '', startDate: '',
+  earningsExpectation: '', referenceOne: '', referenceTwo: '', interviewDay: '', interviewTime: '', message: '',
+};
+
+const inputClass = 'w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm text-gray-900 placeholder-gray-400 focus:border-transparent focus:ring-2 focus:ring-orange-500';
 
 export default function CareersApplicationForm() {
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    area: '',
-    role: '',
-    experience: '',
-    message: '',
-  });
+  const [formData, setFormData] = useState<FormData>(initialData);
   const [contactConsent, setContactConsent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   const formStarted = useRef(false);
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
+  const markStarted = () => {
     if (!formStarted.current) {
       formStarted.current = true;
       trackFormStart('Careers Application Form', 'careers_application_form');
     }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    markStarted();
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData((previous) => ({ ...previous, [name]: value }));
+  };
+
+  const toggleSkill = (skill: string) => {
+    markStarted();
+    setFormData((previous) => ({
+      ...previous,
+      skills: previous.skills.includes(skill)
+        ? previous.skills.filter((item) => item !== skill)
+        : [...previous.skills, skill],
+    }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMsg('');
+    if (!formData.skills.length) {
+      setErrorMsg('Please select at least one skill or experience area.');
+      return;
+    }
     setIsSubmitting(true);
     try {
-      const result = await submitForm(
-        {
-          ...formData,
-          serviceType: 'careers-application',
-          contactConsent: contactConsent ? 'Yes (agreed to be contacted about application)' : 'No',
-        },
-        'Careers Application Form'
-      );
-      if (result.success) {
-        trackFormSubmit('Careers Application Form', 'careers_application_form', {
-          role: formData.role,
-          experience: formData.experience,
-        });
-        setSubmitted(true);
-      } else {
-        setErrorMsg(result.error || 'Something went wrong. Please call (914) 557-6816.');
-        setIsSubmitting(false);
-      }
-    } catch {
-      setErrorMsg('Something went wrong. Please call (914) 557-6816.');
+      const result = await submitForm({
+        ...formData,
+        skills: formData.skills.join(', '),
+        serviceType: 'careers-application',
+        applicationStatus: 'New technician applicant',
+        contactConsent: contactConsent ? 'Yes — application contact consent provided' : 'No',
+      }, 'Garage Door Technician Application');
+      if (!result.success) throw new Error(result.error);
+      trackFormSubmit('Careers Application Form', 'careers_application_form', {
+        role: formData.role,
+        experience: formData.experience,
+        region: formData.cityState,
+      });
+      setSubmitted(true);
+    } catch (error) {
+      setErrorMsg(error instanceof Error && error.message
+        ? error.message
+        : 'We could not send your application. Please call (914) 557-6816.');
       setIsSubmitting(false);
     }
   };
 
   if (submitted) {
     return (
-      <div className="w-full max-w-lg mx-auto rounded-2xl border border-gray-200 shadow-sm bg-white p-6 md:p-8 text-center">
-        <div className="w-12 h-12 rounded-full bg-green-100 text-green-600 flex items-center justify-center mx-auto mb-4">
-          <i className="ri-check-line text-2xl" aria-hidden="true" />
+      <div className="mx-auto w-full max-w-2xl rounded-2xl border border-green-200 bg-white p-7 text-center shadow-sm md:p-10" role="status">
+        <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-green-100 text-green-700">
+          <i className="ri-check-line text-3xl" aria-hidden="true" />
         </div>
-        <h2 className="font-newsreader font-medium text-2xl text-gray-900 mb-2">
-          Application Received
-        </h2>
-        <p className="text-sm text-gray-600 leading-relaxed">
-          Thanks for applying. A real person reviews every application — if your background
-          fits an open role, we&apos;ll reach out to set up a conversation.
+        <h2 className="font-newsreader text-3xl font-medium text-gray-900">Application received</h2>
+        <p className="mx-auto mt-3 max-w-lg text-gray-600">
+          Thanks, {formData.name.split(' ')[0]}. We will review your experience and service area. If there is a fit, we will contact you to confirm a 15-minute phone interview; your selected time is a preference, not a confirmed appointment yet.
         </p>
       </div>
     );
   }
 
   return (
-    <div id="apply" className="w-full max-w-lg mx-auto rounded-2xl border border-gray-200 shadow-sm bg-white p-6 md:p-8">
-      <h2 className="font-newsreader font-medium text-2xl md:text-[26px] leading-tight text-gray-900">
-        Apply Now
-      </h2>
-      <p className="text-sm text-gray-600 mt-1.5 mb-5">
-        Two minutes, no resume required to start — tell us your experience and where you&apos;re based, and we&apos;ll take it from there.
-      </p>
+    <div id="apply" className="mx-auto w-full max-w-3xl scroll-mt-28 rounded-2xl border border-gray-200 bg-white p-5 shadow-sm md:p-9">
+      <div className="mb-7">
+        <p className="mb-2 text-xs font-bold uppercase tracking-[0.16em] text-orange-600">Technician application</p>
+        <h2 className="font-newsreader text-3xl font-medium text-gray-900">Tell us what you can do</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-600">No resume is required. The form takes about 4 minutes and goes directly to our hiring team.</p>
+      </div>
 
-      <form onSubmit={handleSubmit} className="space-y-3.5 text-left" noValidate>
-        <div className="grid sm:grid-cols-2 gap-3.5">
-          <div>
-            <label htmlFor="caf-name" className="block text-xs font-semibold mb-1.5 text-gray-700">
-              Your Name <span className="text-orange-500">*</span>
-            </label>
-            <input
-              id="caf-name"
-              name="name"
-              type="text"
-              required
-              autoComplete="name"
-              value={formData.name}
-              onChange={handleChange}
-              placeholder="First and last name"
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm"
-            />
+      <form onSubmit={handleSubmit} className="space-y-8">
+        <fieldset>
+          <legend className="mb-4 text-lg font-bold text-gray-900">1. Contact information</legend>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <Field label="Full name" required><input name="name" required autoComplete="name" value={formData.name} onChange={handleChange} className={inputClass} /></Field>
+            <Field label="Phone" required><input name="phone" type="tel" required autoComplete="tel" value={formData.phone} onChange={handleChange} className={inputClass} /></Field>
+            <Field label="Email" required><input name="email" type="email" required autoComplete="email" value={formData.email} onChange={handleChange} className={inputClass} /></Field>
+            <Field label="City and state" required><input name="cityState" required autoComplete="address-level2" placeholder="Queens, NY" value={formData.cityState} onChange={handleChange} className={inputClass} /></Field>
           </div>
-          <div>
-            <label htmlFor="caf-phone" className="block text-xs font-semibold mb-1.5 text-gray-700">
-              Phone <span className="text-orange-500">*</span>
-            </label>
-            <input
-              id="caf-phone"
-              name="phone"
-              type="tel"
-              required
-              autoComplete="tel"
-              value={formData.phone}
-              onChange={handleChange}
-              placeholder="(555) 123-4567"
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm"
-            />
-          </div>
-        </div>
+        </fieldset>
 
-        <div className="grid sm:grid-cols-2 gap-3.5">
-          <div>
-            <label htmlFor="caf-email" className="block text-xs font-semibold mb-1.5 text-gray-700">
-              Email <span className="text-gray-400 font-normal">(optional)</span>
-            </label>
-            <input
-              id="caf-email"
-              name="email"
-              type="email"
-              autoComplete="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="you@example.com"
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm"
-            />
+        <fieldset>
+          <legend className="mb-4 text-lg font-bold text-gray-900">2. Role and experience</legend>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <Field label="Role" required>
+              <select name="role" required value={formData.role} onChange={handleChange} className={inputClass}><option value="">Select a role</option>{ROLE_OPTIONS.map((option) => <option key={option}>{option}</option>)}</select>
+            </Field>
+            <Field label="Garage door experience" required>
+              <select name="experience" required value={formData.experience} onChange={handleChange} className={inputClass}><option value="">Select experience</option>{EXPERIENCE_OPTIONS.map((option) => <option key={option}>{option}</option>)}</select>
+            </Field>
+            <Field label="Work arrangement" required>
+              <select name="workPreference" required value={formData.workPreference} onChange={handleChange} className={inputClass}><option value="">Select preference</option>{WORK_OPTIONS.map((option) => <option key={option}>{option}</option>)}</select>
+            </Field>
+            <Field label="Earnings expectation" required><input name="earningsExpectation" required placeholder="Weekly, hourly, or percentage" value={formData.earningsExpectation} onChange={handleChange} className={inputClass} /></Field>
           </div>
-          <div>
-            <label htmlFor="caf-area" className="block text-xs font-semibold mb-1.5 text-gray-700">
-              Where You&apos;re Based <span className="text-orange-500">*</span>
-            </label>
-            <input
-              id="caf-area"
-              name="area"
-              type="text"
-              required
-              value={formData.area}
-              onChange={handleChange}
-              placeholder="e.g. Queens NY, Bergen County NJ"
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm"
-            />
-          </div>
-        </div>
-
-        <div className="grid sm:grid-cols-2 gap-3.5">
-          <div>
-            <label htmlFor="caf-role" className="block text-xs font-semibold mb-1.5 text-gray-700">
-              Role <span className="text-orange-500">*</span>
-            </label>
-            <select
-              id="caf-role"
-              name="role"
-              required
-              value={formData.role}
-              onChange={handleChange}
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900 focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm pr-8"
-            >
-              {ROLE_OPTIONS.map((opt) => (
-                <option key={opt.value} value={opt.value}>
-                  {opt.label}
-                </option>
+          <div className="mt-5">
+            <p className="mb-3 text-sm font-semibold text-gray-800">Skills — select all that apply <span className="text-orange-500">*</span></p>
+            <div className="grid gap-2 sm:grid-cols-2">
+              {SKILL_OPTIONS.map((skill) => (
+                <label key={skill} className="flex cursor-pointer items-center gap-3 rounded-lg border border-gray-200 p-3 text-sm text-gray-700 hover:border-orange-300">
+                  <input type="checkbox" checked={formData.skills.includes(skill)} onChange={() => toggleSkill(skill)} className="h-4 w-4 rounded border-gray-300 text-orange-500 focus:ring-orange-500" />
+                  {skill}
+                </label>
               ))}
-            </select>
+            </div>
           </div>
-          <div>
-            <label htmlFor="caf-experience" className="block text-xs font-semibold mb-1.5 text-gray-700">
-              Experience <span className="text-orange-500">*</span>
-            </label>
-            <select
-              id="caf-experience"
-              name="experience"
-              required
-              value={formData.experience}
-              onChange={handleChange}
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900 focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm pr-8"
-            >
-              {EXPERIENCE_OPTIONS.map((opt) => (
-                <option key={opt.value} value={opt.value}>
-                  {opt.label}
-                </option>
-              ))}
-            </select>
+        </fieldset>
+
+        <fieldset>
+          <legend className="mb-4 text-lg font-bold text-gray-900">3. Driving and availability</legend>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <Field label="Valid driver's license?" required><SelectYesNo name="driversLicense" value={formData.driversLicense} onChange={handleChange} /></Field>
+            <Field label="Reliable vehicle available?" required><SelectYesNo name="ownVehicle" value={formData.ownVehicle} onChange={handleChange} /></Field>
+            <Field label="Current availability" required><input name="availability" required placeholder="Days and hours you can work" value={formData.availability} onChange={handleChange} className={inputClass} /></Field>
+            <Field label="Available for some on-call work?" required><SelectYesNo name="onCall" value={formData.onCall} onChange={handleChange} /></Field>
+            <Field label="Earliest start date" required><input name="startDate" type="date" required value={formData.startDate} onChange={handleChange} className={inputClass} /></Field>
           </div>
-        </div>
+        </fieldset>
 
-        <div>
-          <label htmlFor="caf-message" className="block text-xs font-semibold mb-1.5 text-gray-700">
-            Anything else? <span className="text-gray-400 font-normal">(optional)</span>
-          </label>
-          <textarea
-            id="caf-message"
-            name="message"
-            rows={3}
-            value={formData.message}
-            onChange={handleChange}
-            placeholder="Brands you've worked on, certifications, current situation, when you can start…"
-            className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm resize-none"
-          />
-        </div>
+        <fieldset>
+          <legend className="mb-1 text-lg font-bold text-gray-900">4. References</legend>
+          <p className="mb-4 text-sm text-gray-500">We only contact references if your application moves forward.</p>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <Field label="Reference 1" required><input name="referenceOne" required placeholder="Name, relationship, phone" value={formData.referenceOne} onChange={handleChange} className={inputClass} /></Field>
+            <Field label="Reference 2" required><input name="referenceTwo" required placeholder="Name, relationship, phone" value={formData.referenceTwo} onChange={handleChange} className={inputClass} /></Field>
+          </div>
+        </fieldset>
 
-        {/* Recruitment contact consent — this is an application form, not a service
-            lead, so the owner-approved TCPA service-request wording doesn't apply.
-            TODO(owner): review this wording before enabling automated SMS to applicants. */}
-        <label className="flex items-start gap-2.5 text-[11px] leading-snug text-gray-500">
-          <input
-            type="checkbox"
-            required
-            checked={contactConsent}
-            onChange={(e) => setContactConsent(e.target.checked)}
-            className="mt-0.5 h-4 w-4 shrink-0 rounded border-gray-400 text-orange-500 focus:ring-orange-500"
-          />
-          <span>
-            I agree that Smart Garage Doors may contact me about my application by phone,
-            text message, or email at the contact details provided. Msg &amp; data rates may
-            apply. Reply STOP to opt out.
-          </span>
+        <fieldset className="rounded-xl border border-orange-200 bg-orange-50 p-5">
+          <legend className="px-2 text-lg font-bold text-gray-900">5. Preferred phone-interview time</legend>
+          <p className="mb-4 text-sm text-gray-600">Choose a time that usually works. We will confirm it with you after reviewing your application.</p>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <Field label="Preferred day" required><input name="interviewDay" type="date" required value={formData.interviewDay} onChange={handleChange} className={inputClass} /></Field>
+            <Field label="Preferred time" required><select name="interviewTime" required value={formData.interviewTime} onChange={handleChange} className={inputClass}><option value="">Select a time</option><option>8:00–11:00 AM</option><option>11:00 AM–2:00 PM</option><option>2:00–5:00 PM</option><option>5:00–7:00 PM</option></select></Field>
+          </div>
+          <Field label="Anything else we should know?" className="mt-4"><textarea name="message" rows={3} placeholder="Brands, certifications, commercial experience, or anything that helps us understand your background" value={formData.message} onChange={handleChange} className={`${inputClass} resize-none`} /></Field>
+        </fieldset>
+
+        <label className="flex items-start gap-3 text-xs leading-relaxed text-gray-600">
+          <input type="checkbox" required checked={contactConsent} onChange={(event) => setContactConsent(event.target.checked)} className="mt-0.5 h-4 w-4 shrink-0 rounded border-gray-400 text-orange-500 focus:ring-orange-500" />
+          <span>I agree that Smart Garage Doors may contact me about this application by phone, text, or email. Message and data rates may apply. Reply STOP to opt out.</span>
         </label>
 
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className="w-full inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-bold px-6 py-3.5 rounded-full shadow-md transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
-        >
-          {isSubmitting ? (
-            <>
-              <i className="ri-loader-4-line animate-spin" aria-hidden="true" />
-              Sending...
-            </>
-          ) : (
-            <>
-              <i className="ri-send-plane-fill" aria-hidden="true" />
-              Submit Application
-            </>
-          )}
+        {errorMsg && <p className="rounded-lg bg-red-50 p-3 text-center text-sm text-red-700" role="alert">{errorMsg}</p>}
+        <button type="submit" disabled={isSubmitting} className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-orange-500 px-7 py-4 text-base font-bold text-white shadow-md transition hover:bg-orange-600 disabled:cursor-not-allowed disabled:opacity-50">
+          <i className={isSubmitting ? 'ri-loader-4-line animate-spin' : 'ri-send-plane-fill'} aria-hidden="true" />
+          {isSubmitting ? 'Sending application…' : 'Submit Application'}
         </button>
-
-        {errorMsg && (
-          <p className="text-sm text-red-500 text-center" role="alert">
-            {errorMsg}
-          </p>
-        )}
-
-        <p className="text-center text-[11px] text-gray-500">
-          Your application goes straight to the owner — not a recruiting agency.
-        </p>
+        <p className="text-center text-xs text-gray-500">Equal opportunity employer. Your information is used only for recruiting and hiring.</p>
       </form>
     </div>
   );
+}
+
+function Field({ label, required, className = '', children }: { label: string; required?: boolean; className?: string; children: React.ReactNode }) {
+  return <label className={`block text-sm font-semibold text-gray-800 ${className}`}>{label}{required && <span className="text-orange-500"> *</span>}<span className="mt-1.5 block">{children}</span></label>;
+}
+
+function SelectYesNo({ name, value, onChange }: { name: string; value: string; onChange: React.ChangeEventHandler<HTMLSelectElement> }) {
+  return <select name={name} required value={value} onChange={onChange} className={inputClass}><option value="">Select one</option><option>Yes</option><option>No</option></select>;
 }

@@ -21,7 +21,7 @@ import { trackPhoneClick } from '../../utils/analytics';
  * genuinely change, don't fake freshness.
  */
 
-const DATE_POSTED = '2026-07-13';
+const DATE_POSTED = '2026-08-07';
 
 const HIRING_REGIONS = [
   'Queens, Brooklyn & the Bronx',
@@ -29,7 +29,6 @@ const HIRING_REGIONS = [
   'Westchester & Rockland County',
   'Northern & Central New Jersey',
   'Fairfield County, CT',
-  'Eastern Pennsylvania (expanding)',
 ];
 
 const OPEN_ROLES = [
@@ -39,7 +38,7 @@ const OPEN_ROLES = [
     description:
       'Diagnose and repair residential garage doors: springs, cables, rollers, tracks, panels, and opener systems from LiftMaster, Chamberlain, and Genie. Same-day service calls across your assigned region.',
     schemaDescription:
-      'Diagnose and repair residential garage doors — torsion and extension springs, cables, rollers, tracks, panels, and opener systems (LiftMaster, Chamberlain, Genie). Same-day service calls across an assigned region in the NY/NJ/CT tri-state area or eastern Pennsylvania. Company van and dispatch provided. Valid driver’s license required.',
+      'Diagnose and repair residential garage doors — torsion and extension springs, cables, rollers, tracks, panels, and opener systems (LiftMaster, Chamberlain, Genie). Service calls are assigned across a defined region in the NY/NJ/CT tri-state area. Valid driver’s license required.',
   },
   {
     title: 'Commercial Door / Rolling Gate Technician',
@@ -47,7 +46,7 @@ const OPEN_ROLES = [
     description:
       'Service commercial overhead doors, rolling steel gates and grilles, and loading-dock equipment for warehouses, storefronts, and property-management accounts. High-cycle spring and operator experience valued.',
     schemaDescription:
-      'Service commercial overhead doors, rolling steel gates and grilles, storefront gates, and loading-dock doors for warehouse, retail, and property-management accounts in the NY/NJ/CT tri-state area and eastern Pennsylvania. Experience with high-cycle springs and commercial operators valued. Valid driver’s license required.',
+      'Service commercial overhead doors, rolling steel gates and grilles, storefront gates, and loading-dock doors for warehouse, retail, and property-management accounts in the NY/NJ/CT tri-state area. Experience with high-cycle springs and commercial operators valued. Valid driver’s license required.',
   },
   {
     title: 'Installer / Installer Helper',
@@ -55,7 +54,7 @@ const OPEN_ROLES = [
     description:
       'Install new residential and commercial garage doors and openers. Helpers with a general trade background who want to learn the door trade are welcome — you’ll work alongside an experienced installer.',
     schemaDescription:
-      'Install new residential and commercial garage doors and opener systems in the NY/NJ/CT tri-state area and eastern Pennsylvania. Entry-level helpers with a general trade or construction background are considered — training provided alongside an experienced installer. Valid driver’s license required.',
+      'Install new residential and commercial garage doors and opener systems in the NY/NJ/CT tri-state area. Helpers with a general trade or construction background may be considered. Valid driver’s license required.',
   },
 ];
 
@@ -76,17 +75,17 @@ const CAREERS_FAQS = [
   {
     question: 'What areas are you hiring in?',
     answer:
-      'Across our tri-state service area — Queens, Brooklyn, the Bronx, Long Island, Westchester and Rockland, northern and central New Jersey, and Fairfield County CT — and we’re expanding into eastern Pennsylvania.',
+      'Across our tri-state service area — Queens, Brooklyn, the Bronx, Long Island, Westchester and Rockland, northern and central New Jersey, and Fairfield County, Connecticut. Queens-area applicants are especially encouraged to apply.',
   },
   {
-    question: 'Is this full-time work?',
+    question: 'What types of work arrangements are available?',
     answer:
-      'Yes — these are full-time positions with year-round work. Garage doors break in every season, and our commercial maintenance accounts keep schedules full between service calls.',
+      'We consider full-time, commission-based, and per-job arrangements depending on the role, experience, service area, availability, and current need. Tell us what arrangement you prefer in the application.',
   },
   {
     question: 'What happens after I apply?',
     answer:
-      'A real person reviews every application — no recruiting agency, no automated screening. If your background fits an open role, we’ll call or text you to set up a conversation.',
+      'A real person reviews every application. If your background fits an open role, we’ll call or text to confirm a 15-minute phone interview. Selecting a preferred time does not automatically confirm the interview.',
   },
 ];
 
@@ -97,7 +96,7 @@ function buildJobPostingSchema() {
     sameAs: CANONICAL_BASE,
     telephone: BUSINESS_INFO.phoneFormatted,
   };
-  const jobLocations = ['NY', 'NJ', 'CT', 'PA'].map((region) => ({
+  const jobLocations = ['NY', 'NJ', 'CT'].map((region) => ({
     '@type': 'Place',
     address: {
       '@type': 'PostalAddress',
@@ -111,7 +110,7 @@ function buildJobPostingSchema() {
     title: role.title,
     description: `<p>${role.schemaDescription}</p>`,
     datePosted: DATE_POSTED,
-    employmentType: 'FULL_TIME',
+    employmentType: ['FULL_TIME', 'CONTRACTOR'],
     hiringOrganization,
     jobLocation: jobLocations,
     directApply: true,
@@ -124,9 +123,9 @@ export default function CareersPage() {
   return (
     <div className="min-h-screen bg-white">
       <DynamicMetaTags
-        title="Garage Door Technician Jobs | NY, NJ, CT & PA | Smart Garage Doors"
-        description="Now hiring garage door technicians, commercial/rolling gate techs, and installers across the NY/NJ/CT tri-state and eastern PA. Full-time, year-round work. Apply in 2 minutes."
-        keywords="garage door technician jobs, garage door installer jobs, rolling gate technician jobs NYC, garage door jobs NJ, overhead door technician hiring"
+        title="Garage Door Technician Jobs in NY, NJ & CT | Smart Garage Doors"
+        description="Apply for garage door technician, installer and commercial overhead door jobs across New York, New Jersey and Connecticut. Experienced techs wanted; Queens applicants encouraged."
+        keywords="garage door technician jobs, garage door installer jobs, garage door jobs NYC, garage door jobs Queens, garage door jobs New York, overhead door technician jobs NJ, rolling gate technician jobs"
         canonical={buildCanonical('/careers')}
       />
       {jobPostingSchemas.map((schema, i) => (
@@ -165,8 +164,8 @@ export default function CareersPage() {
             Build Your Career in the Door Trade
           </h1>
           <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed">
-            We&apos;re hiring technicians and installers across NY, NJ, CT — and expanding into
-            Pennsylvania. Full-time, year-round work with a company that answers its own phone.
+            Smart Garage Doors is hiring experienced service technicians, installers, and
+            commercial door specialists across New York, New Jersey, and Connecticut.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
@@ -174,7 +173,7 @@ export default function CareersPage() {
               className="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-colors shadow-lg"
             >
               <i className="ri-file-list-3-line" aria-hidden="true" />
-              Apply in 2 Minutes
+              Apply for a Technician Role
             </a>
           </div>
           <p className="mt-7 text-sm text-gray-300">
@@ -197,8 +196,8 @@ export default function CareersPage() {
           <div className="text-center mb-10">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">Open Roles</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Three ways in, depending on your experience — from seasoned door tech to
-              trade-background helper learning the craft.
+              We prioritize experienced garage door technicians and also consider qualified
+              installers, commercial specialists, and mechanically skilled helpers.
             </p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
