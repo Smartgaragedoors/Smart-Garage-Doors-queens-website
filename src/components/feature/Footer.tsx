@@ -66,6 +66,7 @@ function Footer() {
               <li><a href="/pedestrian-garage-doors/" className="text-gray-200 hover:text-orange-400 transition-colors">Pedestrian Garage Doors</a></li>
               <li><a href="/commercial-garage-door-repair/" className="text-gray-200 hover:text-orange-400 transition-colors">Commercial Door Repair</a></li>
               <li><a href="/overhead-door-repair/" className="text-gray-200 hover:text-orange-400 transition-colors">Overhead Door Repair</a></li>
+              <li><a href="/reparacion-de-puertas-de-garaje/" lang="es" className="text-gray-200 hover:text-orange-400 transition-colors">Reparación de Puertas de Garaje</a></li>
               <li><a href="/property-managers/" className="text-gray-200 hover:text-orange-400 transition-colors">For Property Managers</a></li>
               <li><a href="/photo-estimate/" className="text-gray-200 hover:text-orange-400 transition-colors">Free Photo Estimate</a></li>
               <li><a href="/second-opinion/" className="text-gray-200 hover:text-orange-400 transition-colors">Get a Second Opinion</a></li>

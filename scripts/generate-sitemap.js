@@ -88,6 +88,8 @@ const coreRoutes = [
   { path: '/careers/', priority: '0.6', changefreq: 'monthly' },
   { path: '/garage-door-insulation/', priority: '0.8', changefreq: 'monthly' },
   { path: '/overhead-door-repair/', priority: '0.8', changefreq: 'monthly' },
+  // Spanish landing page
+  { path: '/reparacion-de-puertas-de-garaje/', priority: '0.8', changefreq: 'monthly' },
   // Buyer's guide + cost guide + brand pages
   { path: '/local-vs-national-garage-door-company/', priority: '0.7', changefreq: 'monthly' },
   { path: '/best-garage-door-company-queens/', priority: '0.8', changefreq: 'monthly' },

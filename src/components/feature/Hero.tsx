@@ -143,6 +143,15 @@ export default function Hero() {
             <i className="ri-checkbox-circle-fill text-[#3FAE72]" aria-hidden="true" />
             Upfront Pricing
           </span>
+          <a
+            href="/reparacion-de-puertas-de-garaje/"
+            lang="es"
+            onClick={() => trackEvent('cta_click', { category: 'Hero', action: 'es_landing_link', label: 'se_habla_espanol' })}
+            className="inline-flex items-center gap-1.5 text-white font-semibold underline decoration-[#3FAE72]/60 underline-offset-2 hover:decoration-white transition-colors"
+          >
+            <i className="ri-chat-3-fill text-[#3FAE72]" aria-hidden="true" />
+            Se habla español
+          </a>
         </p>
 
         {/* Below lg: quote form shown inline, always visible (no tap required — owner

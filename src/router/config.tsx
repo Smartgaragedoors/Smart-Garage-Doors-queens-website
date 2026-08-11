@@ -115,6 +115,9 @@ const GarageDoorInsulationPage = lazy(() => import('../pages/garage-door-insulat
 // Overhead door service page
 const OverheadDoorRepairPage = lazy(() => import('../pages/overhead-door-repair/page').then(module => ({ default: module.default })));
 
+// Spanish landing page
+const ReparacionPuertasGarajePage = lazy(() => import('../pages/reparacion-de-puertas-de-garaje/page').then(module => ({ default: module.default })));
+
 // Buyer's guide pages
 const LocalVsNationalGarageDoorCompanyPage = lazy(() => import('../pages/local-vs-national-garage-door-company/page').then(module => ({ default: module.default })));
 const BestGarageDoorCompanyQueensPage = lazy(() => import('../pages/best-garage-door-company-queens/page').then(module => ({ default: module.default })));
@@ -519,6 +522,12 @@ const routes: RouteObject[] = [
   {
     path: '/overhead-door-repair/',
     element: <OverheadDoorRepairPage />
+  },
+
+  // Spanish landing page
+  {
+    path: '/reparacion-de-puertas-de-garaje/',
+    element: <ReparacionPuertasGarajePage />
   },
 
   // Buyer's guide pages
