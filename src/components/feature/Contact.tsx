@@ -57,13 +57,13 @@ function Contact() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Trust/info column — hidden on mobile (duplicates the rating, $0 offer and
-              phone shown higher up); the form is what mobile users need here. */}
+          {/* Trust/info column — hidden on mobile (duplicates the rating, estimate offer
+              and phone shown higher up); the form is what mobile users need here. */}
           <div className="hidden lg:block">
             <div className="mb-8 rounded-lg bg-blue-900 text-white p-8 shadow-xl">
               <h3 className="text-2xl font-bold mb-3">Best Option for Urgent Problems</h3>
               <p className="text-blue-100 mb-6">
-                If the garage door is unsafe, your car is trapped, or you need a same-day repair, call instead of filling out a long form.
+                If the garage door is unsafe, your car is trapped, or the repair can't wait, call instead of filling out a long form.
               </p>
               <a
                 href="tel:914-557-6816"
@@ -76,7 +76,7 @@ function Contact() {
               <p className="mt-4 text-sm text-blue-100 flex flex-wrap items-center gap-x-3 gap-y-1">
                 <span><i className="ri-star-fill text-yellow-400 mr-1" aria-hidden="true"></i>{BUSINESS_INFO.aggregateRating.ratingValue} · {BUSINESS_INFO.aggregateRating.reviewCount} reviews</span>
                 <span aria-hidden="true">·</span>
-                <span>$0 service call with any repair</span>
+                <span>Free written total-price estimate</span>
               </p>
             </div>
 
@@ -106,7 +106,7 @@ function Contact() {
                   >
                     (914) 557-6816
                   </a>
-                  <p className="text-sm text-gray-500 mt-1">24/7 Emergency Service</p>
+                  <p className="text-sm text-gray-500 mt-1">Emergency Line Available</p>
                 </div>
               </div>
 

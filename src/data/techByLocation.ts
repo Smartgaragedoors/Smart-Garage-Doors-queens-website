@@ -33,7 +33,7 @@ const YITZI: TechProfile = {
   name: 'Yitzi',
   initials: 'Y',
   hub: 'Jackson, NJ',
-  blurb: 'Based in Jackson, Yitzi covers Monmouth, Ocean, Middlesex, and the central NJ shore. Fully stocked truck, upfront pricing, and same-day availability on most calls.',
+  blurb: 'Based in Jackson, Yitzi covers Monmouth, Ocean, Middlesex, and the central NJ shore. Fully stocked truck and total-price quotes before work starts.',
 };
 
 const TECH_BY_LOCATION: Record<string, TechProfile> = {

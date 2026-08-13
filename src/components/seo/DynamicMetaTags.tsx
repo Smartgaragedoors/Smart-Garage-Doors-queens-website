@@ -37,20 +37,20 @@ export default function DynamicMetaTags({
       const path = routerLocation.pathname;
       if (path.includes('/garage-door-repair')) {
         finalTitle = location
-          ? `Garage Door Repair ${locationName} | Same-Day Service | Smart Garage Doors`
-          : 'Garage Door Repair Queens NY | Same-Day Service | Smart Garage Doors';
+          ? `Garage Door Repair ${locationName} | Licensed Technicians | Smart Garage Doors`
+          : 'Garage Door Repair Queens NY | Licensed Technicians | Smart Garage Doors';
       } else if (path.includes('/garage-door-installation')) {
         finalTitle = location
           ? `Garage Door Installation ${locationName} | Professional Service`
           : 'Garage Door Installation Queens NY | Professional Service';
       } else if (path.includes('/emergency')) {
         finalTitle = location
-          ? `Emergency Garage Door Repair ${locationName} | 24/7 Service`
-          : 'Emergency Garage Door Repair Queens NY | 24/7 Service';
+          ? `Emergency Garage Door Repair ${locationName} | Smart Garage Doors`
+          : 'Emergency Garage Door Repair Queens NY | Smart Garage Doors';
       } else {
         finalTitle = location
-          ? `24/7 Garage Door Repair ${locationName} | Installation | Same-Day`
-          : '24/7 Garage Door Repair Queens NY | Installation | Same-Day';
+          ? `Garage Door Repair ${locationName} | Installation & Service`
+          : 'Garage Door Repair Queens NY | Installation & Service';
       }
     } else if (location && title && !title.includes(locationName) && !title.toLowerCase().includes(location?.city?.toLowerCase() || '')) {
       // Add location to title only if geo/location intent is not already present
@@ -69,9 +69,9 @@ export default function DynamicMetaTags({
     let finalDescription = description;
     if (!finalDescription) {
       if (location) {
-        finalDescription = `Professional garage door repair and installation services in ${locationName}. Smart Garage Doors offers same-day service, emergency repairs, and expert installation. Licensed technicians serving ${locationName} and surrounding areas.`;
+        finalDescription = `Professional garage door repair and installation services in ${locationName}. Smart Garage Doors provides emergency repairs and expert installation by licensed technicians serving ${locationName} and surrounding areas.`;
       } else {
-        finalDescription = 'Garage door stuck, broken spring, or opener not working? Smart Garage Doors delivers same-day repair across New York, New Jersey, and Connecticut with local-feeling dispatch, trusted service, and fast response.';
+        finalDescription = 'Garage door stuck, broken spring, or opener not working? Smart Garage Doors provides repair and installation across New York, New Jersey, and Connecticut with local dispatch and total-price quotes before work starts.';
       }
     } else if (location && description && !description.includes(locationName)) {
       const geoPatterns = [locationName, location?.city, location?.state, 'NY', 'NJ', 'CT'];

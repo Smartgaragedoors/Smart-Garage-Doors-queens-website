@@ -47,7 +47,7 @@ function About() {
           <p className="text-gray-600 leading-relaxed">
             We built Smart Garage Doors around one idea: show up, fix it right, and leave you with our number in case anything ever needs attention. Our techs carry common parts on every truck so most jobs finish on the first visit. We quote the price before we start, and we don't charge you for the estimate.
           </p>
-          {/* Stat cards + CTA removed — rating/24-7/$0 already appear in the hero and
+          {/* Stat cards + CTA removed — rating/dispatcher/estimate already appear in the hero and
               WhyChooseUs, and the Contact section directly below carries the CTA. */}
         </div>
 

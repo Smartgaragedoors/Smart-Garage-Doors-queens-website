@@ -100,12 +100,12 @@ export const newLocations: Location[] = [
     nearbyAreas: ['Teaneck', 'Bergen County', 'Hackensack'],
     neighborhoods: ['Paramus Center', 'Ridgewood Avenue', 'Century Road', 'Farview Avenue'],
     coordinates: { lat: 40.9445, lng: -74.0754 },
-    serviceAreaText: 'Professional garage door services throughout Paramus, New Jersey. We serve residential and commercial properties across Paramus neighborhoods with fast, reliable service.',
+    serviceAreaText: 'Professional garage door services throughout Paramus, New Jersey. We serve residential and commercial properties across Paramus neighborhoods with licensed, reliable service.',
     uniqueAngle: 'Paramus is home to major shopping centers and residential communities. Our technicians understand the unique needs of Paramus homeowners, from modern suburban homes to commercial properties.',
     faqs: [
       {
-        q: 'How quickly can you respond to garage door emergencies in Paramus?',
-        a: 'We provide fast emergency service throughout Paramus. Our technicians are familiar with Paramus neighborhoods and can navigate efficiently to your location — call us and we\'ll give you an honest availability estimate.',
+        q: 'How does emergency scheduling work in Paramus?',
+        a: 'Call our emergency line and a dispatcher checks current technician availability for Paramus. Actual arrival time depends on the technician\'s current job, traffic, and your distance from our nearest crew — we confirm an honest window on the call.',
       },
       {
         q: 'Do you service commercial garage doors in Paramus?',
@@ -116,8 +116,8 @@ export const newLocations: Location[] = [
         a: 'We service all major garage door brands including LiftMaster, Chamberlain, Genie, Clopay, Wayne Dalton, and more. Our technicians are trained on all types of garage door systems.',
       },
       {
-        q: 'Do you offer same-day service in Paramus?',
-        a: 'Yes, same-day service is available for most non-emergency repairs in Paramus. Call us in the morning and we can often complete your repair the same day.',
+        q: 'How are your prices presented in Paramus?',
+        a: 'Every job gets a free written estimate showing the total price you can expect to pay — inclusive of any fees, surcharges, and applicable taxes — before any work begins.',
       },
     ],
   },
@@ -138,8 +138,8 @@ export const newLocations: Location[] = [
         a: 'Yes, we have experience working with historic homes throughout Norwalk. We can provide garage door solutions that complement your home\'s architectural style while ensuring modern functionality and safety.',
       },
       {
-        q: 'What is your typical response time for Norwalk service calls?',
-        a: 'For emergency calls in Norwalk, we dispatch based on technician availability and your location. For scheduled appointments, we offer flexible timing to fit your schedule — call us for an honest availability estimate.',
+        q: 'How does scheduling work for Norwalk service appointments?',
+        a: 'For emergencies in Norwalk, a dispatcher checks current technician availability when you call. For scheduled appointments, we offer flexible timing to fit your schedule — arrival windows are confirmed on the call, not promised in advance.',
       },
       {
         q: 'Do you offer garage door installation in Norwalk?',
@@ -156,12 +156,12 @@ export const newLocations: Location[] = [
     nearbyAreas: ['Elizabeth', 'Bergen County', 'Paramus', 'Teaneck'],
     neighborhoods: ['Menlo Park', 'Metuchen', 'Highland Park', 'Piscataway', 'Woodbridge'],
     coordinates: { lat: 40.5187, lng: -74.4121 },
-    serviceAreaText: 'Professional garage door repair and installation services in Edison, New Jersey. Smart Garage Doors provides fast, reliable service throughout Edison and surrounding Middlesex County communities.',
+    serviceAreaText: 'Professional garage door repair and installation services in Edison, New Jersey. Smart Garage Doors provides licensed, reliable service throughout Edison and surrounding Middlesex County communities.',
     uniqueAngle: 'Edison is a diverse suburban community with a mix of residential neighborhoods and commercial areas. Our technicians understand the varied garage door needs of Edison homeowners, from traditional single-family homes to modern developments.',
     faqs: [
       {
-        q: 'How quickly can you respond to garage door emergencies in Edison?',
-        a: 'We provide fast emergency service throughout Edison. Our technicians are familiar with Edison neighborhoods and can navigate efficiently to your location — call us and we\'ll give you an honest availability estimate.',
+        q: 'How does emergency scheduling work in Edison?',
+        a: 'Call our emergency line and a dispatcher checks current technician availability for Edison. Actual arrival time depends on the technician\'s current job, traffic, and your distance from our nearest crew — we confirm an honest window on the call.',
       },
       {
         q: 'Do you service commercial garage doors in Edison?',
@@ -172,8 +172,8 @@ export const newLocations: Location[] = [
         a: 'We service all major garage door brands including LiftMaster, Chamberlain, Genie, Clopay, Wayne Dalton, and more. Our technicians are trained on all types of garage door systems.',
       },
       {
-        q: 'Do you offer same-day service in Edison?',
-        a: 'Yes, same-day service is available for most non-emergency repairs in Edison. Call us in the morning and we can often complete your repair the same day.',
+        q: 'How are your prices presented in Edison?',
+        a: 'Every job gets a free written estimate showing the total price you can expect to pay — inclusive of any fees, surcharges, and applicable taxes — before any work begins.',
       },
     ],
   },
@@ -194,8 +194,8 @@ export const newLocations: Location[] = [
         a: 'Yes, we provide garage door services throughout Jackson, including active adult communities like Leisure Village. We understand the specific needs of these communities and work efficiently to minimize disruption.',
       },
       {
-        q: 'What is your response time for Jackson service calls?',
-        a: 'Response times depend on technician availability and your location within Jackson. Call us and we\'ll give you an honest arrival estimate right away — for urgent situations, let us know and we\'ll prioritize your call.',
+        q: 'How does scheduling work for Jackson service appointments?',
+        a: 'Scheduling depends on technician availability and your location within Jackson. Call us and a dispatcher will confirm an honest arrival window — for urgent situations, let us know and we\'ll see how we can prioritize subject to the current schedule.',
       },
       {
         q: 'Do you offer garage door installation for new construction in Jackson?',

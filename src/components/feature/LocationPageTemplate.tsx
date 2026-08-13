@@ -98,7 +98,7 @@ const PHONE_DEFAULT     = BUSINESS_INFO.phone;
 const PHONE_TEL_DEFAULT = BUSINESS_INFO.phoneFormatted;
 
 const DEFAULT_SERVICES: LocationService[] = [
-  { icon: 'ri-alarm-warning-line',   title: '24/7 Emergency Repair',       description: 'Broken spring, snapped cable, door off track — we respond fast any time of day.' },
+  { icon: 'ri-alarm-warning-line',   title: 'Emergency Repair',            description: 'Broken spring, snapped cable, door off track — call our emergency line and a dispatcher checks current availability.' },
   { icon: 'ri-settings-4-line',      title: 'Spring Replacement',          description: 'Torsion and extension spring replacement using high-cycle springs built to last.' },
   { icon: 'ri-remote-control-line',  title: 'Opener Repair & Install',     description: 'LiftMaster, Chamberlain, Genie — we repair or upgrade to a smart WiFi opener.' },
   { icon: 'ri-door-open-line',       title: 'New Door Installation',       description: 'Steel, wood, carriage-style — we install and help you choose the right door.' },
@@ -107,18 +107,18 @@ const DEFAULT_SERVICES: LocationService[] = [
 ];
 
 const DEFAULT_ADVANTAGES: LocationAdvantage[] = [
-  { icon: 'ri-time-line',              title: 'Same-Day Service',          description: 'We prioritize fast arrivals so you\'re not waiting around for days.' },
-  { icon: 'ri-price-tag-3-line',       title: 'Upfront Pricing',           description: 'You get the price before we start. No surprises, no hidden fees.' },
+  { icon: 'ri-time-line',              title: 'Local Dispatch',            description: 'Local technicians, routed by area. Call and a dispatcher checks current availability for your address.' },
+  { icon: 'ri-price-tag-3-line',       title: 'Total-Price Quotes',        description: 'You get the full price — including any fees, surcharges, and applicable taxes — before we start.' },
   { icon: 'ri-medal-line',             title: 'Licensed & Insured',        description: 'Fully licensed, fully insured. You\'re protected on every job.' },
   { icon: 'ri-refresh-line',           title: '1-Year Warranty',           description: 'All parts and labor backed by a 1-year warranty. We stand behind our work.' },
 ];
 
 const DEFAULT_COMPARISON: Array<{ feature: string; ours: string }> = [
-  { feature: 'Response Time',    ours: 'Fast Dispatch' },
-  { feature: 'Same-Day Service', ours: 'Available' },
-  { feature: '24/7 Emergency',   ours: 'Yes' },
-  { feature: 'Upfront Pricing',  ours: 'Always' },
-  { feature: '1-Year Warranty',  ours: 'Included' },
+  { feature: 'Local Dispatch',        ours: 'Yes' },
+  { feature: 'Emergency Line',        ours: 'Available' },
+  { feature: 'Total-Price Quotes',    ours: 'Always' },
+  { feature: '1-Year Warranty',       ours: 'Included' },
+  { feature: 'Licensed in NY/NJ/CT',  ours: 'All Three' },
 ];
 
 function Stars({ count = 5 }: { count?: number }) {
@@ -230,20 +230,20 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
                 style={{ boxShadow: '0 0 0 4px rgba(63,174,114,0.25)' }}
                 aria-hidden="true"
               />
-              {city}, {state} · Licensed &amp; Insured · 24/7 Live Answer
+              {city}, {state} · Licensed &amp; Insured · Live Dispatcher
             </p>
             {/* H1 — keyword + location preserved for local SEO, premium serif */}
             <h1 className="font-newsreader font-medium text-4xl md:text-5xl lg:text-6xl mb-5 leading-[1.05] tracking-[-0.02em]">
               Garage Door Repair in {city}, {state}
             </h1>
             <p className="text-lg md:text-xl text-gray-200 mb-6 max-w-2xl mx-auto leading-relaxed">
-              Same-day service, upfront pricing, and a 1-year warranty on every job.
-              Licensed &amp; insured. Available 24/7.
+              Total-price quotes before work starts and a 1-year warranty on every job.
+              Licensed &amp; insured, with an emergency line for urgent repairs.
             </p>
-            {/* Featured offer — $0 service call with any repair */}
+            {/* Featured offer — free written estimate */}
             <div className="inline-flex items-center gap-3 mb-8 px-5 py-2.5 rounded-full bg-[rgba(217,100,31,0.14)] border border-[rgba(232,145,90,0.45)]">
-              <span className="font-newsreader italic text-xl text-[#F2B98C] leading-none">$0</span>
-              <span className="text-sm font-semibold text-white">service call with any repair</span>
+              <span className="font-newsreader italic text-xl text-[#F2B98C] leading-none">Free</span>
+              <span className="text-sm font-semibold text-white">written estimate — total price incl. fees &amp; taxes</span>
             </div>
             <div data-hero-cta className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -270,7 +270,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
                 <strong className="text-white">5.0</strong> · {reviewCount} reviews
               </span>
               <span aria-hidden="true">·</span>
-              <span>Same-day service</span>
+              <span>1-year warranty</span>
               <span aria-hidden="true">·</span>
               <span>No call center — local dispatch</span>
             </div>
@@ -305,7 +305,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
             </div>
             <div className="flex items-center gap-1.5">
               <i className="ri-time-fill text-orange-400 text-base" aria-hidden="true" />
-              <span>Same-Day Service</span>
+              <span>Emergency Line</span>
             </div>
             <div className="flex items-center gap-1.5">
               <i className="ri-price-tag-3-fill text-orange-400 text-base" aria-hidden="true" />
@@ -370,7 +370,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
               { href: '/services/spring-replacement/', label: 'Spring Replacement' },
               { href: '/services/opener-repair/', label: 'Opener Repair & Install' },
               { href: '/services/cable-roller-repair/', label: 'Cable & Roller Repair' },
-              { href: '/services/emergency-repairs/', label: '24/7 Emergency Repair' },
+              { href: '/services/emergency-repairs/', label: 'Emergency Repair' },
               { href: '/commercial-garage-door-repair/', label: 'Commercial Garage Doors' },
             ].map((s) => (
               <a
@@ -390,12 +390,12 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">How It Works</h2>
-            <p className="text-lg text-gray-600">Simple, fast, and stress-free from start to finish.</p>
+            <p className="text-lg text-gray-600">Simple and stress-free from start to finish.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { step: '1', icon: 'ri-phone-line',      title: 'Call or Book Online',   desc: `Call ${PHONE} or fill out our booking form. We'll confirm availability and give you an honest quote right away.` },
-              { step: '2', icon: 'ri-truck-line',       title: 'We Come to You',        desc: `A fully-stocked technician arrives at your ${city} location — usually same day. No waiting around for parts.` },
+              { step: '1', icon: 'ri-phone-line',      title: 'Call or Book Online',   desc: `Call ${PHONE} or fill out our booking form. A dispatcher confirms current availability and books your appointment.` },
+              { step: '2', icon: 'ri-truck-line',       title: 'We Come to You',        desc: `A fully-stocked technician arrives at your ${city} location at the scheduled window. Trucks carry common parts.` },
               { step: '3', icon: 'ri-check-double-line', title: 'Problem Solved',        desc: 'Fixed right the first time, backed by a 1-year parts and labor warranty. We clean up before we leave.' },
             ].map((item) => (
               <div key={item.step} className="text-center">
@@ -455,7 +455,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
                     Call {tech.name}'s dispatch — {PHONE}
                   </a>
                   <p className="text-blue-200 text-sm mt-3">
-                    A real person answers — usually in under 30 seconds.
+                    A real person answers — no call center, no phone tree.
                   </p>
                 </div>
               </div>
@@ -472,7 +472,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
               Serving All of {city}, {state}
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              We know {city}'s neighborhoods well — faster routes, faster arrivals.
+              We know {city}'s neighborhoods well — local technicians who know the area.
             </p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -668,7 +668,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
             Need a Garage Door Tech in {city}?
           </h2>
           <p className="text-orange-100 text-lg mb-8">
-            Call now for same-day service or book online. We'll give you an honest price before we start.
+            Call or book online. We'll give you the total price — including fees and applicable taxes — before we start.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

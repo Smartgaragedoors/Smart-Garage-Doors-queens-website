@@ -56,7 +56,7 @@ export default function Hero() {
             style={{ boxShadow: '0 0 0 4px rgba(63,174,114,0.25)' }}
             aria-hidden="true"
           />
-          {localArea ? `${localArea}` : 'Tri-State'} · Licensed &amp; Insured · 24/7 Live Answer
+          {localArea ? `${localArea}` : 'Tri-State'} · Licensed &amp; Insured · Live Dispatcher
         </p>
 
         {/* H1 — emotional serif lead (design handoff) with keyword-rich subhead below for SEO.
@@ -64,7 +64,7 @@ export default function Hero() {
         <h1 className="font-newsreader font-medium text-[clamp(2rem,8vw,2.5rem)] md:text-5xl lg:text-6xl mb-5 leading-[1.05] tracking-[-0.02em] text-balance">
           Garage door stuck?{' '}
           <span className="text-[#F2B98C] italic block sm:inline">
-            <span className="md:hidden">We answer 24/7.</span>
+            <span className="md:hidden">We answer. We show up.</span>
             <span className="hidden md:inline">We answer — and we show up.</span>
           </span>
         </h1>
@@ -89,18 +89,18 @@ export default function Hero() {
             Springs · Openers · Cables · Off-track doors · Rolling gates &amp; docks
           </p>
           <p className="text-sm md:text-base">
-            {localArea ? `Serving ${localArea} — fast` : 'Fast'} local dispatch, never a distant call center.
+            {localArea ? `Serving ${localArea} — ` : ''}Local dispatch, never a distant call center.
           </p>
         </div>
 
         {/* Featured offer — subtle tinted badge (lower visual weight than Call Now) */}
         <div className="inline-flex items-center gap-3 mb-5 md:mb-7 px-4 py-2.5 rounded-xl md:rounded-full bg-[rgba(217,100,31,0.16)] border border-[rgba(232,145,90,0.45)]">
           <span className="flex items-center justify-center w-6 h-6 rounded-md bg-orange-500 text-white text-sm font-extrabold leading-none md:hidden" aria-hidden="true">✓</span>
-          <span className="font-newsreader italic text-xl text-[#F2B98C] leading-none hidden md:inline">$0</span>
+          <span className="font-newsreader italic text-xl text-[#F2B98C] leading-none hidden md:inline">Free</span>
           <span className="text-sm font-semibold text-white">
-            <span className="md:hidden">Free Service Call </span>
-            <span className="hidden md:inline">service call </span>
-            <span className="font-normal text-[#f0c9ad] md:text-white md:font-semibold">· with any repair</span>
+            <span className="md:hidden">Free Estimate </span>
+            <span className="hidden md:inline">written estimate </span>
+            <span className="font-normal text-[#f0c9ad] md:text-white md:font-semibold">· total price incl. fees &amp; taxes</span>
           </span>
         </div>
 
@@ -133,7 +133,7 @@ export default function Hero() {
         <p className="flex flex-wrap justify-center lg:justify-start items-center gap-x-3 gap-y-1 mb-6 text-[13px] md:text-sm text-[#cdd9ea]">
           <span className="inline-flex items-center gap-1.5">
             <i className="ri-checkbox-circle-fill text-[#3FAE72]" aria-hidden="true" />
-            Same-Day Service
+            1-Year Warranty
           </span>
           <span className="inline-flex items-center gap-1.5">
             <i className="ri-checkbox-circle-fill text-[#3FAE72]" aria-hidden="true" />
@@ -141,7 +141,7 @@ export default function Hero() {
           </span>
           <span className="inline-flex items-center gap-1.5">
             <i className="ri-checkbox-circle-fill text-[#3FAE72]" aria-hidden="true" />
-            Upfront Pricing
+            Total-Price Quotes
           </span>
           <a
             href="/reparacion-de-puertas-de-garaje/"
@@ -170,8 +170,8 @@ export default function Hero() {
           Property manager? Set up a vendor account →
         </a>
 
-        {/* (Rating proof moved directly under the H1; same-day/upfront moved to the
-            badge row under the Call CTA — no duplicate trust rows down here.) */}
+        {/* (Rating proof moved directly under the H1; warranty/pricing badges moved to
+            the badge row under the Call CTA — no duplicate trust rows down here.) */}
         </div>
 
         {/* Right column — desktop only. Below lg the same form renders inline above

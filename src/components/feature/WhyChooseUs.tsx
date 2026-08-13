@@ -6,13 +6,13 @@ const PILLARS = [
   {
     icon: 'ri-flashlight-line',
     title: 'We Answer. We Show Up.',
-    body: 'Call us any time — a real person picks up. We dispatch the nearest tech and give you an honest arrival window, not a 4-hour range.',
-    highlight: '24/7 live answer',
+    body: 'Call us — a real person picks up. We dispatch the nearest available tech and confirm an honest arrival window based on the actual schedule.',
+    highlight: 'Live dispatcher',
   },
   {
     icon: 'ri-price-tag-3-line',
-    title: 'Price Before We Start.',
-    body: 'You get a clear quote before our tech touches anything. No surprises, no hidden fees, no pressure. If you say no, you owe nothing for the visit.',
+    title: 'Total Price Before We Start.',
+    body: 'You get a written quote — including any fees, surcharges, and applicable taxes — before our tech touches anything. If you say no, you owe nothing for the visit.',
     highlight: 'Free on-site estimate',
   },
   {

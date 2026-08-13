@@ -212,7 +212,7 @@ export default function BlogPostTemplate({
                 </div>
               </div>
               <p className="text-sm text-gray-600 leading-relaxed mb-4">
-                Same-day service available. A real person answers 24/7 — usually in under 30 seconds.
+                A real person answers your call — no call center. Free total-price estimates before any work.
               </p>
               <a
                 href={`tel:${BUSINESS_INFO.phoneFormatted}`}

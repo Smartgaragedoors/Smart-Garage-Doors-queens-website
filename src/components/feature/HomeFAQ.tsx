@@ -13,19 +13,19 @@ import { BUSINESS_INFO } from '../../config/business-info';
  */
 const FAQS = [
   {
-    question: 'How fast can you come out for a garage door repair?',
+    question: 'How does scheduling work for a garage door repair?',
     answer:
-      'In most of our New York, New Jersey, and Connecticut service area we offer same-day garage door repair when parts are on the truck. Call (914) 557-6816, tell us your city, and a real person will give you an honest arrival window — not a vague 4-hour range.',
+      'Call (914) 557-6816 and tell us your city. A real person checks which technician is available near you and books a specific arrival window. Actual timing depends on current jobs, traffic, and your distance from the nearest technician — we confirm it on the call rather than promising a fixed response time.',
   },
   {
-    question: 'Do you charge for the service call?',
+    question: 'How does your pricing work?',
     answer:
-      'Your service call is $0 with any completed repair, and you get a clear price before we start. If you decide not to move forward, there is no pressure and no obligation.',
+      'You get a free written estimate showing the total price — including any fees, surcharges, and applicable taxes — before we start any work. If you decide not to move forward, there is no pressure and no obligation.',
   },
   {
-    question: 'Can you fix a broken spring or snapped cable the same day?',
+    question: 'Can you fix a broken spring or snapped cable on the first visit?',
     answer:
-      'Yes. Broken torsion springs, snapped cables, doors off track, and dead openers are the jobs we do every day. Our technicians carry common springs, cables, rollers, and opener parts so most repairs finish on the first visit.',
+      'Usually, yes. Broken torsion springs, snapped cables, doors off track, and dead openers are the jobs we do every day. Our technicians carry common springs, cables, rollers, and opener parts, so most repairs finish on the first visit when parts and access allow.',
   },
   {
     question: 'What areas do you cover?',

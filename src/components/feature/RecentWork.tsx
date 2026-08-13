@@ -95,7 +95,7 @@ const photos: Photo[] = [
     image: '/images/garage-door-repair-technician-dan-smart-garage-doors.jpg',
     alt: 'Smart Garage Doors technician Dan repairing a garage door panel on-site',
     title: 'Panel Repair — Queens, NY',
-    result: 'Damaged panel restored same day',
+    result: 'Damaged panel restored on the first visit',
     position: 'object-center',
   },
   {
@@ -116,7 +116,7 @@ const photos: Photo[] = [
     image: '/images/commercial-garage-door-repair-nyc-smart-garage-doors.jpg',
     alt: 'Smart Garage Doors technician servicing large commercial garage doors',
     title: 'Commercial Repair — NYC',
-    result: 'Bay door back in service same day',
+    result: 'Bay door back in service',
     position: 'object-center',
   },
   {
