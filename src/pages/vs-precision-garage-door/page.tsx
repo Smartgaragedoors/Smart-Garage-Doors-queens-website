@@ -4,20 +4,20 @@ export default function VsPrecisionGarageDoorPage() {
   return (
     <ComparisonPageTemplate
       metaTitle="Smart Garage Doors vs. Precision Garage Door | Honest Comparison"
-      metaDescription="Comparing Precision Garage Door with Smart Garage Doors? See how we compare on pricing transparency, response time, warranty, and local service across NY, NJ & CT."
+      metaDescription="Comparing Precision Garage Door with Smart Garage Doors? See how we compare on pricing transparency, scheduling communication, warranty, and local service across NY, NJ & CT."
       keywords="precision garage door alternative, precision garage door reviews, garage door repair comparison, precision garage door vs"
       slug="/vs-precision-garage-door/"
       competitorName="Precision Garage Door"
       headline="Smart Garage Doors vs. Precision Garage Door"
       intro={[
-        'Precision Garage Door is one of the largest garage door franchises in the country, with locations operated by independent franchisees. If you are weighing them against a local-feeling independent like Smart Garage Doors, the decision usually comes down to pricing transparency, how fast someone actually shows up, and how the work is backed afterward.',
+        'Precision Garage Door is one of the largest garage door franchises in the country, with locations operated by independent franchisees. If you are weighing them against a local-feeling independent like Smart Garage Doors, the decision usually comes down to pricing transparency, how clearly scheduling is communicated, and how the work is backed afterward.',
         'We built this page to lay it out fairly. We are not going to tell you Precision does bad work — many of their franchisees are excellent. What we will do is be specific about how we operate, so you can decide what fits your situation.',
       ]}
       rows={[
         { feature: 'Business model', ours: 'Local independent dispatch', theirs: 'National franchise' },
         { feature: 'Upfront pricing', ours: 'Quoted before we start', theirs: 'Varies by franchise' },
-        { feature: 'Same-day service', ours: 'Usually available', theirs: 'Varies' },
-        { feature: '24/7 emergency', ours: 'Yes', theirs: 'Select locations' },
+        { feature: 'Scheduling', ours: 'Dispatcher confirms availability when you call', theirs: 'Varies by franchise' },
+        { feature: 'Emergency line', ours: 'Yes', theirs: 'Select locations' },
         { feature: 'Warranty', ours: '1-year parts & labor', theirs: 'Varies by location' },
         { feature: 'Financing', ours: '0% options available', theirs: 'Available' },
         { feature: 'Who shows up', ours: 'Our own technicians', theirs: 'Franchise technicians' },

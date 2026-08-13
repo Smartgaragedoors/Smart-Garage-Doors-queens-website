@@ -37,8 +37,8 @@ export default function CableRollerRepairPage() {
       answer: 'Cable replacement should NEVER be attempted by homeowners - cables work with springs under extreme tension (hundreds of pounds) and can cause serious injury or death if mishandled. Cable replacement requires special tools, knowledge of spring systems, and safety procedures. Roller replacement can be done by experienced DIYers, but professional installation ensures proper alignment, prevents track damage, and guarantees optimal performance. We strongly recommend professional service for both safety and proper operation.',
     },
     {
-      question: `How quickly can you repair cables and rollers in ${displayLocation}?`,
-      answer: `Same-day service is often available throughout NY, NJ & CT depending on location and technician availability — call (914) 557-6816 to confirm current scheduling. We stock common cable sizes and roller types in our service vehicles, so most repairs can be completed on the first visit without additional trips.`,
+      question: `How does scheduling work for cable and roller repair in ${displayLocation}?`,
+      answer: `Call (914) 557-6816 and our dispatcher will check current technician availability for your area — the arrival window depends on the technician's current job, traffic, and distance, and we confirm it with you on the call. We stock common cable sizes and roller types in our service vehicles, so most repairs can be completed on the first visit without additional trips.`,
     },
     {
       question: 'How often should garage door rollers be replaced?',
@@ -54,7 +54,7 @@ export default function CableRollerRepairPage() {
     },
     {
       question: 'Should I replace all cables and rollers at once?',
-      answer: 'Yes, we recommend replacing all cables and rollers at once, even if only one is damaged. Cables and rollers age together, so if one fails, others are likely near the end of their lifespan. Replacing them all at once ensures balanced operation, prevents future emergency repairs, and often costs less than multiple separate service calls. We can discuss options and timing during our inspection.',
+      answer: 'Yes, we recommend replacing all cables and rollers at once, even if only one is damaged. Cables and rollers age together, so if one fails, others are likely near the end of their lifespan. Replacing them all at once ensures balanced operation, prevents future emergency repairs, and often costs less than multiple separate service appointments. We can discuss options and timing during our inspection.',
     },
     {
       question: 'Can worn rollers damage my garage door tracks?',
@@ -101,7 +101,7 @@ export default function CableRollerRepairPage() {
     <div className="min-h-screen bg-gray-50">
       <DynamicMetaTags 
         title="Garage Door Cable Replacement & Roller Repair | NY, NJ & CT"
-        description={`Snapped or frayed garage door cable? ${BUSINESS_INFO.aggregateRating.ratingValue}★ rated (${BUSINESS_INFO.aggregateRating.reviewCount}+ reviews). Same-day cable replacement, roller & track repair across NY, NJ & CT. Licensed & insured.`}
+        description={`Snapped or frayed garage door cable? ${BUSINESS_INFO.aggregateRating.ratingValue}★ rated (${BUSINESS_INFO.aggregateRating.reviewCount}+ reviews). Cable replacement, roller & track repair across NY, NJ & CT. Licensed & insured.`}
         keywords="garage door cable replacement, garage door cable repair, roller replacement, track repair"
         canonical={buildCanonical('/cable-roller-repair')}
       />
@@ -206,7 +206,7 @@ export default function CableRollerRepairPage() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Emergency Repair</h3>
               <p className="text-gray-600">
-                24/7 emergency service for broken cables or jammed rollers that prevent door operation.
+                Emergency line for broken cables or jammed rollers that prevent door operation — call to check current availability.
               </p>
             </div>
 
@@ -426,6 +426,10 @@ export default function CableRollerRepairPage() {
               </div>
             </div>
           </div>
+
+          <p className="text-sm text-gray-600 text-center mt-8 max-w-3xl mx-auto">
+            All prices shown are total prices per roller, inclusive of any fees, surcharges, and applicable taxes. You'll receive a free written estimate before any work begins.
+          </p>
         </div>
       </section>
 
@@ -511,8 +515,8 @@ export default function CableRollerRepairPage() {
                 >
                   <option value="">Select Urgency</option>
                   <option value="emergency">Emergency - Door Not Working</option>
-                  <option value="urgent">Urgent - Within 24 Hours</option>
-                  <option value="normal">Normal - Within 2-3 Days</option>
+                  <option value="urgent">Urgent</option>
+                  <option value="normal">Normal</option>
                   <option value="maintenance">Preventive Maintenance</option>
                 </select>
               </div>

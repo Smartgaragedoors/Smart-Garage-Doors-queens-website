@@ -42,10 +42,10 @@ function About() {
             Real Technicians. Real Reviews. Real Local Service.
           </h2>
           <p className="text-lg text-gray-700 leading-relaxed mb-4">
-            When your garage door breaks, you are usually under pressure — the car is stuck, the door won't close, or a spring snapped loud enough to scare the whole house. You need someone who answers fast and sends a real technician, not a call center that farms the job out.
+            When your garage door breaks, you are usually under pressure — the car is stuck, the door won't close, or a spring snapped loud enough to scare the whole house. You need someone who actually answers and sends a real technician, not a call center that farms the job out.
           </p>
           <p className="text-gray-600 leading-relaxed">
-            We built Smart Garage Doors around one idea: show up, fix it right, and leave you with our number in case anything ever needs attention. Our techs carry common parts on every truck so most jobs finish on the first visit. We quote the price before we start, and we don't charge you for the estimate.
+            We built Smart Garage Doors around one idea: show up, fix it right, and leave you with our number in case anything ever needs attention. Our techs carry common parts on every truck so most jobs finish on the first visit. We quote the total price — fees and applicable taxes included — before we start, and we don't charge you for the estimate.
           </p>
           {/* Stat cards + CTA removed — rating/dispatcher/estimate already appear in the hero and
               WhyChooseUs, and the Contact section directly below carries the CTA. */}

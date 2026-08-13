@@ -20,20 +20,20 @@ export default function EmergencyRepairsPage() {
   
   const faqs = [
     {
-      question: `How quickly can you respond to emergency garage door repairs in ${displayLocation}?`,
-      answer: `We offer 24/7 emergency garage door repair throughout NY, NJ & CT. We aim to dispatch a technician as quickly as possible — response times vary based on technician availability and your location, but we prioritize urgent calls and work to reach you fast. Call us at (914) 557-6816 for a current ETA for your area.`,
+      question: `How does emergency scheduling work in ${displayLocation}?`,
+      answer: `Call our emergency line at (914) 557-6816 and our dispatcher will check current technician availability for your area. Arrival time depends on the technician's current job, traffic, and distance — we confirm your window with you on the call. Emergency calls are prioritized in our dispatch queue.`,
     },
     {
       question: 'What situations require emergency garage door repair?',
-      answer: 'Emergency garage door repair is needed when your door is stuck open or closed, there\'s a safety hazard (like a broken spring that could cause injury), the door won\'t close and you\'re leaving your property unsecured, or there\'s a malfunction that prevents you from accessing or leaving your garage. We respond to all urgent situations 24/7.',
+      answer: 'Emergency garage door repair is needed when your door is stuck open or closed, there\'s a safety hazard (like a broken spring that could cause injury), the door won\'t close and you\'re leaving your property unsecured, or there\'s a malfunction that prevents you from accessing or leaving your garage. Our emergency line takes urgent calls — call to check current availability.',
     },
     {
-      question: 'Is same-day emergency garage door repair really available?',
-      answer: 'Yes. Same-day service is available for emergency calls throughout our NY, NJ & CT coverage area, including Brooklyn, Queens, Long Island, Westchester County, Bergen County NJ, and Fairfield County CT. Call (914) 557-6816 and we\'ll work to get a technician to you the same day whenever possible — exact timing depends on current demand and your location.',
+      question: 'How soon can a technician come out for an emergency repair?',
+      answer: 'That depends on current technician availability. We serve Brooklyn, Queens, Long Island, Westchester County, Bergen County NJ, and Fairfield County CT. Call (914) 557-6816 and our dispatcher will check who is available near you — arrival depends on the technician\'s current job, traffic, and distance, and we confirm your window on the call.',
     },
     {
-      question: 'Do you charge extra for emergency service calls?',
-      answer: 'Our emergency service rates are competitive and transparent. While emergency calls may have slightly higher rates due to immediate dispatch and after-hours service, we always provide upfront pricing. We never surprise customers with hidden fees. Many emergency repairs can be completed quickly and affordably.',
+      question: 'Do you charge extra for emergency service appointments?',
+      answer: 'Our emergency service rates are competitive and transparent. While emergency appointments may have slightly higher rates due to after-hours service, we always provide upfront pricing — the quote you receive is the total price, inclusive of any fees, surcharges, and applicable taxes. We never surprise customers with hidden fees.',
     },
     {
       question: 'What if my garage door is stuck open and I need to leave?',
