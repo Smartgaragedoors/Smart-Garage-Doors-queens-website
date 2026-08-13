@@ -132,21 +132,13 @@ export const initAnalytics = () => {
     document.head.appendChild(script);
   };
 
-  if (document.readyState === 'complete') {
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(loadGA, { timeout: 2000 });
-    } else {
-      setTimeout(loadGA, 2000);
-    }
-  } else {
-    window.addEventListener('load', () => {
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(loadGA, { timeout: 2000 });
-      } else {
-        setTimeout(loadGA, 2000);
-      }
-    });
-  }
+  // Load the GA4 container immediately (async script — doesn't block paint).
+  // The previous idle-callback + 2s delay meant short visits (common for an
+  // emergency-service site) left before GA ever loaded, silently undercounting
+  // users and losing conversion events entirely on quick bounce-to-call visits.
+  // Diagnosed 2026-08-12: production pages showed only the AW containers in
+  // google_tag_manager — the G- container frequently never initialized.
+  loadGA();
 
   window.dataLayer = window.dataLayer || [];
   // gtag.js consumes the raw `arguments` object from the dataLayer (the canonical
