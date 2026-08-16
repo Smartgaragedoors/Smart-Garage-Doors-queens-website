@@ -88,7 +88,7 @@ export default function LPWhatsAppPage() {
   const headline = config.headline ?? 'Garage Door Repair Without the Runaround';
   const subheadline =
     config.subheadline ??
-    'Same-day garage door repair, opener repair, spring replacement, and emergency service across NY, NJ & CT. Message Smart Garage Doors on WhatsApp now and get help fast.';
+    'Garage door repair, opener repair, spring replacement, and emergency service across NY, NJ & CT. Message Smart Garage Doors on WhatsApp and a local pro will help you figure out the next step.';
 
   const reviews = STATIC_REVIEWS.slice(0, 3);
   const lpHero = getCloudflareImage('lpWhatsappHero');
@@ -97,7 +97,7 @@ export default function LPWhatsAppPage() {
     <div className="min-h-screen bg-white">
       <DynamicMetaTags
         title="Garage Door Repair | Message Us on WhatsApp | Smart Garage Doors"
-        description={`Same-day garage door repair across NY, NJ & CT. Message us on WhatsApp for fast help. ${BUSINESS_INFO.aggregateRating.ratingValue} rated, ${BUSINESS_INFO.aggregateRating.reviewCount} reviews, licensed & insured.`}
+        description={`Garage door repair across NY, NJ & CT. Message us on WhatsApp for help. ${BUSINESS_INFO.aggregateRating.ratingValue} rated, ${BUSINESS_INFO.aggregateRating.reviewCount} reviews, licensed & insured.`}
         noIndex={!LP_WHATSAPP_INDEXABLE}
       />
       <Header />
@@ -121,7 +121,7 @@ export default function LPWhatsAppPage() {
                   {BUSINESS_INFO.aggregateRating.reviewCount} Reviews
                 </span>
                 <span className="inline-flex items-center px-4 py-2 bg-white/20 rounded-lg text-sm font-medium">
-                  Same-Day Service
+                  Local Technicians
                 </span>
                 <span className="inline-flex items-center px-4 py-2 bg-white/20 rounded-lg text-sm font-medium">
                   Licensed & Insured
@@ -150,7 +150,7 @@ export default function LPWhatsAppPage() {
                 </a>
               </div>
               <p className="text-blue-200 text-sm mb-4">
-                Fast response. No pressure. Real help from a local pro.
+                No pressure. Real help from a local pro.
               </p>
               <p className="text-blue-300/90 text-sm">
                 Broken spring • Door won&apos;t open • Opener problems • Off-track door • Strange noise
@@ -177,9 +177,9 @@ export default function LPWhatsAppPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-white rounded-xl p-6 shadow-sm">
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Fast, Same-Day Help</h3>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">Help That Takes You Seriously</h3>
               <p className="text-gray-600 text-sm">
-                We move quickly. Most customers reach out because they need the problem fixed now, not next week.
+                Most customers reach out because a door problem can't wait forever. Message us and we'll help you sort out the next step and check current scheduling.
               </p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
@@ -197,7 +197,7 @@ export default function LPWhatsAppPage() {
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="text-lg font-bold text-gray-900 mb-2">Local, Trusted, Proven</h3>
               <p className="text-gray-600 text-sm">
-                {BUSINESS_INFO.name} is trusted by homeowners across NY, NJ & CT for fast service and professional work.
+                {BUSINESS_INFO.name} is trusted by homeowners across NY, NJ & CT for professional work.
               </p>
             </div>
           </div>
@@ -211,7 +211,7 @@ export default function LPWhatsAppPage() {
             Common Problems We Fix
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto text-center mb-10">
-            If your garage door is stuck, noisy, heavy, crooked, or not opening properly, we can usually diagnose the issue quickly and tell you the best next step.
+            If your garage door is stuck, noisy, heavy, crooked, or not opening properly, we can usually diagnose the issue from your message and tell you the best next step.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
             {COMMON_PROBLEMS.map((item) => (
@@ -258,7 +258,7 @@ export default function LPWhatsAppPage() {
               <div className="w-14 h-14 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                 2
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Get a Fast Response</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Get a Response</h3>
               <p className="text-gray-600">
                 We review the issue and help you figure out the best next step.
               </p>
@@ -269,7 +269,7 @@ export default function LPWhatsAppPage() {
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">Book Service</h3>
               <p className="text-gray-600">
-                If needed, we schedule service and get your garage door working again fast.
+                If needed, we schedule service and get your garage door working again.
               </p>
             </div>
           </div>
@@ -327,7 +327,7 @@ export default function LPWhatsAppPage() {
             Need Garage Door Help Today?
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Message {BUSINESS_INFO.name} on WhatsApp now for fast help with repairs, openers, springs, emergencies, and more.
+            Message {BUSINESS_INFO.name} on WhatsApp now for help with repairs, openers, springs, emergencies, and more.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
             <a
@@ -350,8 +350,8 @@ export default function LPWhatsAppPage() {
             </a>
           </div>
           <ul className="flex flex-wrap justify-center gap-6 text-blue-200 text-sm">
-            <li>Same-day appointments often available</li>
-            <li>Fast response</li>
+            <li>Call or message to check current scheduling</li>
+            <li>Real help from local pros</li>
             <li>Licensed & insured</li>
           </ul>
         </div>

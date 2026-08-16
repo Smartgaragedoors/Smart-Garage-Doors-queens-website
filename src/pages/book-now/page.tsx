@@ -85,7 +85,7 @@ export default function BookNowPage() {
     <div className="min-h-screen bg-white">
       <DynamicMetaTags 
         title="Book Garage Door Service | Repair & Installation | Smart Garage Doors"
-        description="Book your garage door repair or installation online in under 60 seconds. Fast response — emergency appointments often available across NY, NJ & CT with a 5-star rated local team."
+        description="Book your garage door repair or installation online. Our team will follow up to confirm your appointment — serving NY, NJ & CT with a 5-star rated local team."
         canonical={buildCanonical('/book-now')}
       />
       <Header />
@@ -99,7 +99,7 @@ export default function BookNowPage() {
               style={{ boxShadow: '0 0 0 4px rgba(63,174,114,0.25)' }}
               aria-hidden="true"
             />
-            {BUSINESS_INFO.aggregateRating.ratingValue} ★ · {BUSINESS_INFO.aggregateRating.reviewCount} Google Reviews · Same-day slots · $0 service call w/ repair
+            {BUSINESS_INFO.aggregateRating.ratingValue} ★ · {BUSINESS_INFO.aggregateRating.reviewCount} Google Reviews · Free written estimates · Upfront total pricing
           </p>
           <h1 className="font-newsreader font-medium text-3xl md:text-4xl leading-[1.05] tracking-[-0.02em]">
             Book Your Garage Door Service
@@ -168,7 +168,7 @@ export default function BookNowPage() {
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm pr-8"
                   >
                     <option value="">Select a service</option>
-                    <option value="emergency">Emergency Repair (ASAP)</option>
+                    <option value="emergency">Emergency Repair (please call our line)</option>
                     <option value="garage-door-repair">Garage Door Repair</option>
                     <option value="spring-replacement">Spring Replacement</option>
                     <option value="opener-repair">Opener Repair / Installation</option>
@@ -254,7 +254,7 @@ export default function BookNowPage() {
 
               <p className="text-center text-sm text-gray-600 flex flex-wrap items-center justify-center gap-x-2">
                 <i className="ri-checkbox-circle-fill text-green-600" aria-hidden="true"></i>
-                <span><strong className="text-gray-900">$0 service call</strong> with any repair · upfront price before we start · no obligation</span>
+                <span><strong className="text-gray-900">Free written estimate</strong> · your estimate is the total price, including any fees, surcharges, and applicable taxes · no obligation</span>
               </p>
 
               <div className="text-center">

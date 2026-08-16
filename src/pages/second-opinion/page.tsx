@@ -45,7 +45,7 @@ export default function SecondOpinionPage() {
         {
           heading: 'When a Repair Usually Solves It',
           paragraphs: [
-            'A surprising number of "you need a new door" and "you need a new opener" verdicts trace back to one fixable part. These are the patterns we see most often in second opinions:',
+            'A surprising number of "you need a new door" and "you need a new opener" verdicts trace back to one fixable part. These are the patterns we see most often in second opinions — all figures are total prices, inclusive of any fees, surcharges, and applicable taxes:',
           ],
           bullets: [
             '"Your springs can’t be repaired." Torsion springs are wear parts — they’re designed to be replaced, not to condemn the door. Spring replacement runs $175–$350, and the door is usually fine.',
@@ -62,7 +62,7 @@ export default function SecondOpinionPage() {
           ],
           bullets: [
             'A door that’s decades old with rust-through at the bottom sections, rotted framing, or delaminating panels — repairing one symptom won’t stop the next one.',
-            'Repeated failures: if you’ve paid for two or three repairs on the same door in recent years, the math starts favoring a new door, which begins around $800 for standard models.',
+            'Repeated failures: if you’ve paid for two or three repairs on the same door in recent years, the math starts favoring a new door, which runs $800–$2,500 for standard models.',
             'An opener with no safety sensors or a non-reversing mechanism. These predate modern safety standards and shouldn’t be kept running over a household with kids or pets.',
             'Structural damage — a vehicle strike that twisted the track framing or racked the door out of square — where a "repair" would really be rebuilding most of the system anyway.',
             'Obsolete hardware with no available parts, where sourcing one-off components costs more than it’s worth.',
@@ -73,7 +73,7 @@ export default function SecondOpinionPage() {
           paragraphs: [
             'Tap the green button to open WhatsApp and send us photos of the door, the part the other company pointed at, and — if you’re comfortable sharing it — the quote itself. The quote helps a lot: it tells us exactly what was recommended and lets us respond point by point.',
             'A technician reviews everything and replies with a plain-English read: here’s what we see in the photos, here’s whether the recommendation matches the damage, and here’s what we’d charge to fix it. If we believe a repair solves it, you get a repair price range. If replacement is genuinely the right call, you get an honest replacement quote with premium parts, clean installation, and a 1-year parts and labor warranty behind it.',
-            'If you book a visit, the technician confirms the diagnosis in person and you approve the exact price before any work begins. Same-day appointments are often available — we’ll give you an exact ETA when you call.',
+            'If you book a visit, the technician confirms the diagnosis in person and you approve the exact price before any work begins. Call to check current scheduling availability — a dispatcher will book the earliest realistic appointment for your address.',
           ],
         },
         {
@@ -109,7 +109,7 @@ export default function SecondOpinionPage() {
         {
           question: 'Do you charge to come out?',
           answer:
-            'Estimates on new door and opener installations are free. For repair visits, we’ll explain how the service call works when you book — honestly and before you commit, so there are no surprises. The photo review itself never costs anything.',
+            'You get a free written estimate — on new door and opener installations and on repairs alike. Anything about your visit is explained when you book — honestly and before you commit, so there are no surprises. The photo review itself never costs anything.',
         },
         {
           question: 'What if the first company was right?',

@@ -36,7 +36,7 @@ const OPEN_ROLES = [
     title: 'Garage Door Technician — Residential',
     icon: 'ri-tools-line',
     description:
-      'Diagnose and repair residential garage doors: springs, cables, rollers, tracks, panels, and opener systems from LiftMaster, Chamberlain, and Genie. Same-day service calls across your assigned region.',
+      'Diagnose and repair residential garage doors: springs, cables, rollers, tracks, panels, and opener systems from LiftMaster, Chamberlain, and Genie. Service calls across your assigned region.',
     schemaDescription:
       'Diagnose and repair residential garage doors — torsion and extension springs, cables, rollers, tracks, panels, and opener systems (LiftMaster, Chamberlain, Genie). Service calls are assigned across a defined region in the NY/NJ/CT tri-state area. Valid driver’s license required.',
   },

@@ -37,15 +37,15 @@ export default function EmergencyRepairsPage() {
     },
     {
       question: 'What if my garage door is stuck open and I need to leave?',
-      answer: 'If your garage door is stuck open and you need immediate assistance, call us right away. Our emergency technicians can often provide a temporary solution to secure your garage door so you can leave safely, then return to complete the full repair. We understand the urgency and prioritize these situations.',
+      answer: 'If your garage door is stuck open, call us and let the dispatcher know. Our technicians can often provide a temporary solution to secure your garage door so you can leave safely, then return to complete the full repair. We understand the urgency and prioritize these situations in our dispatch queue.',
     },
     {
       question: 'Can you handle emergency repairs for all garage door brands?',
-      answer: 'Yes, our technicians are trained and equipped to handle emergency repairs for all major garage door brands including LiftMaster, Chamberlain, Genie, Craftsman, and more. We carry common replacement parts in our service vehicles to address most emergency situations quickly.',
+      answer: 'Yes, our technicians are trained and equipped to handle emergency repairs for all major garage door brands including LiftMaster, Chamberlain, Genie, Craftsman, and more. We carry common replacement parts in our service vehicles so most emergency repairs can be completed on the first visit.',
     },
     {
       question: `What areas do you serve for emergency garage door repair?`,
-      answer: `We provide 24/7 emergency garage door repair throughout New York (Queens, Brooklyn, Long Island, Westchester County), New Jersey (Bergen County), and Connecticut (Fairfield County). Same-day service is available across our entire coverage area — call to confirm availability for your address.`,
+      answer: `We provide emergency garage door repair throughout New York (Queens, Brooklyn, Long Island, Westchester County), New Jersey (Bergen County), and Connecticut (Fairfield County). Call our emergency line to check current availability for your address.`,
     },
   ];
 
@@ -65,7 +65,7 @@ export default function EmergencyRepairsPage() {
         if (result.usedFallback) {
           alert('Your email client should open to send your request. If it didn\'t open, please call us at (914) 557-6816.');
         } else {
-          alert('Emergency request submitted! We will contact you immediately.');
+          alert('Emergency request submitted! We will contact you as soon as possible.');
         }
         (e.target as HTMLFormElement).reset();
       } else {
@@ -79,9 +79,9 @@ export default function EmergencyRepairsPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <DynamicMetaTags
-        title="24/7 Emergency Garage Door Repair | Same-Day Service NY NJ CT"
-        description={`Garage door stuck or broken? 24/7 emergency repair, same-day service across NY, NJ & CT. ${BUSINESS_INFO.aggregateRating.ratingValue}★ rated, ${BUSINESS_INFO.aggregateRating.reviewCount} reviews. Call now: (914) 557-6816.`}
-        keywords="emergency garage door repair, 24/7 garage door repair, same day garage door repair, emergency garage door service, 24 hour garage door repair, emergency garage door repair Brooklyn"
+        title="Emergency Garage Door Repair | NY NJ CT"
+        description={`Garage door stuck or broken? Emergency garage door repair across NY, NJ & CT — call our emergency line to check current availability. ${BUSINESS_INFO.aggregateRating.ratingValue}★ rated, ${BUSINESS_INFO.aggregateRating.reviewCount} reviews. Call now: (914) 557-6816.`}
+        keywords="emergency garage door repair, urgent garage door repair, emergency garage door service, emergency garage door repair Brooklyn"
       />
       <FAQSchema faqs={faqs} />
       <Header />
@@ -92,20 +92,20 @@ export default function EmergencyRepairsPage() {
         <div className="absolute inset-0">
           <img 
             src="/images/commercial-garage-door-repair-nyc-smart-garage-doors.jpg"
-            alt="24/7 Emergency Garage Door Repair"
+            alt="Emergency Garage Door Repair"
             className="w-full h-full object-cover opacity-20"
           />
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              24/7 Emergency Garage Door Repair — Same-Day Service
+              Emergency Garage Door Repair
             </h1>
             <p className="text-xl mb-4">
-              Garage door stuck? Won't open? We provide 24/7 emergency and same-day garage door repair across NYC (including Brooklyn), Westchester, New Jersey, and Connecticut. Our certified technicians handle urgent garage door issues any day of the week, including nights, weekends, and holidays.
+              Garage door stuck? Won't open? We provide emergency garage door repair across NYC (including Brooklyn), Westchester, New Jersey, and Connecticut. Our licensed technicians handle urgent garage door issues — call our emergency line to check current availability.
             </p>
             <p className="text-lg mb-8 text-orange-100 font-semibold">
-              Rated 5.0★ with hundreds of local reviews • Same-day emergency service available • Fully licensed and insured team.
+              Rated 5.0★ with hundreds of local reviews • Emergency line — call to check current availability • Fully licensed and insured team.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a 
@@ -133,7 +133,7 @@ export default function EmergencyRepairsPage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Emergency Repair Services</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              We handle all types of emergency garage door situations with fast response times and professional solutions.
+              We handle all types of emergency garage door situations with professional solutions from licensed technicians.
             </p>
           </div>
 
@@ -144,7 +144,7 @@ export default function EmergencyRepairsPage() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Door Won't Open</h3>
               <p className="text-gray-600">
-                Stuck garage door preventing you from leaving? We'll get you moving again quickly with professional emergency repair.
+                Stuck garage door preventing you from leaving? We'll get you moving again with professional emergency repair.
               </p>
             </div>
 
@@ -154,7 +154,7 @@ export default function EmergencyRepairsPage() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Broken Springs</h3>
               <p className="text-gray-600">
-                Snapped garage door springs are dangerous. Our emergency technicians safely replace broken springs immediately.
+                Snapped garage door springs are dangerous. Our technicians safely replace broken springs so your door works again.
               </p>
             </div>
 
@@ -164,7 +164,7 @@ export default function EmergencyRepairsPage() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Opener Malfunction</h3>
               <p className="text-gray-600">
-                Garage door opener not responding? We diagnose and repair all opener brands for immediate restoration.
+                Garage door opener not responding? We diagnose and repair all opener brands to restore operation.
               </p>
             </div>
 
@@ -174,7 +174,7 @@ export default function EmergencyRepairsPage() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Security Issues</h3>
               <p className="text-gray-600">
-                Door won't close properly leaving your home vulnerable? We provide immediate security restoration services.
+                Door won't close properly leaving your home vulnerable? We provide security restoration services.
               </p>
             </div>
 
@@ -184,7 +184,7 @@ export default function EmergencyRepairsPage() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Storm Damage</h3>
               <p className="text-gray-600">
-                Weather damaged your garage door? Our emergency team provides immediate storm damage repair and restoration.
+                Weather damaged your garage door? Our team provides storm damage repair and restoration.
               </p>
             </div>
 
@@ -194,7 +194,7 @@ export default function EmergencyRepairsPage() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Vehicle Damage</h3>
               <p className="text-gray-600">
-                Accidentally hit your garage door? We provide immediate repair to restore function and appearance.
+                Accidentally hit your garage door? We provide repair to restore function and appearance.
               </p>
             </div>
           </div>
@@ -213,16 +213,16 @@ export default function EmergencyRepairsPage() {
               <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <i className="ri-time-line text-3xl text-red-600"></i>
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Fast Response</h3>
-              <p className="text-gray-600">We prioritize urgent calls and dispatch the nearest available technician as quickly as possible</p>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Priority Dispatch</h3>
+              <p className="text-gray-600">Urgent calls are prioritized — our dispatcher checks current technician availability and confirms your window on the call</p>
             </div>
 
             <div className="text-center">
               <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <i className="ri-24-hours-line text-3xl text-red-600"></i>
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">24/7 Availability</h3>
-              <p className="text-gray-600">Available every day, including holidays and weekends</p>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Emergency Line</h3>
+              <p className="text-gray-600">Emergency line available — call to check current availability, including holidays and weekends</p>
             </div>
 
             <div className="text-center">
@@ -250,7 +250,7 @@ export default function EmergencyRepairsPage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Request Emergency Service</h2>
             <p className="text-lg text-gray-600">
-              Fill out this form for immediate emergency response, or call us directly at (914) 557-6816
+              Fill out this form to request emergency service, or call us directly at (914) 557-6816
             </p>
           </div>
 
@@ -347,7 +347,7 @@ export default function EmergencyRepairsPage() {
               Emergency Garage Door Repair FAQ
             </h2>
             <p className="text-lg text-gray-600">
-              Common questions about our 24/7 emergency garage door repair services
+              Common questions about our emergency garage door repair services
             </p>
           </div>
           

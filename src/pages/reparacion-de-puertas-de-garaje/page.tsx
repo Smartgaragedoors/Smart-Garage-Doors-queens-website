@@ -20,15 +20,16 @@ import { trackPhoneClick, trackWhatsAppClick } from '../../utils/analytics';
  * indexing risk).
  *
  * Language rules: natural es-419-neutral Spanish, usted form, hand-written
- * (never machine-translate — Google's spam policy names it). No 24/7-Spanish
- * promise: Spanish is available, hours vary — WhatsApp is pushed as the
- * always-works Spanish channel. Prices reused from published English FAQs.
+ * (never machine-translate — Google's spam policy names it). No round-the-clock
+ * or rapid-response promises in Spanish (Google Ads Advanced Verification):
+ * Spanish is available, hours vary — WhatsApp is pushed as the always-works
+ * Spanish channel. Prices reused from published English FAQs.
  * Wrapper carries lang="es" for a11y/SEO.
  */
 
 const SERVICIOS = [
   { icon: 'ri-loop-left-line', title: 'Resortes rotos', desc: 'Reemplazo de resortes de torsión y extensión — la falla más común. La puerta no abre o se siente muy pesada.' },
-  { icon: 'ri-links-line', title: 'Cables y rodillos', desc: 'Cables deshilachados o reventados, rodillos gastados o atascados. Reparación el mismo día en la mayoría de los casos.' },
+  { icon: 'ri-links-line', title: 'Cables y rodillos', desc: 'Cables deshilachados o reventados, rodillos gastados o atascados. Llámenos para confirmar la disponibilidad de citas.' },
   { icon: 'ri-settings-4-line', title: 'Motores y openers', desc: 'Reparación e instalación de motores LiftMaster, Chamberlain, Genie y más — incluyendo modelos con WiFi.' },
   { icon: 'ri-alert-line', title: 'Puerta fuera de riel', desc: 'Puerta torcida, atascada o fuera de su riel. No intente forzarla — llámenos y la dejamos funcionando con seguridad.' },
   { icon: 'ri-door-open-line', title: 'Instalación de puertas nuevas', desc: 'Puertas de acero, aisladas, estilo carruaje y modernas — medimos, cotizamos por escrito e instalamos.' },
@@ -36,12 +37,12 @@ const SERVICIOS = [
 ];
 
 const RAZONES = [
-  { icon: 'ri-customer-service-2-fill', title: 'Le contesta una persona real', desc: 'Llame a cualquier hora — sin menús automáticos ni centros de llamadas lejanos.' },
+  { icon: 'ri-customer-service-2-fill', title: 'Le contesta una persona real', desc: 'Cuando llame, le atiende nuestro equipo — sin menús automáticos ni centros de llamadas lejanos.' },
   { icon: 'ri-chat-3-line', title: 'WhatsApp en español', desc: 'Envíe fotos de su puerta por WhatsApp y le respondemos en español con un diagnóstico y precio estimado.' },
   { icon: 'ri-star-fill', title: `${BUSINESS_INFO.aggregateRating.reviewCount}+ reseñas de 5 estrellas`, desc: 'Calificación de 5.0 en Google — vecinos reales de Queens, Brooklyn, Long Island y más.' },
   { icon: 'ri-shield-check-line', title: 'Con licencia y seguro', desc: 'Licencias en NY, NJ y CT. Garantía de 1 año en partes y mano de obra.' },
   { icon: 'ri-price-tag-3-line', title: 'Precios claros por adelantado', desc: 'Le decimos el precio antes de empezar el trabajo. Sin sorpresas ni cargos ocultos.' },
-  { icon: 'ri-flashlight-line', title: 'Servicio el mismo día', desc: 'Disponibilidad el mismo día en la mayoría de los casos, y línea de emergencia 24/7.' },
+  { icon: 'ri-flashlight-line', title: 'Citas según disponibilidad', desc: 'Llame para confirmar la disponibilidad actual, y línea de emergencia para casos urgentes.' },
 ];
 
 const PREGUNTAS = [
@@ -51,7 +52,7 @@ const PREGUNTAS = [
   },
   {
     question: '¿Cuánto cuesta reparar una puerta de garaje?',
-    answer: 'Las reparaciones básicas van de $150 a $300. El cambio de resortes cuesta entre $175 y $350, y la reparación del motor entre $150 y $350. Una puerta nueva instalada empieza alrededor de $800. Siempre le damos el precio exacto por adelantado, antes de empezar.',
+    answer: 'Las reparaciones básicas van de $150 a $300. El cambio de resortes cuesta entre $175 y $350, y la reparación del motor entre $150 y $350. Una puerta nueva instalada va de $800 a $1,600 según el modelo. Siempre le damos el precio exacto por adelantado, antes de empezar — el precio total, con todos los cargos e impuestos aplicables incluidos.',
   },
   {
     question: '¿Atienden en español?',
@@ -59,7 +60,7 @@ const PREGUNTAS = [
   },
   {
     question: '¿Atienden emergencias?',
-    answer: 'Sí — nuestra línea contesta las 24 horas, los 7 días de la semana. Si su puerta no cierra de noche o su carro quedó atrapado, llámenos y le damos una hora de llegada exacta.',
+    answer: 'Sí — tenemos una línea de emergencia para casos urgentes. Si su puerta no cierra o su carro quedó atrapado, llámenos y nuestro despachador le confirma una ventana de llegada honesta según la disponibilidad del momento.',
   },
   {
     question: '¿En qué zonas trabajan?',
@@ -83,7 +84,7 @@ export default function ReparacionPuertasGarajePage() {
     <div className="min-h-screen bg-white" lang="es">
       <DynamicMetaTags
         title="Reparación de Puertas de Garaje | NY · NJ · CT | En Español"
-        description="Reparación de puertas de garaje en español — resortes, motores, cables y puertas que no cierran. Servicio el mismo día en NY, NJ y CT. Precios claros. Llame o escriba por WhatsApp."
+        description="Reparación de puertas de garaje en español — resortes, motores, cables y puertas que no cierran. Servicio en NY, NJ y CT. Precios claros. Llame o escriba por WhatsApp."
         keywords="reparación de puertas de garaje, reparar puerta de garaje, puerta de garaje no cierra, resortes de puerta de garaje, técnico de puertas de garaje español"
         canonical={buildCanonical('/reparacion-de-puertas-de-garaje')}
       />
@@ -128,7 +129,7 @@ export default function ReparacionPuertasGarajePage() {
               Resortes · Motores · Cables · Puertas que no cierran
             </p>
             <p className="text-sm md:text-base">
-              Servicio el mismo día en NY · NJ · CT — precios claros por adelantado.
+              Servicio en NY · NJ · CT — precios claros por adelantado. Llame para confirmar disponibilidad.
             </p>
           </div>
 
@@ -155,7 +156,7 @@ export default function ReparacionPuertasGarajePage() {
           <p className="flex flex-wrap justify-center items-center gap-x-3 gap-y-1 mt-5 text-[13px] md:text-sm text-[#cdd9ea]">
             <span className="inline-flex items-center gap-1.5">
               <i className="ri-checkbox-circle-fill text-[#3FAE72]" aria-hidden="true" />
-              Servicio el mismo día
+              Técnicos locales
             </span>
             <span className="inline-flex items-center gap-1.5">
               <i className="ri-checkbox-circle-fill text-[#3FAE72]" aria-hidden="true" />

@@ -21,7 +21,7 @@ export default function GarageDoorInstallationCostWestchesterPage() {
       costTable={{
         title: '2026 Garage Door Installation Costs in Westchester County',
         caption:
-          'Typical installed ranges for our service area; every home differs — we quote the exact price upfront before any work begins.',
+          'Typical installed ranges for our service area — total prices, inclusive of any fees, surcharges, and applicable taxes. Every home differs; we quote the exact price upfront before any work begins.',
         rows: [
           {
             item: 'Standard single steel door (8x7 or 9x7)',
@@ -116,7 +116,7 @@ export default function GarageDoorInstallationCostWestchesterPage() {
         {
           question: 'How much does a new garage door cost in Westchester County?',
           answer:
-            "Most installations land between $800 and $2,800: roughly $800–$1,600 for a standard single steel door and $1,200–$2,800 for an insulated double- or triple-layer door. Carriage-style doors — the most popular upgrade in Westchester — run $2,500–$6,500, and custom, wood, or full-view glass doors run $4,000–$10,000+. These are typical ranges for our service area; we confirm your exact price upfront before any work begins.",
+            "Most installations land between $800 and $2,800: roughly $800–$1,600 for a standard single steel door and $1,200–$2,800 for an insulated double- or triple-layer door. Carriage-style doors — the most popular upgrade in Westchester — run $2,500–$6,500, and custom, wood, or full-view glass doors run $4,000–$10,000+. These are typical ranges for our service area, quoted as total prices inclusive of any fees, surcharges, and applicable taxes; we confirm your exact price upfront before any work begins.",
         },
         {
           question: 'What style of garage door fits a stone colonial or tudor?',
@@ -131,7 +131,7 @@ export default function GarageDoorInstallationCostWestchesterPage() {
         {
           question: 'How long does installation take?',
           answer:
-            "Most single-door swaps are finished in a morning — old door out, new tracks and panels in, springs balanced, sealed and tested. Older garages needing extra fitting, double doors, or door-plus-opener projects can run longer. Same-day appointments are often available; we'll give you an exact ETA when you call.",
+            "Most single-door swaps are finished in a morning — old door out, new tracks and panels in, springs balanced, sealed and tested. Older garages needing extra fitting, double doors, or door-plus-opener projects can run longer. Call to check current scheduling availability and we'll book a realistic installation date.",
         },
         {
           question: 'Do I need approval from my HOA or historic district?',
@@ -159,7 +159,7 @@ export default function GarageDoorInstallationCostWestchesterPage() {
         ],
       }}
       ctaHeadline="Get an Exact Price for Your New Door"
-      ctaText="Text us photos for a fast quote, or call to talk through styles for your home. Upfront pricing, premium doors, clean installation, and a 1-year parts and labor warranty."
+      ctaText="Text us photos for a quote, or call to talk through styles for your home. Upfront pricing, premium doors, clean installation, and a 1-year parts and labor warranty."
     />
   );
 }

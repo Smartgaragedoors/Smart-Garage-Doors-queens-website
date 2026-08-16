@@ -33,11 +33,11 @@ export default function ThankYouPage() {
           </div>
           <h1 className="font-newsreader font-medium text-4xl text-gray-900 mb-4 tracking-[-0.02em]">You're all set!</h1>
           <p className="text-lg text-gray-600 mb-2">
-            We got your request and someone will reach out shortly to confirm your appointment.
-            Remember: <strong className="text-gray-900">$0 service call</strong> when we do the repair.
+            We got your request and our team will follow up to confirm your appointment.
+            Remember: you get a <strong className="text-gray-900">free written estimate</strong> — the total price, including any fees, surcharges, and applicable taxes.
           </p>
           <p className="text-gray-500 mb-10">
-            Need us faster? Call directly:
+            Prefer to talk it through? Call directly:
           </p>
           <a
             href={`tel:${BUSINESS_INFO.phoneFormatted}`}

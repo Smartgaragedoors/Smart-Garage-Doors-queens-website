@@ -31,8 +31,8 @@ export default function GarageDoorRepairPage() {
   
   const faqs = [
     {
-      question: `How quickly can you repair my garage door in ${displayLocation}?`,
-      answer: `We work to schedule service as quickly as possible — same-day appointments are often available depending on your location and technician availability. Call us to confirm current availability for ${displayRegion}. For urgent situations, let us know when you call and we will prioritize your job.`,
+      question: `How does scheduling work for garage door repair in ${displayLocation}?`,
+      answer: `Call us and our dispatcher will check current technician availability for ${displayRegion} — the arrival window depends on the technician's current job, traffic, and distance, and we confirm it with you on the call. For urgent situations, let us know when you call and we will prioritize your job.`,
     },
     {
       question: 'What types of garage door repairs do you handle?',
@@ -56,15 +56,15 @@ export default function GarageDoorRepairPage() {
     },
     {
       question: `What areas do you serve for garage door repair?`,
-      answer: `We provide comprehensive garage door repair services throughout ${serviceAreasList}. With multiple service locations, we can quickly reach customers in Queens, Brooklyn, Long Island, Westchester County, Bergen County NJ, Fairfield County CT, and all surrounding communities within a 50-mile radius. No matter where you're located in our service area, we have local technicians ready to help.`,
+      answer: `We provide comprehensive garage door repair services throughout ${serviceAreasList}. With multiple service locations, we serve customers in Queens, Brooklyn, Long Island, Westchester County, Bergen County NJ, Fairfield County CT, and all surrounding communities within a 50-mile radius. No matter where you're located in our service area, we have local technicians ready to help.`,
     },
     {
       question: 'Do you provide emergency garage door repair services?',
-      answer: `Yes, we offer 24/7 emergency garage door repair services throughout all our service areas. Whether your door is stuck open or closed, or there's a safety issue, we can dispatch a technician from the nearest location to quickly address urgent situations.`,
+      answer: `Yes, we have an emergency line for urgent garage door issues throughout all our service areas — call to check current availability. Whether your door is stuck open or closed, or there's a safety issue, our dispatcher will check technician availability near you and confirm an arrival window on the call.`,
     },
     {
       question: 'Do you have multiple service locations?',
-      answer: 'Yes, we operate from multiple service locations strategically positioned throughout our coverage area to provide fast, reliable service. This allows us to serve customers in Queens, Brooklyn, Long Island, Westchester County, New Jersey, and Connecticut with quick response times. Our network of technicians ensures we can reach you quickly, regardless of which area you\'re in.',
+      answer: 'Yes, we operate from multiple service locations strategically positioned throughout our coverage area. This allows us to serve customers in Queens, Brooklyn, Long Island, Westchester County, New Jersey, and Connecticut with local technicians. Our network of technicians means we can serve you regardless of which area you\'re in.',
     },
   ];
 
@@ -86,7 +86,7 @@ export default function GarageDoorRepairPage() {
             "@context": "https://schema.org",
             "@type": "Service",
             "name": "Garage Door Repair Services",
-            "description": "Professional garage door repair services in NY, NJ & CT. Fast response, licensed technicians, all brands.",
+            "description": "Professional garage door repair services in NY, NJ & CT. Licensed technicians, all brands.",
             "url": buildCanonical('/garage-door-repair'),
             "provider": {
               "@type": "LocalBusiness",
@@ -167,7 +167,7 @@ export default function GarageDoorRepairPage() {
                   "itemOffered": {
                     "@type": "Service",
                     "name": "Emergency Garage Door Repair",
-                    "description": "24/7 emergency garage door repair services"
+                    "description": "Emergency garage door repair services"
                   },
                   "priceSpecification": {
                     "@type": "PriceSpecification",
@@ -206,10 +206,10 @@ export default function GarageDoorRepairPage() {
                 Professional Garage Door Repair Services
               </h1>
               <p className="text-xl md:text-2xl mb-4">
-                Expert garage door repair services across NY, NJ, and CT. Fast, reliable, and affordable solutions for all your garage door problems.
+                Expert garage door repair services across NY, NJ, and CT. Reliable, affordable solutions for all your garage door problems.
               </p>
               <p className="text-lg md:text-xl mb-8 text-blue-100 font-semibold">
-                5.0★ rated by {BUSINESS_INFO.aggregateRating.reviewCount}+ homeowners • Fast response — call to confirm • Fully insured local technicians.
+                5.0★ rated by {BUSINESS_INFO.aggregateRating.reviewCount}+ homeowners • Call to check current scheduling • Fully insured local technicians.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a 
@@ -234,7 +234,7 @@ export default function GarageDoorRepairPage() {
 
       <BookingCTABar
         title="Ready to Schedule Your Repair?"
-        subtitle="Fast response • Licensed & insured • 5-Star rated • Free estimate"
+        subtitle="Licensed & insured • 5-Star rated • Free estimate"
       />
 
       {/* Repair Process */}
@@ -254,7 +254,7 @@ export default function GarageDoorRepairPage() {
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-blue-600">1</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Fast Response</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Dispatch</h3>
               <p className="text-gray-600">
                 We prioritize urgent calls and dispatch the nearest available technician with all necessary tools and parts to diagnose your issue.
               </p>
@@ -382,7 +382,7 @@ export default function GarageDoorRepairPage() {
             <div className="flex items-start gap-3">
               <i className="ri-information-line text-blue-500 text-xl flex-shrink-0 mt-0.5" aria-hidden="true"></i>
               <p className="text-gray-600 text-sm leading-relaxed">
-                <strong className="text-gray-800">About these ranges:</strong> The figures above reflect typical total costs including parts, labor, and applicable taxes for standard jobs. Your actual cost depends on door size, spring type, parts required, and the overall condition of your hardware. We provide a <strong>free on-site estimate</strong> before starting any work — you will know the exact price before we touch anything.
+                <strong className="text-gray-800">About these ranges:</strong> The figures above are total prices, inclusive of parts, labor, and any fees, surcharges, and applicable taxes for standard jobs. Your actual cost depends on door size, spring type, parts required, and the overall condition of your hardware. We provide a <strong>free on-site estimate</strong> before starting any work — you will know the exact price before we touch anything.
               </p>
             </div>
           </div>
@@ -434,7 +434,7 @@ export default function GarageDoorRepairPage() {
             Need Garage Door Repair? We're Here to Help!
           </h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto">
-            Don't let a broken garage door disrupt your day. Contact Smart Garage Doors for fast, professional repair services.
+            Don't let a broken garage door disrupt your day. Contact Smart Garage Doors for professional repair services.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 

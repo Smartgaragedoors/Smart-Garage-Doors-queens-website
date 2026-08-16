@@ -29,18 +29,18 @@ export default function VsPrecisionGarageDoorPage() {
         },
         {
           question: 'Does Precision Garage Door service my area?',
-          answer: 'Precision operates through independent franchisees, so coverage depends on whether a franchise serves your town. We dispatch across New York, New Jersey, and Connecticut from regional hubs — call us and we will confirm coverage and an honest arrival window right away.',
+          answer: 'Precision operates through independent franchisees, so coverage depends on whether a franchise serves your town. We dispatch across New York, New Jersey, and Connecticut from regional hubs — call us and we will confirm coverage and check current technician availability for your address.',
         },
         {
           question: 'Are your technicians as qualified?',
           answer: 'Yes. Our technicians are experienced, licensed, and insured, and they service all major brands — LiftMaster, Chamberlain, Genie, Clopay, Wayne Dalton, Amarr, and more. Every job is backed by a 1-year parts and labor warranty.',
         },
         {
-          question: 'How fast can you come out compared to Precision?',
-          answer: 'We prioritize same-day service and 24/7 emergency calls. Response times for any company depend on your location and current demand — we will give you a realistic estimate when you call rather than an empty promise.',
+          question: 'How does scheduling work compared to Precision?',
+          answer: 'When you call, our dispatcher checks current technician availability and books the earliest realistic appointment, and we run an emergency line for urgent problems. For any company, arrival timing depends on the technician\'s current job, traffic, and distance — we will give you a realistic answer when you call rather than an empty promise.',
         },
       ]}
-      bottomLine="If you value a national brand name, Precision Garage Door is a solid, well-known option. If you want upfront pricing, your own dedicated technicians, same-day availability, and a straightforward 1-year warranty — without franchise-to-franchise variation — Smart Garage Doors is built exactly for that. Call us for an honest quote and compare for yourself."
+      bottomLine="If you value a national brand name, Precision Garage Door is a solid, well-known option. If you want upfront pricing, your own dedicated technicians, clear scheduling communication, and a straightforward 1-year warranty — without franchise-to-franchise variation — Smart Garage Doors is built exactly for that. Call us for an honest quote and compare for yourself."
     />
   );
 }

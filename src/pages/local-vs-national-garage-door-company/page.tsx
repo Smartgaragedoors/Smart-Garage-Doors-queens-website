@@ -41,8 +41,8 @@ export default function LocalVsNationalGarageDoorCompanyPage() {
             icon: 'ri-shield-check-line',
           },
           {
-            title: 'Same-day available?',
-            description: 'A broken spring with your car trapped inside is urgent. Ask whether same-day appointments are realistically available, and get an honest arrival window — not a vague promise.',
+            title: 'Clear scheduling communication?',
+            description: 'A broken spring with your car trapped inside is urgent. Ask how the company handles scheduling — a dispatcher who checks current technician availability and books a realistic appointment beats a vague promise.',
             icon: 'ri-time-line',
           },
           {
@@ -92,7 +92,7 @@ export default function LocalVsNationalGarageDoorCompanyPage() {
           paragraphs: [
             'You\'ll hear claims in both directions — "franchises charge more for the name" and "independents lowball you then upsell." Neither is reliably true. What is true is that the cost structures differ.',
             'Franchisees typically pay ongoing royalties and national advertising fees as a percentage of revenue. Those are legitimate business costs — they buy the brand, the training, and the marketing engine — and they\'re part of the cost structure the franchisee\'s pricing has to support. That doesn\'t make franchise pricing high or unfair; it\'s simply one of the inputs. Independents don\'t carry royalty obligations, but they also fund their own marketing, training, and overhead without a national engine behind them.',
-            'The practical takeaway for a homeowner is not "one is cheaper." It\'s that the quote structure is the thing to scrutinize, whoever you call. A trustworthy quote — franchise or independent — states the full price before work begins, itemizes parts and labor, and doesn\'t hinge on a teaser service-call fee that balloons on site. For reference, typical market ranges in our region run $150–$300 for common repairs, $175–$350 for spring replacement, $150–$350 for opener repair, and new doors starting around $800, with insulated, carriage-style, and custom doors higher.',
+            'The practical takeaway for a homeowner is not "one is cheaper." It\'s that the quote structure is the thing to scrutinize, whoever you call. A trustworthy quote — franchise or independent — states the full price before work begins, itemizes parts and labor, and doesn\'t hinge on a teaser visit fee that balloons on site — a free written estimate is the cleaner standard. For reference, typical market ranges in our region run $150–$300 for common repairs, $175–$350 for spring replacement, $150–$350 for opener repair, and $800–$2,500 for new doors, with insulated, carriage-style, and custom doors running $1,500–$5,000 or more. These figures are total prices, inclusive of any fees, surcharges, and applicable taxes.',
           ],
         },
       ]}
@@ -115,14 +115,14 @@ export default function LocalVsNationalGarageDoorCompanyPage() {
         },
         {
           question: 'What\'s a good alternative to a national garage door company?',
-          answer: 'A well-run independent that can answer all seven questions in this guide: who\'s coming, price before work starts, written parts-and-labor warranty, license and insurance, same-day availability, full installation capability, and reviews naming your area. We built Smart Garage Doors around exactly that checklist — and we\'d encourage you to hold any company you call, including us, to it.',
+          answer: 'A well-run independent that can answer all seven questions in this guide: who\'s coming, price before work starts, written parts-and-labor warranty, license and insurance, clear scheduling communication, full installation capability, and reviews naming your area. We built Smart Garage Doors around exactly that checklist — and we\'d encourage you to hold any company you call, including us, to it.',
         },
         {
           question: 'Does it matter who actually answers the phone?',
           answer: 'More than most people expect. With centralized call-center dispatch, the person booking your appointment may have limited knowledge of your specific technician, truck stock, or realistic timing. With direct local dispatch, the person on the phone typically knows exactly who\'s available and what\'s on the truck. Neither is automatically better — but it explains why arrival estimates and on-site quotes can feel very different between the two models.',
         },
       ]}
-      bottomLine="Franchises offer brand consistency, established processes, and national backing; independents offer one layer of accountability, locally made decisions, and a quote from the same hands that do the work. Neither model wins on paper — the company in front of you does, or doesn't. Smart Garage Doors is an independent local company built deliberately around the checklist above: full price quoted before work starts, a written 1-year parts and labor warranty, licensed and insured technicians, same-day appointments often available, and a 24/7 emergency line. Run us through the seven questions yourself — that's what they're for."
+      bottomLine="Franchises offer brand consistency, established processes, and national backing; independents offer one layer of accountability, locally made decisions, and a quote from the same hands that do the work. Neither model wins on paper — the company in front of you does, or doesn't. Smart Garage Doors is an independent local company built deliberately around the checklist above: full price quoted before work starts, a written 1-year parts and labor warranty, licensed and insured technicians, clear scheduling communication, and an emergency line for urgent problems. Run us through the seven questions yourself — that's what they're for."
       relatedLinks={{
         title: 'Compare Us Directly',
         links: [
@@ -134,7 +134,7 @@ export default function LocalVsNationalGarageDoorCompanyPage() {
         ],
       }}
       ctaHeadline="Put Us Through the Checklist"
-      ctaText="Upfront pricing before work starts, a written 1-year parts and labor warranty, and same-day appointments often available — exact ETA when you call."
+      ctaText="Upfront pricing before work starts, a written 1-year parts and labor warranty, and clear scheduling communication — call to check current availability."
     />
   );
 }
