@@ -29,11 +29,11 @@ const serviceAreasByState = {
 const faqs = [
   {
     question: 'What areas do you serve?',
-    answer: 'We provide professional garage door repair and installation services throughout New York, New Jersey, and Connecticut. Our service area includes major cities and counties across the tri-state region, from Brooklyn and Queens in New York to Stamford and Greenwich in Connecticut, and Bergen County in New Jersey. We offer same-day service and 24/7 emergency repairs across all our service areas.',
+    answer: 'We provide professional garage door repair and installation services throughout New York, New Jersey, and Connecticut. Our service area includes major cities and counties across the tri-state region, from Brooklyn and Queens in New York to Stamford and Greenwich in Connecticut, and Bergen County in New Jersey. An emergency line is available for urgent repairs across all our service areas.',
   },
   {
-    question: 'How quickly can you respond to service requests?',
-    answer: 'Response times vary by location and technician availability. For most non-emergency repairs, same-day service is available. For emergency situations, we dispatch the nearest available technician — call us for an honest estimate. We have multiple service locations across NY, NJ, and CT.',
+    question: 'How does scheduling work?',
+    answer: 'Response times vary by location and technician availability. For non-emergency repairs we book the next available window. For emergency situations, we dispatch the nearest available technician — call us for an honest estimate. We have multiple service locations across NY, NJ, and CT.',
   },
   {
     question: 'Do you service all types of garage doors?',
@@ -49,7 +49,7 @@ const faqs = [
   },
   {
     question: 'How do I schedule service in my area?',
-    answer: 'You can schedule service by calling (914) 557-6816, using our online booking form at /book-now/, or contacting us through our website. We offer flexible scheduling including same-day appointments and 24/7 emergency service. Our team will confirm your location and provide an estimated arrival time.',
+    answer: 'You can schedule service by calling (914) 557-6816, using our online booking form at /book-now/, or contacting us through our website. We offer flexible scheduling, and an emergency line is available for urgent issues. Our team will confirm your location and provide an estimated arrival time.',
   },
 ];
 
@@ -58,7 +58,7 @@ export default function ServiceAreasPage() {
     <div className="min-h-screen bg-white">
       <DynamicMetaTags
         title="Service Areas | Garage Door Repair NY NJ CT | Smart Garage Doors"
-        description="Professional garage door services throughout New York, New Jersey, and Connecticut. Serving Brooklyn, Queens, Stamford, Greenwich, Bergen County, and more. Same-day service and 24/7 emergency repairs available."
+        description="Professional garage door services throughout New York, New Jersey, and Connecticut. Serving Brooklyn, Queens, Stamford, Greenwich, Bergen County, and more. Licensed technicians and an emergency line for urgent repairs."
         keywords="garage door service areas, NY garage door repair, NJ garage door repair, CT garage door repair, tri-state garage door service"
         canonical={buildCanonical('/service-areas')}
       />
@@ -75,7 +75,7 @@ export default function ServiceAreasPage() {
             </h1>
             <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
               Professional garage door repair and installation services throughout New York, New Jersey, and Connecticut. 
-              Fast, reliable service across the tri-state area.
+              Licensed, reliable service across the tri-state area.
             </p>
           </div>
         </div>
@@ -91,7 +91,7 @@ export default function ServiceAreasPage() {
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Smart Garage Doors provides professional garage door repair, installation, and maintenance services 
               throughout New York, New Jersey, and Connecticut. With multiple service locations and experienced technicians, 
-              we deliver fast, reliable service to homeowners and businesses across our entire coverage area.
+              we deliver licensed, reliable service to homeowners and businesses across our entire coverage area.
             </p>
           </div>
 
@@ -100,9 +100,9 @@ export default function ServiceAreasPage() {
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <i className="ri-time-line text-2xl text-blue-600"></i>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Same-Day Service</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Flexible Scheduling</h3>
               <p className="text-gray-600">
-                Fast response times across all service areas. Most repairs completed the same day you call.
+                Call and a dispatcher confirms current technician availability for your address.
               </p>
             </div>
 
@@ -110,9 +110,9 @@ export default function ServiceAreasPage() {
               <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <i className="ri-alarm-warning-line text-2xl text-orange-600"></i>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">24/7 Emergency Service</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Emergency Line</h3>
               <p className="text-gray-600">
-                Available around the clock for urgent garage door issues throughout NY, NJ, and CT.
+                Emergency line available for urgent garage door issues throughout NY, NJ, and CT.
               </p>
             </div>
 
