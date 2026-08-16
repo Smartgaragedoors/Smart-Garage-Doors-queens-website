@@ -26,7 +26,7 @@ interface HeroQuoteFormProps {
 }
 
 const SERVICE_OPTIONS = [
-  { value: 'emergency', label: 'Emergency Repair (ASAP)' },
+  { value: 'emergency', label: 'Emergency Repair (urgent)' },
   { value: 'garage-door-repair', label: 'Garage Door Repair' },
   { value: 'spring-replacement', label: 'Spring Replacement' },
   { value: 'opener-repair', label: 'Opener Repair / Installation' },

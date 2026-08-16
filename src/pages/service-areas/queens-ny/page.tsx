@@ -30,7 +30,7 @@ export default function QueensNY() {
         },
       ]}
       neighborhoods={[
-        { name: 'Astoria & Long Island City', description: 'Fast service for Astoria\'s dense residential blocks and LIC\'s converted lofts. We know the parking situation — our guys get in and out without drama.' },
+        { name: 'Astoria & Long Island City', description: 'Reliable service for Astoria\'s dense residential blocks and LIC\'s converted lofts. We know the parking situation — our guys get in and out without drama.' },
         { name: 'Flushing & Whitestone', description: 'Deep coverage in Flushing and Whitestone. Lots of attached garages here — we\'ve fixed hundreds in these neighborhoods.' },
         { name: 'Forest Hills & Kew Gardens', description: 'The tudor-style homes in Forest Hills have older hardware. We stock parts for legacy systems.' },
         { name: 'Jamaica & St. Albans', description: 'Reliable, fairly priced service for Jamaica and St. Albans. No upselling, no surprises — just the work that needs doing.' },

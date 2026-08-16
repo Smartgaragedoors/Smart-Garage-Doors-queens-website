@@ -38,7 +38,7 @@ export default function GarageDoorInstallationNewYorkPage() {
       answer: 'Yes, we handle complete removal and disposal of old garage doors as part of our installation service. We\'ll safely remove the old door, tracks, springs, cables, and all hardware, and properly dispose of all materials. There\'s no extra charge for this service - it\'s included in the installation price.',
     },
     {
-      question: 'How quickly can you install a new garage door in New York?',
+      question: 'How does scheduling work for a new garage door installation in New York?',
       answer: 'We typically can schedule new garage door installations within 1-2 weeks, depending on door selection and current schedule. For standard doors in stock, we can often install within 3-7 days. Custom doors may take 2-4 weeks for ordering and delivery. Emergency installations are available when possible. We\'ll provide a timeline during your estimate.',
     },
   ];
@@ -47,7 +47,7 @@ export default function GarageDoorInstallationNewYorkPage() {
     <div className="min-h-screen bg-white">
       <DynamicMetaTags 
         title="Garage Door Installation New York | New & Replacement | Smart Garage Doors"
-        description={`New garage door installation & replacement. ${BUSINESS_INFO.aggregateRating.ratingValue}★, ${BUSINESS_INFO.aggregateRating.reviewCount} reviews. Free estimates. Fast service — call for availability. Licensed & insured. Serving NY, NJ & CT.`}
+        description={`New garage door installation & replacement. ${BUSINESS_INFO.aggregateRating.ratingValue}★, ${BUSINESS_INFO.aggregateRating.reviewCount} reviews. Free estimates. Call for current availability. Licensed & insured. Serving NY, NJ & CT.`}
         keywords="garage door installation, new garage door, garage door replacement, garage door installer"
       />
       <FAQSchema faqs={faqs} />
@@ -329,7 +329,7 @@ export default function GarageDoorInstallationNewYorkPage() {
                 <div className="flex items-start">
                   <i className="ri-check-line text-orange-500 text-xl mt-1 mr-3" aria-hidden="true" />
                   <div>
-                    <h3 className="font-semibold text-gray-900">Fast Service</h3>
+                    <h3 className="font-semibold text-gray-900">Local Scheduling</h3>
                     <p className="text-gray-600">Quick scheduling — call to confirm availability for your area.</p>
                   </div>
                 </div>

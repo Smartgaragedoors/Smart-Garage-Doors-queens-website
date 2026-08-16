@@ -39,7 +39,7 @@ export default function CommercialMaintenanceContractsPage() {
           {
             title: 'Priority Breakdown Dispatch',
             description:
-              'Contract accounts go to the front of the line when a door fails between visits. 24/7 emergency line, exact ETA when you call.',
+              'Contract accounts go to the front of the line when a door fails between visits. emergency line, exact ETA when you call.',
             icon: 'ri-alarm-warning-line',
           },
           {

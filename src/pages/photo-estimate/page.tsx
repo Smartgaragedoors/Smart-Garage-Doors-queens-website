@@ -53,7 +53,7 @@ export default function PhotoEstimatePage() {
             'Step 2: Attach 2-3 photos of your door and the problem area (more on what to shoot below).',
             'Step 3: Add a sentence about what happened — "loud bang, door won’t open" or "opener hums but nothing moves" is plenty.',
             'Step 4: A technician reviews the photos and replies with what we see, what it likely needs, and an honest price range.',
-            'Step 5: If the range works for you, we schedule the visit. Same-day appointments are often available — we’ll give you an exact ETA when you call.',
+            'Step 5: If the range works for you, we schedule the visit. We’ll give you an exact ETA when you call, based on current technician availability.',
           ],
         },
         {
@@ -103,7 +103,7 @@ export default function PhotoEstimatePage() {
         {
           question: 'Do you reply outside business hours?',
           answer:
-            'Our emergency line is answered 24/7, and photo replies are usually fast. We don’t promise a specific reply time on WhatsApp, but if your door is stuck open or you’re locked out, call us instead of texting — that’s the quickest path to getting a technician dispatched.',
+            'Our emergency line is answered by a real person, and photo replies come as soon as a technician is free. We don’t promise a specific reply time on WhatsApp, but if your door is stuck open or you’re locked out, call us instead of texting — that’s the quickest path to getting a technician dispatched.',
         },
         {
           question: 'What if I don’t use WhatsApp?',
@@ -129,7 +129,7 @@ export default function PhotoEstimatePage() {
         ],
       }}
       ctaHeadline="Get Your Free Photo Estimate"
-      ctaText="Send 2-3 photos and get an honest price range from a real technician. Same-day appointments often available — exact ETA when you call."
+      ctaText="Send 2-3 photos and get an honest price range from a real technician. Exact ETA when you call, based on current technician availability."
     />
   );
 }

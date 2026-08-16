@@ -17,21 +17,21 @@ import GuidePageTemplate from '../../components/feature/GuidePageTemplate';
 export default function OverheadDoorRepairPage() {
   return (
     <GuidePageTemplate
-      metaTitle="Overhead Door Repair & Installation | 24/7 | NY, NJ & CT"
-      metaDescription="24/7 overhead door repair for warehouses, storefronts & garages — sectional and rolling steel service doors across NYC, Long Island, NJ & Fairfield CT."
+      metaTitle="Overhead Door Repair & Installation | NY, NJ & CT"
+      metaDescription="Overhead door repair for warehouses, storefronts & garages — sectional and rolling steel service doors across NYC, Long Island, NJ & Fairfield CT."
       keywords="overhead door repair, overhead doors, emergency overhead door repair, overhead door spring replacement, overhead door installation, commercial overhead door service"
       slug="/overhead-door-repair/"
       heroImage="homeHero"
       badge="Overhead Door Service — Commercial & Residential"
       headline="Overhead Door Repair, Around the Clock"
-      subheadline="Sectional overhead doors, rolling steel service doors, and the operators that drive them — repaired and installed across NYC, Long Island, Westchester, northern NJ, and Fairfield County CT. 24/7 emergency line, exact ETA when you call."
+      subheadline="Sectional overhead doors, rolling steel service doors, and the operators that drive them — repaired and installed across NYC, Long Island, Westchester, northern NJ, and Fairfield County CT. emergency line, exact ETA when you call."
       showWhatsAppHero={true}
       whatsAppMessage="Hi — we have an overhead door problem. Sending photos for a fast assessment."
       showCommercialLeadForm={true}
       intro={[
         'Whether the sign on the building says warehouse, firehouse, auto shop, or storefront, the door everyone depends on is an overhead door — a sectional door riding tracks to the ceiling, or a rolling steel door coiling above the opening. When it stops halfway, comes off track, or drops a spring, the building stops working with it.',
         'We repair and install overhead doors of every construction: commercial sectional doors, rolling steel service doors and grilles, insulated dock doors, and high-lift and vertical-lift track configurations, along with the commercial operators — jackshaft, trolley, and hoist — that drive them. Residential overhead doors get the same treatment on the same trucks.',
-        'Down door right now? Call the number above — the emergency line answers 24/7 and commercial calls get priority dispatch with an exact ETA. Not urgent? Text photos over WhatsApp and a technician will reply with what it needs and what it costs.',
+        'Down door right now? Call the number above — the emergency line takes the call and commercial calls get priority dispatch with an exact ETA. Not urgent? Text photos over WhatsApp and a technician will reply with what it needs and what it costs.',
       ]}
       criteria={{
         title: 'What We Repair on Overhead Doors',
@@ -79,7 +79,7 @@ export default function OverheadDoorRepairPage() {
         {
           heading: 'Commercial Overhead Doors: Downtime Is the Real Cost',
           paragraphs: [
-            'For a warehouse or distribution operation, an overhead door failure isn\'t a repair ticket — it\'s a blocked bay, a trailer that can\'t unload, or a building that can\'t be secured overnight. That\'s why commercial calls get priority dispatch on our 24/7 line, technicians carry high-cycle springs and common commercial parts on the truck, and every job closes with a written record of what was done.',
+            'For a warehouse or distribution operation, an overhead door failure isn\'t a repair ticket — it\'s a blocked bay, a trailer that can\'t unload, or a building that can\'t be secured overnight. That\'s why commercial calls get priority dispatch on our emergency line, technicians carry high-cycle springs and common commercial parts on the truck, and every job closes with a written record of what was done.',
             'We service overhead doors for warehouses, distribution centers, auto shops, fire stations, self-storage facilities, and retail storefronts across Queens, Brooklyn, Staten Island, Long Island, Westchester and Rockland counties, Bergen, Passaic, Hudson, and Essex counties in New Jersey, and Fairfield County, Connecticut.',
             'Multi-site accounts get one contact, one rate structure, and per-door records at every location — and our maintenance contracts put the whole thing on a scheduled footing with priority breakdown response built in.',
           ],
@@ -87,7 +87,7 @@ export default function OverheadDoorRepairPage() {
         {
           heading: 'Residential Overhead Doors Too',
           paragraphs: [
-            'The same overhead door mechanics live in your home garage — torsion springs, tracks, rollers, and an opener. We repair and replace residential overhead doors across the same service area, same-day in most cases, with upfront pricing before any work begins and a 1-year parts and labor warranty.',
+            'The same overhead door mechanics live in your home garage — torsion springs, tracks, rollers, and an opener. We repair and replace residential overhead doors across the same service area, with upfront pricing before any work begins and a 1-year parts and labor warranty.',
           ],
         },
         {
@@ -101,7 +101,7 @@ export default function OverheadDoorRepairPage() {
         {
           question: 'Do you offer emergency overhead door repair?',
           answer:
-            'Yes — the emergency line answers 24/7, and commercial down-door calls get priority dispatch. We give you an exact ETA when you call based on technician position at that moment.',
+            'Yes — the emergency line takes these calls, and commercial down-door calls get priority dispatch. We give you an exact ETA when you call based on technician position at that moment.',
         },
         {
           question: 'What does overhead door spring replacement involve?',
@@ -129,7 +129,7 @@ export default function OverheadDoorRepairPage() {
             'No — we\'re Smart Garage Doors, an independent local company. "Overhead door" on this page refers to the door type. If you\'re deciding between us and an Overhead Door Corporation distributor, see our comparison page for an honest side-by-side.',
         },
       ]}
-      bottomLine="Sectional or rolling steel, warehouse bay or home garage — overhead doors fail at the same points: springs, cables, tracks, and operators. We fix all of them across NYC, Long Island, Westchester, northern NJ, and Fairfield County CT, with a 24/7 emergency line, priority commercial dispatch, upfront pricing, and a written record on every job."
+      bottomLine="Sectional or rolling steel, warehouse bay or home garage — overhead doors fail at the same points: springs, cables, tracks, and operators. We fix all of them across NYC, Long Island, Westchester, northern NJ, and Fairfield County CT, with a emergency line, priority commercial dispatch, upfront pricing, and a written record on every job."
       relatedLinks={{
         title: 'Related Services',
         links: [
@@ -142,7 +142,7 @@ export default function OverheadDoorRepairPage() {
         ],
       }}
       ctaHeadline="Get Your Overhead Door Back in Service"
-      ctaText="24/7 emergency line with priority commercial dispatch — or text photos of the door and get an assessment with pricing before we roll a truck."
+      ctaText="emergency line with priority commercial dispatch — or text photos of the door and get an assessment with pricing before we roll a truck."
     />
   );
 }

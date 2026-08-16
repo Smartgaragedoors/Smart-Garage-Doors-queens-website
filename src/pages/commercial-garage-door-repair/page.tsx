@@ -3,14 +3,14 @@ import GuidePageTemplate from '../../components/feature/GuidePageTemplate';
 export default function CommercialGarageDoorRepairPage() {
   return (
     <GuidePageTemplate
-      metaTitle="Commercial Garage Door Repair | NY, NJ & CT | 24/7 Service"
-      metaDescription="Commercial overhead door, rolling gate & loading dock repair across NY, NJ & CT. 24/7 line, COI on request, documented work, maintenance plans."
+      metaTitle="Commercial Garage Door Repair | NY, NJ & CT | Licensed & Insured"
+      metaDescription="Commercial overhead door, rolling gate & loading dock repair across NY, NJ & CT. emergency line, COI on request, documented work, maintenance plans."
       keywords="commercial garage door repair, commercial overhead door repair, loading dock door repair, rolling gate repair, commercial garage door repair near me, commercial garage door repair Queens, commercial garage door repair Long Island, commercial garage door repair Westchester, commercial garage door repair NJ"
       slug="/commercial-garage-door-repair/"
       heroImage="homeHero"
       badge="Commercial & Industrial"
       headline="Commercial Garage Door Repair Across NY, NJ & CT"
-      subheadline="Overhead doors, rolling steel gates, and loading dock doors — repaired by technicians who understand that a down door means stopped trucks and lost revenue. 24/7 emergency line, COI on request, documented work on every job."
+      subheadline="Overhead doors, rolling steel gates, and loading dock doors — repaired by technicians who understand that a down door means stopped trucks and lost revenue. emergency line, COI on request, documented work on every job."
       showWhatsAppHero={true}
       whatsAppMessage="Hi — we have a commercial door/gate issue. Sending photos for a fast assessment."
       showCommercialLeadForm={true}
@@ -24,7 +24,7 @@ export default function CommercialGarageDoorRepairPage() {
         intro: 'What it looks like to have one door vendor who actually carries their weight.',
         cards: [
           {
-            title: '24/7 Emergency Line',
+            title: 'Emergency Line',
             description:
               'Commercial doors don’t fail on a schedule. The emergency line answers around the clock, and commercial calls get priority dispatch — exact ETA when you call.',
             icon: 'ri-phone-fill',
@@ -136,9 +136,9 @@ export default function CommercialGarageDoorRepairPage() {
             'Yes. We are licensed and insured, and a certificate of insurance is available on request — including COIs naming your building, property manager, or facility owner where vendor requirements call for it. Tell us what the certificate needs to show and we’ll get it to you before the visit.',
         },
         {
-          question: 'How fast can you get here for a commercial emergency?',
+          question: 'How does scheduling work for a commercial emergency?',
           answer:
-            'Commercial emergencies get priority dispatch on our 24/7 line — a down bay door or stuck gate moves ahead of routine work on the schedule. We give you an exact ETA when you call based on technician position at that moment, rather than quoting a number on a website that may not hold.',
+            'Commercial emergencies get priority dispatch on our emergency line — a down bay door or stuck gate moves ahead of routine work on the schedule. We give you an exact ETA when you call based on technician position at that moment, rather than quoting a number on a website that may not hold.',
         },
         {
           question: 'What commercial brands do you service?',
@@ -146,7 +146,7 @@ export default function CommercialGarageDoorRepairPage() {
             'We service LiftMaster commercial operators (jackshaft, trolley, and hoist models), commercial doors from Clopay, Amarr, and Wayne Dalton, and most rolling steel gate brands. If you’re not sure what you have, send a photo of the door and the operator data plate over WhatsApp and we’ll identify it before we come out.',
         },
       ]}
-      bottomLine="A commercial door that’s down is a bay that’s not earning. We answer 24/7, dispatch commercial calls first, carry high-cycle parts on the truck, document every job with photos, and provide COIs on request — whether you need one repair today or a vendor who covers every facility you manage across NY, NJ, and CT."
+      bottomLine="A commercial door that’s down is a bay that’s not earning. We answer the phone, dispatch commercial calls first, carry high-cycle parts on the truck, document every job with photos, and provide COIs on request — whether you need one repair today or a vendor who covers every facility you manage across NY, NJ, and CT."
       relatedLinks={{
         title: 'Commercial Services & Service Areas',
         links: [
@@ -165,7 +165,7 @@ export default function CommercialGarageDoorRepairPage() {
         ],
       }}
       ctaHeadline="Get Your Door Back in Service"
-      ctaText="24/7 commercial emergency line with priority dispatch — or text photos of the door for a fast assessment and price before we roll. COI and documentation available on request."
+      ctaText="commercial emergency line with priority dispatch — or text photos of the door for a fast assessment and price before we roll. COI and documentation available on request."
     />
   );
 }
