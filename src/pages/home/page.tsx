@@ -164,6 +164,10 @@ function CommercialStrip() {
             <i className="ri-checkbox-circle-line text-orange-400" aria-hidden="true" />
             Emergency line available
           </span>
+          <a href="/commercial-pennsylvania-dock-doors/" className="inline-flex items-center gap-2 text-blue-200 hover:text-white underline decoration-orange-400/50 underline-offset-2 transition-colors">
+            <i className="ri-map-pin-2-line text-orange-400" aria-hidden="true" />
+            Pennsylvania commercial dock-door service — Valley Dock Doors
+          </a>
         </div>
       </div>
     </section>

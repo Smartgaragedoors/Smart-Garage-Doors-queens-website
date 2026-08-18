@@ -109,7 +109,7 @@ export default function PedestrianGarageDoorsPage() {
         ],
       }}
       ctaHeadline="Get a Quote on a Custom Pedestrian Door"
-      ctaText="Text us photos of your garage opening for a fast quote, or call to talk through sizing and door styles. Upfront pricing and a 1-year parts and labor warranty."
+      ctaText="Text us photos of your garage opening for a quote, or call to talk through sizing and door styles. Upfront pricing and a 1-year parts and labor warranty."
     />
   );
 }

@@ -12,7 +12,7 @@ export default function LoadingDockDoorRepairPage() {
       headline="Loading Dock Door Repair for Warehouses Across NY, NJ & CT"
       subheadline="A down bay door stops trucks and revenue, not just traffic through one opening. Forklift-damage repair, track and operator service, and priority dispatch for facilities that can't wait."
       showWhatsAppHero={true}
-      whatsAppMessage="Hi — we have a loading dock door down. Sending photos and the operator model for a fast assessment."
+      whatsAppMessage="Hi — we have a loading dock door down. Sending photos and the operator model for an assessment."
       showCommercialLeadForm={true}
       intro={[
         'A dock door doesn’t care about your outbound schedule. It goes down at 6:40am with a trailer on the plate, or mid-shift during a wave, and from that moment every decision either shortens the outage or stretches it. Most failures trace back to a short list of causes — forklift strikes, track misalignment, worn rollers, operators burned out from lifting a door the springs should have been carrying — and most of them announce themselves for weeks before the bay actually goes down.',
@@ -133,7 +133,7 @@ export default function LoadingDockDoorRepairPage() {
             'Yes. These are some of our most common commercial accounts — fast-cycling doors and levelers where a stuck door creates a compliance or temperature problem, not just a delay. We document every visit so the paperwork holds up for your own audits.',
         },
       ]}
-      bottomLine="A down bay door is a throughput problem, not just a door problem. We repair loading dock and bay doors — and the levelers, seals, and operators around them — for warehouses across Queens, Brooklyn, Staten Island, Long Island, Westchester, Rockland, Bergen, Passaic, Hudson, Essex, and Fairfield County, CT — priority dispatch, high-cycle parts on the truck, and per-door records for multi-facility accounts. Send the door size and photos and we'll get you a number fast."
+      bottomLine="A down bay door is a throughput problem, not just a door problem. We repair loading dock and bay doors — and the levelers, seals, and operators around them — for warehouses across Queens, Brooklyn, Staten Island, Long Island, Westchester, Rockland, Bergen, Passaic, Hudson, Essex, and Fairfield County, CT — priority dispatch, high-cycle parts on the truck, and per-door records for multi-facility accounts. Send the door size and photos and we'll get you a number."
       relatedLinks={{
         title: 'Related Commercial Services',
         links: [
@@ -147,7 +147,7 @@ export default function LoadingDockDoorRepairPage() {
         ],
       }}
       ctaHeadline="Get Your Bay Back in Service"
-      ctaText="priority dispatch for warehouse and distribution accounts — or send the door size, brand, and photos for a fast assessment before we roll."
+      ctaText="priority dispatch for warehouse and distribution accounts — or send the door size, brand, and photos for an assessment before we roll."
     />
   );
 }

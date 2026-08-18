@@ -12,7 +12,7 @@ export default function RollingSteelGateRepairPage() {
       headline="Rolling Steel Gate Repair Across NY, NJ & CT"
       subheadline="A gate that won't close at closing time is a security problem, not a maintenance ticket. Slat, barrel spring, and motor repair for storefront and security gates — emergency line."
       showWhatsAppHero={true}
-      whatsAppMessage="Hi — our rolling gate is stuck and we need it closed/secured. Sending photos for a fast assessment."
+      whatsAppMessage="Hi — our rolling gate is stuck and we need it closed/secured. Sending photos for an assessment."
       showCommercialLeadForm={true}
       intro={[
         'A rolling steel gate fails at the worst possible moment — stuck open at closing time, or jammed shut the morning you need to open. Either way, it stops being a maintenance item and becomes a security and revenue problem the second it happens.',
@@ -138,7 +138,7 @@ export default function RollingSteelGateRepairPage() {
         ],
       }}
       ctaHeadline="Get Your Gate Secured Today"
-      ctaText="emergency line for stuck-open or stuck-closed gates — or send photos for a fast assessment before we roll. Slat, spring, and operator parts carried on the truck."
+      ctaText="emergency line for stuck-open or stuck-closed gates — or send photos for an assessment before we roll. Slat, spring, and operator parts carried on the truck."
     />
   );
 }

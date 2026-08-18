@@ -155,7 +155,7 @@ export default function InsulatedGarageDoorCostLongIslandPage() {
         ],
       }}
       ctaHeadline="Find the Right Insulated Door for Your Home"
-      ctaText="Text us photos for a fast quote, or call to talk through R-values and styles. Upfront pricing, premium brands, and a 1-year parts and labor warranty."
+      ctaText="Text us photos for a quote, or call to talk through R-values and styles. Upfront pricing, premium brands, and a 1-year parts and labor warranty."
     />
   );
 }

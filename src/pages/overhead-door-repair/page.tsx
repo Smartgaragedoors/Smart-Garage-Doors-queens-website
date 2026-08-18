@@ -26,7 +26,7 @@ export default function OverheadDoorRepairPage() {
       headline="Overhead Door Repair, Around the Clock"
       subheadline="Sectional overhead doors, rolling steel service doors, and the operators that drive them — repaired and installed across NYC, Long Island, Westchester, northern NJ, and Fairfield County CT. emergency line, exact ETA when you call."
       showWhatsAppHero={true}
-      whatsAppMessage="Hi — we have an overhead door problem. Sending photos for a fast assessment."
+      whatsAppMessage="Hi — we have an overhead door problem. Sending photos for an assessment."
       showCommercialLeadForm={true}
       intro={[
         'Whether the sign on the building says warehouse, firehouse, auto shop, or storefront, the door everyone depends on is an overhead door — a sectional door riding tracks to the ceiling, or a rolling steel door coiling above the opening. When it stops halfway, comes off track, or drops a spring, the building stops working with it.',

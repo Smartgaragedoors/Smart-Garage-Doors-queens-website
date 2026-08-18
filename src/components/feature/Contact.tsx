@@ -52,7 +52,7 @@ function Contact() {
             One Tri-State Team, A Local Feel for Every Caller
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto text-sm md:text-base">
-            Calling is fastest for emergencies. If you prefer the form, tell us where you are and what the door is doing so we can route you correctly.
+            Calling is the most direct option for emergencies. If you prefer the form, tell us where you are and what the door is doing so we can route you correctly.
           </p>
         </div>
 

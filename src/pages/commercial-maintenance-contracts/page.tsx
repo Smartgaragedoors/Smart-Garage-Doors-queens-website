@@ -109,7 +109,7 @@ export default function CommercialMaintenanceContractsPage() {
             'It prevents most of the expensive, schedule-wrecking kind. Door components fail on predictable wear curves driven by cycle counts, so quarterly inspections catch fraying cables, worn rollers, and springs nearing rated life before they fail in service.',
         },
         {
-          question: 'Do contract customers get faster emergency response?',
+          question: 'Do contract customers get priority emergency dispatch?',
           answer:
             'Yes — priority dispatch for contract accounts is one of the main reasons to sign one. Contract breakdown calls go ahead of cold calls on our schedule, with an exact ETA when you call.',
         },
