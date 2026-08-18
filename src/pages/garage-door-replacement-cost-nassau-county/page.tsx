@@ -159,7 +159,7 @@ export default function GarageDoorReplacementCostNassauCountyPage() {
         ],
       }}
       ctaHeadline="Get an Exact Price for Your Door"
-      ctaText="Text us photos of your garage door for a fast replacement quote, or call to talk through options. Upfront pricing, premium doors, and a 1-year parts and labor warranty."
+      ctaText="Text us photos of your garage door for a replacement quote, or call to talk through options. Upfront pricing, premium doors, and a 1-year parts and labor warranty."
     />
   );
 }

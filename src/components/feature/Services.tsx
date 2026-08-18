@@ -5,7 +5,7 @@ function Services() {
     {
       icon: 'ri-tools-line',
       title: 'Emergency Repairs',
-      description: 'Broken spring, car stuck, or door off track? We dispatch fast and carry common parts for same-visit repairs.',
+      description: 'Broken spring, car stuck, or door off track? Our trucks carry common parts so most repairs finish on the first visit.',
       link: '/emergency-garage-door-repair/'
     },
     {
@@ -17,7 +17,7 @@ function Services() {
     {
       icon: 'ri-remote-control-line',
       title: 'Opener Repair',
-      description: 'Fast diagnosis for dead motors, remote issues, sensors, wall controls, and smart opener upgrades.',
+      description: 'Diagnosis and repair for dead motors, remote issues, sensors, wall controls, and smart opener upgrades.',
       link: '/opener-repair-installation/'
     },
     {
@@ -45,10 +45,10 @@ function Services() {
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-8 md:mb-10">
           <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-3 md:mb-4">
-            What Broke? We Fix It Today.
+            What Broke? We Fix It Right.
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto text-sm md:text-base">
-            Most garage door problems are urgent. We carry common parts on every truck so we can finish the job on the first visit.
+            Most garage door problems are urgent. We carry common parts on every truck so most jobs can finish on the first visit.
           </p>
         </div>
 

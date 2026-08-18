@@ -12,7 +12,7 @@ export default function CommercialGarageDoorRepairPage() {
       headline="Commercial Garage Door Repair Across NY, NJ & CT"
       subheadline="Overhead doors, rolling steel gates, and loading dock doors — repaired by technicians who understand that a down door means stopped trucks and lost revenue. emergency line, COI on request, documented work on every job."
       showWhatsAppHero={true}
-      whatsAppMessage="Hi — we have a commercial door/gate issue. Sending photos for a fast assessment."
+      whatsAppMessage="Hi — we have a commercial door/gate issue. Sending photos for an assessment."
       showCommercialLeadForm={true}
       intro={[
         'A residential garage door that breaks is an inconvenience. A commercial bay door that breaks is a bottleneck: trucks can’t load, deliveries back up, and every hour the door stays down costs real money. That’s why we run commercial calls differently — priority dispatch on the emergency line, technicians who carry high-cycle commercial parts, and a written record of what was done so your facilities file is always current.',
@@ -157,6 +157,7 @@ export default function CommercialGarageDoorRepairPage() {
           { label: 'For Property Managers', href: '/property-managers/' },
           { label: 'Commercial — Long Island', href: '/commercial-long-island-ny/' },
           { label: 'Commercial — Northern NJ', href: '/commercial-northern-nj/' },
+          { label: 'Commercial door service in Eastern Pennsylvania — Valley Dock Doors', href: '/commercial-pennsylvania-dock-doors/' },
           { label: 'Queens, NY', href: '/queens-ny/' },
           { label: 'Brooklyn, NY', href: '/brooklyn-ny/' },
           { label: 'Long Island, NY', href: '/long-island-ny/' },
@@ -165,7 +166,7 @@ export default function CommercialGarageDoorRepairPage() {
         ],
       }}
       ctaHeadline="Get Your Door Back in Service"
-      ctaText="commercial emergency line with priority dispatch — or text photos of the door for a fast assessment and price before we roll. COI and documentation available on request."
+      ctaText="commercial emergency line with priority dispatch — or text photos of the door for an assessment and price before we roll. COI and documentation available on request."
     />
   );
 }

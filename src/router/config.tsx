@@ -105,6 +105,7 @@ const RollingSteelGateRepairPage = lazy(() => import('../pages/rolling-steel-gat
 const CommercialMaintenanceContractsPage = lazy(() => import('../pages/commercial-maintenance-contracts/page').then(module => ({ default: module.default })));
 const CommercialLongIslandPage = lazy(() => import('../pages/commercial-long-island-ny/page').then(module => ({ default: module.default })));
 const CommercialNorthernNJPage = lazy(() => import('../pages/commercial-northern-nj/page').then(module => ({ default: module.default })));
+const CommercialPennsylvaniaDockDoorsPage = lazy(() => import('../pages/commercial-pennsylvania-dock-doors/page').then(module => ({ default: module.default })));
 
 // Recruiting
 const CareersPage = lazy(() => import('../pages/careers/page').then(module => ({ default: module.default })));
@@ -504,6 +505,10 @@ const routes: RouteObject[] = [
   {
     path: '/commercial-northern-nj/',
     element: <CommercialNorthernNJPage />
+  },
+  {
+    path: '/commercial-pennsylvania-dock-doors/',
+    element: <CommercialPennsylvaniaDockDoorsPage />
   },
 
   // Recruiting

@@ -12,7 +12,7 @@ export default function CommercialLongIslandPage() {
       headline="Commercial Garage Door Repair Across Long Island"
       subheadline="Overhead doors, loading dock doors and levelers, and rolling steel gates for warehouses, distribution centers, and commercial buildings across Nassau and Suffolk counties — priority dispatch, COI on request."
       showWhatsAppHero={true}
-      whatsAppMessage="Hi — we have a commercial door/gate issue at our Long Island facility. Sending photos for a fast assessment."
+      whatsAppMessage="Hi — we have a commercial door/gate issue at our Long Island facility. Sending photos for an assessment."
       showCommercialLeadForm={true}
       intro={[
         'Long Island carries a real concentration of warehouse, distribution, and light-industrial space — the Hauppauge Industrial Park, the corridor through Bohemia and Ronkonkoma, and the Route 110 stretch through Melville and Farmingdale all run on overhead doors, dock doors, and rolling gates that don\'t get a day off. When one of them goes down, it\'s not a maintenance ticket — it\'s a stopped bay, a blocked truck, or an unsecured storefront.',
@@ -117,7 +117,7 @@ export default function CommercialLongIslandPage() {
         ],
       }}
       ctaHeadline="Get Your Long Island Facility Back in Service"
-      ctaText="commercial emergency line with priority dispatch across Nassau and Suffolk counties — or text photos of the door for a fast assessment and price before we roll."
+      ctaText="commercial emergency line with priority dispatch across Nassau and Suffolk counties — or text photos of the door for an assessment and price before we roll."
     />
   );
 }

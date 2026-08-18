@@ -39,7 +39,7 @@ function Footer() {
               fetchPriority="low"
             />
             <p className="text-gray-200 mb-4">
-              Tri-State garage door repair and replacement with local-feeling dispatch, real reviews, and fast emergency response.
+              Tri-State garage door repair and replacement with local-feeling dispatch, real reviews, and an emergency line for urgent issues.
             </p>
             <div className="flex space-x-4">
               <a href="https://www.facebook.com/profile.php?id=61563773137785" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook page" className="text-gray-200 hover:text-orange-400 transition-colors">
@@ -65,6 +65,7 @@ function Footer() {
               <li><a href="/liftmaster-opener-installation/" className="text-gray-200 hover:text-orange-400 transition-colors">LiftMaster Installation</a></li>
               <li><a href="/pedestrian-garage-doors/" className="text-gray-200 hover:text-orange-400 transition-colors">Pedestrian Garage Doors</a></li>
               <li><a href="/commercial-garage-door-repair/" className="text-gray-200 hover:text-orange-400 transition-colors">Commercial Door Repair</a></li>
+              <li><a href="/commercial-pennsylvania-dock-doors/" className="text-gray-200 hover:text-orange-400 transition-colors">Pennsylvania Commercial Division</a></li>
               <li><a href="/overhead-door-repair/" className="text-gray-200 hover:text-orange-400 transition-colors">Overhead Door Repair</a></li>
               <li><a href="/reparacion-de-puertas-de-garaje/" lang="es" className="text-gray-200 hover:text-orange-400 transition-colors">Reparación de Puertas de Garaje</a></li>
               <li><a href="/property-managers/" className="text-gray-200 hover:text-orange-400 transition-colors">For Property Managers</a></li>

@@ -33,6 +33,18 @@ const OrganizationSchema: React.FC = () => {
       BUSINESS_INFO.socialMedia.instagram,
       BUSINESS_INFO.socialMedia.googleMaps,
     ],
+    // Valley Dock Doors — the Eastern Pennsylvania commercial dock/overhead-door
+    // division (own domain, own PA line). Mirrored from the Valley side via
+    // parentOrganization on /commercial-pennsylvania-dock-doors/. Only
+    // verifiable facts: name, URL, phone — no invented address or ratings.
+    "subOrganization": {
+      "@type": "Organization",
+      "@id": "https://www.valleydockdoors.com/#organization",
+      "name": "Valley Dock Doors",
+      "url": "https://www.valleydockdoors.com",
+      "telephone": "+16108398817",
+      "description": "Eastern Pennsylvania commercial dock and overhead-door division of Smart Garage Doors, serving the Lehigh Valley.",
+    },
     // NOTE: aggregateRating intentionally lives ONLY on LocalBusinessSchema.
     // Emitting it on multiple entities on one page triggers GSC's critical
     // "Review has multiple aggregate ratings" error.

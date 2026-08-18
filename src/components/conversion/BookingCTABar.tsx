@@ -26,7 +26,7 @@ export default function BookingCTABar({
               <p className="text-gray-600 text-sm md:text-base">{subtitle}</p>
             ) : (
               <p className="text-gray-600 text-sm md:text-base">
-                Fast local response, upfront quotes, licensed and insured service, and {BUSINESS_INFO.aggregateRating.reviewCount} Google reviews.
+                Local dispatch, total-price quotes, licensed and insured service, and {BUSINESS_INFO.aggregateRating.reviewCount} Google reviews.
               </p>
             )}
           </div>

@@ -516,7 +516,7 @@ const BLOG_POSTS: Record<string, {
       </ul>
       
       <h2>Professional Spring Replacement Services</h2>
-      <p>Smart Garage Doors provides expert spring replacement services throughout NY, NJ & CT. We provide transparent total pricing and comprehensive warranties. Our certified technicians safely replace all spring types with high-quality components and professional installation. Contact us for a free estimate and fast, reliable spring replacement service.</p>
+      <p>Smart Garage Doors provides expert spring replacement services throughout NY, NJ & CT. We provide transparent total pricing and comprehensive warranties. Our certified technicians safely replace all spring types with high-quality components and professional installation. Contact us for a free estimate and reliable spring replacement service.</p>
       
       <p>When you are comparing quotes, make sure you are looking at qualified providers. You can <a href="/spring-replacement/">schedule garage door spring replacement with Smart Garage Doors</a> for precise pricing and safe installation.</p>
     `,
@@ -982,7 +982,7 @@ const BLOG_POSTS: Record<string, {
     content: `
       <h2>Garage Door Repair in Flushing</h2>
       <p>Smart Garage Doors offers repair, spring replacement, opener service, and installation in Flushing and surrounding Queens areas.</p>
-      <h2>Fast, Reliable Service</h2>
+      <h2>Reliable, Professional Service</h2>
       <p>We give free total-price estimates and use quality parts.</p>
       <h2>Book Flushing Service</h2>
       <p>For garage door repair or installation in Flushing, call (914) 557-6816 or <a href="/book-now/">schedule online</a>.</p>
@@ -1014,7 +1014,7 @@ const BLOG_POSTS: Record<string, {
   'darien-ct-garage-door-repair': {
     title: "Garage Door Repair in Darien CT: Professional Service Guide",
     slug: 'darien-ct-garage-door-repair',
-    description: "Expert garage door repair services in Darien, Connecticut. Serving Fairfield County with fast, reliable service.",
+    description: "Expert garage door repair services in Darien, Connecticut. Serving Fairfield County with licensed, reliable service.",
     content: `
       <h2>Garage Door Repair in Darien</h2>
       <p>Smart Garage Doors provides repair, spring replacement, opener service, and installation in Darien and nearby Fairfield County.</p>

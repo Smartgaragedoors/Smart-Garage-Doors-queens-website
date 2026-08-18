@@ -16,7 +16,7 @@ export default function LiftMasterOpenerInstallationPage() {
       intro={[
         "When a customer asks us which garage door opener to buy, the answer is almost always some model of LiftMaster. It's the brand most professional installers put in their own homes: quiet belt drives, the myQ app that actually works, battery backup that keeps the door moving through an outage, and parts support that's still there a decade later.",
         "To be clear about who we are: we're an independent garage door company, not a LiftMaster storefront. We install and service LiftMaster every week — alongside other major brands — and we'll tell you straight when a $150 repair beats a $700 replacement.",
-        "This page covers what LiftMaster installation costs, which model fits which garage, and exactly what's included when we do the work. Photos of your garage and current opener get you a fast, accurate quote — and the price is confirmed upfront before any work begins.",
+        "This page covers what LiftMaster installation costs, which model fits which garage, and exactly what's included when we do the work. Photos of your garage and current opener get you an accurate quote — and the price is confirmed upfront before any work begins.",
       ]}
       costTable={{
         title: 'LiftMaster Opener Installation Costs',
@@ -142,7 +142,7 @@ export default function LiftMasterOpenerInstallationPage() {
         ],
       }}
       ctaHeadline="Ready for a Quieter, Smarter Garage Door?"
-      ctaText="Text us photos of your garage and opener for a fast quote, or call to talk models. Upfront pricing, clean installation, and a 1-year parts and labor warranty."
+      ctaText="Text us photos of your garage and opener for a quote, or call to talk models. Upfront pricing, clean installation, and a 1-year parts and labor warranty."
     />
   );
 }

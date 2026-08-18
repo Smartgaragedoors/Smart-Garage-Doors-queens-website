@@ -255,7 +255,7 @@ export default function ServiceAreasPage() {
             Need Garage Door Service in Your Area?
           </h2>
           <p className="text-xl mb-8 text-blue-100">
-            Contact us today for fast, professional service across NY, NJ, and CT.
+            Contact us today for licensed, professional service across NY, NJ, and CT.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

@@ -21,7 +21,7 @@ export default function CommercialNorthernNJPage() {
       headline="Commercial Garage Door Repair Across Northern New Jersey"
       subheadline="Overhead doors, loading dock doors and levelers, and rolling steel gates for warehouses, distribution centers, and commercial buildings across Bergen, Passaic, Hudson, and Essex counties — priority dispatch, COI on request."
       showWhatsAppHero={true}
-      whatsAppMessage="Hi — we have a commercial door/gate issue at our New Jersey facility. Sending photos for a fast assessment."
+      whatsAppMessage="Hi — we have a commercial door/gate issue at our New Jersey facility. Sending photos for an assessment."
       showCommercialLeadForm={true}
       intro={[
         'Northern New Jersey runs one of the densest logistics footprints in the country. The Meadowlands corridor — Secaucus, Carlstadt, Moonachie, East Rutherford — is wall-to-wall warehouse and distribution space, and the port-adjacent corridor through Newark and Elizabeth moves freight around the clock. Every one of those buildings depends on dock doors, overhead doors, and rolling gates that were never designed to sit broken until Monday.',
@@ -126,7 +126,7 @@ export default function CommercialNorthernNJPage() {
         ],
       }}
       ctaHeadline="Get Your New Jersey Facility Back in Service"
-      ctaText="commercial emergency line with priority dispatch across Bergen, Passaic, Hudson, and Essex counties — or text photos of the door for a fast assessment and price before we roll."
+      ctaText="commercial emergency line with priority dispatch across Bergen, Passaic, Hudson, and Essex counties — or text photos of the door for an assessment and price before we roll."
     />
   );
 }

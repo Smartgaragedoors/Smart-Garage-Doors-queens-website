@@ -220,6 +220,8 @@ export default function Header() {
                     <a href="/property-managers/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">For Property Managers</a>
                     <a href="/commercial-maintenance-contracts/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Maintenance Contracts</a>
                     <a href="/commercial-long-island-ny/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Commercial — Long Island</a>
+                    <a href="/commercial-northern-nj/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Commercial — Northern NJ</a>
+                    <a href="/commercial-pennsylvania-dock-doors/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Pennsylvania — Valley Dock Doors</a>
                   </div>
                 )}
               </div>
