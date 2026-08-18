@@ -22,7 +22,7 @@ anywhere, reorder freely — the agent always takes the top unchecked one.
 
 - [x] Garage door cable replacement: signs & cost (2026-08-12, `garage-door-cable-replacement-cost-signs`)
 - [x] Roll-up gate repair guide for facilities managers (2026-08-12, `roll-up-gate-repair-facilities-guide`)
-- [ ] Garage door opener won't work after a power outage: reset steps that actually work (targets "garage door opener not working" cluster; residential, high emergency intent)
+- [x] Garage door opener won't work after a power outage: reset steps that actually work (2026-08-18, `garage-door-opener-not-working-after-power-outage`)
 - [ ] Garage door insulation R-values explained: what the tri-state climate actually requires (supports /garage-door-insulation/ — internal-link it)
 - [ ] Why is my garage door so loud? Noise diagnosis by sound (grinding vs. squeaking vs. banging)
 - [ ] Cómo mantener su puerta de garaje en invierno (Spanish — winter prep; publish late October, skip until then)

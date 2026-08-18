@@ -1,0 +1,56 @@
+{
+  "title": "Garage Door Opener Not Working After a Power Outage? Try This First",
+  "description": "Power came back but your garage door opener won't respond? Here's the real reset sequence to try before assuming the opener is broken — in the order that actually works.",
+  "slug": "garage-door-opener-not-working-after-power-outage",
+  "date": "2026-08-18",
+  "updatedAt": "2026-08-18",
+  "city": null,
+  "service": "Garage Door Opener Repair",
+  "image": "/images/jobs/brown-raised-panel-double-garage-doors-brick-home.webp",
+  "imageAlt": "Garage door and opener on a brick home after service by Smart Garage Doors",
+  "keywords": "garage door opener not working after power outage, garage door opener reset, garage door won't open after power outage, garage door opener not responding, reset garage door opener",
+  "canonicalUrl": "https://www.smartestgaragedoors.com/blog/garage-door-opener-not-working-after-power-outage/",
+  "h1": "Garage Door Opener Not Working After a Power Outage? Try This First",
+  "intro": "The power flickers back on, half the house resets itself, and then you hit the garage door button and... nothing. No light, no motor hum, no movement. Before you assume the opener died, know that most post-outage opener problems aren't the opener at all — they're a disconnected carriage, a tripped breaker, or a safety sensor that got bumped out of alignment while the door was being worked by hand in the dark. Here's the actual troubleshooting order, the one a technician runs through on a service call, before anyone reaches for a wrench.",
+  "sections": [
+    {
+      "heading": "First, confirm the opener is actually getting power",
+      "body": "This sounds obvious, but it's the single most common callback after an outage. Garage door openers are almost always plugged into a GFCI outlet, and GFCI outlets trip easily — a power surge when the grid comes back online is exactly the kind of event that trips one. Look at the outlet the opener is plugged into (usually mounted near the motor unit on the ceiling) for a small reset button, and press it.\n\nIf the outlet checks out, go to the breaker panel. A whole-house outage followed by the power snapping back on is a classic trigger for a tripped breaker, especially on an older panel. Flip the breaker fully off, then back on — don't just nudge it. If the opener's status light comes on once power is confirmed, you're already halfway to done."
+    },
+    {
+      "heading": "Second, check whether the door was disconnected from the opener",
+      "body": "If anyone opened the garage door by hand during the outage, there's a good chance they pulled the red emergency release cord to do it. That cord disconnects the door from the opener's trolley so it can move freely — which is exactly what you want during an outage, and exactly why the opener does nothing afterward. It's not broken; it's just not connected to the door anymore.\n\nLook at the trolley (the piece that rides along the rail above the door) and see if it's sitting away from where the arm connects to the door. To reconnect, most systems just need the trolley pulled back until it clicks into the carriage, or the release handle pulled toward the door and the opener run through one cycle to re-engage. If you're not sure, don't force anything — a cross-connected system can bind, and that's worth a quick call instead of guesswork."
+    },
+    {
+      "heading": "Third, look at the safety sensor lights",
+      "body": "Every opener installed in the last few decades has a legally required safety sensor pair, mounted a few inches off the floor on each side of the door track, that has to see each other in a straight line for the opener to close the door. A power surge, or someone bumping a sensor while moving things around during the outage, is enough to knock one out of alignment.\n\nCheck both sensors: one is usually solid, the other blinking or dark means misalignment or an obstruction. Wipe both lenses clean, make sure nothing (a stored bin, a broom, a shadow from something new in the garage) sits in the beam, and gently adjust the crooked one until the light goes solid on both sides. This is one of the few opener issues that's genuinely safe to check yourself, since you're just looking, not touching anything under tension."
+    },
+    {
+      "heading": "Fourth, if the opener runs the motor but the door won't move right, don't force it",
+      "body": "Sometimes the opener wakes back up and the motor clearly runs, but the door reverses immediately, stops partway, or strains and won't lift. That's a different problem than a power issue — it usually means the travel limits or force settings got scrambled, which can happen when an opener loses power mid-cycle and doesn't save its last known position correctly.\n\nThis is the point to stop pressing the button repeatedly. Repeated attempts against a door that's genuinely stuck (frozen seal, an obstruction, a spring or cable that let go during the outage — coincidence, but it happens) is how a simple reset turns into a burned-out motor or a stripped gear. If the door doesn't move cleanly after the first troubleshooting pass, that's a sign something mechanical needs a look, not another button press."
+    },
+    {
+      "heading": "When it really is the opener's electronics",
+      "body": "Power outages are hard on anything with a circuit board, and garage door openers are no exception. A surge when the grid comes back online can damage the logic board or the capacitor that powers the motor, especially on units that have been in service for many years. If you've confirmed power at the outlet, reconnected the trolley, and checked the sensors — and the opener still shows no light and no response at all — that points to internal electronics rather than anything you can troubleshoot from the garage floor.\n\nAt that point, a technician can test the board and capacitor directly and tell you honestly whether it's a repair or whether the unit is old enough that replacement makes more sense. Opener repairs in our service area typically run $150 to $350 depending on the cause, and we quote the exact price before any work starts."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Why does my garage door opener do nothing at all after a power outage?",
+      "answer": "Start with power: check the GFCI outlet the opener plugs into (press its reset button) and the breaker at your panel. If power is confirmed but there's still no light or sound from the motor unit, the outage may have damaged the opener's internal electronics, which needs a technician to diagnose."
+    },
+    {
+      "question": "The opener runs but the door won't move — what's wrong?",
+      "answer": "First check whether the trolley is actually connected to the door — the emergency release cord may have been pulled to open the door by hand during the outage. If it's connected and the door still won't move cleanly, stop pressing the button repeatedly and have it looked at; forcing it can damage the motor or strip a gear."
+    },
+    {
+      "question": "How do I reconnect my garage door to the opener after using the manual release?",
+      "answer": "Locate the trolley on the rail above the door and pull it back toward the arm until it clicks into the carriage, or follow your opener's release handle back to the engaged position, then run one full cycle to confirm it's reconnected. If you're unsure whether it clicked in correctly, don't force the door — call for help rather than risk binding the system."
+    },
+    {
+      "question": "How much does it cost to repair a garage door opener?",
+      "answer": "Opener repairs in the NY/NJ/CT area generally run $150 to $350, depending on whether the issue is the circuit board, capacitor, gears, or wiring. We give an exact price before starting any work, and most repairs are completed the same day."
+    }
+  ],
+  "cta": "**Opener still not responding after checking power, the trolley, and the sensors?** Call (914) 557-6816 for a 24/7 line with an exact ETA when you call. Same-day service in most cases across NY, NJ & CT. See our [garage door opener repair service](/opener-repair-installation/) or, if you're locked out right now, our [emergency garage door repair](/emergency-garage-door-repair/) page."
+}
