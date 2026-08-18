@@ -84,7 +84,7 @@ const ContactPage = () => {
     <div className="min-h-screen bg-white">
       <DynamicMetaTags 
         title="Contact Us | Garage Door Repair NY NJ CT | Smart Garage Doors"
-        description="Contact Smart Garage Doors for fast, professional garage door repair and installation services. Serving NY, NJ & CT. Call (914) 557-6816 or schedule online."
+        description="Contact Smart Garage Doors for professional garage door repair and installation services. Serving NY, NJ & CT. Call (914) 557-6816 or schedule online."
         canonical={buildCanonical('/contact')}
       />
       <Header />
@@ -167,12 +167,12 @@ const ContactPage = () => {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Call Us</h3>
               <p className="text-gray-600 mb-4">
-                Speak directly with our team for immediate assistance or to schedule service.
+                Speak directly with our team to ask a question or schedule service.
               </p>
               <a href="tel:+19145576816" className="text-orange-600 font-semibold hover:text-orange-700">
                 (914) 557-6816
               </a>
-              <p className="text-sm text-gray-500 mt-2">Available 24/7 for emergencies</p>
+              <p className="text-sm text-gray-500 mt-2">Emergency line for urgent issues</p>
             </div>
             
             <div className="bg-white p-8 rounded-lg shadow-md text-center">
@@ -186,7 +186,7 @@ const ContactPage = () => {
               <a href="#schedule-form" className="text-blue-600 font-semibold hover:text-blue-700">
                 Schedule Now
               </a>
-              <p className="text-sm text-gray-500 mt-2">We respond fast — call for the quickest answer</p>
+              <p className="text-sm text-gray-500 mt-2">Our team will follow up to confirm — or call to speak with us directly</p>
             </div>
             
             <div className="bg-white p-8 rounded-lg shadow-md text-center">
@@ -195,12 +195,12 @@ const ContactPage = () => {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Emergency Service</h3>
               <p className="text-gray-600 mb-4">
-                Need immediate help? Our emergency team is available 24/7 for urgent repairs.
+                Door stuck or won't close? Call our emergency line for urgent repairs.
               </p>
               <a href="tel:+19145576816" className="text-green-600 font-semibold hover:text-green-700">
                 Emergency Line
               </a>
-              <p className="text-sm text-gray-500 mt-2">1-2 hour response time</p>
+              <p className="text-sm text-gray-500 mt-2">Our dispatcher confirms an arrival window when you call</p>
             </div>
           </div>
         </div>
@@ -214,8 +214,9 @@ const ContactPage = () => {
               Schedule Your Service
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Fill out the form below to schedule your garage door service. We'll contact you within 
-              2 hours to confirm your appointment and provide a free estimate.
+              Fill out the form below to schedule your garage door service. Our team will follow up
+              to confirm your appointment and provide a free written estimate — the total price, including
+              any fees, surcharges, and applicable taxes.
             </p>
           </div>
           
@@ -321,8 +322,8 @@ const ContactPage = () => {
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm pr-8"
                 >
                   <option value="">Select urgency</option>
-                  <option value="emergency">Emergency (Same Day)</option>
-                  <option value="urgent">Urgent (Within 24 hours)</option>
+                  <option value="emergency">Emergency (please call our line)</option>
+                  <option value="urgent">Urgent</option>
                   <option value="normal">Normal (Within 3 days)</option>
                   <option value="flexible">Flexible (Within a week)</option>
                 </select>

@@ -14,7 +14,7 @@
  *     beforeImage="/images/jobs/example-before.jpg"
  *     afterImage="/images/jobs/example-after.jpg"
  *     beforeAlt="Damaged garage door panel before repair, Queens NY"
- *     afterAlt="Repaired garage door panel after same-day service, Queens NY"
+ *     afterAlt="Repaired garage door panel after professional service, Queens NY"
  *   />
  *
  * Optional props: beforeLabel/afterLabel (default "Before"/"After"),

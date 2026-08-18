@@ -4,13 +4,13 @@ export default function RollingSteelGateRepairPage() {
   return (
     <GuidePageTemplate
       metaTitle="Rolling Steel Gate Repair | Storefront & Security Gates | NY, NJ & CT"
-      metaDescription="Rolling steel gate and storefront security gate repair across NY, NJ & CT. Slat replacement, barrel spring service, motor & manual gate repair. 24/7 emergency line."
+      metaDescription="Rolling steel gate and storefront security gate repair across NY, NJ & CT. Slat replacement, barrel spring service, motor & manual gate repair. emergency line."
       keywords="rolling steel gate repair, storefront gate repair, security gate repair near me, rolling gate repair NYC, roll up gate repair, commercial security gate motor repair"
       slug="/rolling-steel-gate-repair/"
       heroImage="homeHero"
       badge="Storefronts & Security Gates"
       headline="Rolling Steel Gate Repair Across NY, NJ & CT"
-      subheadline="A gate that won't close at closing time is a security problem, not a maintenance ticket. Slat, barrel spring, and motor repair for storefront and security gates — 24/7 emergency line."
+      subheadline="A gate that won't close at closing time is a security problem, not a maintenance ticket. Slat, barrel spring, and motor repair for storefront and security gates — emergency line."
       showWhatsAppHero={true}
       whatsAppMessage="Hi — our rolling gate is stuck and we need it closed/secured. Sending photos for a fast assessment."
       showCommercialLeadForm={true}
@@ -100,9 +100,9 @@ export default function RollingSteelGateRepairPage() {
             'Yes — rolling steel service doors and storefront security gates are one of our core commercial services. Slat and curtain repair, barrel spring service, bottom bar and guide rail repair, and both manual and motorized gate operators.',
         },
         {
-          question: 'How fast can you respond if our gate won\'t close at night?',
+          question: 'What happens if our gate won\'t close at night?',
           answer:
-            'A gate that won\'t close is a security exposure and gets priority dispatch on our 24/7 emergency line — we give you an exact ETA when you call. If the repair can\'t be finished same-visit, we\'ll talk through options to secure the storefront until we can return with parts.',
+            'A gate that won\'t close is a security exposure and gets priority dispatch on our emergency line — we give you an exact ETA when you call. If the repair can\'t be finished same-visit, we\'ll talk through options to secure the storefront until we can return with parts.',
         },
         {
           question: 'What usually causes a rolling gate to get heavy or stop staying up?',
@@ -125,7 +125,7 @@ export default function RollingSteelGateRepairPage() {
             'All major manufacturers — Cornell, Atlas, Wayne Dalton, Cookson, and McKeon among them — plus most rolling steel gate brands you\'ll find on a commercial storefront or loading dock. If you\'re not sure who made yours, a photo of the barrel housing or the data plate is usually enough to identify it.',
         },
       ]}
-      bottomLine="A rolling gate that won't move is either a security problem or a revenue problem, and both need an answer today. We repair storefront and security gates across Queens, Brooklyn, Staten Island, Long Island, Westchester, Rockland, Bergen, Passaic, Hudson, Essex, and Fairfield County, CT — slats, barrel springs, guides, and operators — with a 24/7 emergency line and priority dispatch for commercial calls."
+      bottomLine="A rolling gate that won't move is either a security problem or a revenue problem, and both need an answer today. We repair storefront and security gates across Queens, Brooklyn, Staten Island, Long Island, Westchester, Rockland, Bergen, Passaic, Hudson, Essex, and Fairfield County, CT — slats, barrel springs, guides, and operators — with a emergency line and priority dispatch for commercial calls."
       relatedLinks={{
         title: 'Related Commercial Services',
         links: [
@@ -138,7 +138,7 @@ export default function RollingSteelGateRepairPage() {
         ],
       }}
       ctaHeadline="Get Your Gate Secured Today"
-      ctaText="24/7 emergency line for stuck-open or stuck-closed gates — or send photos for a fast assessment before we roll. Slat, spring, and operator parts carried on the truck."
+      ctaText="emergency line for stuck-open or stuck-closed gates — or send photos for a fast assessment before we roll. Slat, spring, and operator parts carried on the truck."
     />
   );
 }

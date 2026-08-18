@@ -22,7 +22,7 @@ export function getRelatedServices(currentPath: string): InternalLink[] {
     { 
       url: '/emergency-garage-door-repair/', 
       text: 'Emergency Repairs',
-      description: '24/7 emergency garage door repair service'
+      description: 'Emergency garage door repair line'
     },
     { 
       url: '/spring-replacement/', 
@@ -153,7 +153,7 @@ export function getServiceLinksForLocation(locationPath: string): InternalLink[]
     { 
       url: '/emergency-garage-door-repair/', 
       text: 'Emergency Repairs',
-      description: '24/7 emergency garage door service'
+      description: 'Emergency garage door line'
     },
     { 
       url: '/spring-replacement/', 

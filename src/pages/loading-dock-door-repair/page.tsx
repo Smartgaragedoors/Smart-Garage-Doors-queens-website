@@ -4,19 +4,19 @@ export default function LoadingDockDoorRepairPage() {
   return (
     <GuidePageTemplate
       metaTitle="Loading Dock Door Repair | Warehouses & Distribution | NY, NJ & CT"
-      metaDescription="Loading dock and bay door repair for warehouses across NY, NJ & CT. 24/7 priority dispatch, forklift-damage repair, track & operator service, per-door records."
+      metaDescription="Loading dock and bay door repair for warehouses across NY, NJ & CT. priority dispatch, forklift-damage repair, track & operator service, per-door records."
       keywords="loading dock door repair, warehouse bay door repair, dock door repair near me, forklift damage door panel repair, dock door track misalignment, commercial overhead door repair warehouse"
       slug="/loading-dock-door-repair/"
       heroImage="homeHero"
       badge="Warehouses & Distribution Centers"
       headline="Loading Dock Door Repair for Warehouses Across NY, NJ & CT"
-      subheadline="A down bay door stops trucks and revenue, not just traffic through one opening. Forklift-damage repair, track and operator service, and 24/7 priority dispatch for facilities that can't wait."
+      subheadline="A down bay door stops trucks and revenue, not just traffic through one opening. Forklift-damage repair, track and operator service, and priority dispatch for facilities that can't wait."
       showWhatsAppHero={true}
       whatsAppMessage="Hi — we have a loading dock door down. Sending photos and the operator model for a fast assessment."
       showCommercialLeadForm={true}
       intro={[
         'A dock door doesn’t care about your outbound schedule. It goes down at 6:40am with a trailer on the plate, or mid-shift during a wave, and from that moment every decision either shortens the outage or stretches it. Most failures trace back to a short list of causes — forklift strikes, track misalignment, worn rollers, operators burned out from lifting a door the springs should have been carrying — and most of them announce themselves for weeks before the bay actually goes down.',
-        'We repair and service loading dock and bay doors — and the levelers, seals, and operators around them — for warehouses, distribution centers, and 3PL facilities across Queens, Brooklyn, Staten Island, Long Island (Nassau & Suffolk), Westchester and Rockland counties, Bergen, Passaic, Hudson, and Essex counties in New Jersey, and Fairfield County, CT. Commercial calls get priority dispatch on our 24/7 line, and we carry high-cycle springs, track, and operator parts on the truck so a diagnosis doesn’t turn into a three-day parts wait.',
+        'We repair and service loading dock and bay doors — and the levelers, seals, and operators around them — for warehouses, distribution centers, and 3PL facilities across Queens, Brooklyn, Staten Island, Long Island (Nassau & Suffolk), Westchester and Rockland counties, Bergen, Passaic, Hudson, and Essex counties in New Jersey, and Fairfield County, CT. Commercial calls get priority dispatch on our emergency line, and we carry high-cycle springs, track, and operator parts on the truck so a diagnosis doesn’t turn into a three-day parts wait.',
         'If a bay is down right now, call the number above for priority dispatch and an exact ETA. If it can wait, send the door size, brand, operator model, and photos over WhatsApp and a technician will get back to you with what it needs and what it costs.',
       ]}
       criteria={{
@@ -103,9 +103,9 @@ export default function LoadingDockDoorRepairPage() {
             'Forklift strikes are the single biggest cause — bent tracks, crushed bottom panels, and racked doors from impacts that seemed minor at the time. The rest is mostly progressive wear: track misalignment, flat-spotted or seized rollers, and operators burned out from lifting doors whose springs were no longer carrying the weight.',
         },
         {
-          question: 'How fast can you get to a down bay door?',
+          question: 'How does scheduling work for a down bay door?',
           answer:
-            'Commercial calls get priority dispatch on our 24/7 line — we give you an exact ETA when you call based on technician position at that moment. Sending the door size, brand, operator model, and photos ahead of time usually means the truck arrives with the right parts already loaded.',
+            'Commercial calls get priority dispatch on our emergency line — we give you an exact ETA when you call based on technician position at that moment. Sending the door size, brand, operator model, and photos ahead of time usually means the truck arrives with the right parts already loaded.',
         },
         {
           question: 'Do you repair or replace damaged dock door panels?',
@@ -133,7 +133,7 @@ export default function LoadingDockDoorRepairPage() {
             'Yes. These are some of our most common commercial accounts — fast-cycling doors and levelers where a stuck door creates a compliance or temperature problem, not just a delay. We document every visit so the paperwork holds up for your own audits.',
         },
       ]}
-      bottomLine="A down bay door is a throughput problem, not just a door problem. We repair loading dock and bay doors — and the levelers, seals, and operators around them — for warehouses across Queens, Brooklyn, Staten Island, Long Island, Westchester, Rockland, Bergen, Passaic, Hudson, Essex, and Fairfield County, CT — 24/7 priority dispatch, high-cycle parts on the truck, and per-door records for multi-facility accounts. Send the door size and photos and we'll get you a number fast."
+      bottomLine="A down bay door is a throughput problem, not just a door problem. We repair loading dock and bay doors — and the levelers, seals, and operators around them — for warehouses across Queens, Brooklyn, Staten Island, Long Island, Westchester, Rockland, Bergen, Passaic, Hudson, Essex, and Fairfield County, CT — priority dispatch, high-cycle parts on the truck, and per-door records for multi-facility accounts. Send the door size and photos and we'll get you a number fast."
       relatedLinks={{
         title: 'Related Commercial Services',
         links: [
@@ -147,7 +147,7 @@ export default function LoadingDockDoorRepairPage() {
         ],
       }}
       ctaHeadline="Get Your Bay Back in Service"
-      ctaText="24/7 priority dispatch for warehouse and distribution accounts — or send the door size, brand, and photos for a fast assessment before we roll."
+      ctaText="priority dispatch for warehouse and distribution accounts — or send the door size, brand, and photos for a fast assessment before we roll."
     />
   );
 }

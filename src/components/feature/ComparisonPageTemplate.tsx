@@ -141,7 +141,7 @@ export default function ComparisonPageTemplate(props: ComparisonPageTemplateProp
               <strong className="text-white">{BUSINESS_INFO.aggregateRating.ratingValue}</strong> · {reviewCount} reviews
             </span>
             <span aria-hidden="true">·</span>
-            <span>Same-day service</span>
+            <span>Licensed &amp; Insured</span>
             <span aria-hidden="true">·</span>
             <span>1-Year Warranty</span>
           </div>
@@ -223,7 +223,7 @@ export default function ComparisonPageTemplate(props: ComparisonPageTemplateProp
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-3">Get an Honest Quote Today</h2>
           <p className="text-orange-100 text-lg mb-8">
-            Same-day service, upfront pricing, and a 1-year warranty. Call now or book online.
+            Total-price quotes before work starts and a 1-year warranty. Call or book online.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

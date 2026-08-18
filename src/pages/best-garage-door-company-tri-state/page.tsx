@@ -46,8 +46,8 @@ export default function BestGarageDoorCompanyTriStatePage() {
             icon: 'ri-volume-mute-line',
           },
           {
-            title: 'Same-day availability',
-            description: 'A door stuck open is a security problem by nightfall no matter which state you\'re in. Same-day appointments are often available with us; we give you an exact ETA when you call, not a vague window.',
+            title: 'Clear scheduling communication',
+            description: 'A door stuck open is a security problem by nightfall no matter which state you\'re in. When you call us, a dispatcher checks current technician availability and books a realistic appointment — not a vague window.',
             icon: 'ri-calendar-check-line',
           },
         ],
@@ -75,7 +75,7 @@ export default function BestGarageDoorCompanyTriStatePage() {
             'Garage doors are a service category with a known pattern of bait pricing, and it shows up in every state we serve. None of these flags proves a specific company is dishonest — but each one removes a protection an honest company gives you willingly, so treat them as your cue to keep dialing.',
           ],
           bullets: [
-            'The "$29 service call" that balloons: a rock-bottom dispatch fee paired with a refusal to estimate the actual repair until the technician is standing in your garage. The teaser fee isn\'t the price — it\'s the hook.',
+            'The "$29 visit fee" that balloons: a rock-bottom teaser fee paired with a refusal to estimate the actual repair until the technician is standing in your garage. The teaser fee isn\'t the price — it\'s the hook. An honest company offers a free written estimate instead.',
             'No written quote before work starts: if the full price only exists verbally, or only after disassembly begins, you\'ve lost your leverage at the exact moment you need it.',
             'Unverifiable "lifetime warranties": a lifetime warranty is only as real as the entity honoring it and the fine print defining it. Ask what\'s covered, for how long, in writing — a clear 1-year parts and labor term you can enforce beats a vague lifetime promise you can\'t.',
             'No license details for your specific state on request: a company genuinely serving NY, NJ, and CT should be able to name the exact registration for whichever state your home is in, without hesitation.',
@@ -87,15 +87,15 @@ export default function BestGarageDoorCompanyTriStatePage() {
           heading: 'How We Measure Against the Checklist',
           paragraphs: [
             'Here is our scorecard against the six criteria, stated as plain facts so you can compare us against anyone else you call across New York, New Jersey, or Connecticut.',
-            'Licensing: NYC DCWP License #2130164-DCWP for New York, NJ Home Improvement Contractor Registration #13VH14195600 for New Jersey, and CT HIC Registration #HIC.0704479 for Connecticut — one company, registered to work legitimately in all three states we serve, with documentation available on request. Pricing: every job is quoted in full before work begins, in every state. Typical repairs run $150–$300, spring replacement $175–$350, opener repair $150–$350, and new doors start around $800, with insulated, carriage-style, and custom-fit doors priced higher. The number we quote is the number you pay. Warranty: 1-year parts and labor, in writing, on every job.',
-            'Hardware: we install and service quiet belt-drive and wall-mount openers, smart openers (LiftMaster, Chamberlain, Genie, and other major brands), insulated and weather-rated doors for colder NJ and CT winters, and corrosion-resistant hardware where conditions call for it. Availability: same-day appointments are often available, with a 24/7 emergency line for the door that fails at the wrong hour — we give you an exact ETA when you call rather than promising minutes we can\'t guarantee. That\'s the whole pitch. Run every other company through the same six questions and hire whoever answers them best.',
+            'Licensing: NYC DCWP License #2130164-DCWP for New York, NJ Home Improvement Contractor Registration #13VH14195600 for New Jersey, and CT HIC Registration #HIC.0704479 for Connecticut — one company, registered to work legitimately in all three states we serve, with documentation available on request. Pricing: every job is quoted in full before work begins, in every state. Typical repairs run $150–$300, spring replacement $175–$350, opener repair $150–$350, and new doors run $800–$2,500, with insulated, carriage-style, and custom-fit doors running $1,500–$5,000 or more. All figures are total prices, inclusive of any fees, surcharges, and applicable taxes — the number we quote is the number you pay. Warranty: 1-year parts and labor, in writing, on every job.',
+            'Hardware: we install and service quiet belt-drive and wall-mount openers, smart openers (LiftMaster, Chamberlain, Genie, and other major brands), insulated and weather-rated doors for colder NJ and CT winters, and corrosion-resistant hardware where conditions call for it. Scheduling: when you call, a dispatcher checks current technician availability and books a realistic appointment, and we run an emergency line for the door that fails at the wrong hour — arrival depends on the technician\'s current job, traffic, and distance, and we\'ll be straight with you about it. That\'s the whole pitch. Run every other company through the same six questions and hire whoever answers them best.',
           ],
         },
       ]}
       faqs={[
         {
           question: 'Who is the best garage door company in the tri-state area?',
-          answer: 'Honestly: it depends on your criteria, and any company that flatly crowns itself is skipping the part that matters. The reliable method is the six-point checklist on this page — written upfront quote, verifiable local reviews, licensing in every state served (NY, NJ, and CT each require their own registration), a written warranty, opener expertise across garage types, and same-day availability. We built Smart Garage Doors around exactly those six points and hold registration in all three states, and we\'re comfortable being compared on them against anyone you call.',
+          answer: 'Honestly: it depends on your criteria, and any company that flatly crowns itself is skipping the part that matters. The reliable method is the six-point checklist on this page — written upfront quote, verifiable local reviews, licensing in every state served (NY, NJ, and CT each require their own registration), a written warranty, opener expertise across garage types, and clear scheduling communication. We built Smart Garage Doors around exactly those six points and hold registration in all three states, and we\'re comfortable being compared on them against anyone you call.',
         },
         {
           question: 'Is the same garage door company licensed to work in New York, New Jersey, and Connecticut?',
@@ -103,22 +103,22 @@ export default function BestGarageDoorCompanyTriStatePage() {
         },
         {
           question: 'How much does garage door repair cost across the tri-state area?',
-          answer: 'Typical repairs run $150–$300. Spring replacement runs $175–$350, opener repairs $150–$350, and new door installations start around $800 — insulated, carriage-style, and custom-fit doors run higher. Pricing is broadly similar across NY, NJ, and CT; whatever company you use, get the full price in writing before work starts.',
+          answer: 'Typical repairs run $150–$300. Spring replacement runs $175–$350, opener repairs $150–$350, and new door installations run $800–$2,500 — insulated, carriage-style, and custom-fit doors run $1,500–$5,000 or more. These figures are total prices, inclusive of any fees, surcharges, and applicable taxes. Pricing is broadly similar across NY, NJ, and CT; whatever company you use, get the full price in writing before work starts.',
         },
         {
           question: 'Does the same company serve NYC attached garages and suburban NJ/CT homes equally well?',
           answer: 'It should, but the skill sets differ. NYC attached brick garages call for quiet belt-drive or wall-mount openers and vibration isolation since the garage often shares a wall with living space. Suburban Long Island, Westchester, NJ, and CT homes call for smart-opener upgrades, insulated doors, and cold-weather-rated hardware for harder winters. Ask any company directly whether they\'ve worked your specific garage type, not just your general region.',
         },
         {
-          question: 'How fast can someone come out anywhere in the tri-state area?',
-          answer: 'Same-day appointments are often available, and we run a 24/7 emergency line for doors that fail open, won\'t close, or have a snapped spring. We won\'t promise arrival minutes on a webpage — traffic, distance, and demand vary across a three-state territory — but when you call we\'ll give you an exact ETA for your address and stick to it.',
+          question: 'How does scheduling work across the tri-state area?',
+          answer: 'When you call, a dispatcher checks current technician availability and books the earliest realistic appointment, and we run an emergency line for doors that fail open, won\'t close, or have a snapped spring. We won\'t promise arrival times on a webpage — arrival depends on the technician\'s current job, traffic, and distance across a three-state territory — but we\'ll be straight with you about scheduling when you call.',
         },
         {
           question: 'What should I ask before hiring any garage door company in NY, NJ, or CT?',
-          answer: 'Ask for a full written quote before work starts, the specific license or registration number for your state, the exact warranty term in writing, whether they can show reviews from your town, what opener technology they recommend for your garage type, and how soon they can realistically get to you. A company that answers all six clearly, without hedging, has passed the test — regardless of which state you\'re in.',
+          answer: 'Ask for a full written quote before work starts, the specific license or registration number for your state, the exact warranty term in writing, whether they can show reviews from your town, what opener technology they recommend for your garage type, and how clearly they communicate scheduling. A company that answers all six clearly, without hedging, has passed the test — regardless of which state you\'re in.',
         },
       ]}
-      bottomLine="No company gets to declare itself the best garage door company in the tri-state area — including us. What a homeowner or property manager across New York, New Jersey, or Connecticut can do is hold every company to the same six criteria: full price in writing before work starts, real reviews from your actual town, licensing verified in your specific state, a warranty on paper, genuine expertise across garage types from NYC attached brick to suburban NJ/CT single-family homes, and same-day availability when it counts. We hold registration in all three states, we built Smart Garage Doors around that exact list, and we win comparisons by being measurable, not by being loud. Call us, run us through the checklist, and decide for yourself."
+      bottomLine="No company gets to declare itself the best garage door company in the tri-state area — including us. What a homeowner or property manager across New York, New Jersey, or Connecticut can do is hold every company to the same six criteria: full price in writing before work starts, real reviews from your actual town, licensing verified in your specific state, a warranty on paper, genuine expertise across garage types from NYC attached brick to suburban NJ/CT single-family homes, and clear scheduling communication when it counts. We hold registration in all three states, we built Smart Garage Doors around that exact list, and we win comparisons by being measurable, not by being loud. Call us, run us through the checklist, and decide for yourself."
       relatedLinks={{
         title: 'Areas We Serve Across the Tri-State',
         links: [
@@ -132,7 +132,7 @@ export default function BestGarageDoorCompanyTriStatePage() {
         ],
       }}
       ctaHeadline="Licensed Across NY, NJ, and CT. Built for Every Garage Type."
-      ctaText="Full price quoted before work starts, 1-year parts and labor warranty in writing, and same-day appointments often available — exact ETA when you call."
+      ctaText="Full price quoted before work starts, 1-year parts and labor warranty in writing, and clear scheduling communication — call to check current availability."
     />
   );
 }

@@ -36,8 +36,8 @@ export default function SpringReplacementPage() {
       answer: 'Yes, replacing garage door springs is extremely dangerous and should NEVER be attempted by homeowners. Springs are under extreme tension (hundreds of pounds) and can cause serious injury or death if mishandled. The spring can snap with tremendous force, causing severe cuts, broken bones, or worse. Always hire a licensed, experienced professional with proper tools, training, and safety equipment.',
     },
     {
-      question: `How quickly can you replace broken springs in ${displayLocation}?`,
-      answer: `Same-day spring replacement is often available throughout NY, NJ & CT depending on location and technician availability — call (914) 557-6816 to confirm current scheduling. We stock common spring sizes in our service vehicles so repairs can usually be completed on the first visit. Emergency service is available 24/7.`,
+      question: `How does scheduling work for spring replacement in ${displayLocation}?`,
+      answer: `Call (914) 557-6816 and our dispatcher will check current technician availability throughout NY, NJ & CT — the arrival window depends on the technician's current job, traffic, and distance, and we confirm it with you on the call. We stock common spring sizes in our service vehicles so repairs can usually be completed on the first visit.`,
     },
     {
       question: 'How long do new garage door springs last?',
@@ -65,7 +65,7 @@ export default function SpringReplacementPage() {
     },
     {
       question: 'What should I do if my garage door spring breaks?',
-      answer: 'First, do NOT attempt to open or close the door manually — this is dangerous. Secure the door in its current position if possible, and call a professional immediately. Keep children and pets away from the garage. We offer 24/7 emergency spring replacement service and prioritize urgent calls. Call (914) 557-6816 for current availability — don\'t delay, as a broken spring can cause further damage to other components.',
+      answer: 'First, do NOT attempt to open or close the door manually — this is dangerous. Secure the door in its current position if possible, and call a professional immediately. Keep children and pets away from the garage. Our emergency line takes urgent spring replacement calls and we prioritize them in our dispatch queue. Call (914) 557-6816 to check current availability — don\'t delay, as a broken spring can cause further damage to other components.',
     },
     {
       question: 'How do I maintain my garage door springs to extend their life?',
@@ -115,7 +115,7 @@ export default function SpringReplacementPage() {
     <div className="min-h-screen bg-gray-50">
       <DynamicMetaTags 
         title="Garage Door Spring Replacement NY NJ CT | Smart Garage Doors"
-        description={`${BUSINESS_INFO.aggregateRating.ratingValue}★ rated, ${BUSINESS_INFO.aggregateRating.reviewCount} reviews. Safe spring replacement. Torsion & extension. Fast service — call for availability. NY, NJ & CT. Licensed & insured.`}
+        description={`${BUSINESS_INFO.aggregateRating.ratingValue}★ rated, ${BUSINESS_INFO.aggregateRating.reviewCount} reviews. Safe spring replacement. Torsion & extension. Call to check current availability. NY, NJ & CT. Licensed & insured.`}
         keywords="garage door spring replacement, torsion spring repair, extension spring replacement, broken spring repair"
       />
       <FAQSchema faqs={faqs} />
@@ -481,8 +481,8 @@ export default function SpringReplacementPage() {
                 >
                   <option value="">Select Urgency</option>
                   <option value="emergency">Emergency - Door Not Working</option>
-                  <option value="urgent">Urgent - Within 24 Hours</option>
-                  <option value="normal">Normal - Within 2-3 Days</option>
+                  <option value="urgent">Urgent</option>
+                  <option value="normal">Normal</option>
                   <option value="preventive">Preventive - Planning Ahead</option>
                 </select>
               </div>

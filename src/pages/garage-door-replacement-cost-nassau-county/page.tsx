@@ -126,7 +126,7 @@ export default function GarageDoorReplacementCostNassauCountyPage() {
         {
           question: 'How long does garage door installation take?',
           answer:
-            "Most single-door swaps are done in a morning — remove the old door, set the new tracks and panels, balance the springs, seal it up, and test everything. Double doors or doors with opener replacements can take a bit longer. Same-day appointments are often available; we'll give you an exact ETA when you call.",
+            "Most single-door swaps are done in a morning — remove the old door, set the new tracks and panels, balance the springs, seal it up, and test everything. Double doors or doors with opener replacements can take a bit longer. We'll give you an exact ETA when you call, based on current technician availability.",
         },
         {
           question: 'Does a new garage door increase home value?',

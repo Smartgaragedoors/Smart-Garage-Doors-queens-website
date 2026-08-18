@@ -22,7 +22,7 @@ export default function MaintenancePage() {
   const faqs = [
     {
       question: `How much does garage door maintenance cost in ${displayLocation}?`,
-      answer: `Our garage door maintenance plans start at $99 for a single annual visit (Basic Plan) and range up to $299 per year for quarterly service (Elite Plan). All plan prices include parts, labor, and applicable taxes — no hidden fees. Individual one-time maintenance visits typically range from $99–$299 depending on service level. Maintenance is far more cost-effective than waiting for emergency repairs.`,
+      answer: `Our garage door maintenance plans range $99–$149 per year for a single annual visit (Basic Plan), $179–$249 per year for bi-annual service (Premium Plan), and $299–$399 per year for quarterly service (Elite Plan). All figures are the total price, inclusive of parts, labor, and any fees, surcharges, and applicable taxes — no hidden fees. Maintenance is far more cost-effective than waiting for emergency repairs.`,
     },
     {
       question: 'How often should I have my garage door maintained?',
@@ -161,7 +161,7 @@ export default function MaintenancePage() {
             <div className="bg-gray-50 rounded-lg p-8 hover:shadow-lg transition-shadow">
               <div className="text-center mb-6">
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">Basic Plan</h3>
-                <div className="text-3xl font-bold text-green-600 mb-2">$99</div>
+                <div className="text-3xl font-bold text-green-600 mb-2">$99–$149</div>
                 <p className="text-gray-600">Annual Service</p>
               </div>
               
@@ -201,7 +201,7 @@ export default function MaintenancePage() {
               
               <div className="text-center mb-6">
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">Premium Plan</h3>
-                <div className="text-3xl font-bold text-green-600 mb-2">$179</div>
+                <div className="text-3xl font-bold text-green-600 mb-2">$179–$249</div>
                 <p className="text-gray-600">Bi-Annual Service</p>
               </div>
               
@@ -249,7 +249,7 @@ export default function MaintenancePage() {
             <div className="bg-gray-50 rounded-lg p-8 hover:shadow-lg transition-shadow">
               <div className="text-center mb-6">
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">Elite Plan</h3>
-                <div className="text-3xl font-bold text-green-600 mb-2">$299</div>
+                <div className="text-3xl font-bold text-green-600 mb-2">$299–$399</div>
                 <p className="text-gray-600">Quarterly Service</p>
               </div>
               
@@ -296,7 +296,7 @@ export default function MaintenancePage() {
 
           <div className="mt-8 bg-white rounded-lg border border-gray-200 p-5 max-w-3xl mx-auto">
             <p className="text-gray-600 text-sm text-center">
-              Plan prices shown are the all-inclusive total — parts, labor, and applicable taxes. No hidden fees. Final price confirmed before any work begins.
+              Plan prices shown are total price ranges, inclusive of parts, labor, and any fees, surcharges, and applicable taxes. No hidden fees. Final price confirmed before any work begins.
             </p>
           </div>
         </div>
@@ -494,9 +494,9 @@ export default function MaintenancePage() {
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent pr-8"
                 >
                   <option value="">Select Plan</option>
-                  <option value="basic">Basic Plan - $99/year</option>
-                  <option value="premium">Premium Plan - $179/year</option>
-                  <option value="elite">Elite Plan - $299/year</option>
+                  <option value="basic">Basic Plan - $99–$149/year</option>
+                  <option value="premium">Premium Plan - $179–$249/year</option>
+                  <option value="elite">Elite Plan - $299–$399/year</option>
                 </select>
               </div>
               <div>

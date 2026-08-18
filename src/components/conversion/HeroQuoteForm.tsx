@@ -26,7 +26,7 @@ interface HeroQuoteFormProps {
 }
 
 const SERVICE_OPTIONS = [
-  { value: 'emergency', label: 'Emergency Repair (ASAP)' },
+  { value: 'emergency', label: 'Emergency Repair (urgent)' },
   { value: 'garage-door-repair', label: 'Garage Door Repair' },
   { value: 'spring-replacement', label: 'Spring Replacement' },
   { value: 'opener-repair', label: 'Opener Repair / Installation' },
@@ -107,10 +107,10 @@ export default function HeroQuoteForm({ variant = 'glass' }: HeroQuoteFormProps)
     <div className={`w-full max-w-md mx-auto rounded-2xl p-6 md:p-7 ${cardClass}`}>
       {/* h2 — never an h1 (page keeps exactly one h1 in the hero headline) */}
       <h2 className={`font-newsreader font-medium text-2xl md:text-[26px] leading-tight ${headingClass}`}>
-        Get Your $0 Service Call
+        Get Your Free Estimate
       </h2>
       <p className={`text-sm mt-1.5 mb-5 ${subClass}`}>
-        Tell us what's wrong — we'll text or call you right back with a complimentary quote.
+        Tell us what's wrong — we'll text or call you back with a total-price quote, fees and taxes included.
       </p>
 
       <form onSubmit={handleSubmit} className="space-y-3.5 text-left" noValidate>

@@ -34,8 +34,8 @@ export default function OpenerRepair() {
       answer: 'Most opener issues can be repaired. Common repairs include sensor alignment, motor capacitor replacement, gear and sprocket replacement, circuit board repair, and remote programming. However, if your opener is very old (15+ years), severely damaged, or the cost of repair approaches a new unit, we may recommend replacement. We\'ll always provide options and help you make the best decision.',
     },
     {
-      question: `How quickly can you repair my opener in ${displayLocation}?`,
-      answer: `Same-day service is often available depending on your location and technician availability. Call us to confirm — if you have an urgent situation, let us know and we will prioritize your job. We carry common parts on our trucks so many repairs can be finished on the first visit.`,
+      question: `How does scheduling work for opener repair in ${displayLocation}?`,
+      answer: `Call us and our dispatcher will check current technician availability for your area — the arrival window depends on the technician's current job, traffic, and distance, and we confirm it with you on the call. If you have an urgent situation, let us know and we will prioritize your job. We carry common parts on our trucks so many repairs can be finished on the first visit.`,
     },
     {
       question: 'Do you install new garage door openers?',
@@ -97,7 +97,7 @@ export default function OpenerRepair() {
                 Professional Opener Repair Services
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Our certified technicians repair all types of garage door openers with fast, reliable service and warranty protection.
+                Our certified technicians repair all types of garage door openers with reliable service and warranty protection.
               </p>
             </div>
 
@@ -113,7 +113,7 @@ export default function OpenerRepair() {
                 <div className="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-4">
                   <i className="ri-time-line text-3xl text-purple-600"></i>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Fast Local Response</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Local Technicians</h3>
                 <p className="text-gray-600">We prioritize urgent calls — most repairs completed on the first visit.</p>
               </div>
               <div className="text-center">
@@ -207,7 +207,7 @@ export default function OpenerRepair() {
                         <p className="font-medium text-blue-900">Security Camera</p>
                         <p className="text-sm text-blue-700">Built-in monitoring & alerts</p>
                       </div>
-                      <span className="text-lg font-bold text-blue-600">+$150</span>
+                      <span className="text-lg font-bold text-blue-600">+$150–$200</span>
                     </div>
                   </div>
                 </div>
@@ -247,6 +247,10 @@ export default function OpenerRepair() {
                 </div>
               </div>
             </div>
+
+            <p className="text-sm text-gray-600 text-center mt-8 max-w-3xl mx-auto">
+              All figures shown are total prices, inclusive of parts, labor, and any fees, surcharges, and applicable taxes. Final price confirmed with a free written estimate before any work begins.
+            </p>
           </div>
         </section>
 
@@ -313,10 +317,10 @@ export default function OpenerRepair() {
         <section className="py-16 bg-purple-900 text-white">
           <div className="max-w-7xl mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Need Opener Repair Today?
+              Need Opener Repair?
             </h2>
             <p className="text-xl mb-8 text-purple-100">
-              Fast, professional service — call to confirm availability
+              Professional service — call to check current scheduling
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <button className="bg-white text-purple-600 hover:bg-gray-100 px-8 py-4 text-lg rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center justify-center whitespace-nowrap">

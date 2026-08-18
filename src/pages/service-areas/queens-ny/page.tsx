@@ -5,8 +5,8 @@ export default function QueensNY() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Queens NY Garage Door Repair | Same-Day Service | Smart Garage Doors"
-      metaDescription={`Garage door repair in Queens, NY — same-day service, ${BUSINESS_INFO.aggregateRating.ratingValue}★ ${BUSINESS_INFO.aggregateRating.reviewCount} reviews. Spring, opener & emergency repair. Licensed & insured.`}
+      metaTitle="Queens NY Garage Door Repair | Licensed & Insured | Smart Garage Doors"
+      metaDescription={`Garage door repair in Queens, NY — total-price quotes, ${BUSINESS_INFO.aggregateRating.ratingValue}★ ${BUSINESS_INFO.aggregateRating.reviewCount} reviews. Spring, opener & emergency repair. Licensed & insured.`}
       keywords="Queens NY garage door repair, garage door installation Queens, emergency garage door Queens, spring replacement Queens"
       slug="/queens-ny/"
       cityName="Queens"
@@ -30,9 +30,9 @@ export default function QueensNY() {
         },
       ]}
       neighborhoods={[
-        { name: 'Astoria & Long Island City', description: 'Fast service for Astoria\'s dense residential blocks and LIC\'s converted lofts. We know the parking situation — our guys get in and out without drama.' },
+        { name: 'Astoria & Long Island City', description: 'Reliable service for Astoria\'s dense residential blocks and LIC\'s converted lofts. We know the parking situation — our guys get in and out without drama.' },
         { name: 'Flushing & Whitestone', description: 'Deep coverage in Flushing and Whitestone. Lots of attached garages here — we\'ve fixed hundreds in these neighborhoods.' },
-        { name: 'Forest Hills & Kew Gardens', description: 'The tudor-style homes in Forest Hills have older hardware. We stock parts for legacy systems and can usually fix same day.' },
+        { name: 'Forest Hills & Kew Gardens', description: 'The tudor-style homes in Forest Hills have older hardware. We stock parts for legacy systems.' },
         { name: 'Jamaica & St. Albans', description: 'Reliable, fairly priced service for Jamaica and St. Albans. No upselling, no surprises — just the work that needs doing.' },
         { name: 'Bayside & Little Neck', description: 'These suburban-style streets are easy for us to reach quickly. Spring replacements and opener installs are our most common calls here.' },
         { name: 'Elmhurst & Jackson Heights', description: 'Dense housing, narrow driveways — we handle it. Our techs are experienced with the tight-access garages common in these neighborhoods.' },
@@ -44,7 +44,7 @@ export default function QueensNY() {
       ]}
       faqs={[
         { question: 'Which Queens neighborhoods do you serve?', answer: 'All of them — Astoria, Flushing, Forest Hills, Jamaica, Bayside, Elmhurst, Corona, Long Island City, Whitestone, Kew Gardens, Little Neck, St. Albans, Rego Park, Woodside, Sunnyside, Jackson Heights, Fresh Meadows, and everywhere in between.' },
-        { question: 'How fast can you get to Queens for an emergency?', answer: 'We have technicians based in Queens and the surrounding area. Emergency calls are prioritized, and we\'ll always give you an honest ETA when you call.' },
+        { question: 'How does scheduling work in Queens for an emergency?', answer: 'We have technicians based in Queens and the surrounding area. Emergency calls are prioritized, and we\'ll always give you an honest ETA when you call.' },
         { question: 'Do you work on garage doors in Queens apartment buildings?', answer: 'Yes. We work with property managers and building supers regularly. We handle access coordination, understand building requirements, and work without disrupting other residents.' },
         { question: 'What does a spring replacement cost in Queens?', answer: 'Spring replacement in Queens typically runs $175–$350 for one spring, depending on the spring type and size. We quote the exact price before starting — no surprises.' },
         { question: 'What garage door brands do you service in Queens?', answer: 'All major brands: LiftMaster, Chamberlain, Genie, Clopay, Wayne Dalton, Amarr, Raynor, CHI, and more. If it\'s a garage door, we can fix it.' },

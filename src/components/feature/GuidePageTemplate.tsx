@@ -206,7 +206,7 @@ export default function GuidePageTemplate(props: GuidePageTemplateProps) {
             <span aria-hidden="true">·</span>
             <span>Licensed &amp; Insured</span>
             <span aria-hidden="true">·</span>
-            <span>24/7 Emergency Line</span>
+            <span>Emergency Line Available</span>
           </div>
         </div>
       </section>
@@ -225,7 +225,7 @@ export default function GuidePageTemplate(props: GuidePageTemplateProps) {
           </span>
           <span className="inline-flex items-center gap-2">
             <i className="ri-time-line text-orange-400 text-base" aria-hidden="true" />
-            24/7 Emergency Line
+            Emergency Line Available
           </span>
           <span className="inline-flex items-center gap-2">
             <i className="ri-verified-badge-line text-orange-400 text-base" aria-hidden="true" />
@@ -383,7 +383,7 @@ export default function GuidePageTemplate(props: GuidePageTemplateProps) {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-3">{ctaHeadline ?? 'Get an Honest Quote Today'}</h2>
           <p className="text-orange-100 text-lg mb-8">
-            {ctaText ?? 'Same-day availability, upfront pricing, and a 1-year warranty. Call now or book online.'}
+            {ctaText ?? 'Total-price quotes before work starts and a 1-year warranty. Call or book online.'}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

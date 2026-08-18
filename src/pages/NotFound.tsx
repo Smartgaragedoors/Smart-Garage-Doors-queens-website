@@ -83,7 +83,7 @@ export default function NotFound() {
           </div>
 
           <p className="text-sm text-gray-500">
-            Need immediate assistance? <a href="tel:914-557-6816" className="text-orange-500 font-semibold hover:text-orange-600">Call us at (914) 557-6816</a> for 24/7 emergency garage door service.
+            Need help with your garage door? <a href="tel:914-557-6816" className="text-orange-500 font-semibold hover:text-orange-600">Call us at (914) 557-6816</a> to reach our emergency line.
           </p>
         </div>
       </div>

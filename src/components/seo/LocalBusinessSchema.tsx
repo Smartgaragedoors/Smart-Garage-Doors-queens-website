@@ -153,7 +153,7 @@ const LocalBusinessSchema: React.FC<LocalBusinessSchemaProps> = ({
           "itemOffered": {
             "@type": "Service",
             "name": "Emergency Garage Door Service",
-            "description": "24/7 emergency garage door repair services for urgent situations"
+            "description": "Emergency garage door repair line for urgent situations"
           }
         }
       ]

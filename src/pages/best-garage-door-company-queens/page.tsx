@@ -46,8 +46,8 @@ export default function BestGarageDoorCompanyQueensPage() {
             icon: 'ri-volume-mute-line',
           },
           {
-            title: 'Same-day availability',
-            description: 'A door stuck open in Queens is a security problem by nightfall. Same-day appointments are often available with us; we give you an exact ETA when you call, not a vague window.',
+            title: 'Clear scheduling communication',
+            description: 'A door stuck open in Queens is a security problem by nightfall. When you call us, a dispatcher checks current technician availability and books a realistic appointment — not a vague window.',
             icon: 'ri-calendar-check-line',
           },
         ],
@@ -75,7 +75,7 @@ export default function BestGarageDoorCompanyQueensPage() {
             'Garage doors are a service category with a known pattern of bait pricing, and Queens sees plenty of it. None of these flags means a specific company is dishonest — but each one removes the protections an honest company gives you willingly, so treat them as your cue to keep dialing.',
           ],
           bullets: [
-            'The "$29 service call" that balloons: a rock-bottom dispatch fee paired with a refusal to estimate the actual repair until the technician is standing in your garage. The teaser fee isn\'t the price — it\'s the hook.',
+            'The "$29 visit fee" that balloons: a rock-bottom teaser fee paired with a refusal to estimate the actual repair until the technician is standing in your garage. The teaser fee isn\'t the price — it\'s the hook. An honest company offers a free written estimate instead.',
             'No written quote before work starts: if the full price only exists verbally, or only after disassembly begins, you\'ve lost your leverage at the exact moment you need it.',
             'Unverifiable "lifetime warranties": a lifetime warranty is only as real as the entity honoring it and the fine print defining it. Ask what\'s covered, for how long, in writing — a clear 1-year parts and labor term you can enforce beats a vague lifetime promise you can\'t.',
             'No license or insurance details on request: any legitimate company operating in NYC can produce both without friction.',
@@ -87,27 +87,27 @@ export default function BestGarageDoorCompanyQueensPage() {
           heading: 'How We Measure Against the Checklist',
           paragraphs: [
             'Here is our scorecard against the six criteria, stated as plain facts so you can compare us against anyone else you call. We\'re based in Flushing, Queens — this borough is our home territory, not an outer ring on a coverage map.',
-            'Pricing: every job is quoted in full before work begins. Typical repairs run $150–$300, spring replacement $175–$350, opener repair $150–$350, and new doors start around $800, with insulated, carriage-style, and custom-fit doors priced higher. The number we quote is the number you pay. Warranty: 1-year parts and labor, in writing, on every job. Licensing and insurance: yes and yes, with documentation available on request.',
-            'Hardware: we install and service quiet belt-drive and wall-mount openers, smart openers (LiftMaster, Chamberlain, Genie and other major brands), nylon rollers, and corrosion-resistant hardware where salt exposure calls for it. Availability: same-day appointments are often available, with a 24/7 emergency line for the door that fails at the wrong hour — we give you an exact ETA when you call rather than promising minutes we can\'t guarantee. That\'s the whole pitch. Run every other company through the same six questions and hire whoever answers them best.',
+            'Pricing: every job is quoted in full before work begins. Typical repairs run $150–$300, spring replacement $175–$350, opener repair $150–$350, and new doors run $800–$2,500, with insulated, carriage-style, and custom-fit doors running $1,500–$5,000 or more. All figures are total prices, inclusive of any fees, surcharges, and applicable taxes — the number we quote is the number you pay. Warranty: 1-year parts and labor, in writing, on every job. Licensing and insurance: yes and yes, with documentation available on request.',
+            'Hardware: we install and service quiet belt-drive and wall-mount openers, smart openers (LiftMaster, Chamberlain, Genie and other major brands), nylon rollers, and corrosion-resistant hardware where salt exposure calls for it. Scheduling: when you call, a dispatcher checks current technician availability and books a realistic appointment, and we run an emergency line for the door that fails at the wrong hour — arrival depends on the technician\'s current job, traffic, and distance, and we\'ll be straight with you about it. That\'s the whole pitch. Run every other company through the same six questions and hire whoever answers them best.',
           ],
         },
       ]}
       faqs={[
         {
           question: 'Who is the best garage door company in Queens?',
-          answer: 'Honestly: it depends on your criteria, and any company that flatly crowns itself is skipping the part that matters. The reliable method is the six-point checklist on this page — written upfront quote, verifiable local reviews, license and insurance, written warranty, quiet and smart opener expertise, and same-day availability. We\'re based in Queens and built the company around exactly those six points, and we\'re comfortable being compared on them against anyone you call.',
+          answer: 'Honestly: it depends on your criteria, and any company that flatly crowns itself is skipping the part that matters. The reliable method is the six-point checklist on this page — written upfront quote, verifiable local reviews, license and insurance, written warranty, quiet and smart opener expertise, and clear scheduling communication. We\'re based in Queens and built the company around exactly those six points, and we\'re comfortable being compared on them against anyone you call.',
         },
         {
           question: 'How much does garage door repair cost in Queens?',
-          answer: 'Typical repairs run $150–$300. Spring replacement runs $175–$350, opener repairs $150–$350, and new door installations start around $800 — insulated, carriage-style, and custom-fit doors for non-standard pre-war openings run higher. Whatever company you use, get the full price in writing before work starts; that single habit prevents most pricing disputes.',
+          answer: 'Typical repairs run $150–$300. Spring replacement runs $175–$350, opener repairs $150–$350, and new door installations run $800–$2,500 — insulated, carriage-style, and custom-fit doors for non-standard pre-war openings run $1,500–$5,000 or more. These figures are total prices, inclusive of any fees, surcharges, and applicable taxes. Whatever company you use, get the full price in writing before work starts; that single habit prevents most pricing disputes.',
         },
         {
           question: 'Do Queens co-ops need approval for a new garage door?',
           answer: 'Usually, yes. Most co-op and condo boards require advance approval, conformity with the building\'s established door style and color, and a certificate of insurance from the contractor — often naming the association as additional insured. Some restrict work hours too. Check with your managing agent before ordering anything, and choose a company that handles board paperwork routinely; we do, and we\'ll flag any approval steps during the estimate.',
         },
         {
-          question: 'How fast can someone come out in Queens?',
-          answer: 'Same-day appointments are often available, and we run a 24/7 emergency line for doors that fail open, won\'t close, or have a snapped spring. We won\'t promise arrival minutes on a webpage — traffic and demand vary — but when you call we\'ll give you an exact ETA for your address and stick to it.',
+          question: 'How does scheduling work in Queens?',
+          answer: 'When you call, a dispatcher checks current technician availability and books the earliest realistic appointment, and we run an emergency line for doors that fail open, won\'t close, or have a snapped spring. We won\'t promise arrival times on a webpage — arrival depends on the technician\'s current job, traffic, and distance — but we\'ll be straight with you about scheduling when you call.',
         },
         {
           question: 'What opener is best for an attached garage in Queens?',
@@ -118,7 +118,7 @@ export default function BestGarageDoorCompanyQueensPage() {
           answer: 'Almost always, yes. Pre-war Queens garages frequently have openings that are narrower, lower, or less square than modern standard sizes, which calls for a custom-fit door rather than forcing a stock panel. Custom-fit doors cost more than standard sizes, but they seal correctly, travel correctly, and don\'t fight the structure. We measure the opening during the estimate and tell you honestly whether it also needs framing correction first.',
         },
       ]}
-      bottomLine="No company gets to declare itself the best garage door company in Queens — including us. What a Queens homeowner can do is hold every company to the same six criteria: full price in writing before work starts, real reviews from real Queens neighborhoods, license and insurance you can verify, a warranty on paper, genuine quiet-and-smart opener expertise for attached garages, and same-day availability when it counts. We're based in Flushing, we built Smart Garage Doors around that exact list, and we win comparisons by being measurable, not by being loud. Call us, run us through the checklist, and decide for yourself."
+      bottomLine="No company gets to declare itself the best garage door company in Queens — including us. What a Queens homeowner can do is hold every company to the same six criteria: full price in writing before work starts, real reviews from real Queens neighborhoods, license and insurance you can verify, a warranty on paper, genuine quiet-and-smart opener expertise for attached garages, and clear scheduling communication when it counts. We're based in Flushing, we built Smart Garage Doors around that exact list, and we win comparisons by being measurable, not by being loud. Call us, run us through the checklist, and decide for yourself."
       relatedLinks={{
         title: 'Queens Neighborhoods We Serve',
         links: [
@@ -131,7 +131,7 @@ export default function BestGarageDoorCompanyQueensPage() {
         ],
       }}
       ctaHeadline="Based in Queens. Built for Queens Garages."
-      ctaText="Full price quoted before work starts, 1-year parts and labor warranty in writing, and same-day appointments often available — exact ETA when you call."
+      ctaText="Full price quoted before work starts, 1-year parts and labor warranty in writing, and clear scheduling communication — call to check current availability."
     />
   );
 }

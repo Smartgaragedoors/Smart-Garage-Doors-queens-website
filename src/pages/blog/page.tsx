@@ -221,7 +221,7 @@ export default function BlogPage() {
               className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
             >
               <i className="ri-phone-fill"></i>
-              Call (914) 557-6816 — We Answer 24/7
+              Call (914) 557-6816 — Live Dispatcher
             </a>
           </div>
         </div>
@@ -234,7 +234,7 @@ export default function BlogPage() {
             Need a Garage Door Expert?
           </h2>
           <p className="text-lg text-gray-600 mb-8">
-            Our technicians cover Queens, Brooklyn, Long Island, Westchester, Fairfield County CT, and Bergen County NJ. Call for same-day service.
+            Our technicians cover Queens, Brooklyn, Long Island, Westchester, Fairfield County CT, and Bergen County NJ. Call to check current availability.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

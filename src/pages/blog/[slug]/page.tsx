@@ -57,7 +57,7 @@ const BLOG_POSTS: Record<string, {
       <p>Garage door springs are under extreme tension - hundreds of pounds of force. Attempting DIY replacement can result in serious injury or death. Always hire licensed, insured professionals with proper tools and training.</p>
       
       <h2>When to Call a Professional</h2>
-      <p>If you notice any of these warning signs, don't delay. Call Smart Garage Doors immediately for professional spring replacement. We offer 24/7 emergency service throughout NY, NJ & CT, with same-day replacement available.</p>
+      <p>If you notice any of these warning signs, don't delay. Call Smart Garage Doors immediately for professional spring replacement. Our emergency line covers NY, NJ & CT — call and a dispatcher confirms current availability.</p>
       
       <h2>Prevention and Maintenance</h2>
       <p>Regular professional maintenance can extend spring life and catch issues early. Have your springs inspected annually by qualified technicians who can identify wear before failure occurs.</p>
@@ -94,7 +94,7 @@ const BLOG_POSTS: Record<string, {
       <p>Spring replacement is one of the most common repairs. Torsion springs cost $250-$400, while extension springs cost $200-$300. Double car doors may cost $300-$500.</p>
       
       <h3>Opener Repair: $150-$350</h3>
-      <p>Opener repairs range from $150 for simple fixes to $350 for motor replacement. Smart opener installation costs $300-$600.</p>
+      <p>Opener repairs range $150–$350 depending on the fix (total price inclusive of any fees, surcharges, and applicable taxes). Smart opener installation costs $300-$600.</p>
       
       <h3>Track Repair: $150-$300</h3>
       <p>Track alignment and repair typically cost $150-$300. Severe damage requiring track replacement may cost $400-$800.</p>
@@ -113,7 +113,7 @@ const BLOG_POSTS: Record<string, {
     faqs: [
       {
         question: "How much does emergency garage door repair cost?",
-        answer: "Emergency repairs typically add $50-$100 to standard pricing. Same-day service is available for most repairs."
+        answer: "Emergency repairs typically add $50-$100 to standard pricing (total price inclusive of any fees, surcharges, and applicable taxes)."
       }
     ]
   },
@@ -222,7 +222,7 @@ const BLOG_POSTS: Record<string, {
       <p>4. <strong>Call Professionals:</strong> Contact Smart Garage Doors immediately for emergency service.</p>
       
       <h2>Emergency Service Response</h2>
-      <p>We offer 24/7 emergency garage door repair throughout NY, NJ & CT. We dispatch the nearest available technician to address urgent situations safely and efficiently — call us for an honest availability estimate.</p>
+      <p>Our emergency line covers NY, NJ & CT. We dispatch the nearest available technician to address urgent situations safely and efficiently — call us for an honest availability estimate.</p>
       
       <p>If you are currently dealing with an urgent problem, skip the DIY steps and <a href="/emergency-garage-door-repair/">request emergency garage door repair service</a> so a technician can secure your door quickly.</p>
     `,
@@ -352,7 +352,7 @@ const BLOG_POSTS: Record<string, {
       </ul>
       
       <h2>Professional Opener Repair Services</h2>
-      <p>Smart Garage Doors provides expert opener repair services throughout NY, NJ & CT. Our certified technicians diagnose and repair all opener brands and types, from simple sensor alignment to complete motor replacement. We offer same-day service and comprehensive warranties on all repairs.</p>
+      <p>Smart Garage Doors provides expert opener repair services throughout NY, NJ & CT. Our certified technicians diagnose and repair all opener brands and types, from simple sensor alignment to complete motor replacement. We provide comprehensive warranties on all repairs.</p>
       
       <p>If your opener still is not working the way it should, you can <a href="/opener-repair-installation/">book a professional garage door opener repair or installation</a> so the system is reliable again.</p>
     `,
@@ -364,7 +364,7 @@ const BLOG_POSTS: Record<string, {
     faqs: [
       {
         question: "How much does garage door opener repair cost?",
-        answer: "Opener repair costs typically range from $150-$350 depending on the issue. Simple repairs like sensor alignment cost $150-$200, while motor repairs or circuit board replacement cost $250-$350. We provide free estimates before any work begins."
+        answer: "Opener repair costs typically range $150-$350 depending on the issue (total price inclusive of any fees, surcharges, and applicable taxes). Simple repairs like sensor alignment cost $150-$200, while motor repairs or circuit board replacement cost $250-$350. We provide free estimates before any work begins."
       },
       {
         question: "Can I repair my garage door opener myself?",
@@ -445,8 +445,8 @@ const BLOG_POSTS: Record<string, {
       <p>Emergency spring replacement may have slightly higher rates due to immediate dispatch:</p>
       <ul>
         <li><strong>Scheduled Service:</strong> Standard pricing</li>
-        <li><strong>Same-Day Service:</strong> May include rush fee, +$50-$100</li>
-        <li><strong>Emergency/After-Hours:</strong> Higher rates for 24/7 service, +$75-$150</li>
+        <li><strong>Priority Scheduling:</strong> May include rush fee, +$50-$100</li>
+        <li><strong>Emergency/After-Hours:</strong> Higher rates for after-hours dispatch, +$75-$150</li>
       </ul>
       
       <h3>6. Geographic Location</h3>
@@ -516,7 +516,7 @@ const BLOG_POSTS: Record<string, {
       </ul>
       
       <h2>Professional Spring Replacement Services</h2>
-      <p>Smart Garage Doors provides expert spring replacement services throughout NY, NJ & CT. We offer same-day service, transparent pricing, and comprehensive warranties. Our certified technicians safely replace all spring types with high-quality components and professional installation. Contact us for a free estimate and fast, reliable spring replacement service.</p>
+      <p>Smart Garage Doors provides expert spring replacement services throughout NY, NJ & CT. We provide transparent total pricing and comprehensive warranties. Our certified technicians safely replace all spring types with high-quality components and professional installation. Contact us for a free estimate and fast, reliable spring replacement service.</p>
       
       <p>When you are comparing quotes, make sure you are looking at qualified providers. You can <a href="/spring-replacement/">schedule garage door spring replacement with Smart Garage Doors</a> for precise pricing and safe installation.</p>
     `,
@@ -825,13 +825,13 @@ const BLOG_POSTS: Record<string, {
     description: "Detailed guide to garage door repair costs in Queens, New York with local pricing information.",
     content: `
       <h2>Garage Door Repair in Queens</h2>
-      <p>Smart Garage Doors serves Queens with same-day repair, spring replacement, opener service, and track repairs. Pricing is in line with the NYC metro area.</p>
+      <p>Smart Garage Doors serves Queens with garage door repair, spring replacement, opener service, and track repairs. Pricing is in line with the NYC metro area.</p>
       <h2>What Affects Cost</h2>
       <p>Repair type (springs, opener, cables, rollers, tracks), door size, and part quality. We give free estimates so you know the cost before we start.</p>
       <h2>Typical Ranges</h2>
       <p>Spring replacement: about $200–$500. Opener repair: $150–$350. Roller or cable replacement: $150–$300. Emergency or after-hours service may have an additional fee.</p>
       <h2>Schedule Service in Queens</h2>
-      <p>For a precise quote and fast service in Queens, call (914) 557-6816 or <a href="/book-now/">book online</a>. We cover Flushing, Jamaica, Astoria, and all Queens neighborhoods.</p>
+      <p>For a precise quote in Queens, call (914) 557-6816 or <a href="/book-now/">book online</a>. We cover Flushing, Jamaica, Astoria, and all Queens neighborhoods.</p>
     `,
     image: "",
     date: "2024-12-20",
@@ -845,7 +845,7 @@ const BLOG_POSTS: Record<string, {
     description: "Complete guide to garage door repair costs in Brooklyn with local pricing and service information.",
     content: `
       <h2>Garage Door Repair in Brooklyn</h2>
-      <p>We provide garage door repair and installation across Brooklyn. Same-day service is available for most repairs.</p>
+      <p>We provide garage door repair and installation across Brooklyn. Call and a dispatcher confirms current scheduling availability.</p>
       <h2>Pricing Factors</h2>
       <p>Costs depend on the repair (springs, opener, tracks, cables, panels), your door size, and whether you need emergency service. We always quote before starting.</p>
       <h2>What to Expect</h2>
@@ -867,7 +867,7 @@ const BLOG_POSTS: Record<string, {
       <h2>Garage Door Service in Stamford</h2>
       <p>Smart Garage Doors offers repair, spring replacement, opener service, and new door installation in Stamford and nearby Fairfield County.</p>
       <h2>Our Services</h2>
-      <p>We handle broken springs, opener issues, off-track doors, cable and roller replacement, and full door installation. Same-day and emergency service are available.</p>
+      <p>We handle broken springs, opener issues, off-track doors, cable and roller replacement, and full door installation. An emergency line is available for urgent issues.</p>
       <h2>Transparent Pricing</h2>
       <p>We provide free estimates. You’ll know the cost before any work begins. We use quality parts and back our repairs with a warranty.</p>
       <h2>Contact Us</h2>
@@ -885,7 +885,7 @@ const BLOG_POSTS: Record<string, {
     description: "Professional garage door repair and installation services in White Plains, New York. Serving Westchester County.",
     content: `
       <h2>Garage Door Service in White Plains</h2>
-      <p>We serve White Plains and Westchester County with same-day repair, spring replacement, opener service, and new door installation.</p>
+      <p>We serve White Plains and Westchester County with garage door repair, spring replacement, opener service, and new door installation.</p>
       <h2>What We Offer</h2>
       <p>Broken springs, opener problems, off-track doors, cables, rollers, and track repairs. We also install new residential and commercial-style doors.</p>
       <h2>Why Choose Us</h2>
@@ -907,7 +907,7 @@ const BLOG_POSTS: Record<string, {
       <h2>Garage Door Repair on Long Island</h2>
       <p>Smart Garage Doors provides repair, spring replacement, opener service, and installation across Nassau and Suffolk Counties.</p>
       <h2>Service Area</h2>
-      <p>We cover Long Island communities in both counties. Same-day and emergency service available for most jobs.</p>
+      <p>We cover Long Island communities in both counties. An emergency line is available for urgent jobs.</p>
       <h2>Common Repairs</h2>
       <p>Springs, openers, tracks, cables, rollers, and panels. We diagnose, quote, and repair with quality parts and clear pricing.</p>
       <h2>Get Long Island Service</h2>
@@ -929,7 +929,7 @@ const BLOG_POSTS: Record<string, {
       <h2>Communities We Serve</h2>
       <p>White Plains, New Rochelle, Scarsdale, Yonkers, Mount Vernon, and surrounding Westchester towns.</p>
       <h2>Full Range of Services</h2>
-      <p>From broken springs and opener issues to off-track doors and full replacements. Same-day and emergency service when you need it.</p>
+      <p>From broken springs and opener issues to off-track doors and full replacements. An emergency line when you need it.</p>
       <h2>Book Westchester Service</h2>
       <p>Call (914) 557-6816 or <a href="/book-now/">book online</a> for garage door repair or installation in Westchester County.</p>
     `,
@@ -947,7 +947,7 @@ const BLOG_POSTS: Record<string, {
       <h2>Garage Door Repair in Greenwich</h2>
       <p>Smart Garage Doors serves Greenwich and Fairfield County with repair, spring replacement, opener service, and new door installation.</p>
       <h2>Quality Service</h2>
-      <p>We use quality parts and provide clear, upfront pricing. Same-day and emergency service available.</p>
+      <p>We use quality parts and provide clear, upfront pricing. An emergency line is available for urgent issues.</p>
       <h2>Contact Us</h2>
       <p>For Greenwich CT garage door repair or installation, call (914) 557-6816 or <a href="/book-now/">schedule online</a>.</p>
     `,
@@ -965,7 +965,7 @@ const BLOG_POSTS: Record<string, {
       <h2>Garage Door Repair on Staten Island</h2>
       <p>We provide garage door repair, spring replacement, opener service, and installation across Staten Island.</p>
       <h2>Local Service</h2>
-      <p>Same-day and emergency service available. We quote before we start and back our work with a warranty.</p>
+      <p>An emergency line is available for urgent issues. We quote before we start and back our work with a warranty.</p>
       <h2>Schedule Service</h2>
       <p>Call (914) 557-6816 or <a href="/book-now/">book online</a> for Staten Island garage door repair or installation.</p>
     `,
@@ -983,7 +983,7 @@ const BLOG_POSTS: Record<string, {
       <h2>Garage Door Repair in Flushing</h2>
       <p>Smart Garage Doors offers repair, spring replacement, opener service, and installation in Flushing and surrounding Queens areas.</p>
       <h2>Fast, Reliable Service</h2>
-      <p>Same-day service for most repairs. We give free estimates and use quality parts.</p>
+      <p>We give free total-price estimates and use quality parts.</p>
       <h2>Book Flushing Service</h2>
       <p>For garage door repair or installation in Flushing, call (914) 557-6816 or <a href="/book-now/">schedule online</a>.</p>
     `,
@@ -1001,7 +1001,7 @@ const BLOG_POSTS: Record<string, {
       <h2>Garage Door Service in Fairfield CT</h2>
       <p>We serve Fairfield and Fairfield County with repair, spring replacement, opener service, and new door installation.</p>
       <h2>Our Promise</h2>
-      <p>Upfront pricing, quality parts, and warranty on our work. Same-day and emergency service when you need it.</p>
+      <p>Upfront pricing, quality parts, and warranty on our work. An emergency line when you need it.</p>
       <h2>Schedule Today</h2>
       <p>Call (914) 557-6816 or <a href="/book-now/">book online</a> for garage door service in Fairfield, CT.</p>
     `,
@@ -1019,7 +1019,7 @@ const BLOG_POSTS: Record<string, {
       <h2>Garage Door Repair in Darien</h2>
       <p>Smart Garage Doors provides repair, spring replacement, opener service, and installation in Darien and nearby Fairfield County.</p>
       <h2>Reliable Service</h2>
-      <p>We offer same-day and emergency service, free estimates, and quality parts. Our technicians are licensed and insured.</p>
+      <p>We offer an emergency line for urgent issues, free total-price estimates, and quality parts. Our technicians are licensed and insured.</p>
       <h2>Contact Us</h2>
       <p>For Darien CT garage door repair or installation, call (914) 557-6816 or <a href="/book-now/">schedule online</a>.</p>
     `,
@@ -1037,7 +1037,7 @@ const BLOG_POSTS: Record<string, {
       <h2>Garage Door Service in Suffern NY</h2>
       <p>We serve Suffern and Rockland County with garage door repair, spring replacement, opener service, and new door installation.</p>
       <h2>Quality & Transparency</h2>
-      <p>Free estimates, quality parts, and warranty on our work. Same-day and emergency service available.</p>
+      <p>Free estimates, quality parts, and warranty on our work. An emergency line is available for urgent issues.</p>
       <h2>Book Suffern Service</h2>
       <p>Call (914) 557-6816 or <a href="/book-now/">book online</a> for garage door repair or installation in Suffern, NY.</p>
     `,

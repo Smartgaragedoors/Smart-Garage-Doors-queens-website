@@ -72,10 +72,10 @@ function CoverageStrip() {
           className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-full shadow-md hover:shadow-lg transition-all text-base"
         >
           <i className="ri-phone-fill" aria-hidden="true" />
-          Call (914) 557-6816 — We Answer 24/7
+          Call (914) 557-6816 — Live Dispatcher
         </a>
         <p className="text-sm text-gray-500 mt-3">
-          A real person answers — usually in under 30 seconds.
+          A real person answers — no call center, no phone tree.
         </p>
       </div>
     </section>
@@ -144,7 +144,7 @@ function CommercialStrip() {
             Call for Commercial Service
           </a>
           <p className="text-blue-300 text-xs md:text-sm">
-            COI on request · multi-location accounts across NY, NJ &amp; CT · 24/7 emergency line
+            COI on request · multi-location accounts across NY, NJ &amp; CT · emergency line available
           </p>
         </div>
         <div className="hidden md:flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm text-blue-200 mt-6">
@@ -162,7 +162,7 @@ function CommercialStrip() {
           </span>
           <span className="inline-flex items-center gap-2">
             <i className="ri-checkbox-circle-line text-orange-400" aria-hidden="true" />
-            24/7 emergency line
+            Emergency line available
           </span>
         </div>
       </div>
@@ -192,19 +192,19 @@ export default function HomePage() {
   return (
     <div className="min-h-screen pb-[68px] md:pb-0">
       <DynamicMetaTags
-        title={`Smart Garage Doors | ⭐${BUSINESS_INFO.aggregateRating.ratingValue} (${BUSINESS_INFO.aggregateRating.reviewCount}+ Reviews) | Same-Day Repair`}
-        description={`Rated ${BUSINESS_INFO.aggregateRating.ratingValue}/5 (${BUSINESS_INFO.aggregateRating.reviewCount}+ Google reviews). Same-day garage door repair, springs, openers, install — NY, NJ & CT. $0 service call with repair · 24/7 — (914) 557-6816.`}
+        title={`Smart Garage Doors | ⭐${BUSINESS_INFO.aggregateRating.ratingValue} (${BUSINESS_INFO.aggregateRating.reviewCount}+ Reviews) | Garage Door Repair`}
+        description={`Rated ${BUSINESS_INFO.aggregateRating.ratingValue}/5 (${BUSINESS_INFO.aggregateRating.reviewCount}+ Google reviews). Garage door repair, springs, openers, install — NY, NJ & CT. Free total-price estimates incl. fees & taxes — (914) 557-6816.`}
       />
       <WebSiteSchema />
       <OrganizationSchema />
       <LocalBusinessSchema locationName={location?.city} serviceArea={location?.city || 'New York'} />
       <Header />
       <Hero />
-      {/* TrustBar removed — the hero trust row (rating · same-day · 24/7 eyebrow) is the
+      {/* TrustBar removed — the hero trust row (rating · warranty · dispatcher eyebrow) is the
           single trust moment up top; repeating it in a second navy band added weight only. */}
       {/* Customer-language symptom links — quick "yes, they fix MY problem" reassurance */}
       <CommonProblems />
-      {/* Trust + real technician photo pulled high (answer fast · clear price · trusted) */}
+      {/* Trust + real technician photo pulled high (live answer · clear price · trusted) */}
       <WhyChooseUs />
       <BrandsServed />
       <Suspense fallback={<div className="min-h-[400px] bg-gray-50" />}>

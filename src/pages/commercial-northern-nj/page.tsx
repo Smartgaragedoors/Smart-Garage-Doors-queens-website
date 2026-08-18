@@ -12,14 +12,14 @@ import GuidePageTemplate from '../../components/feature/GuidePageTemplate';
 export default function CommercialNorthernNJPage() {
   return (
     <GuidePageTemplate
-      metaTitle="Commercial Garage Door Repair in Northern NJ | 24/7 Service"
-      metaDescription="Commercial overhead door, dock door & rolling gate repair across Bergen, Passaic, Hudson & Essex counties, NJ. 24/7 priority dispatch, COI on request."
+      metaTitle="Commercial Garage Door Repair in Northern NJ | Licensed & Insured"
+      metaDescription="Commercial overhead door, dock door & rolling gate repair across Bergen, Passaic, Hudson & Essex counties, NJ. priority dispatch, COI on request."
       keywords="commercial garage door repair NJ, warehouse door repair Bergen County, loading dock repair Meadowlands, rolling gate repair Newark, commercial overhead door northern New Jersey"
       slug="/commercial-northern-nj/"
       heroImage="homeHero"
       badge="Northern New Jersey — Bergen, Passaic, Hudson & Essex"
       headline="Commercial Garage Door Repair Across Northern New Jersey"
-      subheadline="Overhead doors, loading dock doors and levelers, and rolling steel gates for warehouses, distribution centers, and commercial buildings across Bergen, Passaic, Hudson, and Essex counties — 24/7 priority dispatch, COI on request."
+      subheadline="Overhead doors, loading dock doors and levelers, and rolling steel gates for warehouses, distribution centers, and commercial buildings across Bergen, Passaic, Hudson, and Essex counties — priority dispatch, COI on request."
       showWhatsAppHero={true}
       whatsAppMessage="Hi — we have a commercial door/gate issue at our New Jersey facility. Sending photos for a fast assessment."
       showCommercialLeadForm={true}
@@ -107,12 +107,12 @@ export default function CommercialNorthernNJPage() {
             'This page covers commercial, warehouse, and multi-site accounts. If you\'re a homeowner in Bergen County or elsewhere in North Jersey looking for residential garage door repair, see our Bergen County service area page instead.',
         },
         {
-          question: 'How fast can you respond to a down bay door or stuck gate in North Jersey?',
+          question: 'How does scheduling work for a down bay door or stuck gate in North Jersey?',
           answer:
-            'Commercial calls get priority dispatch on our 24/7 line — we give you an exact ETA when you call based on technician position at that moment.',
+            'Commercial calls get priority dispatch on our emergency line — we give you an exact ETA when you call based on technician position at that moment.',
         },
       ]}
-      bottomLine="From Meadowlands distribution bays to Newark storefront gates, we repair commercial overhead doors, loading dock doors and levelers, and rolling steel gates across Bergen, Passaic, Hudson, and Essex counties — 24/7 priority dispatch, high-cycle parts on the truck, and per-door records for multi-site accounts."
+      bottomLine="From Meadowlands distribution bays to Newark storefront gates, we repair commercial overhead doors, loading dock doors and levelers, and rolling steel gates across Bergen, Passaic, Hudson, and Essex counties — priority dispatch, high-cycle parts on the truck, and per-door records for multi-site accounts."
       relatedLinks={{
         title: 'Related Commercial Services & Areas',
         links: [
@@ -126,7 +126,7 @@ export default function CommercialNorthernNJPage() {
         ],
       }}
       ctaHeadline="Get Your New Jersey Facility Back in Service"
-      ctaText="24/7 commercial emergency line with priority dispatch across Bergen, Passaic, Hudson, and Essex counties — or text photos of the door for a fast assessment and price before we roll."
+      ctaText="commercial emergency line with priority dispatch across Bergen, Passaic, Hudson, and Essex counties — or text photos of the door for a fast assessment and price before we roll."
     />
   );
 }

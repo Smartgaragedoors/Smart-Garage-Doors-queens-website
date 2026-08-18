@@ -20,7 +20,7 @@ export default function InstallationPage() {
   const faqs = [
     {
       question: `How much does garage door installation cost in ${displayLocation}?`,
-      answer: `New garage door installation typically ranges from $800–$2,500 all-inclusive (parts, labor, and applicable taxes) depending on door size, material, style, and features. Single-car steel doors typically range $800–$1,200; premium double-car doors with windows, insulation, and custom features typically range $1,800–$2,500. Wood doors typically range $1,500–$5,000+. We provide free on-site estimates with a detailed price breakdown before any work begins.`,
+      answer: `New garage door installation typically ranges $800–$2,500 depending on door size, material, style, and features — these figures are the total price, inclusive of parts, labor, and any fees, surcharges, and applicable taxes. Single-car steel doors typically range $800–$1,200; premium double-car doors with windows, insulation, and custom features typically range $1,800–$2,500. Wood doors typically range $1,500–$5,000 or more for fully custom builds. We provide free on-site estimates with a detailed price breakdown before any work begins.`,
     },
     {
       question: 'How long does garage door installation take?',
@@ -55,8 +55,8 @@ export default function InstallationPage() {
       answer: 'Yes, we install insulated garage doors which provide significant energy savings, noise reduction, and better climate control. Insulated doors have R-values ranging from R-6 to R-18+, with higher R-values providing better insulation. This is especially important for attached garages or if you use your garage as a workspace. We can explain the benefits and costs of different insulation levels to help you choose the best option.',
     },
     {
-      question: `How quickly can you install a new garage door in ${displayLocation}?`,
-      answer: `We typically can schedule new garage door installations within 1-2 weeks, depending on door selection and current schedule. For standard doors in stock, we can often install within 3-7 days. Custom doors may take 2-4 weeks for ordering and delivery. Emergency installations are available when possible. We\'ll provide a timeline during your estimate and work to accommodate your schedule needs.`,
+      question: `How does scheduling work for a new garage door installation in ${displayLocation}?`,
+      answer: `Installation timing depends on door selection and our current schedule. Standard in-stock doors can usually be scheduled sooner, while custom doors require additional ordering and delivery lead time. We\'ll provide a clear timeline during your free estimate and work to accommodate your schedule needs.`,
     },
     {
       question: 'What measurements do you need for installation?',
@@ -96,7 +96,7 @@ export default function InstallationPage() {
         if (result.usedFallback) {
           alert('Your email client should open to send your request. If it didn\'t open, please call us at (914) 557-6816.');
         } else {
-          alert('Installation quote request submitted! We will contact you within 24 hours.');
+          alert('Installation quote request submitted! We will contact you to schedule your free consultation.');
         }
         (e.target as HTMLFormElement).reset();
       } else {
@@ -468,7 +468,7 @@ export default function InstallationPage() {
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent pr-8"
                 >
                   <option value="">Select Timeline</option>
-                  <option value="asap">As Soon As Possible</option>
+                  <option value="as-soon-as-available">As Soon As Available</option>
                   <option value="1-2-weeks">1-2 Weeks</option>
                   <option value="1-month">Within 1 Month</option>
                   <option value="2-3-months">2-3 Months</option>

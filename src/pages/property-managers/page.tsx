@@ -44,7 +44,7 @@ export default function PropertyManagersPage() {
           {
             title: 'Priority Tenant-Outage Response',
             description:
-              'A garage door outage that strands tenants’ cars jumps the queue. 24/7 line, priority dispatch, exact ETA when you call — and updates you can forward to residents.',
+              'A garage door outage that strands tenants’ cars jumps the queue. emergency line, priority dispatch, exact ETA when you call — and updates you can forward to residents.',
             icon: 'ri-alarm-warning-line',
           },
           {
@@ -133,7 +133,7 @@ export default function PropertyManagersPage() {
         {
           question: 'What about emergency response for tenant-affecting failures?',
           answer:
-            'Our line answers 24/7, and outages that affect tenants — a parking garage door stuck closed, a gate that won’t secure — get priority dispatch. We give you an exact ETA when you call, plus status updates you can pass along to residents and owners.',
+            'Our emergency line takes these calls, and outages that affect tenants — a parking garage door stuck closed, a gate that won’t secure — get priority dispatch. We give you an exact ETA when you call, plus status updates you can pass along to residents and owners.',
         },
       ]}
       bottomLine="You need a door vendor who answers the phone, shows up with the right parts, documents everything, and bills cleanly per property — so a broken garage door never becomes your problem with an owner or a tenant. That’s the entire job description, and it’s the one we built our commercial operation around. One call sets up the account."
@@ -151,7 +151,7 @@ export default function PropertyManagersPage() {
         ],
       }}
       ctaHeadline="Set Up a Vendor Account"
-      ctaText="One call covers your whole portfolio — point of contact, COIs, per-property billing, and a 24/7 line your tenants will never need to know you have."
+      ctaText="One call covers your whole portfolio — point of contact, COIs, per-property billing, and a emergency line your tenants will never need to know you have."
     />
   );
 }

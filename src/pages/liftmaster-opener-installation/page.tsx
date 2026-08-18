@@ -116,7 +116,7 @@ export default function LiftMasterOpenerInstallationPage() {
         {
           question: 'How long does opener installation take?',
           answer:
-            "Typically a couple of hours on site — removing the old unit, mounting and wiring the new one, aligning the safety sensors, setting up myQ on your phone, and programming every remote and keypad before we leave. Same-day appointments are often available; we'll give you an exact ETA when you call.",
+            "Typically a couple of hours on site — removing the old unit, mounting and wiring the new one, aligning the safety sensors, setting up myQ on your phone, and programming every remote and keypad before we leave. We'll give you an exact ETA when you call, based on current technician availability.",
         },
         {
           question: 'Is myQ smartphone setup included?',

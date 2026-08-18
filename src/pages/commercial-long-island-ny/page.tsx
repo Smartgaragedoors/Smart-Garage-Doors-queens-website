@@ -4,13 +4,13 @@ export default function CommercialLongIslandPage() {
   return (
     <GuidePageTemplate
       metaTitle="Commercial Garage Door Repair Long Island | Nassau & Suffolk | NY"
-      metaDescription="Commercial overhead door, dock door, and rolling gate repair across Long Island — Nassau & Suffolk counties. 24/7 priority dispatch, COI on request, per-door records."
+      metaDescription="Commercial overhead door, dock door, and rolling gate repair across Long Island — Nassau & Suffolk counties. priority dispatch, COI on request, per-door records."
       keywords="commercial garage door repair Long Island, warehouse door repair Nassau County, loading dock repair Suffolk County, commercial overhead door Hauppauge, industrial door repair Long Island"
       slug="/commercial-long-island-ny/"
       heroImage="homeHero"
       badge="Long Island — Nassau & Suffolk Counties"
       headline="Commercial Garage Door Repair Across Long Island"
-      subheadline="Overhead doors, loading dock doors and levelers, and rolling steel gates for warehouses, distribution centers, and commercial buildings across Nassau and Suffolk counties — 24/7 priority dispatch, COI on request."
+      subheadline="Overhead doors, loading dock doors and levelers, and rolling steel gates for warehouses, distribution centers, and commercial buildings across Nassau and Suffolk counties — priority dispatch, COI on request."
       showWhatsAppHero={true}
       whatsAppMessage="Hi — we have a commercial door/gate issue at our Long Island facility. Sending photos for a fast assessment."
       showCommercialLeadForm={true}
@@ -98,12 +98,12 @@ export default function CommercialLongIslandPage() {
             'Yes. We\'re licensed and insured, and a certificate of insurance is available on request, named to your building or facility\'s requirements.',
         },
         {
-          question: 'How fast can you respond to a down bay door or stuck gate on Long Island?',
+          question: 'How does scheduling work for a down bay door or stuck gate on Long Island?',
           answer:
-            'Commercial calls get priority dispatch on our 24/7 line — we give you an exact ETA when you call based on technician position at that moment.',
+            'Commercial calls get priority dispatch on our emergency line — we give you an exact ETA when you call based on technician position at that moment.',
         },
       ]}
-      bottomLine="From the Hauppauge Industrial Park to Nassau County storefronts, we repair commercial overhead doors, loading dock doors and levelers, and rolling steel gates across Long Island — 24/7 priority dispatch, high-cycle parts on the truck, and per-door records for multi-site accounts."
+      bottomLine="From the Hauppauge Industrial Park to Nassau County storefronts, we repair commercial overhead doors, loading dock doors and levelers, and rolling steel gates across Long Island — priority dispatch, high-cycle parts on the truck, and per-door records for multi-site accounts."
       relatedLinks={{
         title: 'Related Commercial Services & Areas',
         links: [
@@ -117,7 +117,7 @@ export default function CommercialLongIslandPage() {
         ],
       }}
       ctaHeadline="Get Your Long Island Facility Back in Service"
-      ctaText="24/7 commercial emergency line with priority dispatch across Nassau and Suffolk counties — or text photos of the door for a fast assessment and price before we roll."
+      ctaText="commercial emergency line with priority dispatch across Nassau and Suffolk counties — or text photos of the door for a fast assessment and price before we roll."
     />
   );
 }
