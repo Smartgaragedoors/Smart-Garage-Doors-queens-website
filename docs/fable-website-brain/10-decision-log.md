@@ -129,6 +129,29 @@ commit history so the log starts complete.)
 - **Risks:** minimal — deletions verified by import-grep + tsc + build + prerender.
 - **Follow-up:** owner actions #1–3 in `09-known-risks-and-next-actions.md`.
 
+## 2026-08-23 — GSC-driven pass: emergency page rebuild, pedestrian doors, blog refresh
+
+- **GSC data (90d):** `/emergency-garage-door-repair/` had 62k impressions for
+  "emergency garage door repair" at position 23.7 with 0 clicks — the biggest
+  single lever on the site. Page was ~300 words, hardcoded "5.0 / hundreds of
+  reviews", untracked CTAs, no SMS consent, not geo-anchored (ranking for Ohio
+  towns). Rebuilt: symptom→"right now"→"our fix" triage cards, tri-state area
+  chips, tracked CTAs, verbatim TCPA checkbox, live review count, 9 FAQs.
+- "garage door insulation" 2,449 imp @7.2 went to the homepage; the dedicated
+  page had only a footer link. Retitled for service+local intent; added to
+  header nav and homepage Services grid (now 8 cards, 4-col on lg).
+- Pedestrian doors page expanded with full synonym coverage (wicket / man door /
+  pass door / personnel / walk-through) + commercial pass-door section. Owner is
+  actively selling these (new installer found). Supporting comparison post
+  `pedestrian-door-vs-side-door-garage` published.
+- Three legacy hardcoded posts (~230 words each) rewritten in place at the same
+  URL rather than spawning new ones: cost guide (ranked #5 for "garage door
+  repair near me"), winter checklist, emergency triage guide.
+- Header nav: replaced the duplicate `/services/installation/` link with
+  Insulation + Pedestrian Doors (route kept; no URL removed).
+- **Rule reinforced:** refresh a thin page that already ranks before creating a
+  new URL for the same topic.
+
 ## 2026-07-05 — Page-1 plan for commercial/warehouse terms (workflow research)
 
 - Multi-agent competitive research on live SERPs; synthesized plan (artifact +

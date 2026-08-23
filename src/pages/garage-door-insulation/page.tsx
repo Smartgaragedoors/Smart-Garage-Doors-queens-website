@@ -18,13 +18,13 @@ import GuidePageTemplate from '../../components/feature/GuidePageTemplate';
 export default function GarageDoorInsulationPage() {
   return (
     <GuidePageTemplate
-      metaTitle="Garage Door Insulation: R-Values, Options & Is It Worth It?"
-      metaDescription="What garage door insulation actually does, how R-values work, polystyrene vs. polyurethane, and when an insulated door pays off in the NY tri-state climate."
+      metaTitle="Garage Door Insulation NY, NJ & CT | Insulated Doors"
+      metaDescription="Insulated garage doors installed across NY, NJ & CT. What R-values mean, polyurethane vs polystyrene, and when insulation pays off. Upfront pricing."
       keywords="garage door insulation, insulated garage door, garage door r value, polyurethane vs polystyrene garage door, insulate garage door"
       slug="/garage-door-insulation/"
       heroImage="homeHero"
       badge="Insulation Guide"
-      headline="Garage Door Insulation, Explained"
+      headline="Garage Door Insulation for NY, NJ & CT Homes"
       subheadline="Your garage door is the largest moving wall in your house — and usually the least insulated surface on it. Here's how insulation actually works, what the options are, and when it's worth the money."
       showWhatsAppHero={true}
       whatsAppMessage="Hi — I'm interested in an insulated garage door. Can you help me figure out my options?"

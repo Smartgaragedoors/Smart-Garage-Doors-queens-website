@@ -33,10 +33,22 @@ function Services() {
       link: '/garage-door-installation/'
     },
     {
+      icon: 'ri-temp-cold-line',
+      title: 'Insulation & Pedestrian Doors',
+      description: 'Insulated replacement doors that cut drafts and noise, plus custom doors with a built-in walk-through (wicket) door.',
+      link: '/garage-door-insulation/'
+    },
+    {
       icon: 'ri-shield-check-line',
       title: 'Maintenance',
       description: 'Prevent sudden failures with tune-ups, safety checks, lubrication, and hardware adjustments.',
       link: '/maintenance/'
+    },
+    {
+      icon: 'ri-building-2-line',
+      title: 'Commercial & Loading Dock',
+      description: 'Rolling steel doors, sectional doors, and dock doors for warehouses, shops, and property managers — with priority dispatch.',
+      link: '/commercial-garage-door-repair/'
     }
   ];
 
@@ -53,7 +65,7 @@ function Services() {
         </div>
 
         {/* Mobile: compact 2-col icon grid (icon + title). md+: full cards with copy. */}
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
           {services.map((service, index) => (
             <a
               key={index}

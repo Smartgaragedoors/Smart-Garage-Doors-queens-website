@@ -23,6 +23,14 @@ anywhere, reorder freely — the agent always takes the top unchecked one.
 - [x] Garage door cable replacement: signs & cost (2026-08-12, `garage-door-cable-replacement-cost-signs`)
 - [x] Roll-up gate repair guide for facilities managers (2026-08-12, `roll-up-gate-repair-facilities-guide`)
 - [x] Garage door opener won't work after a power outage: reset steps that actually work (2026-08-18, `garage-door-opener-not-working-after-power-outage`)
+- [x] Pedestrian door vs. side door vs. opener upgrade (2026-08-23, `pedestrian-door-vs-side-door-garage`) — supports /pedestrian-garage-doors/
+- [x] REWRITE (same URL): garage-door-repair-cost-guide-2025 → 2026 update, ~1,000 words (2026-08-23; ranked #5 for "garage door repair near me" at 229 words)
+- [x] REWRITE (same URL): winter-garage-door-maintenance-tips → full checklist (2026-08-23; GSC "winter garage door care" @40)
+- [x] REWRITE (same URL): emergency-garage-door-repair-guide → first-10-minutes triage (2026-08-23; feeds /emergency-garage-door-repair/)
+- [ ] GSC 2026-08-23: "garage door maintenance plans" 188 imp @49.6 — residential tune-up plan explainer; links /maintenance/ (NOT commercial contracts)
+- [ ] GSC 2026-08-23: "garage door company near me" 1,650 imp @27.5 — "How to choose a garage door company in NY/NJ/CT: 9 questions to ask"; links /best-garage-door-company-tri-state/ and /local-vs-national-garage-door-company/
+- [ ] GSC 2026-08-23: "commercial garage door maintenance" 81 imp @80 — "Commercial garage door maintenance schedule by door type"; links /commercial-maintenance-contracts/
+- [ ] GSC 2026-08-23: "luxury garage doors" 68 imp @29.7 / "custom garage doors long island" 74 @38.8 — custom & luxury door options guide; links /garage-door-installation/
 - [ ] Garage door insulation R-values explained: what the tri-state climate actually requires (supports /garage-door-insulation/ — internal-link it)
 - [ ] Why is my garage door so loud? Noise diagnosis by sound (grinding vs. squeaking vs. banging)
 - [ ] Cómo mantener su puerta de garaje en invierno (Spanish — winter prep; publish late October, skip until then)

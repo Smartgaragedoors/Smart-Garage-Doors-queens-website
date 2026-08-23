@@ -87,7 +87,8 @@ export default function Header() {
                     <a href="/spring-replacement/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Spring Replacement</a>
                     <a href="/cable-roller-repair/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Cable & Roller Repair</a>
                     <a href="/maintenance/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Maintenance</a>
-                    <a href="/services/installation/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Installation</a>
+                    <a href="/garage-door-insulation/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Garage Door Insulation</a>
+                    <a href="/pedestrian-garage-doors/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Pedestrian (Wicket) Doors</a>
                   </div>
                 )}
               </div>
@@ -287,7 +288,8 @@ export default function Header() {
                     <a href="/spring-replacement/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Spring Replacement</a>
                     <a href="/cable-roller-repair/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Cable & Roller Repair</a>
                     <a href="/maintenance/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Maintenance</a>
-                    <a href="/services/installation/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Installation</a>
+                    <a href="/garage-door-insulation/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Garage Door Insulation</a>
+                    <a href="/pedestrian-garage-doors/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Pedestrian (Wicket) Doors</a>
                   </div>
                 </div>
 

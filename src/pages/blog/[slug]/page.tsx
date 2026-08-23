@@ -81,39 +81,82 @@ const BLOG_POSTS: Record<string, {
     ]
   },
   'garage-door-repair-cost-guide-2025': {
-    title: "Garage Door Repair Cost Guide 2025: What to Expect",
+    title: "Garage Door Repair Cost Guide (2026): What Repairs Really Cost in NY, NJ & CT",
     slug: 'garage-door-repair-cost-guide-2025',
-    description: "Complete breakdown of garage door repair costs in 2025. Learn what factors affect pricing and how to budget for common repairs.",
+    description: "Updated 2026 garage door repair costs for the NY tri-state: springs, openers, cables, tracks, panels, and emergency calls — with the factors that move the price.",
     content: `
-      <h2>Understanding Garage Door Repair Costs</h2>
-      <p>Garage door repair costs vary significantly based on the type of repair, parts needed, door size, and location. Understanding these factors helps you budget appropriately and avoid surprises.</p>
-      
-      <h2>Common Garage Door Repair Costs</h2>
-      
-      <h3>Spring Replacement: $200-$400</h3>
-      <p>Spring replacement is one of the most common repairs. Torsion springs cost $250-$400, while extension springs cost $200-$300. Double car doors may cost $300-$500.</p>
-      
-      <h3>Opener Repair: $150-$350</h3>
-      <p>Opener repairs range $150–$350 depending on the fix (total price inclusive of any fees, surcharges, and applicable taxes). Smart opener installation costs $300-$600.</p>
-      
-      <h3>Track Repair: $150-$300</h3>
-      <p>Track alignment and repair typically cost $150-$300. Severe damage requiring track replacement may cost $400-$800.</p>
-      
-      <h3>Cable Replacement: $150-$250</h3>
-      <p>Cable replacement is usually straightforward, costing $150-$250. Both cables should be replaced together.</p>
-      
-      <h2>Factors Affecting Repair Costs</h2>
-      <p>Door size, weight, accessibility, parts quality, and urgency all affect final pricing. We provide free estimates before any work begins.</p>
+      <p><em>Updated August 2026.</em> This guide uses the same price ranges we publish on our <a href="/garage-door-repair/">garage door repair page</a> — parts, labor, and tax included — so the numbers here are what you'd actually see on an invoice, not a national average that doesn't apply to Queens, Long Island, or Bergen County.</p>
+
+      <h2>The short version</h2>
+      <ul>
+        <li><strong>Basic repairs</strong> (cables, rollers, track alignment, sensors): <strong>$150–$450</strong></li>
+        <li><strong>Spring replacement</strong> (torsion or extension, replaced in pairs): <strong>$200–$550</strong></li>
+        <li><strong>Opener repair</strong> (boards, gears, travel limits, remotes) to replacement: <strong>$150–$500</strong></li>
+        <li><strong>New door installation</strong>: quoted per door — size, insulation, and style set the price; see our <a href="/garage-door-installation/">installation page</a> for current published ranges</li>
+      </ul>
+      <p>Most single-visit repairs in the tri-state land between $150 and $550. If someone quotes you far below that, ask what's not included. If someone quotes far above it, get a <a href="/second-opinion/">second opinion</a> before you sign.</p>
+
+      <h2>Spring replacement: $200–$550</h2>
+      <p>Springs are the most common repair we do and the one people most often overpay for. A torsion spring (the coil mounted above the door) is rated in cycles — one open-and-close is one cycle — and a standard 10,000-cycle spring on a door used four times a day lasts roughly seven years. When one breaks, you hear a bang and the door suddenly weighs 200 pounds or more.</p>
+      <p>What moves the price inside the range: a single door with one spring sits at the bottom; a double door with two springs sits higher; and upgrading to high-cycle springs (25,000+ cycles) adds to the part cost but roughly doubles the time before you pay for this again. We replace springs in pairs, because when one has reached end of life the other is right behind it, and a second visit costs more than a second spring.</p>
+      <p>Read more in our <a href="/blog/cost-of-garage-door-spring-replacement/">spring replacement cost breakdown</a> or the <a href="/spring-replacement/">spring replacement service page</a>.</p>
+
+      <h2>Opener repair or replacement: $150–$500</h2>
+      <p>Openers fail in layers. Cheap fixes — a misaligned photo-eye, a worn wall button, a dead remote, travel limits drifting — are at the low end. A failed logic board, stripped drive gear, or burnt-out motor on an older unit pushes you toward the top of the range, and at that point a new opener often makes more sense than repairing a 15-year-old one with no safety-reversal upgrade.</p>
+      <p>A new belt-drive or Wi-Fi opener installed generally lands at the upper end of this range. If you're deciding, our post on <a href="/blog/repair-or-replace-garage-door-opener/">repairing vs. replacing a garage door opener</a> walks through the math.</p>
+
+      <h2>Cables, rollers, and track: $150–$450</h2>
+      <p>A snapped or frayed cable usually presents as a door hanging crooked or jammed on one side. Cables are replaced in pairs and the door is rebalanced, which is where most of the labor goes. Worn rollers make a door loud and shaky; a full set of nylon rollers quiets it down and is one of the better-value repairs on a door you plan to keep. Track work ranges from a simple realignment to replacing a bent section after a vehicle strike.</p>
+      <p>More detail: <a href="/blog/garage-door-cable-replacement-cost-signs/">cable replacement signs and cost</a> and <a href="/blog/garage-door-roller-replacement-cost/">roller replacement cost</a>.</p>
+
+      <h2>Panel and section damage</h2>
+      <p>Panel pricing depends on whether the manufacturer still makes a matching section. If they do, a single replacement panel is a mid-range repair. If the door is discontinued, you're choosing between a mismatched panel and a new door — and on an older door, the new door usually wins. We'll tell you which situation you're in before quoting.</p>
+
+      <h2>What an emergency call costs</h2>
+      <p>After-hours, weekend, and holiday appointments can carry a higher rate than a scheduled daytime appointment. The repair itself is priced the same; the difference is the appointment. The quote you get is the total price, inclusive of fees and tax, before any work starts — and if the problem can safely wait until morning and save you money, we'll say so. See our <a href="/emergency-garage-door-repair/">emergency repair page</a> for what counts as an emergency.</p>
+
+      <h2>What moves the price up or down</h2>
+      <ul>
+        <li><strong>Door size and weight.</strong> Double doors and heavy wood or insulated doors need bigger springs and more labor.</li>
+        <li><strong>Parts quality.</strong> High-cycle springs and nylon rollers cost more up front and last years longer.</li>
+        <li><strong>Age of the door.</strong> Old doors often reveal a second problem when the first is fixed — a bearing, a cable — and we'd rather quote the whole picture than surprise you.</li>
+        <li><strong>Access.</strong> A packed garage, a low-headroom track, or a door behind a locked gate adds time.</li>
+        <li><strong>Timing.</strong> After-hours emergency appointments can cost more than a scheduled visit.</li>
+      </ul>
+
+      <h2>How to not overpay</h2>
+      <p>Three habits protect you. First, ask for the total price before work starts — parts, labor, tax, and any service fee — and get it in writing on the invoice. Second, be suspicious of a very low "service call" price paired with a vague repair estimate; the number that matters is the one you pay at the end. Third, if you've been told you need a full replacement for a door that still moves, get a second opinion. We offer a <a href="/second-opinion/">free second-opinion review</a> for exactly this.</p>
+
+      <h2>Repair or replace?</h2>
+      <p>A useful rule: if the repair costs more than half the price of a new door, and the door is over 15 years old, replacing usually wins — you get a warranty, modern safety hardware, and insulation. If the door is under 10 years old and the problem is a single part, repair it. Our guide on <a href="/blog/signs-you-need-new-garage-door/">signs you need a new garage door</a> goes deeper.</p>
+
+      <p><strong>Want a real number for your door?</strong> <a href="/photo-estimate/">Text us a photo</a> or call (914) 557-6816 — we'll tell you what it likely is and what it costs before a truck rolls. Serving Queens, Brooklyn, the Bronx, Long Island, Westchester, northern NJ, and Fairfield County, CT.</p>
     `,
     image: "https://www.smartestgaragedoors.com/wp-content/uploads/2025/09/66fa98ef144265b84041c07c_650c22f8f072796f55e70d33_how_much_should_i_budget_for_garage_door_roller_replacement_11zon.jpeg",
-    date: "2025-01-10",
+    date: "2026-08-23",
     category: "Cost Guide",
     readTime: "8 min read",
     author: "Smart Garage Doors Team",
     faqs: [
       {
+        question: "How much does garage door repair cost in 2026?",
+        answer: "In the NY tri-state, most single-visit repairs run $150–$550 including parts, labor, and tax: basic cable, roller, track, and sensor repairs are $150–$450, spring replacement is $200–$550, and opener repair or replacement is $150–$500. New door installation is quoted per door based on size, insulation, and style."
+      },
+      {
         question: "How much does emergency garage door repair cost?",
-        answer: "Emergency repairs typically add $50-$100 to standard pricing (total price inclusive of any fees, surcharges, and applicable taxes)."
+        answer: "The repair is priced the same as a scheduled one; after-hours, weekend, and holiday appointments can carry a higher rate. You get the total price, tax included, before any work starts, and if it can safely wait until morning to save you money, we'll tell you."
+      },
+      {
+        question: "Why is spring replacement priced in pairs?",
+        answer: "Springs wear at the same rate. When one breaks, the other is at the end of its life too, and a second service visit costs more than the second spring. Replacing both also keeps the door balanced, which protects the opener."
+      },
+      {
+        question: "Is it worth repairing a 20-year-old garage door?",
+        answer: "If it's a single part — a spring, a cable, a sensor — usually yes. If the repair would cost more than half the price of a new door, or the door has multiple worn components, replacement generally wins because you get a warranty, modern safety hardware, and insulation."
+      },
+      {
+        question: "Do you charge for estimates?",
+        answer: "No. Send photos or call and we'll give you a price before a truck rolls. If the technician finds something different on site, you get a revised price before any work begins."
       }
     ]
   },
@@ -165,72 +208,165 @@ const BLOG_POSTS: Record<string, {
     ]
   },
   'winter-garage-door-maintenance-tips': {
-    title: "Winter Garage Door Maintenance Tips: Protect Your Door from Cold Weather",
+    title: "Winter Garage Door Maintenance: A Tri-State Checklist (Before the First Freeze)",
     slug: 'winter-garage-door-maintenance-tips',
-    description: "Essential winter maintenance tips to protect your garage door from cold weather damage. Learn how to prevent freezing, weatherstripping issues, and spring stress.",
+    description: "How cold weather breaks garage doors in NY, NJ & CT — frozen seals, stiff springs, opener force limits — and the 20-minute checklist that prevents a January service call.",
     content: `
-      <h2>Why Winter Maintenance Matters</h2>
-      <p>Cold weather can be harsh on garage doors. Freezing temperatures, snow, ice, and temperature fluctuations stress components and can lead to costly repairs. Proper winter maintenance prevents problems and extends door life.</p>
-      
-      <h2>Essential Winter Maintenance Steps</h2>
-      
-      <h3>1. Lubricate Moving Parts</h3>
-      <p>Use silicone-based lubricant (not oil-based) on springs, rollers, tracks, and hinges. This prevents freezing and reduces wear. Apply every 2-3 months during winter.</p>
-      
-      <h3>2. Check and Replace Weatherstripping</h3>
-      <p>Damaged weatherstripping allows cold air, moisture, and pests inside. Inspect and replace worn weatherstripping before winter sets in.</p>
-      
-      <h3>3. Clear Tracks and Remove Ice</h3>
-      <p>Keep tracks clear of ice, snow, and debris. Use a non-corrosive ice melt product if needed. Never use sharp objects that could damage tracks.</p>
-      
-      <h3>4. Test Door Balance</h3>
-      <p>Imbalanced doors strain springs and openers. Test balance by manually lifting the door halfway - it should stay in place. If it moves, have it professionally adjusted.</p>
-      
-      <h3>5. Inspect Springs</h3>
-      <p>Cold temperatures increase spring stress. Look for signs of wear, rust, or damage. Have springs professionally inspected before winter.</p>
-      
-      <h2>Preventing Common Winter Problems</h2>
-      <p>Regular maintenance prevents most winter-related garage door issues. Schedule professional maintenance in fall to prepare for cold weather.</p>
+      <p>Garage doors fail in winter for predictable reasons, and almost all of them are preventable in an afternoon. Metal contracts in the cold, lubricant thickens, rubber seals freeze to concrete, and an opener that was barely coping in October gives up in January. This is the checklist our technicians recommend for tri-state homes — do it once in late fall and again after the first deep freeze.</p>
+
+      <h2>Why winter is hard on garage doors</h2>
+      <p>Three things happen at once when temperatures drop. <strong>Springs stiffen</strong> — steel loses a little flexibility in the cold, so a spring that was already near the end of its cycle life is more likely to break on a cold morning. <strong>Lubricant thickens</strong> — old grease on rollers, hinges, and the spring becomes sticky, adding resistance the opener has to overcome. <strong>Seals freeze</strong> — the rubber weatherstrip on the bottom of the door bonds to ice or wet concrete, and the opener either strains against it or reverses, thinking it's hit an obstruction.</p>
+      <p>The result is the classic winter call: "The door won't open and the opener just hums." Most of the time it's one of those three.</p>
+
+      <h2>The 20-minute fall checklist</h2>
+      <h3>1. Lubricate the moving parts</h3>
+      <p>Use a garage-door-specific silicone or lithium spray — not WD-40, which is a solvent and strips lubricant rather than adding it. Hit the hinges, roller bearings (not nylon roller wheels), the torsion spring along its length, and the opener's chain or screw if it has one. Wipe excess. This single step solves a large share of "loud in winter" complaints.</p>
+
+      <h3>2. Check the bottom seal</h3>
+      <p>Look at the rubber weatherstrip on the bottom of the door. If it's cracked, flattened, or missing sections, replace it before winter — it's inexpensive and it's what keeps the door from freezing to the floor and keeps snowmelt out of the garage. A thin coat of silicone spray on the seal also helps it release from ice.</p>
+
+      <h3>3. Test the balance</h3>
+      <p>Pull the red release cord with the door closed, then lift the door by hand to about waist height and let go. A balanced door stays put. If it drops or shoots up, the springs are worn or out of adjustment — and a door that's out of balance in October will strain the opener all winter. Don't adjust torsion springs yourself; this one's a service call. Reconnect the opener when you're done.</p>
+
+      <h3>4. Test the safety reversal</h3>
+      <p>Put a 2×4 flat on the floor under the door and close it. The door should reverse when it touches the board. If it doesn't, the opener's force or travel limits need adjustment. This matters more in winter because a frozen seal triggers the same sensor, and an opener that's been cranked up to push through ice won't reverse on a child or a pet either.</p>
+
+      <h3>5. Check the weatherstripping around the frame</h3>
+      <p>The vinyl stop molding around the sides and top of the opening should press lightly against the door when it's closed. Gaps let in cold air and drifting snow; crushed or brittle molding should be replaced.</p>
+
+      <h3>6. Clear the tracks and sensors</h3>
+      <p>Wipe down the tracks (no lubricant on the tracks — it collects grit) and clean the photo-eye lenses near the floor. Salt spray and road grime on a sensor lens is a common reason a door won't close in winter.</p>
+
+      <h3>7. Look at the springs and cables</h3>
+      <p>Torsion springs should show tight, even coils; a visible gap means it's already broken. Cables should be smooth with no frayed strands. If either looks wrong, stop using the door and call — a spring that's marginal in fall is the one that breaks in a January cold snap.</p>
+
+      <h2>If the door freezes shut</h2>
+      <p>Don't keep pressing the opener — you'll strip the gear or burn out the motor. Disconnect the opener, then break the ice seal from the inside by pushing on the bottom of the door by hand (a rubber mallet along the bottom edge helps). Never chip at the seal with a metal tool. Once it's free, clear the ice from the floor and spray the seal with silicone so it doesn't happen again tonight. If the door still won't move after the ice is broken, it's likely a spring or cable — call before forcing it.</p>
+
+      <h2>Insulation: the bigger winter fix</h2>
+      <p>If your garage is attached, an uninsulated steel door is the single biggest heat leak in the house, and the rooms above and beside it feel it. An insulated replacement door with a proper seal changes the garage temperature swing and makes the door quieter and stiffer. Our <a href="/garage-door-insulation/">garage door insulation guide</a> explains R-values and when it's worth it, and the <a href="/insulated-garage-door-cost-long-island/">insulated door cost guide</a> has the numbers.</p>
+
+      <h2>When to call instead of DIY</h2>
+      <ul>
+        <li>Any spring or cable work — torsion springs are under enough tension to cause serious injury</li>
+        <li>The door is crooked, off its track, or drops when the release is pulled</li>
+        <li>The opener runs but the door doesn't move, or the motor hums and stops</li>
+        <li>The safety reversal test fails</li>
+      </ul>
+      <p>A fall <a href="/maintenance/">tune-up visit</a> covers everything on this list plus spring tension adjustment, opener force calibration, and a hardware tightening pass — and it's a lot less stressful than an emergency call on the coldest night of the year.</p>
+
+      <p><strong>Want it done before the freeze?</strong> Call (914) 557-6816 or <a href="/book-now/">book a maintenance visit</a>. We service Queens, Brooklyn, the Bronx, Long Island, Westchester, northern NJ, and Fairfield County, CT. And if it's already stuck, call our <a href="/emergency-garage-door-repair/">emergency line</a>.</p>
     `,
     image: "https://www.smartestgaragedoors.com/wp-content/uploads/2025/09/wefc_11zon.webp",
-    date: "2025-01-08",
+    date: "2026-08-23",
     category: "Maintenance",
-    readTime: "6 min read",
-    author: "Smart Garage Doors Team"
+    readTime: "7 min read",
+    author: "Smart Garage Doors Team",
+    faqs: [
+      {
+        question: "Why won't my garage door open in the cold?",
+        answer: "The three most common causes are a bottom seal frozen to the floor, thickened old lubricant adding resistance, and a spring that's stiffened or broken in the cold. Disconnect the opener, check whether the door is frozen to the concrete, and if it's free but still won't lift by hand, it's likely a spring — call rather than force it."
+      },
+      {
+        question: "What lubricant should I use on a garage door in winter?",
+        answer: "A garage-door-specific silicone or white lithium spray. Avoid WD-40 — it's a solvent that strips lubricant. Apply to hinges, roller bearings, the torsion spring, and the opener chain; keep it off the tracks."
+      },
+      {
+        question: "Should I turn up the opener force in winter?",
+        answer: "No. Raising the force to push through a frozen seal also means the door won't reverse properly on a person or object. Fix the cause — the seal, the lubrication, or the balance — instead of overriding the safety."
+      },
+      {
+        question: "Does cold weather break garage door springs?",
+        answer: "Cold doesn't break a healthy spring, but it pushes a worn one over the edge. Steel loses flexibility in the cold, so a spring near the end of its cycle life is more likely to snap on a cold morning. That's why we recommend the balance test before winter."
+      },
+      {
+        question: "How often should a garage door be serviced?",
+        answer: "Once a year for most homes, ideally in the fall. Doors that cycle more than six times a day, or that are over 10 years old, benefit from a spring and fall visit."
+      }
+    ]
   },
   'emergency-garage-door-repair-guide': {
-    title: "Emergency Garage Door Repair: What to Do When Your Door Breaks",
+    title: "Garage Door Emergency? What to Do in the First 10 Minutes (and What Not To)",
     slug: 'emergency-garage-door-repair-guide',
-    description: "Complete guide to handling garage door emergencies. Learn what to do when your door breaks, safety precautions, and when to call for immediate professional help.",
+    description: "Step-by-step guide for a stuck, broken, or open garage door: how to secure the house, what's safe to touch, what's not, and when it's a true emergency vs. a morning appointment.",
     content: `
-      <h2>Common Garage Door Emergencies</h2>
-      <p>Garage door emergencies can happen at any time and create safety risks or security concerns. Knowing how to respond helps protect your family and property.</p>
-      
-      <h2>What Constitutes a Garage Door Emergency?</h2>
+      <p>A garage door emergency almost always happens at the worst time — you're late, the car is inside, or it's 11 p.m. and the house is wide open. What you do in the first ten minutes matters more than you'd think: the wrong move can turn a $300 repair into a $1,500 one, or get someone hurt. Here's what to do, ordered by the situation you're in. If you need help now, our <a href="/emergency-garage-door-repair/">emergency repair line</a> is (914) 557-6816.</p>
+
+      <h2>First, the two rules</h2>
+      <p><strong>Rule one: stop pressing the button.</strong> If the opener runs and the door doesn't move — or moves an inch and reverses — something mechanical is wrong, and every extra attempt strains the motor and drive gear. Unplug the opener.</p>
+      <p><strong>Rule two: if a spring is broken, don't pull the red release cord.</strong> Springs carry most of the door's weight. With a broken spring, releasing the opener hands that full weight — often 200 to 300 pounds — to whoever is holding the door. People have been injured this way. You can tell a torsion spring is broken by a visible gap in the coil above the door, or by having heard a loud bang.</p>
+
+      <h2>Situation: the door won't close and the house is open</h2>
+      <ol>
+        <li>Check the two photo-eye sensors near the floor on each side of the track. Clear anything in front of them and wipe the lenses. A blinking light on a sensor means they're misaligned — gently nudge one until the light goes solid, then try again.</li>
+        <li>If it still won't close, pull the red release cord (only if the springs are intact) and lower the door by hand.</li>
+        <li>Lock it: slide the manual lock if the door has one, or put a padlock or C-clamp through a hole in the track just above a roller so the door can't be lifted.</li>
+        <li>Call the emergency line. A door that won't close is a security problem, and it's prioritized in our dispatch queue.</li>
+      </ol>
+
+      <h2>Situation: the door won't open and the car is inside</h2>
+      <ol>
+        <li>Look at the spring above the door. If there's a gap in the coil, it's broken — leave the door alone and call. Do not pull the release.</li>
+        <li>If the springs look intact, pull the release cord and try to lift the door by hand. If it lifts smoothly, the problem is the opener; you can get the car out and schedule a repair.</li>
+        <li>If the door is very heavy or won't lift, it's a spring or cable issue even if you can't see the damage. Stop and call.</li>
+        <li>No power? The release cord works without electricity. Many openers also have a battery backup.</li>
+      </ol>
+
+      <h2>Situation: the door is crooked, hanging, or off the track</h2>
+      <p>This is the one people most often make worse. A door that's come off its track or dropped on one side has usually lost a cable. Don't run the opener, don't try to lift or straighten it, and keep people and pets out of the garage — a door in this state can fall. Unplug the opener and call. We reseat the door, replace the failed parts, and find out why it happened.</p>
+
+      <h2>Situation: you hit the door with the car</h2>
+      <p>Leave the door exactly where it is. A bent panel forced through the track damages the track and neighboring panels. Unplug the opener so nobody in the house tries it, photograph the damage for your insurer, and call. Depending on the door, the fix is a single panel or a section replacement.</p>
+
+      <h2>Situation: storm damage</h2>
+      <p>If the door is buckled or panels are loose, secure the opening as best you can from the inside, photograph everything for insurance, and call. We do emergency securing and board-up when a full repair has to wait for parts.</p>
+
+      <h2>Is it a true emergency, or can it wait until morning?</h2>
+      <p>Honest answer: many can wait, and waiting can save you the after-hours rate. <strong>Call now</strong> if the house can't be secured, a vehicle is trapped and you need it, the door is off its track or could fall, or someone could get hurt. <strong>It can usually wait</strong> if the door is closed and locked, the opener is dead but the door lifts by hand, or it's a noise or slow-cycle problem. When you call, we'll tell you which one you've got — we'd rather schedule a morning visit than charge you for a late-night one you didn't need.</p>
+
+      <h2>What to have ready when you call</h2>
       <ul>
-        <li>Door stuck open or closed</li>
-        <li>Broken spring (loud bang, door won't operate)</li>
-        <li>Door off track</li>
-        <li>Opener malfunction during operation</li>
-        <li>Security breach (door won't close)</li>
+        <li>What the door is doing (won't open, won't close, crooked, loud bang)</li>
+        <li>Whether you can see a gap in the spring or a loose cable</li>
+        <li>Whether a car is trapped or the house is open</li>
+        <li>A photo, if you can safely take one — <a href="/photo-estimate/">text it to us</a> and we can often quote from the photo</li>
       </ul>
-      
-      <h2>Immediate Safety Steps</h2>
-      <p>1. <strong>Don't Force the Door:</strong> Forcing a malfunctioning door can cause further damage or injury.</p>
-      <p>2. <strong>Secure the Area:</strong> Keep children and pets away from the garage door area.</p>
-      <p>3. <strong>Assess the Situation:</strong> Identify the problem without touching moving parts.</p>
-      <p>4. <strong>Call Professionals:</strong> Contact Smart Garage Doors immediately for emergency service.</p>
-      
-      <h2>Emergency Service Response</h2>
-      <p>Our emergency line covers NY, NJ & CT. We dispatch the nearest available technician to address urgent situations safely and efficiently — call us for an honest availability estimate.</p>
-      
-      <p>If you are currently dealing with an urgent problem, skip the DIY steps and <a href="/emergency-garage-door-repair/">request emergency garage door repair service</a> so a technician can secure your door quickly.</p>
+
+      <h2>What an emergency visit looks like</h2>
+      <p>Our trucks carry torsion and extension springs, cables, rollers, hinges, sensors, and common opener parts, so most emergency repairs are finished on the first visit. The technician diagnoses the door, gives you the total price including tax, and starts only when you approve. If a part has to be ordered — a specific panel, for example — we secure the door so the house is locked until it arrives. Every repair comes with a 1-year parts and labor warranty.</p>
+
+      <h2>Preventing the next one</h2>
+      <p>Most emergencies announce themselves: a door that got louder, slower, or started shaking in the weeks before. A yearly <a href="/maintenance/">tune-up</a> catches worn springs and fraying cables before they fail. And if the springs are original on a door more than seven years old, replacing them on your schedule is a lot cheaper than replacing them on theirs. See our <a href="/blog/signs-your-garage-door-spring-needs-replacement/">spring warning signs</a> and <a href="/blog/garage-door-cable-replacement-cost-signs/">cable warning signs</a>.</p>
+
+      <p><strong>Stuck right now?</strong> Call (914) 557-6816 to check current availability across Queens, Brooklyn, the Bronx, Long Island, Westchester, northern NJ, and Fairfield County, CT. Full details on our <a href="/emergency-garage-door-repair/">emergency garage door repair page</a>.</p>
     `,
     image: "https://www.smartestgaragedoors.com/wp-content/uploads/2025/09/erh_11zon.webp",
-    date: "2025-01-05",
+    date: "2026-08-23",
     category: "Emergency",
-    readTime: "4 min read",
-    author: "Smart Garage Doors Team"
+    readTime: "7 min read",
+    author: "Smart Garage Doors Team",
+    faqs: [
+      {
+        question: "Is a broken garage door spring an emergency?",
+        answer: "If the door is closed and you don't need the car, it can usually wait until morning — just don't use the door or pull the release cord. If a vehicle is trapped or the door is stuck open, call the emergency line."
+      },
+      {
+        question: "Can I open my garage door manually if the spring is broken?",
+        answer: "We strongly advise against it. The spring carries most of the door's weight, and with it broken you'd be lifting 200 pounds or more with nothing holding it if you slip. Wait for a technician."
+      },
+      {
+        question: "My garage door won't close. How do I secure my house tonight?",
+        answer: "Check and clean the photo-eye sensors first. If it still won't close, pull the release cord (springs intact only), lower the door by hand, and lock it with the slide lock or a padlock through the track above a roller. Then call the emergency line."
+      },
+      {
+        question: "How soon can someone get to me?",
+        answer: "That depends on current technician availability. Call and the dispatcher will check who is near you — arrival depends on their current job, traffic, and distance — and confirm a window with you before you commit to anything."
+      },
+      {
+        question: "Does emergency service cost more?",
+        answer: "The repair is priced the same; after-hours appointments can carry a higher rate. You get the total price, tax included, before work starts, and if it can safely wait until morning, we'll tell you."
+      }
+    ]
   },
   'professional-vs-diy-garage-door-repair': {
     title: "Professional vs DIY Garage Door Repair: Making the Right Choice",
