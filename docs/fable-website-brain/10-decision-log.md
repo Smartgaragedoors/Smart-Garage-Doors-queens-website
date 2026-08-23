@@ -129,6 +129,37 @@ commit history so the log starts complete.)
 - **Risks:** minimal — deletions verified by import-grep + tsc + build + prerender.
 - **Follow-up:** owner actions #1–3 in `09-known-risks-and-next-actions.md`.
 
+## 2026-08-23 (later) - CSP was silently killing GA4, Clarity, Meta Pixel, and Ads conversions
+
+**The find:** GA4 showed 36 sessions / 28d while GSC showed 111 organic clicks in
+the same window, and ~1 key event. Diagnosed live on production: gtag was
+building *correct* GA4 hits (tid=G-GBBR220BZD, en=page_view/scroll) but every
+single one was refused by `connect-src`. GA4 posts to `analytics.google.com`
+(falling back to `www.google.com/g/collect`); the CSP only listed
+`www.google-analytics.com`, which modern gtag does not use for measurement.
+
+**Blast radius - four tools, all dead, for an unknown but long period:**
+- GA4: no pageviews, no events, no conversions
+- Google Ads + LSA conversion pings (googleads.g.doubleclick.net,
+  www.googleadservices.com, www.google.com/ccm|rmkt/collect, ad.doubleclick.net)
+- Microsoft Clarity (tag x8xeeozng1) - script refused, never recorded a session
+- Meta Pixel (1451447012973445) - script refused
+
+**Verified fixed** on production: page_view + a test call_click reached
+analytics.google.com; `window.clarity` and `window.fbq` are live functions.
+
+**Rules this adds:**
+1. A CSP change is a tracking change. After editing CSP, load production and
+   check the console for "Refused to connect" plus
+   `performance.getEntriesByType('resource')` for `tid=G-...` hits.
+2. `*.g.doubleclick.net` does NOT match `ad.doubleclick.net`. Use
+   `*.doubleclick.net`.
+3. Do not trust GA4 numbers from before 2026-08-23 - the property undercounts
+   massively. GSC is the reliable historical source. Treat the GA4 baseline as
+   starting 2026-08-23.
+4. Rule 15 in `08-agent-rules.md` says "new third-party script => CSP update".
+   The inverse also holds: a script already in `index.html` is not proof it runs.
+
 ## 2026-08-23 — GSC-driven pass: emergency page rebuild, pedestrian doors, blog refresh
 
 - **GSC data (90d):** `/emergency-garage-door-repair/` had 62k impressions for

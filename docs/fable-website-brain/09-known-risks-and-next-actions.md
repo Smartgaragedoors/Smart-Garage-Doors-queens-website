@@ -1,5 +1,12 @@
 # Known Risks & Next Actions
 
+> **2026-08-23 - RESOLVED: CSP was blocking GA4, Clarity, Meta Pixel and Ads
+> conversion pings.** See `10-decision-log.md`. GA4 data before this date is
+> unreliable and undercounts badly; use GSC for historical trends and treat
+> 2026-08-23 as the GA4 baseline. Owner action: re-check Google Ads conversion
+> volume after a week - Ads conversion tracking was affected too.
+
+
 State as of 2026-07-06. The full multi-agent audit (2026-07-04/05) found 26 issues;
 all Critical/High and nearly all Medium/Low are FIXED — don't re-audit those. This
 is what remains.
