@@ -41,7 +41,13 @@ is what remains.
    floor) — a failing prerender now fails the Vercel build and the previous
    deployment stays live. Previously it exited 0 regardless, so a partial
    failure would have deployed empty shells silently.
-5. **GA4 is not actually installed — diagnosed 2026-07-13.** `analytics.ts`
+5. **[RESOLVED 2026-08-23]** ~~**GA4 is not actually installed — diagnosed 2026-07-13.**~~
+   Fixed in two parts: `8e4d4e9` (Jul 14) hardcoded the measurement id so the app
+   installs GA4 directly, and `9b64350` (Aug 23) unblocked `analytics.google.com`
+   in the CSP so the hits can actually leave the browser. Original diagnosis kept
+   below for context — it correctly identified the fragile Ads-tag dependency that
+   caused the ~Jul 5 traffic cliff.
+   **GA4 is not actually installed — diagnosed 2026-07-13.** `analytics.ts`
    loads GA4 from `VITE_GA_MEASUREMENT_ID`, but that env var is set NOWHERE
    (no env file, not in Vercel — confirmed absent from the live production
    bundle). `shouldTrack()` is always false, so the app's GA4 init never runs.

@@ -138,7 +138,26 @@ single one was refused by `connect-src`. GA4 posts to `analytics.google.com`
 (falling back to `www.google.com/g/collect`); the CSP only listed
 `www.google-analytics.com`, which modern gtag does not use for measurement.
 
-**Blast radius - four tools, all dead, for an unknown but long period:**
+**Why the GA4 chart shows a cliff at ~2026-07-05 (traced 2026-08-23):**
+1. Before ~Jul 5, GA4 was never installed by the app at all - `GA_MEASUREMENT_ID`
+   was `VITE_GA_MEASUREMENT_ID || ''` and that env var was set nowhere, so
+   `shouldTrack()` was always false. GA4 data arrived only *indirectly*, via the
+   Google Ads tag (AW-17709307308) having the GA4 property configured
+   server-side as an extra destination. See risk #5 in `09`, diagnosed 2026-07-13.
+2. Around Jul 5 that indirect path stopped delivering. The trigger is Google-side
+   (tag destination config / rollout) and is NOT visible in this repo - no commit
+   in Jun 25-Jul 20 touched the GA path, and `connect-src` was byte-identical
+   before and after the cliff.
+3. `8e4d4e9` (Jul 14) did the right fix - hardcoded `G-GBBR220BZD` so analytics.ts
+   loads GA4 directly. It appeared to do nothing, because...
+4. ...the direct path posts to `analytics.google.com`, which the CSP blocked. So
+   the chart stayed flat through August despite a correct install.
+5. `9b64350` (Aug 23) unblocked it. Chain complete.
+
+**The drop is measurement, not business.** GSC organic clicks over the same
+windows: 109 (prior 28d) -> 111 (current 28d), flat. Real traffic did not fall.
+
+**Blast radius - four tools, all dead:**
 - GA4: no pageviews, no events, no conversions
 - Google Ads + LSA conversion pings (googleads.g.doubleclick.net,
   www.googleadservices.com, www.google.com/ccm|rmkt/collect, ad.doubleclick.net)
