@@ -151,7 +151,9 @@ export const initAnalytics = () => {
     window.dataLayer!.push(arguments as unknown);
   }
   window.gtag = gtag as typeof window.gtag;
-  gtag('js', new Date().toISOString());
+  // gtag.js requires a Date object here, not a string — the `js` command sets the
+  // container load time and a string is not a valid value per the gtag contract.
+  gtag('js', new Date());
   gtag('config', GA_MEASUREMENT_ID, {
     page_path: window.location.pathname,
     anonymize_ip: true,
