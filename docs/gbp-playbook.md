@@ -78,3 +78,36 @@ Target velocity: ask 100% of completed jobs; 2–4 new reviews/week is realistic
 - Categories: primary "Garage door supplier" or "Garage door repair" (keep current primary; add secondary: Door supplier, Contractor as applicable).
 - Service areas: up to 20, weighted premium (Forest Hills, Bayside, Whitestone, Jamaica Estates, Great Neck, Manhasset, Roslyn, Port Washington, Garden City, Syosset, Scarsdale, Rye, Bronxville, Larchmont, Greenwich, Stamford, Darien, Ridgewood NJ, Tenafly, Fort Lee).
 - NAP identical everywhere (site footer, GBP, Yelp, FB, manufacturer locators). Audit quarterly.
+
+---
+
+## 8. Second profiles / multi-location (added 2026-08-24)
+
+**Context:** owner asked about opening a second GBP in Pearl River, NY (Rockland
+County) at an employee's home address, 124 W Crooked Hill Rd.
+
+**Google's rule that governs this:** a service-area business gets *one* profile
+per real, staffed, distinct business location — not one per town it serves. A
+second profile only qualifies if the location is genuinely separate: its own
+lease/deed, its own staffed hours, its own signage, its own local phone number,
+and ideally its own registered DBA at that address. An employee's residence used
+only as a place a technician parks a truck does **not** qualify.
+
+**Why this is high-stakes here:** we already run a Rockland-area profile tied to
+31 Deerwood Road, Suffern. Pearl River is the same county, same category, same
+service area, same brand — Google reads that as a duplicate. The realistic
+downside is not "the new profile doesn't rank," it's **the existing profile gets
+suspended**, and profiles under one account share risk. Suffern's map presence
+already reaches Pearl River, so the upside is small and the downside is a
+revenue event.
+
+**Decision:** do not open a second profile off a home address. If the owner
+stands up a genuine leased, signed, staffed Pearl River location, revisit — the
+checklist is the "real location" branch in the 2026-08-24 conversation notes
+(lease, DBA at that address, dedicated 845 line, signage photos, video
+verification showing exterior signage → interior → equipment → proof of
+authority).
+
+**What we did instead:** built `/pearl-river-ny/` as an organic service-area page
+(commit "Add Pearl River, NY service-area page"), and the Pearl River / Orangetown /
+Bergen-border towns belong in the **existing** profile's service-area list.
