@@ -2,6 +2,10 @@
 
 Dashboard work (not code). Last updated: 2026-06-11.
 
+**Opening *new* profiles?** See `gbp-launch-workbook.md` — eligibility gates,
+the buy list, and the video-verification walkthrough. This file covers
+optimizing profiles we already run.
+
 ---
 
 ## 1. Website links + UTM tracking
