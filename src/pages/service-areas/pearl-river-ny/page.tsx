@@ -1,24 +1,25 @@
 import LocationPageTemplate from '../../../components/feature/LocationPageTemplate';
 
 // Pearl River, NY — Rockland County (Town of Orangetown), directly on the NJ line.
-// Phone: uses the company's 845 Rockland line so the number matches the area code
-// customers here expect. TODO(owner): if the Pearl River Google Business Profile
-// gets its own tracked local number, swap phone/phoneTel here so CTAs, tracking,
-// and LocalBusiness schema all match what the customer dials.
+// Phone: (551) 345-5592 — the dedicated Pearl River line, owner-confirmed
+// 2026-08-24. Passed as a prop so the CTAs, the tracking label, and the
+// LocalBusiness schema all match the number the customer actually dials.
+// 551 is the NJ overlay for Bergen County, which is the market immediately
+// across the line from Pearl River.
 export default function LocationPage() {
 
   return (
     <LocationPageTemplate
       metaTitle="Garage Door Repair Pearl River, NY | Smart Garage Doors"
-      metaDescription="Garage door repair in Pearl River, NY. Spring replacement, opener repair, new doors. Total-price quotes, licensed in NY & NJ. Call (845) 262-2034."
+      metaDescription="Garage door repair in Pearl River, NY. Spring replacement, opener repair, new doors. Total-price quotes, licensed in NY & NJ. Call (551) 345-5592."
       keywords="Pearl River garage door repair, garage door installation Pearl River NY, garage door spring replacement Pearl River, garage door opener repair Rockland County"
       slug="/pearl-river-ny/"
       cityName="Pearl River"
       stateCode="NY"
       stateName="New York"
       geo={{ latitude: '41.0587', longitude: '-74.0215' }}
-      phone="(845) 262-2034"
-      phoneTel="+18452622034"
+      phone="(551) 345-5592"
+      phoneTel="+15513455592"
       heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero"
       neighborhoods={[
         {
@@ -78,7 +79,7 @@ export default function LocationPage() {
         },
         {
           question: 'Is Smart Garage Doors a good choice for garage door repair in Pearl River?',
-          answer: 'We are a licensed and insured company — NYC DCWP #2130164-DCWP and NJ HIC #13VH14195600 — with a 5.0★ average across our Google reviews, upfront total-price quotes, and a 1-year warranty on parts and labor. Call (845) 262-2034 and a dispatcher will check current availability for Pearl River.',
+          answer: 'We are a licensed and insured company — NYC DCWP #2130164-DCWP and NJ HIC #13VH14195600 — with a 5.0★ average across our Google reviews, upfront total-price quotes, and a 1-year warranty on parts and labor. Call (551) 345-5592 and a dispatcher will check current availability for Pearl River.',
         },
       ]}
     />
