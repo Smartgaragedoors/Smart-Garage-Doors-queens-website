@@ -59,6 +59,7 @@ export const existingLocations: Location[] = [
   { slug: 'new-rochelle-ny', city: 'New Rochelle', state: 'New York', stateAbbr: 'NY', county: 'Westchester County' },
   { slug: 'scarsdale-ny', city: 'Scarsdale', state: 'New York', stateAbbr: 'NY', county: 'Westchester County' },
   { slug: 'suffern-ny', city: 'Suffern', state: 'New York', stateAbbr: 'NY', county: 'Rockland County' },
+  { slug: 'pearl-river-ny', city: 'Pearl River', state: 'New York', stateAbbr: 'NY', county: 'Rockland County' },
   { slug: 'hauppauge-ny', city: 'Hauppauge', state: 'New York', stateAbbr: 'NY', county: 'Suffolk County' },
   { slug: 'smithtown-ny', city: 'Smithtown', state: 'New York', stateAbbr: 'NY', county: 'Suffolk County' },
   { slug: 'nassau-county-ny', city: 'Nassau County', state: 'New York', stateAbbr: 'NY', county: 'Nassau County' },

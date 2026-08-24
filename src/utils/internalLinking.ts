@@ -296,9 +296,17 @@ export function getRelatedLocations(currentLocationPath: string): InternalLink[]
       { url: '/white-plains-ny/', text: 'White Plains, NY' },
     ],
     'suffern-ny': [
+      { url: '/pearl-river-ny/', text: 'Pearl River, NY' },
       { url: '/white-plains-ny/', text: 'White Plains, NY' },
       { url: '/westchester-county-ny/', text: 'Westchester County, NY' },
       { url: '/bergen-county-nj/', text: 'Bergen County, NJ' },
+    ],
+    'pearl-river-ny': [
+      { url: '/suffern-ny/', text: 'Suffern, NY' },
+      { url: '/bergen-county-nj/', text: 'Bergen County, NJ' },
+      { url: '/tenafly-nj/', text: 'Tenafly, NJ' },
+      { url: '/westchester-county-ny/', text: 'Westchester County, NY' },
+      { url: '/white-plains-ny/', text: 'White Plains, NY' },
     ],
     'hauppauge-ny': [
       { url: '/smithtown-ny/', text: 'Smithtown, NY' },
@@ -322,6 +330,7 @@ export function getRelatedLocations(currentLocationPath: string): InternalLink[]
       { url: '/tenafly-nj/', text: 'Tenafly, NJ' },
       { url: '/paramus-nj/', text: 'Paramus, NJ' },
       { url: '/suffern-ny/', text: 'Suffern, NY' },
+      { url: '/pearl-river-ny/', text: 'Pearl River, NY' },
     ],
     'teaneck-nj': [
       { url: '/bergen-county-nj/', text: 'Bergen County, NJ' },
