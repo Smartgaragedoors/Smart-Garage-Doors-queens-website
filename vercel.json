@@ -632,7 +632,7 @@
       "destination": "/api/lead/webhook"
     },
     {
-      "source": "/lp/:path*",
+      "source": "/lp/(.*)",
       "destination": "/index.html"
     },
     {
