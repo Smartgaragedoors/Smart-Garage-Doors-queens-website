@@ -8,6 +8,7 @@ import ServiceAreaLinks from '../../../components/seo/ServiceAreaLinks';
 import { useLocation } from '../../../contexts/LocationContext';
 import { getCFImageUrl } from '../../../data/cloudflareImages';
 import { BUSINESS_INFO } from '../../../config/business-info';
+import GuideLinks from '../../../components/seo/GuideLinks';
 
 export default function OpenerRepair() {
   const { location, locationName, isLoading } = useLocation();
@@ -336,6 +337,16 @@ export default function OpenerRepair() {
         </section>
       </main>
 
+      <GuideLinks
+        title="Opener Guides & Answers"
+        links={[
+          { label: 'How to Fix a Garage Door Opener', href: '/blog/how-to-fix-garage-door-opener/' },
+          { label: 'Repair or Replace Your Opener?', href: '/blog/repair-or-replace-garage-door-opener/' },
+          { label: 'Opener Not Working After a Power Outage', href: '/blog/garage-door-opener-not-working-after-power-outage/' },
+          { label: 'Chain Drive vs Belt Drive Openers', href: '/blog/chain-drive-vs-belt-drive-opener/' },
+          { label: 'Quiet Openers for Attached Garages', href: '/blog/quiet-garage-door-openers-attached-garages/' },
+        ]}
+      />
       <RelatedServices />
       <ServiceAreaLinks 
         serviceType="opener"

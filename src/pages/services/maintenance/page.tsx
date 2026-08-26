@@ -10,6 +10,7 @@ import ServiceAreaLinks from '../../../components/seo/ServiceAreaLinks';
 import { useLocation } from '../../../contexts/LocationContext';
 import { submitForm } from '../../../utils/formSubmission';
 import { BUSINESS_INFO } from '../../../config/business-info';
+import GuideLinks from '../../../components/seo/GuideLinks';
 
 export default function MaintenancePage() {
   const { location, locationName, isLoading } = useLocation();
@@ -567,6 +568,13 @@ export default function MaintenancePage() {
         </div>
       </section>
 
+      <GuideLinks
+        title="Maintenance Guides"
+        links={[
+          { label: 'Winter Garage Door Maintenance Tips', href: '/blog/winter-garage-door-maintenance-tips/' },
+          { label: 'Garage Door Safety Tips for Homeowners', href: '/blog/garage-door-safety-tips-homeowner/' },
+        ]}
+      />
       <RelatedServices />
       <ServiceAreaLinks 
         serviceType="maintenance"

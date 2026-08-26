@@ -1,5 +1,16 @@
 # Known Risks & Next Actions
 
+> **2026-08-26 - RESOLVED: soft-404s / legacy URL pattern.** Unknown paths now
+> return a real 404 (the blanket SPA rewrite is gone — see `10-decision-log.md`);
+> legacy `/services/…` and `/service-areas/<city>/` URLs 301 to the flat pages;
+> the stale `/flushing-ny/`→`/queens-ny/` redirect that was blocking the live
+> Flushing page is removed; 22 orphaned blog posts got contextual internal links.
+> **New standing rule:** a new route that is NOT prerendered (not in the sitemap)
+> must be added to the scoped rewrites in `vercel.json` (`/lp/*`, `/report/`,
+> `/book-now/thank-you/`) or it will 404 on direct load. Owner action: after
+> deploy, spot-check `curl -sI` on a legacy URL (expect 301/308) and a garbage
+> URL (expect 404), then use GSC "Validate Fix" on the noindex-excluded bucket.
+
 > **2026-08-23 - RESOLVED: CSP was blocking GA4, Clarity, Meta Pixel and Ads
 > conversion pings.** See `10-decision-log.md`. GA4 data before this date is
 > unreliable and undercounts badly; use GSC for historical trends and treat

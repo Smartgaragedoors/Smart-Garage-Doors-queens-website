@@ -11,6 +11,7 @@ import ServiceAreaLinks from '../../../components/seo/ServiceAreaLinks';
 import { useLocation } from '../../../contexts/LocationContext';
 import { submitForm } from '../../../utils/formSubmission';
 import { BUSINESS_INFO } from '../../../config/business-info';
+import GuideLinks from '../../../components/seo/GuideLinks';
 
 export default function CableRollerRepairPage() {
   const { location, locationName, isLoading } = useLocation();
@@ -573,6 +574,13 @@ export default function CableRollerRepairPage() {
       </section>
 
       <FAQSchema faqs={faqs} />
+      <GuideLinks
+        title="Cable & Roller Guides"
+        links={[
+          { label: 'Garage Door Cable Replacement: Cost & Signs', href: '/blog/garage-door-cable-replacement-cost-signs/' },
+          { label: 'Garage Door Roller Replacement Cost', href: '/blog/garage-door-roller-replacement-cost/' },
+        ]}
+      />
       <RelatedServices />
       <ServiceAreaLinks 
         serviceType="cable"

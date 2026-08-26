@@ -14,7 +14,11 @@ const GENERAL_GUIDES: BlogGuideLink[] = [
 ];
 
 const LOCAL_GUIDES: Record<string, BlogGuideLink[]> = {
-  'queens-ny': [{ slug: 'queens-garage-door-repair-cost', title: 'Garage Door Repair Cost in Queens' }],
+  'queens-ny': [
+    { slug: 'queens-garage-door-repair-cost', title: 'Garage Door Repair Cost in Queens' },
+    { slug: 'best-garage-doors-luxury-homes-queens', title: 'Best Garage Doors for Luxury Queens Homes' },
+    { slug: 'modern-glass-garage-door-install-queens', title: 'Modern Glass Garage Door Install in Queens' },
+  ],
   'flushing-ny': [{ slug: 'flushing-ny-garage-door-repair', title: 'Garage Door Repair in Flushing, NY' }],
   'brooklyn-ny': [{ slug: 'brooklyn-garage-door-repair-cost', title: 'Garage Door Repair Cost in Brooklyn' }],
   'staten-island-ny': [{ slug: 'staten-island-garage-door-repair', title: 'Staten Island Garage Door Repair Guide' }],
@@ -24,7 +28,10 @@ const LOCAL_GUIDES: Record<string, BlogGuideLink[]> = {
   'hauppauge-ny': [{ slug: 'long-island-garage-door-repair', title: 'Long Island Garage Door Repair Guide' }],
   'smithtown-ny': [{ slug: 'long-island-garage-door-repair', title: 'Long Island Garage Door Repair Guide' }],
   'white-plains-ny': [{ slug: 'white-plains-ny-garage-door-service', title: 'White Plains Garage Door Service Guide' }],
-  'westchester-county-ny': [{ slug: 'westchester-county-garage-door-service', title: 'Westchester County Garage Door Guide' }],
+  'westchester-county-ny': [
+    { slug: 'westchester-county-garage-door-service', title: 'Westchester County Garage Door Guide' },
+    { slug: 'smart-garage-door-opener-installation-westchester', title: 'Smart Opener Installation in Westchester' },
+  ],
   'new-rochelle-ny': [{ slug: 'westchester-county-garage-door-service', title: 'Westchester County Garage Door Guide' }],
   'scarsdale-ny': [{ slug: 'westchester-county-garage-door-service', title: 'Westchester County Garage Door Guide' }],
   'suffern-ny': [{ slug: 'suffern-ny-garage-door-service', title: 'Suffern Garage Door Service Guide' }],

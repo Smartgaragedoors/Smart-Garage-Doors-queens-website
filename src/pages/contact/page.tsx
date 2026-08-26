@@ -5,6 +5,7 @@ import Footer from '../../components/feature/Footer';
 import Breadcrumbs from '../../components/seo/Breadcrumbs';
 import DynamicMetaTags from '../../components/seo/DynamicMetaTags';
 import { buildCanonical } from '../../config/canonical';
+import { BUSINESS_INFO } from '../../config/business-info';
 import { submitForm } from '../../utils/formSubmission';
 import { useRef } from 'react';
 import { trackFormStart, trackFormSubmit } from '../../utils/analytics';
@@ -102,17 +103,36 @@ const ContactPage = () => {
             "url": buildCanonical('/contact'),
             "mainEntity": {
               "@type": "LocalBusiness",
-              "name": "Smart Garage Doors",
-              "telephone": "+19145576816",
-              "email": "info@smartestgaragedoors.com",
+              "name": BUSINESS_INFO.name,
+              "url": BUSINESS_INFO.website,
+              "telephone": BUSINESS_INFO.phoneFormatted,
+              "email": BUSINESS_INFO.email,
+              "priceRange": BUSINESS_INFO.priceRange,
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "141-24 70th Ave",
-                "addressLocality": "Flushing",
-                "addressRegion": "NY",
-                "postalCode": "11367",
-                "addressCountry": "US"
-              }
+                "streetAddress": BUSINESS_INFO.addresses[0].streetAddress,
+                "addressLocality": BUSINESS_INFO.addresses[0].addressLocality,
+                "addressRegion": BUSINESS_INFO.addresses[0].addressRegion,
+                "postalCode": BUSINESS_INFO.addresses[0].postalCode,
+                "addressCountry": BUSINESS_INFO.addresses[0].addressCountry
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": BUSINESS_INFO.addresses[0].latitude,
+                "longitude": BUSINESS_INFO.addresses[0].longitude
+              },
+              "openingHoursSpecification": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                "opens": "00:00",
+                "closes": "23:59"
+              },
+              "areaServed": BUSINESS_INFO.serviceAreas.map((a) => ({ "@type": a.type, "name": a.name })),
+              "sameAs": [
+                BUSINESS_INFO.socialMedia.facebook,
+                BUSINESS_INFO.socialMedia.instagram,
+                BUSINESS_INFO.socialMedia.googleMaps
+              ]
             }
           })
         }}
@@ -447,47 +467,52 @@ const ContactPage = () => {
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">New York</h3>
               <ul className="space-y-2 text-gray-600">
-                <li>• Brooklyn</li>
-                <li>• Queens</li>
-                <li>• Staten Island</li>
-                <li>• Long Island</li>
-                <li>• Nassau County</li>
-                <li>• Suffolk County</li>
-                <li>• Westchester County</li>
-                <li>• Scarsdale</li>
-                <li>• New Rochelle</li>
-                <li>• White Plains</li>
-                <li>• Suffern</li>
-                <li>• Flushing</li>
+                <li>• <a href="/brooklyn-ny/" className="hover:text-orange-600 transition-colors">Brooklyn</a></li>
+                <li>• <a href="/queens-ny/" className="hover:text-orange-600 transition-colors">Queens</a></li>
+                <li>• <a href="/staten-island-ny/" className="hover:text-orange-600 transition-colors">Staten Island</a></li>
+                <li>• <a href="/long-island-ny/" className="hover:text-orange-600 transition-colors">Long Island</a></li>
+                <li>• <a href="/nassau-county-ny/" className="hover:text-orange-600 transition-colors">Nassau County</a></li>
+                <li>• <a href="/suffolk-county-ny/" className="hover:text-orange-600 transition-colors">Suffolk County</a></li>
+                <li>• <a href="/westchester-county-ny/" className="hover:text-orange-600 transition-colors">Westchester County</a></li>
+                <li>• <a href="/scarsdale-ny/" className="hover:text-orange-600 transition-colors">Scarsdale</a></li>
+                <li>• <a href="/new-rochelle-ny/" className="hover:text-orange-600 transition-colors">New Rochelle</a></li>
+                <li>• <a href="/white-plains-ny/" className="hover:text-orange-600 transition-colors">White Plains</a></li>
+                <li>• <a href="/suffern-ny/" className="hover:text-orange-600 transition-colors">Suffern</a></li>
+                <li>• <a href="/flushing-ny/" className="hover:text-orange-600 transition-colors">Flushing</a></li>
               </ul>
             </div>
-            
+
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">Connecticut</h3>
               <ul className="space-y-2 text-gray-600">
-                <li>• Stamford</li>
-                <li>• Fairfield</li>
-                <li>• Greenwich</li>
-                <li>• Darien</li>
-                <li>• New Canaan</li>
-                <li>• Westport</li>
-                <li>• Newtown</li>
+                <li>• <a href="/stamford-ct/" className="hover:text-orange-600 transition-colors">Stamford</a></li>
+                <li>• <a href="/fairfield-ct/" className="hover:text-orange-600 transition-colors">Fairfield</a></li>
+                <li>• <a href="/greenwich-ct/" className="hover:text-orange-600 transition-colors">Greenwich</a></li>
+                <li>• <a href="/darien-ct/" className="hover:text-orange-600 transition-colors">Darien</a></li>
+                <li>• <a href="/new-canaan-ct/" className="hover:text-orange-600 transition-colors">New Canaan</a></li>
+                <li>• <a href="/westport-ct/" className="hover:text-orange-600 transition-colors">Westport</a></li>
+                <li>• <a href="/newtown-ct/" className="hover:text-orange-600 transition-colors">Newtown</a></li>
               </ul>
             </div>
-            
+
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">New Jersey</h3>
               <ul className="space-y-2 text-gray-600">
-                <li>• Bergen County</li>
-                <li>• Paramus</li>
-                <li>• Ridgewood</li>
+                <li>• <a href="/bergen-county-nj/" className="hover:text-orange-600 transition-colors">Bergen County</a></li>
+                <li>• <a href="/paramus-nj/" className="hover:text-orange-600 transition-colors">Paramus</a></li>
+                <li>• <a href="/ridgewood-nj/" className="hover:text-orange-600 transition-colors">Ridgewood</a></li>
                 <li>• Hackensack</li>
-                <li>• Teaneck</li>
-                <li>• Fort Lee</li>
+                <li>• <a href="/teaneck-nj/" className="hover:text-orange-600 transition-colors">Teaneck</a></li>
+                <li>• <a href="/fort-lee-nj/" className="hover:text-orange-600 transition-colors">Fort Lee</a></li>
                 <li>• Englewood</li>
               </ul>
             </div>
           </div>
+          <p className="text-center mt-8">
+            <a href="/service-areas/" className="text-blue-600 font-semibold hover:text-orange-600 transition-colors">
+              View all service areas →
+            </a>
+          </p>
         </div>
       </section>
 

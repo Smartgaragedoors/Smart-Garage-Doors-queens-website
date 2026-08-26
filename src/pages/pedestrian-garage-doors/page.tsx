@@ -223,6 +223,7 @@ export default function PedestrianGarageDoorsPage() {
           { label: 'Commercial Garage Door Repair', href: '/commercial-garage-door-repair/' },
           { label: 'Loading Dock Door Repair', href: '/loading-dock-door-repair/' },
           { label: 'Garage Door Repair', href: '/garage-door-repair/' },
+          { label: 'Pedestrian Door vs Side Door (Guide)', href: '/blog/pedestrian-door-vs-side-door-garage/' },
         ],
       }}
       ctaHeadline="Get a Quote on a Custom Pedestrian Door"

@@ -366,11 +366,11 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
           <div className="flex flex-wrap justify-center gap-3">
             {[
               { href: '/garage-door-repair/', label: 'Garage Door Repair' },
-              { href: '/garage-door-installation-new-york/', label: 'New Door Installation' },
-              { href: '/services/spring-replacement/', label: 'Spring Replacement' },
-              { href: '/services/opener-repair/', label: 'Opener Repair & Install' },
-              { href: '/services/cable-roller-repair/', label: 'Cable & Roller Repair' },
-              { href: '/services/emergency-repairs/', label: 'Emergency Repair' },
+              { href: '/garage-door-installation/', label: 'New Door Installation' },
+              { href: '/spring-replacement/', label: 'Spring Replacement' },
+              { href: '/opener-repair-installation/', label: 'Opener Repair & Install' },
+              { href: '/cable-roller-repair/', label: 'Cable & Roller Repair' },
+              { href: '/emergency-garage-door-repair/', label: 'Emergency Repair' },
               { href: '/commercial-garage-door-repair/', label: 'Commercial Garage Doors' },
             ].map((s) => (
               <a

@@ -9,6 +9,7 @@ import ServiceAreaLinks from '../../../components/seo/ServiceAreaLinks';
 import { useLocation } from '../../../contexts/LocationContext';
 import { submitForm } from '../../../utils/formSubmission';
 import { BUSINESS_INFO } from '../../../config/business-info';
+import GuideLinks from '../../../components/seo/GuideLinks';
 
 export default function SpringReplacementPage() {
   const { location, locationName, isLoading } = useLocation();
@@ -550,6 +551,13 @@ export default function SpringReplacementPage() {
         </div>
       </section>
 
+      <GuideLinks
+        title="Spring Guides & Answers"
+        links={[
+          { label: 'Cost of Garage Door Spring Replacement', href: '/blog/cost-of-garage-door-spring-replacement/' },
+          { label: 'Signs Your Spring Needs Replacement', href: '/blog/signs-your-garage-door-spring-needs-replacement/' },
+        ]}
+      />
       <ServiceAreaLinks 
         serviceType="spring"
         title="Spring Replacement Services in Your Area"

@@ -6,6 +6,7 @@ import DynamicMetaTags from '../../components/seo/DynamicMetaTags';
 import FAQSchema from '../../components/seo/FAQSchema';
 import ServiceAreaLinks from '../../components/seo/ServiceAreaLinks';
 import { BUSINESS_INFO } from '../../config/business-info';
+import GuideLinks from '../../components/seo/GuideLinks';
 
 export default function GarageDoorInstallationNewYorkPage() {
   const faqs = [
@@ -401,6 +402,15 @@ export default function GarageDoorInstallationNewYorkPage() {
         </div>
       </section>
 
+      <GuideLinks
+        title="New Door Guides & Answers"
+        links={[
+          { label: 'How to Choose the Right Garage Door', href: '/blog/how-to-choose-right-garage-door/' },
+          { label: 'Signs You Need a New Garage Door', href: '/blog/signs-you-need-new-garage-door/' },
+          { label: 'Replace Your Garage Door Before Selling?', href: '/blog/should-you-replace-garage-door-before-selling/' },
+          { label: 'Carriage House vs Modern Steel Doors', href: '/blog/carriage-house-vs-modern-steel-garage-doors/' },
+        ]}
+      />
       <ServiceAreaLinks 
         serviceType="installation"
         title="Garage Door Installation Services in Your Area"

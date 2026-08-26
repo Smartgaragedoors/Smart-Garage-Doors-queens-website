@@ -135,6 +135,7 @@ export default function RollingSteelGateRepairPage() {
           { label: 'Maintenance Contracts', href: '/commercial-maintenance-contracts/' },
           { label: 'Commercial — Long Island', href: '/commercial-long-island-ny/' },
           { label: 'Parking Garage Gate Repair (Guide)', href: '/blog/parking-garage-door-gate-repair-buildings/' },
+          { label: 'Roll-Up Gate Repair for Facilities (Guide)', href: '/blog/roll-up-gate-repair-facilities-guide/' },
         ],
       }}
       ctaHeadline="Get Your Gate Secured Today"

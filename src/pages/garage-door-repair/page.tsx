@@ -10,6 +10,7 @@ import BookingCTABar from '../../components/conversion/BookingCTABar';
 import { useLocation } from '../../contexts/LocationContext';
 import { BUSINESS_INFO } from '../../config/business-info';
 import { buildCanonical } from '../../config/canonical';
+import GuideLinks from '../../components/seo/GuideLinks';
 
 export default function GarageDoorRepairPage() {
   const { location, locationName, isLoading } = useLocation();
@@ -417,6 +418,13 @@ export default function GarageDoorRepairPage() {
       </section>
 
       {/* Related Services */}
+      <GuideLinks
+        title="Repair Guides & Answers"
+        links={[
+          { label: "Garage Door Won't Close? How to Fix It", href: '/blog/how-to-fix-garage-door-wont-close/' },
+          { label: 'Professional vs DIY Garage Door Repair', href: '/blog/professional-vs-diy-garage-door-repair/' },
+        ]}
+      />
       <RelatedServices />
 
       {/* Service Area Links - Creates incoming internal links to location pages */}

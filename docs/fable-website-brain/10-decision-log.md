@@ -6,6 +6,50 @@ commit history so the log starts complete.)
 
 ---
 
+## 2026-08-26 — GSC soft-404 / legacy-URL cleanup (validated external audit, then fixed)
+
+- **Trigger:** owner brought a Search Console audit (external agent). Validated
+  every claim against the live site before acting. Confirmed real: legacy
+  `/services/…` + `/service-areas/<city>/` paths returned 200 with homepage HTML
+  (soft 404s; GSC "Excluded by noindex" ×36 because the SPA hydrates NotFound
+  with noindex over homepage prerender HTML). Rejected as wrong: the
+  `/cable-roller-repair` trailing-slash/canonical claim — audited all 118
+  prerendered pages, every canonical is self-referencing, and the no-slash form
+  already 308s.
+- **Root cause of the 200s:** the blanket SPA rewrite `/((?!api/)…)` →
+  `/index.html` answered every unknown path with the homepage. Replaced with
+  three scoped rewrites (`/lp/*`, `/report/`, `/book-now/thank-you/` — the only
+  routed-but-not-prerendered pages). Everything else now falls through to
+  Vercel's `404.html`, which `prerender.mjs` renders from the SPA's NotFound
+  page (best-effort, non-gating, canonical stripped).
+- **Redirects added (vercel.json):** `/services/{opener-repair, spring-replacement,
+  emergency-repairs, cable-roller-repair, maintenance, repair}` → flat service
+  URLs; generic `/service-areas/:city/` → `/:city/`; `/new-town-ct/` →
+  `/newtown-ct/`. `/services/installation/` is a REAL page (Plan-Your-Project) —
+  kept, not redirected.
+- **Stale redirect REMOVED:** `/flushing-ny/` → `/queens-ny/` (added Jan 2026,
+  before the Flushing page existed). Since the 2026-06-11 Tier-1 rollout it had
+  been blocking a live, prerendered, sitemapped page — every internal link and
+  the sitemap entry 308'd to Queens. This is the documented exception to "never
+  remove a 301": remove one only when it conflicts with a live sitemap page.
+- **Internal-link fix:** LocationPageTemplate's "Explore services" chips linked
+  the four legacy `/services/…` URLs + `/garage-door-installation-new-york/` on
+  every template location page — the reason Google kept rediscovering them.
+  Now flat URLs.
+- **robots.txt** cut from ~100 lines to disallows + AI-crawler blocks + sitemap;
+  per-page `Allow:` inventory removed (did nothing, went stale, pointed at
+  legacy URLs).
+- **Blog orphan fix:** 22 posts had zero internal links from outside `/blog/`
+  (`scripts/blog-orphan-report.mjs` is the repeatable check). Added contextual
+  guide links via new `GuideLinks` section on 7 service pages, `relatedLinks`
+  entries on 2, and 3 new `locationBlogMap` entries (Queens ×2, Westchester ×1).
+- **Contact page:** enriched LocalBusiness JSON-LD (geo, 24/7 hours, areaServed,
+  sameAs from `BUSINESS_INFO`), converted the plain-text service-area bullets to
+  internal links, added footer `/contact/` link sitewide (it had none).
+- **Risk/watch:** direct loads of any FUTURE route that is neither prerendered
+  nor listed in the scoped rewrites will 404 — new SPA-only routes must be added
+  to vercel.json rewrites (or the sitemap/prerender) in the same commit.
+
 ## 2026-07-13 — Batch 3: /commercial-northern-nj/ shipped (owner overrode the wait-gate)
 
 - **Decision:** Built the Northern NJ commercial page ahead of observing

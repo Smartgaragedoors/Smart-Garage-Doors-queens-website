@@ -7,6 +7,7 @@ import { buildCanonical } from '../../config/canonical';
 import { BUSINESS_INFO } from '../../config/business-info';
 import { getWhatsAppHref } from '../../utils/whatsapp';
 import { trackPhoneClick, trackWhatsAppClick } from '../../utils/analytics';
+import GuideLinks from '../../components/seo/GuideLinks';
 
 /**
  * /reparacion-de-puertas-de-garaje/ — the site's Spanish landing page.
@@ -273,6 +274,12 @@ export default function ReparacionPuertasGarajePage() {
         </div>
       </section>
 
+      <GuideLinks
+        title="Guías útiles"
+        links={[
+          { label: '¿Su puerta de garaje no cierra? Guía práctica', href: '/blog/puerta-de-garaje-no-cierra/' },
+        ]}
+      />
       <Footer />
     </div>
   );

@@ -185,6 +185,42 @@ async function main() {
     }
   }
 
+  // Render the SPA's NotFound page (any unmatched path) into out/404.html.
+  // Vercel serves a top-level 404.html with a real 404 status for paths that
+  // match no static file, redirect, or rewrite — this replaced the old blanket
+  // SPA rewrite that answered every unknown URL with a 200 homepage (soft 404s
+  // Google flagged). Best-effort: if it fails, Vercel's default 404 page still
+  // returns the correct status, so this does not gate the build.
+  try {
+    const page = await browser.newPage();
+    try {
+      await page.setRequestInterception(true);
+      page.on('request', (r) => {
+        const u = r.url();
+        if (u.startsWith(ORIGIN) || u.startsWith('data:')) return r.continue();
+        if (BLOCK.some((h) => u.includes(h))) return r.abort();
+        return r.continue();
+      });
+      page.on('console', () => {});
+      let html = null;
+      for (let attempt = 1; attempt <= 3 && !html; attempt++) {
+        html = await renderOnce(page, '/404-page-not-found/');
+      }
+      if (html) {
+        // The 404 page must not carry a canonical to a bogus URL.
+        html = html.replace(/<link rel="canonical"[^>]*>/g, '');
+        await writeFile(join(OUT, '404.html'), html, 'utf8');
+        console.log('[prerender] ✓ 404.html');
+      } else {
+        console.warn('[prerender] ⚠ 404.html — empty root, skipped (Vercel default 404 will serve)');
+      }
+    } finally {
+      await page.close();
+    }
+  } catch (e) {
+    console.warn(`[prerender] ⚠ 404.html — ${e.message}`);
+  }
+
   await browser.close();
   await new Promise((r) => server.close(r));
   console.log(`[prerender] done: ${ok} ok, ${fail} failed, ${routes.length} total`);

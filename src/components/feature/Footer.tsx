@@ -112,6 +112,12 @@ function Footer() {
             <h3 className="text-lg font-semibold mb-4">Contact</h3>
             <div className="space-y-3">
               <div className="flex items-center space-x-2">
+                <i className="ri-customer-service-2-fill text-orange-500" aria-hidden="true"></i>
+                <a href="/contact/" className="text-gray-200 hover:text-orange-400 transition-colors">
+                  Contact &amp; Schedule Service
+                </a>
+              </div>
+              <div className="flex items-center space-x-2">
                 <i className="ri-phone-fill text-orange-500" aria-hidden="true"></i>
                 <a href="tel:+19145576816" className="text-gray-200 hover:text-orange-400 transition-colors">
                   (914) 557-6816
