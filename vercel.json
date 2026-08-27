@@ -267,6 +267,11 @@
       "permanent": true
     },
     {
+      "source": "/garage-door-repair-flushing-ny/",
+      "destination": "/flushing-ny/",
+      "permanent": true
+    },
+    {
       "source": "/garage-door-installers-white-plains-ny/",
       "destination": "/white-plains-ny/",
       "permanent": true

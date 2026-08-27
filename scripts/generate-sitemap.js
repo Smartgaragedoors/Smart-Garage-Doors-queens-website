@@ -24,6 +24,7 @@ const EXCLUDED_PATHS = [
   '/home/',                                    // Redirects to /
   '/garage-door-repair-brooklyn-ny/',         // Redirects to /brooklyn-ny/
   '/garage-door-repair-stamford-ct/',         // Redirects to /stamford-ct/
+  '/garage-door-repair-flushing-ny/',         // Redirects to /flushing-ny/
   '/garage-door-installers-white-plains-ny/', // Redirects to /white-plains-ny/
   '/garage-door-installation-suffern-ny/',    // Redirects to /suffern-ny/
   '/garage-door-installation-stamford-ct/',   // Redirects to /stamford-ct/

@@ -188,6 +188,7 @@ export function getRelatedLocations(currentLocationPath: string): InternalLink[]
     'bronx-ny': [
       { url: '/queens-ny/', text: 'Queens, NY' },
       { url: '/brooklyn-ny/', text: 'Brooklyn, NY' },
+      { url: '/yonkers-ny/', text: 'Yonkers, NY' },
       { url: '/white-plains-ny/', text: 'White Plains, NY' },
       { url: '/westchester-county-ny/', text: 'Westchester County, NY' },
     ],
@@ -271,6 +272,7 @@ export function getRelatedLocations(currentLocationPath: string): InternalLink[]
     'white-plains-ny': [
       { url: '/scarsdale-ny/', text: 'Scarsdale, NY' },
       { url: '/new-rochelle-ny/', text: 'New Rochelle, NY' },
+      { url: '/yonkers-ny/', text: 'Yonkers, NY' },
       { url: '/westchester-county-ny/', text: 'Westchester County, NY' },
       { url: '/stamford-ct/', text: 'Stamford, CT' },
       { url: '/suffern-ny/', text: 'Suffern, NY' },
@@ -278,8 +280,16 @@ export function getRelatedLocations(currentLocationPath: string): InternalLink[]
     'new-rochelle-ny': [
       { url: '/white-plains-ny/', text: 'White Plains, NY' },
       { url: '/scarsdale-ny/', text: 'Scarsdale, NY' },
+      { url: '/yonkers-ny/', text: 'Yonkers, NY' },
       { url: '/westchester-county-ny/', text: 'Westchester County, NY' },
       { url: '/stamford-ct/', text: 'Stamford, CT' },
+    ],
+    'yonkers-ny': [
+      { url: '/bronxville-ny/', text: 'Bronxville, NY' },
+      { url: '/bronx-ny/', text: 'Bronx, NY' },
+      { url: '/scarsdale-ny/', text: 'Scarsdale, NY' },
+      { url: '/white-plains-ny/', text: 'White Plains, NY' },
+      { url: '/westchester-county-ny/', text: 'Westchester County, NY' },
     ],
     'scarsdale-ny': [
       { url: '/bronxville-ny/', text: 'Bronxville, NY' },
@@ -289,6 +299,7 @@ export function getRelatedLocations(currentLocationPath: string): InternalLink[]
       { url: '/chappaqua-ny/', text: 'Chappaqua, NY' },
     ],
     'westchester-county-ny': [
+      { url: '/yonkers-ny/', text: 'Yonkers, NY' },
       { url: '/scarsdale-ny/', text: 'Scarsdale, NY' },
       { url: '/rye-ny/', text: 'Rye, NY' },
       { url: '/bronxville-ny/', text: 'Bronxville, NY' },

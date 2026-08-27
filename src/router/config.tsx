@@ -34,6 +34,7 @@ const BergenCountyNJPage = lazy(() => import('../pages/service-areas/bergen-coun
 const DarienCTPage = lazy(() => import('../pages/service-areas/darien-ct/page').then(module => ({ default: module.default })));
 const SuffernNYPage = lazy(() => import('../pages/service-areas/suffern-ny/page').then(module => ({ default: module.default })));
 const PearlRiverNYPage = lazy(() => import('../pages/service-areas/pearl-river-ny/page').then(module => ({ default: module.default })));
+const YonkersNYPage = lazy(() => import('../pages/service-areas/yonkers-ny/page').then(module => ({ default: module.default })));
 const WhitePlainsNYPage = lazy(() => import('../pages/service-areas/white-plains-ny/page').then(module => ({ default: module.default })));
 const LongIslandNYPage = lazy(() => import('../pages/service-areas/long-island-ny/page').then(module => ({ default: module.default })));
 const StatenIslandNYPage = lazy(() => import('../pages/service-areas/staten-island-ny/page').then(module => ({ default: module.default })));
@@ -236,6 +237,10 @@ const routes: RouteObject[] = [
   {
     path: '/pearl-river-ny/',
     element: <PearlRiverNYPage />
+  },
+  {
+    path: '/yonkers-ny/',
+    element: <YonkersNYPage />
   },
   {
     path: '/white-plains-ny/',
