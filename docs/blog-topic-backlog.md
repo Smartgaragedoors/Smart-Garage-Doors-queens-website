@@ -28,7 +28,7 @@ anywhere, reorder freely — the agent always takes the top unchecked one.
 - [x] REWRITE (same URL): winter-garage-door-maintenance-tips → full checklist (2026-08-23; GSC "winter garage door care" @40)
 - [x] REWRITE (same URL): emergency-garage-door-repair-guide → first-10-minutes triage (2026-08-23; feeds /emergency-garage-door-repair/)
 - [x] GSC 2026-08-23: "garage door maintenance plans" 188 imp @49.6 — residential tune-up plan explainer; links /maintenance/ (NOT commercial contracts) (2026-08-25, `garage-door-maintenance-plans-explained`)
-- [ ] GSC 2026-08-23: "garage door company near me" 1,650 imp @27.5 — "How to choose a garage door company in NY/NJ/CT: 9 questions to ask"; links /best-garage-door-company-tri-state/ and /local-vs-national-garage-door-company/
+- [x] GSC 2026-08-23: "garage door company near me" 1,650 imp @27.5 — "How to choose a garage door company in NY/NJ/CT: 9 questions to ask"; links /best-garage-door-company-tri-state/ and /local-vs-national-garage-door-company/ (2026-09-01, `how-to-choose-garage-door-company-tri-state`)
 - [ ] GSC 2026-08-23: "commercial garage door maintenance" 81 imp @80 — "Commercial garage door maintenance schedule by door type"; links /commercial-maintenance-contracts/
 - [ ] GSC 2026-08-23: "luxury garage doors" 68 imp @29.7 / "custom garage doors long island" 74 @38.8 — custom & luxury door options guide; links /garage-door-installation/
 - [ ] Garage door insulation R-values explained: what the tri-state climate actually requires (supports /garage-door-insulation/ — internal-link it)
