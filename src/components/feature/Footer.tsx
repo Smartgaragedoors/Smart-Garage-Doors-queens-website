@@ -57,7 +57,7 @@ function Footer() {
           <div>
             <h3 className="text-lg font-semibold text-white mb-4">Services</h3>
             <ul className="space-y-2">
-              <li><a href="/emergency-garage-door-repair/" className="text-gray-200 hover:text-orange-400 transition-colors">Emergency Repairs</a></li>
+              <li><a href="/emergency-garage-door-repair/" className="text-gray-200 hover:text-orange-400 transition-colors">Emergency Garage Door Repair</a></li>
               <li><a href="/garage-door-repair/" className="text-gray-200 hover:text-orange-400 transition-colors">Garage Door Repair</a></li>
               <li><a href="/spring-replacement/" className="text-gray-200 hover:text-orange-400 transition-colors">Spring Replacement</a></li>
               <li><a href="/opener-repair-installation/" className="text-gray-200 hover:text-orange-400 transition-colors">Opener Repair</a></li>

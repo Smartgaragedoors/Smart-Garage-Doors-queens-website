@@ -370,7 +370,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
               { href: '/spring-replacement/', label: 'Spring Replacement' },
               { href: '/opener-repair-installation/', label: 'Opener Repair & Install' },
               { href: '/cable-roller-repair/', label: 'Cable & Roller Repair' },
-              { href: '/emergency-garage-door-repair/', label: 'Emergency Repair' },
+              { href: '/emergency-garage-door-repair/', label: 'Emergency Garage Door Repair' },
               { href: '/commercial-garage-door-repair/', label: 'Commercial Garage Doors' },
             ].map((s) => (
               <a

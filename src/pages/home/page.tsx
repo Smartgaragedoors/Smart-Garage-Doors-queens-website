@@ -196,7 +196,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen pb-[68px] md:pb-0">
       <DynamicMetaTags
-        title={`Smart Garage Doors | ⭐${BUSINESS_INFO.aggregateRating.ratingValue} (${BUSINESS_INFO.aggregateRating.reviewCount}+ Reviews) | Garage Door Repair`}
+        title="Garage Door Repair NY, NJ & CT | Smart Garage Doors"
         description={`Rated ${BUSINESS_INFO.aggregateRating.ratingValue}/5 (${BUSINESS_INFO.aggregateRating.reviewCount}+ Google reviews). Garage door repair, springs, openers, install — NY, NJ & CT. Free total-price estimates incl. fees & taxes — (914) 557-6816.`}
       />
       <WebSiteSchema />

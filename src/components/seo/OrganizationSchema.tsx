@@ -9,6 +9,14 @@ const OrganizationSchema: React.FC = () => {
     "name": BUSINESS_INFO.name,
     "legalName": BUSINESS_INFO.legalName,
     "url": BUSINESS_INFO.website,
+    // Entity disambiguation: a Utah company named "Smart Garage Door" pollutes
+    // brand SERPs — bind this entity explicitly to its tri-state geography.
+    "description": "Garage door repair and installation company serving New York, New Jersey, and Connecticut — Queens, Brooklyn, the Bronx, Westchester, Long Island, Rockland County, northern New Jersey, and Fairfield County.",
+    "areaServed": [
+      { "@type": "State", "name": "New York" },
+      { "@type": "State", "name": "New Jersey" },
+      { "@type": "State", "name": "Connecticut" },
+    ],
     "logo": "https://www.smartestgaragedoors.com/smart-garage-doors-logo.webp",
     "image": "https://www.smartestgaragedoors.com/hero-van-1280.webp",
     "telephone": BUSINESS_INFO.phoneFormatted,

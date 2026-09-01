@@ -4,7 +4,7 @@ function Services() {
   const services = [
     {
       icon: 'ri-tools-line',
-      title: 'Emergency Repairs',
+      title: 'Emergency Garage Door Repair',
       description: 'Broken spring, car stuck, or door off track? Our trucks carry common parts so most repairs finish on the first visit.',
       link: '/emergency-garage-door-repair/'
     },
