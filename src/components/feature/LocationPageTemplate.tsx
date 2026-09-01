@@ -51,6 +51,13 @@ export interface LocationJobPhoto {
   result: string;
 }
 
+export interface LocationRecentJob {
+  service: string;   // e.g. 'Opener replacement — two doors'
+  area: string;      // neighborhood or street name only — NEVER a house number
+  detail: string;    // what was actually done, in plain words
+  outcome: string;   // honest result line, e.g. 'Both doors on one visit — about $900 total'
+}
+
 export interface LocationPageTemplateProps {
   // SEO
   metaTitle: string;
@@ -92,6 +99,12 @@ export interface LocationPageTemplateProps {
   // location page shows) aimed at Google's "thin/templated" objection to
   // location pages. Owner-confirmed city; never fabricate this list.
   localJobPhotos?: LocationJobPhoto[];
+
+  // Real completed jobs in this service area, sourced from the company job
+  // log (Drive jobs exports / CRM). Text-only counterpart to localJobPhotos.
+  // Same rule: never fabricate an entry, never include a house number or a
+  // customer name — neighborhood or street name only.
+  recentJobs?: LocationRecentJob[];
 }
 
 const PHONE_DEFAULT     = BUSINESS_INFO.phone;
@@ -169,6 +182,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
     phone = PHONE_DEFAULT,
     phoneTel = PHONE_TEL_DEFAULT,
     localJobPhotos,
+    recentJobs,
   } = props;
 
   const city  = cityName;
@@ -570,6 +584,35 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
         </section>
       ) : (
         <RecentWork />
+      )}
+
+      {/* ── RECENT JOBS FROM THE JOB LOG (real work, text) ────────── */}
+      {recentJobs && recentJobs.length > 0 && (
+        <section className="py-8 md:py-12 bg-white">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="mb-6">
+              <h2 className="text-2xl md:text-3xl font-bold text-blue-900">
+                Recent Garage Door Work in <span className="text-orange-500">{city}</span>
+              </h2>
+              <p className="text-gray-500 mt-1 text-sm md:text-base">
+                Pulled from our job log — real calls, what we actually did, and what it honestly cost.
+              </p>
+            </div>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {recentJobs.map((job, i) => (
+                <div key={i} className="rounded-xl border border-gray-200 bg-gray-50 p-5">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-orange-600 mb-1">{job.area}</p>
+                  <h3 className="font-semibold text-gray-900 mb-2">{job.service}</h3>
+                  <p className="text-sm text-gray-600 leading-relaxed mb-2">{job.detail}</p>
+                  <p className="flex items-start gap-1.5 text-sm text-green-700">
+                    <i className="ri-checkbox-circle-fill text-green-500 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                    <span>{job.outcome}</span>
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
       )}
 
       {/* ── WHY CHOOSE US ─────────────────────────────────────────── */}

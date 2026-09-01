@@ -23,6 +23,14 @@ export default function BrooklynNY() {
         { name: 'Carroll Gardens & Cobble Hill', description: 'Landmark brownstones with unique hardware requirements. We work carefully to preserve the character of older buildings.' },
         { name: 'Sheepshead Bay & Marine Park', description: 'Suburban-style homes in South Brooklyn. Easy access from our Bay Ridge location.' },
       ]}
+      recentJobs={[
+        {
+          service: 'Springs, pulleys, hinge and commercial cable',
+          area: 'Midwood — East 22nd Street',
+          detail: 'Door was hanging crooked and straining on the way up. Replaced the springs, two pulleys and a bent hinge, and re-ran a commercial-grade cable.',
+          outcome: 'Whole package for about $530, finished in one visit.',
+        },
+      ]}
       reviews={[]}
       faqs={[
         { question: 'Do you service all Brooklyn neighborhoods?', answer: 'Yes — Park Slope, Williamsburg, Dyker Heights, Bay Ridge, Sheepshead Bay, Brooklyn Heights, Carroll Gardens, Greenpoint, Crown Heights, Bed-Stuy, Sunset Park, Bensonhurst, Coney Island, Brighton Beach, and everywhere else in Brooklyn.' },
