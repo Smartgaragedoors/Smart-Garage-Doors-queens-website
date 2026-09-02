@@ -21,11 +21,21 @@ export default function BronxNY() {
         { name: 'City Island & Schuylerville', description: 'Coastal and suburban-style blocks. Salt air is hard on hardware — we stock corrosion-resistant parts for these areas.' },
         { name: 'Mott Haven & Port Morris', description: 'South Bronx coverage including commercial garage doors and residential properties in developing neighborhoods.' },
       ]}
-      reviews={[
-        { text: 'Broken spring in Riverdale on a holiday. Fair price, no nonsense. Exactly what I needed.', author: 'David H.', location: 'Riverdale, Bronx', initials: 'DH', color: 'bg-blue-600' },
-        { text: 'Opener died in Pelham Bay. Tech had the part on the truck, and got it working same visit. Great service.', author: 'Carmen R.', location: 'Pelham Bay, Bronx', initials: 'CR', color: 'bg-orange-500' },
-        { text: 'Called for an emergency in Morris Park at 9pm. Fixed the cable, checked everything else, and the price was reasonable. Very impressed.', author: 'Tony B.', location: 'Morris Park, Bronx', initials: 'TB', color: 'bg-green-600' },
+      recentJobs={[
+        {
+          service: 'Full door replacement with capping and a new opener',
+          area: 'Riverdale — West 256th Street area',
+          detail: 'Replaced the door with a white insulated flush-panel unit on new tracks and a full extension-spring system, then capped and moulded the opening in white and fitted a Genie motor.',
+          outcome: 'Door, wood work and opener came to about $5,050 including tax — quoted as one total up front.',
+        },
+        {
+          service: 'Custom-cut door for a non-standard opening',
+          area: 'White Plains Road corridor',
+          detail: 'An opening no stock door fits. Cut the door to size, rebuilt the surrounding wood, fitted a lock and extension-spring system, added moulding, installed it and hauled the old one away.',
+          outcome: 'About $3,190 after a discount off the original quote — disposal included, not billed as an extra.',
+        },
       ]}
+      reviews={[]}
       faqs={[
         { question: 'What areas of the Bronx do you cover?', answer: 'The entire Bronx — Riverdale, Fieldston, Pelham Bay, Throgs Neck, Fordham, Morris Park, Parkchester, City Island, Mott Haven, Co-op City, Kingsbridge, and everywhere in between.' },
         { question: 'How does scheduling work in the Bronx?', answer: 'Our technicians cover the Bronx every week. Call and a dispatcher checks current technician availability for your neighborhood — actual arrival time depends on the technician\'s current job, traffic, and your distance from our nearest crew, and we confirm an honest window on the call. Emergency calls are prioritized.' },
