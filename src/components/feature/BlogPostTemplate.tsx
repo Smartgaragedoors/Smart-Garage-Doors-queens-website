@@ -1,7 +1,7 @@
+import { getLocationContact, getBookingHref } from '../../config/branchContacts';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { formatBlogDate } from '../../utils/blogFormat';
-import { BUSINESS_INFO } from '../../config/business-info';
 
 export interface BlogPostTemplateProps {
   title: string;
@@ -67,7 +67,10 @@ export default function BlogPostTemplate({
   helpText,
   defaultImageUrl = '/hero-van-1280.webp',
 }: BlogPostTemplateProps) {
+  const route = useLocation();
   const formattedDate = formatBlogDate(date);
+  const contact = getLocationContact(route.pathname, route.search);
+  const bookingHref = getBookingHref(route.pathname, route.search);
 
   return (
     <div className="bg-gray-50 border-t border-gray-200">
@@ -181,14 +184,14 @@ export default function BlogPostTemplate({
                 <p className="text-blue-100/90 mb-6 leading-relaxed text-sm md:text-base">{helpText}</p>
                 <div className="flex flex-col sm:flex-row gap-3">
                   <a
-                    href={`tel:${BUSINESS_INFO.phoneFormatted}`}
+                    href={`tel:${contact.phoneTel}`}
                     className="inline-flex items-center justify-center gap-2 bg-white text-blue-900 hover:bg-blue-50 px-5 py-3 rounded-lg font-semibold transition-colors text-sm"
                   >
                     <i className="ri-phone-fill" aria-hidden="true" />
-                    Call {BUSINESS_INFO.phone}
+                    Call {contact.phone}
                   </a>
                   <a
-                    href="/book-now/"
+                    href={bookingHref}
                     className="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-5 py-3 rounded-lg font-semibold transition-colors text-sm"
                   >
                     <i className="ri-calendar-line" aria-hidden="true" />
@@ -215,10 +218,10 @@ export default function BlogPostTemplate({
                 A real person answers your call — no call center. Free total-price estimates before any work.
               </p>
               <a
-                href={`tel:${BUSINESS_INFO.phoneFormatted}`}
+                href={`tel:${contact.phoneTel}`}
                 className="block w-full text-center bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-lg font-semibold text-sm transition-colors"
               >
-                {BUSINESS_INFO.phone}
+                {contact.phone}
               </a>
             </div>
 

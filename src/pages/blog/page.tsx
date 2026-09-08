@@ -1,3 +1,4 @@
+import { REFRESHED_LOCAL_ARTICLES } from '../../data/refreshedLocalArticles';
 ﻿import { Link } from 'react-router-dom';
 import Header from '../../components/feature/Header';
 import Footer from '../../components/feature/Footer';
@@ -41,7 +42,7 @@ export default function BlogPage() {
     { id: 11, slug: 'how-to-choose-right-garage-door', title: "How to Choose the Right Garage Door for Your Home", excerpt: "Complete guide to selecting the perfect garage door style, material, and features for your home.", date: "December 28, 2024", category: "Tips", readTime: "10 min read" },
     { id: 12, slug: 'garage-door-roller-replacement-cost', title: "Garage Door Roller Replacement Cost: Complete Guide 2025", excerpt: "Everything you need to know about garage door roller replacement costs in 2025.", date: "December 25, 2024", category: "Cost Guide", readTime: "6 min read" },
     { id: 13, slug: 'chain-drive-vs-belt-drive-opener', title: "Chain Drive vs Belt Drive Garage Door Opener: Which is Better?", excerpt: "Compare chain drive and belt drive garage door openers. Learn about noise levels, durability, and cost.", date: "December 22, 2024", category: "Tips", readTime: "7 min read" },
-    { id: 14, slug: 'queens-garage-door-repair-cost', title: "Garage Door Repair Cost in Queens NY 2025: Complete Pricing Guide", excerpt: "Detailed guide to garage door repair costs in Queens, New York with local pricing information.", date: "December 20, 2024", category: "Cost Guide", readTime: "8 min read" },
+    { id: 14, ...REFRESHED_LOCAL_ARTICLES['queens-garage-door-repair-cost'], excerpt: REFRESHED_LOCAL_ARTICLES['queens-garage-door-repair-cost'].description, date: formatPostDate(REFRESHED_LOCAL_ARTICLES['queens-garage-door-repair-cost'].date) },
     { id: 15, slug: 'brooklyn-garage-door-repair-cost', title: "Garage Door Repair Cost in Brooklyn NY 2025: Local Pricing Guide", excerpt: "Complete guide to garage door repair costs in Brooklyn with local pricing and service information.", date: "December 18, 2024", category: "Cost Guide", readTime: "7 min read" },
     { id: 16, slug: 'stamford-ct-garage-door-repair', title: "Garage Door Repair in Stamford CT: Professional Service Guide", excerpt: "Expert garage door repair services in Stamford, Connecticut. Learn about local service options and typical costs.", date: "December 15, 2024", category: "Repair", readTime: "5 min read" },
     { id: 17, slug: 'white-plains-ny-garage-door-service', title: "Garage Door Service in White Plains NY: Expert Repair & Installation", excerpt: "Professional garage door repair and installation services in White Plains, New York. Serving Westchester County.", date: "December 12, 2024", category: "Repair", readTime: "5 min read" },
@@ -52,7 +53,7 @@ export default function BlogPage() {
     { id: 22, slug: 'flushing-ny-garage-door-repair', title: "Garage Door Repair in Flushing NY: Queens Neighborhood Service", excerpt: "Expert garage door repair services in Flushing, Queens. Serving Flushing and surrounding Queens neighborhoods.", date: "December 1, 2024", category: "Repair", readTime: "5 min read" },
     { id: 23, slug: 'fairfield-ct-garage-door-service', title: "Garage Door Service in Fairfield CT: Expert Repair & Installation", excerpt: "Professional garage door services in Fairfield, Connecticut. Serving Fairfield County with quality repairs and installations.", date: "November 28, 2024", category: "Repair", readTime: "5 min read" },
     { id: 24, slug: 'darien-ct-garage-door-repair', title: "Garage Door Repair in Darien CT: Professional Service Guide", excerpt: "Expert garage door repair services in Darien, Connecticut. Serving Fairfield County with licensed, reliable service.", date: "November 25, 2024", category: "Repair", readTime: "5 min read" },
-    { id: 25, slug: 'suffern-ny-garage-door-service', title: "Garage Door Service in Suffern NY: Rockland County Expert Repair", excerpt: "Professional garage door repair and installation services in Suffern, New York. Serving Rockland County.", date: "November 22, 2024", category: "Repair", readTime: "5 min read" },
+    { id: 25, ...REFRESHED_LOCAL_ARTICLES['suffern-ny-garage-door-service'], excerpt: REFRESHED_LOCAL_ARTICLES['suffern-ny-garage-door-service'].description, date: formatPostDate(REFRESHED_LOCAL_ARTICLES['suffern-ny-garage-door-service'].date) },
   ];
 
   const categories = ["Guides", "Installation", "Maintenance", "Repair", "Safety", "Emergency", "Tips", "Cost Guide"];
@@ -76,7 +77,7 @@ export default function BlogPage() {
             "@type": "Blog",
             "name": "Smart Garage Doors Blog",
             "description": "Expert tips, maintenance guides, and industry insights for garage door owners",
-            "url": `${import.meta.env.VITE_SITE_URL || "https://www.smartestgaragedoors.com"}/blog/`,
+            "url": "https://www.smartestgaragedoors.com/blog/",
             "publisher": {
               "@type": "Organization",
               "name": "Smart Garage Doors",
@@ -85,28 +86,14 @@ export default function BlogPage() {
                 "url": "https://www.smartestgaragedoors.com/smart-garage-doors-logo.webp"
               }
             },
-            "blogPost": [
-              {
-                "@type": "BlogPosting",
-                "headline": "5 Signs Your Garage Door Needs Professional Repair",
-                "description": "Learn to identify common garage door problems before they become expensive repairs",
-                "datePublished": "2024-12-15",
-                "author": {
-                  "@type": "Person",
-                  "name": "Smart Garage Doors Team"
-                }
-              },
-              {
-                "@type": "BlogPosting",
-                "headline": "How to Choose the Right Garage Door for Your Home",
-                "description": "Complete guide to selecting the perfect garage door style, material, and features",
-                "datePublished": "2024-12-10",
-                "author": {
-                  "@type": "Person",
-                  "name": "Smart Garage Doors Team"
-                }
-              }
-            ]
+            "blogPost": blogPosts.map(post => ({
+              "@type": "BlogPosting",
+              "headline": post.title,
+              "description": post.excerpt,
+              "url": `https://www.smartestgaragedoors.com/blog/${post.slug}/`,
+              "datePublished": new Date(post.date + ' 12:00:00 UTC').toISOString().slice(0, 10),
+              "author": { "@type": "Organization", "name": "Smart Garage Doors Team" },
+            }))
           })
         }}
       />
@@ -164,9 +151,7 @@ export default function BlogPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map((post) => {
-              const fromMap = getBlogImage(post.slug);
-              const image = 'image' in post && post.image ? post.image : fromMap.image;
-              const imageAlt = 'image' in post && post.image ? post.title : fromMap.imageAlt;
+              const { image, imageAlt } = getBlogImage(post.slug, 'image' in post && post.image ? { image: post.image, imageAlt: post.title } : undefined);
               return (
               <Link
                 key={post.id}
@@ -177,6 +162,10 @@ export default function BlogPage() {
                   <img 
                     src={image} 
                     alt={imageAlt}
+                    width={1200}
+                    height={675}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-48 object-cover group-hover:scale-[1.02] transition-transform duration-300"
                     onError={(e) => {
                       const target = e.currentTarget;

@@ -301,3 +301,10 @@ analytics.google.com; `window.clarity` and `window.fbq` are live functions.
 - Sections `py-8 md:py-12`, H2 `text-2xl md:text-3xl`, one solid CTA per screen,
   flat cards, no scale hovers, TrustBar removed as redundant, quote form collapsed
   behind a tap on mobile. These are standing style rules (see `03`/`04`).
+
+
+## 2026-09-08 — Apply owner-supplied SEO audit and distinct blog imagery
+
+Use recorded Queens/Suffern identities, Service markup for other towns, and company-labeled reviews without self-serving rating markup. Remove the unsupported 2010 claim. Preserve the live review feed, actual prices/license identifiers, WhatsApp, established URLs and prerender pipeline. Booking carries location, keeps SMS optional with unchanged wording, and reports a lead only after accepted submission; loading a thank-you URL is not a conversion.
+
+Every current blog article receives a distinct local WebP: existing site photographs or clearly illustrated technical guides. A shared image registry controls cards/hero/social metadata, with build-time duplicate/asset checks. Rebuild instructions and remaining account checks are in docs/SEO-AUDIT-IMPLEMENTATION-2026-09-08.md. All three extra local branch tips are already ancestors of main; no source merge is needed.

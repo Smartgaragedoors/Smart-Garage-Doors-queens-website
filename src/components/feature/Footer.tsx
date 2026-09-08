@@ -1,3 +1,4 @@
+import { getLocationContact, getBookingHref } from '../../config/branchContacts';
 import { memo, useMemo } from 'react';
 import OrganizationSchema from '../seo/OrganizationSchema';
 import { useLocation } from 'react-router-dom';
@@ -6,6 +7,8 @@ import { trackBookNowClick } from '../../utils/analytics';
 
 function Footer() {
   const routerLocation = useLocation();
+  const contact = getLocationContact(routerLocation.pathname, routerLocation.search);
+  const bookingHref = getBookingHref(routerLocation.pathname, routerLocation.search);
 
   const serviceAreas = useMemo(() => [
     { name: 'Queens', href: '/queens-ny/' },
@@ -18,10 +21,13 @@ function Footer() {
 
   const currentPath = routerLocation.pathname;
   const currentAddress = useMemo(() => {
-    if (currentPath.includes('suffern')) return '31 Deerwood Road, Suffern, NY';
+    if (contact.id === 'suffern' && contact.address) {
+      const address = contact.address;
+      return `${address.streetAddress}, ${address.addressLocality}, ${address.addressRegion} ${address.postalCode}`;
+    }
     if (currentPath.includes('brooklyn')) return '71st 12th Ave, Dyker Heights, Brooklyn, NY';
     return '141-24 70th Ave, Flushing, NY 11367';
-  }, [currentPath]);
+  }, [currentPath, contact]);
 
   return (
     <footer className="bg-gradient-to-r from-blue-900 to-blue-800 text-white">
@@ -48,7 +54,7 @@ function Footer() {
               <a href="https://www.instagram.com/smartgaragedoorss/" target="_blank" rel="noopener noreferrer" aria-label="Visit our Instagram page" className="text-gray-200 hover:text-orange-400 transition-colors">
                 <i className="ri-instagram-fill text-xl" aria-hidden="true"></i>
               </a>
-              <a href="https://maps.app.goo.gl/GjfsFbH5kQ2smvdU8" target="_blank" rel="noopener noreferrer" aria-label="View our location on Google Maps" className="text-gray-200 hover:text-orange-400 transition-colors">
+              <a href="https://maps.app.goo.gl/GjfsFbH5kQ2smvdU8" target="_blank" rel="noopener noreferrer" aria-label="View our Queens location on Google Maps" className="text-gray-200 hover:text-orange-400 transition-colors">
                 <i className="ri-map-pin-fill text-xl" aria-hidden="true"></i>
               </a>
             </div>
@@ -76,7 +82,7 @@ function Footer() {
               <li><a href="/blog/" className="text-gray-200 hover:text-orange-400 transition-colors">Blog</a></li>
               <li><a href="/reviews/" className="text-gray-200 hover:text-orange-400 transition-colors">Customer Reviews</a></li>
               <li><a href="/careers/" className="text-gray-200 hover:text-orange-400 transition-colors">Careers — We&apos;re Hiring</a></li>
-              <li><a href="/book-now/" onClick={() => trackBookNowClick('footer')} className="text-gray-200 hover:text-orange-400 transition-colors">Request Service</a></li>
+              <li><a href={bookingHref} onClick={() => trackBookNowClick('footer')} className="text-gray-200 hover:text-orange-400 transition-colors">Request Service</a></li>
             </ul>
           </div>
 
@@ -119,8 +125,8 @@ function Footer() {
               </div>
               <div className="flex items-center space-x-2">
                 <i className="ri-phone-fill text-orange-500" aria-hidden="true"></i>
-                <a href="tel:+19145576816" className="text-gray-200 hover:text-orange-400 transition-colors">
-                  (914) 557-6816
+                <a href={`tel:${contact.phoneTel}`} className="text-gray-200 hover:text-orange-400 transition-colors">
+                  {contact.phone}
                 </a>
               </div>
               <div className="flex items-center space-x-2">

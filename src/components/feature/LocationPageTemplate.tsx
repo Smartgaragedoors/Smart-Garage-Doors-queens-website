@@ -80,7 +80,7 @@ export interface LocationPageTemplateProps {
   // Hero
   heroImage?: string;
 
-  // Location coordinates for LocalBusiness schema (city center is fine)
+  // Location coordinates for service-area context; these are not business-office coordinates
   geo?: { latitude: number | string; longitude: number | string };
 
   // Content
@@ -259,6 +259,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
               <span className="font-newsreader italic text-xl text-[#F2B98C] leading-none">Free</span>
               <span className="text-sm font-semibold text-white">written estimate — total price incl. fees &amp; taxes</span>
             </div>
+            <p className="text-sm text-gray-300 mb-5">Ask dispatch about any diagnostic or visit charge before scheduling, including visits where no repair is needed.</p>
             <div data-hero-cta className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href={`tel:${PHONE_TEL}`}
@@ -269,7 +270,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
                 {PHONE}
               </a>
               <a
-                href="/book-now/"
+                href={`/book-now/?location=${encodeURIComponent(`${cityName}, ${stateCode}`)}`}
                 onClick={() => trackBookNowClick(`location_hero_${cityName}`)}
                 className="inline-flex items-center justify-center gap-2 bg-white text-blue-900 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors shadow-lg"
               >
@@ -281,7 +282,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
             <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-7 text-sm text-gray-300">
               <span className="flex items-center gap-1.5">
                 <span className="text-[#F2B98C]" aria-hidden="true">★★★★★</span>
-                <strong className="text-white">5.0</strong> · {reviewCount} reviews
+                <strong className="text-white">5.0</strong> · {reviewCount} company reviews
               </span>
               <span aria-hidden="true">·</span>
               <span>1-year warranty</span>
@@ -299,7 +300,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
           <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 text-sm font-medium">
             <div className="flex items-center gap-2">
               <Stars count={5} />
-              <span>5.0 · {reviewCount} Reviews</span>
+              <span>5.0 · {reviewCount} Company Reviews</span>
             </div>
             {trust?.establishedYear && (
               <div className="flex items-center gap-1.5">
@@ -538,7 +539,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
               className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium transition-colors"
             >
               <i className="ri-external-link-line" aria-hidden="true" />
-              See all {reviewCount}+ reviews on Google
+              See company reviews on Google
             </a>
           </div>
         </div>
@@ -723,7 +724,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
               {PHONE}
             </a>
             <a
-              href="/book-now/"
+              href={`/book-now/?location=${encodeURIComponent(`${cityName}, ${stateCode}`)}`}
               onClick={() => trackBookNowClick(`location_final_${cityName}`)}
               className="inline-flex items-center justify-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-colors shadow-lg border border-orange-400"
             >

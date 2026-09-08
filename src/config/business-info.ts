@@ -96,7 +96,7 @@ export const BUSINESS_INFO = {
    *    (e.g. 5000) to surface a "5,000+ jobs completed" badge across location pages.
    */
   trust: {
-    establishedYear: 2010,
+    establishedYear: null as number | null,
     jobsCompleted: null as number | null,
     financingAvailable: true,
   },

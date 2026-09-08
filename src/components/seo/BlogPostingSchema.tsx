@@ -35,7 +35,7 @@ const BlogPostingSchema: React.FC<BlogPostingSchemaProps> = ({
     "description": description,
     "image": imageValue,
     "author": {
-      "@type": "Person",
+      "@type": author.includes("Team") ? "Organization" : "Person",
       "name": author,
     },
     "datePublished": datePublished,

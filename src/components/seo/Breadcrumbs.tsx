@@ -27,6 +27,7 @@ export default function Breadcrumbs() {
   let currentPath = '';
   segments.forEach((segment, index) => {
     currentPath += `/${segment}`;
+    if (segment === 'services' && index === 0) return;
     const isLast = index === segments.length - 1;
     
     // Format label from segment

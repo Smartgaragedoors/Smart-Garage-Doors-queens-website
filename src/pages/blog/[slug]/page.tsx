@@ -1,3 +1,4 @@
+import { REFRESHED_LOCAL_ARTICLES } from '../../../data/refreshedLocalArticles';
 import { useEffect } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import Header from '../../../components/feature/Header';
@@ -24,6 +25,7 @@ const BLOG_POSTS: Record<string, {
   date: string;
   category: string;
   readTime: string;
+  dateModified?: string;
   author: string;
   faqs?: Array<{ question: string; answer: string }>;
   relatedPosts?: string[];
@@ -955,26 +957,7 @@ const BLOG_POSTS: Record<string, {
     readTime: "7 min read",
     author: "Smart Garage Doors Team"
   },
-  'queens-garage-door-repair-cost': {
-    title: "Garage Door Repair Cost in Queens NY 2025: Complete Pricing Guide",
-    slug: 'queens-garage-door-repair-cost',
-    description: "Detailed guide to garage door repair costs in Queens, New York with local pricing information.",
-    content: `
-      <h2>Garage Door Repair in Queens</h2>
-      <p>Smart Garage Doors serves Queens with garage door repair, spring replacement, opener service, and track repairs. Pricing is in line with the NYC metro area.</p>
-      <h2>What Affects Cost</h2>
-      <p>Repair type (springs, opener, cables, rollers, tracks), door size, and part quality. We give free estimates so you know the cost before we start.</p>
-      <h2>Typical Ranges</h2>
-      <p>Spring replacement: about $200–$500. Opener repair: $150–$350. Roller or cable replacement: $150–$300. Emergency or after-hours service may have an additional fee.</p>
-      <h2>Schedule Service in Queens</h2>
-      <p>For a precise quote in Queens, call (914) 557-6816 or <a href="/book-now/">book online</a>. We cover Flushing, Jamaica, Astoria, and all Queens neighborhoods.</p>
-    `,
-    image: "",
-    date: "2024-12-20",
-    category: "Cost Guide",
-    readTime: "8 min read",
-    author: "Smart Garage Doors Team"
-  },
+  'queens-garage-door-repair-cost': REFRESHED_LOCAL_ARTICLES['queens-garage-door-repair-cost'],
   'brooklyn-garage-door-repair-cost': {
     title: "Garage Door Repair Cost in Brooklyn NY 2025: Local Pricing Guide",
     slug: 'brooklyn-garage-door-repair-cost',
@@ -1165,24 +1148,7 @@ const BLOG_POSTS: Record<string, {
     readTime: "5 min read",
     author: "Smart Garage Doors Team"
   },
-  'suffern-ny-garage-door-service': {
-    title: "Garage Door Service in Suffern NY: Rockland County Expert Repair",
-    slug: 'suffern-ny-garage-door-service',
-    description: "Professional garage door repair and installation services in Suffern, New York. Serving Rockland County.",
-    content: `
-      <h2>Garage Door Service in Suffern NY</h2>
-      <p>We serve Suffern and Rockland County with garage door repair, spring replacement, opener service, and new door installation.</p>
-      <h2>Quality & Transparency</h2>
-      <p>Free estimates, quality parts, and warranty on our work. An emergency line is available for urgent issues.</p>
-      <h2>Book Suffern Service</h2>
-      <p>Call (914) 557-6816 or <a href="/book-now/">book online</a> for garage door repair or installation in Suffern, NY.</p>
-    `,
-    image: "",
-    date: "2024-11-22",
-    category: "Repair",
-    readTime: "5 min read",
-    author: "Smart Garage Doors Team"
-  }
+  'suffern-ny-garage-door-service': REFRESHED_LOCAL_ARTICLES['suffern-ny-garage-door-service'],
 };
 
 /** Contextual help text with service/city links based on post topic */
@@ -1271,7 +1237,7 @@ export default function BlogPostPage() {
     <PageMetaProvider value={{ breadcrumbLabel: post.title }}>
     <div className="min-h-screen bg-white">
       <DynamicMetaTags 
-        title={`${post.title} | Smart Garage Doors Blog`}
+        title={`${post.title} | Smart Garage Doors`}
         description={post.description}
         keywords={`${post.category.toLowerCase()}, garage door repair, ${post.title.toLowerCase()}`}
         canonical={postUrl}
@@ -1284,6 +1250,7 @@ export default function BlogPostPage() {
         imageAlt={imageAlt}
         author={post.author}
         datePublished={post.date}
+        dateModified={'dateModified' in post ? post.dateModified : undefined}
         url={postUrl}
         articleSection={post.category}
       />

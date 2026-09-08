@@ -1,6 +1,6 @@
-﻿import React from 'react';
+import { LOCATIONS } from '../../config/branchContacts';
+import React from 'react';
 import { BUSINESS_INFO } from '../../config/business-info';
-import { STATIC_REVIEWS } from '../../data/staticReviews';
 
 interface LocalBusinessSchemaProps {
   locationName?: string;
@@ -24,34 +24,30 @@ const LocalBusinessSchema: React.FC<LocalBusinessSchemaProps> = ({
   serviceArea,
   customAddress,
   slug,
-  geo,
   telephone,
 }) => {
-  const primaryAddress = BUSINESS_INFO.addresses[0];
+  const branch = slug === '/queens-ny/' ? LOCATIONS.queens : slug === '/suffern-ny/' ? LOCATIONS.suffern : undefined;
+  const primaryAddress = branch?.address || BUSINESS_INFO.addresses[0]!;
   const pageUrl = slug
     ? `${BUSINESS_INFO.website}${slug.endsWith('/') ? slug : `${slug}/`}`
     : `${BUSINESS_INFO.website}/`;
-  const address = customAddress || {
+  const address = branch?.address || customAddress || {
     streetAddress: primaryAddress.streetAddress,
-    addressLocality: customAddress?.addressLocality || primaryAddress.addressLocality,
-    addressRegion: customAddress?.addressRegion || primaryAddress.addressRegion,
-    postalCode: customAddress?.postalCode || primaryAddress.postalCode,
+    addressLocality: primaryAddress.addressLocality,
+    addressRegion: primaryAddress.addressRegion,
+    postalCode: primaryAddress.postalCode,
   };
-
-  const businessName = locationName 
-    ? `${BUSINESS_INFO.name} - ${locationName}`
-    : BUSINESS_INFO.name;
 
   const schema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": `${pageUrl}#localbusiness`,
+    "@id": `${BUSINESS_INFO.website}${branch?.path || "/queens-ny/"}#localbusiness`,
     "parentOrganization": { "@id": `${BUSINESS_INFO.website}/#organization` },
-    "name": businessName,
+    "name": BUSINESS_INFO.name,
     "legalName": BUSINESS_INFO.legalName,
     "image": "https://www.smartestgaragedoors.com/hero-van-1280.webp",
     "url": pageUrl,
-    "telephone": telephone || BUSINESS_INFO.phoneFormatted,
+    "telephone": branch?.phoneTel || telephone || BUSINESS_INFO.phoneFormatted,
     "priceRange": BUSINESS_INFO.priceRange,
     "paymentAccepted": BUSINESS_INFO.paymentAccepted.join(", "),
     "currenciesAccepted": BUSINESS_INFO.currenciesAccepted,
@@ -63,55 +59,11 @@ const LocalBusinessSchema: React.FC<LocalBusinessSchemaProps> = ({
       "postalCode": address.postalCode,
       "addressCountry": "US",
     },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": (geo?.latitude ?? primaryAddress.latitude).toString(),
-      "longitude": (geo?.longitude ?? primaryAddress.longitude).toString(),
-    },
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday"
-        ],
-        "opens": BUSINESS_INFO.openingHours.monday.opens,
-        "closes": BUSINESS_INFO.openingHours.monday.closes
-      }
-    ],
     "sameAs": [
       BUSINESS_INFO.socialMedia.facebook,
       BUSINESS_INFO.socialMedia.instagram,
-      BUSINESS_INFO.socialMedia.googleMaps,
+      ...(branch?.mapsUrl ? [branch.mapsUrl] : []),
     ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": BUSINESS_INFO.aggregateRating.ratingValue,
-      "reviewCount": BUSINESS_INFO.aggregateRating.reviewCount,
-      "bestRating": BUSINESS_INFO.aggregateRating.bestRating,
-      "worstRating": BUSINESS_INFO.aggregateRating.worstRating,
-    },
-    // Individual Review examples (real Google reviews, see src/data/staticReviews.ts)
-    // nested inside this single LocalBusiness entity. This is a different pattern from
-    // aggregateRating and does NOT reintroduce the GSC "multiple aggregate ratings on a
-    // page" bug — that bug was caused by aggregateRating appearing on more than one
-    // @type entity on the same page. A `review` array of individual Review objects
-    // (no aggregateRating of their own) is safe and recommended by schema.org.
-    "review": STATIC_REVIEWS.slice(0, 5).map((r) => ({
-      "@type": "Review",
-      "author": { "@type": "Person", "name": r.author_name },
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": r.rating,
-        "bestRating": 5,
-      },
-      "reviewBody": r.text,
-    })),
     "areaServed": serviceArea 
       ? [
           {
@@ -127,7 +79,7 @@ const LocalBusinessSchema: React.FC<LocalBusinessSchemaProps> = ({
           "@type": area.type,
           "name": area.name
         })),
-    "hasMap": BUSINESS_INFO.socialMedia.googleMaps || undefined,
+    "hasMap": branch?.mapsUrl,
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Garage Door Services",
@@ -163,7 +115,16 @@ const LocalBusinessSchema: React.FC<LocalBusinessSchemaProps> = ({
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(slug && !branch ? {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": `${pageUrl}#service`,
+        name: `Garage door service in ${locationName}`,
+        url: pageUrl,
+        serviceType: "Garage door repair and installation",
+        areaServed: { "@type": "Place", name: serviceArea || locationName },
+        provider: { "@id": `${BUSINESS_INFO.website}/#organization` },
+      } : schema) }}
     />
   );
 };

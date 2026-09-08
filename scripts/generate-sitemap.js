@@ -9,7 +9,7 @@ const require = createRequire(import.meta.url);
 
 // Canonical base: always https, www (matches src/config/canonical.ts)
 const BASE_URL = 'https://www.smartestgaragedoors.com';
-const TODAY = new Date().toISOString().split('T')[0];
+// Omit lastmod until a per-page substantive modification date is maintained.
 
 // URLs that redirect to other pages - EXCLUDE from sitemap
 // These should not be indexed as they redirect to canonical URLs
@@ -248,7 +248,6 @@ function generateSitemap() {
   filteredCoreRoutes.forEach(route => {
     xml += `  <url>
     <loc>${BASE_URL}${route.path}</loc>
-    <lastmod>${TODAY}</lastmod>
     <changefreq>${route.changefreq}</changefreq>
     <priority>${route.priority}</priority>
   </url>
@@ -263,7 +262,6 @@ function generateSitemap() {
   serviceAreaRoutes.filter(route => !coreRoutePaths.has(route.path)).forEach(route => {
     xml += `  <url>
     <loc>${BASE_URL}${route.path}</loc>
-    <lastmod>${TODAY}</lastmod>
     <changefreq>${route.changefreq}</changefreq>
     <priority>${route.priority}</priority>
   </url>
@@ -274,7 +272,6 @@ function generateSitemap() {
   blogPosts.forEach(post => {
     xml += `  <url>
     <loc>${BASE_URL}/blog/${post.slug}/</loc>
-    <lastmod>${TODAY}</lastmod>
     <changefreq>${post.changefreq}</changefreq>
     <priority>${post.priority}</priority>
   </url>

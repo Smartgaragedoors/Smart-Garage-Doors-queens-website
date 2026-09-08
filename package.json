@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run generate-sitemap && vite build",
+    "build": "npm run verify:blog-images && npm run generate-sitemap && vite build",
     "prerender": "node scripts/prerender.mjs",
     "build:seo": "npm run build && npm run prerender",
     "preview": "vite preview",
@@ -17,7 +17,8 @@
     "verify-sitemap": "node scripts/verify-sitemap.js",
     "test:form": "node scripts/test-form-submission.js",
     "test:form:local": "node scripts/test-form-submission.js http://localhost:3042",
-    "backfill:workspaces:phase1": "node scripts/backfill-workspaces-phase1.js"
+    "backfill:workspaces:phase1": "node scripts/backfill-workspaces-phase1.js",
+    "verify:blog-images": "node scripts/verify-blog-images.mjs"
   },
   "dependencies": {
     "@stripe/react-stripe-js": "4.0.2",

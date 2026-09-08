@@ -11,7 +11,7 @@ export default function QueensNY() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Queens NY Garage Door Repair | Licensed & Insured | Smart Garage Doors"
+      metaTitle="Garage Door Repair in Queens, NY | Smart Garage Doors"
       metaDescription={`Garage door repair in Queens, NY — total-price quotes, ${BUSINESS_INFO.aggregateRating.ratingValue}★ ${BUSINESS_INFO.aggregateRating.reviewCount} reviews. Spring, opener & emergency repair. Licensed & insured.`}
       keywords="Queens NY garage door repair, garage door installation Queens, emergency garage door Queens, spring replacement Queens"
       slug="/queens-ny/"

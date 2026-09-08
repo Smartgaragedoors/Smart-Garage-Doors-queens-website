@@ -53,9 +53,7 @@ const OrganizationSchema: React.FC = () => {
       "telephone": "+16108398817",
       "description": "Eastern Pennsylvania commercial dock and overhead-door division of Smart Garage Doors, serving the Lehigh Valley.",
     },
-    // NOTE: aggregateRating intentionally lives ONLY on LocalBusinessSchema.
-    // Emitting it on multiple entities on one page triggers GSC's critical
-    // "Review has multiple aggregate ratings" error.
+    // Customer reviews remain visible; self-serving rating markup is omitted.
   };
 
   return (

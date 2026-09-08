@@ -1,3 +1,4 @@
+import { getLocationContact, getBookingHref } from '../../config/branchContacts';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { trackPhoneClick, trackWhatsAppClick, trackBookNowClick } from '../../utils/analytics';
@@ -13,7 +14,9 @@ import { getWhatsAppHref } from '../../utils/whatsapp';
  */
 export default function MobileStickyCTA() {
   const [docked, setDocked] = useState(false);
-  const { pathname } = useLocation();
+  const { pathname, search } = useLocation();
+  const contact = getLocationContact(pathname, search);
+  const bookingHref = getBookingHref(pathname, search);
 
   useEffect(() => {
     setDocked(false);
@@ -74,8 +77,8 @@ export default function MobileStickyCTA() {
           <span className="text-sm font-bold">WhatsApp</span>
         </a>
         <a
-          href="tel:+19145576816"
-          onClick={() => trackPhoneClick('(914) 557-6816', 'mobile_sticky_cta')}
+          href={`tel:${contact.phoneTel}`}
+          onClick={() => trackPhoneClick(contact.phone, 'mobile_sticky_cta')}
           className="flex-[1.2] flex items-center justify-center gap-1.5 bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-bold py-3 rounded-xl shadow-md transition-colors"
           aria-label="Call Smart Garage Doors now"
           tabIndex={docked ? 0 : -1}
@@ -84,7 +87,7 @@ export default function MobileStickyCTA() {
           <span className="text-sm font-bold">Call Now</span>
         </a>
         <a
-          href="/book-now/"
+          href={bookingHref}
           onClick={() => trackBookNowClick('mobile_sticky_cta')}
           className="flex-1 flex items-center justify-center gap-1.5 bg-blue-900 hover:bg-blue-800 active:bg-blue-950 text-white font-bold py-3 rounded-xl transition-colors"
           aria-label="Book garage door service online"

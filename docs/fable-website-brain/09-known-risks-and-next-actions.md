@@ -137,3 +137,10 @@ is what remains.
 - No online-booking promises until real dispatch windows exist.
 - Commercial anchor client stays anonymous.
 - The visual diet is owner-approved — don't re-add visual weight.
+
+
+## 2026-09-08 audit follow-up
+
+Fixed: broken installation photograph and Services breadcrumb, unsupported 2010 history claim, repeated town LocalBusiness/rating markup, Suffern shared contact routing, thin Queens/Suffern articles, stale blog index schema, booking location context/optional SMS/conversion guard, repeated blog images and build-wide fabricated lastmod. All current posts have unique local images and a duplicate-image build guard.
+
+Still needs account/business evidence: current Suffern GBP destination, diagnostic fee and warranty/financing scope, durable CRM acceptance/deduplication/notification delivery, exact Semrush external-link report. The root typecheck passes but the app-project typecheck still has existing errors; do not confuse that with full type safety. See the implementation report for scope and verification.

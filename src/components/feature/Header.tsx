@@ -1,3 +1,4 @@
+import { getLocationContact, getBookingHref } from '../../config/branchContacts';
 import { useState } from 'react';
 import { useLocation as useRouterLocation } from 'react-router-dom';
 import { trackPhoneClick, trackBookNowClick } from '../../utils/analytics';
@@ -10,6 +11,8 @@ export default function Header() {
   const [isCommercialOpen, setIsCommercialOpen] = useState(false);
   
   const routerLocation = useRouterLocation();
+  const contact = getLocationContact(routerLocation.pathname, routerLocation.search);
+  const bookingHref = getBookingHref(routerLocation.pathname, routerLocation.search);
 
   // Get current page to determine contact/about link behavior
   const currentPath = routerLocation.pathname;
@@ -240,7 +243,7 @@ export default function Header() {
               <a href={contactLink} className="text-gray-700 hover:text-orange-500 font-medium transition-colors">
                 Contact
               </a>
-              <a href="/book-now/" onClick={() => trackBookNowClick('header_desktop')} className="text-orange-600 hover:text-orange-700 font-semibold transition-colors">
+              <a href={bookingHref} onClick={() => trackBookNowClick('header_desktop')} className="text-orange-600 hover:text-orange-700 font-semibold transition-colors">
                 Book Now
               </a>
             </div>
@@ -248,12 +251,12 @@ export default function Header() {
             {/* CTA Button & Mobile Menu */}
             <div className="flex items-center space-x-2 md:space-x-4">
               <a
-                href="tel:(914) 557-6816"
-                onClick={() => trackPhoneClick('(914) 557-6816')}
+                href={`tel:${contact.phoneTel}`}
+                onClick={() => trackPhoneClick(contact.phone)}
                 className="border-[1.5px] border-orange-500 text-orange-600 hover:bg-orange-50 px-3 md:px-4 py-2.5 md:py-2 min-h-[44px] md:min-h-0 flex items-center rounded-lg font-semibold transition-colors whitespace-nowrap text-sm md:text-base"
               >
                 <i className="ri-phone-fill mr-1 md:mr-2"></i>
-                <span className="hidden sm:inline">(914) 557-6816</span>
+                <span className="hidden sm:inline">{contact.phone}</span>
                 <span className="sm:hidden">Call</span>
               </a>
               
@@ -364,16 +367,16 @@ export default function Header() {
                 <a href={contactLink} className="block text-gray-700 hover:text-orange-500 font-medium transition-colors py-2">
                   Contact
                 </a>
-                <a href="/book-now/" onClick={() => trackBookNowClick('header_mobile')} className="block text-orange-600 hover:text-orange-700 font-semibold transition-colors py-2">
+                <a href={bookingHref} onClick={() => trackBookNowClick('header_mobile')} className="block text-orange-600 hover:text-orange-700 font-semibold transition-colors py-2">
                   Book Now
                 </a>
                 
                 <a 
-                  href="tel:(914) 557-6816"
+                  href={`tel:${contact.phoneTel}`}
                   className="block bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center mt-4"
                 >
                   <i className="ri-phone-fill mr-2"></i>
-                  Call (914) 557-6816
+                  Call {contact.phone}
                 </a>
               </div>
             </div>

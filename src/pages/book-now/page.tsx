@@ -1,6 +1,6 @@
 
 import { useState, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Header from '../../components/feature/Header';
 import Footer from '../../components/feature/Footer';
 import DynamicMetaTags from '../../components/seo/DynamicMetaTags';
@@ -11,11 +11,13 @@ import { trackFormStart, trackFormSubmit } from '../../utils/analytics';
 import FormTrustBadges from '../../components/conversion/FormTrustBadges';
 
 export default function BookNowPage() {
+  const { search } = useLocation();
+  const locationContext = new URLSearchParams(search).get('location') || '';
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    address: '',
+    address: locationContext,
     serviceType: '',
     urgency: '',
     description: '',
@@ -48,16 +50,18 @@ export default function BookNowPage() {
     
     try {
       const result = await submitForm(
-        { ...formData, smsConsent: smsConsent ? 'Yes (opted in to SMS)' : 'No' },
+        { ...formData, service_location: locationContext, smsConsent: smsConsent ? 'Yes (opted in to SMS)' : 'No' },
         'Book Now Form'
       );
 
-      if (result.success) {
+      if (result.usedFallback) {
+        setSubmitStatus('fallback');
+      } else if (result.success) {
         trackFormSubmit('Book Now Form', 'book_now', {
           service_type: formData.serviceType,
           urgency: formData.urgency,
         });
-        navigate('/book-now/thank-you/');
+        navigate(`/book-now/thank-you/?location=${encodeURIComponent(locationContext)}`);
         setSubmitStatus(result.usedFallback ? 'fallback' : 'success');
         setFormData({
           name: '',
@@ -102,7 +106,7 @@ export default function BookNowPage() {
             {BUSINESS_INFO.aggregateRating.ratingValue} ★ · {BUSINESS_INFO.aggregateRating.reviewCount} Google Reviews · Free written estimates · Upfront total pricing
           </p>
           <h1 className="font-newsreader font-medium text-3xl md:text-4xl leading-[1.05] tracking-[-0.02em]">
-            Book Your Garage Door Service
+            Request a Garage Door Service Callback
           </h1>
         </div>
       </section>
@@ -113,10 +117,10 @@ export default function BookNowPage() {
           <div className="bg-white rounded-lg shadow-lg p-8">
             <div className="text-center mb-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                Schedule Your Service
+                Request a callback
               </h2>
               <p className="text-lg text-gray-600">
-                Fill out the form below and we'll contact you to confirm your appointment
+                Dispatch will contact you to confirm availability and any visit charges before scheduling.
               </p>
             </div>
 
@@ -233,11 +237,10 @@ export default function BookNowPage() {
                 ></textarea>
               </div>
 
-              {/* TCPA SMS consent — required. Identical wording to HeroQuoteForm.tsx (owner-approved 2026-06-23). */}
+              {/* SMS consent — optional and unchecked. Identical wording to HeroQuoteForm.tsx (owner-approved 2026-06-23). */}
               <label className="flex items-start gap-2.5 text-[11px] leading-snug text-gray-500">
                 <input
                   type="checkbox"
-                  required
                   checked={smsConsent}
                   onChange={(e) => setSmsConsent(e.target.checked)}
                   className="mt-0.5 h-4 w-4 shrink-0 rounded border-gray-400 text-orange-500 focus:ring-orange-500"
@@ -261,7 +264,7 @@ export default function BookNowPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  aria-label={isSubmitting ? "Submitting service request" : "Book service now"}
+                  aria-label={isSubmitting ? "Submitting service request" : "Request a callback"}
                   className="bg-orange-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-orange-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap cursor-pointer focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
                 >
                   {isSubmitting ? (
@@ -272,7 +275,7 @@ export default function BookNowPage() {
                   ) : (
                     <>
                       <i className="ri-calendar-check-line mr-2"></i>
-                      Book Service Now
+                      Request a Callback
                     </>
                   )}
                 </button>

@@ -1,3 +1,4 @@
+import { getBlogImage } from './blogImages';
 import { humanizeAutoPostHeading, stripAutomationSlugSuffix } from '../utils/blogFormat';
 
 /**
@@ -140,8 +141,7 @@ function normalize(post: ContentBlogJson): NormalizedBlogPost {
     slug,
     description: post.description,
     content: toHtml(post),
-    image: post.image,
-    imageAlt: post.imageAlt?.trim() || post.title,
+    ...getBlogImage(slug, { image: post.image, imageAlt: post.imageAlt?.trim() || post.title }),
     date: post.date,
     category: categoryFor(post),
     readTime: `${Math.max(3, Math.round(wordCount(post) / 200))} min read`,

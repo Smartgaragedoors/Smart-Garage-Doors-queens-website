@@ -1,3 +1,4 @@
+import { getLocationContact } from '../../config/branchContacts';
 /**
  * Slim, site-wide top bar rendered ABOVE the sticky <header> (in normal document
  * flow, so it is NOT sticky — it scrolls away and the nav then sticks to top-0).
@@ -23,18 +24,19 @@ import { useLocation as useLocationContext } from '../../contexts/LocationContex
 import { useLocation as useRouterLocation } from 'react-router-dom';
 import { localServiceAreaLabel } from '../../utils/serviceArea';
 
-const PHONE_DISPLAY = '(914) 557-6816';
-const PHONE_HREF = 'tel:+19145576816';
 
 const SOCIALS = [
   { href: 'https://www.facebook.com/profile.php?id=61563773137785', icon: 'ri-facebook-fill', label: 'Facebook' },
   { href: 'https://www.instagram.com/smartgaragedoorss/', icon: 'ri-instagram-fill', label: 'Instagram' },
-  { href: 'https://maps.app.goo.gl/GjfsFbH5kQ2smvdU8', icon: 'ri-map-pin-fill', label: 'Google Maps' },
+  { href: 'https://maps.app.goo.gl/GjfsFbH5kQ2smvdU8', icon: 'ri-map-pin-fill', label: 'Queens Google Maps' },
 ];
 
 export default function AnnouncementBar() {
   const { location } = useLocationContext();
-  const { pathname } = useRouterLocation();
+  const { pathname, search } = useRouterLocation();
+  const contact = getLocationContact(pathname, search);
+  const PHONE_DISPLAY = contact.phone;
+  const PHONE_HREF = `tel:${contact.phoneTel}`;
   const areaLabel = localServiceAreaLabel(location, pathname);
 
   return (

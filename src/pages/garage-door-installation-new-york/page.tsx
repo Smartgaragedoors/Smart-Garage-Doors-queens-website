@@ -338,8 +338,9 @@ export default function GarageDoorInstallationNewYorkPage() {
             </div>
             <div className="text-center">
               <img 
-                src="https://www.smartestgaragedoors.com/wp-content/uploads/2025/02/image-2025-03-01T014834.747.png" 
-                alt="Professional Installation" 
+                src="/images/jobs/wood-grain-raised-panel-garage-door-install.webp"
+                width={900} height={1250} loading="lazy"
+                alt="Wood-grain raised-panel garage door with windows at an installation site"
                 className="w-full max-w-md mx-auto rounded-lg shadow-lg"
               />
             </div>
