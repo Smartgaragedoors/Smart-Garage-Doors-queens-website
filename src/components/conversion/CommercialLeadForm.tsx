@@ -1,7 +1,8 @@
 import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { submitForm } from '../../utils/formSubmission';
-import { trackFormStart, trackFormSubmit } from '../../utils/analytics';
+import { trackEvent, trackFormStart, trackFormSubmit, trackPhoneClick } from '../../utils/analytics';
+import { BUSINESS_INFO } from '../../config/business-info';
 
 /**
  * Low-friction B2B lead form for the commercial + property-manager pages.
@@ -28,6 +29,8 @@ export default function CommercialLeadForm() {
     phone: '',
     email: '',
     portfolioSize: '',
+    requestType: 'vendor-account',
+    address: '',
     message: '',
   });
   const [smsConsent, setSmsConsent] = useState(false);
@@ -60,17 +63,20 @@ export default function CommercialLeadForm() {
         },
         'Commercial Lead Form'
       );
-      if (result.success) {
+      if (result.usedFallback) {
+        setErrorMsg('Your request has not been sent yet. Please send the email draft that opened, or call (914) 557-6816.');
+      } else if (result.success) {
         trackFormSubmit('Commercial Lead Form', 'commercial_lead_form', {
-          portfolio_size: formData.portfolioSize,
+          service_type: formData.requestType,
+          urgency: formData.requestType === 'urgent-repair' ? 'urgent' : 'normal',
         });
         navigate('/book-now/thank-you/');
       } else {
         setErrorMsg(result.error || 'Something went wrong. Please call (914) 557-6816.');
-        setIsSubmitting(false);
       }
     } catch {
       setErrorMsg('Something went wrong. Please call (914) 557-6816.');
+    } finally {
       setIsSubmitting(false);
     }
   };
@@ -78,13 +84,28 @@ export default function CommercialLeadForm() {
   return (
     <div className="w-full max-w-lg mx-auto rounded-2xl border border-gray-200 shadow-sm bg-white p-6 md:p-8">
       <h2 className="font-newsreader font-medium text-2xl md:text-[26px] leading-tight text-gray-900">
-        Set Up a Vendor Account
+        Commercial Service & Vendor Accounts
       </h2>
       <p className="text-sm text-gray-600 mt-1.5 mb-5">
-        Tell us about your properties and we'll follow up with a point of contact, COI, and pricing — no commitment.
+        Request a repair, maintenance plan, or backup vendor for your warehouse, service bays, or multiple locations.
       </p>
+      <p className="text-sm text-gray-700 mb-4">
+        Door down now? <a href={`tel:${BUSINESS_INFO.phoneFormatted}`} onClick={() => trackPhoneClick('commercial_lead_form_urgent')} className="font-semibold underline">Call {BUSINESS_INFO.phone}</a> for current dispatch availability.
+      </p>
+      <a href="/downloads/smart-garage-doors-commercial-capabilities.pdf" target="_blank" rel="noopener noreferrer" onClick={() => trackEvent('commercial_capability_download', { category: 'Lead Generation', label: window.location.pathname })} className="inline-flex items-center min-h-11 text-sm font-semibold text-gray-700 underline mb-4">
+        Download our commercial service overview (PDF)
+      </a>
 
-      <form onSubmit={handleSubmit} className="space-y-3.5 text-left" noValidate>
+      <form onSubmit={handleSubmit} className="space-y-3.5 text-left">
+        <div>
+          <label htmlFor="clf-request-type" className="block text-xs font-semibold mb-1.5 text-gray-700">How can we help?</label>
+          <select id="clf-request-type" name="requestType" value={formData.requestType} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900 focus:ring-2 focus:ring-orange-500 text-sm">
+            <option value="vendor-account">Vendor / backup vendor account</option>
+            <option value="urgent-repair">Urgent door or gate repair</option>
+            <option value="scheduled-repair">Schedule a repair</option>
+            <option value="maintenance-plan">Door maintenance plan</option>
+          </select>
+        </div>
         <div className="grid sm:grid-cols-2 gap-3.5">
           <div>
             <label htmlFor="clf-company" className="block text-xs font-semibold mb-1.5 text-gray-700">
@@ -97,7 +118,7 @@ export default function CommercialLeadForm() {
               required
               value={formData.company}
               onChange={handleChange}
-              placeholder="e.g. Riverside Management Co."
+              placeholder="Company or warehouse name"
               className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm"
             />
           </div>
@@ -155,7 +176,7 @@ export default function CommercialLeadForm() {
 
         <div>
           <label htmlFor="clf-portfolio" className="block text-xs font-semibold mb-1.5 text-gray-700">
-            Portfolio Size
+            Number of Locations
           </label>
           <select
             id="clf-portfolio"
@@ -173,6 +194,11 @@ export default function CommercialLeadForm() {
         </div>
 
         <div>
+          <label htmlFor="clf-address" className="block text-xs font-semibold mb-1.5 text-gray-700">Site City / ZIP <span className="text-gray-400 font-normal">(optional)</span></label>
+          <input id="clf-address" name="address" value={formData.address} onChange={handleChange} placeholder="e.g. Avenel, NJ 07001" className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-900 focus:ring-2 focus:ring-orange-500 text-sm" />
+        </div>
+
+        <div>
           <label htmlFor="clf-message" className="block text-xs font-semibold mb-1.5 text-gray-700">
             What do you need? <span className="text-gray-400 font-normal">(optional)</span>
           </label>
@@ -187,11 +213,10 @@ export default function CommercialLeadForm() {
           />
         </div>
 
-        {/* TCPA SMS consent — required. Identical wording to HeroQuoteForm.tsx (owner-approved 2026-06-23). */}
+        {/* Optional SMS consent; preserve the owner-approved wording. */}
         <label className="flex items-start gap-2.5 text-[11px] leading-snug text-gray-500">
           <input
             type="checkbox"
-            required
             checked={smsConsent}
             onChange={(e) => setSmsConsent(e.target.checked)}
             className="mt-0.5 h-4 w-4 shrink-0 rounded border-gray-400 text-orange-500 focus:ring-orange-500"
@@ -217,7 +242,7 @@ export default function CommercialLeadForm() {
           ) : (
             <>
               <i className="ri-send-plane-fill" aria-hidden="true" />
-              Request Vendor Info
+              Request a Commercial Callback
             </>
           )}
         </button>
@@ -229,7 +254,7 @@ export default function CommercialLeadForm() {
         )}
 
         <p className="text-center text-[11px] text-gray-500">
-          No commitment — a real person follows up, never a sales queue.
+          We will confirm service scope, scheduling, and any vendor requirements with you.
         </p>
       </form>
     </div>

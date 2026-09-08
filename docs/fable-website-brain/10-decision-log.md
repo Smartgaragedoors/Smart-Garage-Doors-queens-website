@@ -308,3 +308,22 @@ analytics.google.com; `window.clarity` and `window.fbq` are live functions.
 Use recorded Queens/Suffern identities, Service markup for other towns, and company-labeled reviews without self-serving rating markup. Remove the unsupported 2010 claim. Preserve the live review feed, actual prices/license identifiers, WhatsApp, established URLs and prerender pipeline. Booking carries location, keeps SMS optional with unchanged wording, and reports a lead only after accepted submission; loading a thank-you URL is not a conversion.
 
 Every current blog article receives a distinct local WebP: existing site photographs or clearly illustrated technical guides. A shared image registry controls cards/hero/social metadata, with build-time duplicate/asset checks. Rebuild instructions and remaining account checks are in docs/SEO-AUDIT-IMPLEMENTATION-2026-09-08.md. All three extra local branch tips are already ancestors of main; no source merge is needed.
+
+## 2026-09-09 - Commercial customer acquisition and accurate lead capture
+
+Improve the existing B2B form across commercial pages for warehouse repairs,
+preventive maintenance and backup vendor requests. Keep three required contact
+fields; add optional site location and request type, a tracked urgent phone link,
+and a public one-page capability PDF. No client names, unverified insurance
+attestations, pricing or arrival guarantees are added to the public materials.
+
+Enable native form validation and make SMS consent optional without changing its
+wording. Treat a mailto fallback as an unsent request, preserve entered details,
+and only redirect/track conversion after accepted delivery. The local regression
+script intercepts every POST so rejected, fallback and accepted submissions can
+be checked without sending test leads. It also checks mobile overflow, required
+fields, attribution and the PDF. Run with a local preview on 127.0.0.1:4180.
+
+The separate acquisition workbook and outreach drafts contain private business
+research and are not website assets. A submitted vendor-interest form remains an
+application until the buyer confirms approval; it is not a booked job.

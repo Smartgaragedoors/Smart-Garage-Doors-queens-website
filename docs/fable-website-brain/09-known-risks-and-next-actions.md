@@ -1,5 +1,14 @@
 # Known Risks & Next Actions
 
+> **2026-09-09 - Commercial lead capture:** the shared commercial form now asks
+> whether the visitor needs a repair, maintenance, or vendor account, with an
+> optional site city/ZIP, urgent phone link, and downloadable capability sheet.
+> Native required-field validation is enabled; SMS consent is optional with the
+> existing wording. A mailto fallback preserves the request and reports that it
+> has not been sent; it does not redirect or record a conversion. Account approval,
+> dispatch availability, job scope, insurance documents and commercial terms still
+> require the team's confirmation. Private prospect research stays outside Git.
+
 > **2026-08-26 - RESOLVED: soft-404s / legacy URL pattern.** Unknown paths now
 > return a real 404 (the blanket SPA rewrite is gone — see `10-decision-log.md`);
 > legacy `/services/…` and `/service-areas/<city>/` URLs 301 to the flat pages;
