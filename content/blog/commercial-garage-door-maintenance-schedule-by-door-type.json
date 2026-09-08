@@ -1,0 +1,56 @@
+{
+  "title": "Commercial Garage Door Maintenance Schedule by Door Type",
+  "description": "Sectional bay doors, rolling steel gates, and dock levelers don't wear the same way. What to inspect, and how often, for each door type at a commercial site.",
+  "slug": "commercial-garage-door-maintenance-schedule-by-door-type",
+  "date": "2026-09-08",
+  "updatedAt": "2026-09-08",
+  "city": null,
+  "service": "Commercial Garage Door Repair",
+  "image": "/images/jobs/commercial-loading-dock-door-installation.webp",
+  "imageAlt": "Commercial loading dock with a sectional steel overhead door installed",
+  "keywords": "commercial garage door maintenance schedule, commercial door maintenance by door type, sectional door maintenance checklist, rolling steel door maintenance schedule, dock door leveler maintenance, commercial overhead door inspection frequency",
+  "canonicalUrl": "https://www.smartestgaragedoors.com/blog/commercial-garage-door-maintenance-schedule-by-door-type/",
+  "h1": "Commercial Garage Door Maintenance Schedule by Door Type",
+  "intro": "A lot of facilities teams run one maintenance calendar for every overhead door on the property, on the theory that a door is a door. It isn't. A sectional steel bay door, a rolling steel security gate, and a dock door with an integrated leveler wear on different curves and fail in different ways. Treat them identically and you end up over-servicing the door that barely moves while the one actually eating itself gets the same quarterly once-over. Here's how the schedule and checklist should differ by door type, and why.",
+  "sections": [
+    {
+      "heading": "Why one schedule doesn't fit every door type",
+      "body": "Two variables drive how often a commercial door needs attention: how it's built, and how hard it works. A sectional steel door and a rolling steel curtain door both use torsion springs to counterbalance weight, but the similarity mostly stops there — different hardware, different failure points, different tolerance for a missed inspection. Add a dock leveler and a mechanical seal into the mix and you've got equipment beyond the door itself that needs its own attention.\n\nDaily cycle count matters just as much as door type. A sectional bay door cycling 8 times a day and one cycling 35 times a day are the same door on paper and very different maintenance cases in practice — the busier one needs checking more often because its components burn through their rated life that much faster. Treat what follows as a starting point by door type, then move the frequency up for whichever doors are your busiest."
+    },
+    {
+      "heading": "Sectional steel doors (standard bay and dock doors)",
+      "body": "This is the most common commercial door — hinged steel panels riding in vertical tracks, curving onto horizontal tracks overhead, counterbalanced by torsion springs mounted above the opening.\n\n**Recommended interval:** quarterly for doors in regular daily use; semi-annual is defensible for a low-traffic door under roughly 5–8 cycles a day.\n\n**What to check each visit:**\n- Torsion spring condition — gaps, rust, visible stretch — and a balance test to confirm the springs, not the operator, are carrying the door's weight\n- Cables and drums for fraying, corrosion, and proper seating\n- Rollers and hinges for wear, seizing, or flat spots that drag in the track\n- Track alignment and mounting hardware, especially near the bottom where forklift and cart strikes happen\n- Panel and section condition, documenting any dent or crack before it spreads\n- Operator drive chain or belt tension, and limit/force settings\n- Photo-eye safety sensors and any sensing edge, tested for function\n\nSectional doors are also the door type where cycle-rated springs matter most, because they're usually the busiest doors on the property. A standard spring rated around 10,000 cycles can be exhausted in a year or two on a door running 25+ cycles a day — our [spring cycle ratings guide](/blog/commercial-garage-door-spring-cycle-ratings/) walks through the math and when to upgrade."
+    },
+    {
+      "heading": "Rolling steel doors and security gates",
+      "body": "Rolling steel curtains — interlocking steel slats that coil onto a barrel above the opening — show up as storefront security gates, self-storage unit doors, and some warehouse openings. The failure points are different from a sectional door: instead of track-mounted panels, you've got a curtain riding in side guides and a barrel spring doing the counterbalancing.\n\n**Recommended interval:** quarterly for daily-use commercial gates; a lightly used storage or seasonal gate can often go semi-annual.\n\n**What to check each visit:**\n- Barrel spring tension and condition — a gate that's suddenly heavy to lift almost always means the spring lost tension\n- Individual slats for bends or breaks, since a few bent slats will bind in the guides and drag the whole curtain\n- Side guides for secure mounting and straight alignment\n- The operator's drive chain, gears, and limit switches\n- The manual chain hoist and release — the part nobody tests until a power outage, and the one that's seized more often than facilities teams expect\n\nRolling steel gates that see heavy daily traffic — a busy loading area or a 24-hour storefront — deserve the same cycle-count thinking as sectional doors: more opens per day means the barrel spring and slats wear faster, so the inspection interval should tighten accordingly. Our [roll-up gate guide for facilities managers](/blog/roll-up-gate-repair-facilities-guide/) covers the full failure list and repair-versus-replace framework."
+    },
+    {
+      "heading": "Dock doors with levelers and seals",
+      "body": "A dock door is a sectional (or occasionally rolling steel) door doing a specific job, and it usually comes with equipment the door itself doesn't have: a leveler that bridges the gap to the trailer bed, and a dock seal or shelter that closes the gap around the trailer once it's backed in. Both need their own line items on the inspection, separate from the door mechanics.\n\n**Recommended interval:** quarterly for the door hardware, matching the sectional or rolling steel schedule above — but the leveler and seal deserve a look at every visit, not just when someone notices a problem.\n\n**What to check in addition to the door itself:**\n- Leveler hinges, springs, and lip for smooth operation and proper return to the stored position\n- Leveler bumpers and edge guards for wear or damage from repeated trailer contact\n- Dock seal or shelter foam and fabric for tears, compression, or gaps that let weather and pests through\n- Door-to-leveler alignment — a door that no longer seats evenly against a worn seal is a draft and a security gap, not just a cosmetic issue\n\nDock equipment takes the most physical abuse on the property because it's designed to interact with trailers, forklifts, and constant traffic. That's also why dock door failures are so often collateral damage from something else — a forklift strike bending a track, a trailer backing in crooked and catching the seal. Our [loading dock door repair guide](/blog/loading-dock-door-repair-warehouse-guide/) covers the most common failure modes we see on working docks and what to do when a bay goes down mid-shift."
+    },
+    {
+      "heading": "Putting it on one calendar without treating every door the same",
+      "body": "The practical way to run this across a facility with a mix of door types is one inspection calendar with door-specific checklists attached to each entry, not a generic checklist applied everywhere. A baseline survey is the right starting point: a technician walks every door and gate on the property, documents its type, age, and daily cycle count, and flags anything already entering its wear window. From there, doors get grouped by type and duty, and the schedule follows what each one actually needs.\n\nThat's the structure behind a real preventive maintenance contract — documented per-door visits on a schedule matched to each door's type and usage, not a sticker on the wall with a phone number. Our [commercial maintenance contracts](/commercial-maintenance-contracts/) page covers what's included and how we scope a program across mixed door types at one facility or a multi-site portfolio."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Do rolling steel gates and sectional doors need the same maintenance schedule?",
+      "answer": "No. Both benefit from quarterly inspection under regular commercial use, but they're checking different things — sectional doors focus on track-mounted rollers, hinges, and panel condition, while rolling steel gates focus on barrel spring tension, slat condition, and guide alignment. The interval can also differ based on daily cycle count, not just door type."
+    },
+    {
+      "question": "How often should a dock leveler be inspected?",
+      "answer": "At the same visit as the dock door itself, typically quarterly for a working dock. The leveler's hinges, springs, lip, and bumpers take heavy physical wear from trailer traffic and should be checked every time a technician is already on site for the door, along with the dock seal or shelter for tears and compression."
+    },
+    {
+      "question": "Does a low-traffic commercial door need quarterly inspections too?",
+      "answer": "Not necessarily. A door cycling under roughly 5–8 times a day can often move to a semi-annual schedule without meaningfully increasing risk, since its components are wearing much more slowly than a high-traffic bay door. The right interval follows the door's actual daily cycle count, which is why a baseline survey that documents cycles per door is more useful than a flat schedule applied to every opening."
+    },
+    {
+      "question": "What's included in a commercial door maintenance visit?",
+      "answer": "For most door types that means spring condition and balance, cables or barrel spring tension, rollers or guide alignment, operator drive and limit settings, and safety devices like photo eyes. Dock doors add the leveler and seal to that list. A real maintenance visit produces a written per-door report, not just a lubricant pass."
+    }
+  ],
+  "cta": "**Mixed fleet of bay doors, rolling gates, and dock equipment?** One schedule doesn't fit all of it. Call (914) 557-6816 for a baseline survey of every door and gate on your property — we'll tell you what each one actually needs and how often. See our [commercial maintenance contracts](/commercial-maintenance-contracts/) for how we structure ongoing programs across NY, NJ, and CT."
+}
