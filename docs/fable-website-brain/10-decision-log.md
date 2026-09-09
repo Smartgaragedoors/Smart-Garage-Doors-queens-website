@@ -8,6 +8,16 @@ commit history so the log starts complete.)
 
 ## 2026-09-09 — Public privacy policy and contact conversion accuracy
 
+Follow-up: the shared mailto fallback now returns unsuccessful delivery for every
+form, preventing success-only handlers from counting an unfinished email draft.
+The homepage contact form also preserves its fallback state. Add a separate
+`generate_lead` event for accepted customer forms; retain `form_submit` diagnostics
+and exclude careers/staff-report types. The new key event is configured without
+an invented monetary value in live GA4 property 510931588, already linked to Ads
+666-881-4449. Isolated provider/event regression checks and all 143 prerendered
+pages passed. Actual CRM receipt, Ads import/attribution and qualified calls are
+separate checks, not implied by the code tests.
+
 Add `/privacy-policy/` with metadata, sitemap/prerender coverage, a shared-footer
 link and contact-form link. Describe the providers actually present, including
 Google, Meta, Clarity and Anthropic chat. Do not invent privacy guarantees.

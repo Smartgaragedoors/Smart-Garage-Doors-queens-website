@@ -9,6 +9,23 @@ passed, including the latest existing SEO changes from main. The contact-handler
 regression checks passed for all three delivery outcomes. Publication is verified
 separately after Vercel finishes.
 
+Privacy release `9fc6f87` completed successfully on Vercel. Public page and footer
+were checked in the browser. Further conversion review found that the shared
+email-draft fallback still returned success to other forms: it now returns false
+globally. A distinct `generate_lead` event is emitted only for accepted customer
+forms; recruiting and staff issue reports keep their diagnostic events but are
+excluded from acquisition conversions. The homepage contact form preserves its
+fields on fallback. Isolated tests cover these cases without external requests.
+
+Live GA4 property is `510931588`, account `347177237`, accessed through
+`sgd@smartestgaragedoors.com`. Its link to Ads `666-881-4449` already exists
+(February 10, 2026). The old Ads action `Form` (`7305246953`) references
+`ads_conversion_Form_1`, while the current site explicitly emits `form_submit`.
+Before this work, live GA4 key events included `book_click`, unused `phone_click`
+and `verify_*` events, but not the real form/call events. Do not mistake booking
+clicks for accepted leads. The new accepted-lead configuration is being verified
+separately; do not infer a successful import from the existence of a tag.
+
 - Added `/privacy-policy/`, metadata, sitemap entry and shared-footer link. Contact form also links to it.
 - Policy describes observed forms, Meta lead forms, service photos, customer records, Google Analytics/Ads, Meta Pixel, Microsoft Clarity and Anthropic-powered chat. It does not make an unverified promise that no information is shared, or a blanket legal-compliance claim.
 - Policy gives the existing business email and phone for privacy requests. Keep it aligned with actual providers, retention, advertising controls and data handling. A policy alone does not implement cookie consent or advertising opt-out controls.

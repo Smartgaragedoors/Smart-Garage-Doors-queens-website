@@ -8,6 +8,12 @@
 > end-to-end account verification. Claude/future agents: read
 > `../PRIVACY-AND-MARKETING-HANDOFF-2026-09-09.md` before resuming marketing work.
 
+> The shared fallback is now unsuccessful for all forms. Accepted customer forms
+> emit distinct `generate_lead`; careers/staff reports are excluded. It is marked
+> as a key event in GA4 510931588. Keep booking-button clicks separate from real
+> inquiries. Confirm the new Ads conversion import and real receipt before
+> launching conversion-based bidding; preserve the existing inactive campaigns.
+
 > **2026-09-09 — CTR follow-up:** seven existing service/local snippets and
 > supporting introductions improved; the shared core-service regional links now
 > include Bergen County and Suffern without dropping the original ten locations.

@@ -22,8 +22,10 @@ function Contact() {
     try {
       const result = await submitForm(formData, 'Contact Form');
 
-      if (result.success) {
-        setSubmitStatus(result.usedFallback ? 'fallback' : 'success');
+      if (result.usedFallback) {
+        setSubmitStatus('fallback');
+      } else if (result.success) {
+        setSubmitStatus('success');
         setFormData({ name: '', email: '', phone: '', service: '', message: '' });
         trackFormSubmit('Contact Form', 'contact');
       } else {

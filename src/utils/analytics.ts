@@ -270,7 +270,7 @@ export const trackFormSubmit = (
   extras?: { service_type?: string; urgency?: string }
 ) => {
   const attr = getAttribution();
-  trackEvent('form_submit', {
+  const params = {
     category: 'Lead Generation',
     label: formName,
     value: 1,
@@ -286,7 +286,14 @@ export const trackFormSubmit = (
     gclid: attr?.gclid || '',
     fbclid: attr?.fbclid || '',
     device_type: attr?.device_type || '',
-  });
+  };
+  trackEvent('form_submit', params);
+  // A distinct success event avoids GA4's automatic form_submit event, which
+  // can fire before delivery. Exclude recruiting and staff issue reports from
+  // customer-acquisition conversions. Existing diagnostic events are retained.
+  if (['contact', 'book_now', 'hero_quote_form', 'commercial_lead_form', 'emergency_garage_door_repair'].includes(formType)) {
+    trackEvent('generate_lead', { ...params, lead_status: 'accepted', value: undefined });
+  }
 };
 
 export const trackWhatsAppClick = (source?: string) => {

@@ -157,7 +157,10 @@ function submitFormMailto(
   const mailtoLink = `mailto:${email}?subject=${subject}&body=${body}`;
   window.location.href = mailtoLink;
   return {
-    success: true,
+    // Opening an email draft is not accepted delivery. All form callers must
+    // leave conversion tracking and success redirects gated on real delivery.
+    success: false,
+    error: 'Your request has not been sent yet. Please send the email draft that opened or call (914) 557-6816.',
     message: 'Your email client should open. If it doesn’t, please call us at (914) 557-6816 to book.',
     usedFallback: true,
   };
