@@ -51,8 +51,8 @@ export default function OpenerRepair() {
   return (
     <div className="min-h-screen">
       <DynamicMetaTags 
-        title="Garage Door Opener Repair & Installation NY NJ CT | Smart Garage Doors"
-        description={`${BUSINESS_INFO.aggregateRating.ratingValue}★ rated, ${BUSINESS_INFO.aggregateRating.reviewCount} reviews. Opener repair & installation — chain, belt, wall-mount. Free estimate. NY, NJ & CT. Licensed & insured.`}
+        title="Garage Door Opener Repair & Installation | NY, NJ & CT"
+        description="Garage door opener not working? Repair or replace chain, belt and wall-mount openers in NY, NJ & CT. Call for diagnosis and available service times."
         keywords="garage door opener repair, opener installation, chain drive, belt drive, wall mount"
       />
       <FAQSchema faqs={faqs} />
@@ -74,10 +74,10 @@ export default function OpenerRepair() {
           </div>
           <div className="relative max-w-7xl mx-auto px-4 text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Garage Door Opener Repair
+              Garage Door Opener Repair &amp; Installation
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-purple-100">
-              Expert repair services for all opener types in NY, NJ & CT
+              Opener not working? We repair and install chain, belt and wall-mount openers across NY, NJ & CT. Call to discuss repair or replacement and current availability.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="tel:(914) 557-6816" className="bg-orange-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-orange-600 transition-colors whitespace-nowrap">
@@ -352,7 +352,7 @@ export default function OpenerRepair() {
         serviceType="opener"
         title="Opener Repair Services in Your Area"
         showDescription={true}
-        maxLinks={10}
+        maxLinks={12}
       />
       <Footer />
     </div>

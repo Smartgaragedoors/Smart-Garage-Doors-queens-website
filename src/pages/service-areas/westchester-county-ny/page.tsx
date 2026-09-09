@@ -4,8 +4,8 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Westchester County, NY Garage Door Repair | Licensed & Insured | Smart Garage Doors"
-      metaDescription="Garage door repair in Westchester County, NY — total-price quotes, 5.0★ reviews. Spring replacement, opener repair, emergency service. Licensed & insured. Call (914) 557-6816."
+      metaTitle="Westchester Garage Door Repair | Smart Garage Doors"
+      metaDescription="Garage door repair across Westchester County, NY: broken springs, faulty openers and doors off track. Call to confirm availability and request a quote."
       keywords="Westchester County garage door repair, garage door installation Westchester County, emergency garage door Westchester County, spring replacement Westchester County"
       slug="/westchester-county-ny/"
       cityName="Westchester County"

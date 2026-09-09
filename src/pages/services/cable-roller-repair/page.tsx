@@ -586,7 +586,7 @@ export default function CableRollerRepairPage() {
         serviceType="cable"
         title="Cable & Roller Repair Services in Your Area"
         showDescription={true}
-        maxLinks={10}
+        maxLinks={12}
       />
       <Footer />
     </div>

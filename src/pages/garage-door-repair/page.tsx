@@ -432,7 +432,7 @@ export default function GarageDoorRepairPage() {
         serviceType="repair"
         title="Garage Door Repair Services in Your Area"
         showDescription={true}
-        maxLinks={10}
+        maxLinks={12}
       />
 
       {/* CTA Section */}

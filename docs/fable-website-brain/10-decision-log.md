@@ -327,3 +327,31 @@ fields, attribution and the PDF. Run with a local preview on 127.0.0.1:4180.
 The separate acquisition workbook and outreach drafts contain private business
 research and are not website assets. A submitted vendor-interest form remains an
 application until the buyer confirms approval; it is not a booked job.
+
+
+## 2026-09-09 — August CTR follow-up: qualified service leads
+
+Use the August summary as a baseline, not evidence of the effect of September
+changes. Improve seven existing page snippets: pedestrian installation, spring
+replacement, opener repair/installation, door installation, Bergen County,
+Westchester and Stamford. Align relevant opening copy with actual NY/NJ/CT service
+coverage. Keep the recently changed homepage, emergency, Queens and Suffern titles
+stable. Preserve URLs, canonicals, forms, tracking, pricing and phone routing.
+
+The shared service-area list now includes Bergen County and Suffern in its first
+eight links; seven core service pages show all twelve entries, retaining their ten
+previous locations. Emergency links in the shared utilities name the service
+explicitly. Local metadata includes state abbreviations so location detection does
+not append unrelated coverage to the new descriptions.
+
+Local `npx tsc --noEmit`, production build and image checks pass. Full prerender
+cannot launch Chrome in this workspace (socket permission error; the CI Chromium
+variant also cannot initialize its temporary fonts). Use a preview branch for
+Vercel's unchanged `build:seo` gate and verify preview metadata before merging to
+main. This is an environment-specific exception to the local pre-push render gate;
+no rendering safeguard is changed. Log release/check results on the pull request.
+
+Still needed: August query-by-page impressions/position and post-recrawl qualified
+lead outcomes. Historical zero-click emergency impressions are not a promise of
+snippet-only gains. Do not fabricate rankings or automatically submit these service
+pages through the restricted Google Indexing API.
