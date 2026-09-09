@@ -3,14 +3,14 @@ import GuidePageTemplate from '../../components/feature/GuidePageTemplate';
 export default function PedestrianGarageDoorsPage() {
   return (
     <GuidePageTemplate
-      metaTitle="Pedestrian Garage Doors | Wicket & Man Door | NY NJ CT"
-      metaDescription="Garage doors with a built-in pedestrian door — wicket door, man door, or pass door. Walk-through access without opening the whole door. NY, NJ & CT."
+      metaTitle="Pedestrian Garage Door Installation | NY, NJ & CT"
+      metaDescription="Install a garage door with a built-in walk-through door in NY, NJ or CT. Explore wicket and man-door options. Send photos to request a quote."
       keywords="pedestrian garage door, wicket door, wicket door garage door, man door garage door, garage door with man door built in, man pass door, pass door garage door, personnel door garage door, walk through garage door, walk in garage door, garage door with door in it, entry door in garage door, service door garage door, garage door with pedestrian access, commercial pass door"
       slug="/pedestrian-garage-doors/"
       heroImage="doorInteriorWindows"
       badge="Custom Garage Doors"
       headline="Garage Doors With a Built-In Pedestrian Door"
-      subheadline="Also called a wicket door, man door, or pass door — a smaller walk-through door set right into one panel of your garage door, so you can step in and out without cycling the whole door."
+      subheadline="We install garage doors with a built-in walk-through door across NY, NJ & CT. Also called a wicket or man door, it lets you walk through without opening the whole garage door. Send photos to request a quote."
       showWhatsAppHero={true}
       whatsAppMessage="Hi, I'm interested in a garage door with a built-in pedestrian/walk-through door. Can I send photos of my garage for a quote?"
       intro={[

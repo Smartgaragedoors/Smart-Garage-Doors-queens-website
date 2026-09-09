@@ -4,8 +4,8 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Bergen County, NJ Garage Door Repair | Licensed & Insured | Smart Garage Doors"
-      metaDescription="Garage door repair in Bergen County, NJ — upfront total-price quotes, 5.0★ reviews. Spring replacement, opener repair, emergency line. Licensed & insured. Call (914) 557-6816."
+      metaTitle="Garage Door Repair in Bergen County, NJ | Smart Garage Doors"
+      metaDescription="Garage door stuck in Bergen County, NJ? Spring, opener and cable repairs. Call Smart Garage Doors to confirm availability and get a quote before work starts."
       keywords="Bergen County garage door repair, garage door installation Bergen County, emergency garage door Bergen County, spring replacement Bergen County"
       slug="/bergen-county-nj/"
       cityName="Bergen County"

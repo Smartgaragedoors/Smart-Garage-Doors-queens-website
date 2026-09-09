@@ -21,7 +21,7 @@ export function getRelatedServices(currentPath: string): InternalLink[] {
     },
     { 
       url: '/emergency-garage-door-repair/', 
-      text: 'Emergency Repairs',
+      text: 'Emergency Garage Door Repair',
       description: 'Emergency garage door repair line'
     },
     { 
@@ -58,15 +58,18 @@ export function getRelatedServices(currentPath: string): InternalLink[] {
 // Get service area links for service pages (incoming links TO location pages)
 // serviceType: 'repair' | 'installation' | 'emergency' | 'spring' | 'opener' | 'cable' | 'maintenance' | ''
 export function getServiceAreaLinksForService(serviceType: string): InternalLink[] {
+  // Keep NY, NJ, CT and Suffern represented even in the default eight-link view.
   const baseAreas: InternalLink[] = [
     { url: '/queens-ny/', text: 'Queens, NY', description: 'Garage door services in Queens' },
     { url: '/brooklyn-ny/', text: 'Brooklyn, NY', description: 'Garage door services in Brooklyn' },
     { url: '/long-island-ny/', text: 'Long Island, NY', description: 'Garage door services on Long Island' },
-    { url: '/staten-island-ny/', text: 'Staten Island, NY', description: 'Garage door services in Staten Island' },
-    { url: '/white-plains-ny/', text: 'White Plains, NY', description: 'Garage door services in White Plains' },
+    { url: '/westchester-county-ny/', text: 'Westchester County, NY', description: 'Garage door services in Westchester County' },
+    { url: '/bergen-county-nj/', text: 'Bergen County, NJ', description: 'Garage door services in Bergen County' },
+    { url: '/suffern-ny/', text: 'Suffern, NY', description: 'Garage door services in Suffern' },
     { url: '/stamford-ct/', text: 'Stamford, CT', description: 'Garage door services in Stamford' },
     { url: '/greenwich-ct/', text: 'Greenwich, CT', description: 'Garage door services in Greenwich' },
-    { url: '/westchester-county-ny/', text: 'Westchester County, NY', description: 'Garage door services in Westchester County' },
+    { url: '/staten-island-ny/', text: 'Staten Island, NY', description: 'Garage door services in Staten Island' },
+    { url: '/white-plains-ny/', text: 'White Plains, NY', description: 'Garage door services in White Plains' },
     { url: '/nassau-county-ny/', text: 'Nassau County, NY', description: 'Garage door services in Nassau County' },
     { url: '/suffolk-county-ny/', text: 'Suffolk County, NY', description: 'Garage door services in Suffolk County' },
   ];
@@ -74,6 +77,8 @@ export function getServiceAreaLinksForService(serviceType: string): InternalLink
   // Service-aware descriptions for better anchor text (natural, not stuffed)
   const serviceDescriptions: Record<string, Record<string, string>> = {
     repair: {
+      'bergen-county-nj': 'Garage door repair in Bergen County',
+      'suffern-ny': 'Garage door repair in Suffern',
       'queens-ny': 'Garage door repair in Queens',
       'brooklyn-ny': 'Garage door repair in Brooklyn',
       'long-island-ny': 'Garage door repair on Long Island',
@@ -83,6 +88,8 @@ export function getServiceAreaLinksForService(serviceType: string): InternalLink
       'greenwich-ct': 'Garage door repair in Greenwich',
     },
     emergency: {
+      'bergen-county-nj': 'Emergency garage door repair in Bergen County',
+      'suffern-ny': 'Emergency garage door repair in Suffern',
       'queens-ny': 'Emergency garage door repair in Queens',
       'brooklyn-ny': 'Emergency garage door repair in Brooklyn',
       'long-island-ny': 'Emergency garage door repair on Long Island',
@@ -90,6 +97,8 @@ export function getServiceAreaLinksForService(serviceType: string): InternalLink
       'stamford-ct': 'Emergency garage door repair in Stamford',
     },
     spring: {
+      'bergen-county-nj': 'Spring replacement in Bergen County',
+      'suffern-ny': 'Spring replacement in Suffern',
       'queens-ny': 'Spring replacement in Queens',
       'brooklyn-ny': 'Spring replacement in Brooklyn',
       'long-island-ny': 'Spring replacement on Long Island',
@@ -97,6 +106,8 @@ export function getServiceAreaLinksForService(serviceType: string): InternalLink
       'stamford-ct': 'Spring replacement in Stamford',
     },
     installation: {
+      'bergen-county-nj': 'Garage door installation in Bergen County',
+      'suffern-ny': 'Garage door installation in Suffern',
       'queens-ny': 'Garage door installation in Queens',
       'brooklyn-ny': 'Garage door installation in Brooklyn',
       'long-island-ny': 'Garage door installation on Long Island',
@@ -104,6 +115,8 @@ export function getServiceAreaLinksForService(serviceType: string): InternalLink
       'stamford-ct': 'Garage door installation in Stamford',
     },
     opener: {
+      'bergen-county-nj': 'Opener repair in Bergen County',
+      'suffern-ny': 'Opener repair in Suffern',
       'queens-ny': 'Opener repair in Queens',
       'brooklyn-ny': 'Opener repair in Brooklyn',
       'long-island-ny': 'Opener repair on Long Island',
@@ -111,6 +124,8 @@ export function getServiceAreaLinksForService(serviceType: string): InternalLink
       'stamford-ct': 'Opener repair in Stamford',
     },
     cable: {
+      'bergen-county-nj': 'Cable and roller repair in Bergen County',
+      'suffern-ny': 'Cable and roller repair in Suffern',
       'queens-ny': 'Cable and roller repair in Queens',
       'brooklyn-ny': 'Cable and roller repair in Brooklyn',
       'long-island-ny': 'Cable and roller repair on Long Island',
@@ -118,6 +133,8 @@ export function getServiceAreaLinksForService(serviceType: string): InternalLink
       'stamford-ct': 'Cable and roller repair in Stamford',
     },
     maintenance: {
+      'bergen-county-nj': 'Garage door maintenance in Bergen County',
+      'suffern-ny': 'Garage door maintenance in Suffern',
       'queens-ny': 'Garage door maintenance in Queens',
       'brooklyn-ny': 'Garage door maintenance in Brooklyn',
       'long-island-ny': 'Garage door maintenance on Long Island',
@@ -152,7 +169,7 @@ export function getServiceLinksForLocation(locationPath: string): InternalLink[]
     },
     { 
       url: '/emergency-garage-door-repair/', 
-      text: 'Emergency Repairs',
+      text: 'Emergency Garage Door Repair',
       description: 'Emergency garage door line'
     },
     { 

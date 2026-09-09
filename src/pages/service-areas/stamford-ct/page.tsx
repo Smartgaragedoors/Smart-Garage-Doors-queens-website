@@ -4,8 +4,8 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Stamford, CT Garage Door Repair | Licensed & Insured | Smart Garage Doors"
-      metaDescription="Garage door repair in Stamford, CT — 5.0★ reviews, total-price quotes. Spring replacement, opener repair, emergency line. Licensed & insured. Call (914) 557-6816."
+      metaTitle="Garage Door Repair in Stamford, CT | Smart Garage Doors"
+      metaDescription="Need garage door repair in Stamford, CT? Springs, openers and doors off track. Call Smart Garage Doors for availability and a quote before work starts."
       keywords="Stamford garage door repair, garage door installation Stamford, emergency garage door Stamford, spring replacement Stamford"
       slug="/stamford-ct/"
       cityName="Stamford"

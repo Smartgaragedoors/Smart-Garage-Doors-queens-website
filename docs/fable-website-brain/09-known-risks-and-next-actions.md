@@ -1,5 +1,14 @@
 # Known Risks & Next Actions
 
+> **2026-09-09 — CTR follow-up:** seven existing service/local snippets and
+> supporting introductions improved; the shared core-service regional links now
+> include Bergen County and Suffern without dropping the original ten locations.
+> Homepage/emergency and Queens/Suffern titles stay stable for post-change review.
+> August page/query impressions and positions remain unavailable in this session;
+> compare US nonbranded results by device after recrawl, alongside qualified calls,
+> forms and booked jobs. Preview deployment must pass full prerender before release
+> because local Chrome is blocked by workspace permissions.
+
 > **2026-09-09 - Commercial lead capture:** the shared commercial form now asks
 > whether the visitor needs a repair, maintenance, or vendor account, with an
 > optional site city/ZIP, urgent phone link, and downloadable capability sheet.

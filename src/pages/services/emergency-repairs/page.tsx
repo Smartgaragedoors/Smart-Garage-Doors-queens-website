@@ -494,7 +494,7 @@ export default function EmergencyRepairsPage() {
         serviceType="emergency"
         title="Emergency Garage Door Repair Near You"
         showDescription={true}
-        maxLinks={10}
+        maxLinks={12}
       />
 
       <Footer />

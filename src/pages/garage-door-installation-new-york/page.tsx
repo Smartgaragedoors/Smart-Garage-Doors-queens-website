@@ -47,8 +47,8 @@ export default function GarageDoorInstallationNewYorkPage() {
   return (
     <div className="min-h-screen bg-white">
       <DynamicMetaTags 
-        title="Garage Door Installation New York | New & Replacement | Smart Garage Doors"
-        description={`New garage door installation & replacement. ${BUSINESS_INFO.aggregateRating.ratingValue}★, ${BUSINESS_INFO.aggregateRating.reviewCount} reviews. Free estimates. Call for current availability. Licensed & insured. Serving NY, NJ & CT.`}
+        title="Garage Door Installation & Replacement | NY, NJ & CT"
+        description="Replace your garage door or plan a new installation in NY, NJ or CT. Explore door options and request a quote for your opening."
         keywords="garage door installation, new garage door, garage door replacement, garage door installer"
       />
       <FAQSchema faqs={faqs} />
@@ -69,16 +69,16 @@ export default function GarageDoorInstallationNewYorkPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                Garage Door Installation New York
+                Garage Door Installation in NY, NJ &amp; CT
               </h1>
               <p className="text-xl md:text-2xl mb-4">
-                Professional garage door installation services throughout New York. From residential to commercial, we install all types of garage doors with precision and expertise.
+                New and replacement garage doors for homes and businesses across New York, New Jersey, and Connecticut. Explore door options and request a quote for your opening.
               </p>
               <p className="text-lg md:text-xl mb-4 text-green-100">
                 Planning a new door? Get a free quote and explore options on our <a href="/services/installation/" className="underline font-semibold">installation planning page</a>.
               </p>
               <p className="text-lg md:text-xl mb-8 text-green-100 font-semibold">
-                Trusted 5.0★ rated installer for New York homeowners and businesses • Licensed, insured, and factory-trained technicians.
+                Rated {BUSINESS_INFO.aggregateRating.ratingValue}★ by our customers • Licensed &amp; insured • Quotes before work begins.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a 
@@ -416,7 +416,7 @@ export default function GarageDoorInstallationNewYorkPage() {
         serviceType="installation"
         title="Garage Door Installation Services in Your Area"
         showDescription={true}
-        maxLinks={10}
+        maxLinks={12}
       />
 
       <Footer />

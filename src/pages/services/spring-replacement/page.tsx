@@ -116,7 +116,7 @@ export default function SpringReplacementPage() {
     <div className="min-h-screen bg-gray-50">
       <DynamicMetaTags 
         title="Garage Door Spring Replacement NY NJ CT | Smart Garage Doors"
-        description={`${BUSINESS_INFO.aggregateRating.ratingValue}★ rated, ${BUSINESS_INFO.aggregateRating.reviewCount} reviews. Safe spring replacement. Torsion & extension. Call to check current availability. NY, NJ & CT. Licensed & insured.`}
+        description="Broken garage door spring? Torsion and extension spring replacement across NY, NJ & CT. Call for availability and a quote before work begins."
         keywords="garage door spring replacement, torsion spring repair, extension spring replacement, broken spring repair"
       />
       <FAQSchema faqs={faqs} />
@@ -160,7 +160,7 @@ export default function SpringReplacementPage() {
               Garage Door Spring Replacement
             </h1>
             <p className="text-xl mb-8">
-              Safe and professional replacement of broken garage door springs. We handle both torsion and extension springs across NYC, Westchester, and Connecticut. Don't risk injury — call the professionals.
+              Broken garage door spring? We replace torsion and extension springs across New York, New Jersey, and Connecticut. Call to confirm availability and get a quote before work begins.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a 
@@ -562,7 +562,7 @@ export default function SpringReplacementPage() {
         serviceType="spring"
         title="Spring Replacement Services in Your Area"
         showDescription={true}
-        maxLinks={10}
+        maxLinks={12}
       />
 
       <Footer />
