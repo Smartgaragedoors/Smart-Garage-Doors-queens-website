@@ -4,6 +4,12 @@ Citations are table stakes: consistency caps trust rather than boosting it, but
 inconsistency actively hurts. All submissions/edits are OWNER tasks (accounts,
 verification); AI prepares exact data + tracks status here.
 
+September 9 update: the owner explicitly authorized this session to manage free
+listings and continue the marketing setup. Use existing claimed profiles when
+present; authentication/ownership verification still requires the owner where
+the service demands it. The dated observations below supersede older status
+labels, not the underlying business facts.
+
 ## The canonical NAP (single source of truth) — CONFIRMED 2026-07-06
 
 Two real, addressable locations exist (matches `src/config/business-info.ts`
@@ -37,12 +43,13 @@ NAP-inconsistency failure mode this plan exists to prevent.
 | Platform | Status | Notes |
 |---|---|---|
 | Google Business Profile | LIVE — 4 listings known: Flushing/main (486 reviews, real, use Flushing NAP above), Suffern (105 reviews, real, use Suffern NAP above), a duplicate Suffern (0 reviews — NOT a real third location, a dupe), Jackson NJ (0 reviews) | **Owner: remove/merge the duplicate 0-review Suffern listing** — duplicates are a ranking and trust liability. The 105-review Suffern listing is the real one to keep. Optimize both real listings per `docs/gbp-playbook.md` (services, products, Q&A, UTM links) |
-| Bing Places | Unverified | Import from GBP (Bing supports GBP sync) |
-| Apple Business Connect | Unverified | Free; Apple Maps matters for iPhone "garage door repair near me" |
-| Yelp | Unverified — check for an unclaimed auto-generated listing first | Claim, complete, DON'T buy ads under pressure (their sales calls will follow) |
+| Bing Places | Existing listing published; email verified; announcement pending | https://www.bing.com/maps?ss=ypid.YNE137082C20C446F4&mkt=en-US . September 10–30 replacement announcement submitted; Google sync retry failed. Do not duplicate. |
+| Apple Business / Apple Maps | Public listing not confirmed; owner sign-in pending | September 9 name/location searches did not identify a matching Flushing or Suffern business card. This is not proof the listing is absent. Open Apple Business account before creating a duplicate. |
+| Yelp | LIVE and Claimed — verified September 9 | https://www.yelp.com/biz/smart-garage-doors-queens-3 . Correct 141-24 70th Ave / 11367, (914) 557-6816 and website. Existing business photos and owner replies. No new listing created or Yelp ads purchased. |
+| Yahoo Local | LIVE — verified September 9 | https://local.yahoo.com/info-240240526-smart-garage-doors-flushing/ . Correct contact details; reviews link to the same claimed Yelp profile. |
 | Thumbtack | ACTIVE — real reviews exist (a Google review this session mentioned finding us there) | Ensure profile links to the site; keep review flow |
 | Angi | Unverified | Claim the free listing at minimum |
-| Nextdoor | Unverified | Business page; neighborhood presence for Queens/Westchester |
+| Nextdoor | Existing claimed page detected | Managing account needed; no duplicate created. |
 | Facebook Business | Linked from site footer | Verify NAP matches canon |
 | BBB | Unverified | Listing is free; accreditation is paid — owner's call, log as paid if pursued |
 

@@ -51,6 +51,9 @@ export const BUSINESS_INFO = {
   socialMedia: {
     facebook: "https://www.facebook.com/smartgaragedoorss",
     instagram: "https://www.instagram.com/smartgaragedoorss/",
+    // Existing business profiles verified September 9, 2026; not new listings.
+    yelp: "https://www.yelp.com/biz/smart-garage-doors-queens-3",
+    bingMaps: "https://www.bing.com/maps?ss=ypid.YNE137082C20C446F4&mkt=en-US",
     googleMaps: "https://maps.app.goo.gl/GjfsFbH5kQ2smvdU8",
     googlePlaceId: "ChIJucuPoePGzGMRGWWH9YOmAX4",
     googleReviews: "https://www.google.com/maps/place/?q=place_id:ChIJucuPoePGzGMRGWWH9YOmAX4",

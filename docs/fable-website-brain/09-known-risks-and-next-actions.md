@@ -1,5 +1,15 @@
 # Known Risks & Next Actions
 
+> **2026-09-09 — Latest account/listing verification:** Google Ads import
+> `Website - Accepted Lead` (7755193645) is verified Primary / Count One; legacy
+> `Form` is Secondary. Real inbox/CRM receipt and ad attribution remain untested.
+> Meta's unpaid banner is gone, but #1487194 remains and billing/asset roles need
+> owner two-factor reauthentication. The qualified form is attached; new ads are
+> off. Apple Business requires owner sign-in before the existing listing can be
+> confirmed or created. Yelp is already Claimed, and Yahoo/Bing listings exist.
+> Verified Yelp/Bing references were added to Organization schema; they do not
+> create an Apple listing or guarantee voice-search rankings.
+
 > **2026-09-09 — Privacy and conversion review:** public privacy route/footer link
 > added; contact-form fallback no longer counts a conversion or clears details.
 > SMS remains optional with unchanged wording. Policy must stay aligned with

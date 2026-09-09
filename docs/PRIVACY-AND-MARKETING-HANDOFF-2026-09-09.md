@@ -73,3 +73,32 @@ Search Console exposes a beta generative-AI performance report for this account.
 - Alexa+ partner discovery: https://www.aboutamazon.com/news/devices/alexa-plus-voice-booking-integrations
 
 No guaranteed top rank and no verified Siri/Alexa query result yet. Prioritize accurate verified listings, genuine reviews, useful existing pages, real project evidence and qualified lead outcomes over repeated keyword posts.
+
+## Continued September 9: payment and Apple discovery
+
+The owner again reported settling Meta payment and authorized continued ad/listing
+work. The refreshed ad editor no longer displays the account-unsettled banner,
+but #1487194 remains. Do not describe payment as uncleared based on the old banner.
+Billing still requires a code sent to the owner's phone ending 76, and ad-account
+roles link to Business Settings. Business Support Home for ad account
+`570130732681432` shows no ads rejected / none available for additional review in
+the last 90 days; this does not prove asset permissions are correct. An unrelated
+business account appears under Other issues; do not alter it or treat its
+restriction as evidence about SGD.
+
+Apple Business is signed out. Public name/location searches did not identify the
+exact Flushing or Suffern business listing; no duplicate was created. A focused
+Apple Business/Maps email search in connected `smartestgaragedoors@gmail.com`
+returned no messages, which does not establish whether another Apple account owns
+the listing. Owner was asked to sign into the existing Apple account and complete
+Meta's code in the sites, not share credentials in chat.
+
+Yelp's existing Queens profile is confirmed Claimed at
+`https://www.yelp.com/biz/smart-garage-doors-queens-3`, with correct primary phone,
+street address, ZIP and website. Yahoo Local displays the same business and links
+to that Yelp record. No Yelp account, ad or duplicate listing was created. The
+website's existing organization schema is being extended with the verified Yelp
+and Bing profile references; deployment verification is recorded separately.
+Safari uses the person's selected search engine, so an Apple listing alone does
+not cover every Safari search. Apple Business supports Maps/Siri discovery, but
+no assistant ranking or recommendation is guaranteed.

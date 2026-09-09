@@ -6,6 +6,23 @@ commit history so the log starts complete.)
 
 ---
 
+## 2026-09-09 — Verified directory references and payment follow-up
+
+Confirm the existing claimed Yelp Queens profile and Yahoo Local record against
+the primary address, phone and website. Add the verified Yelp and Bing URLs to
+central business information and the existing Organization `sameAs` list; do not
+invent an Apple profile URL. TypeScript, production build, all 143 prerendered
+routes and a parsed homepage JSON-LD check passed. No ranking improvement is
+claimed from this metadata change. Listing creation/Apple account verification
+remain separate from website metadata.
+
+Meta's unpaid-balance banner disappeared after the owner's payment. #1487194
+persists, while Page-admin access and no rejected SGD ads are visible. Owner
+two-factor reauthentication is needed to inspect remaining asset permissions.
+Apple Business requires owner sign-in; public searches did not confirm the exact
+listing. Reuse existing listings rather than creating duplicates. Full facts and
+handoff are in `../PRIVACY-AND-MARKETING-HANDOFF-2026-09-09.md`.
+
 ## 2026-09-09 — Public privacy policy and contact conversion accuracy
 
 Follow-up: the shared mailto fallback now returns unsuccessful delivery for every
