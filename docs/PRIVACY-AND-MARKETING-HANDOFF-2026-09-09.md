@@ -23,8 +23,19 @@ Live GA4 property is `510931588`, account `347177237`, accessed through
 `ads_conversion_Form_1`, while the current site explicitly emits `form_submit`.
 Before this work, live GA4 key events included `book_click`, unused `phone_click`
 and `verify_*` events, but not the real form/call events. Do not mistake booking
-clicks for accepted leads. The new accepted-lead configuration is being verified
-separately; do not infer a successful import from the existence of a tag.
+clicks for accepted leads.
+
+Conversion release `8d0a7dd` completed successfully on Vercel. The public policy
+returns HTTP 200 with the correct canonical and footer link; the public JavaScript
+contains the new accepted-lead event. All seven campaign destination/image/policy
+URLs return HTTP 200. GA4 `generate_lead` is now a key event, and Google Ads action
+`Website - Accepted Lead` (`7755193645`) was created and verified: live property
+`510931588`, event `generate_lead`, Primary, Count One, no monetary value. The old
+`Form` action (`7305246953`) was saved as Secondary and re-opened to verify it;
+historical data remains available. New action is awaiting conversions. No live
+test inquiry has been submitted: owner approval is pending because a test sends
+an office notification and creates a CRM entry. Do not infer end-to-end receipt
+or ad attribution from these configuration checks.
 
 - Added `/privacy-policy/`, metadata, sitemap entry and shared-footer link. Contact form also links to it.
 - Policy describes observed forms, Meta lead forms, service photos, customer records, Google Analytics/Ads, Meta Pixel, Microsoft Clarity and Anthropic-powered chat. It does not make an unverified promise that no information is shared, or a blanket legal-compliance claim.
@@ -53,7 +64,7 @@ Search Console exposes a beta generative-AI performance report for this account.
 - Retried Google synchronization; sync-failed status remained. That does not mean the existing listing is unpublished.
 - Saved a replacement-door consultation announcement for September 10–30, 2026. Status **Pending** after save. Destination is `/photo-estimate/` with Bing organic attribution. Do not claim publicly live or duplicate while pending.
 - Owner says Meta balance is paid. Fresh Ads Manager still showed account-unsettled and error #1487194. Billing and Business Settings require owner two-factor reauthentication; balance clearance and asset-permission cause are unconfirmed.
-- New Meta campaign/ad set/ad remain off. Higher-intent form still needs the public privacy URL and final validation/attachment. Do not publish unrelated draft changes.
+- New Meta campaign/ad set/ad remain off. The existing qualified-lead draft was completed through the Instant Forms library and created successfully as `SGD | Door Replacement | Qualified | Sep 2026`, form ID `2249701989184760`, Active in the form library with zero leads. Its public privacy URL, higher-intent review, phone verification, project/ZIP/timeline/decision-maker/budget questions and photo-estimate destination were verified; Messenger auto-conversations are off. The form was selected on ad `120250619568510305`, then a fresh browser tab confirmed the selected form and its destination preview persisted while the ad remained In draft / Off. The old nurturing controls disappear when the new form finishes loading. Creating and attaching this form did not activate an ad. Error #1487194 and the unsettled-balance banner remain. Do not use the old emergency/NY-NJ-CT form or publish unrelated draft changes.
 
 ## Discovery sources
 
