@@ -53,12 +53,14 @@ const ContactPage = () => {
         'Contact Page Form'
       );
 
-      if (result.success) {
+      if (result.usedFallback) {
+        setSubmitStatus('fallback');
+      } else if (result.success) {
         trackFormSubmit('Contact Page Form', 'contact', {
           service_type: formData.serviceType,
           urgency: formData.urgency,
         });
-        setSubmitStatus(result.usedFallback ? 'fallback' : 'success');
+        setSubmitStatus('success');
         setFormData({
           name: '',
           email: '',
@@ -408,7 +410,7 @@ const ContactPage = () => {
 
             {submitStatus === 'fallback' && (
               <div className="mt-6 p-4 bg-amber-100 border border-amber-400 text-amber-800 rounded-lg">
-                Your email client should open to send your request. If it didn't open or you prefer to speak with us, please call <a href="tel:+19145576816" className="underline font-semibold">(914) 557-6816</a> to schedule.
+                Your request has not been sent yet. Please send it from the email app that opened, or call <a href="tel:+19145576816" className="underline font-semibold">(914) 557-6816</a>. Your details are still in this form.
               </div>
             )}
             
@@ -418,11 +420,10 @@ const ContactPage = () => {
               </div>
             )}
             
-            {/* TCPA SMS consent — required. Identical wording to HeroQuoteForm.tsx (owner-approved 2026-06-23). */}
+            {/* Optional SMS consent; preserve the owner-approved wording. */}
             <label className="mt-6 flex items-start gap-2.5 text-[11px] leading-snug text-gray-500">
               <input
                 type="checkbox"
-                required
                 checked={smsConsent}
                 onChange={(e) => setSmsConsent(e.target.checked)}
                 className="mt-0.5 h-4 w-4 shrink-0 rounded border-gray-400 text-orange-500 focus:ring-orange-500"
@@ -434,6 +435,8 @@ const ContactPage = () => {
                 not a condition of purchase.
               </span>
             </label>
+
+            <p className="mt-3 text-sm text-gray-600">Read our <a href="/privacy-policy/" className="underline text-blue-700">Privacy Policy</a> for how we use your information.</p>
 
             <FormTrustBadges />
 

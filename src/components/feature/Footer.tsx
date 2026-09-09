@@ -147,6 +147,9 @@ function Footer() {
           <div className="text-gray-200 text-sm">
             © {new Date().getFullYear()} Smart Garage Doors. All rights reserved.
           </div>
+          <a href="/privacy-policy/" className="inline-flex min-h-11 items-center text-sm text-gray-200 underline underline-offset-4 hover:text-orange-400">
+            Privacy Policy
+          </a>
           <div className="text-gray-300 text-xs text-center md:text-right">
             {BUSINESS_INFO.licenses.map((l) => l.label).join(' · ')} · Fully Insured
           </div>

@@ -1,5 +1,11 @@
 # Future Model Handoff
 
+September 9, 2026 update: see `../../PRIVACY-AND-MARKETING-HANDOFF-2026-09-09.md`
+for the privacy page, conversion fix, verified Search Console/AI baseline, Bing
+announcement pending September 10–30 and Meta reauthentication blocker. Bing
+already has a published listing; do not create a duplicate. No Siri/Alexa voice
+ranking has been confirmed.
+
 Last updated: 2026-07-06 (system creation + first owner answers, Fable 5/Sonnet 5).
 **Update this file at the end of every session that touches backlink work.**
 

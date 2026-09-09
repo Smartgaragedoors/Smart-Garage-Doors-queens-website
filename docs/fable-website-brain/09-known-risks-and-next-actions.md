@@ -1,5 +1,13 @@
 # Known Risks & Next Actions
 
+> **2026-09-09 — Privacy and conversion review:** public privacy route/footer link
+> added; contact-form fallback no longer counts a conversion or clears details.
+> SMS remains optional with unchanged wording. Policy must stay aligned with
+> data handling; consent/advertising controls are separate functionality. CRM
+> receipt, qualified-call tracking and Google Ads conversion imports still need
+> end-to-end account verification. Claude/future agents: read
+> `../PRIVACY-AND-MARKETING-HANDOFF-2026-09-09.md` before resuming marketing work.
+
 > **2026-09-09 — CTR follow-up:** seven existing service/local snippets and
 > supporting introductions improved; the shared core-service regional links now
 > include Bergen County and Suffern without dropping the original ten locations.

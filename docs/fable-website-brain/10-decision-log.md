@@ -6,6 +6,19 @@ commit history so the log starts complete.)
 
 ---
 
+## 2026-09-09 — Public privacy policy and contact conversion accuracy
+
+Add `/privacy-policy/` with metadata, sitemap/prerender coverage, a shared-footer
+link and contact-form link. Describe the providers actually present, including
+Google, Meta, Clarity and Anthropic chat. Do not invent privacy guarantees.
+Correct the contact form's email-app fallback: preserve fields, explain the
+request is unsent and count no conversion. Keep SMS consent optional and retain
+its exact wording. Isolated actual-handler tests cover rejection, fallback and
+accepted delivery without contacting lead receivers. See
+`../PRIVACY-AND-MARKETING-HANDOFF-2026-09-09.md` for Claude's handoff, current
+Search Console/AI data, Bing's pending announcement and remaining Meta security
+check. Browser success still does not prove CRM delivery or Google Ads import.
+
 ## 2026-08-26 — GSC soft-404 / legacy-URL cleanup (validated external audit, then fixed)
 
 - **Trigger:** owner brought a Search Console audit (external agent). Validated

@@ -58,6 +58,7 @@ function isExcluded(path) {
 const coreRoutes = [
   { path: '/', priority: '1.0', changefreq: 'weekly' },
   { path: '/contact/', priority: '0.8', changefreq: 'monthly' },
+  { path: '/privacy-policy/', priority: '0.3', changefreq: 'yearly' },
   // /home/ removed - it redirects to /
   { path: '/book-now/', priority: '0.8', changefreq: 'monthly' },
   { path: '/reviews/', priority: '0.7', changefreq: 'weekly' },

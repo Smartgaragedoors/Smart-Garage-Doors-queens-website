@@ -1,9 +1,10 @@
 # AI Search (AEO/GEO) Monitoring — Smart Garage Doors
 
-No API exists (as of 2026-07) to programmatically check whether ChatGPT,
-Perplexity, Google AI Overviews, or Gemini cite a given business. This has to
-be checked manually. This doc is the running log — check monthly, log the
-result, don't skip months even when the answer is "not cited yet."
+Use available first-party account reports alongside controlled manual assistant
+queries. As of September 9, 2026, this Search Console account has a beta
+"Generative AI features" performance report. Its aggregate impressions do not
+identify spoken recommendations or establish rankings on Siri/Alexa. Manual
+query checks should record the location, assistant, exact prompt and date.
 
 ## What was shipped to earn citations (2026-07-09)
 
@@ -52,4 +53,5 @@ search on).
 
 | Date | Assistant | Query | Cited? | Notes |
 |---|---|---|---|---|
+| 2026-09-09 | Google Search Console, Generative AI features beta | Account-level report, not a prompted voice test | Impressions confirmed | 85 impressions August 10–September 6; 599 on initial three-month view. Recent top pages: homepage 22, GBP-tagged homepage 16, LiftMaster installation 16. Siri/Alexa spoken results untested. |
 | 2026-07-09 | — | — | — | Baseline — AEO work just shipped, first check due ~2026-08-09 |

@@ -5,6 +5,7 @@ import type { RouteObject } from 'react-router-dom';
 // Lazy load components
 const HomePage = lazy(() => import('../pages/home/page').then(module => ({ default: module.default })));
 const ContactPage = lazy(() => import('../pages/contact/page').then(module => ({ default: module.default })));
+const PrivacyPolicyPage = lazy(() => import('../pages/privacy-policy/page'));
 const BookNowPage = lazy(() => import('../pages/book-now/page').then(module => ({ default: module.default })));
 const ThankYouPage = lazy(() => import('../pages/book-now/thank-you/page').then(module => ({ default: module.default })));
 const ReviewsPage = lazy(() => import('../pages/reviews/page').then(module => ({ default: module.default })));
@@ -145,6 +146,10 @@ const routes: RouteObject[] = [
   {
     path: '/contact/',
     element: <ContactPage />
+  },
+  {
+    path: '/privacy-policy/',
+    element: <PrivacyPolicyPage />
   },
   {
     path: '/book-now/',
