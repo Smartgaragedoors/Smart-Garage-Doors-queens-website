@@ -24,7 +24,7 @@ const BEN: TechProfile = {
   name: 'Ben',
   initials: 'B',
   hub: 'Suffern, NY',
-  photo: '/images/garage-door-repair-technician-ben-smart-garage-doors.jpg',
+  photo: '/images/garage-door-repair-technician-ben-smart-garage-doors.webp',
   photoAlt: 'Ben, Smart Garage Doors technician, working on a garage door installation',
   blurb: 'Based in Suffern, Ben covers Rockland, Westchester, the Hudson Valley, Fairfield County CT, and Northern NJ. He knows these roads — and gives honest arrival windows.',
 };

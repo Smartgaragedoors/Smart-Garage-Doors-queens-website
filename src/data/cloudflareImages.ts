@@ -35,21 +35,21 @@ export const cloudflareImages: Record<string, CloudflareImageItem> = {
     alt: 'Dan, Smart Garage Doors technician, smiling while installing a garage door opener — friendly, professional service',
     variant: 'card',
     category: 'team',
-    fallbackSrc: '/images/garage-door-repair-technician-dan-smart-garage-doors.jpg',
+    fallbackSrc: '/images/garage-door-repair-technician-dan-smart-garage-doors.webp',
   },
   techBenCable: {
     id: '1fcc6a3f-d3c8-4177-beca-3346198edb00',
     alt: 'Ben, Smart Garage Doors technician, working on garage door cable and roller system — expert cable repair service',
     variant: 'card',
     category: 'team',
-    fallbackSrc: '/images/garage-door-repair-technician-ben-smart-garage-doors.jpg',
+    fallbackSrc: '/images/garage-door-repair-technician-ben-smart-garage-doors.webp',
   },
   techDanDrilling: {
     id: '850dffb2-5b15-48d3-f2a5-0d4d1c95a200',
     alt: 'Dan, Smart Garage Doors technician, installing garage door track hardware at a residential property',
     variant: 'card',
     category: 'team',
-    fallbackSrc: '/images/garage-door-panel-repair-dan-hammer-smart-garage-doors.jpg',
+    fallbackSrc: '/images/garage-door-panel-repair-dan-hammer-smart-garage-doors.webp',
   },
 
   // ── Service images ──────────────────────────────────────────────────────────
@@ -58,14 +58,14 @@ export const cloudflareImages: Record<string, CloudflareImageItem> = {
     alt: 'Interior view of a newly installed contemporary garage door with glass panels and epoxy floor — Smart Garage Doors installation',
     variant: 'card',
     category: 'service',
-    fallbackSrc: '/images/garage-door-installation-team-on-site.jpg',
+    fallbackSrc: '/images/garage-door-installation-team-on-site.webp',
   },
   openerRepairHero: {
     id: '9c8e2d0e-321d-4470-ba7c-5c1ee803d700',
     alt: 'Smart Garage Doors technician performing garage door opener repair in Queens NY',
     variant: 'hero',
     category: 'service',
-    fallbackSrc: '/images/garage-door-opener-repair-queens-ny-technician.jpg',
+    fallbackSrc: '/images/garage-door-opener-repair-queens-ny-technician.webp',
   },
   paintJobBefore: {
     id: 'f83213e9-a94b-4094-0314-ec7474796000',
@@ -81,7 +81,7 @@ export const cloudflareImages: Record<string, CloudflareImageItem> = {
     alt: 'Smart Garage Doors technician performing garage door repair in Queens NY',
     variant: 'hero',
     category: 'location',
-    fallbackSrc: '/images/garage-door-repair-queens-ny-technician.jpg',
+    fallbackSrc: '/images/garage-door-repair-queens-ny-technician.webp',
   },
   brooklynHero: {
     id: '98b4a7fc-77e3-433e-65c9-c5c7be8bc000',
@@ -102,7 +102,7 @@ export const cloudflareImages: Record<string, CloudflareImageItem> = {
     alt: 'Smart Garage Doors technician performing garage door opener installation in Westchester County NY',
     variant: 'hero',
     category: 'location',
-    fallbackSrc: '/images/garage-door-repair-westchester-ny-technician.jpg',
+    fallbackSrc: '/images/garage-door-repair-westchester-ny-technician.webp',
   },
 
   // ── Landing page ────────────────────────────────────────────────────────────

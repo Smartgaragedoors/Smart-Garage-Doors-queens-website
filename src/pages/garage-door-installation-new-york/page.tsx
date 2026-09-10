@@ -61,7 +61,7 @@ export default function GarageDoorInstallationNewYorkPage() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: getCFBackgroundImage(getCloudflareImage('techDanDrilling').id, 'hero', '/images/garage-door-installation-team-on-site.jpg')
+            backgroundImage: getCFBackgroundImage(getCloudflareImage('techDanDrilling').id, 'hero', '/images/garage-door-installation-team-on-site.webp')
           }}
         >
           <div className="absolute inset-0 bg-green-600/80"></div>

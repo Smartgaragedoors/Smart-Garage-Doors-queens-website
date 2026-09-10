@@ -110,7 +110,7 @@ export default function MaintenancePage() {
       <section className="relative bg-gradient-to-br from-green-600 to-green-800 text-white py-20">
         <div className="absolute inset-0">
           <img 
-            src="/images/garage-door-repair-technician-dan-smart-garage-doors.jpg"
+            src="/images/garage-door-repair-technician-dan-smart-garage-doors.webp"
             alt="Professional Garage Door Maintenance"
             className="w-full h-full object-cover opacity-20"
             width="1280"

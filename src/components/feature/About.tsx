@@ -9,7 +9,7 @@ function About() {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-10">
           <div className="rounded-2xl overflow-hidden shadow-md aspect-[4/3]">
             <img
-              src="/images/happy-customer-garage-door-repair-smart-garage-doors.jpg"
+              src="/images/happy-customer-garage-door-repair-smart-garage-doors.webp"
               alt="Happy customer giving thumbs up with Smart Garage Doors technician after repair"
               className="w-full h-full object-cover object-top"
               width={400} height={300} loading="lazy"
@@ -17,7 +17,7 @@ function About() {
           </div>
           <div className="rounded-2xl overflow-hidden shadow-md aspect-[4/3]">
             <img
-              src="/images/satisfied-customer-new-garage-door-smart-garage-doors.jpg"
+              src="/images/satisfied-customer-new-garage-door-smart-garage-doors.webp"
               alt="Satisfied homeowner with Smart Garage Doors technician after new door installation"
               className="w-full h-full object-cover object-top"
               width={400} height={300} loading="lazy"

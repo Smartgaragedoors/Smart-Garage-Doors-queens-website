@@ -2,20 +2,32 @@ import { useState } from 'react';
 
 // Real manufacturer logo marks are used here per the site owner's explicit,
 // fully-informed decision (owner was told this carries trademark risk absent
-// a licensing agreement and chose to proceed anyway). Logo files must live at
-// /public/images/brands/{slug}-logo.svg. If a file is missing/404s, the
-// onError handler below swaps that brand back to the original text-badge
-// style so the section never renders broken.
+// a licensing agreement and chose to proceed anyway).
 //
-// Files the owner needs to add to public/images/brands/ :
-//   clopay-logo.svg        (Clopay)
-//   amarr-logo.svg          (Amarr)
-//   chi-logo.svg            (CHI)
-//   liftmaster-logo.svg     (LiftMaster)
-//   chamberlain-logo.svg    (Chamberlain)
-//   wayne-dalton-logo.svg   (Wayne Dalton)
-//   raynor-logo.svg         (Raynor)
-//   genie-logo.svg          (Genie)
+// Logos are discovered at BUILD time: drop a file named {slug}-logo.svg into
+// src/assets/brands/ and that brand switches from a text badge to its logo on
+// the next deploy. Brands with no file render as text badges.
+//
+// Why not /public/images/brands/ with an onError fallback (the old approach):
+// the files were never added, so the prerendered homepage shipped eight <img>
+// tags that 404'd on every load. On a prerendered page the image can fail
+// before React hydrates and attaches onError, leaving a broken-image icon the
+// fallback never replaces. Build-time discovery means no request is made for
+// a logo that doesn't exist.
+//
+// Files the owner can add to src/assets/brands/ :
+//   clopay-logo.svg, amarr-logo.svg, chi-logo.svg, liftmaster-logo.svg,
+//   chamberlain-logo.svg, wayne-dalton-logo.svg, raynor-logo.svg, genie-logo.svg
+const LOGO_URLS = import.meta.glob('../../assets/brands/*-logo.svg', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+}) as Record<string, string>;
+
+function logoUrlFor(slug: string): string | undefined {
+  return LOGO_URLS[`../../assets/brands/${slug}-logo.svg`];
+}
+
 const BRANDS = [
   { name: 'Clopay', slug: 'clopay' },
   { name: 'Amarr', slug: 'amarr' },
@@ -27,21 +39,24 @@ const BRANDS = [
   { name: 'Genie', slug: 'genie' },
 ];
 
+function TextBadge({ name }: { name: string }) {
+  return (
+    <span className="inline-flex items-center bg-gray-50 border border-gray-200 text-gray-700 font-semibold text-sm md:text-base px-4 py-2 rounded-full">
+      {name}
+    </span>
+  );
+}
+
 function BrandLogo({ name, slug }: { name: string; slug: string }) {
+  const src = logoUrlFor(slug);
   const [failed, setFailed] = useState(false);
 
-  if (failed) {
-    return (
-      <span className="inline-flex items-center bg-gray-50 border border-gray-200 text-gray-700 font-semibold text-sm md:text-base px-4 py-2 rounded-full">
-        {name}
-      </span>
-    );
-  }
+  if (!src || failed) return <TextBadge name={name} />;
 
   return (
     <div className="inline-flex items-center justify-center bg-gray-50 border border-gray-200 rounded-lg px-5 py-3 h-16 md:h-20 w-32 md:w-40">
       <img
-        src={`/images/brands/${slug}-logo.svg`}
+        src={src}
         alt={`${name} logo`}
         className="h-10 md:h-12 max-w-full object-contain grayscale opacity-70 transition-all duration-200 hover:grayscale-0 hover:opacity-100"
         loading="lazy"

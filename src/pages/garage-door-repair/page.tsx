@@ -196,7 +196,7 @@ export default function GarageDoorRepairPage() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: getCFBackgroundImage(getCloudflareImage('techBenCable').id, 'hero', '/images/garage-door-repair-technician-ben-smart-garage-doors.jpg')
+            backgroundImage: getCFBackgroundImage(getCloudflareImage('techBenCable').id, 'hero', '/images/garage-door-repair-technician-ben-smart-garage-doors.webp')
           }}
         >
           <div className="absolute inset-0 bg-blue-600/80"></div>

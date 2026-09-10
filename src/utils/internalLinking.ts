@@ -268,18 +268,21 @@ export function getRelatedLocations(currentLocationPath: string): InternalLink[]
       { url: '/darien-ct/', text: 'Darien, CT' },
       { url: '/greenwich-ct/', text: 'Greenwich, CT' },
       { url: '/westport-ct/', text: 'Westport, CT' },
+      { url: '/norwalk-ct/', text: 'Norwalk, CT' },
     ],
     'westport-ct': [
       { url: '/stamford-ct/', text: 'Stamford, CT' },
       { url: '/darien-ct/', text: 'Darien, CT' },
       { url: '/fairfield-ct/', text: 'Fairfield, CT' },
       { url: '/greenwich-ct/', text: 'Greenwich, CT' },
+      { url: '/norwalk-ct/', text: 'Norwalk, CT' },
     ],
     'fairfield-ct': [
       { url: '/stamford-ct/', text: 'Stamford, CT' },
       { url: '/darien-ct/', text: 'Darien, CT' },
       { url: '/westport-ct/', text: 'Westport, CT' },
       { url: '/greenwich-ct/', text: 'Greenwich, CT' },
+      { url: '/norwalk-ct/', text: 'Norwalk, CT' },
     ],
     'newtown-ct': [
       { url: '/fairfield-ct/', text: 'Fairfield, CT' },
@@ -352,6 +355,7 @@ export function getRelatedLocations(currentLocationPath: string): InternalLink[]
       { url: '/bergen-county-nj/', text: 'Bergen County, NJ' },
       { url: '/queens-ny/', text: 'Queens, NY' },
       { url: '/brooklyn-ny/', text: 'Brooklyn, NY' },
+      { url: '/edison-nj/', text: 'Edison, NJ' },
     ],
     'bergen-county-nj': [
       { url: '/ridgewood-nj/', text: 'Ridgewood, NJ' },
@@ -387,6 +391,7 @@ export function getRelatedLocations(currentLocationPath: string): InternalLink[]
       { url: '/elizabeth-nj/', text: 'Elizabeth, NJ' },
       { url: '/rumson-nj/', text: 'Rumson, NJ' },
       { url: '/holmdel-nj/', text: 'Holmdel, NJ' },
+      { url: '/edison-nj/', text: 'Edison, NJ' },
     ],
     // Premium-market cluster (Tier 1 rollout)
     'flushing-ny': [

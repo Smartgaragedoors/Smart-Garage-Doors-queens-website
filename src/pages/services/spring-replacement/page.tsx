@@ -145,7 +145,7 @@ export default function SpringReplacementPage() {
       <section className="relative bg-gradient-to-br from-orange-600 to-red-600 text-white py-20">
         <div className="absolute inset-0">
           <img
-            src="/images/garage-door-repair-technician-ben-smart-garage-doors.jpg"
+            src="/images/garage-door-repair-technician-ben-smart-garage-doors.webp"
             alt="Smart Garage Doors technician performing garage door spring replacement service"
             className="w-full h-full object-cover object-top opacity-20"
             width="1280"
@@ -205,7 +205,7 @@ export default function SpringReplacementPage() {
           <div className="grid md:grid-cols-2 gap-10 items-center">
             <div className="rounded-2xl overflow-hidden shadow-xl">
               <img
-                src="/images/garage-door-repair-technician-ben-smart-garage-doors.jpg"
+                src="/images/garage-door-repair-technician-ben-smart-garage-doors.webp"
                 alt="Smart Garage Doors technician replacing a garage door spring on-site"
                 className="w-full h-full object-cover"
                 width={600}

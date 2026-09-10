@@ -122,7 +122,7 @@ export default function InstallationPage() {
       <section className="relative bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20">
         <div className="absolute inset-0">
           <img 
-            src="/images/garage-door-installation-team-on-site.jpg"
+            src="/images/garage-door-installation-team-on-site.webp"
             alt="Professional Garage Door Installation"
             className="w-full h-full object-cover opacity-20"
             width="1280"
@@ -232,7 +232,7 @@ export default function InstallationPage() {
 
             <div className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
               <img
-                src="/images/commercial-glass-garage-door-installation-smart-garage-doors.jpg"
+                src="/images/commercial-glass-garage-door-installation-smart-garage-doors.webp"
                 alt="Commercial glass garage door installation — full-view aluminum and glass door at industrial facility"
                 className="w-full h-52 object-cover object-center"
                 width={600} height={400} loading="lazy"
@@ -253,7 +253,7 @@ export default function InstallationPage() {
 
             <div className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
               <img
-                src="/images/insulated-garage-door-installation-smart-garage-doors.jpg"
+                src="/images/insulated-garage-door-installation-smart-garage-doors.webp"
                 alt="Insulated garage door installation — white raised panel door on brick home"
                 className="w-full h-52 object-cover object-top"
                 width={600} height={400} loading="lazy"
@@ -274,7 +274,7 @@ export default function InstallationPage() {
 
             <div className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
               <img
-                src="/images/custom-garage-door-installation-smart-garage-doors.jpg"
+                src="/images/custom-garage-door-installation-smart-garage-doors.webp"
                 alt="Custom garage door installation — dark sectional doors on rustic wood barn garage"
                 className="w-full h-52 object-cover object-center"
                 width={600} height={400} loading="lazy"

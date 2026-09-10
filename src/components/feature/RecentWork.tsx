@@ -92,7 +92,7 @@ const photos: Photo[] = [
     position: 'object-center',
   },
   {
-    image: '/images/garage-door-repair-technician-dan-smart-garage-doors.jpg',
+    image: '/images/garage-door-repair-technician-dan-smart-garage-doors.webp',
     alt: 'Smart Garage Doors technician Dan repairing a garage door panel on-site',
     title: 'Panel Repair — Queens, NY',
     result: 'Damaged panel restored on the first visit',
@@ -106,21 +106,21 @@ const photos: Photo[] = [
     position: 'object-center',
   },
   {
-    image: '/images/garage-door-panel-repair-dan-hammer-smart-garage-doors.jpg',
+    image: '/images/garage-door-panel-repair-dan-hammer-smart-garage-doors.webp',
     alt: 'Smart Garage Doors technician working on garage door panel',
     title: 'Panel Replacement — Bronx',
     result: 'Dented section swapped out',
     position: 'object-center',
   },
   {
-    image: '/images/commercial-garage-door-repair-nyc-smart-garage-doors.jpg',
+    image: '/images/commercial-garage-door-repair-nyc-smart-garage-doors.webp',
     alt: 'Smart Garage Doors technician servicing large commercial garage doors',
     title: 'Commercial Repair — NYC',
     result: 'Bay door back in service',
     position: 'object-center',
   },
   {
-    image: '/images/satisfied-customer-new-garage-door-smart-garage-doors.jpg',
+    image: '/images/satisfied-customer-new-garage-door-smart-garage-doors.webp',
     alt: 'Happy homeowner with Smart Garage Doors technician after installation',
     title: 'Spring Replacement — Bronx',
     result: 'Broken spring fixed in one visit',
@@ -134,7 +134,7 @@ const photos: Photo[] = [
     position: 'object-center',
   },
   {
-    image: '/images/garage-door-repair-technician-ben-smart-garage-doors.jpg',
+    image: '/images/garage-door-repair-technician-ben-smart-garage-doors.webp',
     alt: 'Smart Garage Doors technician Ben working on garage door installation',
     title: 'Spring & Track Service — Bergen County',
     result: 'New springs, door re-balanced',
