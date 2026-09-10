@@ -395,3 +395,36 @@ Still needed: August query-by-page impressions/position and post-recrawl qualifi
 lead outcomes. Historical zero-click emergency impressions are not a promise of
 snippet-only gains. Do not fabricate rankings or automatically submit these service
 pages through the restricted Google Indexing API.
+
+
+## 2026-09-10 — Full-site audit: typecheck, images, tracking safety net
+
+**Typecheck.** `npx tsc --noEmit` against a references-only root tsconfig
+type-checks nothing. Added `npm run typecheck` (app + node projects) and made it
+the documented step. Not wired into `npm run build` yet: doing so would make any
+future type error block a production deploy, which is an owner-level policy call.
+Recommended once the team is used to keeping it green.
+
+**`build.treeshake` removed from vite.config.ts.** It is not a Vite option and was
+ignored. Removal proven byte-identical (111 assets, same hashes). Do not move it
+under `rollupOptions` without testing: `moduleSideEffects: 'no-external'` can drop
+side-effect imports.
+
+**Brand logos via build-time discovery.** `import.meta.glob` over
+`src/assets/brands/*-logo.svg` instead of `/public/images/brands/` + `onError`.
+Reason: a prerendered `<img>` can fail before React hydrates, so `onError` never
+runs and the broken icon stays; missing files also cost a request each. Owner's
+decision to use real logos is unchanged — adding a file enables that brand.
+
+**Book-now tracking safety net is bubble-phase.** The existing tel/sms/WhatsApp
+net is capture-phase (fires before React). A capture-phase book-now net would win
+the dedupe race and replace component labels (`header`, `footer`, sticky CTA) with
+`auto:<path>`. Bubble phase lets React's root handlers record first. Verified in
+jsdom. `book_click` remains intent, not a lead.
+
+**WebP siblings, JPGs kept.** Right-sized WebP (≤1200px wide, q78) for on-page
+`<img>` and CSS background layers; original JPGs stay for blog data and social
+previews. Note: `getCFBackgroundImage(id, variant, fallback)` builds a multi-layer
+background, and browsers download every layer — the "fallback" is always fetched,
+so keep fallbacks small.
+

@@ -1,5 +1,43 @@
 # Known Risks & Next Actions
 
+> **2026-09-10 — Full-site audit (Opus 5).** Fixed and deployed in three commits:
+> dead WordPress hero images on `/garage-door-repair/` and `/garage-door-installation/`
+> (403 → blank heroes); stale "479 reviews" in four county FAQs/FAQPage schema (now
+> live-synced); homepage brand row that shipped eight 404ing logo `<img>`s (now
+> build-time discovery from `src/assets/brands/`, text badges until files exist);
+> 7.1 MB → 1.6 MB of oversized carousel/service photos (WebP siblings); Edison and
+> Norwalk linked only from `/service-areas/`; emergency-form type and book-now
+> clicks silently untracked; non-E.164 `tel:` links. **The documented `npx tsc
+> --noEmit` checked zero files** (root tsconfig is references-only) — use
+> `npm run typecheck`, now green across both projects (34 errors fixed).
+> Clean on audit: 0 broken internal links, 0 duplicate titles, 0 canonical
+> mismatches, 0 empty roots, 0 JSON-LD parse errors, 143/143 in sitemap, robots and
+> security headers correct, all 60 CF/og/schema image URLs return 200.
+>
+> **Owner actions (dashboard-only, not fixable in code):**
+> 1. **Vercel → Domains → `smartestgaragedoors.com` → redirect to www as 308.**
+>    Live check: `https://smartestgaragedoors.com/*` returns **307 Temporary**, and
+>    `http://smartestgaragedoors.com` takes two hops (308 → https non-www → 307 →
+>    www). The `vercel.json` host rule never fires because the domain-level
+>    redirect runs first.
+> 2. **Add UTM tags to every GBP's website link.** GSC shows the bare homepage at
+>    position 1–2 for "garage door installation" (1,016 impr), "garage door repair",
+>    "emergency garage door repair" etc. with 0 clicks — map-pack impressions from a
+>    profile whose website field has no UTM. The Queens profile is tagged
+>    (`gbp-profile`); at least one other is not. Matches the open "current Suffern
+>    GBP destination" item.
+>
+> **Deliberately not changed:** 114 titles >60 chars and 80 descriptions >160.
+> Google truncates by pixel width and often rewrites; a mass rewrite would also
+> contaminate the 2026-09-09 CTR measurement window. Revisit after that review,
+> page-by-page with GSC query data, never in bulk.
+>
+> **Organic reality (GSC, 28d to 2026-09-09, US):** outside the map pack, city
+> pages sit at positions 30–50 with ~0 clicks (Long Island 47, Queens 33.5,
+> Brooklyn 40.5; `/emergency-garage-door-repair/` 23.6 for its head term). That is
+> the known authority/backlink gap (risk 3) plus location-page depth (risk 2), not
+> a technical defect.
+
 > **2026-09-09 — Latest account/listing verification:** Google Ads import
 > `Website - Accepted Lead` (7755193645) is verified Primary / Count One; legacy
 > `Form` is Secondary. Real inbox/CRM receipt and ad attribution remain untested.
