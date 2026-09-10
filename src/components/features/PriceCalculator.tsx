@@ -109,7 +109,7 @@ export default function PriceCalculator() {
                 </div>
                 <p className="text-sm text-gray-600">
                   *This is an estimate. Final pricing depends on specific model, parts needed, and complexity. 
-                  Contact us at <a href="tel:914-557-6816" className="text-blue-600 font-semibold">(914) 557-6816</a> for an accurate quote.
+                  Contact us at <a href="tel:+19145576816" className="text-blue-600 font-semibold">(914) 557-6816</a> for an accurate quote.
                 </p>
               </div>
             )}

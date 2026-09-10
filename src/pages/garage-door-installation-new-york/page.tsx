@@ -7,6 +7,7 @@ import FAQSchema from '../../components/seo/FAQSchema';
 import ServiceAreaLinks from '../../components/seo/ServiceAreaLinks';
 import { BUSINESS_INFO } from '../../config/business-info';
 import GuideLinks from '../../components/seo/GuideLinks';
+import { getCloudflareImage, getCFBackgroundImage } from '../../data/cloudflareImages';
 
 export default function GarageDoorInstallationNewYorkPage() {
   const faqs = [
@@ -60,7 +61,7 @@ export default function GarageDoorInstallationNewYorkPage() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('https://www.smartestgaragedoors.com/wp-content/uploads/2025/07/garage-door-installation-new-york.webp')`
+            backgroundImage: getCFBackgroundImage(getCloudflareImage('techDanDrilling').id, 'hero', '/images/garage-door-installation-team-on-site.jpg')
           }}
         >
           <div className="absolute inset-0 bg-green-600/80"></div>

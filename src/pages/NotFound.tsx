@@ -44,7 +44,7 @@ export default function NotFound() {
               Our Services
             </Link>
             <a
-              href="tel:914-557-6816"
+              href="tel:+19145576816"
               className="inline-flex items-center justify-center bg-green-600 hover:bg-green-700 text-white font-semibold px-8 py-3 rounded-lg transition-colors"
             >
               <i className="ri-phone-line mr-2"></i>
@@ -83,7 +83,7 @@ export default function NotFound() {
           </div>
 
           <p className="text-sm text-gray-500">
-            Need help with your garage door? <a href="tel:914-557-6816" className="text-orange-500 font-semibold hover:text-orange-600">Call us at (914) 557-6816</a> to reach our emergency line.
+            Need help with your garage door? <a href="tel:+19145576816" className="text-orange-500 font-semibold hover:text-orange-600">Call us at (914) 557-6816</a> to reach our emergency line.
           </p>
         </div>
       </div>

@@ -11,6 +11,7 @@ import { useLocation } from '../../contexts/LocationContext';
 import { BUSINESS_INFO } from '../../config/business-info';
 import { buildCanonical } from '../../config/canonical';
 import GuideLinks from '../../components/seo/GuideLinks';
+import { getCloudflareImage, getCFBackgroundImage } from '../../data/cloudflareImages';
 
 export default function GarageDoorRepairPage() {
   const { location, locationName, isLoading } = useLocation();
@@ -195,7 +196,7 @@ export default function GarageDoorRepairPage() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('https://www.smartestgaragedoors.com/wp-content/uploads/2025/06/Ben-fixing-door-scaled.jpg')`
+            backgroundImage: getCFBackgroundImage(getCloudflareImage('techBenCable').id, 'hero', '/images/garage-door-repair-technician-ben-smart-garage-doors.jpg')
           }}
         >
           <div className="absolute inset-0 bg-blue-600/80"></div>

@@ -154,7 +154,7 @@ export default function EmergencyRepairsPage() {
     try {
       const result = await submitForm(data, 'Emergency Repairs Form');
       if (result.success) {
-        trackFormSubmit('Emergency Repairs Form', SRC, { emergency_type: data.emergency_type });
+        trackFormSubmit('Emergency Repairs Form', SRC, { service_type: String(data.emergency_type || 'emergency-repair'), urgency: 'emergency' });
         setStatus('ok');
         (e.target as HTMLFormElement).reset();
         setSmsConsent(false);
