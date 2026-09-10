@@ -1,18 +1,12 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- LCP: preload the hero image FIRST, before any analytics/tracking script
-         gets a chance to run — the browser should discover this the instant it
-         starts parsing <head>, not after three third-party scripts execute. -->
-    <link
-      rel="preload"
-      as="image"
-      href="/hero-van-1280.webp"
-      imagesrcset="/hero-van-800.webp 800w, /hero-van-1280.webp 1280w, /hero-van-1920.webp 1920w"
-      imagesizes="100vw"
-      type="image/webp"
-      fetchpriority="high"
-    />
+    <!-- LCP preloads are per page: <LcpImagePreload> (src/components/seo) puts the
+         page's real hero image at the top of <head> and the prerender bakes it
+         into the static HTML. A sitewide preload of /hero-van-*.webp used to sit
+         here at fetchpriority=high on EVERY page, although no page renders that
+         image any more — it competed with each page's actual hero on mobile.
+         Removed 2026-09-10. -->
 
 
     <!-- Google tag (gtag.js) -->

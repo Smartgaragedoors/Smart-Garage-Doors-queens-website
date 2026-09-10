@@ -12,6 +12,7 @@ import { BUSINESS_INFO } from '../../config/business-info';
 import { getGuidesForLocation } from '../../data/locationBlogMap';
 import { getTechForLocation } from '../../data/techByLocation';
 import RecentWork from './RecentWork';
+import LcpImagePreload from '../seo/LcpImagePreload';
 import { trackPhoneClick, trackBookNowClick } from '../../utils/analytics';
 
 export interface LocationNeighborhood {
@@ -193,6 +194,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
 
   return (
     <div className="min-h-screen bg-white">
+      <LcpImagePreload href={heroImage} />
       <DynamicMetaTags
         title={metaTitle}
         description={metaDescription}

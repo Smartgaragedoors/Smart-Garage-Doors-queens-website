@@ -3,6 +3,7 @@ import { trackPhoneClick, trackEvent } from '../../utils/analytics';
 import { getCFImageUrl, getCloudflareImage } from '../../data/cloudflareImages';
 import { BUSINESS_INFO } from '../../config/business-info';
 import HeroQuoteForm from '../conversion/HeroQuoteForm';
+import LcpImagePreload from '../seo/LcpImagePreload';
 
 export default function Hero() {
   const { location, locationName } = useLocation();
@@ -19,6 +20,7 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-[70vh] md:min-h-[74vh] flex items-center justify-center overflow-hidden">
+      <LcpImagePreload href={heroImageUrl} />
       {/* Background image — premium ink/charcoal scrim (design system) keeps hero photo legible */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"

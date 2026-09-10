@@ -19,7 +19,8 @@ export const cloudflareImages: Record<string, CloudflareImageItem> = {
     alt: 'Smart Garage Doors service van parked in front of a residential garage in Queens NY',
     variant: 'hero',
     category: 'homepage',
-    fallbackSrc: '/hero-van-1280.jpg',
+    // No fallbackSrc: multi-layer CSS backgrounds download every layer, so a
+    // fallback here cost every homepage visit an extra 154KB JPG. (2026-09-10)
   },
 
   // ── Team / Technician ───────────────────────────────────────────────────────

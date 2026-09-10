@@ -7,7 +7,8 @@ import FAQSchema from '../seo/FAQSchema';
 import ServiceLinks from '../seo/ServiceLinks';
 import { buildCanonical } from '../../config/canonical';
 import { BUSINESS_INFO } from '../../config/business-info';
-import { cloudflareImages, getCFBackgroundImage } from '../../data/cloudflareImages';
+import { cloudflareImages, getCFBackgroundImage, getCFImageUrl } from '../../data/cloudflareImages';
+import LcpImagePreload from '../seo/LcpImagePreload';
 import { getWhatsAppHref } from '../../utils/whatsapp';
 import { trackPhoneClick, trackBookNowClick, trackWhatsAppClick } from '../../utils/analytics';
 import CommercialLeadForm from '../conversion/CommercialLeadForm';
@@ -118,6 +119,7 @@ export default function GuidePageTemplate(props: GuidePageTemplateProps) {
 
   return (
     <div className="min-h-screen bg-white">
+      <LcpImagePreload href={heroImg ? getCFImageUrl(heroImg.id, 'hero') : undefined} />
       <DynamicMetaTags
         title={metaTitle}
         description={metaDescription}

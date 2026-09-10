@@ -7,7 +7,8 @@ import FAQSchema from '../../components/seo/FAQSchema';
 import ServiceAreaLinks from '../../components/seo/ServiceAreaLinks';
 import { BUSINESS_INFO } from '../../config/business-info';
 import GuideLinks from '../../components/seo/GuideLinks';
-import { getCloudflareImage, getCFBackgroundImage } from '../../data/cloudflareImages';
+import { getCloudflareImage, getCFBackgroundImage, getCFImageUrl } from '../../data/cloudflareImages';
+import LcpImagePreload from '../../components/seo/LcpImagePreload';
 
 export default function GarageDoorInstallationNewYorkPage() {
   const faqs = [
@@ -47,6 +48,7 @@ export default function GarageDoorInstallationNewYorkPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <LcpImagePreload href={getCFImageUrl(getCloudflareImage('techDanDrilling').id, 'hero')} />
       <DynamicMetaTags 
         title="Garage Door Installation & Replacement | NY, NJ & CT"
         description="Replace your garage door or plan a new installation in NY, NJ or CT. Explore door options and request a quote for your opening."

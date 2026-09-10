@@ -11,7 +11,8 @@ import { useLocation } from '../../contexts/LocationContext';
 import { BUSINESS_INFO } from '../../config/business-info';
 import { buildCanonical } from '../../config/canonical';
 import GuideLinks from '../../components/seo/GuideLinks';
-import { getCloudflareImage, getCFBackgroundImage } from '../../data/cloudflareImages';
+import { getCloudflareImage, getCFBackgroundImage, getCFImageUrl } from '../../data/cloudflareImages';
+import LcpImagePreload from '../../components/seo/LcpImagePreload';
 
 export default function GarageDoorRepairPage() {
   const { location, locationName, isLoading } = useLocation();
@@ -72,6 +73,7 @@ export default function GarageDoorRepairPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <LcpImagePreload href={getCFImageUrl(getCloudflareImage('techBenCable').id, 'hero')} />
       <DynamicMetaTags 
         title={`Garage Door Repair NY NJ CT | Free Estimate Upfront`}
         description={`Free on-site estimate — know the exact price before we start. ${BUSINESS_INFO.aggregateRating.ratingValue}★ (${BUSINESS_INFO.aggregateRating.reviewCount} reviews). Spring, opener & emergency repair across NY, NJ & CT. Licensed & insured.`}
