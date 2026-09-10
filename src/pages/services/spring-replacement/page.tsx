@@ -8,7 +8,6 @@ import FAQSchema from '../../../components/seo/FAQSchema';
 import ServiceAreaLinks from '../../../components/seo/ServiceAreaLinks';
 import { useLocation } from '../../../contexts/LocationContext';
 import { submitForm } from '../../../utils/formSubmission';
-import { BUSINESS_INFO } from '../../../config/business-info';
 import GuideLinks from '../../../components/seo/GuideLinks';
 
 export default function SpringReplacementPage() {

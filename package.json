@@ -8,6 +8,7 @@
     "build": "npm run verify:blog-images && npm run generate-sitemap && vite build",
     "prerender": "node scripts/prerender.mjs",
     "build:seo": "npm run build && npm run prerender",
+    "typecheck": "tsc -p tsconfig.app.json --noEmit && tsc -p tsconfig.node.json --noEmit",
     "preview": "vite preview",
     "deploy": "BASE_PATH=/Smart-Garage-Doors-queens-website/ npm run build && gh-pages -d out",
     "optimize-hero": "node scripts/optimize-hero-image.js",

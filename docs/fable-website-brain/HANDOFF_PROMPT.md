@@ -20,7 +20,7 @@ Before doing ANYTHING:
    `07` service-area pages.
 
 Verification loop before any push (deploys production):
-`npx tsc --noEmit` → `npm run build` → `npm run prerender` (expect "123 ok, 0
+`npm run typecheck` → `npm run build` → `npm run prerender` (expect "143 ok, 0
 failed"; the count must never drop). Never delete/rename a URL without a 301 in
 vercel.json. Never invent reviews, prices, licenses, or claims — reuse published
 facts or leave `TODO(owner):`. Log significant decisions in

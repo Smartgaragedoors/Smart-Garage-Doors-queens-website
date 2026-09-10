@@ -76,7 +76,7 @@ keep the phone funnel short — respect those `hidden md:block` decisions.
 
 ## Verification loop for any UI change
 
-`npx tsc --noEmit` → `npm run build` → `npm run prerender` (123 ok expected) →
+`npm run typecheck` → `npm run build` → `npm run prerender` (143 ok expected as of 2026-09-10) →
 if a dev server is available, check the changed page at mobile + desktop widths.
 Note: `preview_screenshot` times out in this project (external images) — verify with
 DOM inspection (`preview_eval`/`preview_inspect`) instead.

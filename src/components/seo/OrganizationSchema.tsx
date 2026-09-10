@@ -23,11 +23,11 @@ const OrganizationSchema: React.FC = () => {
     "email": BUSINESS_INFO.email,
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": BUSINESS_INFO.addresses[0].streetAddress,
-      "addressLocality": BUSINESS_INFO.addresses[0].addressLocality,
-      "addressRegion": BUSINESS_INFO.addresses[0].addressRegion,
-      "postalCode": BUSINESS_INFO.addresses[0].postalCode,
-      "addressCountry": BUSINESS_INFO.addresses[0].addressCountry,
+      "streetAddress": BUSINESS_INFO.addresses[0]!.streetAddress,
+      "addressLocality": BUSINESS_INFO.addresses[0]!.addressLocality,
+      "addressRegion": BUSINESS_INFO.addresses[0]!.addressRegion,
+      "postalCode": BUSINESS_INFO.addresses[0]!.postalCode,
+      "addressCountry": BUSINESS_INFO.addresses[0]!.addressCountry,
     },
     "contactPoint": {
       "@type": "ContactPoint",

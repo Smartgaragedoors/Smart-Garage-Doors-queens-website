@@ -52,7 +52,10 @@ export function getRelatedServices(currentPath: string): InternalLink[] {
   ];
 
   // Filter out current service
-  return allServices.filter(service => !currentPath.includes(service.url.split('/')[1]));
+  return allServices.filter(service => {
+    const segment = service.url.split('/')[1];
+    return !segment || !currentPath.includes(segment);
+  });
 }
 
 // Get service area links for service pages (incoming links TO location pages)
@@ -154,7 +157,7 @@ export function getServiceAreaLinksForService(serviceType: string): InternalLink
 }
 
 // Get service links for location pages (incoming links TO service pages)
-export function getServiceLinksForLocation(locationPath: string): InternalLink[] {
+export function getServiceLinksForLocation(_locationPath: string): InternalLink[] {
   // All services that should be linked from location pages
   const allServices: InternalLink[] = [
     { 

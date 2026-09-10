@@ -1,5 +1,4 @@
 import { useState, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { submitForm } from '../../utils/formSubmission';
 import { trackFormStart, trackFormSubmit } from '../../utils/analytics';
 
@@ -23,7 +22,6 @@ export default function IssueReportForm() {
   const [submitted, setSubmitted] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   const formStarted = useRef(false);
-  const navigate = useNavigate();
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>

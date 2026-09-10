@@ -6,7 +6,7 @@ export default function ServiceAreas() {
   const gridRef = useRef<HTMLDivElement>(null);
 
   const hubParts = BUSINESS_INFO.dispatchHubs.map((h) =>
-    h.id === 'jackson-nj' ? 'Jackson, NJ' : h.label.split(',')[0].trim()
+    h.id === 'jackson-nj' ? 'Jackson, NJ' : (h.label.split(',')[0] ?? h.label).trim()
   );
   const hubIntro =
     hubParts.length === 3 ? `${hubParts[0]}, ${hubParts[1]}, and ${hubParts[2]}` : hubParts.join(', ');

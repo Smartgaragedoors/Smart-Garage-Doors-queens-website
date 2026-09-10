@@ -72,8 +72,8 @@ commercial content plan in `docs/page1-commercial-seo-plan` (see the growth plan
 
 ## How to think like a strong engineer here
 
-- **Verify, then change, then verify.** `npx tsc --noEmit` → `npm run build` →
-  `npm run prerender` (expect "123 ok, 0 failed" — count must never drop).
+- **Verify, then change, then verify.** `npm run typecheck` → `npm run build` →
+  `npm run prerender` (expect "143 ok, 0 failed" as of 2026-09-10 — count must never drop).
 - **Grep before building** — most "missing" features exist (audit found the close
   ones). Check `src/components/conversion/` and `src/components/feature/` first.
 - **Facts come from the codebase, not imagination.** Prices, warranty, license

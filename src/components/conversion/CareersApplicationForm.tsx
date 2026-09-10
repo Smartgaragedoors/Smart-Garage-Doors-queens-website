@@ -101,11 +101,9 @@ export default function CareersApplicationForm() {
         contactConsent: contactConsent ? 'Yes — application contact consent provided' : 'No',
       }, 'Garage Door Technician Application');
       if (!result.success) throw new Error(result.error);
-      trackFormSubmit('Careers Application Form', 'careers_application_form', {
-        role: formData.role,
-        experience: formData.experience,
-        region: formData.cityState,
-      });
+      // trackFormSubmit forwards only service_type/urgency; role, experience and
+      // region were never actually sent, so they are not passed here.
+      trackFormSubmit('Careers Application Form', 'careers_application_form');
       setSubmitted(true);
     } catch (error) {
       setErrorMsg(error instanceof Error && error.message

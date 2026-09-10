@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, memo, ImgHTMLAttributes } from 'react';
+import { useState, useEffect, useRef, memo, type ImgHTMLAttributes } from 'react';
 
 interface ResponsiveImageProps extends Omit<ImgHTMLAttributes<HTMLImageElement>, 'src' | 'srcSet' | 'loading'> {
   src: string;

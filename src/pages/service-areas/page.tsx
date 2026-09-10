@@ -5,7 +5,7 @@ import Breadcrumbs from '../../components/seo/Breadcrumbs';
 import DynamicMetaTags from '../../components/seo/DynamicMetaTags';
 import FAQSchema from '../../components/seo/FAQSchema';
 import { buildCanonical } from '../../config/canonical';
-import { getAllLocations, getLocationsByState } from '../../config/locations';
+import { getLocationsByState } from '../../config/locations';
 
 // Organize locations by state
 const serviceAreasByState = {

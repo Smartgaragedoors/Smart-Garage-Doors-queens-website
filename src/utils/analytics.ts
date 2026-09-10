@@ -5,7 +5,7 @@ type GtagParams = Record<string, unknown>;
 
 declare global {
   interface Window {
-    gtag?: (command: GtagCommand, targetId: string, config?: GtagParams) => void;
+    gtag?: (command: GtagCommand, targetId: string | Date, config?: GtagParams) => void;
     dataLayer?: unknown[];
   }
 }
@@ -146,7 +146,7 @@ export const initAnalytics = () => {
   // ([command, targetId, config]); config/page_view still worked, but custom
   // events (call_click, form_submit, book_now_click, whatsapp_click) were silently
   // dropped — the cause of the near-zero conversions recorded in GA4.
-  function gtag(_command?: GtagCommand, _targetId?: string, _config?: GtagParams) {
+  function gtag(_command?: GtagCommand, _targetId?: string | Date, _config?: GtagParams) {
     // eslint-disable-next-line prefer-rest-params
     window.dataLayer!.push(arguments as unknown);
   }
@@ -226,6 +226,28 @@ export function initGlobalClickTracking(): void {
     },
     { capture: true }
   );
+
+  // Book-now safety net. Deliberately BUBBLE phase (not capture): React's root
+  // listeners run before a document-level bubble listener, so components that
+  // already call trackBookNowClick('header'|'footer'|...) record first with
+  // their richer label and this call is dropped by the dedupe guard. Links with
+  // no handler (service-page heroes, blog body CTAs rendered from HTML) are
+  // caught here. book_click is an intent signal, not a lead — leads are
+  // generate_lead on accepted form submissions.
+  document.addEventListener('click', (e) => {
+    const target = e.target as Element | null;
+    const link = target?.closest?.('a[href]') as HTMLAnchorElement | null;
+    if (!link) return;
+    let url: URL;
+    try {
+      url = new URL(link.href, window.location.href);
+    } catch {
+      return;
+    }
+    if (url.origin !== window.location.origin) return;
+    if (!url.pathname.startsWith('/book-now') || url.pathname.startsWith('/book-now/thank-you')) return;
+    trackBookNowClick(link.getAttribute('data-track-source') || `auto:${window.location.pathname}`);
+  });
 }
 
 export const trackPhoneClick = (phoneNumber: string, source?: string) => {
@@ -310,6 +332,9 @@ export const trackWhatsAppClick = (source?: string) => {
 };
 
 export const trackBookNowClick = (source?: string) => {
+  // Shared dedupe key: a component onClick and the global bubble-phase
+  // listener can both see one physical click. Whichever runs first wins.
+  if (isDuplicate('book')) return;
   const attr = getAttribution();
   trackEvent('book_click', {
     category: 'Lead Generation',

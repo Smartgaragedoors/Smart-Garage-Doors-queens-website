@@ -5,7 +5,8 @@ const messages: Record<string, { translation: Record<string, string> }> = {};
 Object.keys(modules).forEach((path) => {
   const match = path.match(/\.\/([^/]+)\/([^/]+)\.ts$/);
   if (match) {
-    const [, lang] = match;
+    const lang = match[1];
+    if (!lang) return;
     const module = modules[path] as { default?: Record<string, string> };
     
     if (!messages[lang]) {

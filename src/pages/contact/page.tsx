@@ -112,16 +112,16 @@ const ContactPage = () => {
               "priceRange": BUSINESS_INFO.priceRange,
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": BUSINESS_INFO.addresses[0].streetAddress,
-                "addressLocality": BUSINESS_INFO.addresses[0].addressLocality,
-                "addressRegion": BUSINESS_INFO.addresses[0].addressRegion,
-                "postalCode": BUSINESS_INFO.addresses[0].postalCode,
-                "addressCountry": BUSINESS_INFO.addresses[0].addressCountry
+                "streetAddress": BUSINESS_INFO.addresses[0]!.streetAddress,
+                "addressLocality": BUSINESS_INFO.addresses[0]!.addressLocality,
+                "addressRegion": BUSINESS_INFO.addresses[0]!.addressRegion,
+                "postalCode": BUSINESS_INFO.addresses[0]!.postalCode,
+                "addressCountry": BUSINESS_INFO.addresses[0]!.addressCountry
               },
               "geo": {
                 "@type": "GeoCoordinates",
-                "latitude": BUSINESS_INFO.addresses[0].latitude,
-                "longitude": BUSINESS_INFO.addresses[0].longitude
+                "latitude": BUSINESS_INFO.addresses[0]!.latitude,
+                "longitude": BUSINESS_INFO.addresses[0]!.longitude
               },
               "openingHoursSpecification": {
                 "@type": "OpeningHoursSpecification",

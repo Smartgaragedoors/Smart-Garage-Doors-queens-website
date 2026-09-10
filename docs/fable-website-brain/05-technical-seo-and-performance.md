@@ -18,7 +18,7 @@ npm run prerender  →  Puppeteer renders every sitemap route to out/<route>/ind
   + title; **retries empty roots 3× and refuses to write an empty shell** (hardened
   2026-07-05 after intermittently shipping a contentless homepage — an SEO
   near-miss). `/go/` and `/lp/` paths are excluded (noindex utility/ad pages).
-- Expected output: **"123 ok, 0 failed"** (count grows with new pages; it must
+- Expected output: **"143 ok, 0 failed"** (as of 2026-09-10) (count grows with new pages; it must
   never drop unexpectedly).
 
 ## URL / redirect / canonical rules
@@ -71,7 +71,7 @@ are the current practice (documented gap in `09`).
 
 ## Pre-deploy checklist
 
-1. `npx tsc --noEmit` clean
+1. `npm run typecheck` clean
 2. `npm run build` clean; sanity-check chunk list if vite config changed
 3. `npm run prerender` — all routes ok, count as expected
 4. If routes changed: sitemap contains the new URL; redirect added for any removed URL

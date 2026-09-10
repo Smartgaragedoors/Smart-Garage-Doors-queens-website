@@ -34,8 +34,8 @@ incident in this repo's history, not theory.
 
 ## Build & pipeline safety
 
-12. **Verification loop before any push:** `npx tsc --noEmit` → `npm run build` →
-    `npm run prerender` (expect "123 ok, 0 failed"; count must not drop). Push to
+12. **Verification loop before any push:** `npm run typecheck` → `npm run build` →
+    `npm run prerender` (expect "143 ok, 0 failed" as of 2026-09-10; count must not drop). Push to
     `main` deploys production via Vercel.
 13. Don't weaken `scripts/prerender.mjs` safeguards (empty-root retry, refuse-to-
     write-empty). A flaky prerender once shipped a contentless homepage to Google.

@@ -7,6 +7,8 @@ interface ButtonProps {
   href?: string;
   className?: string;
   type?: 'button' | 'submit' | 'reset';
+  'aria-label'?: string;
+  disabled?: boolean;
 }
 
 export default function Button({ 

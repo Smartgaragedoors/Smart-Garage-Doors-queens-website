@@ -96,12 +96,10 @@ export default defineConfig({
     sourcemap: false, // Disable sourcemaps in production for faster builds
     outDir: 'out',
     minify: 'esbuild',
-    // Enable tree-shaking
-    treeshake: {
-      moduleSideEffects: 'no-external',
-      propertyReadSideEffects: false,
-      tryCatchDeoptimization: false,
-    },
+    // (A `treeshake` block used to sit here. `build.treeshake` is not a Vite
+    // option, so Vite silently ignored it and it never affected the bundle.
+    // Removed 2026-09-10. Do NOT "restore" it under rollupOptions without
+    // testing: moduleSideEffects:'no-external' can drop side-effect imports.)
     rollupOptions: {
       output: {
         manualChunks: (id) => {

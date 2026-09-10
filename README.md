@@ -15,7 +15,7 @@ deployed to Vercel (push to `main` = production).
 
 ```bash
 npm run dev          # local dev server (auto-picks a free port)
-npx tsc --noEmit     # type-check
+npm run typecheck    # type-check (app + node projects; bare `tsc --noEmit` checks nothing here)
 npm run build        # production build → out/
 npm run prerender    # render all routes to static HTML (expect "123 ok, 0 failed")
 ```

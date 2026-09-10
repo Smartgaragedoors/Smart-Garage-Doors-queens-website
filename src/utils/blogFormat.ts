@@ -13,7 +13,7 @@ export function formatBlogDate(iso: string): string {
 export function stripAutomationSlugSuffix(slug: string): string {
   const match = slug.match(/-([a-z0-9]{4})$/i);
   if (!match) return slug;
-  const suffix = match[1];
+  const suffix = match[1] ?? '';
   const hasLetter = /[a-z]/i.test(suffix);
   const hasDigit = /[0-9]/.test(suffix);
   if (hasLetter && hasDigit) {

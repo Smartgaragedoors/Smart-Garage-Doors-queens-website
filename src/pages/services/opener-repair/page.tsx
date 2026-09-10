@@ -7,8 +7,8 @@ import RelatedServices from '../../../components/seo/RelatedServices';
 import ServiceAreaLinks from '../../../components/seo/ServiceAreaLinks';
 import { useLocation } from '../../../contexts/LocationContext';
 import { getCFImageUrl } from '../../../data/cloudflareImages';
-import { BUSINESS_INFO } from '../../../config/business-info';
 import GuideLinks from '../../../components/seo/GuideLinks';
+import { trackBookNowClick } from '../../../utils/analytics';
 
 export default function OpenerRepair() {
   const { location, locationName, isLoading } = useLocation();
@@ -80,10 +80,10 @@ export default function OpenerRepair() {
               Opener not working? We repair and install chain, belt and wall-mount openers across NY, NJ & CT. Call to discuss repair or replacement and current availability.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="tel:(914) 557-6816" className="bg-orange-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-orange-600 transition-colors whitespace-nowrap">
+              <a href="tel:+19145576816" data-track-source="opener_repair_hero" className="bg-orange-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-orange-600 transition-colors whitespace-nowrap">
                 Call: (914) 557-6816
               </a>
-              <a href="/book-now/" className="bg-white text-purple-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap">
+              <a href="/book-now/" onClick={() => trackBookNowClick('opener_repair_hero')} className="bg-white text-purple-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap">
                 Book Now
               </a>
             </div>
