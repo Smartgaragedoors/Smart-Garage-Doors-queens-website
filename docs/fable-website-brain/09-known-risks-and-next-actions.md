@@ -27,6 +27,27 @@
 >    (`gbp-profile`); at least one other is not. Matches the open "current Suffern
 >    GBP destination" item.
 >
+> **Mobile speed (Lighthouse 12.8, mobile, production, 2026-09-10).** The hero
+> is a CSS background, so the browser found it 4–7s late; and `index.html`
+> preloaded an unused `/hero-van-*.webp` at high priority on every page. Fixed
+> with per-page `<LcpImagePreload>` (81 pages) and removing the stale preload.
+>
+> | Page | Score before → after | LCP load delay | Page weight |
+> |---|---|---|---|
+> | `/` | 30 → 40–41 | 6.6s → 2.5–3.4s | 2,266 → 1,836 KB |
+> | `/garage-door-repair/` | 45 → 49–54 | 6.7s → 2.2–2.9s | 1,570 → 1,295 KB |
+> | `/queens-ny/` | 38 → 42–43 | 4.2s → 1.3–1.7s | 1,836 → 1,561 KB |
+>
+> LCP totals are still ~8–12s in the lab. **Remaining levers, in order:**
+> (1) third-party main-thread time ~0.8–1.7s — two Google Ads gtag loads
+> (AW-17709307308 + AW-11306665258, ~336 KB), Meta pixel (~175 KB), Clarity.
+> Deferring them is an **owner decision**: analytics was moved *earlier* on
+> 2026-08-12 because quick bounce-to-call visits were losing conversions.
+> (2) ~336 KB unused JS per page. (3) Serve a smaller Cloudflare variant to
+> mobile for CSS-background heroes (currently the 170–245 KB `hero` variant).
+> (4) Remixicon icon font (152 KB, full set) — subset it. Field data (CrUX) was
+> not checked: the shared PageSpeed API quota was exhausted.
+>
 > **Deliberately not changed:** 114 titles >60 chars and 80 descriptions >160.
 > Google truncates by pixel width and often rewrites; a mass rewrite would also
 > contaminate the 2026-09-09 CTR measurement window. Revisit after that review,
