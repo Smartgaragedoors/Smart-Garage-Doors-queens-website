@@ -435,16 +435,22 @@ so keep fallbacks small.
 real branch: `BUSINESS_INFO.addresses[3]`, `LOCATIONS.manhattan`, LocalBusiness
 schema gets its own `@id`/address on `/manhattan-ny/`, footer shows the Manhattan
 address on that page, breadcrumbs, `/service-areas/` index, borough clusters link
-in both ways. Phone is the main (914) line until the dedicated Manhattan number is
-bought — the only Manhattan-code inventory GHL/Twilio offered was (646) 832-4701;
-212, 917 and 332 returned nothing. Swap in one place (`branchContacts.ts`).
+in both ways. Phone: (929) 456-5610 — the owner added it to GHL as "SGD - Manhattan" the same
+day (the GHL/Twilio search had offered only (646) 832-4701 in a Manhattan code).
+At wiring time the number had **no forwarding number and no ring-all users** in
+GHL — inbound calls reach nobody until routing is set (Suffern's pattern:
+forward to (914) 557-6816 + ring-all the dispatch users). One place to change it:
+`branchContacts.ts`.
 `reviews={[]}`, no `recentJobs`: the CRM holds one Manhattan customer (commercial)
 and no verified job detail. A Google Business Profile at this address is a separate
 owner decision — the eligibility gates in `docs/gbp-launch-workbook.md` apply.
 
 **Mobile hero (375×812).** Lighthouse mobile 43/96/79/100. Visual audit found the
-Call CTA ~500px below the fold (top bar + eyebrow wrap + three sub-lines + trust
-line stacked above it), the eyebrow's pulse dot orphaned at the left edge when the
+Call CTA at ~650 CSS px on a 375×812 phone — the bottom edge of a 667 px
+iPhone-SE-class screen — with the trust badges and the estimate form pushed
+off-screen (two-row top bar + wrapped eyebrow + three sub-lines + trust line
+stacked above it; after the fix the CTA sits at ~535 px, with the badges and the
+form heading above an 812 px fold), the eyebrow's pulse dot orphaned at the left edge when the
 line wrapped, and the chat launcher covering the trust-badge row and the Spanish
 link. Fixes: top bar is one row on phones ("NY · NJ · CT" tail desktop-only);
 eyebrow dot is glued to its first phrase and "Live Dispatcher" is desktop-only; the

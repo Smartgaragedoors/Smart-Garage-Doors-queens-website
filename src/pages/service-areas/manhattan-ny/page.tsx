@@ -2,9 +2,9 @@ import LocationPageTemplate from '../../../components/feature/LocationPageTempla
 import { LOCATIONS } from '../../../config/branchContacts';
 
 // Manhattan — new location at 323 W 96th St (Upper West Side / Manhattan Valley),
-// owner-provided 2026-09-22. Phone comes from LOCATIONS.manhattan so the CTAs,
-// tracking label and LocalBusiness schema all move together when the dedicated
-// Manhattan line is purchased (see the TODO in branchContacts.ts).
+// owner-provided 2026-09-22. Phone comes from LOCATIONS.manhattan ((929) 456-5610,
+// the dedicated GHL line) so the CTAs, tracking label and LocalBusiness schema
+// always match the number the customer dials.
 //
 // reviews={[]} and no recentJobs: the CRM holds one Manhattan customer (a
 // commercial account) and no verified job detail yet. Add jobs only from the
@@ -14,7 +14,7 @@ export default function LocationPage() {
   return (
     <LocationPageTemplate
       metaTitle="Garage Door Repair Manhattan, NY | Smart Garage Doors"
-      metaDescription="Garage door and rolling gate repair in Manhattan from our Upper West Side location on W 96th St. Springs, openers, building garage doors — total-price quotes. Call (914) 557-6816."
+      metaDescription="Garage door and rolling gate repair in Manhattan from our Upper West Side location on W 96th St. Springs, openers, building garage doors — total-price quotes. Call (929) 456-5610."
       keywords="Manhattan garage door repair, garage door repair NYC, rolling gate repair Manhattan, garage door opener repair Manhattan, parking garage door repair Manhattan"
       slug="/manhattan-ny/"
       cityName="Manhattan"
