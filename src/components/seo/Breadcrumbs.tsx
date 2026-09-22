@@ -76,6 +76,8 @@ export default function Breadcrumbs() {
       label = 'Darien, CT';
     } else if (segment.includes('pearl-river-ny')) {
       label = 'Pearl River, NY';
+    } else if (segment.includes('manhattan-ny')) {
+      label = 'Manhattan, NY';
     } else if (segment.includes('yonkers-ny')) {
       label = 'Yonkers, NY';
     } else if (segment.includes('suffern-ny')) {

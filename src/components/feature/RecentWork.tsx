@@ -180,7 +180,7 @@ function RecentWork() {
         <div className="flex items-end justify-between mb-6">
           <div>
             <h2 className="text-2xl md:text-3xl font-bold text-blue-900">
-              Recent <span className="text-orange-500">Jobs</span>
+              Recent <span className="text-orange-600">Jobs</span>
             </h2>
             <p className="text-gray-500 mt-1 text-sm md:text-base">
               Real work, real customers — no stock photos.
@@ -235,6 +235,8 @@ function RecentWork() {
                   <div className="overflow-hidden" style={{ height: `${Math.round(cardWidth * 0.62)}px` }}>
                     <img
                       src={photo.image}
+                      srcSet={`${photo.image.replace(/\.webp$/, '-480.webp')} 480w, ${photo.image} 900w`}
+                      sizes="(max-width: 640px) 92vw, (max-width: 1024px) 45vw, 400px"
                       alt={photo.alt}
                       className={`w-full h-full object-cover ${photo.position ?? 'object-center'} hover:scale-105 transition-transform duration-500`}
                       width={600}
@@ -280,6 +282,8 @@ function RecentWork() {
               <div className="aspect-[4/3] overflow-hidden">
                 <img
                   src={photo.image}
+                  srcSet={`${photo.image.replace(/\.webp$/, '-480.webp')} 480w, ${photo.image} 900w`}
+                  sizes="(max-width: 640px) 92vw, 400px"
                   alt={photo.alt}
                   className={`w-full h-full object-cover ${photo.position ?? 'object-center'}`}
                   width={400}

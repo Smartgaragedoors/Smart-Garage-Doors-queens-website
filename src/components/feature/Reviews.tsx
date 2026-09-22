@@ -100,11 +100,24 @@ const Reviews = () => {
             ))}
           </div>
           {/* Swipe affordance — mobile only */}
-          <p className="md:hidden text-center text-xs text-gray-400 mt-3">
+          <p className="md:hidden text-center text-xs text-gray-600 mt-3">
             <i className="ri-arrow-left-right-line align-middle mr-1" aria-hidden="true" />
             Swipe to read more reviews
           </p>
         </div>
+
+        {/* Off-Google proof — ratings only (no copied review text: Yelp's terms forbid
+            it and Thumbtack is treated the same). Numbers live in BUSINESS_INFO.reviewPlatforms. */}
+        <p className="text-center text-sm text-gray-600 mb-6">
+          Also rated{' '}
+          <a href={BUSINESS_INFO.socialMedia.thumbtack} target="_blank" rel="noopener noreferrer" className="font-semibold text-gray-900 underline underline-offset-2 hover:text-orange-600">
+            {BUSINESS_INFO.reviewPlatforms.thumbtack.rating}★ on Thumbtack
+          </a>{' '}
+          ({BUSINESS_INFO.reviewPlatforms.thumbtack.count} reviews · {BUSINESS_INFO.reviewPlatforms.thumbtack.badge}) and{' '}
+          <a href={BUSINESS_INFO.socialMedia.yelp} target="_blank" rel="noopener noreferrer" className="font-semibold text-gray-900 underline underline-offset-2 hover:text-orange-600">
+            {BUSINESS_INFO.reviewPlatforms.yelp.rating}★ on Yelp
+          </a>.
+        </p>
 
         <div className="text-center space-y-4">
           <div className="flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-6">
@@ -120,7 +133,6 @@ const Reviews = () => {
             {/* Call button hidden on mobile — sticky bar already carries it */}
             <a
               href="tel:+19145576816"
-              aria-label="Call Smart Garage Doors from reviews section"
               className="hidden sm:inline-flex items-center px-8 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors whitespace-nowrap cursor-pointer"
             >
               <i className="ri-phone-fill mr-2" aria-hidden="true"></i>

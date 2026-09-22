@@ -35,7 +35,7 @@ export default function BookingCTABar({
               href="/book-now/"
               onClick={() => trackBookNowClick('booking_cta_bar')}
               className="inline-flex items-center justify-center gap-2 bg-white border border-gray-300 text-blue-900 hover:border-blue-900/40 font-semibold py-3 px-6 rounded-lg transition-colors whitespace-nowrap"
-              aria-label="Book garage door service online"
+              aria-label="Book Now — schedule garage door service online"
             >
               <i className="ri-calendar-check-line" aria-hidden="true" />
               {bookLabel}
@@ -44,7 +44,6 @@ export default function BookingCTABar({
               href="tel:+19145576816"
               onClick={() => trackPhoneClick('(914) 557-6816')}
               className="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors whitespace-nowrap"
-              aria-label="Call Smart Garage Doors"
             >
               <i className="ri-phone-fill" aria-hidden="true" />
               {callLabel}

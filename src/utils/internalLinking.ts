@@ -203,9 +203,18 @@ export function getRelatedLocations(currentLocationPath: string): InternalLink[]
       { url: '/forest-hills-ny/', text: 'Forest Hills, NY' },
       { url: '/bayside-ny/', text: 'Bayside, NY' },
       { url: '/brooklyn-ny/', text: 'Brooklyn, NY' },
+      { url: '/manhattan-ny/', text: 'Manhattan, NY' },
       { url: '/long-island-ny/', text: 'Long Island, NY' },
     ],
+    'manhattan-ny': [
+      { url: '/bronx-ny/', text: 'Bronx, NY' },
+      { url: '/queens-ny/', text: 'Queens, NY' },
+      { url: '/brooklyn-ny/', text: 'Brooklyn, NY' },
+      { url: '/yonkers-ny/', text: 'Yonkers, NY' },
+      { url: '/fort-lee-nj/', text: 'Fort Lee, NJ' },
+    ],
     'bronx-ny': [
+      { url: '/manhattan-ny/', text: 'Manhattan, NY' },
       { url: '/queens-ny/', text: 'Queens, NY' },
       { url: '/brooklyn-ny/', text: 'Brooklyn, NY' },
       { url: '/yonkers-ny/', text: 'Yonkers, NY' },
@@ -213,6 +222,7 @@ export function getRelatedLocations(currentLocationPath: string): InternalLink[]
       { url: '/westchester-county-ny/', text: 'Westchester County, NY' },
     ],
     'brooklyn-ny': [
+      { url: '/manhattan-ny/', text: 'Manhattan, NY' },
       { url: '/bronx-ny/', text: 'Bronx, NY' },
       { url: '/queens-ny/', text: 'Queens, NY' },
       { url: '/long-island-ny/', text: 'Long Island, NY' },

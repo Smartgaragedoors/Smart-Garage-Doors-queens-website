@@ -80,7 +80,7 @@ export default function MobileStickyCTA() {
           href={`tel:${contact.phoneTel}`}
           onClick={() => trackPhoneClick(contact.phone, 'mobile_sticky_cta')}
           className="flex-[1.2] flex items-center justify-center gap-1.5 bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-bold py-3 rounded-xl shadow-md transition-colors"
-          aria-label="Call Smart Garage Doors now"
+          aria-label="Call Now — Smart Garage Doors"
           tabIndex={docked ? 0 : -1}
         >
           <i className="ri-phone-fill text-lg" aria-hidden="true" />
@@ -90,7 +90,7 @@ export default function MobileStickyCTA() {
           href={bookingHref}
           onClick={() => trackBookNowClick('mobile_sticky_cta')}
           className="flex-1 flex items-center justify-center gap-1.5 bg-blue-900 hover:bg-blue-800 active:bg-blue-950 text-white font-bold py-3 rounded-xl transition-colors"
-          aria-label="Book garage door service online"
+          aria-label="Book Now — schedule garage door service online"
           tabIndex={docked ? 0 : -1}
         >
           <i className="ri-calendar-check-line text-lg" aria-hidden="true" />

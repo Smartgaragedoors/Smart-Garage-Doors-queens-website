@@ -61,6 +61,7 @@ export const existingLocations: Location[] = [
   { slug: 'yonkers-ny', city: 'Yonkers', state: 'New York', stateAbbr: 'NY', county: 'Westchester County' },
   { slug: 'suffern-ny', city: 'Suffern', state: 'New York', stateAbbr: 'NY', county: 'Rockland County' },
   { slug: 'pearl-river-ny', city: 'Pearl River', state: 'New York', stateAbbr: 'NY', county: 'Rockland County' },
+  { slug: 'manhattan-ny', city: 'Manhattan', state: 'New York', stateAbbr: 'NY', county: 'New York County' },
   { slug: 'hauppauge-ny', city: 'Hauppauge', state: 'New York', stateAbbr: 'NY', county: 'Suffolk County' },
   { slug: 'smithtown-ny', city: 'Smithtown', state: 'New York', stateAbbr: 'NY', county: 'Suffolk County' },
   { slug: 'nassau-county-ny', city: 'Nassau County', state: 'New York', stateAbbr: 'NY', county: 'Nassau County' },

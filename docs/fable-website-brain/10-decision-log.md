@@ -428,3 +428,52 @@ previews. Note: `getCFBackgroundImage(id, variant, fallback)` builds a multi-lay
 background, and browsers download every layer — the "fallback" is always fetched,
 so keep fallbacks small.
 
+
+## 2026-09-22 — Manhattan location, mobile hero, off-Google proof
+
+**Manhattan branch (323 W 96th St, 10025).** Owner-provided address. Wired as a
+real branch: `BUSINESS_INFO.addresses[3]`, `LOCATIONS.manhattan`, LocalBusiness
+schema gets its own `@id`/address on `/manhattan-ny/`, footer shows the Manhattan
+address on that page, breadcrumbs, `/service-areas/` index, borough clusters link
+in both ways. Phone is the main (914) line until the dedicated Manhattan number is
+bought — the only Manhattan-code inventory GHL/Twilio offered was (646) 832-4701;
+212, 917 and 332 returned nothing. Swap in one place (`branchContacts.ts`).
+`reviews={[]}`, no `recentJobs`: the CRM holds one Manhattan customer (commercial)
+and no verified job detail. A Google Business Profile at this address is a separate
+owner decision — the eligibility gates in `docs/gbp-launch-workbook.md` apply.
+
+**Mobile hero (375×812).** Lighthouse mobile 43/96/79/100. Visual audit found the
+Call CTA ~500px below the fold (top bar + eyebrow wrap + three sub-lines + trust
+line stacked above it), the eyebrow's pulse dot orphaned at the left edge when the
+line wrapped, and the chat launcher covering the trust-badge row and the Spanish
+link. Fixes: top bar is one row on phones ("NY · NJ · CT" tail desktop-only);
+eyebrow dot is glued to its first phrase and "Live Dispatcher" is desktop-only; the
+third sub-line and the "a real person will answer" trust line are desktop-only
+(both repeat the top bar on mobile); the chat launcher mirrors MobileStickyCTA and
+stays hidden on phones while `[data-hero-cta]` is on screen. Desktop is unchanged.
+
+**Accessibility.** Three label/name mismatches fixed (hero Call aria-label removed;
+Book-Now labels now start with the visible text). Contrast: reviews swipe hint
+gray-400→gray-600, "Recent Jobs" accent orange-500→orange-600. **Not changed:**
+white text on `orange-500` CTA buttons (2.8:1, nine instances) — moving primary
+buttons to `orange-600` (3.55:1, passes at ≥19px bold) is a brand-colour call for
+the owner.
+
+**Job photos.** 480px WebP siblings (`*-480.webp`, 19–47 KB vs 82–162 KB) with
+`srcset`/`sizes` on both RecentWork `<img>` sites. Originals kept for LocationPage
+`localJobPhotos` and social previews.
+
+**Off-Google proof.** Verified by hand 2026-09-22: Thumbtack 4.9★/396 reviews,
+Top Pro 2023–2025, hired 734×, background-checked, licence verified; Yelp 4.5★/6.
+Stored once in `BUSINESS_INFO.reviewPlatforms` (display only — schema
+`aggregateRating` stays Google-only). Shown as ratings + links on the homepage
+reviews section and the reviews page. **No review text is copied from either
+platform** (Yelp's terms forbid it; Thumbtack treated the same). No Angi or BBB
+profile was found; BBB accreditation is paid, so no BBB mark. Licence numbers in the
+footer now link to the NYC DCWP, CT eLicense and NJ DCA public lookups.
+
+**Remaining performance levers (unchanged from 2026-09-10, re-measured):**
+third-party main-thread time 1.1 s (GTM 538 ms, Meta pixel 436 ms, Clarity 129 ms) —
+owner decision; hero Cloudflare `hero` variant is ~173 KB wasted on phones — serve a
+smaller variant for CSS-background heroes; ~340 KB unused JS is mostly those tags.
+

@@ -47,12 +47,25 @@ export const BUSINESS_INFO = {
       latitude: 41.1148,
       longitude: -74.1496,
     },
+    {
+      // Manhattan — owner-provided 2026-09-22 (Upper West Side / Manhattan Valley).
+      // Coordinates geocoded from the street address.
+      type: "secondary",
+      streetAddress: "323 W 96th St",
+      addressLocality: "New York",
+      addressRegion: "NY",
+      postalCode: "10025",
+      addressCountry: "US",
+      latitude: 40.7959,
+      longitude: -73.9742,
+    },
   ],
   socialMedia: {
     facebook: "https://www.facebook.com/smartgaragedoorss",
     instagram: "https://www.instagram.com/smartgaragedoorss/",
     // Existing business profiles verified September 9, 2026; not new listings.
     yelp: "https://www.yelp.com/biz/smart-garage-doors-queens-3",
+    thumbtack: "https://www.thumbtack.com/ny/new-york/garage-door-repair/smart-garage-doors-llc/service/487552121048801312",
     bingMaps: "https://www.bing.com/maps?ss=ypid.YNE137082C20C446F4&mkt=en-US",
     googleMaps: "https://maps.app.goo.gl/GjfsFbH5kQ2smvdU8",
     googlePlaceId: "ChIJucuPoePGzGMRGWWH9YOmAX4",
@@ -68,11 +81,22 @@ export const BUSINESS_INFO = {
     saturday: { opens: "00:00", closes: "23:59" },
     sunday: { opens: "00:00", closes: "23:59" },
   },
+  // verifyUrl = the state's public license-lookup page, so a visitor can check
+  // the number themselves (a checkable license is the one trust signal a scam
+  // operator cannot fake).
   licenses: [
-    { region: "NY", label: "NYC DCWP License #2130164-DCWP" },
-    { region: "CT", label: "CT HIC Registration #HIC.0704479" },
-    { region: "NJ", label: "NJ Home Improvement Contractor Registration #13VH14195600" },
+    { region: "NY", label: "NYC DCWP License #2130164-DCWP", verifyUrl: "https://www.nyc.gov/site/dca/consumers/license-check.page" },
+    { region: "CT", label: "CT HIC Registration #HIC.0704479", verifyUrl: "https://www.elicense.ct.gov/Lookup/LicenseLookup.aspx" },
+    { region: "NJ", label: "NJ Home Improvement Contractor Registration #13VH14195600", verifyUrl: "https://newjersey.mylicense.com/verification/Search.aspx" },
   ],
+  // Off-Google review platforms — read by hand from the public profile pages on
+  // 2026-09-22. Display only: schema aggregateRating stays Google-only, and no
+  // review TEXT from these platforms is ever copied onto the site (Yelp's terms
+  // forbid it; we treat Thumbtack the same). Re-verify before changing a number.
+  reviewPlatforms: {
+    thumbtack: { rating: 4.9, count: 396, badge: "Top Pro 2023–2025", hired: 734 },
+    yelp: { rating: 4.5, count: 6 },
+  },
   priceRange: "$$",
   currenciesAccepted: "USD",
   paymentAccepted: ["Cash", "Credit Card", "Debit Card", "Bank Transfer", "Check"],

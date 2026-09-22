@@ -26,7 +26,11 @@ const LocalBusinessSchema: React.FC<LocalBusinessSchemaProps> = ({
   slug,
   telephone,
 }) => {
-  const branch = slug === '/queens-ny/' ? LOCATIONS.queens : slug === '/suffern-ny/' ? LOCATIONS.suffern : undefined;
+  const branch =
+    slug === '/queens-ny/' ? LOCATIONS.queens
+    : slug === '/suffern-ny/' ? LOCATIONS.suffern
+    : slug === '/manhattan-ny/' ? LOCATIONS.manhattan
+    : undefined;
   const primaryAddress = branch?.address || BUSINESS_INFO.addresses[0]!;
   const pageUrl = slug
     ? `${BUSINESS_INFO.website}${slug.endsWith('/') ? slug : `${slug}/`}`

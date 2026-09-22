@@ -41,7 +41,7 @@ export default function AnnouncementBar() {
 
   return (
     <div className="bg-[#161D29] text-white" role="region" aria-label="Promotion and contact">
-      <div className="max-w-7xl mx-auto px-3 sm:px-4 py-1.5 flex flex-wrap md:flex-nowrap items-center justify-center md:justify-between gap-x-3 gap-y-1">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 py-1 sm:py-1.5 flex flex-nowrap items-center justify-between gap-x-2 sm:gap-x-3">
         {/* Left (desktop only): visitor's local serving area + email */}
         <div className="hidden md:flex items-center gap-x-4 text-xs text-gray-300 min-w-0">
           <span className="flex items-center gap-1.5 min-w-0">
@@ -58,7 +58,7 @@ export default function AnnouncementBar() {
         </div>
 
         {/* Center: trust message (the estimate offer lives in the hero — not duplicated here, per design handoff §3) */}
-        <p className="md:flex-1 text-center text-[11px] sm:text-sm font-medium leading-snug flex items-center justify-center gap-1.5">
+        <p className="flex-1 min-w-0 text-left md:text-center text-[11px] sm:text-sm font-medium leading-snug flex items-center justify-start md:justify-center gap-1.5">
           <span
             className="inline-block w-[7px] h-[7px] rounded-full bg-[#3FAE72] animate-pulse shrink-0"
             style={{ boxShadow: '0 0 0 3px rgba(63,174,114,0.25)' }}
@@ -67,7 +67,7 @@ export default function AnnouncementBar() {
           <span>
             A real person answers <span className="font-semibold">your call</span>
             <span className="hidden sm:inline"> — no call center, no phone tree</span>
-            <span className="text-gray-400"> · NY · NJ · CT</span>
+            <span className="hidden sm:inline text-gray-400"> · NY · NJ · CT</span>
           </span>
         </p>
 

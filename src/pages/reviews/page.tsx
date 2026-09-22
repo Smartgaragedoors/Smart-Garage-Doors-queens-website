@@ -73,6 +73,22 @@ export default function ReviewsPage() {
                 Schedule Service
               </a>
             </div>
+            {/* Where else we're rated - links out to the real profiles; stars only, no
+                copied review text (platform terms). Numbers: BUSINESS_INFO.reviewPlatforms. */}
+            <p className="mt-8 text-sm md:text-base text-blue-100 flex flex-wrap justify-center gap-x-6 gap-y-2">
+              <a href={BUSINESS_INFO.socialMedia.googleReviews} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 hover:text-white underline underline-offset-4">
+                <i className="ri-google-fill" aria-hidden="true" />
+                Google {BUSINESS_INFO.aggregateRating.ratingValue}★ · {BUSINESS_INFO.aggregateRating.reviewCount}+ reviews
+              </a>
+              <a href={BUSINESS_INFO.socialMedia.thumbtack} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 hover:text-white underline underline-offset-4">
+                <i className="ri-medal-line" aria-hidden="true" />
+                Thumbtack {BUSINESS_INFO.reviewPlatforms.thumbtack.rating}★ · {BUSINESS_INFO.reviewPlatforms.thumbtack.count} reviews · {BUSINESS_INFO.reviewPlatforms.thumbtack.badge}
+              </a>
+              <a href={BUSINESS_INFO.socialMedia.yelp} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 hover:text-white underline underline-offset-4">
+                <i className="ri-star-line" aria-hidden="true" />
+                Yelp {BUSINESS_INFO.reviewPlatforms.yelp.rating}★
+              </a>
+            </p>
           </div>
         </div>
       </section>

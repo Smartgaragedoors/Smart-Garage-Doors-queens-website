@@ -41,8 +41,36 @@ export default function ChatWidget() {
   const [isTyping, setIsTyping]         = useState(false);
   const [leadCollected, setLeadCollected] = useState(restored?.leadCollected ?? false);
   const [hasUnread, setHasUnread]       = useState(false);
+  // Mobile only: true while the hero's own CTA block is on screen (see effect below).
+  const [heroInView, setHeroInView]     = useState(true);
   const bottomRef  = useRef<HTMLDivElement>(null);
   const inputRef   = useRef<HTMLInputElement>(null);
+
+  // Track whether the hero CTA block is on screen, the same way MobileStickyCTA
+  // does, so the launcher never sits on top of the hero's trust row on phones.
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    let settled = false;
+    const check = () => {
+      const target = document.querySelector('[data-hero-cta]');
+      if (!target) {
+        if (settled) setHeroInView(false); // no hero on this page - show the launcher
+        return;
+      }
+      settled = true;
+      const rect = target.getBoundingClientRect();
+      setHeroInView(!(rect.bottom < 64 || rect.top > window.innerHeight));
+    };
+    const settleTimer = setTimeout(() => { settled = true; check(); }, 900);
+    window.addEventListener('scroll', check, { passive: true });
+    window.addEventListener('resize', check, { passive: true });
+    check();
+    return () => {
+      clearTimeout(settleTimer);
+      window.removeEventListener('scroll', check);
+      window.removeEventListener('resize', check);
+    };
+  }, []);
 
   // Persist conversation whenever it changes, so a full page reload (e.g. an
   // <a href> CTA click) doesn't lose it.
@@ -137,7 +165,7 @@ export default function ChatWidget() {
     <>
       {/* Container: sits above mobile sticky bar (bottom-20) on mobile, normal on desktop */}
       {/* z-45: above page content/sticky CTA (z-40) but below the header + mobile menu (z-50) */}
-      <div className="fixed bottom-20 lg:bottom-6 right-4 lg:right-6 z-[45] flex flex-col items-end gap-2">
+      <div className={`fixed bottom-20 lg:bottom-6 right-4 lg:right-6 z-[45] flex-col items-end gap-2 ${heroInView && !isOpen ? 'hidden lg:flex' : 'flex'}`}>
 
         {/* ── Chat panel ── */}
         {isOpen && (

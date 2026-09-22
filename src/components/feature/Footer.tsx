@@ -21,7 +21,8 @@ function Footer() {
 
   const currentPath = routerLocation.pathname;
   const currentAddress = useMemo(() => {
-    if (contact.id === 'suffern' && contact.address) {
+    // Any branch that publishes an address (Suffern, Manhattan, ...) shows its own.
+    if (contact.id !== 'queens' && contact.address) {
       const address = contact.address;
       return `${address.streetAddress}, ${address.addressLocality}, ${address.addressRegion} ${address.postalCode}`;
     }
@@ -151,7 +152,21 @@ function Footer() {
             Privacy Policy
           </a>
           <div className="text-gray-300 text-xs text-center md:text-right">
-            {BUSINESS_INFO.licenses.map((l) => l.label).join(' · ')} · Fully Insured
+            {BUSINESS_INFO.licenses.map((l, i) => (
+              <span key={l.region}>
+                {i > 0 && ' · '}
+                <a
+                  href={l.verifyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-2 decoration-gray-500 hover:text-white"
+                  title={`Verify on the ${l.region} license lookup`}
+                >
+                  {l.label}
+                </a>
+              </span>
+            ))}
+            {' · Fully Insured'}
           </div>
         </div>
       </div>

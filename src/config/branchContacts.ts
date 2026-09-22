@@ -6,12 +6,17 @@ export const LOCATIONS = {
   queens: { id: 'queens', city: 'Queens, NY', path: '/queens-ny/', phone: BUSINESS_INFO.phone, phoneTel: BUSINESS_INFO.phoneFormatted, address: BUSINESS_INFO.addresses[0], mapsUrl: BUSINESS_INFO.socialMedia.googleMaps },
   suffern: { id: 'suffern', city: 'Suffern, NY', path: '/suffern-ny/', phone: '(845) 262-2034', phoneTel: '+18452622034', address: BUSINESS_INFO.addresses[2], mapsUrl: undefined },
   pearlRiver: { id: 'pearl-river', city: 'Pearl River, NY', path: '/pearl-river-ny/', phone: '(551) 345-5592', phoneTel: '+15513455592', address: undefined, mapsUrl: undefined },
+  // Manhattan (323 W 96th St) — launched 2026-09-22 on the main line.
+  // TODO(owner): swap phone/phoneTel to the dedicated Manhattan GHL number once
+  // purchased (a 646 number was the only Manhattan-code inventory available).
+  manhattan: { id: 'manhattan', city: 'Manhattan, NY', path: '/manhattan-ny/', phone: BUSINESS_INFO.phone, phoneTel: BUSINESS_INFO.phoneFormatted, address: BUSINESS_INFO.addresses[3], mapsUrl: undefined },
 };
 
 export function getLocationContact(pathname: string, search = '') {
   const context = pathname + ' ' + (new URLSearchParams(search).get('location') || '').toLowerCase();
   if (context.includes('suffern')) return LOCATIONS.suffern;
   if (context.includes('pearl-river') || context.includes('pearl river')) return LOCATIONS.pearlRiver;
+  if (context.includes('manhattan')) return LOCATIONS.manhattan;
   return LOCATIONS.queens;
 }
 

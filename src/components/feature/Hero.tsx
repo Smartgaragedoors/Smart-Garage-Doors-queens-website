@@ -52,13 +52,17 @@ export default function Hero() {
        <div className="grid lg:grid-cols-[1.05fr_minmax(0,420px)] gap-10 lg:gap-14 items-center">
         <div className="text-center lg:text-left">
         {/* Eyebrow — green "live answer" dot + amber label (premium design system) */}
-        <p className="inline-flex items-center gap-2.5 text-[11px] sm:text-xs md:text-sm font-bold md:font-semibold uppercase tracking-[0.14em] md:tracking-[0.16em] text-[#E8915A] mb-5">
-          <span
-            className="inline-block w-[7px] h-[7px] rounded-full bg-[#3FAE72] animate-pulse"
-            style={{ boxShadow: '0 0 0 4px rgba(63,174,114,0.25)' }}
-            aria-hidden="true"
-          />
-          {localArea ? `${localArea}` : 'Tri-State'} · Licensed &amp; Insured · Live Dispatcher
+        <p className="inline-flex flex-wrap justify-center lg:justify-start items-center gap-x-1 gap-y-1 text-[11px] sm:text-xs md:text-sm font-bold md:font-semibold uppercase tracking-[0.14em] md:tracking-[0.16em] text-[#E8915A] mb-5">
+          {/* Dot + first phrase are one unbreakable unit, so a wrap never strands the dot at the edge */}
+          <span className="inline-flex items-center gap-2.5 whitespace-nowrap">
+            <span
+              className="inline-block w-[7px] h-[7px] rounded-full bg-[#3FAE72] animate-pulse"
+              style={{ boxShadow: '0 0 0 4px rgba(63,174,114,0.25)' }}
+              aria-hidden="true"
+            />
+            {localArea ? `${localArea}` : 'Tri-State'} · Licensed &amp; Insured
+          </span>
+          <span className="hidden md:inline">· Live Dispatcher</span>
         </p>
 
         {/* H1 — emotional serif lead (design handoff) with keyword-rich subhead below for SEO.
@@ -90,7 +94,8 @@ export default function Hero() {
           <p className="text-sm md:text-base">
             Springs · Openers · Cables · Off-track doors · Rolling gates &amp; docks
           </p>
-          <p className="text-sm md:text-base">
+          {/* Desktop only: on mobile the top bar already makes the no-call-center promise */}
+          <p className="hidden md:block text-sm md:text-base">
             {localArea ? `Serving ${localArea} — ` : ''}Local dispatch, never a distant call center.
           </p>
         </div>
@@ -107,7 +112,7 @@ export default function Hero() {
         </div>
 
         {/* Trust line — real-person reassurance directly above the call CTA */}
-        <p className="flex items-start sm:items-center gap-2 mb-3 text-[15px] md:text-base font-semibold text-white max-w-xl mx-auto lg:mx-0 text-left">
+        <p className="hidden md:flex items-start sm:items-center gap-2 mb-3 text-[15px] md:text-base font-semibold text-white max-w-xl mx-auto lg:mx-0 text-left">
           <i className="ri-customer-service-2-fill text-[#3FAE72] text-lg mt-0.5 sm:mt-0 flex-shrink-0" aria-hidden="true" />
           <span>Call now — a real person will answer and give you a clear arrival window.</span>
         </p>
@@ -122,7 +127,6 @@ export default function Hero() {
               trackPhoneClick('914-557-6816');
               trackEvent('cta_click', { category: 'Hero', action: 'phone_click', label: 'hero_call_now' });
             }}
-            aria-label="Call Smart Garage Doors now"
             className="inline-flex items-center justify-center gap-3 bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-extrabold px-7 py-3.5 text-lg rounded-2xl sm:rounded-full shadow-lg hover:shadow-xl transition-all duration-200 whitespace-nowrap"
           >
             <i className="ri-phone-fill text-xl" aria-hidden="true" />
