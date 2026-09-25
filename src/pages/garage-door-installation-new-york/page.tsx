@@ -9,6 +9,7 @@ import { BUSINESS_INFO } from '../../config/business-info';
 import GuideLinks from '../../components/seo/GuideLinks';
 import { getCloudflareImage, getCFBackgroundImage, getCFImageUrl } from '../../data/cloudflareImages';
 import LcpImagePreload from '../../components/seo/LcpImagePreload';
+import DoorStyleGallery from '../../components/feature/DoorStyleGallery';
 
 export default function GarageDoorInstallationNewYorkPage() {
   const faqs = [
@@ -78,7 +79,7 @@ export default function GarageDoorInstallationNewYorkPage() {
                 New and replacement garage doors for homes and businesses across New York, New Jersey, and Connecticut. Explore door options and request a quote for your opening.
               </p>
               <p className="text-lg md:text-xl mb-4 text-green-100">
-                Planning a new door? Get a free quote and explore options on our <a href="/services/installation/" className="underline font-semibold">installation planning page</a>.
+                Planning a new door? <a href="#door-styles" className="underline font-semibold">Browse real doors we've installed</a> and get a quote for the style you like.
               </p>
               <p className="text-lg md:text-xl mb-8 text-green-100 font-semibold">
                 Rated {BUSINESS_INFO.aggregateRating.ratingValue}★ by our customers • Licensed &amp; insured • Quotes before work begins.
@@ -192,53 +193,8 @@ export default function GarageDoorInstallationNewYorkPage() {
         </div>
       </section>
 
-      {/* Door Types */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Garage Door Types We Install
-            </h2>
-            <p className="text-lg text-gray-600">
-              Choose from a wide variety of garage door styles and materials to match your home's architecture
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="text-center">
-              <div className="bg-gray-100 rounded-lg p-6 mb-4">
-                <i className="ri-door-line text-4xl text-green-600 mb-2"></i>
-                <h3 className="font-semibold text-gray-900">Sectional Doors</h3>
-              </div>
-              <p className="text-sm text-gray-600">Traditional sectional doors with horizontal panels</p>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-gray-100 rounded-lg p-6 mb-4">
-                <i className="ri-door-open-line text-4xl text-green-600 mb-2"></i>
-                <h3 className="font-semibold text-gray-900">Roll-Up Doors</h3>
-              </div>
-              <p className="text-sm text-gray-600">Space-saving roll-up doors for commercial use</p>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-gray-100 rounded-lg p-6 mb-4">
-                <i className="ri-door-closed-line text-4xl text-green-600 mb-2"></i>
-                <h3 className="font-semibold text-gray-900">Carriage House</h3>
-              </div>
-              <p className="text-sm text-gray-600">Classic carriage house style doors</p>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-gray-100 rounded-lg p-6 mb-4">
-                <i className="ri-door-lock-line text-4xl text-green-600 mb-2"></i>
-                <h3 className="font-semibold text-gray-900">Contemporary</h3>
-              </div>
-              <p className="text-sm text-gray-600">Modern contemporary designs with clean lines</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Door style gallery — real installs only (see component header) */}
+      <DoorStyleGallery />
 
       {/* Service Areas */}
       <section className="py-16 bg-gray-50">

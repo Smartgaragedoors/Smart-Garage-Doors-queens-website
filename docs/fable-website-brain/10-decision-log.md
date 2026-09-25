@@ -483,3 +483,44 @@ third-party main-thread time 1.1 s (GTM 538 ms, Meta pixel 436 ms, Clarity 129 m
 owner decision; hero Cloudflare `hero` variant is ~173 KB wasted on phones — serve a
 smaller variant for CSS-background heroes; ~340 KB unused JS is mostly those tags.
 
+
+## 2026-09-25 — Installation door gallery, photo provenance, data connectors
+
+**Door gallery (`DoorStyleGallery`, on `/garage-door-installation/#door-styles`).**
+Replaces the icon-only "Garage Door Types We Install" block. Ten photos, every
+one a Smart Garage Doors install; filter chips; a full-size viewer whose primary
+CTA is `/book-now/?style=<door title>` — `/book-now/` now reads `style`, pre-selects
+"New Door Installation" and seeds the description so the office sees which door
+the lead picked. `door_style_view` event records which styles get opened. Common
+colours are approximate CSS swatches, labelled as such. "What recent installs
+actually cost" lists five real QuickBooks invoice totals (what the customer paid,
+tax/fees included where they applied) — past jobs, never presented as quotes.
+**Rule: only real install photos in this gallery.** Add doors by adding real job
+photos (900w + 480w WebP in `public/images/gallery/` or `public/images/jobs/`).
+
+**Photo provenance audit (`public/images/*-garage-door-installation-*`).** Real
+installs: contemporary (wood-grain modern flush — photographer's shadow), commercial
+glass (full-view, people reflected, LiftMaster on the wall), insulated (almond
+arched — phone timestamp "17 dic 2025"). **Not ours:** `carriage-house-…jpg` is a
+screenshot of Google Images (Lens icon in the corner) and `sectional-…jpg` is a
+manufacturer-style render — both removed from `/services/installation/` and deleted
+from the repo (copyright + honesty). `custom-…webp` origin unconfirmed — removed
+from the page, file kept until the owner confirms. `satisfied-customer-…` shows a
+customer's face — not used in the gallery (privacy). EXIF is stripped on all of
+these, so provenance was judged visually.
+
+**Data connectors.** The `ga4-analytics` MCP server was pinned to Zack & Elle's GA4
+property (387105762 — every row was zackandelle.com), and `gsc-search-console`
+defaults to zackandelle.com. The same service account
+(`sgd-mcp-reader@sgd-site-reports`) can read SGD's property **510931588
+"Smartestgaragedoors.com"** (account 347177237; 479747586 is the sgd-crm app).
+Fixed with **local-scope overrides for this project only** (`claude mcp add … -s
+local`): GA4 → 510931588, GSC → `sc-domain:smartestgaragedoors.com`. Zack & Elle
+sessions keep the user-scope servers. Takes effect in new sessions.
+
+**GA4 key events (owner action).** Since 2026-08-24 the key events are
+`book_click` and `generate_lead`; **`call_click` (19 events, 9 users in the month)
+is not a key event** even though calls are the main lead action. `book_click` is
+intent, not a lead (standing rule). Owner: GA4 Admin → Events → mark `call_click`
+as a key event; consider un-marking `book_click`; then map in Google Ads.
+

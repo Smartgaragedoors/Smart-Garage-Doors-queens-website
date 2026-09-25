@@ -12,15 +12,18 @@ import FormTrustBadges from '../../components/conversion/FormTrustBadges';
 
 export default function BookNowPage() {
   const { search } = useLocation();
-  const locationContext = new URLSearchParams(search).get('location') || '';
+  const params = new URLSearchParams(search);
+  const locationContext = params.get('location') || '';
+  // From the installation gallery (/garage-door-installation/#door-styles).
+  const styleContext = (params.get('style') || '').slice(0, 120);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     address: locationContext,
-    serviceType: '',
+    serviceType: styleContext ? 'installation' : '',
     urgency: '',
-    description: '',
+    description: styleContext ? `Interested in this door style from your gallery: ${styleContext}. ` : '',
     preferredDate: '',
     preferredTime: ''
   });

@@ -162,15 +162,16 @@ export default function InstallationPage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Garage Door Types We Install</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Choose from a wide selection of high-quality garage doors to match your home's style and budget.
+              Choose from a wide selection of high-quality garage doors to match your home's style and budget.{' '}
+              <a href="/garage-door-installation/#door-styles" className="text-orange-700 font-semibold underline underline-offset-2">See real doors we've installed</a>.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
               <img
-                src="/images/sectional-garage-door-installation-smart-garage-doors.jpg"
-                alt="Sectional garage door installation — raised panel double door on residential home"
+                src="/images/jobs/brown-raised-panel-double-garage-doors-brick-home.webp"
+                alt="Brown long raised-panel sectional garage door with clear top windows on a brick home — installed by Smart Garage Doors"
                 className="w-full h-52 object-cover object-center"
                 width={600} height={400} loading="lazy"
               />
@@ -189,12 +190,12 @@ export default function InstallationPage() {
             </div>
 
             <div className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-              <img
-                src="/images/carriage-house-garage-door-installation-smart-garage-doors.jpg"
-                alt="Carriage house garage door installation — white door with decorative windows and hardware on stone home"
-                className="w-full h-52 object-cover object-center"
-                width={600} height={400} loading="lazy"
-              />
+              {/* No real carriage-house job photo yet — the old image was a Google Images
+                  screenshot. Honest placeholder until the crew photographs one. */}
+              <div className="w-full h-52 bg-orange-50 flex flex-col items-center justify-center text-center px-6">
+                <i className="ri-home-heart-line text-4xl text-orange-600 mb-2" aria-hidden="true" />
+                <p className="text-sm text-gray-700">We bring carriage-house style and color samples to every estimate.</p>
+              </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">Carriage House</h3>
                 <p className="text-gray-600 mb-4">
@@ -274,8 +275,8 @@ export default function InstallationPage() {
 
             <div className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
               <img
-                src="/images/custom-garage-door-installation-smart-garage-doors.webp"
-                alt="Custom garage door installation — dark sectional doors on rustic wood barn garage"
+                src="/images/jobs/wide-double-garage-door-window-inserts.webp"
+                alt="Extra-wide white flush-panel garage door with a row of square grid windows — installed by Smart Garage Doors"
                 className="w-full h-52 object-cover object-center"
                 width={600} height={400} loading="lazy"
               />
