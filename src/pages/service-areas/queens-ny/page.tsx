@@ -1,5 +1,6 @@
 import LocationPageTemplate from '../../../components/feature/LocationPageTemplate';
 import { BUSINESS_INFO } from '../../../config/business-info';
+import { LOCATIONS } from '../../../config/branchContacts';
 
 // Queens — the home borough (the shop is on 70th Ave in Flushing).
 // recentJobs are real completed jobs from the Drive jobs export
@@ -19,6 +20,11 @@ export default function QueensNY() {
       stateCode="NY"
       stateName="New York"
       geo={{ latitude: '40.7282', longitude: '-73.7949' }}
+      reviewCount={493}
+      reviewLabel="Queens Google reviews"
+      reviewProfileUrl={LOCATIONS.queens.mapsUrl}
+      localIntroduction="Garage door repair from our Flushing base, serving Queens homes, apartment garages and commercial properties. We handle broken springs, opener problems and door replacements, with the scope and total price confirmed before work starts."
+      recentJobsPeriod="June–July 2025"
       heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero"
       mapEmbedUrl="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96708.34!2d-73.9442!3d40.7282!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258f4b00bd15f%3A0x860f6a4080430fde!2sQueens%2C%20NY!5e0!3m2!1sen!2sus"
       localJobPhotos={[

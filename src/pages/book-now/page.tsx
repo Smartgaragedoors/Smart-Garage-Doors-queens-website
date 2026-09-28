@@ -91,6 +91,7 @@ export default function BookNowPage() {
   return (
     <div className="min-h-screen bg-white">
       <DynamicMetaTags 
+        personalizeLocation={false}
         title="Book Garage Door Service | Repair & Installation | Smart Garage Doors"
         description="Book your garage door repair or installation online. Our team will follow up to confirm your appointment — serving NY, NJ & CT with a 5-star rated local team."
         canonical={buildCanonical('/book-now')}

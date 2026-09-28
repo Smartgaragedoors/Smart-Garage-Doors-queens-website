@@ -12,6 +12,7 @@ interface DynamicMetaTagsProps {
   ogDescription?: string;
   ogImage?: string;
   noIndex?: boolean;
+  personalizeLocation?: boolean;
 }
 
 export default function DynamicMetaTags({
@@ -23,8 +24,11 @@ export default function DynamicMetaTags({
   ogDescription,
   ogImage,
   noIndex = false,
+  personalizeLocation = true,
 }: DynamicMetaTagsProps) {
-  const { location, locationName } = useLocation();
+  const detectedLocation = useLocation();
+  const location = personalizeLocation ? detectedLocation.location : null;
+  const locationName = detectedLocation.locationName;
   const routerLocation = useRouterLocation();
   const defaultOgImage = `${CANONICAL_BASE}/hero-van-1280.webp`;
   const finalOgImage = ogImage || defaultOgImage;

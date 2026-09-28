@@ -12,6 +12,7 @@ export default function ThankYouPage() {
   return (
     <div className="min-h-screen bg-white">
       <DynamicMetaTags
+        personalizeLocation={false}
         title="Callback Request | Smart Garage Doors"
         description="Thanks for booking with Smart Garage Doors. We'll be in touch shortly to confirm your appointment."
         canonical={buildCanonical('/book-now/thank-you')}

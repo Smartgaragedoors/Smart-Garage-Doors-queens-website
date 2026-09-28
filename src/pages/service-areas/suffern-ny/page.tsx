@@ -15,6 +15,26 @@ export default function LocationPage() {
       geo={{ latitude: '41.1148', longitude: '-74.1496' }}
       phone={LOCATIONS.suffern.phone}
       phoneTel={LOCATIONS.suffern.phoneTel}
+      reviewCount={145}
+      reviewLabel="Suffern Google reviews"
+      reviewProfileUrl={LOCATIONS.suffern.mapsUrl}
+      localIntroduction="Garage door stuck, spring broken, or opener reversing? Call our Suffern line for service in Suffern, Airmont, Montebello and nearby Rockland communities. We confirm availability and the full repair price before work starts."
+      recentJobs={[
+        {
+          service: 'Torsion-bar repair',
+          area: 'Suffern',
+          completedLabel: 'August 2026',
+          detail: 'Repaired the torsion-bar system on an existing garage door. The homeowner also asked about a future door and opener replacement.',
+          outcome: 'Amad completed the repair; replacement options were discussed separately.',
+        },
+        {
+          service: 'Spring work on a second garage door',
+          area: 'Suffern',
+          completedLabel: 'August 2026',
+          detail: 'A returning customer needed spring work on the second door of their garage.',
+          outcome: 'Amad completed the spring service on the additional door.',
+        },
+      ]}
       localJobPhotos={[
         {
           image: '/images/jobs/mahogany-wood-grain-raised-panel-garage-door.webp',

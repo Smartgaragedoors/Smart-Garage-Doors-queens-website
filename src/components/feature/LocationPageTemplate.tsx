@@ -53,6 +53,7 @@ export interface LocationJobPhoto {
 }
 
 export interface LocationRecentJob {
+  completedLabel?: string; // Verified month/year or period from the job log
   service: string;   // e.g. 'Opener replacement — two doors'
   area: string;      // neighborhood or street name only — NEVER a house number
   detail: string;    // what was actually done, in plain words
@@ -71,6 +72,10 @@ export interface LocationPageTemplateProps {
   stateCode: string;       // e.g. 'NY'
   stateName: string;       // e.g. 'New York'
   reviewCount?: number;
+  reviewLabel?: string;
+  reviewProfileUrl?: string;
+  localIntroduction?: string;
+  recentJobsPeriod?: string;
 
   // Phone override — defaults to the global business number, but a location with
   // its own local line (e.g. Suffern's 845 number) can pass a local number so the
@@ -173,6 +178,10 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
     metaTitle, metaDescription, keywords, slug,
     cityName, stateCode, stateName,
     reviewCount = Number(BUSINESS_INFO.aggregateRating.reviewCount),
+    reviewLabel = 'company reviews',
+    reviewProfileUrl,
+    localIntroduction,
+    recentJobsPeriod,
     heroImage,
     geo,
     neighborhoods, reviews, faqs,
@@ -253,8 +262,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
               Garage Door Repair in {city}, {state}
             </h1>
             <p className="text-lg md:text-xl text-gray-200 mb-6 max-w-2xl mx-auto leading-relaxed">
-              Total-price quotes before work starts and a 1-year warranty on every job.
-              Licensed &amp; insured, with an emergency line for urgent repairs.
+              {localIntroduction || 'Total-price quotes before work starts and a 1-year warranty on every job. Licensed & insured, with an emergency line for urgent repairs.'}
             </p>
             {/* Featured offer — free written estimate */}
             <div className="inline-flex items-center gap-3 mb-8 px-5 py-2.5 rounded-full bg-[rgba(217,100,31,0.14)] border border-[rgba(232,145,90,0.45)]">
@@ -284,13 +292,18 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
             <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-7 text-sm text-gray-300">
               <span className="flex items-center gap-1.5">
                 <span className="text-[#F2B98C]" aria-hidden="true">★★★★★</span>
-                <strong className="text-white">5.0</strong> · {reviewCount} company reviews
+                <strong className="text-white">5.0</strong> · {reviewCount} {reviewLabel}
               </span>
               <span aria-hidden="true">·</span>
               <span>1-year warranty</span>
               <span aria-hidden="true">·</span>
               <span>No call center — local dispatch</span>
             </div>
+            {reviewProfileUrl && (
+              <a href={reviewProfileUrl} target="_blank" rel="noopener noreferrer" className="inline-block mt-5 text-sm text-orange-200 underline underline-offset-4 hover:text-white">
+                Read reviews on our {city} Google profile
+              </a>
+            )}
           </div>
         </div>
       </section>
@@ -302,7 +315,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
           <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 text-sm font-medium">
             <div className="flex items-center gap-2">
               <Stars count={5} />
-              <span>5.0 · {reviewCount} Company Reviews</span>
+              <span>5.0 · {reviewCount} {reviewLabel}</span>
             </div>
             {trust?.establishedYear && (
               <div className="flex items-center gap-1.5">
@@ -507,14 +520,14 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
       </section>
 
       {/* ── REVIEWS (skipped when a location has no attributable quotes) ── */}
-      {reviews.length > 0 && (
+      {(reviews.length > 0 || reviewProfileUrl) && (
       <section className="py-8 md:py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
               What {city} Customers Say
             </h2>
-            <p className="text-gray-600">Real reviews from your neighbors</p>
+            <p className="text-gray-600">{reviewProfileUrl ? `Read customer feedback on our ${city} Google profile.` : 'Real reviews from your neighbors'}</p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {reviews.slice(0, 3).map((r, i) => (
@@ -535,13 +548,13 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
           </div>
           <div className="text-center mt-8">
             <a
-              href={BUSINESS_INFO.socialMedia.googleReviews}
+              href={reviewProfileUrl || BUSINESS_INFO.socialMedia.googleReviews}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium transition-colors"
             >
               <i className="ri-external-link-line" aria-hidden="true" />
-              See company reviews on Google
+              {reviewProfileUrl ? `See ${city} reviews on Google` : 'See company reviews on Google'}
             </a>
           </div>
         </div>
@@ -595,16 +608,17 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="mb-6">
               <h2 className="text-2xl md:text-3xl font-bold text-blue-900">
-                Recent Garage Door Work in <span className="text-orange-500">{city}</span>
+                Garage Door Work in <span className="text-orange-500">{city}</span>
               </h2>
               <p className="text-gray-500 mt-1 text-sm md:text-base">
-                Pulled from our job log — real calls, what we actually did, and what it honestly cost.
+                {recentJobsPeriod ? `${recentJobsPeriod} · ` : ''}Examples from our completed job records. Each door is assessed and quoted separately.
               </p>
             </div>
             <div className="grid sm:grid-cols-2 gap-4">
               {recentJobs.map((job, i) => (
                 <div key={i} className="rounded-xl border border-gray-200 bg-gray-50 p-5">
                   <p className="text-xs font-semibold uppercase tracking-wide text-orange-600 mb-1">{job.area}</p>
+                  {job.completedLabel && <p className="text-xs text-gray-500 mb-2">Completed {job.completedLabel}</p>}
                   <h3 className="font-semibold text-gray-900 mb-2">{job.service}</h3>
                   <p className="text-sm text-gray-600 leading-relaxed mb-2">{job.detail}</p>
                   <p className="flex items-start gap-1.5 text-sm text-green-700">
