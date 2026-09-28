@@ -4,7 +4,7 @@ import { BUSINESS_INFO } from './business-info';
 // A missing profile URL must never fall back to another branch's profile.
 export const LOCATIONS = {
   queens: { id: 'queens', city: 'Queens, NY', path: '/queens-ny/', phone: BUSINESS_INFO.phone, phoneTel: BUSINESS_INFO.phoneFormatted, address: BUSINESS_INFO.addresses[0], mapsUrl: BUSINESS_INFO.socialMedia.googleMaps },
-  suffern: { id: 'suffern', city: 'Suffern, NY', path: '/suffern-ny/', phone: '(845) 262-2034', phoneTel: '+18452622034', address: BUSINESS_INFO.addresses[2], mapsUrl: undefined },
+  suffern: { id: 'suffern', city: 'Suffern, NY', path: '/suffern-ny/', phone: '(845) 262-2034', phoneTel: '+18452622034', address: BUSINESS_INFO.addresses[2], mapsUrl: 'https://www.google.com/maps?cid=16461212184781849068' },
   pearlRiver: { id: 'pearl-river', city: 'Pearl River, NY', path: '/pearl-river-ny/', phone: '(551) 345-5592', phoneTel: '+15513455592', address: undefined, mapsUrl: undefined },
   // Manhattan (323 W 96th St) — dedicated GHL line "SGD - Manhattan", owner-assigned
   // 2026-09-22. Passed as a prop so CTAs, tracking label and LocalBusiness schema

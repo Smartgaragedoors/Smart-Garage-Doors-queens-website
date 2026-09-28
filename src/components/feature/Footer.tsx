@@ -12,6 +12,7 @@ function Footer() {
 
   const serviceAreas = useMemo(() => [
     { name: 'Queens', href: '/queens-ny/' },
+    { name: 'Suffern', href: '/suffern-ny/' },
     { name: 'Brooklyn', href: '/brooklyn-ny/' },
     { name: 'Staten Island', href: '/staten-island-ny/' },
     { name: 'Long Island', href: '/long-island-ny/' },
@@ -55,9 +56,9 @@ function Footer() {
               <a href="https://www.instagram.com/smartgaragedoorss/" target="_blank" rel="noopener noreferrer" aria-label="Visit our Instagram page" className="text-gray-200 hover:text-orange-400 transition-colors">
                 <i className="ri-instagram-fill text-xl" aria-hidden="true"></i>
               </a>
-              <a href="https://maps.app.goo.gl/GjfsFbH5kQ2smvdU8" target="_blank" rel="noopener noreferrer" aria-label="View our Queens location on Google Maps" className="text-gray-200 hover:text-orange-400 transition-colors">
+              {contact.mapsUrl && <a href={contact.mapsUrl} target="_blank" rel="noopener noreferrer" aria-label={`View our ${contact.city} location on Google Maps`} className="text-gray-200 hover:text-orange-400 transition-colors">
                 <i className="ri-map-pin-fill text-xl" aria-hidden="true"></i>
-              </a>
+              </a>}
             </div>
           </div>
 
