@@ -38,8 +38,8 @@ anywhere, reorder freely — the agent always takes the top unchecked one.
 - [x] Garage door spring replacement: torsion vs. extension, and why cycle rating matters more than price (2026-09-29, `garage-door-spring-torsion-vs-extension`)
 - [x] What a commercial door baseline survey covers (and why FMs use it for budgeting) (commercial; links /commercial-maintenance-contracts/) (2026-10-06, `commercial-door-baseline-survey-fm-budgeting`)
 - [x] Snapped garage door cable vs. broken spring: how to tell which one you have (2026-10-13, `snapped-cable-vs-broken-spring`)
-- [ ] Storefront security gate compliance & maintenance for NYC retail (commercial; links /rolling-steel-gate-repair/)
-- [ ] Garage door won't open in the cold: frozen seal, stiff springs, and opener force limits
+- [SKIPPED] Storefront security gate compliance & maintenance for NYC retail (commercial; links /rolling-steel-gate-repair/) — **blocked on image inventory, same issue as the dock-leveler topic below**: the only unclaimed `/images/jobs/*.webp` files are residential garage-door photos (mahogany raised-panel, white door with window inserts) that would visually mismatch a storefront security-gate article, and every storefront/gate-themed asset (`roll-up-gate-repair-facilities-guide.webp`, `parking-garage-door-gate-repair-buildings.webp`) is already claimed by another post (`verify-blog-images.mjs` hard-fails on duplicate hero images). Needs a human to add a new storefront/rolling-gate photo or illustration before this can publish — leaving unchecked so it's retried once that exists.
+- [x] Garage door won't open in the cold: frozen seal, stiff springs, and opener force limits (2026-10-20, `garage-door-wont-open-in-cold`)
 
 ## Cadence guidance
 
