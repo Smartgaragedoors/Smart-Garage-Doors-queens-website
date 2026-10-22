@@ -16,7 +16,6 @@ import Contact from '../../components/feature/Contact';
 import Header from '../../components/feature/Header';
 import Footer from '../../components/feature/Footer';
 import DynamicMetaTags from '../../components/seo/DynamicMetaTags';
-import OrganizationSchema from '../../components/seo/OrganizationSchema';
 import LocalBusinessSchema from '../../components/seo/LocalBusinessSchema';
 import WebSiteSchema from '../../components/seo/WebSiteSchema';
 import { useLocation } from '../../contexts/LocationContext';
@@ -200,7 +199,6 @@ export default function HomePage() {
         description={`Rated ${BUSINESS_INFO.aggregateRating.ratingValue}/5 (${BUSINESS_INFO.aggregateRating.reviewCount}+ Google reviews). Garage door repair, springs, openers, install — NY, NJ & CT. Free total-price estimates incl. fees & taxes — (914) 557-6816.`}
       />
       <WebSiteSchema />
-      <OrganizationSchema />
       <LocalBusinessSchema locationName={location?.city} serviceArea={location?.city || 'New York'} />
       <Header />
       <Hero />

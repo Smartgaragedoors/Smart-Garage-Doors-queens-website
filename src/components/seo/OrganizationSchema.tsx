@@ -41,6 +41,7 @@ const OrganizationSchema: React.FC = () => {
       BUSINESS_INFO.socialMedia.instagram,
       BUSINESS_INFO.socialMedia.googleMaps,
       BUSINESS_INFO.socialMedia.yelp,
+      BUSINESS_INFO.socialMedia.thumbtack,
       BUSINESS_INFO.socialMedia.bingMaps,
     ],
     // Valley Dock Doors — the Eastern Pennsylvania commercial dock/overhead-door
