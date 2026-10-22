@@ -104,37 +104,10 @@ const ContactPage = () => {
             "description": "Get in touch with Smart Garage Doors for professional garage door services in NY, NJ & CT",
             "url": buildCanonical('/contact'),
             "mainEntity": {
-              "@type": "LocalBusiness",
-              "name": BUSINESS_INFO.name,
-              "url": BUSINESS_INFO.website,
-              "telephone": BUSINESS_INFO.phoneFormatted,
-              "email": BUSINESS_INFO.email,
-              "priceRange": BUSINESS_INFO.priceRange,
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": BUSINESS_INFO.addresses[0]!.streetAddress,
-                "addressLocality": BUSINESS_INFO.addresses[0]!.addressLocality,
-                "addressRegion": BUSINESS_INFO.addresses[0]!.addressRegion,
-                "postalCode": BUSINESS_INFO.addresses[0]!.postalCode,
-                "addressCountry": BUSINESS_INFO.addresses[0]!.addressCountry
-              },
-              "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": BUSINESS_INFO.addresses[0]!.latitude,
-                "longitude": BUSINESS_INFO.addresses[0]!.longitude
-              },
-              "openingHoursSpecification": {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-                "opens": "00:00",
-                "closes": "23:59"
-              },
-              "areaServed": BUSINESS_INFO.serviceAreas.map((a) => ({ "@type": a.type, "name": a.name })),
-              "sameAs": [
-                BUSINESS_INFO.socialMedia.facebook,
-                BUSINESS_INFO.socialMedia.instagram,
-                BUSINESS_INFO.socialMedia.googleMaps
-              ]
+              // Footer emits the shared organization on this page. Refer to
+              // that identity instead of inventing another business with its
+              // own coordinates and unverified seven-day opening hours.
+              "@id": `${BUSINESS_INFO.website}/#organization`
             }
           })
         }}
