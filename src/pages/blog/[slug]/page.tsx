@@ -66,7 +66,7 @@ const BLOG_POSTS: Record<string, {
       
       <p>When you are ready to fix a failing spring, schedule professional <a href="/spring-replacement/">garage door spring replacement service</a> so the work is done safely and correctly.</p>
     `,
-    image: "https://www.smartestgaragedoors.com/wp-content/uploads/2025/09/Lucid_Origin_A_beige_residential_garage_door_is_visibly_offtra_1_11zon.webp",
+    image: "/blog-images/signs-your-garage-door-spring-needs-replacement.webp",
     date: "2025-01-15",
     category: "Maintenance",
     readTime: "5 min read",
@@ -134,7 +134,7 @@ const BLOG_POSTS: Record<string, {
 
       <p><strong>Want a real number for your door?</strong> <a href="/photo-estimate/">Text us a photo</a> or call (914) 557-6816 — we'll tell you what it likely is and what it costs before a truck rolls. Serving Queens, Brooklyn, the Bronx, Long Island, Westchester, northern NJ, and Fairfield County, CT.</p>
     `,
-    image: "https://www.smartestgaragedoors.com/wp-content/uploads/2025/09/66fa98ef144265b84041c07c_650c22f8f072796f55e70d33_how_much_should_i_budget_for_garage_door_roller_replacement_11zon.jpeg",
+    image: "/blog-images/garage-door-repair-cost-guide-2025.webp",
     date: "2026-08-23",
     category: "Cost Guide",
     readTime: "8 min read",
@@ -197,7 +197,7 @@ const BLOG_POSTS: Record<string, {
       
       <p>If your door still will not close reliably, it is usually safest to <a href="/garage-door-repair/">book a professional garage door repair visit</a> so the underlying problem can be fixed before it damages other parts.</p>
     `,
-    image: "https://www.smartestgaragedoors.com/wp-content/uploads/2025/09/garage-top-roller-loose-from-door-and-looks-to-be-bending-v0-hqv1b7ru3svc1-1.webp",
+    image: "/blog-images/how-to-fix-garage-door-wont-close.webp",
     date: "2025-01-12",
     category: "Repair",
     readTime: "7 min read",
@@ -259,7 +259,7 @@ const BLOG_POSTS: Record<string, {
 
       <p><strong>Want it done before the freeze?</strong> Call (914) 557-6816 or <a href="/book-now/">book a maintenance visit</a>. We service Queens, Brooklyn, the Bronx, Long Island, Westchester, northern NJ, and Fairfield County, CT. And if it's already stuck, call our <a href="/emergency-garage-door-repair/">emergency line</a>.</p>
     `,
-    image: "https://www.smartestgaragedoors.com/wp-content/uploads/2025/09/wefc_11zon.webp",
+    image: "/blog-images/winter-garage-door-maintenance-tips.webp",
     date: "2026-08-23",
     category: "Maintenance",
     readTime: "7 min read",
@@ -342,7 +342,7 @@ const BLOG_POSTS: Record<string, {
 
       <p><strong>Stuck right now?</strong> Call (914) 557-6816 to check current availability across Queens, Brooklyn, the Bronx, Long Island, Westchester, northern NJ, and Fairfield County, CT. Full details on our <a href="/emergency-garage-door-repair/">emergency garage door repair page</a>.</p>
     `,
-    image: "https://www.smartestgaragedoors.com/wp-content/uploads/2025/09/erh_11zon.webp",
+    image: "/blog-images/emergency-garage-door-repair-guide.webp",
     date: "2026-08-23",
     category: "Emergency",
     readTime: "7 min read",
@@ -402,7 +402,7 @@ const BLOG_POSTS: Record<string, {
       
       <p>If you are unsure whether a repair is safe to handle yourself, it is always better to <a href="/garage-door-repair/">schedule a professional garage door repair visit</a> and let a trained technician take over.</p>
     `,
-    image: "https://www.smartestgaragedoors.com/wp-content/uploads/2025/09/Lucid_Origin_A_closeup_of_a_person_wearing_black_gloves_repair_0_11zon.webp",
+    image: "/blog-images/professional-vs-diy-garage-door-repair.webp",
     date: "2025-01-03",
     category: "Tips",
     readTime: "8 min read",
