@@ -524,3 +524,31 @@ is not a key event** even though calls are the main lead action. `book_click` is
 intent, not a lead (standing rule). Owner: GA4 Admin → Events → mark `call_click`
 as a key event; consider un-marking `book_click`; then map in Google Ads.
 
+
+## 2026-10-27 — Audit: purge remaining composed testimonials; data-driven plan
+
+**Decision: remove, don't replace.** 21 location pages (all from the 2026-05-13
+"Rebuild all 29 location pages" batch, `6476e5e`) still rendered three composed
+quotes each. The 2026-08 purge covered Queens/Brooklyn/Bronx/Staten Island and the
+newer pages but missed these. Verified against `googleReviews.generated.json`
+(0 of 63 present) and `git log -S` (Suffern's came from `bbba966` "replace composed
+reviews with real Google reviews" — kept). Set `reviews={[]}`; the template hides
+the section when the array is empty and no `reviewProfileUrl` is passed. The pages
+get thinner, which is acceptable: a fabricated review is an FTC liability and a
+trust failure, and the owner rule is explicit. Replacement is the real-jobs block
+used on Queens/Bronx, fed by CRM/QuickBooks — planned per page, not in bulk.
+
+**Decision: blog cadence changes, not volume.** 58 posts earn 343 impressions and
+1 click a month. New posts must target a query the site already receives
+impressions for (from `content_gaps` / `quick_wins`) and link up to one money page
+with an exact anchor. Ten briefs are in `../SEO-GROWTH-PLAN-2026-10-27.md`.
+
+**Decision: the five pages to deepen first** (demand already measured): emergency,
+Nassau + Long Island (consolidate roles: Nassau = county page, Long Island = hub),
+`/maintenance/`, Brooklyn neighborhoods, and a smart/Wi-Fi opener installation
+intent (~670 impressions/month at positions 4–9 landing on the homepage via the
+brand name). New city pages remain off the table.
+
+**Observation recorded:** GBP-UTM URLs appear as separate pages in GSC. When a
+profile's website field changes, its impressions move between URLs and look like
+decay. Always split UTM vs clean URLs before reading a trend.

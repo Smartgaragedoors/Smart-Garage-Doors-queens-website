@@ -1,5 +1,33 @@
 # Known Risks & Next Actions
 
+> **2026-10-27 — Full-site audit (Fable 5.1).** Plan and data in
+> `../SEO-GROWTH-PLAN-2026-10-27.md` (read it before planning content). Fixed:
+> **21 location pages still carried composed testimonials** from the 2026-05-13
+> template batch (63 quotes, none in the Google feed, several promising arrival
+> times) — all set to `reviews={[]}`; Suffern's four are real (`bbba966`) and kept.
+> Six legacy blog posts pointed at dead `wp-content` images (never rendered, but
+> shipped) — swapped for manifest paths. Two new diagnosis posts now link to the
+> emergency page. `tmp/`, `output/`, `outputs/`, root `*.png` gitignored. Five new
+> Post-Automation posts submitted to the Indexing API. 151/151 routes prerender.
+>
+> **Read the data correctly.** The clean homepage URL "decayed" on 2026-09-28
+> only because the Suffern GBP website link moved to `/suffern-ny/?utm…` that day;
+> the map-pack impressions moved with it. Two GBP-UTM URLs now carry ~10.5K of the
+> site's 17.8K monthly impressions. Pure organic is small: emergency page 2,317
+> impressions at position 17 with 0 clicks (biggest lever), Long Island 1,185 at
+> 52, the whole blog 343 impressions / 1 click. Real 28d decline: 82 → 59 clicks.
+>
+> **Not a defect:** rapid curl bursts from one IP get Vercel's platform challenge
+> page (`X-Vercel-Mitigated: challenge`, 403) — no custom firewall config exists on
+> the project and GSC shows Googlebot fetched the homepage fine on 2026-10-25.
+> Don't hammer production during audits; read `out/` locally instead.
+>
+> **Still open (owner/dashboard):** non-www → www is still a 307; `call_click` is
+> still not a GA4 key event; **`crm.smartestgaragedoors.com` is indexable** (200,
+> no noindex, no robots.txt, surfacing for brand searches) — fix in the CRM repo;
+> Apple Business location still "In Review". **Standing fact:** Post Automation
+> commits straight to `main` — `git pull` before every editing session.
+
 > **2026-09-10 — Full-site audit (Opus 5).** Fixed and deployed in three commits:
 > dead WordPress hero images on `/garage-door-repair/` and `/garage-door-installation/`
 > (403 → blank heroes); stale "479 reviews" in four county FAQs/FAQPage schema (now
