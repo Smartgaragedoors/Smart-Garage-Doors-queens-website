@@ -552,3 +552,37 @@ brand name). New city pages remain off the table.
 **Observation recorded:** GBP-UTM URLs appear as separate pages in GSC. When a
 profile's website field changes, its impressions move between URLs and look like
 decay. Always split UTM vs clean URLs before reading a trend.
+
+## 2026-10-27 — Deepen `/emergency-garage-door-repair/` (biggest page-2 query)
+
+**Why:** GSC shows "emergency garage door repair" at 2,196 impressions / position
+14.9 / 0 clicks, plus "…near me" (473, pos 20.6) and "…opener repair" (122). The
+page had climbed from 23.6 to ~15 since the September rebuild; it needed depth and
+internal links, not a title change (title 51 chars, description 156 — kept).
+
+**Decision: add question-phrased sections, reuse only published facts.** Three new
+H2s (emergency-vs-wait triage, what the technician does on arrival + what the
+customer can safely do, what it costs) and the service-area pills reworked into a
+"Where do we send emergency technicians?" block with natural anchors to the eight
+strongest location pages. Four emergency-specific FAQs added (power-outage manual
+release, trapped car + broken spring, off-track danger, emergency opener repair);
+FAQ schema still reads the same visible array. Every CTA is tracked
+(`emergency_garage_door_repair_{triage,cost,dispatch}`).
+
+**Facts reused, with source:** repairs $150–$300, spring $175–$350, opener repair
+$150–$350 (Brooklyn/Flushing/Bronx location FAQs, best-company pages); cable &
+roller $150–$300 (cable-cost + snapped-cable blog posts); new opener $349–$650 chain/
+belt, $749–$1,200 wall-mount (opener page); $115 no-repair service visit (Flushing
+FAQ, Queens job log); three real jobs (Queens/Brooklyn `recentJobs`); 1-year parts &
+labor warranty (trust bar, best-company pages); 200–300 lb door weight (existing
+FAQ). After-hours rate stays "can carry a higher rate" with a `TODO(owner):` in the
+code — a legacy spring-cost blog post says "+$75–$150" but nothing current confirms it.
+
+**Found, not fixed:** the site publishes two repair-price sets. Location pages and
+best-company pages say spring $175–$350 / repairs $150–$300 / opener $150–$350;
+`/garage-door-repair/` and the 2026 repair-cost-guide blog say spring $200–$550 /
+basic $150–$450 / opener $150–$500. The emergency page uses the location-page set.
+Owner should pick one; logged in `09-known-risks-and-next-actions.md`.
+
+**Not changed:** the homepage services grid already links the page with the exact
+anchor "Emergency Garage Door Repair" (`Services.tsx`) — no duplicate added.

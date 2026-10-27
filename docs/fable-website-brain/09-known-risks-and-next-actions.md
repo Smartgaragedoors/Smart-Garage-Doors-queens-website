@@ -273,3 +273,15 @@ is what remains.
 Fixed: broken installation photograph and Services breadcrumb, unsupported 2010 history claim, repeated town LocalBusiness/rating markup, Suffern shared contact routing, thin Queens/Suffern articles, stale blog index schema, booking location context/optional SMS/conversion guard, repeated blog images and build-wide fabricated lastmod. All current posts have unique local images and a duplicate-image build guard.
 
 Still needs account/business evidence: current Suffern GBP destination, diagnostic fee and warranty/financing scope, durable CRM acceptance/deduplication/notification delivery, exact Semrush external-link report. The root typecheck passes but the app-project typecheck still has existing errors; do not confuse that with full type safety. See the implementation report for scope and verification.
+
+## 2026-10-27 — emergency page deepening follow-ups
+
+- **Two conflicting repair-price sets are live.** Location pages + best-company
+  pages: repairs $150–$300, spring $175–$350, opener $150–$350. `/garage-door-repair/`
+  + the 2026 repair-cost-guide blog: basic $150–$450, spring $200–$550, opener
+  $150–$500. `/emergency-garage-door-repair/` now uses the first set. Owner picks one;
+  then align the other pages (and the legacy spring-cost post's "+$75–$150" after-
+  hours line, which no current page confirms).
+- `/emergency-garage-door-repair/` targets: page 1 for "emergency garage door repair"
+  within 6–8 weeks. Re-check GSC position and the three new CTA sources
+  (`emergency_garage_door_repair_triage/_cost/_dispatch`) in GA4 after 4 weeks.
