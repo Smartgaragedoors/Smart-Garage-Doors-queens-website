@@ -60,6 +60,61 @@ export interface LocationRecentJob {
   outcome: string;   // honest result line, e.g. 'Both doors on one visit — about $900 total'
 }
 
+// Optional intent-owning content blocks. County/region pages use these to make
+// one page clearly own one search intent (e.g. Nassau = replacement/tune-ups/
+// repair services; Long Island = regional hub + custom doors) instead of two
+// near-identical pages splitting the same queries. Facts inside them must
+// already be published elsewhere on the site — never invent prices or photos.
+export interface LocationFocusImage {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+}
+
+export interface LocationTextLink {
+  href: string;
+  label: string; // exact anchor text — keep it descriptive, no "click here"
+}
+
+export interface LocationFocusSection {
+  id?: string;
+  eyebrow?: string;
+  heading: string;        // rendered as H2 (text-2xl md:text-3xl, standing rule)
+  paragraphs: string[];
+  bullets?: string[];
+  links?: LocationTextLink[];
+  images?: LocationFocusImage[]; // real job/gallery photos only, 1–2
+}
+
+export interface LocationPriceRow {
+  item: string;
+  range: string;   // reuse ranges already published on a cost guide
+  notes?: string;
+}
+
+export interface LocationPricingBlock {
+  heading: string;
+  intro?: string;
+  rows: LocationPriceRow[];
+  footnote?: string;
+  link?: LocationTextLink; // e.g. the full cost guide, exact anchor
+}
+
+export interface LocationAreaLink {
+  href: string;
+  label: string;
+  description?: string; // rendered outside the <a> so the anchor stays exact
+}
+
+export interface LocationAreaLinks {
+  heading: string;
+  intro?: string;
+  featured?: LocationAreaLink[]; // cards: county/region pages with exact anchors
+  townsTitle?: string;
+  towns?: LocationAreaLink[];    // pills: town pages
+}
+
 export interface LocationPageTemplateProps {
   // SEO
   metaTitle: string;
@@ -74,8 +129,17 @@ export interface LocationPageTemplateProps {
   reviewCount?: number;
   reviewLabel?: string;
   reviewProfileUrl?: string;
+  // When the linked Google profile is the company's main listing rather than a
+  // profile for this city, pass a label like "Smart Garage Doors Google profile"
+  // so the copy never claims a "{city} Google profile" that does not exist.
+  reviewProfileLabel?: string;
   localIntroduction?: string;
   recentJobsPeriod?: string;
+
+  // Hero H1 override. Default is "Garage Door Repair in {city}, {state}"; a
+  // county/region page can widen it to the intents it owns (e.g. "Garage Door
+  // Repair, Replacement & Tune-Ups in Nassau County"). Exactly one H1 either way.
+  heroTitle?: string;
 
   // Phone override — defaults to the global business number, but a location with
   // its own local line (e.g. Suffern's 845 number) can pass a local number so the
@@ -111,6 +175,13 @@ export interface LocationPageTemplateProps {
   // Same rule: never fabricate an entry, never include a house number or a
   // customer name — neighborhood or street name only.
   recentJobs?: LocationRecentJob[];
+
+  // Intent-owning sections rendered right after the services grid, in order.
+  focusSections?: LocationFocusSection[];
+  // "What {city} homeowners pay" table — rows reused from a published cost guide.
+  pricingBlock?: LocationPricingBlock;
+  // County ⇄ town ⇄ region link hub with exact anchors (rendered after neighborhoods).
+  areaLinks?: LocationAreaLinks;
 }
 
 const PHONE_DEFAULT     = BUSINESS_INFO.phone;
@@ -180,8 +251,10 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
     reviewCount = Number(BUSINESS_INFO.aggregateRating.reviewCount),
     reviewLabel = 'company reviews',
     reviewProfileUrl,
+    reviewProfileLabel,
     localIntroduction,
     recentJobsPeriod,
+    heroTitle,
     heroImage,
     geo,
     neighborhoods, reviews, faqs,
@@ -193,6 +266,9 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
     phoneTel = PHONE_TEL_DEFAULT,
     localJobPhotos,
     recentJobs,
+    focusSections,
+    pricingBlock,
+    areaLinks,
   } = props;
 
   const city  = cityName;
@@ -200,6 +276,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
   const PHONE     = phone;
   const PHONE_TEL = phoneTel;
   const trust     = BUSINESS_INFO.trust;
+  const profileLabel = reviewProfileLabel ?? `${city} Google profile`;
 
   return (
     <div className="min-h-screen bg-white">
@@ -259,7 +336,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
             </p>
             {/* H1 — keyword + location preserved for local SEO, premium serif */}
             <h1 className="font-newsreader font-medium text-4xl md:text-5xl lg:text-6xl mb-5 leading-[1.05] tracking-[-0.02em]">
-              Garage Door Repair in {city}, {state}
+              {heroTitle ?? `Garage Door Repair in ${city}, ${state}`}
             </h1>
             <p className="text-lg md:text-xl text-gray-200 mb-6 max-w-2xl mx-auto leading-relaxed">
               {localIntroduction || 'Total-price quotes before work starts and a 1-year warranty on every job. Licensed & insured, with an emergency line for urgent repairs.'}
@@ -301,7 +378,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
             </div>
             {reviewProfileUrl && (
               <a href={reviewProfileUrl} target="_blank" rel="noopener noreferrer" className="inline-block mt-5 text-sm text-orange-200 underline underline-offset-4 hover:text-white">
-                Read reviews on our {city} Google profile
+                Read reviews on our {profileLabel}
               </a>
             )}
           </div>
@@ -415,6 +492,105 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
         </div>
       </section>
 
+      {/* ── INTENT SECTIONS (county/region pages: replacement, tune-ups, repair, custom doors) ── */}
+      {focusSections && focusSections.map((sec, i) => {
+        const images = sec.images ?? [];
+        const hasImages = images.length > 0;
+        return (
+          <section key={sec.heading} id={sec.id} className={`py-8 md:py-12 ${i % 2 === 0 ? 'bg-gray-50' : 'bg-white'}`}>
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className={`grid gap-8 lg:gap-12 items-start ${hasImages ? 'lg:grid-cols-2' : ''}`}>
+                <div className={hasImages ? '' : 'max-w-3xl mx-auto'}>
+                  {sec.eyebrow && (
+                    <p className="text-xs font-semibold uppercase tracking-wide text-orange-600 mb-2">{sec.eyebrow}</p>
+                  )}
+                  <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">{sec.heading}</h2>
+                  {sec.paragraphs.map((para, j) => (
+                    <p key={j} className="text-gray-600 leading-relaxed mb-4">{para}</p>
+                  ))}
+                  {sec.bullets && sec.bullets.length > 0 && (
+                    <ul className="space-y-2 mb-4">
+                      {sec.bullets.map((b, j) => (
+                        <li key={j} className="flex items-start gap-2 text-sm text-gray-700">
+                          <i className="ri-check-line text-orange-500 mt-0.5 flex-shrink-0" aria-hidden="true" />
+                          <span>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  {sec.links && sec.links.length > 0 && (
+                    <p className="flex flex-wrap gap-x-5 gap-y-2 mt-2 text-sm">
+                      {sec.links.map((l) => (
+                        <a key={l.href + l.label} href={l.href} className="font-semibold text-blue-700 underline underline-offset-4 hover:text-blue-900">
+                          {l.label}
+                        </a>
+                      ))}
+                    </p>
+                  )}
+                </div>
+                {hasImages && (
+                  <div className={`grid gap-4 ${images.length > 1 ? 'sm:grid-cols-2' : ''}`}>
+                    {images.map((img) => (
+                      <figure key={img.src} className="rounded-xl overflow-hidden border border-gray-200 bg-white">
+                        <img
+                          src={img.src}
+                          alt={img.alt}
+                          width={img.width}
+                          height={img.height}
+                          loading="lazy"
+                          className="w-full aspect-[4/3] object-cover"
+                        />
+                      </figure>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          </section>
+        );
+      })}
+
+      {/* ── WHAT HOMEOWNERS PAY (rows reused from a published cost guide) ── */}
+      {pricingBlock && (
+        <section className={`py-8 md:py-12 ${(focusSections?.length ?? 0) % 2 === 0 ? 'bg-gray-50' : 'bg-white'}`}>
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">{pricingBlock.heading}</h2>
+              {pricingBlock.intro && <p className="text-gray-600 max-w-2xl mx-auto">{pricingBlock.intro}</p>}
+            </div>
+            <div className="rounded-2xl overflow-x-auto border border-gray-200 bg-white shadow-sm">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-blue-900 text-white">
+                    <th className="px-4 py-3 text-left font-semibold">Door or service</th>
+                    <th className="px-4 py-3 text-left font-semibold whitespace-nowrap">Typical total</th>
+                    <th className="px-4 py-3 text-left font-semibold hidden sm:table-cell">Notes</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  {pricingBlock.rows.map((row, i) => (
+                    <tr key={row.item} className={i % 2 === 1 ? 'bg-gray-50' : 'bg-white'}>
+                      <td className="px-4 py-3 font-medium text-gray-900">{row.item}</td>
+                      <td className="px-4 py-3 whitespace-nowrap font-semibold text-gray-900">{row.range}</td>
+                      <td className="px-4 py-3 text-gray-600 hidden sm:table-cell">{row.notes}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            {pricingBlock.footnote && <p className="text-xs text-gray-500 mt-3">{pricingBlock.footnote}</p>}
+            {pricingBlock.link && (
+              <p className="mt-5 text-center text-gray-700">
+                Full breakdown:{' '}
+                <a href={pricingBlock.link.href} className="font-semibold text-blue-700 underline underline-offset-4 hover:text-blue-900">
+                  {pricingBlock.link.label}
+                </a>
+              </p>
+            )}
+          </div>
+        </section>
+      )}
+
       {/* ── HOW IT WORKS ──────────────────────────────────────────── */}
       <section className="py-8 md:py-12 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -519,6 +695,48 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
         </div>
       </section>
 
+      {/* ── AREA LINK HUB (county ⇄ towns ⇄ region, exact anchors) ─── */}
+      {areaLinks && (
+        <section className="py-8 md:py-12 bg-gray-50">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">{areaLinks.heading}</h2>
+              {areaLinks.intro && <p className="text-gray-600 max-w-2xl mx-auto">{areaLinks.intro}</p>}
+            </div>
+            {areaLinks.featured && areaLinks.featured.length > 0 && (
+              <div className="grid sm:grid-cols-2 gap-5 mb-8">
+                {areaLinks.featured.map((l) => (
+                  <div key={l.href} className="rounded-xl border border-gray-200 bg-white p-5">
+                    <a href={l.href} className="font-semibold text-blue-800 underline underline-offset-4 hover:text-blue-900">
+                      {l.label}
+                    </a>
+                    {l.description && <p className="text-sm text-gray-600 mt-2 leading-relaxed">{l.description}</p>}
+                  </div>
+                ))}
+              </div>
+            )}
+            {areaLinks.towns && areaLinks.towns.length > 0 && (
+              <>
+                {areaLinks.townsTitle && (
+                  <p className="text-center text-sm font-semibold uppercase tracking-wide text-gray-500 mb-4">{areaLinks.townsTitle}</p>
+                )}
+                <div className="flex flex-wrap justify-center gap-3">
+                  {areaLinks.towns.map((t) => (
+                    <a
+                      key={t.href}
+                      href={t.href}
+                      className="rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-800 transition-colors hover:border-orange-300 hover:bg-orange-50"
+                    >
+                      {t.label}
+                    </a>
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
+        </section>
+      )}
+
       {/* ── REVIEWS (skipped when a location has no attributable quotes) ── */}
       {(reviews.length > 0 || reviewProfileUrl) && (
       <section className="py-8 md:py-12 bg-white">
@@ -527,7 +745,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
               What {city} Customers Say
             </h2>
-            <p className="text-gray-600">{reviewProfileUrl ? `Read customer feedback on our ${city} Google profile.` : 'Real reviews from your neighbors'}</p>
+            <p className="text-gray-600">{reviewProfileUrl ? `Read customer feedback on our ${profileLabel}.` : 'Real reviews from your neighbors'}</p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {reviews.slice(0, 3).map((r, i) => (
@@ -554,7 +772,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
               className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium transition-colors"
             >
               <i className="ri-external-link-line" aria-hidden="true" />
-              {reviewProfileUrl ? `See ${city} reviews on Google` : 'See company reviews on Google'}
+              {reviewProfileUrl ? (reviewProfileLabel ? 'See reviews on Google' : `See ${city} reviews on Google`) : 'See company reviews on Google'}
             </a>
           </div>
         </div>

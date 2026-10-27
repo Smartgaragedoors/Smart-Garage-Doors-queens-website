@@ -552,3 +552,37 @@ brand name). New city pages remain off the table.
 **Observation recorded:** GBP-UTM URLs appear as separate pages in GSC. When a
 profile's website field changes, its impressions move between URLs and look like
 decay. Always split UTM vs clean URLs before reading a trend.
+
+
+## 2026-10-27 — Nassau County vs Long Island: one intent, one page
+
+**Decision: Nassau = the county page, Long Island = the regional hub.** GSC (28d)
+showed `/long-island-ny/` (1,185 impressions, position 52) and `/nassau-county-ny/`
+competing for the same Nassau queries and both losing ("garage door replacement
+nassau county" 149 impressions: Nassau page 48.6, Long Island 65.7, cost guide 94).
+Nassau now owns replacement/installation, tune-ups/maintenance and repair services
+(three H2 sections), carries a "What Nassau County homeowners pay" table whose rows
+are copied verbatim from `/garage-door-replacement-cost-nassau-county/`, and links
+to the nine Nassau town pages. Long Island keeps the island-wide repair and
+custom-door intents, lost its Nassau-specific pricing detail, and links down to
+`/nassau-county-ny/` and `/suffolk-county-ny/` with exact anchors ("Garage door
+repair in Nassau County" / "Garage door repair in Suffolk County"). Titles and H1s
+changed on both so they no longer read as the same page.
+
+**Template extended, not forked.** `LocationPageTemplate` gained optional
+`heroTitle`, `reviewProfileLabel`, `focusSections[]`, `pricingBlock` and
+`areaLinks`. `reviewProfileLabel` exists because the only Google profile is the
+company's main listing — the template's default copy would otherwise claim a
+"Nassau County Google profile" that does not exist.
+
+**Proof, honestly.** `googleReviews.generated.json` has no Nassau- or Long
+Island-tagged quotes, so both pages use `reviewProfileUrl` (main Google profile)
+instead of quotes. The only real Nassau job in the repo (Great Neck belt/track,
+~$1,730, owner's job export) is reused on the Nassau page; no Suffolk/Long Island
+job records exist, so Long Island has no `recentJobs` — `TODO(owner)` in both
+files. The Long Island "Hamptons / North Fork" service claim contradicted the
+Suffolk page (western and central Suffolk only) and was downgraded to call-ahead
+pending owner confirmation. Valley Stream has no page, so it is named but not
+linked. The `/maintenance/` plan prices ($99–$399/yr) were deliberately not
+repeated on Nassau because the audit flagged them as owner-unconfirmed; the page
+links to `/maintenance/` instead.
