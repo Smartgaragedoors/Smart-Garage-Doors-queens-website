@@ -1,4 +1,6 @@
 import { getLocationContact, getBookingHref } from '../../config/branchContacts';
+import PricingNote from './PricingNote';
+import { mentionsPrice } from '../../config/pricing';
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { formatBlogDate } from '../../utils/blogFormat';
@@ -167,6 +169,10 @@ export default function BlogPostTemplate({
                   prose-ul:my-4 prose-ol:my-4"
                 dangerouslySetInnerHTML={{ __html: content }}
               />
+
+              {mentionsPrice(content) && (
+                <PricingNote lang={/garaje/i.test(content) ? 'es' : 'en'} className="mt-6" />
+              )}
 
               {faqs && faqs.length > 0 && (
                 <section className="mt-12 pt-10 border-t border-gray-200">

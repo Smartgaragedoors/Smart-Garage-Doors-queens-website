@@ -5,6 +5,8 @@ import Breadcrumbs from '../../../components/seo/Breadcrumbs';
 import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
 import FAQSchema from '../../../components/seo/FAQSchema';
 import ServiceAreaLinks from '../../../components/seo/ServiceAreaLinks';
+import PricingNote from '../../../components/feature/PricingNote';
+import { PRICING, fromPrice, formatPrice } from '../../../config/pricing';
 import { useLocation } from '../../../contexts/LocationContext';
 import { submitForm } from '../../../utils/formSubmission';
 import { BUSINESS_INFO } from '../../../config/business-info';
@@ -82,40 +84,40 @@ const CAN_WAIT = [
   'A dented panel or torn weather seal with the door still running',
 ];
 
-// Published price ranges reused from the borough and service pages — see the
-// PR body for the source file of every figure. These are total prices
-// (parts, labor, fees, surcharges, tax) given before work starts.
-// TODO(owner): confirm the after-hours / weekend / holiday rate. A legacy
-// spring-cost blog post lists "+$75–$150" but the current pages only say
-// "can carry a higher rate", so no number is shown here until confirmed.
+// Starting prices from src/config/pricing.ts (owner rule 2026-11-02: the site
+// shows "From $X" only, never ranges, and <PricingNote /> sits under every
+// price block). The figures are the low ends the borough and service pages
+// already published — see the PR body for the source of each.
+// TODO(owner): confirm the after-hours / weekend / holiday rate. Current pages
+// only say "can carry a higher rate", so no number is shown until confirmed.
 const COSTS = [
   {
     job: 'Basic repairs — sensor realignment, door reseated on its track, hinges, bottom brackets',
-    range: '$150–$300',
+    price: fromPrice(PRICING.repairFrom),
     href: '/garage-door-repair/',
     label: 'Garage door repair',
   },
   {
     job: 'Spring replacement — torsion or extension, replaced in pairs and rebalanced',
-    range: '$175–$350',
+    price: fromPrice(PRICING.springFrom),
     href: '/spring-replacement/',
     label: 'Spring replacement',
   },
   {
     job: 'Cable & roller repair — cables replaced in pairs, worn rollers swapped, door rebalanced',
-    range: '$150–$300',
+    price: fromPrice(PRICING.cableRollerFrom),
     href: '/cable-roller-repair/',
     label: 'Cable & roller repair',
   },
   {
     job: 'Opener repair — photo-eyes, logic board, drive gear, motor, travel limits',
-    range: '$150–$350',
+    price: fromPrice(PRICING.openerRepairFrom),
     href: '/opener-repair-installation/',
     label: 'Opener repair',
   },
   {
-    job: 'New opener installed, if the old unit isn’t worth fixing — chain or belt drive; wall-mount units run $749–$1,200',
-    range: '$349–$650',
+    job: `New opener installed, if the old unit isn’t worth fixing — chain drive; belt drive from ${formatPrice(PRICING.beltOpenerFrom)}, wall-mount from ${formatPrice(PRICING.wallMountOpenerFrom)}`,
+    price: fromPrice(PRICING.openerInstallFrom),
     href: '/opener-repair-installation/',
     label: 'Opener installation',
   },
@@ -231,12 +233,12 @@ export default function EmergencyRepairsPage() {
     {
       question: 'Do you charge extra for emergency or after-hours service?',
       answer:
-        'After-hours and holiday appointments may carry a higher rate than a scheduled daytime appointment. Either way, the quote you receive is the total price, inclusive of any fees, surcharges, and applicable taxes, and you get it before any work starts. If a repair can safely wait until morning and save you money, we’ll tell you that too.',
+        'After-hours and holiday appointments may carry a higher rate than a scheduled daytime appointment. Either way, the quote you receive is one total price — including any fees, surcharges and taxes — and it is confirmed before any work starts. If a repair can safely wait until morning and save you money, we’ll tell you that too.',
     },
     {
       question: 'How much does emergency garage door repair cost?',
       answer:
-        'The repair itself is priced the same as a scheduled one. Basic repairs such as sensor realignment or reseating a door on its track run $150–$300, spring replacement $175–$350, cable and roller repair $150–$300, and opener repair $150–$350 — each a total price including parts, labor, fees, and tax, quoted before work starts. If the technician finds nothing wrong, you pay the $115 service visit and nothing more.',
+        `The repair itself is priced the same as a scheduled one. Basic repairs such as sensor realignment or reseating a door on its track start from ${formatPrice(PRICING.repairFrom)}, spring replacement from ${formatPrice(PRICING.springFrom)}, cable and roller repair from ${formatPrice(PRICING.cableRollerFrom)}, and opener repair from ${formatPrice(PRICING.openerRepairFrom)}. Those are starting prices for standard residential doors; your total — parts, labor, fees and tax — is confirmed before work starts. If the technician finds nothing wrong, you pay the ${formatPrice(PRICING.diagnosticVisit)} service visit and nothing more.`,
     },
     {
       question: 'My garage door won’t close and I have to leave. What do I do?',
@@ -251,22 +253,22 @@ export default function EmergencyRepairsPage() {
     {
       question: 'My car is trapped behind a door with a broken spring. What happens when you come out?',
       answer:
-        'The technician replaces the spring pair, rebalances the door, and checks the cables, drums, and bearings the break may have damaged, so the door can be opened safely — usually in the same visit, because springs are carried on the truck. Until then, don’t lift the door or pull the release cord. Spring replacement runs $175–$350 as a total price quoted before any work starts. Call for an exact ETA; the dispatcher confirms a window with you on the phone.',
+        `The technician replaces the spring pair, rebalances the door, and checks the cables, drums, and bearings the break may have damaged, so the door can be opened safely — usually in the same visit, because springs are carried on the truck. Until then, don’t lift the door or pull the release cord. Spring replacement starts from ${formatPrice(PRICING.springFrom)}; your total is confirmed before any work starts. Call for an exact ETA; the dispatcher confirms a window with you on the phone.`,
     },
     {
       question: 'The power is out and my opener is dead. Can I open the door by hand?',
       answer:
-        'Usually, yes — as long as the springs are intact. With the door fully closed, pull the red emergency-release cord so the trolley disconnects, then lift the door with both hands. A balanced door lifts with moderate effort and stays put at waist height; if it feels like dead weight or wants to slam down, a spring is broken — stop and call. When power returns, pull the cord again or run the opener to re-engage. Many newer openers have a battery backup for short outages. If the opener still won’t run once the power is back, that’s an opener repair, typically $150–$350.',
+        `Usually, yes — as long as the springs are intact. With the door fully closed, pull the red emergency-release cord so the trolley disconnects, then lift the door with both hands. A balanced door lifts with moderate effort and stays put at waist height; if it feels like dead weight or wants to slam down, a spring is broken — stop and call. When power returns, pull the cord again or run the opener to re-engage. Many newer openers have a battery backup for short outages. If the opener still won’t run once the power is back, that’s an opener repair, from ${formatPrice(PRICING.openerRepairFrom)}.`,
     },
     {
       question: 'Is a garage door that has come off its track dangerous?',
       answer:
-        'Yes. The rollers and cables are what keep a 200-to-300-pound door in line; once it’s off, the door can jam, twist, or drop. Don’t run the opener and don’t try to force it back into the track. Keep people and pets out of the garage, unplug the opener, and call. Reseating a door and replacing damaged rollers is usually a basic repair ($150–$300) if it’s caught before the panels bend.',
+        `Yes. The rollers and cables are what keep a 200-to-300-pound door in line; once it’s off, the door can jam, twist, or drop. Don’t run the opener and don’t try to force it back into the track. Keep people and pets out of the garage, unplug the opener, and call. Reseating a door and replacing damaged rollers is usually a basic repair (from ${formatPrice(PRICING.repairFrom)}) if it’s caught before the panels bend.`,
     },
     {
       question: 'Do you do emergency garage door opener repair?',
       answer:
-        'Yes. A dead motor, stripped drive gear, failed logic board, misaligned photo-eyes, or a wall button or remote that stopped working are same-visit repairs in most cases. Opener repair runs $150–$350. If the unit is old enough that a new opener makes more sense, a chain or belt drive installed runs $349–$650 — and we tell you which case you’re in before quoting, not after.',
+        `Yes. A dead motor, stripped drive gear, failed logic board, misaligned photo-eyes, or a wall button or remote that stopped working are same-visit repairs in most cases. Opener repair starts from ${formatPrice(PRICING.openerRepairFrom)}. If the unit is old enough that a new opener makes more sense, a new chain-drive opener installed starts from ${formatPrice(PRICING.openerInstallFrom)} — and we tell you which case you’re in before quoting, not after.`,
     },
     {
       question: 'Do you handle emergency repairs on all garage door brands and openers?',
@@ -628,15 +630,15 @@ export default function EmergencyRepairsPage() {
             The repair itself is priced the same as a scheduled one; after-hours, weekend and holiday
             appointments can carry a higher rate than a daytime slot, and we tell you that on the phone. Every
             quote is the total price — parts, labor, any fees or surcharges, and tax — given before work
-            starts. There is no “we’ll see once we open it up.” These are the ranges we publish across our
-            service and borough pages:
+            starts. There is no “we’ll see once we open it up.” These are the starting prices we publish across
+            our service and borough pages; parts and labor vary by job:
           </p>
           <div className="overflow-x-auto rounded-xl border border-gray-200">
             <table className="w-full text-sm text-left">
               <thead className="bg-gray-50 text-gray-900">
                 <tr>
                   <th scope="col" className="px-4 py-3 font-semibold">Repair</th>
-                  <th scope="col" className="px-4 py-3 font-semibold whitespace-nowrap">Total price</th>
+                  <th scope="col" className="px-4 py-3 font-semibold whitespace-nowrap">Starting price</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
@@ -648,14 +650,15 @@ export default function EmergencyRepairsPage() {
                         {row.label} →
                       </a>
                     </td>
-                    <td className="px-4 py-3 font-bold text-gray-900 whitespace-nowrap">{row.range}</td>
+                    <td className="px-4 py-3 font-bold text-gray-900 whitespace-nowrap">{row.price}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
+          <PricingNote className="mt-3" />
           <p className="mt-4 text-sm text-gray-600 leading-relaxed">
-            If the technician finds nothing wrong, you pay the $115 service visit and nothing more. Every
+            If the technician finds nothing wrong, you pay the {formatPrice(PRICING.diagnosticVisit)} service visit and nothing more. Every
             repair carries our 1-year parts and labor warranty. Panel and section damage is quoted per door
             because it depends on whether the manufacturer still makes a matching section.
           </p>
@@ -859,6 +862,7 @@ export default function EmergencyRepairsPage() {
               </div>
             ))}
           </div>
+          <PricingNote align="center" className="mt-6" />
         </div>
       </section>
 

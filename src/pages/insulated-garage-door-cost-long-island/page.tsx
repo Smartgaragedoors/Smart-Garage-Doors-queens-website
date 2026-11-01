@@ -22,21 +22,21 @@ export default function InsulatedGarageDoorCostLongIslandPage() {
       costTable={{
         title: '2026 Insulated Garage Door Costs on Long Island',
         caption:
-          'Typical installed ranges for our service area; every home differs — we quote the exact price upfront before any work begins.',
+          'Starting prices, installed, for our service area; every home differs — we quote the exact total before any work begins.',
         rows: [
           {
             item: 'Double-layer steel + polystyrene (single door)',
-            range: '$1,200–$2,000',
+            range: 'From $1,200',
             notes: 'Steel skin with rigid foam backing; roughly R-6 to R-9',
           },
           {
             item: 'Triple-layer steel + polyurethane (single door)',
-            range: '$1,800–$2,800',
+            range: 'From $1,800',
             notes: 'Steel-foam-steel sandwich; roughly R-12 to R-18, quietest construction',
           },
           {
             item: 'Insulated carriage-style door',
-            range: '$2,500–$6,500',
+            range: 'From $2,500',
             notes: 'Carriage looks over an insulated steel core; hardware and window options',
           },
           {
@@ -46,7 +46,7 @@ export default function InsulatedGarageDoorCostLongIslandPage() {
           },
           {
             item: 'LiftMaster belt-drive WiFi opener (add-on)',
-            range: '$450–$900 installed',
+            range: 'From $450 installed',
             notes: 'Pairs with an insulated door for the quietest overall setup',
           },
         ],
@@ -96,7 +96,7 @@ export default function InsulatedGarageDoorCostLongIslandPage() {
           heading: 'Quieter Operation — the Benefit Nobody Shops For',
           paragraphs: [
             "Homeowners buy insulated doors for warmth and end up raving about the silence. The foam core deadens the vibration that makes a hollow steel door rattle and boom through the tracks, and the heavier, stiffer panels ride more smoothly. The difference is obvious the first time you run the new door.",
-            "If quiet is a priority — early-morning commutes, a light-sleeping household, a bedroom over the garage — pair the insulated door with a LiftMaster belt-drive opener ($450–$900 installed). The belt drive eliminates the chain clatter, and the combination is about as close to silent as a garage door gets.",
+            "If quiet is a priority — early-morning commutes, a light-sleeping household, a bedroom over the garage — pair the insulated door with a LiftMaster belt-drive opener (from $450 installed). The belt drive eliminates the chain clatter, and the combination is about as close to silent as a garage door gets.",
           ],
         },
         {
@@ -126,7 +126,7 @@ export default function InsulatedGarageDoorCostLongIslandPage() {
         {
           question: 'How much more does an insulated door cost than a regular one?',
           answer:
-            "A standard single-layer steel door runs $800–$1,600 installed; a double-layer insulated door runs $1,200–$2,000; a premium triple-layer polyurethane door runs $1,800–$2,800. So the step up is typically $400–$1,200 depending on how far you go. These are typical ranges for our service area — we quote your exact price upfront before any work begins.",
+            "A standard single-layer steel door runs from $800 installed; a double-layer insulated door runs from $1,200; a premium triple-layer polyurethane door runs from $1,800. So the step up is typically from $400 depending on how far you go. These are typical ranges for our service area — we quote your exact price upfront before any work begins.",
         },
         {
           question: 'Do insulated garage doors really run quieter?',
@@ -139,7 +139,7 @@ export default function InsulatedGarageDoorCostLongIslandPage() {
             "We install premium lines from Clopay, Wayne Dalton, and Amarr — all of which offer double-layer polystyrene and triple-layer polyurethane construction in a wide range of styles, colors, and window options, including insulated carriage-style designs. We'll match the brand and series to your budget and your home rather than pushing one label.",
         },
       ]}
-      bottomLine="On Long Island, an insulated garage door runs $1,200–$2,000 installed for a double-layer door and $1,800–$2,800 for a premium triple-layer polyurethane door — typically $400–$1,200 more than a basic steel door. If your garage is attached or has a room above it, that difference buys real comfort, real quiet, and a sturdier door. Text us photos of your current door and we'll give you an exact installed price upfront, before any work begins."
+      bottomLine="On Long Island, an insulated garage door runs from $1,200 installed for a double-layer door and from $1,800 for a premium triple-layer polyurethane door — typically from $400 more than a basic steel door. If your garage is attached or has a room above it, that difference buys real comfort, real quiet, and a sturdier door. Text us photos of your current door and we'll give you an exact installed price upfront, before any work begins."
       relatedLinks={{
         title: 'Long Island Areas We Serve',
         links: [

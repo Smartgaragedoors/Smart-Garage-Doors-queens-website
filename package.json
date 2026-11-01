@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run verify:blog-images && npm run generate-sitemap && vite build",
+    "build": "npm run verify:pricing && npm run verify:blog-images && npm run generate-sitemap && vite build",
     "prerender": "node scripts/prerender.mjs",
     "build:seo": "npm run build && npm run prerender",
     "typecheck": "tsc -p tsconfig.app.json --noEmit && tsc -p tsconfig.node.json --noEmit",
@@ -19,7 +19,8 @@
     "test:form": "node scripts/test-form-submission.js",
     "test:form:local": "node scripts/test-form-submission.js http://localhost:3042",
     "backfill:workspaces:phase1": "node scripts/backfill-workspaces-phase1.js",
-    "verify:blog-images": "node scripts/verify-blog-images.mjs"
+    "verify:blog-images": "node scripts/verify-blog-images.mjs",
+    "verify:pricing": "node scripts/verify-pricing.mjs"
   },
   "dependencies": {
     "@stripe/react-stripe-js": "4.0.2",

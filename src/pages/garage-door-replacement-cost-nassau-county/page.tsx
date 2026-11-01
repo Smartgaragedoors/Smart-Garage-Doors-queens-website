@@ -21,31 +21,31 @@ export default function GarageDoorReplacementCostNassauCountyPage() {
       costTable={{
         title: '2026 Garage Door Replacement Costs in Nassau County',
         caption:
-          'Typical installed ranges for our service area; every home differs — we quote the exact price upfront before any work begins.',
+          'Starting prices, installed, for our service area; every home differs — we quote the exact total before any work begins.',
         rows: [
           {
             item: 'Standard single steel door (8x7 or 9x7)',
-            range: '$800–$1,600',
+            range: 'From $800',
             notes: 'Single-layer steel, basic panel styles, standard hardware',
           },
           {
             item: 'Insulated double-layer steel',
-            range: '$1,200–$2,000',
+            range: 'From $1,200',
             notes: 'Steel + polystyrene backing; warmer, sturdier, quieter',
           },
           {
             item: 'Insulated triple-layer steel (premium quiet)',
-            range: '$1,800–$2,800',
+            range: 'From $1,800',
             notes: 'Steel-insulation-steel sandwich; best R-value and quietest operation',
           },
           {
             item: 'Carriage-style door',
-            range: '$2,500–$6,500',
+            range: 'From $2,500',
             notes: 'Overlay or stamped carriage designs, decorative hardware, window options',
           },
           {
             item: 'Custom, wood, or full-view glass',
-            range: '$4,000–$10,000+',
+            range: 'From $4,000',
             notes: 'True wood, custom sizing, aluminum-and-glass modern doors',
           },
           {
@@ -55,7 +55,7 @@ export default function GarageDoorReplacementCostNassauCountyPage() {
           },
           {
             item: 'LiftMaster belt-drive WiFi opener (add-on)',
-            range: '$450–$900 installed',
+            range: 'From $450 installed',
             notes: 'Quiet belt drive, myQ smartphone control, battery backup options',
           },
         ],
@@ -105,9 +105,9 @@ export default function GarageDoorReplacementCostNassauCountyPage() {
           heading: 'How to Budget: Good, Better, Best',
           paragraphs: [
             "If you just want a working number to plan around, here's how we'd frame it for a typical Nassau County single-car opening. For a double-car door, scale up accordingly.",
-            "Good — around $800–$1,600: a quality single-layer steel door in a standard panel style. Clean, durable, and a big visual upgrade over a dented or faded door. Right for detached garages and budget-focused projects.",
-            "Better — around $1,200–$2,800: an insulated double- or triple-layer steel door. This is the sweet spot for attached garages — better comfort, quieter operation, sturdier panels, and the widest range of colors and window options. It's where most Long Island homeowners land.",
-            "Best — $2,500 and up: carriage-style and custom doors. Overlay carriage designs run $2,500–$6,500 installed; true wood, full-view glass, and custom builds run $4,000–$10,000+. These are statement doors for homes where curb appeal carries real value.",
+            "Good — from $800: a quality single-layer steel door in a standard panel style. Clean, durable, and a big visual upgrade over a dented or faded door. Right for detached garages and budget-focused projects.",
+            "Better — from $1,200: an insulated double- or triple-layer steel door. This is the sweet spot for attached garages — better comfort, quieter operation, sturdier panels, and the widest range of colors and window options. It's where most Long Island homeowners land.",
+            "Best — $2,500 and up: carriage-style and custom doors. Overlay carriage designs run from $2,500 installed; true wood, full-view glass, and custom builds run from $4,000. These are statement doors for homes where curb appeal carries real value.",
             "Financing and 0% promotional options are available on door replacements, so a 'better' or 'best' door doesn't have to mean paying the whole project on day one. Ask when you call and we'll walk you through it.",
           ],
         },
@@ -116,7 +116,7 @@ export default function GarageDoorReplacementCostNassauCountyPage() {
         {
           question: 'How much does a new garage door cost in Nassau County?',
           answer:
-            "Most replacements land between $800 and $2,800 installed: roughly $800–$1,600 for a standard single steel door and $1,200–$2,800 for an insulated double- or triple-layer door. Carriage-style doors run $2,500–$6,500, and custom, wood, or full-view glass doors run $4,000–$10,000+. These are typical ranges for our service area — every home differs, so we confirm the exact price upfront before any work begins.",
+            "Most replacements start from $800 installed: from $800 for a standard single steel door and from $1,200 for an insulated double- or triple-layer door. Carriage-style doors run from $2,500, and custom, wood, or full-view glass doors run from $4,000. These are typical ranges for our service area — every home differs, so we confirm the exact price upfront before any work begins.",
         },
         {
           question: 'Is an insulated garage door worth it on Long Island?',
@@ -144,7 +144,7 @@ export default function GarageDoorReplacementCostNassauCountyPage() {
             "Yes — financing and 0% promotional options are available on door replacement projects. Many homeowners use it to step up from a basic steel door to an insulated or carriage-style door without changing their monthly budget much. Ask about current options when you call or book your free estimate.",
         },
       ]}
-      bottomLine="A new garage door in Nassau County runs anywhere from about $800 for a standard steel single to $10,000+ for custom wood or glass — but most homeowners land between $1,200 and $2,800 on a quality insulated door that's quieter, warmer, and better-looking than what it replaces. Text us photos of your current door and we'll give you a straight answer on what fits your home and exactly what it costs, before any work begins."
+      bottomLine="A new garage door in Nassau County runs anywhere from about $800 for a standard steel single to $10,000+ for custom wood or glass — but most homeowners start from $1,200 on a quality insulated door that's quieter, warmer, and better-looking than what it replaces. Text us photos of your current door and we'll give you a straight answer on what fits your home and exactly what it costs, before any work begins."
       relatedLinks={{
         title: 'Nassau County Towns We Serve',
         links: [

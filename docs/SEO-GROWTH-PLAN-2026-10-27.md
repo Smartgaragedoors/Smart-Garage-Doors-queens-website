@@ -164,3 +164,7 @@ rest.
 - **Monthly:** `quick_wins`, `content_gaps`, `cannibalization_check` via the GSC
   MCP; GA4 `call_click` + `generate_lead` by landing page.
 - Do not read daily GSC alerts as trends; the site's volume is too small.
+
+## 8. Pricing policy (added 2026-11-02)
+
+Owner decision: no price ranges anywhere. Every price is a starting price ("From $X", from `src/config/pricing.ts`) with the `<PricingNote />` sentence under it; the build fails on a range in `src/`. Cost-guide pages and cost posts keep their numbers as starting points so they still answer "how much" searches. Any new blog brief above must follow this — brief the Post Automation prompt accordingly.

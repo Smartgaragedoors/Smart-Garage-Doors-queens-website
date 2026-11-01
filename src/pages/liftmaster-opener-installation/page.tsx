@@ -4,7 +4,7 @@ export default function LiftMasterOpenerInstallationPage() {
   return (
     <GuidePageTemplate
       metaTitle="LiftMaster Opener Installation | Queens, Long Island, NJ & More"
-      metaDescription="Professional LiftMaster garage door opener installation across NY and NJ — quiet belt-drive and wall-mount models, myQ WiFi setup, battery backup, and honest repair-vs-replace advice. $450–$900 installed."
+      metaDescription="Professional LiftMaster garage door opener installation across NY and NJ — quiet belt-drive and wall-mount models, myQ WiFi setup, battery backup, and honest repair-vs-replace advice. from $450 installed."
       keywords="LiftMaster installation near me, LiftMaster opener installation Queens, LiftMaster opener Long Island, LiftMaster installer NJ, belt drive garage door opener installation"
       slug="/liftmaster-opener-installation/"
       heroImage="openerRepairHero"
@@ -21,16 +21,16 @@ export default function LiftMasterOpenerInstallationPage() {
       costTable={{
         title: 'LiftMaster Opener Installation Costs',
         caption:
-          'Typical installed ranges for our service area; every home differs — we quote the exact price upfront before any work begins.',
+          'Starting prices, installed, for our service area; every home differs — we quote the exact total before any work begins.',
         rows: [
           {
             item: 'Belt-drive WiFi opener (installed)',
-            range: '$450–$900',
+            range: 'From $450',
             notes: 'The quiet standard — myQ app, LED lighting, battery backup options by model',
           },
           {
             item: 'Wall-mount / jackshaft opener (installed)',
-            range: '$700–$1,100',
+            range: 'From $700',
             notes: 'Mounts beside the door; frees ceiling space, fits low- or high-headroom garages',
           },
           {
@@ -45,7 +45,7 @@ export default function LiftMasterOpenerInstallationPage() {
           },
           {
             item: 'Opener repair (the alternative)',
-            range: '$150–$350',
+            range: 'From $150',
             notes: 'Gears, logic boards, sensors, travel adjustment — often the smarter fix',
           },
         ],
@@ -91,8 +91,8 @@ export default function LiftMasterOpenerInstallationPage() {
         {
           heading: 'Repair or Replace? An Honest Framework',
           paragraphs: [
-            "Not every struggling opener needs replacing, and we make money either way — so here's the straight version. Opener repairs run $150–$350: stripped drive gears, failed logic boards, misaligned or failed safety sensors, travel-limit problems, and remote issues are all routine fixes. If your opener is under ten years old and the motor is sound, repair is usually the right call.",
-            "Replacement ($450–$900 installed for a belt-drive LiftMaster) makes sense when the motor itself is failing, when parts for an old unit are getting scarce, or when the repair bill starts approaching half the cost of a new opener. It's also worth considering if your current unit predates modern safety sensors or you want myQ and battery backup anyway — at that point, putting $300 into a 20-year-old machine is throwing good money after bad.",
+            "Not every struggling opener needs replacing, and we make money either way — so here's the straight version. Opener repairs run from $150: stripped drive gears, failed logic boards, misaligned or failed safety sensors, travel-limit problems, and remote issues are all routine fixes. If your opener is under ten years old and the motor is sound, repair is usually the right call.",
+            "Replacement (from $450 installed for a belt-drive LiftMaster) makes sense when the motor itself is failing, when parts for an old unit are getting scarce, or when the repair bill starts approaching half the cost of a new opener. It's also worth considering if your current unit predates modern safety sensors or you want myQ and battery backup anyway — at that point, putting $300 into a 20-year-old machine is throwing good money after bad.",
             "Tell us the symptoms and the brand on the motor housing when you call, and we'll tell you honestly which side of the line you're on.",
           ],
         },
@@ -129,7 +129,7 @@ export default function LiftMasterOpenerInstallationPage() {
             "They're made by the same parent company, Chamberlain Group. Chamberlain is the retail line sold in big-box stores for DIY installation; LiftMaster is the professional line sold through installers, generally with more robust components, more model options (like wall-mount jackshafts), and full battery-backup and commercial offerings. Both run myQ. We install and service both, and we'll be straightforward about which fits your budget and garage.",
         },
       ]}
-      bottomLine="A LiftMaster belt-drive opener runs $450–$900 installed, a wall-mount jackshaft $700–$1,100 — and a $150–$350 repair is sometimes the smarter move, which we'll tell you straight. Every installation includes haul-away, sensor alignment, myQ setup on your phone, full remote programming, and a 1-year parts and labor warranty. Text us photos of your garage and current opener and we'll quote the exact price upfront, before any work begins."
+      bottomLine="A LiftMaster belt-drive opener runs from $450 installed, a wall-mount jackshaft from $700 — and a repair starting at $150 is sometimes the smarter move, which we'll tell you straight. Every installation includes haul-away, sensor alignment, myQ setup on your phone, full remote programming, and a 1-year parts and labor warranty. Text us photos of your garage and current opener and we'll quote the exact price upfront, before any work begins."
       relatedLinks={{
         title: 'Where We Install LiftMaster',
         links: [

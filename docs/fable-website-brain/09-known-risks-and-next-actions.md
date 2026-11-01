@@ -276,7 +276,7 @@ Still needs account/business evidence: current Suffern GBP destination, diagnost
 
 ## 2026-10-27 — emergency page deepening follow-ups
 
-- **Two conflicting repair-price sets are live.** Location pages + best-company
+- ~~Two conflicting repair-price sets~~ — **resolved 2026-11-02** by the starting-prices policy (`src/config/pricing.ts`, guard in `scripts/verify-pricing.mjs`); the emergency page now reads from it. Historical note: Location pages + best-company
   pages: repairs $150–$300, spring $175–$350, opener $150–$350. `/garage-door-repair/`
   + the 2026 repair-cost-guide blog: basic $150–$450, spring $200–$550, opener
   $150–$500. `/emergency-garage-door-repair/` now uses the first set. Owner picks one;

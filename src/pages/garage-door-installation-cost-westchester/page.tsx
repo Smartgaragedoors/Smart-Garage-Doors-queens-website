@@ -21,31 +21,31 @@ export default function GarageDoorInstallationCostWestchesterPage() {
       costTable={{
         title: '2026 Garage Door Installation Costs in Westchester County',
         caption:
-          'Typical installed ranges for our service area — total prices, inclusive of any fees, surcharges, and applicable taxes. Every home differs; we quote the exact price upfront before any work begins.',
+          'Typical installed ranges for our service area — starting prices; your total, including any fees, surcharges and taxes, is confirmed before work begins. Every home differs; we quote the exact price upfront before any work begins.',
         rows: [
           {
             item: 'Standard single steel door (8x7 or 9x7)',
-            range: '$800–$1,600',
+            range: 'From $800',
             notes: 'Single-layer steel, classic panel styles, standard hardware',
           },
           {
             item: 'Insulated double-layer steel',
-            range: '$1,200–$2,000',
+            range: 'From $1,200',
             notes: 'Steel + polystyrene core; warmer and quieter for attached garages',
           },
           {
             item: 'Insulated triple-layer steel (premium quiet)',
-            range: '$1,800–$2,800',
+            range: 'From $1,800',
             notes: 'Steel-insulation-steel sandwich; top R-value, quietest daily operation',
           },
           {
             item: 'Carriage-style door',
-            range: '$2,500–$6,500',
+            range: 'From $2,500',
             notes: 'The Westchester favorite — overlay designs, decorative hardware, windows',
           },
           {
             item: 'Custom, wood, or full-view glass',
-            range: '$4,000–$10,000+',
+            range: 'From $4,000',
             notes: 'True wood, custom sizing for older openings, modern glass doors',
           },
           {
@@ -55,7 +55,7 @@ export default function GarageDoorInstallationCostWestchesterPage() {
           },
           {
             item: 'LiftMaster belt-drive WiFi opener (add-on)',
-            range: '$450–$900 installed',
+            range: 'From $450 installed',
             notes: 'Quiet belt drive, myQ app, battery backup for outage-prone areas',
           },
         ],
@@ -65,7 +65,7 @@ export default function GarageDoorInstallationCostWestchesterPage() {
           heading: 'What Drives Garage Door Pricing in Westchester',
           paragraphs: [
             "The basics move price everywhere: door size (a single 8x7 vs. a 16x7 double-car), construction (single-layer steel vs. insulated double or triple layer), and finish options like windows and decorative hardware. But Westchester adds a few wrinkles of its own.",
-            "First, the architecture. The stone and brick colonials and tudors in places like Scarsdale and Bronxville don't look right with a flat builder-grade door — they call for carriage-style or custom-fit doors that match the home's character, which is why the $2,500–$6,500 carriage range is the most-quoted bracket in those neighborhoods. Many of these homes also have non-standard openings that need custom sizing.",
+            "First, the architecture. The stone and brick colonials and tudors in places like Scarsdale and Bronxville don't look right with a flat builder-grade door — they call for carriage-style or custom-fit doors that match the home's character, which is why the from $2,500 carriage range is the most-quoted bracket in those neighborhoods. Many of these homes also have non-standard openings that need custom sizing.",
             "Second, older detached garages. A lot of the county's village homes — Larchmont, Rye, Bronxville — have freestanding garages from the 1920s–40s with low headroom, settled framing, or out-of-square openings. Those installs take more fitting work, and sometimes a low-headroom track kit, which shows up in the quote.",
             "Third, aesthetics rules. Several Westchester villages have historic-district guidelines, and many newer communities have HOA standards on door style and color. We've worked within both — bring us the guidelines and we'll spec a door that passes review the first time. As with every quote, haul-away of the old door and new tracks are typically included.",
           ],
@@ -105,9 +105,9 @@ export default function GarageDoorInstallationCostWestchesterPage() {
           heading: 'How to Budget: Good, Better, Best',
           paragraphs: [
             "For a typical Westchester single-car opening, here's the honest way to frame your budget. Double-car doors scale up from these numbers.",
-            "Good — around $800–$1,600: a quality single-layer steel door. A solid fit for detached garages where insulation doesn't earn its keep, and a major curb-appeal upgrade over a tired door.",
-            "Better — around $1,200–$2,800: insulated double- or triple-layer steel. The right call for attached garages — warmer, quieter, sturdier, and available in finishes that suit most of the county's housing stock.",
-            "Best — $2,500 and up: carriage-style ($2,500–$6,500) and custom or true-wood doors ($4,000–$10,000+). In neighborhoods where the homes have real architectural character, this tier is often what the house deserves — and what neighborhood guidelines sometimes expect.",
+            "Good — from $800: a quality single-layer steel door. A solid fit for detached garages where insulation doesn't earn its keep, and a major curb-appeal upgrade over a tired door.",
+            "Better — from $1,200: insulated double- or triple-layer steel. The right call for attached garages — warmer, quieter, sturdier, and available in finishes that suit most of the county's housing stock.",
+            "Best — $2,500 and up: carriage-style (from $2,500) and custom or true-wood doors (from $4,000). In neighborhoods where the homes have real architectural character, this tier is often what the house deserves — and what neighborhood guidelines sometimes expect.",
             "Financing and 0% promotional options are available, so stepping up a tier doesn't have to strain the monthly budget. Ask when you call and we'll lay out the numbers.",
           ],
         },
@@ -116,7 +116,7 @@ export default function GarageDoorInstallationCostWestchesterPage() {
         {
           question: 'How much does a new garage door cost in Westchester County?',
           answer:
-            "Most installations land between $800 and $2,800: roughly $800–$1,600 for a standard single steel door and $1,200–$2,800 for an insulated double- or triple-layer door. Carriage-style doors — the most popular upgrade in Westchester — run $2,500–$6,500, and custom, wood, or full-view glass doors run $4,000–$10,000+. These are typical ranges for our service area, quoted as total prices inclusive of any fees, surcharges, and applicable taxes; we confirm your exact price upfront before any work begins.",
+            "Most installations start from $800: from $800 for a standard single steel door and from $1,200 for an insulated double- or triple-layer door. Carriage-style doors — the most popular upgrade in Westchester — run from $2,500, and custom, wood, or full-view glass doors run from $4,000. These are typical ranges for our service area, quoted as starting prices; we confirm your exact price upfront before any work begins.",
         },
         {
           question: 'What style of garage door fits a stone colonial or tudor?',
@@ -144,7 +144,7 @@ export default function GarageDoorInstallationCostWestchesterPage() {
             "Yes — financing and 0% promotional options are available on installation projects. It's a common route for homeowners moving up to an insulated triple-layer or carriage-style door. Ask about current options when you call or book your free estimate.",
         },
       ]}
-      bottomLine="In Westchester County, a new garage door runs from about $800 for a standard steel single to $10,000+ for true custom work — with most homeowners landing at $1,200–$2,800 for a quality insulated door, or $2,500–$6,500 for a carriage-style door that suits the county's classic architecture. Text us photos of your garage and we'll tell you exactly what fits and exactly what it costs, upfront, before any work begins."
+      bottomLine="In Westchester County, a new garage door runs from about $800 for a standard steel single to $10,000+ for true custom work — with most homeowners landing from $1,200 for a quality insulated door, or from $2,500 for a carriage-style door that suits the county's classic architecture. Text us photos of your garage and we'll tell you exactly what fits and exactly what it costs, upfront, before any work begins."
       relatedLinks={{
         title: 'Westchester Towns We Serve',
         links: [

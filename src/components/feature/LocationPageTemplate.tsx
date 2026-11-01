@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import PricingNote from './PricingNote';
+import { mentionsPrice } from '../../config/pricing';
 import Header from './Header';
 import Footer from './Footer';
 import Breadcrumbs from '../seo/Breadcrumbs';
@@ -700,6 +702,7 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
             <p className="text-gray-600">Common questions from {city} homeowners</p>
           </div>
           <FAQAccordion faqs={faqs} />
+          {faqs.some((f) => mentionsPrice(f.answer)) && <PricingNote align="center" className="mt-6" />}
         </div>
       </section>
 

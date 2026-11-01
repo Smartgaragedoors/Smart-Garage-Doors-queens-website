@@ -14,7 +14,7 @@ scale-hovers, and stacked dark bands.
 | Licensed & insured | `BUSINESS_INFO.licenses` (NYC DCWP + CT HIC labels) | Shown in FormTrustBadges + footer; never invent numbers for other states |
 | 1-year parts & labor warranty | Published across service pages | Reuse exact phrasing |
 | $0 service call with any repair | Hero offer, sitewide | Keep the "with any repair" qualifier |
-| Price ranges | Published on service/cost pages (springs $175–$350, etc.) | Reuse existing figures only; "exact price confirmed upfront before any work begins" |
+| Starting prices | `src/config/pricing.ts` (repairs from $150, springs from $175, openers from $349, doors from $800 …) | "From $X" only — never a range or ceiling (owner rule 2026-11-02); `<PricingNote />` under every price; "total confirmed before any work begins" |
 | Financing | "Financing and 0% promotional options are available" | That exact framing — no APR, provider, or terms were ever approved |
 | Brands serviced | BrandsServed.tsx text badges (LiftMaster, Clopay, Amarr, CHI, Wayne Dalton, Raynor, Chamberlain, Genie) | Text wordmarks only — no manufacturer logo images (trademark risk, deliberate decision) |
 | Real photos | Cloudflare-hosted job/tech photos (Dan's photo in WhyChooseUs, RecentWork) | Real photos only, descriptive alt text; no stock "smiling technician" |

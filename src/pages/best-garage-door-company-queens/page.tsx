@@ -87,7 +87,7 @@ export default function BestGarageDoorCompanyQueensPage() {
           heading: 'How We Measure Against the Checklist',
           paragraphs: [
             'Here is our scorecard against the six criteria, stated as plain facts so you can compare us against anyone else you call. We\'re based in Flushing, Queens — this borough is our home territory, not an outer ring on a coverage map.',
-            'Pricing: every job is quoted in full before work begins. Typical repairs run $150–$300, spring replacement $175–$350, opener repair $150–$350, and new doors run $800–$2,500, with insulated, carriage-style, and custom-fit doors running $1,500–$5,000 or more. All figures are total prices, inclusive of any fees, surcharges, and applicable taxes — the number we quote is the number you pay. Warranty: 1-year parts and labor, in writing, on every job. Licensing and insurance: yes and yes, with documentation available on request.',
+            'Pricing: every job is quoted in full before work begins. Typical repairs run from $150, spring replacement from $175, opener repair from $150, and new doors run from $800, with insulated, carriage-style, and custom-fit doors running from $1,500. All figures are starting prices; your total, including any fees, surcharges and taxes, is confirmed before work begins the number we quote is the number you pay. Warranty: 1-year parts and labor, in writing, on every job. Licensing and insurance: yes and yes, with documentation available on request.',
             'Hardware: we install and service quiet belt-drive and wall-mount openers, smart openers (LiftMaster, Chamberlain, Genie and other major brands), nylon rollers, and corrosion-resistant hardware where salt exposure calls for it. Scheduling: when you call, a dispatcher checks current technician availability and books a realistic appointment, and we run an emergency line for the door that fails at the wrong hour — arrival depends on the technician\'s current job, traffic, and distance, and we\'ll be straight with you about it. That\'s the whole pitch. Run every other company through the same six questions and hire whoever answers them best.',
           ],
         },
@@ -99,7 +99,7 @@ export default function BestGarageDoorCompanyQueensPage() {
         },
         {
           question: 'How much does garage door repair cost in Queens?',
-          answer: 'Typical repairs run $150–$300. Spring replacement runs $175–$350, opener repairs $150–$350, and new door installations run $800–$2,500 — insulated, carriage-style, and custom-fit doors for non-standard pre-war openings run $1,500–$5,000 or more. These figures are total prices, inclusive of any fees, surcharges, and applicable taxes. Whatever company you use, get the full price in writing before work starts; that single habit prevents most pricing disputes.',
+          answer: 'Typical repairs run from $150. Spring replacement runs from $175, opener repairs from $150, and new door installations run from $800 — insulated, carriage-style, and custom-fit doors for non-standard pre-war openings run from $1,500. These figures are starting prices; your total, including any fees, surcharges and taxes, is confirmed before work begins. Whatever company you use, get the full price in writing before work starts; that single habit prevents most pricing disputes.',
         },
         {
           question: 'Do Queens co-ops need approval for a new garage door?',

@@ -586,3 +586,38 @@ Owner should pick one; logged in `09-known-risks-and-next-actions.md`.
 
 **Not changed:** the homepage services grid already links the page with the exact
 anchor "Emergency Garage Door Repair" (`Services.tsx`) — no duplicate added.
+
+**Addendum 2026-11-02:** rebased onto the starting-prices policy (next entry).
+The cost table and price-bearing FAQs now read `fromPrice(PRICING.*)` /
+`formatPrice(PRICING.*)` from `src/config/pricing.ts` (repairs from $150, spring
+from $175, cable & roller from $150, opener repair from $150, new opener from
+$349, belt from $399, wall-mount from $749, service visit $115) with `<PricingNote />`
+under the table and under the FAQ block (hand-built page, so added by hand). The
+"two price sets" finding above is resolved by that policy; the three real past-job
+totals stay, labelled as past jobs.
+
+## 2026-11-02 — Pricing: starting prices only, site-wide
+
+**Owner decision:** stop publishing price ranges; show starting prices with a note
+that labor and parts vary by job. Implemented as "From $X" everywhere (437 range
+tokens across 95 files converted; 60 location pages, 3 cost guides, service pages,
+legacy and JSON blog posts, the Spanish page and posts) plus `<PricingNote />` —
+"Starting prices for standard residential doors. Parts and labor vary by job, so we
+confirm one total price — including any fees, surcharges and taxes — before any
+work begins." — rendered automatically by the Location, Guide and Blog templates and
+by hand on the repair, maintenance, opener, cable/roller, installation and Spanish
+pages. `src/config/pricing.ts` is the single source; `scripts/verify-pricing.mjs`
+runs first in `npm run build` and fails on any range in `src/` (warns for blog JSON).
+
+**Why starting prices rather than "contact us":** the cost-guide pages and ~10 cost
+posts exist to rank for "how much" searches, and the brand promise is one total
+price before work starts — a page with no number loses the query and reads like
+the national chains. "From $X" keeps the intent and the promise without a ceiling.
+
+**Kept:** real past-job totals (installation gallery invoices, Queens/Brooklyn/Great
+Neck `recentJobs`) — proof, labelled as past jobs, not quotes. **Unified:** spring
+replacement now starts at $175 everywhere; `/garage-door-repair/` and the 2025 cost
+posts said $200. **Still open:** PRs #7 and #8 carry range tables written before this
+rule — their sessions were asked to rebase and convert; Post Automation's prompt
+must gain the rule or every new post will warn. Owner to confirm the starting figures
+in `pricing.ts` (they are the low ends the site already published).

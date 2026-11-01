@@ -91,23 +91,23 @@ const BLOG_POSTS: Record<string, {
 
       <h2>The short version</h2>
       <ul>
-        <li><strong>Basic repairs</strong> (cables, rollers, track alignment, sensors): <strong>$150–$450</strong></li>
-        <li><strong>Spring replacement</strong> (torsion or extension, replaced in pairs): <strong>$200–$550</strong></li>
-        <li><strong>Opener repair</strong> (boards, gears, travel limits, remotes) to replacement: <strong>$150–$500</strong></li>
+        <li><strong>Basic repairs</strong> (cables, rollers, track alignment, sensors): <strong>From $150</strong></li>
+        <li><strong>Spring replacement</strong> (torsion or extension, replaced in pairs): <strong>From $175</strong></li>
+        <li><strong>Opener repair</strong> (boards, gears, travel limits, remotes) to replacement: <strong>From $150</strong></li>
         <li><strong>New door installation</strong>: quoted per door — size, insulation, and style set the price; see our <a href="/garage-door-installation/">installation page</a> for current published ranges</li>
       </ul>
-      <p>Most single-visit repairs in the tri-state land between $150 and $550. If someone quotes you far below that, ask what's not included. If someone quotes far above it, get a <a href="/second-opinion/">second opinion</a> before you sign.</p>
+      <p>Most single-visit repairs in the tri-state start from $150. If someone quotes you far below that, ask what's not included. If someone quotes far above it, get a <a href="/second-opinion/">second opinion</a> before you sign.</p>
 
-      <h2>Spring replacement: $200–$550</h2>
+      <h2>Spring replacement: from $175</h2>
       <p>Springs are the most common repair we do and the one people most often overpay for. A torsion spring (the coil mounted above the door) is rated in cycles — one open-and-close is one cycle — and a standard 10,000-cycle spring on a door used four times a day lasts roughly seven years. When one breaks, you hear a bang and the door suddenly weighs 200 pounds or more.</p>
       <p>What moves the price inside the range: a single door with one spring sits at the bottom; a double door with two springs sits higher; and upgrading to high-cycle springs (25,000+ cycles) adds to the part cost but roughly doubles the time before you pay for this again. We replace springs in pairs, because when one has reached end of life the other is right behind it, and a second visit costs more than a second spring.</p>
       <p>Read more in our <a href="/blog/cost-of-garage-door-spring-replacement/">spring replacement cost breakdown</a> or the <a href="/spring-replacement/">spring replacement service page</a>.</p>
 
-      <h2>Opener repair or replacement: $150–$500</h2>
+      <h2>Opener repair or replacement: from $150</h2>
       <p>Openers fail in layers. Cheap fixes — a misaligned photo-eye, a worn wall button, a dead remote, travel limits drifting — are at the low end. A failed logic board, stripped drive gear, or burnt-out motor on an older unit pushes you toward the top of the range, and at that point a new opener often makes more sense than repairing a 15-year-old one with no safety-reversal upgrade.</p>
       <p>A new belt-drive or Wi-Fi opener installed generally lands at the upper end of this range. If you're deciding, our post on <a href="/blog/repair-or-replace-garage-door-opener/">repairing vs. replacing a garage door opener</a> walks through the math.</p>
 
-      <h2>Cables, rollers, and track: $150–$450</h2>
+      <h2>Cables, rollers, and track: from $150</h2>
       <p>A snapped or frayed cable usually presents as a door hanging crooked or jammed on one side. Cables are replaced in pairs and the door is rebalanced, which is where most of the labor goes. Worn rollers make a door loud and shaky; a full set of nylon rollers quiets it down and is one of the better-value repairs on a door you plan to keep. Track work ranges from a simple realignment to replacing a bent section after a vehicle strike.</p>
       <p>More detail: <a href="/blog/garage-door-cable-replacement-cost-signs/">cable replacement signs and cost</a> and <a href="/blog/garage-door-roller-replacement-cost/">roller replacement cost</a>.</p>
 
@@ -142,7 +142,7 @@ const BLOG_POSTS: Record<string, {
     faqs: [
       {
         question: "How much does garage door repair cost in 2026?",
-        answer: "In the NY tri-state, most single-visit repairs run $150–$550 including parts, labor, and tax: basic cable, roller, track, and sensor repairs are $150–$450, spring replacement is $200–$550, and opener repair or replacement is $150–$500. New door installation is quoted per door based on size, insulation, and style."
+        answer: "In the NY tri-state, most single-visit repairs run from $150 including parts, labor, and tax: basic cable, roller, track, and sensor repairs are from $150, spring replacement is from $175, and opener repair or replacement is from $150. New door installation is quoted per door based on size, insulation, and style."
       },
       {
         question: "How much does emergency garage door repair cost?",
@@ -502,7 +502,7 @@ const BLOG_POSTS: Record<string, {
     faqs: [
       {
         question: "How much does garage door opener repair cost?",
-        answer: "Opener repair costs typically range $150-$350 depending on the issue (total price inclusive of any fees, surcharges, and applicable taxes). Simple repairs like sensor alignment cost $150-$200, while motor repairs or circuit board replacement cost $250-$350. We provide free estimates before any work begins."
+        answer: "Opener repair costs typically range from $150 depending on the issue (starting price; total confirmed before work begins). Simple repairs like sensor alignment cost from $150, while motor repairs or circuit board replacement cost from $250. We provide free estimates before any work begins."
       },
       {
         question: "Can I repair my garage door opener myself?",
@@ -524,22 +524,22 @@ const BLOG_POSTS: Record<string, {
       
       <h2>Average Spring Replacement Costs in 2025</h2>
       
-      <h3>Torsion Spring Replacement: $250-$400</h3>
+      <h3>Torsion Spring Replacement: from $250</h3>
       <p>Torsion springs are mounted above the door opening and are the most common type in modern garage doors. Replacement costs typically include:</p>
       <ul>
-        <li><strong>Single Spring:</strong> $250-$350 for standard residential doors</li>
-        <li><strong>Double Spring System:</strong> $300-$500 for double car doors or heavy doors</li>
-        <li><strong>High-Cycle Springs:</strong> $350-$450 for springs rated for 20,000+ cycles</li>
-        <li><strong>Commercial Springs:</strong> $400-$600 for heavy-duty commercial applications</li>
+        <li><strong>Single Spring:</strong> From $250 for standard residential doors</li>
+        <li><strong>Double Spring System:</strong> From $300 for double car doors or heavy doors</li>
+        <li><strong>High-Cycle Springs:</strong> From $350 for springs rated for 20,000+ cycles</li>
+        <li><strong>Commercial Springs:</strong> From $400 for heavy-duty commercial applications</li>
       </ul>
       <p>Prices include professional installation, proper tensioning, and warranty coverage. Torsion springs last 7-10 years (about 10,000 cycles) and provide smoother, safer operation than extension springs.</p>
       
-      <h3>Extension Spring Replacement: $200-$300</h3>
+      <h3>Extension Spring Replacement: from $175</h3>
       <p>Extension springs are mounted along the ceiling tracks and are typically less expensive:</p>
       <ul>
-        <li><strong>Single Pair:</strong> $200-$250 for standard residential doors</li>
-        <li><strong>Heavy-Duty Pair:</strong> $250-$300 for larger or heavier doors</li>
-        <li><strong>With Safety Cables:</strong> $250-$350 (safety cables are required and included)</li>
+        <li><strong>Single Pair:</strong> From $175 for standard residential doors</li>
+        <li><strong>Heavy-Duty Pair:</strong> From $250 for larger or heavier doors</li>
+        <li><strong>With Safety Cables:</strong> From $250 (safety cables are required and included)</li>
       </ul>
       <p>Extension springs typically last 5-7 years (about 10,000 cycles) and are more affordable but require safety cables to prevent injury if they break.</p>
       
@@ -548,43 +548,43 @@ const BLOG_POSTS: Record<string, {
       <h3>1. Door Size and Weight</h3>
       <p>Larger, heavier doors require stronger (more expensive) springs. A single-car door (8x7 feet) costs less than a double-car door (16x7 feet) which may need two springs.</p>
       <ul>
-        <li><strong>Single Car Door:</strong> Typically $200-$350</li>
-        <li><strong>Double Car Door:</strong> Typically $300-$500</li>
-        <li><strong>Oversized Doors:</strong> $400-$700 for custom or commercial sizes</li>
+        <li><strong>Single Car Door:</strong> Typically from $175</li>
+        <li><strong>Double Car Door:</strong> Typically from $300</li>
+        <li><strong>Oversized Doors:</strong> From $400 for custom or commercial sizes</li>
       </ul>
       
       <h3>2. Spring Type and Quality</h3>
       <p>Spring quality and cycle rating affect cost:</p>
       <ul>
-        <li><strong>Standard Springs:</strong> 10,000 cycles, $200-$300</li>
-        <li><strong>High-Cycle Springs:</strong> 20,000+ cycles, $300-$450</li>
-        <li><strong>Commercial Grade:</strong> 30,000+ cycles, $400-$600</li>
+        <li><strong>Standard Springs:</strong> 10,000 cycles, from $175</li>
+        <li><strong>High-Cycle Springs:</strong> 20,000+ cycles, from $300</li>
+        <li><strong>Commercial Grade:</strong> 30,000+ cycles, from $400</li>
       </ul>
       <p>Higher-quality springs cost more initially but last longer, providing better long-term value.</p>
       
       <h3>3. Number of Springs</h3>
       <p>Many doors use two springs for balanced operation. If one breaks, both should typically be replaced:</p>
       <ul>
-        <li><strong>Single Spring Replacement:</strong> $200-$350</li>
-        <li><strong>Both Springs (Recommended):</strong> $300-$500</li>
+        <li><strong>Single Spring Replacement:</strong> From $175</li>
+        <li><strong>Both Springs (Recommended):</strong> From $300</li>
       </ul>
       <p>Replacing both springs ensures balanced operation and prevents another failure soon after.</p>
       
       <h3>4. Accessibility and Installation Complexity</h3>
-      <p>Hard-to-reach installations or complex setups may add $50-$150 to the base cost:</p>
+      <p>Hard-to-reach installations or complex setups may add from $50 to the base cost:</p>
       <ul>
         <li><strong>Standard Installation:</strong> Included in base price</li>
-        <li><strong>High Ceilings:</strong> May require additional equipment, +$50-$100</li>
-        <li><strong>Tight Spaces:</strong> Difficult access, +$50-$150</li>
-        <li><strong>Commercial Settings:</strong> Special requirements, +$100-$200</li>
+        <li><strong>High Ceilings:</strong> May require additional equipment, +from $50</li>
+        <li><strong>Tight Spaces:</strong> Difficult access, +from $50</li>
+        <li><strong>Commercial Settings:</strong> Special requirements, +from $100</li>
       </ul>
       
       <h3>5. Emergency vs Scheduled Service</h3>
       <p>Emergency spring replacement may have slightly higher rates due to immediate dispatch:</p>
       <ul>
         <li><strong>Scheduled Service:</strong> Standard pricing</li>
-        <li><strong>Priority Scheduling:</strong> May include rush fee, +$50-$100</li>
-        <li><strong>Emergency/After-Hours:</strong> Higher rates for after-hours dispatch, +$75-$150</li>
+        <li><strong>Priority Scheduling:</strong> May include rush fee, +from $50</li>
+        <li><strong>Emergency/After-Hours:</strong> Higher rates for after-hours dispatch, +from $75</li>
       </ul>
       
       <h3>6. Geographic Location</h3>
@@ -610,10 +610,10 @@ const BLOG_POSTS: Record<string, {
       <h2>Additional Costs to Consider</h2>
       <p>While spring replacement is the main cost, related services may be needed:</p>
       <ul>
-        <li><strong>Cable Replacement:</strong> If cables are worn, +$100-$200</li>
-        <li><strong>Roller Replacement:</strong> If rollers are damaged, +$150-$300</li>
-        <li><strong>Track Alignment:</strong> If tracks are bent, +$150-$300</li>
-        <li><strong>Opener Adjustment:</strong> May need adjustment after spring replacement, +$50-$100</li>
+        <li><strong>Cable Replacement:</strong> If cables are worn, +from $100</li>
+        <li><strong>Roller Replacement:</strong> If rollers are damaged, +from $150</li>
+        <li><strong>Track Alignment:</strong> If tracks are bent, +from $150</li>
+        <li><strong>Opener Adjustment:</strong> May need adjustment after spring replacement, +from $50</li>
       </ul>
       
       <h2>Why Professional Installation is Essential</h2>
@@ -638,8 +638,8 @@ const BLOG_POSTS: Record<string, {
       <h2>Cost Comparison: Repair vs Replacement</h2>
       <p>If your door is old or has multiple issues, consider these factors:</p>
       <ul>
-        <li><strong>Spring Replacement Only:</strong> $200-$500 (if door is otherwise in good condition)</li>
-        <li><strong>Complete Door Replacement:</strong> $800-$2,500 (if door is 15+ years old or has multiple problems)</li>
+        <li><strong>Spring Replacement Only:</strong> From $175 (if door is otherwise in good condition)</li>
+        <li><strong>Complete Door Replacement:</strong> From $800 (if door is 15+ years old or has multiple problems)</li>
         <li><strong>New Door with Springs:</strong> Springs included in new door installation</li>
       </ul>
       <p>Our technicians can help you determine whether repair or replacement is more cost-effective for your situation.</p>
@@ -666,7 +666,7 @@ const BLOG_POSTS: Record<string, {
     faqs: [
       {
         question: "How much does it cost to replace both garage door springs?",
-        answer: "Replacing both springs typically costs $300-$500 for a standard double-car door. This ensures balanced operation and prevents another failure soon after. While replacing just one broken spring costs less ($200-$350), replacing both is recommended for optimal performance and longevity."
+        answer: "Replacing both springs typically costs from $300 for a standard double-car door. This ensures balanced operation and prevents another failure soon after. While replacing just one broken spring costs less (from $175), replacing both is recommended for optimal performance and longevity."
       },
       {
         question: "Why is garage door spring replacement so expensive?",
@@ -700,7 +700,7 @@ const BLOG_POSTS: Record<string, {
       <h3>2. Frequent Breakdowns and Repairs</h3>
       <p>If you're calling for repairs multiple times per year, replacement may be more economical:</p>
       <ul>
-        <li><strong>Multiple Repairs Per Year:</strong> If annual repair costs exceed $500-$800, replacement is often better</li>
+        <li><strong>Multiple Repairs Per Year:</strong> If annual repair costs exceed from $500, replacement is often better</li>
         <li><strong>Same Component Failing Repeatedly:</strong> Indicates underlying issues that repair can't fully address</li>
         <li><strong>Cascading Failures:</strong> When one repair leads to another, the door system may be failing</li>
       </ul>
@@ -779,19 +779,19 @@ const BLOG_POSTS: Record<string, {
       
       <h3>Typical Repair Costs</h3>
       <ul>
-        <li><strong>Spring Replacement:</strong> $200-$400</li>
-        <li><strong>Opener Repair:</strong> $150-$350</li>
-        <li><strong>Panel Replacement:</strong> $200-$400 per panel</li>
-        <li><strong>Track Repair:</strong> $150-$300</li>
-        <li><strong>Cable Replacement:</strong> $150-$250</li>
+        <li><strong>Spring Replacement:</strong> From $175</li>
+        <li><strong>Opener Repair:</strong> From $150</li>
+        <li><strong>Panel Replacement:</strong> From $200 per panel</li>
+        <li><strong>Track Repair:</strong> From $150</li>
+        <li><strong>Cable Replacement:</strong> From $150</li>
       </ul>
       
       <h3>Typical Replacement Costs</h3>
       <ul>
-        <li><strong>Basic Steel Door:</strong> $800-$1,200</li>
-        <li><strong>Insulated Steel Door:</strong> $1,200-$1,800</li>
-        <li><strong>Wood Door:</strong> $1,500-$5,000+</li>
-        <li><strong>Custom/Designer Door:</strong> $2,000-$5,000+</li>
+        <li><strong>Basic Steel Door:</strong> From $800</li>
+        <li><strong>Insulated Steel Door:</strong> From $1,200</li>
+        <li><strong>Wood Door:</strong> From $1,500</li>
+        <li><strong>Custom/Designer Door:</strong> From $2,000</li>
       </ul>
       <p><strong>Rule of Thumb:</strong> If annual repair costs approach 50% of replacement cost, or if you've spent more than the cost of a new door on repairs over 2-3 years, replacement is usually more economical.</p>
       
@@ -925,7 +925,7 @@ const BLOG_POSTS: Record<string, {
       <h2>Why Rollers Matter</h2>
       <p>Rollers allow the door to move smoothly along the tracks. Worn or damaged rollers cause noise, binding, and extra wear on the opener and tracks.</p>
       <h2>Typical Costs in 2025</h2>
-      <p>Standard nylon roller replacement: about $150–$250 for a single door. Heavy-duty or sealed steel rollers cost more. Labor is usually included in that range for a typical residential door.</p>
+      <p>Standard nylon roller replacement: from $150 for a single door. Heavy-duty or sealed steel rollers cost more. Labor is usually included in that range for a typical residential door.</p>
       <h2>When to Replace</h2>
       <p>Replace rollers if you see wear, chips, flat spots, or if the door is noisy or jerky. Replacing all rollers at once is recommended so wear is even.</p>
       <h2>Get an Accurate Quote</h2>
@@ -968,7 +968,7 @@ const BLOG_POSTS: Record<string, {
       <h2>Pricing Factors</h2>
       <p>Costs depend on the repair (springs, opener, tracks, cables, panels), your door size, and whether you need emergency service. We always quote before starting.</p>
       <h2>What to Expect</h2>
-      <p>Spring replacement typically runs $200–$500; opener repair $150–$350; track or cable work $150–$300. We use quality parts and stand behind our work.</p>
+      <p>Spring replacement typically runs from $175; opener repair from $150; track or cable work from $150. We use quality parts and stand behind our work.</p>
       <h2>Book Brooklyn Service</h2>
       <p>For repair or installation in Brooklyn, call (914) 557-6816 or <a href="/book-now/">schedule online</a>. We serve all Brooklyn areas.</p>
     `,

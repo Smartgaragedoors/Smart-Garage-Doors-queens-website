@@ -71,7 +71,7 @@ export default function PhotoEstimatePage() {
         {
           heading: 'What Happens After You Send Photos',
           paragraphs: [
-            'A technician looks at your pictures and writes back with a plain-English read: here’s what we think broke, here’s what the fix involves, and here’s the realistic range. For a snapped torsion spring, that’s typically $175–$350. Most common repairs land between $150 and $300. Opener repairs usually run $150–$350, and if the opener is genuinely done, we’ll say so — a new LiftMaster belt-drive WiFi opener installed runs about $450–$900 depending on the model.',
+            'A technician looks at your pictures and writes back with a plain-English read: here’s what we think broke, here’s what the fix involves, and here’s the realistic range. For a snapped torsion spring, that’s typically from $175. Most common repairs start from $150. Opener repairs usually run from $150, and if the opener is genuinely done, we’ll say so — a new LiftMaster belt-drive WiFi opener installed runs from $450 depending on the model.',
             'If the photos aren’t enough to be sure — sometimes a problem hides inside the opener housing or behind a panel — we’ll tell you that too, and give you the range of likely outcomes rather than guessing low to win the job. Whatever range we quote, you approve the final price in person before a single bolt comes off.',
           ],
         },

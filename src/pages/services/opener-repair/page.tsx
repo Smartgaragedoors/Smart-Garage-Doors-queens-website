@@ -1,4 +1,5 @@
 import Header from '../../../components/feature/Header';
+import { PRICING, fromPrice } from '../../../config/pricing';
 import Footer from '../../../components/feature/Footer';
 import Breadcrumbs from '../../../components/seo/Breadcrumbs';
 import DynamicMetaTags from '../../../components/seo/DynamicMetaTags';
@@ -166,8 +167,8 @@ export default function OpenerRepair() {
                 </ul>
                 
                 <div className="text-center">
-                  <span className="text-2xl font-bold text-purple-600">$349–$550</span>
-                  <p className="text-sm text-gray-500">Typical total cost, parts, labor & taxes</p>
+                  <span className="text-2xl font-bold text-purple-600">{fromPrice(PRICING.openerInstallFrom)}</span>
+                  <p className="text-sm text-gray-500">Starting price — total confirmed before work begins</p>
                 </div>
               </div>
 
@@ -196,8 +197,8 @@ export default function OpenerRepair() {
                 </ul>
                 
                 <div className="text-center mb-4">
-                  <span className="text-2xl font-bold text-purple-600">$399–$650</span>
-                  <p className="text-sm text-gray-500">Typical total cost, parts, labor & taxes</p>
+                  <span className="text-2xl font-bold text-purple-600">{fromPrice(PRICING.beltOpenerFrom)}</span>
+                  <p className="text-sm text-gray-500">Starting price — total confirmed before work begins</p>
                 </div>
                 
                 <div className="border-t pt-4">
@@ -208,7 +209,7 @@ export default function OpenerRepair() {
                         <p className="font-medium text-blue-900">Security Camera</p>
                         <p className="text-sm text-blue-700">Built-in monitoring & alerts</p>
                       </div>
-                      <span className="text-lg font-bold text-blue-600">+$150–$200</span>
+                      <span className="text-lg font-bold text-blue-600">From $150</span>
                     </div>
                   </div>
                 </div>
@@ -243,14 +244,14 @@ export default function OpenerRepair() {
                 </ul>
                 
                 <div className="text-center">
-                  <span className="text-2xl font-bold text-purple-600">$749–$1,200</span>
-                  <p className="text-sm text-gray-500">Typical total cost, parts, labor & taxes</p>
+                  <span className="text-2xl font-bold text-purple-600">{fromPrice(PRICING.wallMountOpenerFrom)}</span>
+                  <p className="text-sm text-gray-500">Starting price — total confirmed before work begins</p>
                 </div>
               </div>
             </div>
 
             <p className="text-sm text-gray-600 text-center mt-8 max-w-3xl mx-auto">
-              All figures shown are total prices, inclusive of parts, labor, and any fees, surcharges, and applicable taxes. Final price confirmed with a free written estimate before any work begins.
+              All figures shown are starting prices. Your total — parts, labor and any fees, surcharges and taxes included — is confirmed with a free written estimate before any work begins.
             </p>
           </div>
         </section>
