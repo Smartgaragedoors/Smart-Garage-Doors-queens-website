@@ -29,6 +29,8 @@ export const PRICING = {
   openerInstallFrom: 349,
   /** New belt-drive opener, installed. */
   beltOpenerFrom: 399,
+  /** LiftMaster belt-drive Wi-Fi (myQ) opener, installed — the model the cost guides quote. */
+  liftmasterBeltWifiFrom: 450,
   /** Wall-mount (jackshaft) opener, installed. */
   wallMountOpenerFrom: 749,
   /** Service visit when nothing needs repair. */
@@ -37,8 +39,12 @@ export const PRICING = {
   doorFrom: 800,
   /** Insulated double- or triple-layer door, installed. */
   insulatedDoorFrom: 1200,
+  /** Insulated triple-layer (premium quiet) door, installed. */
+  tripleLayerDoorFrom: 1800,
   /** Carriage-style, wood, full-view glass or custom door, installed. */
   carriageCustomFrom: 2500,
+  /** Custom, wood or full-view glass door, installed. */
+  customDoorFrom: 4000,
   /** Maintenance plans, per year. */
   maintenanceBasicFrom: 99,
   maintenancePremiumFrom: 179,

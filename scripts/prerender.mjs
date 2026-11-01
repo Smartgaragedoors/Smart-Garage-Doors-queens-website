@@ -25,8 +25,10 @@ import { extname, join } from 'node:path';
 
 const ROOT = process.cwd();
 const OUT = join(ROOT, 'out');
-const PORT = 4178;
-const ORIGIN = `http://127.0.0.1:${PORT}`;
+// 0 = any free port, so two sessions prerendering at once never collide (EADDRINUSE on
+// the old fixed 4178). Set PRERENDER_PORT to pin one.
+const PORT = Number(process.env.PRERENDER_PORT) || 0;
+let ORIGIN = '';
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
@@ -113,7 +115,8 @@ async function main() {
     res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
     res.end(shell);
   });
-  await new Promise((r) => server.listen(PORT, r));
+  await new Promise((r) => server.listen(PORT, '127.0.0.1', r));
+  ORIGIN = `http://127.0.0.1:${server.address().port}`;
 
   const browser = await launchBrowser();
 

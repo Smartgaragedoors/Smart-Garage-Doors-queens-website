@@ -579,3 +579,14 @@ posts said $200. **Still open:** PRs #7 and #8 carry range tables written before
 rule — their sessions were asked to rebase and convert; Post Automation's prompt
 must gain the rule or every new post will warn. Owner to confirm the starting figures
 in `pricing.ts` (they are the low ends the site already published).
+
+**Follow-up the same day:** `pricing.ts` gained `liftmasterBeltWifiFrom` 450,
+`tripleLayerDoorFrom` 1800 and `customDoorFrom` 4000 (figures the cost guides already
+showed); the three cost-guide tables and the LiftMaster page now read every row from the
+config, and the LiftMaster wall-mount figure was unified at $749 (it said $700 while the
+opener page said $749). Open owner question: generic belt-drive opener from $399 vs
+LiftMaster Wi-Fi belt-drive from $450 — kept as two products, confirm or merge.
+
+**Prerender port:** `scripts/prerender.mjs` now listens on any free port (set
+`PRERENDER_PORT` to pin one). Two sessions prerendering at once used to collide on the
+fixed 4178 with EADDRINUSE; a stopped run could also leave an orphan holding the port.

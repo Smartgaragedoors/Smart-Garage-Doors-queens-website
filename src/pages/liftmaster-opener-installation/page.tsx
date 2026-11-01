@@ -1,4 +1,5 @@
 import GuidePageTemplate from '../../components/feature/GuidePageTemplate';
+import { PRICING, fromPrice } from '../../config/pricing';
 
 export default function LiftMasterOpenerInstallationPage() {
   return (
@@ -25,12 +26,12 @@ export default function LiftMasterOpenerInstallationPage() {
         rows: [
           {
             item: 'Belt-drive WiFi opener (installed)',
-            range: 'From $450',
+            range: fromPrice(PRICING.liftmasterBeltWifiFrom),
             notes: 'The quiet standard — myQ app, LED lighting, battery backup options by model',
           },
           {
             item: 'Wall-mount / jackshaft opener (installed)',
-            range: 'From $700',
+            range: fromPrice(PRICING.wallMountOpenerFrom),
             notes: 'Mounts beside the door; frees ceiling space, fits low- or high-headroom garages',
           },
           {
@@ -45,7 +46,7 @@ export default function LiftMasterOpenerInstallationPage() {
           },
           {
             item: 'Opener repair (the alternative)',
-            range: 'From $150',
+            range: fromPrice(PRICING.openerRepairFrom),
             notes: 'Gears, logic boards, sensors, travel adjustment — often the smarter fix',
           },
         ],
@@ -129,7 +130,7 @@ export default function LiftMasterOpenerInstallationPage() {
             "They're made by the same parent company, Chamberlain Group. Chamberlain is the retail line sold in big-box stores for DIY installation; LiftMaster is the professional line sold through installers, generally with more robust components, more model options (like wall-mount jackshafts), and full battery-backup and commercial offerings. Both run myQ. We install and service both, and we'll be straightforward about which fits your budget and garage.",
         },
       ]}
-      bottomLine="A LiftMaster belt-drive opener runs from $450 installed, a wall-mount jackshaft from $700 — and a repair starting at $150 is sometimes the smarter move, which we'll tell you straight. Every installation includes haul-away, sensor alignment, myQ setup on your phone, full remote programming, and a 1-year parts and labor warranty. Text us photos of your garage and current opener and we'll quote the exact price upfront, before any work begins."
+      bottomLine="A LiftMaster belt-drive opener runs from $450 installed, a wall-mount jackshaft from $749 — and a repair starting at $150 is sometimes the smarter move, which we'll tell you straight. Every installation includes haul-away, sensor alignment, myQ setup on your phone, full remote programming, and a 1-year parts and labor warranty. Text us photos of your garage and current opener and we'll quote the exact price upfront, before any work begins."
       relatedLinks={{
         title: 'Where We Install LiftMaster',
         links: [

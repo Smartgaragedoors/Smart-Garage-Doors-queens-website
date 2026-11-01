@@ -1,4 +1,5 @@
 import GuidePageTemplate from '../../components/feature/GuidePageTemplate';
+import { PRICING, fromPrice } from '../../config/pricing';
 
 export default function GarageDoorInstallationCostWestchesterPage() {
   return (
@@ -25,27 +26,27 @@ export default function GarageDoorInstallationCostWestchesterPage() {
         rows: [
           {
             item: 'Standard single steel door (8x7 or 9x7)',
-            range: 'From $800',
+            range: fromPrice(PRICING.doorFrom),
             notes: 'Single-layer steel, classic panel styles, standard hardware',
           },
           {
             item: 'Insulated double-layer steel',
-            range: 'From $1,200',
+            range: fromPrice(PRICING.insulatedDoorFrom),
             notes: 'Steel + polystyrene core; warmer and quieter for attached garages',
           },
           {
             item: 'Insulated triple-layer steel (premium quiet)',
-            range: 'From $1,800',
+            range: fromPrice(PRICING.tripleLayerDoorFrom),
             notes: 'Steel-insulation-steel sandwich; top R-value, quietest daily operation',
           },
           {
             item: 'Carriage-style door',
-            range: 'From $2,500',
+            range: fromPrice(PRICING.carriageCustomFrom),
             notes: 'The Westchester favorite — overlay designs, decorative hardware, windows',
           },
           {
             item: 'Custom, wood, or full-view glass',
-            range: 'From $4,000',
+            range: fromPrice(PRICING.customDoorFrom),
             notes: 'True wood, custom sizing for older openings, modern glass doors',
           },
           {
@@ -55,7 +56,7 @@ export default function GarageDoorInstallationCostWestchesterPage() {
           },
           {
             item: 'LiftMaster belt-drive WiFi opener (add-on)',
-            range: 'From $450 installed',
+            range: `${fromPrice(PRICING.liftmasterBeltWifiFrom)} installed`,
             notes: 'Quiet belt drive, myQ app, battery backup for outage-prone areas',
           },
         ],

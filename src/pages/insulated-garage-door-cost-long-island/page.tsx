@@ -1,4 +1,5 @@
 import GuidePageTemplate from '../../components/feature/GuidePageTemplate';
+import { PRICING, fromPrice } from '../../config/pricing';
 
 export default function InsulatedGarageDoorCostLongIslandPage() {
   return (
@@ -26,17 +27,17 @@ export default function InsulatedGarageDoorCostLongIslandPage() {
         rows: [
           {
             item: 'Double-layer steel + polystyrene (single door)',
-            range: 'From $1,200',
+            range: fromPrice(PRICING.insulatedDoorFrom),
             notes: 'Steel skin with rigid foam backing; roughly R-6 to R-9',
           },
           {
             item: 'Triple-layer steel + polyurethane (single door)',
-            range: 'From $1,800',
+            range: fromPrice(PRICING.tripleLayerDoorFrom),
             notes: 'Steel-foam-steel sandwich; roughly R-12 to R-18, quietest construction',
           },
           {
             item: 'Insulated carriage-style door',
-            range: 'From $2,500',
+            range: fromPrice(PRICING.carriageCustomFrom),
             notes: 'Carriage looks over an insulated steel core; hardware and window options',
           },
           {
@@ -46,7 +47,7 @@ export default function InsulatedGarageDoorCostLongIslandPage() {
           },
           {
             item: 'LiftMaster belt-drive WiFi opener (add-on)',
-            range: 'From $450 installed',
+            range: `${fromPrice(PRICING.liftmasterBeltWifiFrom)} installed`,
             notes: 'Pairs with an insulated door for the quietest overall setup',
           },
         ],
