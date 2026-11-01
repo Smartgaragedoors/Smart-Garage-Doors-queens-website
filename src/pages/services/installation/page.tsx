@@ -1,4 +1,5 @@
 import Header from '../../../components/feature/Header';
+import PricingNote from '../../../components/feature/PricingNote';
 import Footer from '../../../components/feature/Footer';
 import Button from '../../../components/base/Button';
 import Breadcrumbs from '../../../components/seo/Breadcrumbs';
@@ -20,7 +21,7 @@ export default function InstallationPage() {
   const faqs = [
     {
       question: `How much does garage door installation cost in ${displayLocation}?`,
-      answer: `New garage door installation typically ranges $800–$2,500 depending on door size, material, style, and features — these figures are the total price, inclusive of parts, labor, and any fees, surcharges, and applicable taxes. Single-car steel doors typically range $800–$1,200; premium double-car doors with windows, insulation, and custom features typically range $1,800–$2,500. Wood doors typically range $1,500–$5,000 or more for fully custom builds. We provide free on-site estimates with a detailed price breakdown before any work begins.`,
+      answer: `New garage door installation typically ranges from $800 depending on door size, material, style, and features — these figures are starting prices; your total — parts, labor and any fees, surcharges and taxes included — is confirmed before any work begins. Single-car steel doors typically range from $800; premium double-car doors with windows, insulation, and custom features typically range from $1,800. Wood doors typically range from $1,500 for fully custom builds. We provide free on-site estimates with a detailed price breakdown before any work begins.`,
     },
     {
       question: 'How long does garage door installation take?',
@@ -524,6 +525,7 @@ export default function InstallationPage() {
               </div>
             ))}
           </div>
+          <PricingNote className="mt-6" />
         </div>
       </section>
 

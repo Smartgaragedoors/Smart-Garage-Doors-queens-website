@@ -1,4 +1,5 @@
 import Header from '../../components/feature/Header';
+import PricingNote from '../../components/feature/PricingNote';
 import Footer from '../../components/feature/Footer';
 import Breadcrumbs from '../../components/seo/Breadcrumbs';
 import DynamicMetaTags from '../../components/seo/DynamicMetaTags';
@@ -53,7 +54,7 @@ const PREGUNTAS = [
   },
   {
     question: '¿Cuánto cuesta reparar una puerta de garaje?',
-    answer: 'Las reparaciones básicas van de $150 a $300. El cambio de resortes cuesta entre $175 y $350, y la reparación del motor entre $150 y $350. Una puerta nueva instalada va de $800 a $1,600 según el modelo. Siempre le damos el precio exacto por adelantado, antes de empezar — el precio total, con todos los cargos e impuestos aplicables incluidos.',
+    answer: 'Las reparaciones básicas empiezan desde $150. El cambio de resortes cuesta desde $175, y la reparación del motor desde $150. Una puerta nueva instalada empieza desde $800 según el modelo. Siempre le damos el precio exacto por adelantado, antes de empezar — el precio total, con todos los cargos e impuestos aplicables incluidos.',
   },
   {
     question: '¿Atienden en español?',
@@ -241,6 +242,7 @@ export default function ReparacionPuertasGarajePage() {
               </div>
             ))}
           </div>
+          <PricingNote lang="es" className="mt-6" />
         </div>
       </section>
 

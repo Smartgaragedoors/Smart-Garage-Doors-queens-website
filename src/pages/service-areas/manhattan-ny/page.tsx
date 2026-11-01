@@ -74,7 +74,7 @@ export default function LocationPage() {
         },
         {
           question: 'What does garage door repair cost in Manhattan?',
-          answer: 'Residential repairs typically run $150–$300, spring replacement $175–$350, and opener repair $150–$350 — total prices, inclusive of any fees, surcharges and applicable taxes, quoted before we start. Commercial and rolling-gate work is quoted per door after we see it, and the quote is the price.',
+          answer: 'Residential repairs typically run from $150, spring replacement from $175, and opener repair from $150 — starting prices; your total, including any fees, surcharges and taxes, is confirmed before work begins, quoted before we start. Commercial and rolling-gate work is quoted per door after we see it, and the quote is the price.',
         },
         {
           question: 'What brands do you service in Manhattan?',

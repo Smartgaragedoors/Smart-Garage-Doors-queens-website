@@ -4,7 +4,7 @@ export default function SecondOpinionPage() {
   return (
     <GuidePageTemplate
       metaTitle="Garage Door Second Opinion | Before You Spend Thousands"
-      metaDescription="Told you need a whole new garage door or opener? Send us photos and the other quote — a real technician will tell you honestly whether a $200-$350 repair solves it or replacement genuinely makes sense. Free."
+      metaDescription="Told you need a whole new garage door or opener? Send us photos and the other quote — a real technician will tell you honestly whether a repair starting at $200 solves it or replacement genuinely makes sense. Free."
       keywords="garage door second opinion, do I really need a new garage door, garage door replacement second opinion, told I need new garage door, garage door quote too high"
       slug="/second-opinion/"
       heroImage="techDanSmiling"
@@ -15,7 +15,7 @@ export default function SecondOpinionPage() {
       whatsAppMessage="Hi! I was quoted for a garage door replacement and I'd like a second opinion. I can send photos and the quote."
       intro={[
         'It’s one of the most common calls we get: another company came out for a noisy door or a snapped spring, and the visit ended with a quote for a full door replacement or a brand-new opener. Sometimes that quote is right. Often, it isn’t.',
-        'Our second opinion is simple: send us photos of your door and the quote you were handed, and a real technician — not a salesperson — tells you what we actually see. If a $200–$350 repair solves it, we’ll say so and quote the repair. If the first company was right and replacement is the smart move, we’ll say that too, plainly, with the reasons.',
+        'Our second opinion is simple: send us photos of your door and the quote you were handed, and a real technician — not a salesperson — tells you what we actually see. If a repair starting at $200 solves it, we’ll say so and quote the repair. If the first company was right and replacement is the smart move, we’ll say that too, plainly, with the reasons.',
         'There’s no fee, no obligation, and no commission-driven incentive to talk you into the bigger ticket. We do this for homeowners across Queens, Brooklyn, Long Island, Westchester, Bergen County, and Fairfield County, and a lot of those second opinions end with a repair instead of a replacement.',
       ]}
       criteria={{
@@ -45,13 +45,13 @@ export default function SecondOpinionPage() {
         {
           heading: 'When a Repair Usually Solves It',
           paragraphs: [
-            'A surprising number of "you need a new door" and "you need a new opener" verdicts trace back to one fixable part. These are the patterns we see most often in second opinions — all figures are total prices, inclusive of any fees, surcharges, and applicable taxes:',
+            'A surprising number of "you need a new door" and "you need a new opener" verdicts trace back to one fixable part. These are the patterns we see most often in second opinions — all figures are starting prices; your total, including any fees, surcharges and taxes, is confirmed before work begins:',
           ],
           bullets: [
-            '"Your springs can’t be repaired." Torsion springs are wear parts — they’re designed to be replaced, not to condemn the door. Spring replacement runs $175–$350, and the door is usually fine.',
-            'An opener quoted for full replacement when the gear kit, trolley, or logic board was the actual failure. Opener repairs typically run $150–$350 — a fraction of a new unit plus installation.',
+            '"Your springs can’t be repaired." Torsion springs are wear parts — they’re designed to be replaced, not to condemn the door. Spring replacement runs from $175, and the door is usually fine.',
+            'An opener quoted for full replacement when the gear kit, trolley, or logic board was the actual failure. Opener repairs typically run from $150 — a fraction of a new unit plus installation.',
             'One or two bent panels pitched as a reason for a whole new door. On many common door models, individual panels can be replaced or straightened.',
-            'A door "off its tracks beyond repair." Off-track doors look dramatic, but realignment with new rollers is a standard repair, generally in the $150–$300 range.',
+            'A door "off its tracks beyond repair." Off-track doors look dramatic, but realignment with new rollers is a standard repair, generally from $150.',
             'The "lifetime spring" upsell — a premium-priced spring package sold as the only safe option. Quality standard-cycle springs, properly sized and installed with a 1-year parts and labor warranty, serve most homes well.',
           ],
         },
@@ -62,7 +62,7 @@ export default function SecondOpinionPage() {
           ],
           bullets: [
             'A door that’s decades old with rust-through at the bottom sections, rotted framing, or delaminating panels — repairing one symptom won’t stop the next one.',
-            'Repeated failures: if you’ve paid for two or three repairs on the same door in recent years, the math starts favoring a new door, which runs $800–$2,500 for standard models.',
+            'Repeated failures: if you’ve paid for two or three repairs on the same door in recent years, the math starts favoring a new door, which runs from $800 for standard models.',
             'An opener with no safety sensors or a non-reversing mechanism. These predate modern safety standards and shouldn’t be kept running over a household with kids or pets.',
             'Structural damage — a vehicle strike that twisted the track framing or racked the door out of square — where a "repair" would really be rebuilding most of the system anyway.',
             'Obsolete hardware with no available parts, where sourcing one-off components costs more than it’s worth.',
@@ -99,7 +99,7 @@ export default function SecondOpinionPage() {
         {
           question: 'Will you just tell me I need a new door too?',
           answer:
-            'Only if it’s true. Many of the second opinions we give end in a repair, not a replacement — a $175–$350 spring job or a $150–$350 opener repair instead of a four-figure ticket. Our technicians aren’t paid commission on replacements, so there’s no incentive to inflate the diagnosis. When replacement really is the right answer, we explain exactly why so you can verify it yourself.',
+            'Only if it’s true. Many of the second opinions we give end in a repair, not a replacement — a from $175 spring job or a opener starting at $150 repair instead of a four-figure ticket. Our technicians aren’t paid commission on replacements, so there’s no incentive to inflate the diagnosis. When replacement really is the right answer, we explain exactly why so you can verify it yourself.',
         },
         {
           question: 'What should I send you?',
@@ -119,7 +119,7 @@ export default function SecondOpinionPage() {
         {
           question: 'Can you give a second opinion on an opener replacement?',
           answer:
-            'Yes — opener replacements are one of the most common things we’re asked to double-check. Send a photo of the opener’s model sticker and describe what it’s doing (humming, clicking, chain moves but door doesn’t, remote dead). Many "replace the opener" verdicts turn out to be a fixable gear kit, trolley, or sensor issue in the $150–$350 range. If the unit really is at end of life, a LiftMaster belt-drive WiFi opener installed runs about $450–$900 depending on the model.',
+            'Yes — opener replacements are one of the most common things we’re asked to double-check. Send a photo of the opener’s model sticker and describe what it’s doing (humming, clicking, chain moves but door doesn’t, remote dead). Many "replace the opener" verdicts turn out to be a fixable gear kit, trolley, or sensor issue from $150. If the unit really is at end of life, a LiftMaster belt-drive WiFi opener installed runs from $450 depending on the model.',
         },
       ]}
       bottomLine="A garage door replacement is a four-figure decision, and you shouldn’t make it on one company’s word. Send us the photos and the quote — if a repair solves it, you’ll save real money; if replacement is right, you’ll proceed with confidence. Either way, you get a straight answer for free."

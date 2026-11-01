@@ -342,7 +342,7 @@ export default function CableRollerRepairPage() {
               </ul>
               
               <div className="text-center">
-                <span className="text-2xl font-bold text-teal-600">$8-12</span>
+                <span className="text-2xl font-bold text-teal-600">From $8</span>
                 <p className="text-sm text-gray-600">Per roller</p>
               </div>
             </div>
@@ -384,7 +384,7 @@ export default function CableRollerRepairPage() {
               </ul>
               
               <div className="text-center">
-                <span className="text-2xl font-bold text-teal-600">$15-25</span>
+                <span className="text-2xl font-bold text-teal-600">From $15</span>
                 <p className="text-sm text-gray-600">Per roller</p>
               </div>
             </div>
@@ -422,14 +422,14 @@ export default function CableRollerRepairPage() {
               </ul>
               
               <div className="text-center">
-                <span className="text-2xl font-bold text-teal-600">$25-40</span>
+                <span className="text-2xl font-bold text-teal-600">From $25</span>
                 <p className="text-sm text-gray-600">Per roller</p>
               </div>
             </div>
           </div>
 
           <p className="text-sm text-gray-600 text-center mt-8 max-w-3xl mx-auto">
-            All prices shown are total prices per roller, inclusive of any fees, surcharges, and applicable taxes. You'll receive a free written estimate before any work begins.
+            Roller prices shown are starting prices per roller. Your total — including any fees, surcharges and taxes — is confirmed with a free written estimate before any work begins.
           </p>
         </div>
       </section>

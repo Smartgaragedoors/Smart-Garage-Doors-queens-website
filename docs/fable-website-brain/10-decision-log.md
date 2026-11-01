@@ -552,3 +552,30 @@ brand name). New city pages remain off the table.
 **Observation recorded:** GBP-UTM URLs appear as separate pages in GSC. When a
 profile's website field changes, its impressions move between URLs and look like
 decay. Always split UTM vs clean URLs before reading a trend.
+
+
+## 2026-11-02 — Pricing: starting prices only, site-wide
+
+**Owner decision:** stop publishing price ranges; show starting prices with a note
+that labor and parts vary by job. Implemented as "From $X" everywhere (437 range
+tokens across 95 files converted; 60 location pages, 3 cost guides, service pages,
+legacy and JSON blog posts, the Spanish page and posts) plus `<PricingNote />` —
+"Starting prices for standard residential doors. Parts and labor vary by job, so we
+confirm one total price — including any fees, surcharges and taxes — before any
+work begins." — rendered automatically by the Location, Guide and Blog templates and
+by hand on the repair, maintenance, opener, cable/roller, installation and Spanish
+pages. `src/config/pricing.ts` is the single source; `scripts/verify-pricing.mjs`
+runs first in `npm run build` and fails on any range in `src/` (warns for blog JSON).
+
+**Why starting prices rather than "contact us":** the cost-guide pages and ~10 cost
+posts exist to rank for "how much" searches, and the brand promise is one total
+price before work starts — a page with no number loses the query and reads like
+the national chains. "From $X" keeps the intent and the promise without a ceiling.
+
+**Kept:** real past-job totals (installation gallery invoices, Queens/Brooklyn/Great
+Neck `recentJobs`) — proof, labelled as past jobs, not quotes. **Unified:** spring
+replacement now starts at $175 everywhere; `/garage-door-repair/` and the 2025 cost
+posts said $200. **Still open:** PRs #7 and #8 carry range tables written before this
+rule — their sessions were asked to rebase and convert; Post Automation's prompt
+must gain the rule or every new post will warn. Owner to confirm the starting figures
+in `pricing.ts` (they are the low ends the site already published).

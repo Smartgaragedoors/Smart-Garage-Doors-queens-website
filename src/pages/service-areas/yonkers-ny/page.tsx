@@ -51,7 +51,7 @@ export default function LocationPage() {
         },
         {
           question: 'What does garage door repair cost in Yonkers?',
-          answer: 'Repairs typically run $150–$300, spring replacement $175–$350, and opener repair $150–$350. Those are total prices — inclusive of any fees, surcharges, and applicable taxes — quoted before we start, not estimates that grow on the invoice.',
+          answer: 'Repairs typically run from $150, spring replacement from $175, and opener repair from $150. Those are starting prices; your total, including any fees, surcharges and taxes, is confirmed before we start, not estimates that grow on the invoice.',
         },
         {
           question: 'My driveway is on a steep hill — does that affect the garage door?',

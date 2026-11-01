@@ -20,6 +20,18 @@ incident in this repo's history, not theory.
 6. **Phone number changes only with owner verification.** (914) 557-6816 from
    `BUSINESS_INFO`; Suffern's local line is the model for per-location overrides.
 
+**Pricing (owner rule, 2026-11-02): starting prices only.** Every price on the
+site is written "From $X" — never a range or a ceiling. `src/config/pricing.ts`
+is the single source (`fromPrice(PRICING.springFrom)` renders "From $175"); prose
+must match it. "$150–$300", "$150 to $300" and "between $150 and $300" in `src/`
+fail the build (`scripts/verify-pricing.mjs`); in `content/blog/` they only warn so
+Post Automation keeps publishing — fix the post or its prompt. Every block that
+shows a price carries `<PricingNote />` (the Location, Guide and Blog templates add
+it automatically; hand-built pages add it under the cards or FAQ). Real past-job
+totals (RecentWork, DoorStyleGallery, `recentJobs`) are proof, not quotes — keep
+them labelled as past jobs. Spring replacement starts at $175 everywhere; the old
+$200 figure is retired.
+
 ## SEO safety
 
 7. **Never delete/rename a URL without a server-side 301 in `vercel.json`.**

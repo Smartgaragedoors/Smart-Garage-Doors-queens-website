@@ -105,7 +105,7 @@ export default function EmergencyRepairsPage() {
     {
       question: 'Do you charge extra for emergency or after-hours service?',
       answer:
-        'After-hours and holiday appointments may carry a higher rate than a scheduled daytime appointment. Either way, the quote you receive is the total price, inclusive of any fees, surcharges, and applicable taxes, and you get it before any work starts. If a repair can safely wait until morning and save you money, we’ll tell you that too.',
+        'After-hours and holiday appointments may carry a higher rate than a scheduled daytime appointment. Either way, the quote you receive is the starting prices; your total, including any fees, surcharges and taxes, is confirmed before work begins, and you get it before any work starts. If a repair can safely wait until morning and save you money, we’ll tell you that too.',
     },
     {
       question: 'My garage door won’t close and I have to leave. What do I do?',

@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import PricingNote from './PricingNote';
+import { mentionsPrice } from '../../config/pricing';
 import Header from './Header';
 import Footer from './Footer';
 import Breadcrumbs from '../seo/Breadcrumbs';
@@ -272,7 +274,7 @@ export default function GuidePageTemplate(props: GuidePageTemplateProps) {
                 <thead>
                   <tr className="bg-blue-900 text-white text-sm">
                     <th className="px-4 sm:px-6 py-4 text-left font-semibold">Project</th>
-                    <th className="px-4 sm:px-6 py-4 text-left font-semibold">Typical Range</th>
+                    <th className="px-4 sm:px-6 py-4 text-left font-semibold">Starting Price</th>
                     <th className="px-4 sm:px-6 py-4 text-left font-semibold hidden sm:table-cell">What Affects It</th>
                   </tr>
                 </thead>
@@ -288,6 +290,7 @@ export default function GuidePageTemplate(props: GuidePageTemplateProps) {
               </table>
             </div>
             <p className="text-xs text-gray-400 mt-3 text-center">{costTable.caption}</p>
+            <PricingNote align="center" className="mt-2" />
           </div>
         </section>
       )}
@@ -356,6 +359,7 @@ export default function GuidePageTemplate(props: GuidePageTemplateProps) {
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">Common Questions</h2>
           </div>
           <FAQAccordion faqs={faqs} />
+          {faqs.some((f) => mentionsPrice(f.answer)) && <PricingNote align="center" className="mt-6" />}
         </div>
       </section>
 

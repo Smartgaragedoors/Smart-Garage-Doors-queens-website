@@ -1,5 +1,6 @@
 
 import Header from '../../components/feature/Header';
+import PricingNote from '../../components/feature/PricingNote';
 import Footer from '../../components/feature/Footer';
 import Breadcrumbs from '../../components/seo/Breadcrumbs';
 import DynamicMetaTags from '../../components/seo/DynamicMetaTags';
@@ -15,7 +16,7 @@ export default function GarageDoorInstallationNewYorkPage() {
   const faqs = [
     {
       question: 'How much does garage door installation cost in New York?',
-      answer: 'New garage door installation in New York typically ranges from $800–$2,500 all-inclusive (parts, labor, and applicable taxes) depending on door size, material, style, and features. Single-car steel doors typically range $800–$1,200; premium double-car doors with windows, insulation, and custom features typically range $1,800–$2,500. Wood doors typically range $1,500–$5,000+. We provide free on-site estimates with a detailed price breakdown before any work begins.',
+      answer: 'New garage door installation in New York starts from $800, depending on door size, material, style, and features. Single-car steel doors start from $800; premium double-car doors with windows, insulation, and custom features from $1,800; wood doors from $1,500. Those are starting prices — your total, with parts, labor, and applicable taxes included, is confirmed with a free on-site estimate and a detailed price breakdown before any work begins.',
     },
     {
       question: 'How long does garage door installation take?',
@@ -331,6 +332,7 @@ export default function GarageDoorInstallationNewYorkPage() {
               </div>
             ))}
           </div>
+          <PricingNote className="mt-6" />
         </div>
       </section>
 
