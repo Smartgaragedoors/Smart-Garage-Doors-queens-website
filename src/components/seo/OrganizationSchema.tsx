@@ -11,12 +11,9 @@ const OrganizationSchema: React.FC = () => {
     "url": BUSINESS_INFO.website,
     // Entity disambiguation: a Utah company named "Smart Garage Door" pollutes
     // brand SERPs — bind this entity explicitly to its tri-state geography.
-    "description": "Garage door repair and installation company serving New York, New Jersey, and Connecticut — Queens, Brooklyn, the Bronx, Westchester, Long Island, Rockland County, northern New Jersey, and Fairfield County.",
-    "areaServed": [
-      { "@type": "State", "name": "New York" },
-      { "@type": "State", "name": "New Jersey" },
-      { "@type": "State", "name": "Connecticut" },
-    ],
+    "description": "Garage door repair and installation company serving New York, New Jersey, and Connecticut — Queens, Brooklyn, the Bronx, Manhattan, Staten Island, Long Island, Westchester, Rockland and Orange Counties, northern and central New Jersey, and Fairfield County.",
+    // Counties and boroughs, not whole states; shared with LocalBusinessSchema via BUSINESS_INFO.
+    "areaServed": BUSINESS_INFO.serviceAreas.map((area) => ({ "@type": area.type, "name": area.name })),
     "logo": "https://www.smartestgaragedoors.com/smart-garage-doors-logo.webp",
     "image": "https://www.smartestgaragedoors.com/hero-van-1280.webp",
     "telephone": BUSINESS_INFO.phoneFormatted,

@@ -12,12 +12,16 @@ function Footer() {
 
   const serviceAreas = useMemo(() => [
     { name: 'Queens', href: '/queens-ny/' },
-    { name: 'Suffern', href: '/suffern-ny/' },
     { name: 'Brooklyn', href: '/brooklyn-ny/' },
+    { name: 'The Bronx', href: '/bronx-ny/' },
+    { name: 'Manhattan', href: '/manhattan-ny/' },
     { name: 'Staten Island', href: '/staten-island-ny/' },
     { name: 'Long Island', href: '/long-island-ny/' },
     { name: 'Westchester County', href: '/westchester-county-ny/' },
-    { name: 'Bergen County', href: '/bergen-county-nj/' }
+    { name: 'Suffern, NY', href: '/suffern-ny/' },
+    { name: 'Bergen County', href: '/bergen-county-nj/' },
+    { name: 'Jackson, NJ', href: '/jackson-nj/' },
+    { name: 'Stamford, CT', href: '/stamford-ct/' }
   ], []);
 
   const currentPath = routerLocation.pathname;

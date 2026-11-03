@@ -6,6 +6,7 @@ import DynamicMetaTags from '../../components/seo/DynamicMetaTags';
 import FAQSchema from '../../components/seo/FAQSchema';
 import { buildCanonical } from '../../config/canonical';
 import { getLocationsByState } from '../../config/locations';
+import { SERVICE_COUNTIES } from '../../config/business-info';
 
 // Organize locations by state
 const serviceAreasByState = {
@@ -29,7 +30,7 @@ const serviceAreasByState = {
 const faqs = [
   {
     question: 'What areas do you serve?',
-    answer: 'We provide professional garage door repair and installation services throughout New York, New Jersey, and Connecticut. Our service area includes major cities and counties across the tri-state region, from Brooklyn and Queens in New York to Stamford and Greenwich in Connecticut, and Bergen County in New Jersey. An emergency line is available for urgent repairs across all our service areas.',
+    answer: 'We provide professional garage door repair and installation services throughout New York, New Jersey, and Connecticut. In New York that covers the five boroughs, Nassau and Suffolk, Westchester, Rockland, Orange and Putnam Counties; in New Jersey, Bergen, Passaic, Hudson, Essex, Union, Morris, Somerset, Middlesex, Monmouth, Mercer and Ocean Counties; in Connecticut, Fairfield County. An emergency line is available for urgent repairs across all our service areas.',
   },
   {
     question: 'How does scheduling work?',
@@ -138,6 +139,22 @@ export default function ServiceAreasPage() {
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Click on any location below to learn more about our services in that area.
+            </p>
+          </div>
+
+          {/* Counties and boroughs we dispatch to (single source: SERVICE_COUNTIES) */}
+          <div className="mb-12 bg-white rounded-lg border border-gray-200 p-6">
+            <h3 className="text-xl font-semibold text-gray-900 mb-4">Counties and boroughs we cover</h3>
+            <dl className="space-y-3">
+              {SERVICE_COUNTIES.map((group) => (
+                <div key={group.abbr} className="md:flex md:gap-4">
+                  <dt className="font-semibold text-blue-900 md:w-32 shrink-0">{group.state}</dt>
+                  <dd className="text-gray-700">{group.areas.join(' · ')}</dd>
+                </div>
+              ))}
+            </dl>
+            <p className="text-sm text-gray-500 mt-4">
+              Not sure if your address is inside the line? Call and a dispatcher will confirm coverage.
             </p>
           </div>
 

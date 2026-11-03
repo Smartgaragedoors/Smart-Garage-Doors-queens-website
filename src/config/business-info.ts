@@ -9,6 +9,38 @@ const rawLiveRatingValue = (generatedReviews as { ratingValue?: string | null })
 // Always one decimal place ("5" -> "5.0") to match existing "X.X★" display copy sitewide.
 const liveRatingValue = rawLiveRatingValue ? Number(rawLiveRatingValue).toFixed(1) : null;
 
+/**
+ * Counties and boroughs we dispatch to, grouped by state. Single source for the
+ * homepage service-area section, the footer and schema `areaServed`, kept in
+ * step with the LSA and GBP service-area lists (docs/REACH-RADIUS-PLAN-2026-11-03.md §5).
+ * Counties, not towns: towns live in `locations.ts` as pages.
+ */
+export const SERVICE_COUNTIES = [
+  {
+    state: 'New York',
+    abbr: 'NY',
+    areas: [
+      'Queens', 'Brooklyn', 'The Bronx', 'Manhattan', 'Staten Island',
+      'Nassau County', 'Suffolk County', 'Westchester County',
+      'Rockland County', 'Orange County', 'Putnam County',
+    ],
+  },
+  {
+    state: 'New Jersey',
+    abbr: 'NJ',
+    areas: [
+      'Bergen County', 'Passaic County', 'Hudson County', 'Essex County',
+      'Union County', 'Morris County', 'Somerset County', 'Middlesex County',
+      'Monmouth County', 'Mercer County', 'Ocean County',
+    ],
+  },
+  {
+    state: 'Connecticut',
+    abbr: 'CT',
+    areas: ['Fairfield County'],
+  },
+] as const;
+
 export const BUSINESS_INFO = {
   name: "Smart Garage Doors",
   legalName: "Smart Garage Doors",
@@ -106,11 +138,13 @@ export const BUSINESS_INFO = {
     bestRating: "5",
     worstRating: "1",
   },
-  serviceAreas: [
-    { type: "State", name: "New York" },
-    { type: "State", name: "New Jersey" },
-    { type: "State", name: "Connecticut" },
-  ],
+  /**
+   * Schema.org `areaServed` for the Organization / LocalBusiness markup.
+   * Counties and boroughs from SERVICE_COUNTIES, not whole states.
+   */
+  serviceAreas: SERVICE_COUNTIES.flatMap((group) =>
+    group.areas.map((area) => ({ type: "AdministrativeArea", name: `${area}, ${group.abbr}` }))
+  ),
 
   /**
    * Concrete trust signals surfaced on location pages (dated specificity ranks
@@ -129,7 +163,7 @@ export const BUSINESS_INFO = {
   },
 
   /**
-   * Operational dispatch hubs (~60+ mile service radius each).
+   * Operational dispatch hubs (~50 mile service radius each).
    * Used for homepage/hero messaging—honest positioning without implying a storefront in every town.
    */
   dispatchHubs: [

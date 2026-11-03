@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { BUSINESS_INFO } from '../../config/business-info';
+import { BUSINESS_INFO, SERVICE_COUNTIES } from '../../config/business-info';
 
 export default function ServiceAreas() {
   const mapRef = useRef<HTMLDivElement>(null);
@@ -11,39 +11,8 @@ export default function ServiceAreas() {
   const hubIntro =
     hubParts.length === 3 ? `${hubParts[0]}, ${hubParts[1]}, and ${hubParts[2]}` : hubParts.join(', ');
 
-  const serviceAreas = {
-    'New York': [
-      'Brooklyn',
-      'Queens', 
-      'Staten Island',
-      'Flushing',
-      'Long Island',
-      'Nassau County',
-      'Suffolk County',
-      'Westchester County',
-      'White Plains',
-      'New Rochelle',
-      'Scarsdale',
-      'Suffern'
-    ],
-    'Connecticut': [
-      'Stamford',
-      'Greenwich',
-      'Darien',
-      'New Canaan',
-      'Westport',
-      'Fairfield',
-      'Newtown'
-    ],
-    'New Jersey': [
-      'Bergen County',
-      'Monmouth County',
-      'Ocean County',
-      'Middlesex County',
-      'Jackson',
-      'Princeton area'
-    ]
-  };
+  // Counties and boroughs by state, from the single source in business-info.ts.
+  const serviceAreas = SERVICE_COUNTIES.map((group) => [group.state, group.areas] as const);
 
   return (
     <section id="service-areas" className="py-12 md:py-20 bg-blue-900 overflow-x-hidden w-full">
@@ -55,7 +24,7 @@ export default function ServiceAreas() {
               Regional <span className="text-orange-500">Service Areas</span>
             </h2>
             <p className="text-lg md:text-xl text-gray-200 mb-4">
-              Three dispatch hubs—{hubIntro}—each covering roughly a 60+ mile radius for emergency repair and premium installs.
+              Three dispatch hubs—{hubIntro}—each covering roughly a 50-mile radius for emergency repair and premium installs.
             </p>
             <p className="text-base md:text-lg text-gray-300 mb-6">
               We prioritize high-trust markets: Long Island Gold Coast, Westchester, Fairfield County CT, Monmouth/Ocean shore, and Northern NJ—without the feel of a generic directory.
@@ -69,7 +38,7 @@ export default function ServiceAreas() {
             
             {/* Areas List by State */}
             <div className="space-y-6 mb-8">
-              {Object.entries(serviceAreas).map(([state, areas]) => (
+              {serviceAreas.map(([state, areas]) => (
                 <div key={state}>
                   <h4 className="text-base md:text-lg font-semibold text-orange-400 mb-3">{state}</h4>
                   <div className="grid grid-cols-2 gap-2 md:gap-3 ml-4">
