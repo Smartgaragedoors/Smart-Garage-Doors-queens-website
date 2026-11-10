@@ -1,0 +1,56 @@
+{
+  "title": "Garage Door Won't Close? Check the Sensors First",
+  "description": "Door starts closing then reverses, or won't close at all? Misaligned or dirty safety sensors are the #1 cause. How to check and fix them yourself in minutes.",
+  "slug": "garage-door-sensor-misalignment-wont-close",
+  "date": "2026-11-10",
+  "updatedAt": "2026-11-10",
+  "city": null,
+  "service": "Garage Door Repair",
+  "image": "/images/garage-door-panel-repair-dan-hammer-smart-garage-doors.webp",
+  "imageAlt": "Smart Garage Doors technician working on garage door hardware",
+  "keywords": "garage door sensor misalignment, garage door won't close, garage door reverses, garage door sensor light blinking, garage door safety sensor repair",
+  "canonicalUrl": "https://www.smartestgaragedoors.com/blog/garage-door-sensor-misalignment-wont-close/",
+  "h1": "Garage Door Won't Close? Check the Sensors First",
+  "intro": "You hit the button, the door starts down, and then it stops and goes right back up — or it never leaves the top of the track at all. Nine times out of ten, that's not a motor problem or a spring problem. It's the two small safety sensors near the floor on either side of the door, and in most cases you can fix it yourself in under five minutes. Here's how those sensors work, exactly what to check, and when the problem is actually something else.",
+  "sections": [
+    {
+      "heading": "What those sensors actually do",
+      "body": "Look about 4-6 inches off the garage floor, on the inside of each vertical track. You'll see two small boxes facing each other — one has an LED that stays lit, the other blinks or glows when it's receiving a clean signal. Together they're called the photo-eye safety sensors, and they're required on every residential opener sold since 1993 for exactly one reason: to stop the door from closing on a kid, a pet, or a car bumper.\n\nThe two sensors send an invisible infrared beam across the opening, low to the ground. As long as that beam is unbroken, the opener is allowed to close the door. The instant something crosses it — or the beam stops reaching the receiver for any reason — the opener's logic has exactly one move: refuse to close, or reverse immediately if it already started. That's not a malfunction. That's the safety system doing its job. The malfunction is usually why the beam broke in the first place."
+    },
+    {
+      "heading": "The 5-minute sensor check",
+      "body": "Before you call anyone, walk through this. It solves the problem more often than any other step in this article.\n\n1. **Look at both LEDs.** Most brands show a solid light on at least one sensor when the beam is good. A blinking, flickering, or dark LED on either side means the beam isn't connecting.\n\n2. **Check for anything in the beam's path.** A broom leaning against the track, a recycling bin, a low-hanging cobweb, a garden hose — anything crossing that low line between the two sensors will block it. Clear the path and try the door again.\n\n3. **Wipe both lenses.** Garage dust, pollen, and a season of lawn-care overspray build up fast on these small plastic lenses. A dry microfiber cloth is enough; don't spray cleaner directly on them.\n\n4. **Check that both sensors are actually facing each other.** A bump from a car, a bike handlebar, or even someone grabbing the bracket while reaching for something can rotate a sensor a few degrees — enough that it's no longer aimed at its partner. If a bracket is loose, you can usually nudge it back by hand until the LED goes solid, then snug the wing-nut or screw that holds it.\n\n5. **Check the wiring at the base of each sensor.** Sensors run on low-voltage wire that's often stapled along the floor or track. A vacuum cleaner, a dropped box, or normal foot traffic can pull a wire loose or nick it. A wire that's visibly frayed, chewed, or disconnected at the sensor terminal is why the signal is dropping even though the lenses are clean and aligned.\n\nIf both LEDs go solid after any of these steps, run the door through a full open-close cycle to confirm it's holding. A sensor issue that was intermittent (loose bracket, a wire barely making contact) can come back, so keep an eye on it over the next few closes."
+    },
+    {
+      "heading": "If the sensors check out fine and it still won't close",
+      "body": "A clean, aligned, well-wired sensor pair with solid LEDs rules out the most common cause — which means the problem is somewhere else in the system, and some of these are not DIY territory:\n\n- **The opener's travel limits are off.** If the door reverses well above the floor, not right at the bottom, the opener may be set to think it's hitting an obstruction before it's actually closed. This is a setting, not a sensor problem, and it varies by opener brand.\n- **A spring is failing.** A door that feels unusually heavy, or hesitates and reverses under strain rather than cleanly, can be a spring losing tension. Don't keep cycling it — a spring under partial failure is not something to force.\n- **The track or rollers are binding.** If the door catches, jerks, or you can see it flex side to side as it travels, something mechanical is fighting the motor, and the opener's auto-reverse is correctly treating that resistance as an obstruction.\n- **A frayed or loose cable.** Look at the two cables running from the bottom corners of the door up to the drums near the springs. A cable that's fraying or has slipped its drum groove can throw the door off-balance enough that the opener refuses to finish the cycle.\n\nAny of these can look identical to a sensor problem from the driver's seat — door starts, stops, reverses — which is why \"just replace the sensors\" sometimes doesn't fix anything. A quick diagnostic visit sorts out which system is actually at fault before any parts get replaced."
+    },
+    {
+      "heading": "What not to do while this is happening",
+      "body": "Don't hold the wall button down to force the door shut, and don't disconnect or bypass a sensor to get the door to close \"just this once.\" Bypassing the safety sensors defeats the one feature that keeps a closing door from coming down on a person, a pet, or a car — and it only takes one bad cycle for that to go wrong. If you genuinely can't get the door to close and need the garage secured overnight, it's safer to manually disengage the opener (most have a red pull-cord release) and close the door by hand than to force the automated system past its own safety check."
+    },
+    {
+      "heading": "What a service call for this actually costs",
+      "body": "If the five-minute check above doesn't resolve it, a standard diagnostic and repair visit — covering sensor alignment, bracket replacement, opener travel/force adjustment, or roller and track issues — starts from $150 in our NY/NJ/CT service area. We give the exact price before any work begins, and a sensor or adjustment fix is almost always a same-visit repair. If the diagnosis turns up a spring or cable problem instead, spring replacement starts from $175 and is quoted the same way: one number, confirmed before we start."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Why does my garage door start closing and then go back up?",
+      "answer": "This is almost always the safety sensors near the floor — something is blocking the beam between them, one lens is dirty, or a bracket got bumped out of alignment. Check both LEDs first; a blinking or dark light on either sensor means the beam isn't connecting, and the opener is designed to reverse rather than close blind."
+    },
+    {
+      "question": "My garage door sensor light is blinking, what does that mean?",
+      "answer": "A blinking (rather than solid) LED means that sensor isn't receiving a clean signal from its partner across the opening. Clear anything that could be blocking the beam, wipe both lenses, and check that the sensors are still pointed directly at each other — a bump from a bike or car can rotate one just enough to break the connection."
+    },
+    {
+      "question": "Can I realign the sensors myself?",
+      "answer": "Yes — this is one of the few garage door fixes that's genuinely safe to do yourself. The sensors run on low-voltage wiring, not the spring system, so there's no stored-energy risk. Loosen the bracket screw or wing-nut slightly, nudge the sensor until its LED goes solid, then retighten."
+    },
+    {
+      "question": "The sensors look fine but my door still won't close. What's wrong?",
+      "answer": "If both sensor LEDs are solid and the path is clear, the cause is likely elsewhere: opener travel-limit settings, a weakening spring, a binding track or roller, or a fraying cable. These can produce the same start-stop-reverse symptom as a sensor problem, which is why a diagnostic visit checks the whole system rather than guessing at one part."
+    }
+  ],
+  "cta": "**Door still won't close after checking the sensors?** Call (914) 557-6816 or [text us a photo](/photo-estimate/) and we'll help you figure out what's going on — same-day service in most cases across NY, NJ & CT. See our full [garage door repair](/garage-door-repair/) and [opener repair & installation](/opener-repair-installation/) services."
+}
