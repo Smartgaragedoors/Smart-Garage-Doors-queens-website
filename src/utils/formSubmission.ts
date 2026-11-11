@@ -9,7 +9,8 @@
  * Without either, the form falls back to opening the visitor’s email client (you won’t get an email unless they send it).
  */
 
-import { getAttribution } from './analytics';
+import { getAttribution, getFirstTouch, LEAD_CHANNEL_LABEL, type LeadChannel } from './analytics';
+import { classifyLeadType, LEAD_TYPE_LABEL, type LeadType } from './leadType';
 
 const WEB3FORMS_ACCESS_KEY = (import.meta.env.VITE_WEB3FORMS_ACCESS_KEY ?? '').trim();
 const FORMSPREE_FORM_ID = (import.meta.env.VITE_FORMSPREE_FORM_ID ?? '').trim();
@@ -166,10 +167,115 @@ function submitFormMailto(
   };
 }
 
+const str = (v: unknown) => (v === undefined || v === null ? '' : String(v).trim());
+
+function hostOf(url: string): string {
+  try {
+    return new URL(url).hostname.replace(/^www\./, '');
+  } catch {
+    return '';
+  }
+}
+
+/** "Google Business Profile (gbp_flushing)", "Referral (thomasnet.com)", "Direct". */
+function describeSource(channel: string, campaign: string, referrer: string): string {
+  const label = LEAD_CHANNEL_LABEL[channel as LeadChannel];
+  if (!label) return '';
+  const showsHost = channel === 'referral' || channel === 'ai_assistant' || channel === 'social';
+  const detail = campaign || (showsHost ? hostOf(referrer) : '');
+  return detail ? `${label} (${detail})` : label;
+}
+
 /**
- * Mirror the lead into the CRM (fire-and-forget). The CRM webhook parses the
- * flat fields below (see CRM api/lib/leadIntake.ts parseFlat) and files the job
- * under the "Website" lead platform. Failures never block the visitor's form.
+ * Build the flat payload the CRM's website webhook reads (CRM repo,
+ * api/lib/leadNormalize.ts parseFlat). The CRM stores name, phone, email,
+ * address, `service` (as the job description) and `notes`. Everything it has no
+ * column for yet is ALSO written into `notes` as short labelled lines, so
+ * dispatch can see the lead type and source today. The structured keys
+ * (lead_type, lead_channel, utm_*, gclid, …) ride along for when the CRM adds
+ * columns. Don't add keys parseFlat already gives a meaning to (description,
+ * message, comments, price, fee, date, lead_id, website_url, _hp).
+ */
+export function buildCrmLeadPayload(
+  data: Record<string, string | number | undefined>,
+  formName?: string
+): Record<string, string> {
+  const leadType = str(data.lead_type) as LeadType;
+  const channel = str(data.lead_channel);
+  const landingPath = str(data.landing_page).split('?')[0];
+  const firstTouchAt = str(data.first_touch_at);
+
+  const notesParts = [
+    str(data.message) || str(data.description),
+    str(data.company) ? `Company: ${str(data.company)}` : '',
+    str(data.requestType) ? `Request: ${str(data.requestType)}` : '',
+    str(data.portfolioSize) ? `Portfolio: ${str(data.portfolioSize)}` : '',
+    str(data.doorStyle) ? `Door style: ${str(data.doorStyle)}` : '',
+    str(data.urgency) ? `Urgency: ${str(data.urgency)}` : '',
+    str(data.preferredDate) ? `Preferred date: ${str(data.preferredDate)}` : '',
+    str(data.preferredTime) ? `Preferred time: ${str(data.preferredTime)}` : '',
+    formName ? `Form: ${formName}` : '',
+    LEAD_TYPE_LABEL[leadType] ? `Lead type: ${LEAD_TYPE_LABEL[leadType]}` : '',
+    channel ? `Source: ${describeSource(channel, str(data.utm_campaign), str(data.referrer))}` : '',
+    landingPath ? `Landing page: ${landingPath}` : '',
+    firstTouchAt
+      ? `First visit: ${firstTouchAt.slice(0, 10)} via ${describeSource(
+          str(data.first_touch_channel),
+          str(data.first_touch_campaign),
+          str(data.first_touch_referrer)
+        )}`
+      : '',
+  ].filter(Boolean);
+
+  const payload: Record<string, string> = {
+    customer_name: str(data.name),
+    phone:         str(data.phone),
+    email:         str(data.email),
+    address:       str(data.address),
+    service:       str(data.serviceType) || str(data.service),
+    notes:         notesParts.join('\n') || 'Website Lead',
+    source_url:    str(data.source_url) || (typeof window !== 'undefined' ? window.location.href : ''),
+  };
+  const campaign = str(data.utm_campaign);
+  if (campaign) payload.campaign = campaign;
+
+  // The short quote forms ask for "ZIP or City" instead of a street address.
+  // The CRM builds the address from city / postal_code when `address` is empty.
+  const zipOrCity = str(data.zip);
+  if (!payload.address && zipOrCity) {
+    if (/^\d{5}(-\d{4})?$/.test(zipOrCity)) payload.postal_code = zipOrCity;
+    else payload.city = zipOrCity;
+  }
+
+  const passthrough: Record<string, string> = {
+    form_name: formName || '',
+    lead_type: leadType,
+    lead_channel: channel,
+    utm_source: str(data.utm_source),
+    utm_medium: str(data.utm_medium),
+    utm_term: str(data.utm_term),
+    utm_content: str(data.utm_content),
+    gclid: str(data.gclid),
+    gbraid: str(data.gbraid),
+    wbraid: str(data.wbraid),
+    msclkid: str(data.msclkid),
+    fbclid: str(data.fbclid),
+    landing_page: str(data.landing_page),
+    referrer: str(data.referrer),
+    device_type: str(data.device_type),
+    first_touch_channel: str(data.first_touch_channel),
+    first_touch_landing_page: str(data.first_touch_landing_page),
+    first_touch_at: firstTouchAt,
+  };
+  for (const [key, value] of Object.entries(passthrough)) {
+    if (value) payload[key] = value;
+  }
+  return payload;
+}
+
+/**
+ * Mirror the lead into the CRM (fire-and-forget). The CRM files the job under
+ * the "Website" lead platform. Failures never block the visitor's form.
  */
 function sendLeadToCRM(
   data: Record<string, string | number | undefined>,
@@ -177,26 +283,7 @@ function sendLeadToCRM(
 ): void {
   if (!CRM_LEAD_WEBHOOK_URL) return;
   try {
-    const str = (v: unknown) => (v === undefined || v === null ? '' : String(v).trim());
-    const notesParts = [
-      str(data.message) || str(data.description),
-      str(data.urgency) ? `Urgency: ${str(data.urgency)}` : '',
-      str(data.preferredDate) ? `Preferred date: ${str(data.preferredDate)}` : '',
-      str(data.preferredTime) ? `Preferred time: ${str(data.preferredTime)}` : '',
-      formName ? `Form: ${formName}` : '',
-    ].filter(Boolean);
-
-    const payload: Record<string, string> = {
-      customer_name: str(data.name),
-      phone:         str(data.phone),
-      email:         str(data.email),
-      address:       str(data.address),
-      service:       str(data.serviceType) || str(data.service),
-      notes:         notesParts.join('\n') || 'Website Lead',
-      source_url:    str(data.source_url) || (typeof window !== 'undefined' ? window.location.href : ''),
-    };
-    const campaign = str(data.utm_campaign);
-    if (campaign) payload.campaign = campaign;
+    const payload = buildCrmLeadPayload(data, formName);
 
     // keepalive so the request survives the redirect to /thank-you/
     fetch(CRM_LEAD_WEBHOOK_URL, {
@@ -221,6 +308,7 @@ export async function submitForm(
 ): Promise<FormSubmissionResult> {
   // Enrich every submission with attribution data so leads are traceable to source
   const attr = getAttribution();
+  const first = getFirstTouch();
   if (attr) {
     data = {
       ...data,
@@ -232,11 +320,38 @@ export async function submitForm(
       utm_campaign: attr.utm_campaign || undefined,
       utm_term: attr.utm_term || undefined,
       utm_content: attr.utm_content || undefined,
-      gclid: attr.gclid || undefined,
-      fbclid: attr.fbclid || undefined,
+      // An ad click on an earlier visit still identifies the ad: fall back to
+      // the first visit's click id when this visit has none.
+      gclid: attr.gclid || first?.gclid || undefined,
+      gbraid: attr.gbraid || first?.gbraid || undefined,
+      wbraid: attr.wbraid || first?.wbraid || undefined,
+      msclkid: attr.msclkid || first?.msclkid || undefined,
+      fbclid: attr.fbclid || first?.fbclid || undefined,
       device_type: attr.device_type,
+      lead_channel: attr.channel,
     };
+    // Only when the visitor first arrived on an earlier visit (within 90 days).
+    if (first && first.captured_at !== attr.captured_at) {
+      data = {
+        ...data,
+        first_touch_channel: first.channel,
+        first_touch_campaign: first.utm_campaign || undefined,
+        first_touch_referrer: first.referrer || undefined,
+        first_touch_landing_page: first.landing_page,
+        first_touch_at: first.captured_at,
+      };
+    }
   }
+
+  // One label per inquiry: commercial / installation / repair (see leadType.ts)
+  data = {
+    ...data,
+    lead_type: classifyLeadType({
+      formName,
+      serviceType: str(data.serviceType) || str(data.service),
+      company: str(data.company),
+    }),
+  };
 
   // Mirror every lead into the CRM (Website platform) — non-blocking
   sendLeadToCRM(data, formName);
