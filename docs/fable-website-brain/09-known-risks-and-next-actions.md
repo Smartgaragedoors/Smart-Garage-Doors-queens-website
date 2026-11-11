@@ -20,9 +20,15 @@
 > 3. **Local Services leads get no automatic reply**: 0 of 31 in 90 days have an
 >    outbound message in the CRM, against 27 of 38 website leads answered within
 >    five minutes. CRM-side fix.
-> 4. **No live test lead has been submitted** for the new forms (needs owner
->    approval: it notifies the office and creates a CRM job). Payloads were
->    verified with the network calls stubbed.
+> 4. ~~No live test lead~~ **Done 2026-11-11, owner-approved, on the branch
+>    preview:** one "TEST - website" installation lead reached the office inbox
+>    (Web3Forms) and the CRM (job `30bf1662…`, Website / New Lead) with the lead
+>    type, source, landing page and first-visit lines in the note; the CRM's
+>    automatic text went out three seconds later. Not confirmed: the bridged
+>    call (no `call_events` row) and GA4 events (analytics is off on preview
+>    hosts). **Preview deployments are fully live for forms**: they carry the
+>    Web3Forms key and the CRM accepts any origin. A test still needs the
+>    owner's approval each time.
 > 5. Owner facts still unverified: Saturday emergency coverage (markup says open
 >    24 hours daily; Local Services is off Saturdays) and who provides the "0%
 >    financing" the site and `llms.txt` mention.

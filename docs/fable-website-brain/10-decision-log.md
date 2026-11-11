@@ -53,7 +53,14 @@ block, a submission with the network calls stubbed (payloads read back, nothing
 sent to the office or CRM), thank-you variants, 375 px layouts with no
 horizontal overflow, no console errors.
 
-**Not verified / follow-up.** No live test lead (needs owner approval). GA4
+**Live test (same day, owner-approved, branch preview).** One installation lead
+named "TEST - website", main line as the phone: Web3Forms accepted it and the
+email reached the office inbox; the CRM created the job under Website with the
+note lines above (door style, form, lead type, source, landing page, first
+visit) and the ZIP as the address; the CRM's automatic text followed in three
+seconds. The test job was left in the CRM for the owner to delete.
+
+**Not verified / follow-up.** The bridged call for that test (no call record). GA4
 needs three custom dimensions before the new parameters are reportable. CRM
 columns are a separate, CRM-repo change. Local Services leads get no automatic
 CRM reply (0 of 31 in 90 days). See `09` for the open list.
