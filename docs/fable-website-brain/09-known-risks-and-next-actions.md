@@ -1,5 +1,36 @@
 # Known Risks & Next Actions
 
+> **2026-11-11 — Growth audit + first build (Fable 5.2), branch
+> `feat/lead-attribution-install-quote`, NOT merged.** Decision log has the
+> detail. **Channel economics are readable**: the Supabase CRM (`all_jobs` ×
+> `lead_platforms`) records sale amount and lead cost per source. 365 days to
+> 2026-11-11: Business Profile calls close 65–69% (Queens $224K, Suffern $63K),
+> website forms 42% ($53K, 74 leads, ~$716 per lead), Thumbtack 27% ($309K),
+> Local Services 29% ($19K since June). Door installation averages $2,967 a job
+> against $748 for repair. Treat these as CRM-recorded sales, not reconciled
+> revenue (QuickBooks shows far less).
+>
+> **Still open after this branch:**
+> 1. **CRM columns for attribution** (owner approval, CRM repo). Until then lead
+>    type, source and landing page arrive as labelled lines in the CRM note; the
+>    structured keys are already in the webhook payload.
+> 2. **GA4 custom dimensions** `lead_type`, `lead_channel`, `first_touch_channel`
+>    (owner, GA4 Admin → Custom definitions) or the new parameters can't be
+>    reported on.
+> 3. **Local Services leads get no automatic reply**: 0 of 31 in 90 days have an
+>    outbound message in the CRM, against 27 of 38 website leads answered within
+>    five minutes. CRM-side fix.
+> 4. **No live test lead has been submitted** for the new forms (needs owner
+>    approval: it notifies the office and creates a CRM job). Payloads were
+>    verified with the network calls stubbed.
+> 5. Owner facts still unverified: Saturday emergency coverage (markup says open
+>    24 hours daily; Local Services is off Saturdays) and who provides the "0%
+>    financing" the site and `llms.txt` mention.
+> 6. **This repo has no ESLint config** (`npx eslint` fails), so lint is not part
+>    of the verification loop; typecheck + build + prerender are.
+> 7. Connector trap: the GA4 and Search Console connectors can load the other
+>    business's property in a session. Check `hostName` before quoting numbers.
+
 > **2026-10-27 — Full-site audit (Fable 5.1).** Plan and data in
 > `../SEO-GROWTH-PLAN-2026-10-27.md` (read it before planning content). Fixed:
 > **21 location pages still carried composed testimonials** from the 2026-05-13
