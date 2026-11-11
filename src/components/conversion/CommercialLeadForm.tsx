@@ -70,7 +70,7 @@ export default function CommercialLeadForm() {
           service_type: formData.requestType,
           urgency: formData.requestType === 'urgent-repair' ? 'urgent' : 'normal',
         });
-        navigate('/book-now/thank-you/');
+        navigate('/book-now/thank-you/', { state: { leadType: 'commercial' } });
       } else {
         setErrorMsg(result.error || 'Something went wrong. Please call (914) 557-6816.');
       }
