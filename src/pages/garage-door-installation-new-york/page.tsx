@@ -1,4 +1,4 @@
-
+import { useCallback, useState } from 'react';
 import Header from '../../components/feature/Header';
 import PricingNote from '../../components/feature/PricingNote';
 import Footer from '../../components/feature/Footer';
@@ -11,6 +11,19 @@ import GuideLinks from '../../components/seo/GuideLinks';
 import { getCloudflareImage, getCFBackgroundImage, getCFImageUrl } from '../../data/cloudflareImages';
 import LcpImagePreload from '../../components/seo/LcpImagePreload';
 import DoorStyleGallery from '../../components/feature/DoorStyleGallery';
+import HeroQuoteForm, { type QuoteServiceOption } from '../../components/conversion/HeroQuoteForm';
+import { trackEvent, trackPhoneClick } from '../../utils/analytics';
+
+// Values feed the CRM job description and the lead-type label (utils/leadType.ts):
+// every option here is an installation lead except the commercial one.
+const INSTALL_SERVICE_OPTIONS: QuoteServiceOption[] = [
+  { value: 'installation', label: 'New garage door' },
+  { value: 'door-replacement', label: 'Replace an existing door' },
+  { value: 'door-and-opener', label: 'New door + opener' },
+  { value: 'opener-installation', label: 'Opener only' },
+  { value: 'commercial-door-installation', label: 'Commercial / roll-up door' },
+  { value: 'other', label: 'Not sure yet' },
+];
 
 export default function GarageDoorInstallationNewYorkPage() {
   const faqs = [
@@ -47,6 +60,22 @@ export default function GarageDoorInstallationNewYorkPage() {
       answer: 'We typically can schedule new garage door installations within 1-2 weeks, depending on door selection and current schedule. For standard doors in stock, we can often install within 3-7 days. Custom doors may take 2-4 weeks for ordering and delivery. Emergency installations are available when possible. We\'ll provide a timeline during your estimate.',
     },
   ];
+
+  // Style picked in the gallery ("Get a quote for this style") → shown in the
+  // hero quote form and sent with the request.
+  const [doorStyle, setDoorStyle] = useState('');
+  const scrollToQuote = useCallback(() => {
+    const el = document.getElementById('quote');
+    if (!el) return;
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Move keyboard focus with the scroll, without a second jump.
+    el.querySelector<HTMLInputElement>('input[name="name"]')?.focus({ preventScroll: true });
+  }, []);
+  const handleRequestQuote = useCallback((styleTitle: string) => {
+    setDoorStyle(styleTitle);
+    // Wait a frame so the gallery viewer has closed and released its scroll lock.
+    requestAnimationFrame(scrollToQuote);
+  }, [scrollToQuote]);
 
   return (
     <div className="min-h-screen bg-white">
@@ -88,19 +117,40 @@ export default function GarageDoorInstallationNewYorkPage() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <a 
                   href="tel:+19145576816" 
+                  data-track-source="installation_hero"
+                  onClick={() => trackPhoneClick('914-557-6816', 'installation_hero')}
                   className="bg-white text-green-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors whitespace-nowrap cursor-pointer"
                 >
                   <i className="ri-phone-fill mr-2"></i>
                   Call: (914) 557-6816
                 </a>
+                {/* The quote form sits beside this on desktop; on phones it is the next block down. */}
                 <a 
-                  href="/book-now/" 
-                  className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-green-600 transition-colors whitespace-nowrap cursor-pointer"
+                  href="#quote" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    trackEvent('cta_click', { category: 'Installation', action: 'scroll_to_quote', label: 'installation_hero' });
+                    scrollToQuote();
+                  }}
+                  className="lg:hidden bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-green-600 transition-colors whitespace-nowrap cursor-pointer text-center"
                 >
-                  <i className="ri-calendar-line mr-2"></i>
+                  <i className="ri-price-tag-3-line mr-2"></i>
                   Get Free Quote
                 </a>
               </div>
+            </div>
+            <div id="quote" className="scroll-mt-24">
+              <HeroQuoteForm
+                variant="light"
+                heading="Get Your Free Door Quote"
+                subheading="Tell us what you're planning. We'll call or text you back, and you get a written total-price quote, fees and taxes included, before any work begins."
+                formName="Installation Quote Form"
+                formType="installation_quote_form"
+                serviceOptions={INSTALL_SERVICE_OPTIONS}
+                defaultService="installation"
+                doorStyle={doorStyle}
+                onClearDoorStyle={() => setDoorStyle('')}
+              />
             </div>
           </div>
         </div>
@@ -195,7 +245,7 @@ export default function GarageDoorInstallationNewYorkPage() {
       </section>
 
       {/* Door style gallery — real installs only (see component header) */}
-      <DoorStyleGallery />
+      <DoorStyleGallery onRequestQuote={handleRequestQuote} />
 
       {/* Service Areas */}
       <section className="py-16 bg-gray-50">

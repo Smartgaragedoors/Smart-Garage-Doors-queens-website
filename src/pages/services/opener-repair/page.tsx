@@ -9,7 +9,18 @@ import ServiceAreaLinks from '../../../components/seo/ServiceAreaLinks';
 import { useLocation } from '../../../contexts/LocationContext';
 import { getCFImageUrl } from '../../../data/cloudflareImages';
 import GuideLinks from '../../../components/seo/GuideLinks';
-import { trackBookNowClick } from '../../../utils/analytics';
+import { trackBookNowClick, trackEvent, trackPhoneClick } from '../../../utils/analytics';
+import HeroQuoteForm, { type QuoteServiceOption } from '../../../components/conversion/HeroQuoteForm';
+
+// Values feed the CRM job description and the lead-type label (utils/leadType.ts):
+// installation / smart-opener values are installation leads, the rest repairs.
+const OPENER_SERVICE_OPTIONS: QuoteServiceOption[] = [
+  { value: 'opener-repair', label: 'Repair my opener' },
+  { value: 'opener-installation', label: 'New opener installation' },
+  { value: 'smart-opener-upgrade', label: 'Smart / Wi-Fi opener upgrade' },
+  { value: 'opener-remote-keypad', label: 'Remote, keypad or sensor problem' },
+  { value: 'opener-diagnosis', label: 'Not sure — need a diagnosis' },
+];
 
 export default function OpenerRepair() {
   const { location, locationName, isLoading } = useLocation();
@@ -88,6 +99,13 @@ export default function OpenerRepair() {
                 Book Now
               </a>
             </div>
+            <a
+              href="#quote"
+              onClick={() => trackEvent('cta_click', { category: 'Opener', action: 'scroll_to_quote', label: 'opener_repair_hero' })}
+              className="inline-flex items-center min-h-[44px] mt-4 text-purple-100 hover:text-white underline underline-offset-4 font-semibold"
+            >
+              Or request a written quote online
+            </a>
           </div>
         </section>
 
@@ -315,6 +333,43 @@ export default function OpenerRepair() {
           </div>
         </section>
 
+        {/* Quote form — the page previously had no way to request a quote without leaving it */}
+        <section id="quote" className="py-8 md:py-12 bg-gray-50 scroll-mt-24">
+          <div className="max-w-6xl mx-auto px-4 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+                Request an Opener Quote
+              </h2>
+              <p className="text-gray-600 mb-5">
+                Tell us whether you need a repair or a new opener. We'll call or text you back, and you get a
+                written total-price quote, fees and taxes included, before any work begins.
+              </p>
+              <ul className="space-y-2.5 text-gray-700">
+                <li className="flex items-start gap-2.5">
+                  <i className="ri-checkbox-circle-fill text-green-600 mt-0.5" aria-hidden="true" />
+                  <span>Chain, belt and wall-mount openers, repaired or installed</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <i className="ri-checkbox-circle-fill text-green-600 mt-0.5" aria-hidden="true" />
+                  <span>Smart Wi-Fi openers installed and set up on your phone</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <i className="ri-checkbox-circle-fill text-green-600 mt-0.5" aria-hidden="true" />
+                  <span>Licensed &amp; insured, with a 1-year parts and labor warranty</span>
+                </li>
+              </ul>
+            </div>
+            <HeroQuoteForm
+              variant="light"
+              heading="Get Your Free Opener Quote"
+              subheading="Four quick fields. No obligation."
+              formName="Opener Quote Form"
+              formType="opener_quote_form"
+              serviceOptions={OPENER_SERVICE_OPTIONS}
+            />
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="py-16 bg-purple-900 text-white">
           <div className="max-w-7xl mx-auto px-4 text-center">
@@ -324,15 +379,25 @@ export default function OpenerRepair() {
             <p className="text-xl mb-8 text-purple-100">
               Professional service — call to check current scheduling
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-white text-purple-600 hover:bg-gray-100 px-8 py-4 text-lg rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center justify-center whitespace-nowrap">
-                <i className="ri-phone-fill mr-2"></i>
+            {/* These were <button>s with no action; now real links. */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="tel:+19145576816"
+                data-track-source="opener_repair_bottom_cta"
+                onClick={() => trackPhoneClick('914-557-6816', 'opener_repair_bottom_cta')}
+                className="bg-white text-purple-600 hover:bg-gray-100 px-8 py-4 text-lg rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center justify-center whitespace-nowrap"
+              >
+                <i className="ri-phone-fill mr-2" aria-hidden="true"></i>
                 Call: (914) 557-6816
-              </button>
-              <button className="bg-purple-600 text-white hover:bg-purple-700 px-8 py-4 text-lg rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center justify-center whitespace-nowrap">
-                <i className="ri-calendar-line mr-2"></i>
+              </a>
+              <a
+                href="/book-now/"
+                onClick={() => trackBookNowClick('opener_repair_bottom_cta')}
+                className="bg-purple-600 text-white hover:bg-purple-700 px-8 py-4 text-lg rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center justify-center whitespace-nowrap"
+              >
+                <i className="ri-calendar-line mr-2" aria-hidden="true"></i>
                 Schedule Repair
-              </button>
+              </a>
             </div>
           </div>
         </section>
