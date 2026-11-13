@@ -12,6 +12,7 @@ import { useLocation } from '../../../contexts/LocationContext';
 import { submitForm } from '../../../utils/formSubmission';
 import { BUSINESS_INFO } from '../../../config/business-info';
 import GuideLinks from '../../../components/seo/GuideLinks';
+import SpamTrap from '../../../components/conversion/SpamTrap';
 
 export default function MaintenancePage() {
   const { location, locationName, isLoading } = useLocation();
@@ -432,6 +433,7 @@ export default function MaintenancePage() {
           </div>
 
           <form onSubmit={handleContactSubmit} className="bg-white rounded-lg p-8" data-readdy-form>
+<SpamTrap />
             <div className="grid md:grid-cols-2 gap-6 mb-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">

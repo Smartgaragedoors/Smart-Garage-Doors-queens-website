@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import { submitForm } from '../../utils/formSubmission';
 import { trackFormStart, trackFormSubmit } from '../../utils/analytics';
+import SpamTrap from './SpamTrap';
 
 const ROLE_OPTIONS = [
   'Garage Door Service Technician',
@@ -136,6 +137,7 @@ export default function CareersApplicationForm() {
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-8">
+<SpamTrap />
         <fieldset>
           <legend className="mb-4 text-lg font-bold text-gray-900">1. Contact information</legend>
           <div className="grid gap-4 sm:grid-cols-2">

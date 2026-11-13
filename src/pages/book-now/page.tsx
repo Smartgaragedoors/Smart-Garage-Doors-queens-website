@@ -9,6 +9,7 @@ import { BUSINESS_INFO } from '../../config/business-info';
 import { submitForm } from '../../utils/formSubmission';
 import { trackFormStart, trackFormSubmit } from '../../utils/analytics';
 import FormTrustBadges from '../../components/conversion/FormTrustBadges';
+import SpamTrap from '../../components/conversion/SpamTrap';
 
 export default function BookNowPage() {
   const { search } = useLocation();
@@ -129,6 +130,7 @@ export default function BookNowPage() {
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6" data-readdy-form id="book-now-form">
+<SpamTrap />
               {/* Core fields — 4 required fields only */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>

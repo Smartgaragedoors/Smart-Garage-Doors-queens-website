@@ -10,6 +10,7 @@ import { submitForm } from '../../utils/formSubmission';
 import { useRef } from 'react';
 import { trackFormStart, trackFormSubmit } from '../../utils/analytics';
 import FormTrustBadges from '../../components/conversion/FormTrustBadges';
+import SpamTrap from '../../components/conversion/SpamTrap';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -216,6 +217,7 @@ const ContactPage = () => {
           </div>
           
           <form onSubmit={handleSubmit} className="bg-gray-50 p-8 rounded-lg" data-readdy-form>
+<SpamTrap />
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">

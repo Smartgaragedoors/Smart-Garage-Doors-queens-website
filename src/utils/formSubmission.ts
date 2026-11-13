@@ -190,7 +190,8 @@ function sendLeadToCRM(
       customer_name: str(data.name),
       phone:         str(data.phone),
       email:         str(data.email),
-      address:       str(data.address),
+      // The homepage form asks for "ZIP or City" only - it used to be dropped.
+      address:       str(data.address) || str(data.zip),
       service:       str(data.serviceType) || str(data.service),
       notes:         notesParts.join('\n') || 'Website Lead',
       source_url:    str(data.source_url) || (typeof window !== 'undefined' ? window.location.href : ''),
@@ -215,10 +216,31 @@ function sendLeadToCRM(
 /**
  * Submit form data. Tries Web3Forms / Formspree first (simplest), then Resend API, then mailto.
  */
+/** When this page was opened - a form "filled in" under 3 seconds is a bot. */
+const PAGE_OPENED_AT = Date.now();
+
+/**
+ * Bot check, before anything is sent: the hidden <SpamTrap /> field has a
+ * value, or the form was submitted faster than a person can type a name and a
+ * phone number. Content spam typed by people (SEO / marketing pitches) is not
+ * caught here - the CRM's spam filter handles that.
+ */
+function looksLikeBot(): boolean {
+  if (typeof document === 'undefined') return false;
+  const trapped = Array.from(document.querySelectorAll<HTMLInputElement>('input[data-sgd-hp]')).some((i) => i.value.trim() !== '');
+  return trapped || Date.now() - PAGE_OPENED_AT < 3000;
+}
+
 export async function submitForm(
   data: Record<string, string | number | undefined>,
   formName?: string
 ): Promise<FormSubmissionResult> {
+  // A bot gets the same "thank you" as a person, so it learns nothing - but no
+  // email, no CRM lead and no text go out.
+  if (looksLikeBot()) {
+    return { success: true, message: 'Thank you! Your message has been sent successfully.' };
+  }
+
   // Enrich every submission with attribution data so leads are traceable to source
   const attr = getAttribution();
   if (attr) {

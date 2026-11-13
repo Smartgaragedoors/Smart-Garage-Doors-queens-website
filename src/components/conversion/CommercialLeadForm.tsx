@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { submitForm } from '../../utils/formSubmission';
 import { trackEvent, trackFormStart, trackFormSubmit, trackPhoneClick } from '../../utils/analytics';
 import { BUSINESS_INFO } from '../../config/business-info';
+import SpamTrap from './SpamTrap';
 
 /**
  * Low-friction B2B lead form for the commercial + property-manager pages.
@@ -97,6 +98,7 @@ export default function CommercialLeadForm() {
       </a>
 
       <form onSubmit={handleSubmit} className="space-y-3.5 text-left">
+<SpamTrap />
         <div>
           <label htmlFor="clf-request-type" className="block text-xs font-semibold mb-1.5 text-gray-700">How can we help?</label>
           <select id="clf-request-type" name="requestType" value={formData.requestType} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900 focus:ring-2 focus:ring-orange-500 text-sm">

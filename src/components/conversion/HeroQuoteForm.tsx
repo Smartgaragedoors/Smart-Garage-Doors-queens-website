@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { submitForm } from '../../utils/formSubmission';
 import { trackFormStart, trackFormSubmit } from '../../utils/analytics';
+import SpamTrap from './SpamTrap';
 
 /**
  * Compact above-the-fold lead-capture form for the homepage hero.
@@ -12,7 +13,9 @@ import { trackFormStart, trackFormSubmit } from '../../utils/analytics';
  * so it can be measured separately from the book-now form.
  *
  * Fields kept short on purpose (fewer fields = higher completion): Name, Phone,
- * Service, optional ZIP, plus a required TCPA SMS-consent checkbox.
+ * Service, an optional "What's going on?" box (added 2026-11-13: leads arrived
+ * with nothing but a service name), optional ZIP, plus a required TCPA
+ * SMS-consent checkbox.
  *
  * `variant` controls the card treatment over the hero photo:
  *   - 'glass' (default): dark blurred glass panel, blends with the hero
@@ -41,6 +44,7 @@ export default function HeroQuoteForm({ variant = 'glass' }: HeroQuoteFormProps)
     name: '',
     phone: '',
     serviceType: '',
+    message: '',
     zip: '',
   });
   const [smsConsent, setSmsConsent] = useState(false);
@@ -52,7 +56,7 @@ export default function HeroQuoteForm({ variant = 'glass' }: HeroQuoteFormProps)
   const isLight = variant === 'light';
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
     if (!formStarted.current) {
       formStarted.current = true;
@@ -113,7 +117,8 @@ export default function HeroQuoteForm({ variant = 'glass' }: HeroQuoteFormProps)
         Tell us what's wrong — we'll text or call you back with a total-price quote, fees and taxes included.
       </p>
 
-      <form onSubmit={handleSubmit} className="space-y-3.5 text-left" noValidate>
+      <form onSubmit={handleSubmit} className="relative space-y-3.5 text-left" noValidate>
+        <SpamTrap />
         <div>
           <label htmlFor="hqf-name" className={`block text-xs font-semibold mb-1.5 ${labelClass}`}>
             Name <span className="text-orange-400">*</span>
@@ -167,6 +172,22 @@ export default function HeroQuoteForm({ variant = 'glass' }: HeroQuoteFormProps)
               </option>
             ))}
           </select>
+        </div>
+
+        <div>
+          <label htmlFor="hqf-message" className={`block text-xs font-semibold mb-1.5 ${labelClass}`}>
+            What's going on? <span className={isLight ? 'text-gray-400 font-normal' : 'text-white/40 font-normal'}>(optional)</span>
+          </label>
+          <textarea
+            id="hqf-message"
+            name="message"
+            rows={2}
+            maxLength={1000}
+            value={formData.message}
+            onChange={handleChange}
+            placeholder="e.g. Spring snapped, door won't open"
+            className={`${inputClass} resize-none`}
+          />
         </div>
 
         <div>
