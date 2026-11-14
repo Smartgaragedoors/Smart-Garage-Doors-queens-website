@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { submitForm } from '../../utils/formSubmission';
 import { trackFormStart, trackFormSubmit } from '../../utils/analytics';
 import { classifyLeadType } from '../../utils/leadType';
+import SpamTrap from './SpamTrap';
 
 /**
  * Compact lead-capture form: the homepage hero's quote card, reused (with props)
@@ -15,9 +16,11 @@ import { classifyLeadType } from '../../utils/leadType';
  * LEAD_FORM_TYPES (utils/analytics.ts) or it won't count as a lead.
  *
  * Fields kept short on purpose (fewer fields = higher completion): Name, Phone,
- * Service, optional ZIP, plus the TCPA SMS-consent checkbox. The consent text is
- * owner-approved legal wording and lives ONLY here — reuse this component
- * rather than copying it.
+ * Service, an optional "What's going on?" box (added 2026-11-13: leads arrived
+ * with nothing but a service name; `messageLabel` / `messagePlaceholder` let a
+ * page reword it), optional ZIP, plus the TCPA SMS-consent checkbox. The consent
+ * text is owner-approved legal wording and lives ONLY here — reuse this
+ * component rather than copying it.
  *
  * `variant` controls the card treatment:
  *   - 'glass' (default): dark blurred glass panel, blends with the hero photo
@@ -42,6 +45,9 @@ interface HeroQuoteFormProps {
   serviceOptions?: QuoteServiceOption[];
   /** Preselected service value (must be one of serviceOptions). */
   defaultService?: string;
+  /** Label and example for the optional free-text box. */
+  messageLabel?: string;
+  messagePlaceholder?: string;
   /** Door style picked in the installation gallery; sent with the request. */
   doorStyle?: string;
   onClearDoorStyle?: () => void;
@@ -66,6 +72,8 @@ export default function HeroQuoteForm({
   formType = 'hero_quote_form',
   serviceOptions = SERVICE_OPTIONS,
   defaultService = '',
+  messageLabel = "What's going on?",
+  messagePlaceholder = "e.g. Spring snapped, door won't open",
   doorStyle = '',
   onClearDoorStyle,
 }: HeroQuoteFormProps) {
@@ -73,6 +81,7 @@ export default function HeroQuoteForm({
     name: '',
     phone: '',
     serviceType: defaultService,
+    message: '',
     zip: '',
   });
   const [smsConsent, setSmsConsent] = useState(false);
@@ -87,7 +96,7 @@ export default function HeroQuoteForm({
   const isLight = variant === 'light';
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
     if (!formStarted.current) {
       formStarted.current = true;
@@ -159,7 +168,8 @@ export default function HeroQuoteForm({
       </h2>
       <p className={`text-sm mt-1.5 mb-5 ${subClass}`}>{subheading}</p>
 
-      <form onSubmit={handleSubmit} className="space-y-3.5 text-left" noValidate>
+      <form onSubmit={handleSubmit} className="relative space-y-3.5 text-left" noValidate>
+        <SpamTrap />
         {doorStyle && (
           <p
             className={`flex items-start justify-between gap-3 rounded-lg px-3 py-2 text-sm ${
@@ -235,6 +245,22 @@ export default function HeroQuoteForm({
               </option>
             ))}
           </select>
+        </div>
+
+        <div>
+          <label htmlFor={`${uid}-message`} className={`block text-xs font-semibold mb-1.5 ${labelClass}`}>
+            {messageLabel} <span className={isLight ? 'text-gray-400 font-normal' : 'text-white/40 font-normal'}>(optional)</span>
+          </label>
+          <textarea
+            id={`${uid}-message`}
+            name="message"
+            rows={2}
+            maxLength={1000}
+            value={formData.message}
+            onChange={handleChange}
+            placeholder={messagePlaceholder}
+            className={`${inputClass} resize-none`}
+          />
         </div>
 
         <div>

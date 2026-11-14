@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import { submitForm } from '../../utils/formSubmission';
 import { trackFormStart, trackFormSubmit } from '../../utils/analytics';
+import SpamTrap from './SpamTrap';
 
 /**
  * Ultra-short issue report for on-site staff (supers, maintenance, warehouse
@@ -95,6 +96,7 @@ export default function IssueReportForm() {
       </p>
 
       <form onSubmit={handleSubmit} className="space-y-3.5 text-left" noValidate>
+<SpamTrap />
         <div>
           <label htmlFor="irf-location" className="block text-xs font-semibold mb-1.5 text-gray-700">
             Property / Location <span className="text-orange-500">*</span>

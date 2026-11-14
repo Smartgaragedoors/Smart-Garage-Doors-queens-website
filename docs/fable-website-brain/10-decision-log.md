@@ -6,6 +6,35 @@ commit history so the log starts complete.)
 
 ---
 
+## 2026-11-15 — Merged main's 2026-11-13 forms commit into the attribution branch
+
+`main` gained `cb05a2f` ("What's going on?" box on the homepage quote form, bot
+trap on every lead form) while the branch below was waiting. Both sides edited
+`HeroQuoteForm.tsx` and `formSubmission.ts`; both features are kept.
+
+- `HeroQuoteForm`: the message box and `<SpamTrap />` are in, alongside the
+  props, the door-style chip and the name/phone check. The box's ids use
+  `useId` like the other fields (main's fixed `hqf-message` id would have been
+  duplicated by the homepage's two form slots). New optional `messageLabel` /
+  `messagePlaceholder` props: the homepage keeps the owner's wording; the
+  installation form asks "What are you planning?" and the opener form shows an
+  opener example. The opener form's "Four quick fields" became "A few quick
+  fields" (there are five now).
+- `formSubmission.ts`: `sendLeadToCRM` keeps `buildCrmLeadPayload`. Main sent
+  the ZIP as `address`; the branch sends `postal_code` or `city`. The CRM's
+  `parseFlat` joins either into the customer address, so main's intent holds.
+  The bot check runs first, before attribution and the CRM mirror.
+
+**Verified.** Typecheck clean; build; prerender 152 ok, 0 failed. On the
+production build with every outgoing request stubbed: a normal submission
+produced the CRM payload with the message, city, lead type, source and landing
+page; a submission with the trap filled sent nothing and still reached the
+thank-you page. Homepage: two quote forms, no duplicate ids.
+
+**Found, not fixed.** A trapped submission returns success, so the calling form
+still fires `form_submit` / `generate_lead`. A bot that runs the analytics
+scripts would be counted as a lead in GA4 and in the Ads conversion import.
+
 ## 2026-11-11 — Lead attribution, lead type, follow-up page, installation quote forms
 
 Branch `feat/lead-attribution-install-quote`; **not merged, not deployed** (owner

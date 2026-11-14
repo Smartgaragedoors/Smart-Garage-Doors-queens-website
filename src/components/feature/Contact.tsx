@@ -2,6 +2,7 @@ import { useState, useCallback, memo } from 'react';
 import { trackFormSubmit, trackPhoneClick } from '../../utils/analytics';
 import { submitForm } from '../../utils/formSubmission';
 import { BUSINESS_INFO } from '../../config/business-info';
+import SpamTrap from '../conversion/SpamTrap';
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -126,6 +127,7 @@ function Contact() {
 
           <div className="bg-gray-50 rounded-lg p-5 md:p-8 shadow-lg">
             <form id="contact-form" data-readdy-form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
+<SpamTrap />
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold text-blue-900 mb-2">
                   Full Name *

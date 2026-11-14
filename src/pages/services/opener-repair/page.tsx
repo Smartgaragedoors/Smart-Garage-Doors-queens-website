@@ -362,10 +362,11 @@ export default function OpenerRepair() {
             <HeroQuoteForm
               variant="light"
               heading="Get Your Free Opener Quote"
-              subheading="Four quick fields. No obligation."
+              subheading="A few quick fields. No obligation."
               formName="Opener Quote Form"
               formType="opener_quote_form"
               serviceOptions={OPENER_SERVICE_OPTIONS}
+              messagePlaceholder="e.g. Opener hums but the door won't move"
             />
           </div>
         </section>

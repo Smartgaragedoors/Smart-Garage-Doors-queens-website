@@ -15,6 +15,7 @@ import {
   trackFormStart,
   trackFormSubmit,
 } from '../../../utils/analytics';
+import SpamTrap from '../../../components/conversion/SpamTrap';
 
 const PHONE = BUSINESS_INFO.phone;
 const PHONE_TEL = BUSINESS_INFO.phoneFormatted;
@@ -378,6 +379,7 @@ export default function EmergencyRepairsPage() {
           </div>
 
           <form onSubmit={handleSubmit} onChange={handleChange} className="bg-white rounded-xl border border-gray-200 p-6 md:p-8" data-readdy-form>
+<SpamTrap />
             <div className="grid md:grid-cols-2 gap-5 mb-5">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>

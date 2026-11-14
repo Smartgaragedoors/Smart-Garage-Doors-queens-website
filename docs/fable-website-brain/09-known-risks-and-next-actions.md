@@ -36,6 +36,11 @@
 >    of the verification loop; typecheck + build + prerender are.
 > 7. Connector trap: the GA4 and Search Console connectors can load the other
 >    business's property in a session. Check `hostName` before quoting numbers.
+> 8. **Bot-trapped submissions still count as leads in analytics** (found
+>    2026-11-15 while merging main's bot trap). `submitForm` answers a trapped
+>    submission with success, so the form fires `form_submit` / `generate_lead`
+>    as usual. Nothing reaches the inbox or CRM, but a bot that runs the
+>    analytics scripts would inflate GA4 leads and the Ads conversion import.
 
 > **2026-10-27 — Full-site audit (Fable 5.1).** Plan and data in
 > `../SEO-GROWTH-PLAN-2026-10-27.md` (read it before planning content). Fixed:

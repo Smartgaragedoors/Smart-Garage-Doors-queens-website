@@ -148,6 +148,8 @@ export default function GarageDoorInstallationNewYorkPage() {
                 formType="installation_quote_form"
                 serviceOptions={INSTALL_SERVICE_OPTIONS}
                 defaultService="installation"
+                messageLabel="What are you planning?"
+                messagePlaceholder="e.g. Replacing an old double door, want it insulated"
                 doorStyle={doorStyle}
                 onClearDoorStyle={() => setDoorStyle('')}
               />
