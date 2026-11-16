@@ -6,14 +6,14 @@ interface NearbyAreasSectionProps {
   currentPath: string;
   /** Optional city name for heading (e.g. "Stamford") */
   cityName?: string;
-  /** Optional max links to show (default 5) */
+  /** Optional max links to show (default 8 — the Queens cluster lists six neighborhood pages plus two boroughs) */
   maxLinks?: number;
 }
 
 export default function NearbyAreasSection({ 
   currentPath, 
   cityName,
-  maxLinks = 5 
+  maxLinks = 8 
 }: NearbyAreasSectionProps) {
   const nearbyLinks = getRelatedLocations(currentPath).slice(0, maxLinks);
 

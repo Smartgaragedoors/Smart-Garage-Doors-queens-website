@@ -20,6 +20,10 @@ const LOCAL_GUIDES: Record<string, BlogGuideLink[]> = {
     { slug: 'modern-glass-garage-door-install-queens', title: 'Modern Glass Garage Door Install in Queens' },
   ],
   'flushing-ny': [{ slug: 'flushing-ny-garage-door-repair', title: 'Garage Door Repair in Flushing, NY' }],
+  // Core Queens neighborhood pages (2026-11): the Queens cost guide is the local guide.
+  'kew-gardens-hills-ny': [{ slug: 'queens-garage-door-repair-cost', title: 'Garage Door Repair Cost in Queens' }],
+  'fresh-meadows-ny': [{ slug: 'queens-garage-door-repair-cost', title: 'Garage Door Repair Cost in Queens' }],
+  'jamaica-ny': [{ slug: 'queens-garage-door-repair-cost', title: 'Garage Door Repair Cost in Queens' }],
   'brooklyn-ny': [{ slug: 'brooklyn-garage-door-repair-cost', title: 'Garage Door Repair Cost in Brooklyn' }],
   'staten-island-ny': [{ slug: 'staten-island-garage-door-repair', title: 'Staten Island Garage Door Repair Guide' }],
   'long-island-ny': [{ slug: 'long-island-garage-door-repair', title: 'Long Island Garage Door Repair Guide' }],

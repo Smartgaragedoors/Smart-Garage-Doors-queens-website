@@ -425,6 +425,8 @@ export default function GarageDoorRepairPage() {
       <GuideLinks
         title="Repair Guides & Answers"
         links={[
+          { label: 'Garage Door Panel Replacement & Repair', href: '/garage-door-panel-replacement/' },
+          { label: 'Off-Track Garage Door Repair', href: '/off-track-garage-door-repair/' },
           { label: "Garage Door Won't Close? How to Fix It", href: '/blog/how-to-fix-garage-door-wont-close/' },
           { label: 'Professional vs DIY Garage Door Repair', href: '/blog/professional-vs-diy-garage-door-repair/' },
         ]}

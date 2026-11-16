@@ -581,6 +581,8 @@ export default function CableRollerRepairPage() {
         links={[
           { label: 'Garage Door Cable Replacement: Cost & Signs', href: '/blog/garage-door-cable-replacement-cost-signs/' },
           { label: 'Garage Door Roller Replacement Cost', href: '/blog/garage-door-roller-replacement-cost/' },
+          { label: 'Off-Track Garage Door Repair', href: '/off-track-garage-door-repair/' },
+          { label: 'Garage Door Panel Replacement & Repair', href: '/garage-door-panel-replacement/' },
         ]}
       />
       <RelatedServices />

@@ -478,6 +478,8 @@ export default function EmergencyRepairsPage() {
             {[
               { label: 'Garage Door Spring Replacement', href: '/spring-replacement/' },
               { label: 'Cable & Roller Repair', href: '/cable-roller-repair/' },
+              { label: 'Off-Track Garage Door Repair', href: '/off-track-garage-door-repair/' },
+              { label: 'Garage Door Panel Replacement & Repair', href: '/garage-door-panel-replacement/' },
               { label: 'Opener Repair & Installation', href: '/opener-repair-installation/' },
               { label: 'Commercial Garage Door Repair', href: '/commercial-garage-door-repair/' },
               { label: 'Loading Dock Door Repair', href: '/loading-dock-door-repair/' },

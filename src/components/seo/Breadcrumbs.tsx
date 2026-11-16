@@ -62,6 +62,14 @@ export default function Breadcrumbs() {
       label = 'Opener Repair & Installation';
     } else if (segment === 'cable-roller-repair') {
       label = 'Cable & Roller Repair';
+    } else if (segment === 'off-track-garage-door-repair') {
+      label = 'Off-Track Garage Door Repair';
+    } else if (segment === 'kew-gardens-hills-ny') {
+      label = 'Kew Gardens Hills, NY';
+    } else if (segment === 'fresh-meadows-ny') {
+      label = 'Fresh Meadows, NY';
+    } else if (segment === 'jamaica-ny') {
+      label = 'Jamaica, NY';
     } else if (segment === 'service-areas') {
       label = 'Service Areas';
       // Skip adding this as a clickable item, it's just a category

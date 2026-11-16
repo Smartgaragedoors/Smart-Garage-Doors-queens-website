@@ -92,6 +92,11 @@ const FortLeeNJPage = lazy(() => import('../pages/service-areas/fort-lee-nj/page
 const ColtsNeckNJPage = lazy(() => import('../pages/service-areas/colts-neck-nj/page').then(module => ({ default: module.default })));
 const RedBankNJPage = lazy(() => import('../pages/service-areas/red-bank-nj/page').then(module => ({ default: module.default })));
 
+// Core Queens neighborhood pages (2026-11) — one page per core GBP neighborhood
+const KewGardensHillsNYPage = lazy(() => import('../pages/service-areas/kew-gardens-hills-ny/page').then(module => ({ default: module.default })));
+const FreshMeadowsNYPage = lazy(() => import('../pages/service-areas/fresh-meadows-ny/page').then(module => ({ default: module.default })));
+const JamaicaNYPage = lazy(() => import('../pages/service-areas/jamaica-ny/page').then(module => ({ default: module.default })));
+
 // Competitor comparison pages
 const VsPrecisionGarageDoorPage = lazy(() => import('../pages/vs-precision-garage-door/page').then(module => ({ default: module.default })));
 const VsOverheadDoorPage = lazy(() => import('../pages/vs-overhead-door/page').then(module => ({ default: module.default })));
@@ -119,6 +124,10 @@ const GarageDoorInsulationPage = lazy(() => import('../pages/garage-door-insulat
 
 // Overhead door service page
 const OverheadDoorRepairPage = lazy(() => import('../pages/overhead-door-repair/page').then(module => ({ default: module.default })));
+
+// Core service pages (2026-11)
+const GarageDoorPanelReplacementPage = lazy(() => import('../pages/garage-door-panel-replacement/page').then(module => ({ default: module.default })));
+const OffTrackGarageDoorRepairPage = lazy(() => import('../pages/off-track-garage-door-repair/page').then(module => ({ default: module.default })));
 
 // Spanish landing page
 const ReparacionPuertasGarajePage = lazy(() => import('../pages/reparacion-de-puertas-de-garaje/page').then(module => ({ default: module.default })));
@@ -473,6 +482,20 @@ const routes: RouteObject[] = [
     element: <RedBankNJPage />
   },
 
+  // Core Queens neighborhood pages (2026-11)
+  {
+    path: '/kew-gardens-hills-ny/',
+    element: <KewGardensHillsNYPage />
+  },
+  {
+    path: '/fresh-meadows-ny/',
+    element: <FreshMeadowsNYPage />
+  },
+  {
+    path: '/jamaica-ny/',
+    element: <JamaicaNYPage />
+  },
+
   // Competitor comparison pages
   {
     path: '/vs-precision-garage-door/',
@@ -547,6 +570,16 @@ const routes: RouteObject[] = [
   {
     path: '/overhead-door-repair/',
     element: <OverheadDoorRepairPage />
+  },
+
+  // Core service pages (2026-11)
+  {
+    path: '/garage-door-panel-replacement/',
+    element: <GarageDoorPanelReplacementPage />
+  },
+  {
+    path: '/off-track-garage-door-repair/',
+    element: <OffTrackGarageDoorRepairPage />
   },
 
   // Spanish landing page

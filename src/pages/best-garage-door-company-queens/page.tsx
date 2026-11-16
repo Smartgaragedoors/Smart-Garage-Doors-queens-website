@@ -128,6 +128,9 @@ export default function BestGarageDoorCompanyQueensPage() {
           { label: 'Bayside, NY', href: '/bayside-ny/' },
           { label: 'Whitestone, NY', href: '/whitestone-ny/' },
           { label: 'Jamaica Estates, NY', href: '/jamaica-estates-ny/' },
+          { label: 'Kew Gardens Hills, NY', href: '/kew-gardens-hills-ny/' },
+          { label: 'Fresh Meadows, NY', href: '/fresh-meadows-ny/' },
+          { label: 'Jamaica, NY', href: '/jamaica-ny/' },
         ],
       }}
       ctaHeadline="Based in Queens. Built for Queens Garages."

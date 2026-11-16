@@ -590,3 +590,47 @@ LiftMaster Wi-Fi belt-drive from $450 — kept as two products, confirm or merge
 **Prerender port:** `scripts/prerender.mjs` now listens on any free port (set
 `PRERENDER_PORT` to pin one). Two sessions prerendering at once used to collide on the
 fixed 4178 with EADDRINUSE; a stopped run could also leave an orphan holding the port.
+
+## 2026-11-16 — Five core pages for the Queens Google Business Profile
+
+**Owner request:** one page per core service and per core Queens neighborhood, so
+the Flushing GBP has a matching landing page for each. Missing from the sitemap:
+Kew Gardens Hills, Fresh Meadows, Jamaica (only Jamaica Estates existed), panel
+replacement, off-track repair. Added `/kew-gardens-hills-ny/`, `/fresh-meadows-ny/`,
+`/jamaica-ny/` (LocationPageTemplate) and `/garage-door-panel-replacement/`,
+`/off-track-garage-door-repair/` (GuidePageTemplate + a small Service JSON-LD).
+
+**What makes each one its own page is the CRM, not the town name.** `all_jobs`,
+365 days to 2026-11-16, non-deleted rows only. Kew Gardens Hills (11367): 6 jobs, 6
+sold — door and opener installs plus small repairs. Fresh Meadows (11365/11366): 9
+jobs, 4 sold, every one a repair. Jamaica (11432–11436): 31 jobs, 14 sold — repairs,
+two-door jobs, openers, a commercial door. `recentJobs` on each page are real closed
+jobs at ZIP level (month, work, total). Reviews stay `[]`: the generated reviews file
+names none of these neighborhoods. Watch out: a raw count for 11367 returns 18 rows,
+but 12 are soft-deleted (`deleted_at`) — always filter them.
+
+**Service pages say what the records say.** Panel/section work is about 3% of jobs
+and off-track about 1.5% (track work of any kind about 6%), so neither page claims
+to be "a common call". Of the 27 sold panel jobs, 19 were repairs to the existing
+section, so the panel page leads with repair-first and lists replacement and a new
+door as the other two outcomes. Past jobs are listed at county level with the job
+total and labelled as past jobs; jobs closed by another company or carrying an
+external partner were left out. No starting price exists for a single replacement
+section, so the table says "Quoted per door" (`TODO(owner)` in the file).
+
+**Kew Gardens Hills and the hub rule.** The GBP address is in this neighborhood, and
+the page still does not say so — brain 06 bans base/hub language on location pages,
+and `/flushing-ny/` is the one page that states the address. Owner may choose to
+lift the rule for this page; until then it stays silent.
+
+**Wiring.** Routes in `router/config.tsx`; service pages in the sitemap generator's
+`coreRoutes` (location slugs are scraped automatically); `locations.ts` so
+`/service-areas/` lists them; `getRelatedLocations` clusters for the three pages and
+their neighbors; `NearbyAreasSection` default raised from 5 to 8 links so
+`/queens-ny/` shows all six Queens neighborhood pages without dropping Brooklyn or
+Manhattan (side effect: Bronx, Brooklyn, Long Island, Westchester County and White
+Plains each now show the sixth link their cluster already listed);
+`/garage-door-repair/`, `/cable-roller-repair/` and
+`/emergency-garage-door-repair/` link to the two service pages. No `vercel.json`
+change: prerendered routes are served as static files, and the rewrites there exist
+only for SPA-only routes that are not prerendered.
