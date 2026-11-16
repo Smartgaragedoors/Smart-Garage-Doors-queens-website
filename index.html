@@ -12,16 +12,22 @@
     <!-- Third-party tags: Google tag (Ads + LSA), Microsoft Clarity, Meta Pixel.
 
          The QUEUES are defined right here, so every gtag()/fbq()/clarity() call made
-         from this point on is kept and replayed. The SCRIPT FILES are downloaded
-         later, by the loader at the bottom of this block: on the visitor's first
-         interaction, or once the page has finished loading and the main thread is
-         idle — whichever comes first.
+         from this point on is kept and replayed.
 
-         Why (mobile PageSpeed, 2026-11-16: LCP 12.8 s): loaded eagerly from <head>,
-         these ~600 KB of scripts shared a slow phone's connection with the hero
-         image and the app bundle, and their script tags were baked into every
-         prerendered page a second time. Nothing is dropped: same ids, same
-         commands, same order. -->
+         The GOOGLE TAG script loads eagerly, from the static tag just below, exactly
+         as before: it carries every call conversion (Ads, Local Service Ads and the
+         GA4 destination), and a visitor who taps "Call" seconds after landing must
+         not have to wait for it (2026-08-12).
+
+         The CLARITY and META PIXEL scripts are downloaded later, by the loader at
+         the bottom of the next block: on the visitor's first interaction, or once
+         the page has finished loading and the main thread is idle — whichever comes
+         first. Why (mobile PageSpeed, 2026-11-16: LCP 12.8 s): loaded eagerly they
+         shared a slow phone's connection with the hero image and the app bundle,
+         and their injected script tags were baked into every prerendered page a
+         second time. Nothing is dropped: same ids, same commands, same order. -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17709307308"></script>
     <script>
       /* Google tag (gtag.js): command queue */
       window.dataLayer = window.dataLayer || [];
@@ -39,7 +45,7 @@
       !function(f,n){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[]}(window);
       fbq('init', '1451447012973445'); fbq('track', 'PageView');
 
-      /* Loader: downloads the tag scripts once, on the first of
+      /* Loader: downloads the Clarity and Meta Pixel scripts once, on the first of
            - a visitor interaction (touch, click, key, wheel, page scroll, mouse move), or
            - window load + the next idle moment (3 s cap; 1 s where idle callbacks
              are not supported).
@@ -72,7 +78,6 @@
           released = true;
           for (var i = 0; i < EVENTS.length; i++) w.removeEventListener(EVENTS[i], release, OPTS);
           w.removeEventListener('scroll', release, SCROLL_OPTS);
-          add('https://www.googletagmanager.com/gtag/js?id=AW-17709307308');
           add('https://www.clarity.ms/tag/x8xeeozng1');
           add('https://connect.facebook.net/en_US/fbevents.js');
           var fns = waiting;
@@ -114,9 +119,7 @@
     <link rel="dns-prefetch" href="https://maps.google.com" />
     <link rel="dns-prefetch" href="https://www.google.com" />
     <link rel="dns-prefetch" href="https://maps.googleapis.com" />
-    <!-- Warm connection only (no download): the Google tag is fetched on the first
-         tap, and a call_click must not wait on DNS + TLS before it can be sent. -->
-    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     
     <!-- Premium headline serif (Newsreader) — design system. Non-blocking, swap to avoid FOIT/CLS -->
@@ -227,7 +230,7 @@
     <!-- Google Analytics 4: this block only re-initialises the dataLayer; its
          loadAnalytics() is an empty placeholder. The GA4 script (G-GBBR220BZD) is
          requested by initAnalytics() in src/utils/analytics.ts, through the
-         deferred tag loader at the top of <head>. -->
+         deferred loader at the top of <head> (window.__sgdDeferTag). -->
     <script>
       // Initialize dataLayer for Google Tag Manager/Analytics
       (function() {

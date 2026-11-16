@@ -76,20 +76,24 @@
 > (4) Remixicon icon font (152 KB, full set) — subset it. Field data (CrUX) was
 > not checked: the shared PageSpeed API quota was exhausted.
 >
-> **2026-11-16 follow-up (branch `perf/mobile-lcp-2026-11`; PageSpeed mobile
-> homepage that day: 56, LCP 12.8 s, CLS 0.21).** Lever (1) is done: the tag
-> scripts now download on the first interaction or at load + idle, their queues
-> unchanged (details and the tracking trade-off in `10-decision-log.md`; rules in
-> `05`). Two causes the September pass missed: **(a)** every page swapped its
+> **2026-11-16 follow-up (PageSpeed mobile homepage that day: 56, LCP 12.8 s,
+> CLS 0.21).** Lever (1), in two variants for the owner to choose between. This
+> branch, `perf/mobile-lcp-2026-11-gtag-early` (variant B): Clarity and the Meta
+> Pixel download on the first interaction or at load + idle; **the Google tag
+> stays eager**, because it carries every call conversion. Branch
+> `perf/mobile-lcp-2026-11` defers the Google tag too. Queues unchanged in both
+> (three-state numbers and the tracking trade-off in `10-decision-log.md`; rules
+> in `05`). Two causes the September pass missed: **(a)** every page swapped its
 > prerendered HTML for the "Loading page..." spinner when React mounted and only
 > got the hero back when the page chunk arrived, so the hero image could not
 > paint in between — fixed by loading the page chunk before mounting; **(b)** the
 > prerender baked the tags' injected `<script>` elements and RecentWork's
 > desktop-only `loading="eager"` photos into every static page — both gone.
 > Local lab, slow 4G + 4x CPU, medians of 3 (applied throttling, so not
-> comparable with PageSpeed's simulated figures): LCP `/` 8.5 → 4.9 s,
-> `/flushing-ny/` 9.2 → 5.5 s, `/spring-replacement/` 4.3 → 2.5 s; CLS `/`
-> 0.018 → 0.001. **Not re-run on PageSpeed** (no quota; needs a deploy first).
+> comparable with PageSpeed's simulated figures), main → this variant → Google
+> tag deferred too: LCP `/` 8.6 → 6.1 → 4.9 s, `/flushing-ny/` 9.2 → 6.8 →
+> 5.5 s, `/spring-replacement/` 4.3 → 3.0 → 2.5 s; CLS `/` 0.018 → 0.001 in
+> both. **Not re-run on PageSpeed** (no quota; needs a deploy first).
 > What bounds LCP now is the hero image itself sharing a slow link with fonts
 > and JS: lever (3) (`hero` variant: 174 KB on the homepage, where it sits under
 > an 82–88% dark scrim, 244 KB on `/flushing-ny/`), the two Newsreader files

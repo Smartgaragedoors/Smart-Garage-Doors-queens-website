@@ -67,12 +67,16 @@ npm run prerender  →  Puppeteer renders every sitemap route to out/<route>/ind
 - **Fonts:** Newsreader via Google Fonts with `display=swap`; system stack for body.
 - **Third-party scripts:** Google tag (Ads + LSA), GA4, Clarity and Meta Pixel.
   Their **queues** (`dataLayer`/`gtag`, `fbq`, `clarity`) are defined at the top of
-  `<head>` in index.html, so no call is ever lost; their **script files** are
-  downloaded by the small loader in the same block, on the visitor's first
-  interaction or at window load + idle, whichever is first (2026-11-16; loaded
-  eagerly they were ~600 KB competing with the hero image). GA4's loader in
-  `analytics.ts` joins the same trigger through `window.__sgdDeferTag`. Rules:
-  never put a tag back as `<script async src>` in `<head>`; never listen for
+  `<head>` in index.html, so no call is ever lost. **The Google tag script
+  (AW-17709307308) loads eagerly** from one static `<script async>` there, as it
+  always has: it carries every call conversion — Ads, LSA and the GA4
+  destination. **Clarity and the Meta Pixel** script files are downloaded by the
+  small loader in the same block, on the visitor's first interaction or at
+  window load + idle, whichever is first (2026-11-16; loaded eagerly they
+  competed with the hero image). The request `analytics.ts` makes joins that
+  trigger through `window.__sgdDeferTag`. (Branch `perf/mobile-lcp-2026-11`
+  defers the Google tag as well; numbers for both in `10-decision-log.md`.) Rules:
+  never put Clarity or the Pixel back as `<script async src>` in `<head>`; never listen for
   `scroll` in the capture phase there (the homepage photo carousel emits one by
   itself and would release the tags a second into every load); do not add a
   fixed multi-second delay with no interaction trigger — that lost
@@ -85,9 +89,9 @@ npm run prerender  →  Puppeteer renders every sitemap route to out/<route>/ind
   `window.__SGD_PRERENDER__`, and the loader then appends nothing. Without it
   `page.content()` freezes the injected `<script>` tags into every static page
   as eager downloads (before 2026-11-16 every page carried fbevents.js, the
-  Clarity tag and a pinned clarity.js build that way). After a build,
-  `out/**/*.html` should contain no `<script src>` for googletagmanager,
-  facebook or clarity.
+  Clarity tag and a pinned clarity.js build that way). After a build, every
+  page in `out/**/*.html` should contain exactly one `<script src>` for
+  googletagmanager (the static Google tag) and none for facebook or clarity.
 - **Desktop-only markup is in the mobile HTML too:** the prerender runs at 800 px
   wide, so anything rendered only at `md:` and up is still in the static HTML a
   phone parses. An `<img loading="eager">` inside a `hidden md:block` parent is

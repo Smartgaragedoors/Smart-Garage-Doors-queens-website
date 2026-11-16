@@ -596,6 +596,14 @@ fixed 4178 with EADDRINUSE; a stopped run could also leave an orphan holding the
 Trigger: PageSpeed mobile homepage 56 — LCP 12.8 s, CLS 0.21, with the hero image
 itself loading in 170 ms. Branch `perf/mobile-lcp-2026-11`.
 
+> **This branch is variant B (`perf/mobile-lcp-2026-11-gtag-early`).** Everything
+> below applies except one thing: the Google tag script (AW-17709307308) is *not*
+> deferred — it is a static eager `<script async>` at the top of `<head>`, exactly
+> as on main. Only Clarity and the Meta Pixel go through the loader. Where the
+> text says "the tag scripts", read "Clarity and the Meta Pixel"; the tracking
+> trade-off paragraph then applies to those two only. The three-state numbers
+> are at the end of this entry.
+
 **What was actually wrong (measured, slow 4G + 4x CPU, and unthrottled):**
 1. *The spinner swap.* `createRoot` + `React.lazy` routes: React's first commit
    replaced the prerendered page with the "Loading page..." spinner and the hero
@@ -670,3 +678,35 @@ absolute numbers. PageSpeed itself not re-run (no quota; needs the deploy).
 
 **Follow-up:** remaining levers and open CLS items are in `09` under the
 2026-09-10 mobile-speed note.
+
+**Variant B — Google tag eager (this branch) against the all-deferred variant.**
+Built so the owner can choose with numbers: the Google tag carries every call
+conversion (Ads, LSA and the GA4 destination), and 2026-08-12 moved analytics
+earlier because quick tap-to-call visits were losing them. Same harness and
+settings, medians of 3, slow 4G + 4x CPU, cold cache; main and variant B measured
+back to back, the all-deferred build re-measured the next day within 2% of its
+first run.
+
+| | main | variant B: Google tag eager | all deferred (`ae5f234`) |
+|---|---|---|---|
+| LCP `/` | 8.60 s | 6.14 s | 4.92 s |
+| LCP `/flushing-ny/` | 9.23 s | 6.76 s | 5.48 s |
+| LCP `/spring-replacement/` | 4.31 s | 2.98 s | 2.59 s |
+| FCP (three pages) | 1.65 / 1.44 / 2.17 s | 1.76 / 1.44 / 1.73 s | 1.68 / 1.58 / 1.35 s |
+| CLS (three pages) | 0.018 / 0.001 / 0.001 | 0.001 / 0.001 / 0 | 0.001 / 0.001 / 0 |
+| Google tag requested | 0.5 s | 0.5 s | 5.7 / 5.6 / 3.5 s |
+| Clarity and Pixel requested | 0.5 s | 8.4 / 8.1 / 6.3 s | 5.7 / 5.6 / 3.5 s |
+| First GA4 page_view | 9.4 / 9.0 / 5.6 s | 6.8 / 6.4 / 4.5 s | 8.1 / 8.0 / 6.0 s |
+| Call tap, slow 4G: page tappable at | 7.27 s | 5.41 s | 4.67 s |
+| … tap → GA4 hit / Ads ping | 2.15 / 2.07 s | 1.86 / 1.74 s | 3.17 / 3.08 s |
+| Call tap, unthrottled: tap → GA4 hit / Ads ping | 1.59 s / at once | 1.75 s / at once | 1.88 / 0.42 s |
+
+Reading it: variant B keeps about two thirds of the LCP gain (the eager 193 KB
+script downloads alongside the hero image and finishes with it) and gives the
+shortest tap-to-hit time of the three on a slow connection. Two things worth
+knowing: on slow 4G even the eager Google tag is not there yet when the page
+becomes tappable (page at 5.2 s, script at 6.2 s on the homepage), so the first
+second after an instant tap is a wait in every variant; and in variant B Clarity
+and the Pixel start *later* than when everything is deferred, because the
+Google tag and its second container hold window load back (8.2 s on the
+homepage against 5.6 s).
