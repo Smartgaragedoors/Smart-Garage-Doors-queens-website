@@ -3,6 +3,8 @@ import './i18n'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
+import routes from './router/config'
+import { preloadRoute } from './router/lazyWithPreload'
 import { initAnalytics } from './utils/analytics'
 import { initWebVitals } from './utils/webVitals'
 
@@ -23,11 +25,33 @@ if (import.meta.env.PROD) {
   }, 2000);
 }
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+const container = document.getElementById('root')!;
+
+const mount = () => {
+  createRoot(container).render(
+    <StrictMode>
+      <App />
+    </StrictMode>,
+  )
+};
+
+if (container.firstElementChild) {
+  // Prerendered page: its HTML is already painted. createRoot is a client render,
+  // so the first commit replaces that HTML — and if the page chunk is not loaded
+  // yet, what it puts there is the "Loading page..." spinner (measured on a
+  // throttled phone 2026-11-16: page visible at ~2 s, spinner from ~4.7 s to ~7 s,
+  // and the browser's LCP was the hero painted after the spinner). So fetch the
+  // page chunk first and mount once: prerendered HTML -> real page, one commit.
+  // The timeout only guards against a hung request; then the old path applies.
+  const ROUTE_PRELOAD_TIMEOUT_MS = 10000;
+  Promise.race([
+    preloadRoute(routes, window.location.pathname, __BASE_PATH__),
+    new Promise((resolve) => setTimeout(resolve, ROUTE_PRELOAD_TIMEOUT_MS)),
+  ]).then(mount, mount);
+} else {
+  // Empty shell (prerender run, /lp/ and /go/ routes, local dev): mount right away.
+  mount();
+}
 
 
 // Global error logging for runtime evidence (development only)

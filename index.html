@@ -9,28 +9,95 @@
          Removed 2026-09-10. -->
 
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17709307308"></script>
+    <!-- Third-party tags: Google tag (Ads + LSA), Microsoft Clarity, Meta Pixel.
+
+         The QUEUES are defined right here, so every gtag()/fbq()/clarity() call made
+         from this point on is kept and replayed. The SCRIPT FILES are downloaded
+         later, by the loader at the bottom of this block: on the visitor's first
+         interaction, or once the page has finished loading and the main thread is
+         idle — whichever comes first.
+
+         Why (mobile PageSpeed, 2026-11-16: LCP 12.8 s): loaded eagerly from <head>,
+         these ~600 KB of scripts shared a slow phone's connection with the hero
+         image and the app bundle, and their script tags were baked into every
+         prerendered page a second time. Nothing is dropped: same ids, same
+         commands, same order. -->
     <script>
+      /* Google tag (gtag.js): command queue */
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'AW-17709307308');
       gtag('config', 'AW-11306665258'); // Local Service Ads
-    </script>
-    
-    <!-- Microsoft Clarity (free session recordings + heatmaps) -->
-    <script type="text/javascript">
-      (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-      })(window, document, "clarity", "script", "x8xeeozng1");
-    </script>
 
-    <!-- Meta Pixel Code -->
-    <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js'); fbq('init', '1451447012973445'); fbq('track', 'PageView');</script>
-    <!-- End Meta Pixel Code -->
+      /* Microsoft Clarity (free session recordings + heatmaps): command queue */
+      (function(c,a){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      })(window, "clarity");
+
+      /* Meta Pixel: command queue (the standard snippet minus its script injection) */
+      !function(f,n){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[]}(window);
+      fbq('init', '1451447012973445'); fbq('track', 'PageView');
+
+      /* Loader: downloads the tag scripts once, on the first of
+           - a visitor interaction (touch, click, key, wheel, page scroll, mouse move), or
+           - window load + the next idle moment (3 s cap; 1 s where idle callbacks
+             are not supported).
+         src/utils/analytics.ts hands its GA4 loader to window.__sgdDeferTag so GA4
+         rides the same trigger. The prerender sets window.__SGD_PRERENDER__ so no
+         tag script is ever written into the static HTML snapshot. */
+      (function (w, d) {
+        var EVENTS = ['pointerdown', 'touchstart', 'keydown', 'wheel', 'mousemove'];
+        var OPTS = { capture: true, passive: true };
+        // Page scroll only, so NOT captured: an element's own scroll event does not
+        // bubble to window, and the homepage's photo carousel fires one by itself
+        // (scroll-snap settling) about a second into every load.
+        var SCROLL_OPTS = { passive: true };
+        var released = false;
+        var waiting = [];
+
+        function add(src) {
+          var s = d.createElement('script');
+          s.async = true;
+          s.src = src;
+          d.head.appendChild(s);
+        }
+
+        function run(fn) {
+          try { fn(); } catch (e) { /* one tag failing must not stop the others */ }
+        }
+
+        function release() {
+          if (released) return;
+          released = true;
+          for (var i = 0; i < EVENTS.length; i++) w.removeEventListener(EVENTS[i], release, OPTS);
+          w.removeEventListener('scroll', release, SCROLL_OPTS);
+          add('https://www.googletagmanager.com/gtag/js?id=AW-17709307308');
+          add('https://www.clarity.ms/tag/x8xeeozng1');
+          add('https://connect.facebook.net/en_US/fbevents.js');
+          var fns = waiting;
+          waiting = [];
+          for (var j = 0; j < fns.length; j++) run(fns[j]);
+        }
+
+        // Runs fn when the tags are released (immediately if they already were).
+        w.__sgdDeferTag = function (fn) {
+          if (released) run(fn); else waiting.push(fn);
+        };
+
+        if (w.__SGD_PRERENDER__) return;
+
+        for (var i = 0; i < EVENTS.length; i++) w.addEventListener(EVENTS[i], release, OPTS);
+        w.addEventListener('scroll', release, SCROLL_OPTS);
+
+        function afterLoad() {
+          if ('requestIdleCallback' in w) w.requestIdleCallback(release, { timeout: 3000 });
+          else setTimeout(release, 1000);
+        }
+        if (d.readyState === 'complete') afterLoad();
+        else w.addEventListener('load', afterLoad, { once: true });
+      })(window, document);
+    </script>
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -47,7 +114,9 @@
     <link rel="dns-prefetch" href="https://maps.google.com" />
     <link rel="dns-prefetch" href="https://www.google.com" />
     <link rel="dns-prefetch" href="https://maps.googleapis.com" />
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <!-- Warm connection only (no download): the Google tag is fetched on the first
+         tap, and a call_click must not wait on DNS + TLS before it can be sent. -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     
     <!-- Premium headline serif (Newsreader) — design system. Non-blocking, swap to avoid FOIT/CLS -->
@@ -155,9 +224,12 @@
     </script>
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" /></noscript>
     
-    <!-- Google Analytics - deferred to reduce blocking -->
+    <!-- Google Analytics 4: this block only re-initialises the dataLayer; its
+         loadAnalytics() is an empty placeholder. The GA4 script (G-GBBR220BZD) is
+         requested by initAnalytics() in src/utils/analytics.ts, through the
+         deferred tag loader at the top of <head>. -->
     <script>
-      // Initialize dataLayer for Google Tag Manager/Analytics (deferred)
+      // Initialize dataLayer for Google Tag Manager/Analytics
       (function() {
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}

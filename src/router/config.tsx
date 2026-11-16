@@ -1,4 +1,6 @@
-import { lazy } from 'react';
+// Route-level lazy with preload(): lets main.tsx fetch the page chunk before the
+// first render, so a prerendered page is never replaced by the loading spinner.
+import { lazy } from './lazyWithPreload';
 import { Navigate } from 'react-router-dom';
 import type { RouteObject } from 'react-router-dom';
 

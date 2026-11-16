@@ -162,6 +162,22 @@ div[class*="absolute"][class*="top-full"][class*="z-["] {
     font-family: 'RemixIcon';
     font-display: swap;
   }
+
+  /* Remix Icon: hold each icon's 1em box open from the first paint.
+     remixicon.css is loaded late on purpose (index.html) and its 150 KB font
+     later still. Until both arrive an <i class="ri-..."> is empty and 0 px wide,
+     so when they land every icon pops in at once: the header grows 4 px and
+     pushes the whole page down, and rows of icon + label re-wrap (measured
+     2026-11-16 on the live homepage: CLS 0.03-0.05 from this alone on Windows
+     font metrics; the likeliest source of PageSpeed's mobile CLS 0.21).
+     :where() keeps the selector at zero specificity, so remixicon.css's own
+     `.ri-name:before { content }` always wins and only the box is reserved.
+     Scoped to icon elements only — not a general layout rule. */
+  :where([class^="ri-"], [class*=" ri-"])::before {
+    content: "\00a0";
+    display: inline-block;
+    width: 1em;
+  }
   
   /* Ensure all external fonts use font-display: swap */
   @font-face {

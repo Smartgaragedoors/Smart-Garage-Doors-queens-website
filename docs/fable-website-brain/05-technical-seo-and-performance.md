@@ -54,14 +54,54 @@ npm run prerender  →  Puppeteer renders every sitemap route to out/<route>/ind
   must capture the full nested path; a past bug collapsed all 57 city pages into
   one 287KB chunk. Heavy components (Reviews) lazy via `React.lazy`. Check chunk
   output after build changes.
+- **Mounting over prerendered HTML (2026-11-16):** the app mounts with
+  `createRoot` — a client render, not hydration — so React's first commit
+  replaces the prerendered DOM. Route components in `router/config.tsx` therefore
+  use `lazy` from `router/lazyWithPreload.ts`, **not** `React.lazy`, and
+  `main.tsx` fetches the matching page chunk *before* mounting. With plain
+  `React.lazy` the first commit is the "Loading page..." spinner: on a throttled
+  phone the page showed at ~2 s, turned into a spinner at ~4.7 s and came back at
+  ~7 s, and the browser's LCP was the hero painted after the spinner. Keep new
+  routes on the same `lazy` import. `hydrateRoot` is not a drop-in fix: the
+  prerender is a DOM snapshot of a client render taken at desktop width.
 - **Fonts:** Newsreader via Google Fonts with `display=swap`; system stack for body.
-- **Third-party scripts:** GA4/Clarity/Meta Pixel in index.html; nothing render-
-  blocking above the hero preloads. **No third-party review/chat widgets** — the
-  sociablekit widget was removed; its dns-prefetch and CSP entries were scrubbed
-  2026-07-06. Adding any new third-party script requires a CSP update in
-  vercel.json (script-src/connect-src/frame-src) and a performance justification.
+- **Third-party scripts:** Google tag (Ads + LSA), GA4, Clarity and Meta Pixel.
+  Their **queues** (`dataLayer`/`gtag`, `fbq`, `clarity`) are defined at the top of
+  `<head>` in index.html, so no call is ever lost; their **script files** are
+  downloaded by the small loader in the same block, on the visitor's first
+  interaction or at window load + idle, whichever is first (2026-11-16; loaded
+  eagerly they were ~600 KB competing with the hero image). GA4's loader in
+  `analytics.ts` joins the same trigger through `window.__sgdDeferTag`. Rules:
+  never put a tag back as `<script async src>` in `<head>`; never listen for
+  `scroll` in the capture phase there (the homepage photo carousel emits one by
+  itself and would release the tags a second into every load); do not add a
+  fixed multi-second delay with no interaction trigger — that lost
+  bounce-to-call visits once (2026-08-12). **No third-party review/chat
+  widgets** — the sociablekit widget was removed; its dns-prefetch and CSP
+  entries were scrubbed 2026-07-06. Adding any new third-party script requires a
+  CSP update in vercel.json (script-src/connect-src/frame-src) and a performance
+  justification.
+- **Prerender must not bake tag scripts:** `prerender.mjs` sets
+  `window.__SGD_PRERENDER__`, and the loader then appends nothing. Without it
+  `page.content()` freezes the injected `<script>` tags into every static page
+  as eager downloads (before 2026-11-16 every page carried fbevents.js, the
+  Clarity tag and a pinned clarity.js build that way). After a build,
+  `out/**/*.html` should contain no `<script src>` for googletagmanager,
+  facebook or clarity.
+- **Desktop-only markup is in the mobile HTML too:** the prerender runs at 800 px
+  wide, so anything rendered only at `md:` and up is still in the static HTML a
+  phone parses. An `<img loading="eager">` inside a `hidden md:block` parent is
+  downloaded by phones (RecentWork's desktop carousel cost ~270 KB that way);
+  use `loading="lazy"` for anything below the fold.
 - **CLS:** hero uses fixed min-heights; images carry width/height; `content-
-  visibility:auto` on images via index.css.
+  visibility:auto` on images via index.css. Remix Icon boxes are reserved in
+  index.css (`:where([class^="ri-"], …)::before`, 1em) because remixicon.css and
+  its font arrive late on purpose — without the rule every icon pops from 0 to
+  1em at once, the header grows 4 px and icon+label rows re-wrap. Known gaps:
+  the Newsreader swap still moves the hero on narrow phones (H1 wraps to three
+  lines in the fallback serif, two in Newsreader), and `content-visibility:auto`
+  lets an image whose width/height attributes disagree with the file change
+  height as it scrolls into range.
 
 ## Core Web Vitals targets
 

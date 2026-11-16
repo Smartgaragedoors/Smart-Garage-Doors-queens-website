@@ -132,13 +132,20 @@ export const initAnalytics = () => {
     document.head.appendChild(script);
   };
 
-  // Load the GA4 container immediately (async script — doesn't block paint).
-  // The previous idle-callback + 2s delay meant short visits (common for an
-  // emergency-service site) left before GA ever loaded, silently undercounting
-  // users and losing conversion events entirely on quick bounce-to-call visits.
-  // Diagnosed 2026-08-12: production pages showed only the AW containers in
-  // google_tag_manager — the G- container frequently never initialized.
-  loadGA();
+  // This request rides the shared third-party trigger in index.html: the visitor's
+  // first touch/click/key/scroll, or window load + idle — whichever is first
+  // (2026-11-16, mobile LCP). The config and every event below are queued in the
+  // dataLayer meanwhile and replayed when the Google tag arrives.
+  // Measured 2026-11-16: gtag/js?id=G-GBBR220BZD answers 404. The GA4 hits for
+  // G-GBBR220BZD are sent by the AW-17709307308 tag (index.html), which carries
+  // GA4 as a destination — so GA4's timing is that tag's timing. The hook still
+  // matters: if this URL ever serves the Google tag library, requesting it at
+  // bundle time would pull the deferred Ads tag forward with it.
+  // History: an idle-callback + 2s delay with NO interaction trigger lost short
+  // bounce-to-call visits (2026-08-12). The first tap now starts the download
+  // itself. If the loader is missing, request immediately as before.
+  if (window.__sgdDeferTag) window.__sgdDeferTag(loadGA);
+  else loadGA();
 
   window.dataLayer = window.dataLayer || [];
   // gtag.js consumes the raw `arguments` object from the dataLayer (the canonical

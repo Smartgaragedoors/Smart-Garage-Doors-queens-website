@@ -590,3 +590,83 @@ LiftMaster Wi-Fi belt-drive from $450 — kept as two products, confirm or merge
 **Prerender port:** `scripts/prerender.mjs` now listens on any free port (set
 `PRERENDER_PORT` to pin one). Two sessions prerendering at once used to collide on the
 fixed 4178 with EADDRINUSE; a stopped run could also leave an orphan holding the port.
+
+## 2026-11-16 — Mobile LCP: tag scripts deferred, prerendered page kept on screen
+
+Trigger: PageSpeed mobile homepage 56 — LCP 12.8 s, CLS 0.21, with the hero image
+itself loading in 170 ms. Branch `perf/mobile-lcp-2026-11`.
+
+**What was actually wrong (measured, slow 4G + 4x CPU, and unthrottled):**
+1. *The spinner swap.* `createRoot` + `React.lazy` routes: React's first commit
+   replaced the prerendered page with the "Loading page..." spinner and the hero
+   came back only when the page chunk arrived — on all 153 prerendered routes.
+   Throttled homepage: page at 1.8 s, spinner at 4.7 s, page again at 7.0 s. The
+   hero image cannot paint while the hero does not exist, so the LCP paint was the
+   client-rendered hero. Unthrottled (the kind of trace PageSpeed records) the
+   spinner arrives with the first paint and the hero paints ~0.4 s later — the
+   likely source of its "element render delay 740 ms".
+2. *The hero image queued behind ~1.4 MB.* Requested at 0.5 s, finished at 8.4 s:
+   eager tags (gtag 193 KB, fbevents 99, Meta config 85, Clarity 26), three
+   desktop-only RecentWork photos (274 KB, `loading="eager"` inside a
+   `hidden md:block` carousel that the 800 px prerender bakes into every page),
+   Newsreader (273 KB), app JS (~290 KB), Remix Icon font (152 KB).
+3. *The prerender baked the tags.* `page.content()` froze the snippets' injected
+   `<script>` elements into every static page — fbevents.js, the Clarity tag and a
+   pinned `clarity.js` build — so they were fetched from the HTML and again by
+   the snippet, and Clarity started collecting two seconds into the load.
+4. *GA4 is not what the code suggests.* The "deferred" block in index.html is an
+   empty placeholder. `analytics.ts` requests `gtag/js?id=G-GBBR220BZD` the moment
+   the bundle runs (deliberately, since 2026-08-12) — and that URL **returns 404**
+   (checked 2026-11-16, also with a browser user agent). GA4 hits do go out, to
+   `tid=G-GBBR220BZD`, but they are sent by the AW-17709307308 tag, whose own
+   script lists GA4 as a destination: they fire even on localhost, where the
+   `analytics.ts` path is switched off. So GA4's timing is the Ads tag's timing.
+
+**Decisions:**
+- Tag queues stay inline at the top of `<head>` (same ids, commands and order);
+  the script files load on the first interaction (pointerdown, touchstart,
+  keydown, wheel, page scroll, mousemove) or at window load + idle (3 s cap),
+  whichever is first. `analytics.ts` hands its (404) GA4 request to the same
+  trigger through `window.__sgdDeferTag` — nothing measurable today, but if that
+  URL ever serves the Google tag library, requesting it at bundle time would
+  pull the deferred Ads tag forward with it. A preconnect to
+  googletagmanager.com keeps the first-tap fetch short.
+- `scripts/prerender.mjs` sets `window.__SGD_PRERENDER__`; the loader then
+  appends nothing (additive — the empty-root retry and the build gate are
+  untouched).
+- Routes use `router/lazyWithPreload.ts`; `main.tsx` loads the page chunk before
+  mounting when the root already holds prerendered HTML. One commit, no spinner.
+  **Not** `hydrateRoot`: the prerender is a desktop-width DOM snapshot of a
+  client render, so mismatches are expected; worth a separate, tested change.
+- RecentWork's desktop carousel images are always `loading="lazy"`.
+- Remix Icon boxes reserved at 1em in index.css (zero-specificity `:where()`).
+  Final rendering compared by full-page screenshot on six pages: at 1280 px at
+  most 28 pixels differ per page (four pages: none); at 412 px only the sticky
+  bar's text antialiasing differs, with identical element geometry.
+
+**Tracking trade-off (this reverses part of 2026-08-12 — the owner should know):**
+a visitor who never touches, scrolls or moves the mouse and leaves before
+load + idle is not counted; before, the tags were requested at 0.5 s. On slow 4G
+the first GA4 page_view left *earlier* on two of the three pages (9.4 → 8.1 s,
+9.0 → 8.1 s, 5.4 → 5.9 s) because the tags no longer fight the page for
+bandwidth; on a fast connection it is 0.2–0.6 s later. The first tap starts the
+download itself, which is what the August failure (idle + 2 s, no interaction
+trigger) lacked. The bounce-to-call race, simulated (tap the instant the real
+page is up, push an event the way `call_click` is pushed): on slow 4G the event's
+GA4 hit left 2.1 s after the tap before and 3.2 s after it now — but the page is
+tappable 2.6 s sooner and the hit leaves 1.6 s sooner on the clock; unthrottled,
+1.6 s before and 1.9 s now. Not tested on real phones, where the dialer may
+suspend the page. Likely from the deploy date: slightly lower GA4 engagement
+time (counted from tag load) and Clarity recordings that begin at the first
+interaction. Possible: if a visitor's very first tap is an in-site link, the
+tags read gclid / fbclid from the second URL rather than the landing URL.
+
+**Lab result (same harness before and after, medians of 3, cold cache):** LCP
+`/` 8.46 → 4.92 s, `/flushing-ny/` 9.23 → 5.49 s, `/spring-replacement/`
+4.26 → 2.54 s; FCP 1.79 → 1.63, 2.23 → 1.52, 2.15 → 1.30 s; CLS 0.018 → 0.001,
+0.001 → 0.001, 0.001 → 0; window load 10.8 → 5.6 s on the homepage. Applied
+throttling, not Lighthouse's simulation — do not compare with PageSpeed's
+absolute numbers. PageSpeed itself not re-run (no quota; needs the deploy).
+
+**Follow-up:** remaining levers and open CLS items are in `09` under the
+2026-09-10 mobile-speed note.

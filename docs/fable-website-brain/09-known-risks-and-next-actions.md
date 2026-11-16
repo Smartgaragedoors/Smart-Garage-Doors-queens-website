@@ -76,6 +76,33 @@
 > (4) Remixicon icon font (152 KB, full set) — subset it. Field data (CrUX) was
 > not checked: the shared PageSpeed API quota was exhausted.
 >
+> **2026-11-16 follow-up (branch `perf/mobile-lcp-2026-11`; PageSpeed mobile
+> homepage that day: 56, LCP 12.8 s, CLS 0.21).** Lever (1) is done: the tag
+> scripts now download on the first interaction or at load + idle, their queues
+> unchanged (details and the tracking trade-off in `10-decision-log.md`; rules in
+> `05`). Two causes the September pass missed: **(a)** every page swapped its
+> prerendered HTML for the "Loading page..." spinner when React mounted and only
+> got the hero back when the page chunk arrived, so the hero image could not
+> paint in between — fixed by loading the page chunk before mounting; **(b)** the
+> prerender baked the tags' injected `<script>` elements and RecentWork's
+> desktop-only `loading="eager"` photos into every static page — both gone.
+> Local lab, slow 4G + 4x CPU, medians of 3 (applied throttling, so not
+> comparable with PageSpeed's simulated figures): LCP `/` 8.5 → 4.9 s,
+> `/flushing-ny/` 9.2 → 5.5 s, `/spring-replacement/` 4.3 → 2.5 s; CLS `/`
+> 0.018 → 0.001. **Not re-run on PageSpeed** (no quota; needs a deploy first).
+> What bounds LCP now is the hero image itself sharing a slow link with fonts
+> and JS: lever (3) (`hero` variant: 174 KB on the homepage, where it sits under
+> an 82–88% dark scrim, 244 KB on `/flushing-ny/`), the two Newsreader files
+> (129 + 144 KB; the font URL asks for the whole `opsz` range), lever (4), and
+> the `page-blog` chunk (96 KB compressed) that the homepage and
+> service pages pull in through shared modules — lever (2). **Found on the way,
+> owner/analytics to confirm:** `gtag/js?id=G-GBBR220BZD` (the script
+> `analytics.ts` requests) returns 404; GA4 hits for that id are sent by the
+> AW-17709307308 tag, which carries GA4 as a destination. Still open for CLS:
+> the Newsreader swap (0.05 at 360–375 px wide, where the H1 falls from three
+> lines to two) and `img { content-visibility: auto }` resizing images whose
+> width/height attributes do not match the file.
+>
 > **Deliberately not changed:** 114 titles >60 chars and 80 descriptions >160.
 > Google truncates by pixel width and often rewrites; a mass rewrite would also
 > contaminate the 2026-09-09 CTR measurement window. Revisit after that review,

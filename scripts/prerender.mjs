@@ -72,6 +72,15 @@ async function launchBrowser() {
   });
 }
 
+// Tells the page it is being snapshotted. The deferred third-party tag loader in
+// index.html checks this flag and never appends its <script> tags during a
+// prerender — page.content() would otherwise freeze them into the static HTML
+// as eager downloads on every page (that is how fbevents.js, the Clarity tag and
+// a pinned clarity.js build used to end up in every prerendered <head>).
+async function markAsPrerender(page) {
+  await page.evaluateOnNewDocument(() => { window.__SGD_PRERENDER__ = true; });
+}
+
 function getRoutes(sitemapXml) {
   const locs = [...sitemapXml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
   const paths = locs.map((u) => {
@@ -148,6 +157,7 @@ async function main() {
   for (const route of routes) {
     const page = await browser.newPage();
     try {
+      await markAsPrerender(page);
       await page.setRequestInterception(true);
       page.on('request', (r) => {
         const u = r.url();
@@ -197,6 +207,7 @@ async function main() {
   try {
     const page = await browser.newPage();
     try {
+      await markAsPrerender(page);
       await page.setRequestInterception(true);
       page.on('request', (r) => {
         const u = r.url();

@@ -241,7 +241,12 @@ function RecentWork() {
                       className={`w-full h-full object-cover ${photo.position ?? 'object-center'} hover:scale-105 transition-transform duration-500`}
                       width={600}
                       height={450}
-                      loading={i < VISIBLE ? 'eager' : 'lazy'}
+                      // Always lazy. The prerender runs at desktop width, so this carousel
+                      // is baked into every page's static HTML; `eager` made phones download
+                      // its first three photos (~270 KB, never shown below md) in the same
+                      // seconds as the hero image. Lazy images inside a hidden parent are
+                      // not fetched at all, and on desktop the section is far below the fold.
+                      loading="lazy"
                     />
                   </div>
                   <div className="px-4 py-3">
