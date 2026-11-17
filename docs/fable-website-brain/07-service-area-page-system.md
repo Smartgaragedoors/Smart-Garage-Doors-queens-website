@@ -65,6 +65,32 @@ neighborhoods[] entry on the parent page.
 6. Verify: tsc → build → prerender count +1 → the page's raw HTML in `out/` has
    unique title/description/schema.
 
+## County / region pages (Nassau + Long Island pattern, 2026-10-27)
+
+A county page and the regional hub above it must not read as the same page — GSC
+showed `/nassau-county-ny/` and `/long-island-ny/` splitting every Nassau query.
+The template has optional props for exactly this; use them instead of forking:
+
+- `heroTitle` — widen the H1 to the intents the page owns ("Garage Door Repair,
+  Replacement & Tune-Ups in Nassau County"). Still exactly one H1.
+- `focusSections[]` — one H2 section per intent (replacement, tune-ups, repair
+  services; custom doors on the hub), 2–3 paragraphs each, optional bullets, exact-
+  anchor text links, 1–2 real photos (`public/images/jobs|gallery`, no location
+  claim unless owner-confirmed).
+- `pricingBlock` — "What {county} homeowners pay": rows copied from the published
+  cost guide for that county, with the guide linked by its exact anchor. Never a
+  new figure.
+- `areaLinks` — the link mesh: county → its town pages + up to the hub; hub → each
+  county with the exact anchor "Garage door repair in {County}" + town pills.
+- `reviewProfileUrl` + `reviewProfileLabel` — when there are no city-tagged quotes
+  in `googleReviews.generated.json`, link the real Google profile and label it
+  "Smart Garage Doors Google profile" so the copy never invents a city profile.
+
+Roles: the **county page** owns county-modified intents and town links; the
+**regional hub** owns region-wide intents (repair + custom/installation across the
+region) and links down by county name. Town pages link up to their county, not to
+the hub.
+
 ## Commercial location pages (planned pattern — build carefully)
 
 The page-1 plan calls for `/commercial/long-island/`-style pages. Same uniqueness
