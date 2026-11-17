@@ -180,7 +180,15 @@ const RECENT_PRICES: { job: string; total: string; when: string }[] = [
 const PHONE_DISPLAY = '(914) 557-6816';
 const PHONE_TEL = '+19145576816';
 
-function DoorStyleGallery() {
+interface DoorStyleGalleryProps {
+  /**
+   * When the page has its own quote form, "Get a quote for this style" hands
+   * the chosen style to it instead of sending the visitor to /book-now/.
+   */
+  onRequestQuote?: (styleTitle: string) => void;
+}
+
+function DoorStyleGallery({ onRequestQuote }: DoorStyleGalleryProps) {
   const [filter, setFilter] = useState<FilterId>('all');
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const triggerRef = useRef<HTMLElement | null>(null);
@@ -450,14 +458,35 @@ function DoorStyleGallery() {
                 ))}
               </ul>
               <div className="mt-auto flex flex-col gap-3">
-                <a
-                  href={`/book-now/?style=${encodeURIComponent(open.title)}`}
-                  onClick={() => trackBookNowClick('installation_gallery')}
-                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-orange-600 hover:bg-orange-700 text-white font-bold px-5 py-3.5 min-h-[48px] transition-colors"
-                >
-                  <i className="ri-price-tag-3-line" aria-hidden="true" />
-                  Get a quote for this style
-                </a>
+                {onRequestQuote ? (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      // Same intent signal as the /book-now/ link it replaces,
+                      // plus which style was picked.
+                      trackBookNowClick('installation_gallery');
+                      trackEvent('cta_click', { category: 'Installation Gallery', action: 'quote_for_style', label: open.id });
+                      const title = open.title;
+                      // Close without returning focus to the tile: the page
+                      // moves focus to its quote form instead.
+                      setOpenIndex(null);
+                      onRequestQuote(title);
+                    }}
+                    className="inline-flex items-center justify-center gap-2 rounded-lg bg-orange-600 hover:bg-orange-700 text-white font-bold px-5 py-3.5 min-h-[48px] transition-colors"
+                  >
+                    <i className="ri-price-tag-3-line" aria-hidden="true" />
+                    Get a quote for this style
+                  </button>
+                ) : (
+                  <a
+                    href={`/book-now/?style=${encodeURIComponent(open.title)}`}
+                    onClick={() => trackBookNowClick('installation_gallery')}
+                    className="inline-flex items-center justify-center gap-2 rounded-lg bg-orange-600 hover:bg-orange-700 text-white font-bold px-5 py-3.5 min-h-[48px] transition-colors"
+                  >
+                    <i className="ri-price-tag-3-line" aria-hidden="true" />
+                    Get a quote for this style
+                  </a>
+                )}
                 <a
                   href={`tel:${PHONE_TEL}`}
                   onClick={() => trackPhoneClick(PHONE_DISPLAY, 'installation_gallery')}

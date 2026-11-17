@@ -6,6 +6,98 @@ commit history so the log starts complete.)
 
 ---
 
+## 2026-11-15 — Merged main's 2026-11-13 forms commit into the attribution branch
+
+`main` gained `cb05a2f` ("What's going on?" box on the homepage quote form, bot
+trap on every lead form) while the branch below was waiting. Both sides edited
+`HeroQuoteForm.tsx` and `formSubmission.ts`; both features are kept.
+
+- `HeroQuoteForm`: the message box and `<SpamTrap />` are in, alongside the
+  props, the door-style chip and the name/phone check. The box's ids use
+  `useId` like the other fields (main's fixed `hqf-message` id would have been
+  duplicated by the homepage's two form slots). New optional `messageLabel` /
+  `messagePlaceholder` props: the homepage keeps the owner's wording; the
+  installation form asks "What are you planning?" and the opener form shows an
+  opener example. The opener form's "Four quick fields" became "A few quick
+  fields" (there are five now).
+- `formSubmission.ts`: `sendLeadToCRM` keeps `buildCrmLeadPayload`. Main sent
+  the ZIP as `address`; the branch sends `postal_code` or `city`. The CRM's
+  `parseFlat` joins either into the customer address, so main's intent holds.
+  The bot check runs first, before attribution and the CRM mirror.
+
+**Verified.** Typecheck clean; build; prerender 152 ok, 0 failed. On the
+production build with every outgoing request stubbed: a normal submission
+produced the CRM payload with the message, city, lead type, source and landing
+page; a submission with the trap filled sent nothing and still reached the
+thank-you page. Homepage: two quote forms, no duplicate ids.
+
+**Found, not fixed.** A trapped submission returns success, so the calling form
+still fires `form_submit` / `generate_lead`. A bot that runs the analytics
+scripts would be counted as a lead in GA4 and in the Ads conversion import.
+
+## 2026-11-11 — Lead attribution, lead type, follow-up page, installation quote forms
+
+Branch `feat/lead-attribution-install-quote`; **not merged, not deployed** (owner
+approval required). Owner approved building three changes from the growth audit.
+
+**Why.** The CRM showed 82 website leads with no recorded source and one
+commercial form lead ever; website leads close at 42% against 65–69% for
+Business Profile callers; and door installation, the largest sales line
+(average $2,967), was served by a page with no form.
+
+**What changed.**
+- `utils/analytics.ts`: attribution is two records, this visit (sessionStorage,
+  unchanged) and the first visit (localStorage, 90 days). New click ids
+  (`gbraid`, `wbraid`, `msclkid`) and a derived `channel` (`classifyChannel`;
+  the `gbp_*` campaign tag wins over `utm_medium=organic`). No event was
+  renamed or removed. `lead_channel` added to the six conversion events;
+  `lead_type` and `first_touch_channel` to `form_submit` / `generate_lead`.
+  `LEAD_FORM_TYPES` is now the single list of forms that count as leads.
+- `utils/leadType.ts`: one label per inquiry (commercial / installation /
+  repair / careers / other). `spring-replacement` is a repair; only the door
+  and opener install values are installations.
+- `utils/formSubmission.ts`: `buildCrmLeadPayload` writes lead type, source,
+  landing page, first visit, the commercial form's company / request /
+  portfolio and the gallery door style into the CRM `notes` (the CRM has no
+  columns yet), sends ZIP or city so short forms don't arrive address-less, and
+  passes structured keys for future CRM columns. Keys the CRM parser already
+  gives a meaning to are avoided (list in the function comment).
+- `HeroQuoteForm` takes props and is reused on two service pages; the SMS
+  consent text still lives only there. It now blocks a request with no name or
+  a phone under ten digits (the form is `noValidate`, so nothing did before).
+- `/garage-door-installation/`: quote form in the hero's empty right column;
+  the gallery's "Get a quote for this style" fills it instead of leaving for
+  `/book-now/` (the `book_click` it fired is kept). `/opener-repair-installation/`:
+  quote section, hero link to it, and two dead `<button>` CTAs made real links.
+- Thank-you page leads with tracked Call and WhatsApp buttons and a prompt that
+  fits the lead type (router state); the previous wording is kept verbatim as
+  "What happens next".
+- `public/llms.txt`: removed "Established: 2010" (retired 2026-09-08), dated
+  the review count, restated prices as starting prices, listed the commercial
+  pages. `scripts/verify-pricing.mjs` now fails the build on a range there.
+
+**Verified.** Typecheck clean; production build and prerender 152 routes
+ok, 0 failed (151 before, plus the 2026-11-10 blog post). In the browser: gallery → form hand-off, empty-submit
+block, a submission with the network calls stubbed (payloads read back, nothing
+sent to the office or CRM), thank-you variants, 375 px layouts with no
+horizontal overflow, no console errors.
+
+**Live test (same day, owner-approved, branch preview).** One installation lead
+named "TEST - website", main line as the phone: Web3Forms accepted it and the
+email reached the office inbox; the CRM created the job under Website with the
+note lines above (door style, form, lead type, source, landing page, first
+visit) and the ZIP as the address; the CRM's automatic text followed in three
+seconds. The test job was left in the CRM for the owner to delete.
+
+**Not verified / follow-up.** The bridged call for that test (no call record). GA4
+needs three custom dimensions before the new parameters are reportable. CRM
+columns are a separate, CRM-repo change. Local Services leads get no automatic
+CRM reply (0 of 31 in 90 days). See `09` for the open list.
+
+**Risk.** Each web lead's CRM note gains two to four short labelled lines.
+First-visit storage is covered by the privacy policy's existing sentence on
+browser storage connecting inquiries to the link that brought the visitor.
+
 ## 2026-09-09 — Verified directory references and payment follow-up
 
 Confirm the existing claimed Yelp Queens profile and Yahoo Local record against
