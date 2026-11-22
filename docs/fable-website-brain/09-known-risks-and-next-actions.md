@@ -1,7 +1,8 @@
 # Known Risks & Next Actions
 
 > **2026-11-11 — Growth audit + first build (Fable 5.2), branch
-> `feat/lead-attribution-install-quote`, NOT merged.** Decision log has the
+> `feat/lead-attribution-install-quote`, merged to `main` and deployed
+> 2026-11-22 (PR 9) with the owner's go-ahead.** Decision log has the
 > detail. **Channel economics are readable**: the Supabase CRM (`all_jobs` ×
 > `lead_platforms`) records sale amount and lead cost per source. 365 days to
 > 2026-11-11: Business Profile calls close 65–69% (Queens $224K, Suffern $63K),

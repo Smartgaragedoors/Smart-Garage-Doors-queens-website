@@ -6,6 +6,20 @@ commit history so the log starts complete.)
 
 ---
 
+## 2026-11-22 — Attribution branch (PR 9) merged to main and deployed
+
+Owner said "merge and deploy" after the 2026-11-11 live test lead. Merged
+`feat/lead-attribution-install-quote` at `4e0d78d` (which includes the
+2026-11-15 entries below) into `main` at `8313dba` (one blog post); no
+conflicts. Checked on the merged tree before pushing: typecheck clean, build,
+prerender 153 ok, 0 failed (152 plus main's new blog post). The merge was done in a separate worktree
+because other sessions were working in the main checkout at the time.
+
+Still open (unchanged): CRM columns for attribution, the three GA4 custom
+dimensions, and no automatic reply on Local Services leads — see `09`. The
+2026-11-11 test job ("TEST - website") was left in the CRM for the owner to
+delete.
+
 ## 2026-11-15 — Merged main's 2026-11-13 forms commit into the attribution branch
 
 `main` gained `cb05a2f` ("What's going on?" box on the homepage quote form, bot
@@ -62,8 +76,8 @@ preview lead on 2026-11-11 will have done the same.
 
 ## 2026-11-11 — Lead attribution, lead type, follow-up page, installation quote forms
 
-Branch `feat/lead-attribution-install-quote`; **not merged, not deployed** (owner
-approval required). Owner approved building three changes from the growth audit.
+Branch `feat/lead-attribution-install-quote`; merged and deployed 2026-11-22 (see
+that entry). Owner approved building three changes from the growth audit.
 
 **Why.** The CRM showed 82 website leads with no recorded source and one
 commercial form lead ever; website leads close at 42% against 65–69% for
