@@ -31,9 +31,34 @@ produced the CRM payload with the message, city, lead type, source and landing
 page; a submission with the trap filled sent nothing and still reached the
 thank-you page. Homepage: two quote forms, no duplicate ids.
 
-**Found, not fixed.** A trapped submission returns success, so the calling form
-still fires `form_submit` / `generate_lead`. A bot that runs the analytics
-scripts would be counted as a lead in GA4 and in the Ads conversion import.
+**Found while merging, fixed the same day (owner asked).** Two ways a non-lead
+was counted as a lead:
+
+1. A trapped submission returns success, so the calling form still fired
+   `form_submit` / `generate_lead`. `submitForm` now records its verdict with
+   `setSubmissionTrapped()` on every submission and `trackFormSubmit` returns
+   early for a trapped one. One place, all eight calling forms.
+2. `trackEvent` only checked that `window.gtag` exists. `index.html` defines
+   `gtag()` and loads the Google tag on every host, and that tag forwards to
+   GA4: a localhost page was seen posting to `G-GBBR220BZD`. So the "blocked on
+   localhost and previews" rule in `analytics.ts` never applied to events, and
+   any test submission off production was a real `generate_lead`. `trackEvent`
+   now returns unless `shouldTrack()`; `?ga_debug=1` still turns events on.
+   Production is unaffected (`shouldTrack()` is already true there, or GA4
+   would not load).
+
+Verified on the production build with `fetch` and `gtag` replaced by recorders:
+localhost, normal submission → requests built, no events; debug flag on, normal
+submission → `form_start`, `form_submit`, `generate_lead` with the right
+parameters; debug flag on, trap filled → `form_start` only, nothing sent.
+
+**Not changed.** Page views (and web-vitals / exception events, which call
+`gtag` directly) still reach GA4 and both Ads tags from localhost and previews,
+because the tag itself is in `index.html`. Filter `hostName` when reading GA4.
+**Test pollution to know about:** three stubbed test submissions on localhost
+earlier on 2026-11-15, before fix 2, almost certainly recorded three
+`generate_lead` events with `hostName` localhost. The stubbed test and the live
+preview lead on 2026-11-11 will have done the same.
 
 ## 2026-11-11 — Lead attribution, lead type, follow-up page, installation quote forms
 

@@ -335,8 +335,25 @@ export const trackEvent = (
   }
 ) => {
   if (typeof window === 'undefined' || !window.gtag) return;
+  // index.html defines gtag() and loads the Google tag on EVERY host, and that
+  // tag forwards events to GA4 as well as Google Ads. Without this check a test
+  // submission on localhost or a preview deployment is recorded as a real lead
+  // (seen 2026-11-15: localhost pages post to G-GBBR220BZD). ?ga_debug=1 still
+  // turns events on for a deliberate DebugView check.
+  if (!shouldTrack()) return;
   window.gtag('event', eventName, eventParams);
 };
+
+// ─── Bot-trapped submissions ──────────────────────────────────────────────────
+// submitForm() answers a trapped submission with success so the bot learns
+// nothing, which means the form's success path (trackFormSubmit, then the
+// thank-you page) still runs. submitForm() records its verdict here first, on
+// every submission, so that path reports no lead for a bot.
+let lastSubmissionTrapped = false;
+
+export function setSubmissionTrapped(trapped: boolean): void {
+  lastSubmissionTrapped = trapped;
+}
 
 // ─── Conversion events (mark these as key events in GA4 console) ──────────────
 
@@ -455,6 +472,8 @@ export const trackFormSubmit = (
   formType: string,
   extras?: { service_type?: string; urgency?: string; lead_type?: string }
 ) => {
+  // Nothing was delivered for a bot-trapped submission, so it is not a lead.
+  if (lastSubmissionTrapped) return;
   const attr = getAttribution();
   const first = getFirstTouch();
   const params = {

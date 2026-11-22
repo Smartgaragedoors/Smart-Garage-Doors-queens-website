@@ -36,11 +36,16 @@
 >    of the verification loop; typecheck + build + prerender are.
 > 7. Connector trap: the GA4 and Search Console connectors can load the other
 >    business's property in a session. Check `hostName` before quoting numbers.
-> 8. **Bot-trapped submissions still count as leads in analytics** (found
->    2026-11-15 while merging main's bot trap). `submitForm` answers a trapped
->    submission with success, so the form fires `form_submit` / `generate_lead`
->    as usual. Nothing reaches the inbox or CRM, but a bot that runs the
->    analytics scripts would inflate GA4 leads and the Ads conversion import.
+> 8. ~~Bot-trapped submissions counted as leads in analytics~~ **Fixed
+>    2026-11-15** on this branch, with a second leak found beside it: events
+>    fired on localhost and preview deployments reached the real GA4 property
+>    through the Google tag in `index.html`, so item 4's "analytics is off on
+>    preview hosts" was wrong for events until now. Both are closed in
+>    `analytics.ts` (decision log, 2026-11-15). **Still true:** page views from
+>    localhost and previews reach GA4 and both Ads tags, and a handful of test
+>    `generate_lead` events with `hostName` localhost or a `vercel.app` host
+>    exist for 2026-11-11 and 2026-11-15. Filter `hostName` when counting leads.
+>    To see events on a preview on purpose, add `?ga_debug=1`.
 
 > **2026-10-27 — Full-site audit (Fable 5.1).** Plan and data in
 > `../SEO-GROWTH-PLAN-2026-10-27.md` (read it before planning content). Fixed:

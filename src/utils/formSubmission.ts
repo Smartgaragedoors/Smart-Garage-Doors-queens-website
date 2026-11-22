@@ -9,7 +9,13 @@
  * Without either, the form falls back to opening the visitor’s email client (you won’t get an email unless they send it).
  */
 
-import { getAttribution, getFirstTouch, LEAD_CHANNEL_LABEL, type LeadChannel } from './analytics';
+import {
+  getAttribution,
+  getFirstTouch,
+  LEAD_CHANNEL_LABEL,
+  setSubmissionTrapped,
+  type LeadChannel,
+} from './analytics';
 import { classifyLeadType, LEAD_TYPE_LABEL, type LeadType } from './leadType';
 
 const WEB3FORMS_ACCESS_KEY = (import.meta.env.VITE_WEB3FORMS_ACCESS_KEY ?? '').trim();
@@ -322,8 +328,11 @@ export async function submitForm(
   formName?: string
 ): Promise<FormSubmissionResult> {
   // A bot gets the same "thank you" as a person, so it learns nothing - but no
-  // email, no CRM lead and no text go out.
-  if (looksLikeBot()) {
+  // email, no CRM lead and no text go out, and (via setSubmissionTrapped) the
+  // form's success path reports no lead to analytics.
+  const trapped = looksLikeBot();
+  setSubmissionTrapped(trapped);
+  if (trapped) {
     return { success: true, message: 'Thank you! Your message has been sent successfully.' };
   }
 
