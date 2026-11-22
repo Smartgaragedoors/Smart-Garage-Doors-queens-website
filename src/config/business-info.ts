@@ -116,10 +116,12 @@ export const BUSINESS_INFO = {
   // verifyUrl = the state's public license-lookup page, so a visitor can check
   // the number themselves (a checkable license is the one trust signal a scam
   // operator cannot fake).
+  // shortLabel = the compact form for the site-wide LicenseBar (NJ and CT are
+  // registrations, not licenses — keep "Reg." so the bar never overstates them).
   licenses: [
-    { region: "NY", label: "NYC DCWP License #2130164-DCWP", verifyUrl: "https://www.nyc.gov/site/dca/consumers/license-check.page" },
-    { region: "CT", label: "CT HIC Registration #HIC.0704479", verifyUrl: "https://www.elicense.ct.gov/Lookup/LicenseLookup.aspx" },
-    { region: "NJ", label: "NJ Home Improvement Contractor Registration #13VH14195600", verifyUrl: "https://newjersey.mylicense.com/verification/Search.aspx" },
+    { region: "NY", label: "NYC DCWP License #2130164-DCWP", shortLabel: "NYC Lic. #2130164-DCWP", verifyUrl: "https://www.nyc.gov/site/dca/consumers/license-check.page" },
+    { region: "CT", label: "CT HIC Registration #HIC.0704479", shortLabel: "CT Reg. #HIC.0704479", verifyUrl: "https://www.elicense.ct.gov/Lookup/LicenseLookup.aspx" },
+    { region: "NJ", label: "NJ Home Improvement Contractor Registration #13VH14195600", shortLabel: "NJ Reg. #13VH14195600", verifyUrl: "https://newjersey.mylicense.com/verification/Search.aspx" },
   ],
   // Off-Google review platforms — read by hand from the public profile pages on
   // 2026-09-22. Display only: schema aggregateRating stays Google-only, and no

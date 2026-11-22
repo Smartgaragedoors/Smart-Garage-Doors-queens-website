@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import PricingNote from './PricingNote';
-import { mentionsPrice } from '../../config/pricing';
+import { mentionsPrice, fromPrice, PRICING } from '../../config/pricing';
+import { getPlaceReviews, getCompanyReviews, type DisplayReview } from '../../data/googleReviewsExport';
 import Header from './Header';
 import Footer from './Footer';
 import Breadcrumbs from '../seo/Breadcrumbs';
@@ -142,6 +143,29 @@ const DEFAULT_COMPARISON: Array<{ feature: string; ours: string }> = [
   { feature: 'Licensed in NY/NJ/CT',  ours: 'All Three' },
 ];
 
+// Starting prices shown on every location page — figures come only from
+// src/config/pricing.ts ("From $X"), always followed by <PricingNote />.
+const STARTING_PRICES: Array<{ label: string; price: number; href: string; icon: string }> = [
+  { label: 'Garage door repair',   price: PRICING.repairFrom,        href: '/garage-door-repair/',          icon: 'ri-tools-line' },
+  { label: 'Spring replacement',   price: PRICING.springFrom,        href: '/spring-replacement/',          icon: 'ri-settings-4-line' },
+  { label: 'Cable & roller repair', price: PRICING.cableRollerFrom,  href: '/cable-roller-repair/',         icon: 'ri-links-line' },
+  { label: 'Opener repair',        price: PRICING.openerRepairFrom,  href: '/opener-repair-installation/',  icon: 'ri-remote-control-line' },
+  { label: 'New opener, installed', price: PRICING.openerInstallFrom, href: '/opener-repair-installation/', icon: 'ri-install-line' },
+  { label: 'New door, installed',  price: PRICING.doorFrom,          href: '/garage-door-installation/',    icon: 'ri-door-open-line' },
+];
+
+const AVATAR_COLORS = ['bg-blue-600', 'bg-orange-500', 'bg-green-600', 'bg-slate-600', 'bg-teal-600', 'bg-amber-600'];
+
+function initialsOf(name: string): string {
+  return name
+    .replace(/^(mr|mrs|ms|dr)\.?\s+/i, '')
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((w) => w[0]?.toUpperCase() ?? '')
+    .join('');
+}
+
 function Stars({ count = 5 }: { count?: number }) {
   return (
     <span className="text-yellow-400 text-lg leading-none" aria-label={`${count} stars`}>
@@ -202,6 +226,27 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
   const PHONE     = phone;
   const PHONE_TEL = phoneTel;
   const trust     = BUSINESS_INFO.trust;
+
+  // Reviews: ones that name a place in this area first, then the page's own
+  // curated set (Suffern: its own profile), then company-wide Google reviews —
+  // labelled "Google review" with no town, never passed off as local.
+  const placeReviews = getPlaceReviews(slug);
+  const propReviews: DisplayReview[] = reviews.map((r, i) => ({
+    key: `page-${i}`,
+    author: r.author,
+    text: r.text,
+    label: r.location,
+  }));
+  const allLocal = placeReviews.length >= 3;
+  let shownReviews: DisplayReview[] = placeReviews;
+  let usesCompanyReviews = false;
+  if (!allLocal) {
+    const fill = propReviews.length > 0
+      ? propReviews
+      : getCompanyReviews(slug, 3 - placeReviews.length);
+    usesCompanyReviews = propReviews.length === 0;
+    shownReviews = [...placeReviews, ...fill].slice(0, 3);
+  }
 
   return (
     <div className="min-h-screen bg-white">
@@ -417,6 +462,38 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
         </div>
       </section>
 
+      {/* ── STARTING PRICES (pricing.ts only — "From $X" + PricingNote) ── */}
+      <section className="py-8 md:py-12 bg-white border-t border-gray-100" aria-labelledby="starting-prices-heading">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-6 md:mb-8">
+            <h2 id="starting-prices-heading" className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+              Starting Prices in {city}
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              You get one total price, including fees and taxes, before any work starts.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+            {STARTING_PRICES.map((p) => (
+              <a
+                key={p.label}
+                href={p.href}
+                className="flex items-center gap-3 rounded-xl border border-gray-200 bg-white p-3 md:p-4 transition-colors hover:border-orange-300 hover:bg-orange-50"
+              >
+                <span className="hidden sm:flex w-10 h-10 shrink-0 items-center justify-center rounded-lg bg-orange-50" aria-hidden="true">
+                  <i className={`${p.icon} text-xl text-orange-500`} />
+                </span>
+                <span className="min-w-0">
+                  <span className="block text-sm text-gray-600 leading-snug">{p.label}</span>
+                  <span className="block text-lg md:text-xl font-bold text-gray-900">{fromPrice(p.price)}</span>
+                </span>
+              </a>
+            ))}
+          </div>
+          <PricingNote align="center" className="mt-5" />
+        </div>
+      </section>
+
       {/* ── HOW IT WORKS ──────────────────────────────────────────── */}
       <section className="py-8 md:py-12 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -521,31 +598,40 @@ export default function LocationPageTemplate(props: LocationPageTemplateProps) {
         </div>
       </section>
 
-      {/* ── REVIEWS (skipped when a location has no attributable quotes) ── */}
-      {(reviews.length > 0 || reviewProfileUrl) && (
+      {/* ── REVIEWS (real Google reviews, word for word — see data/googleReviewsExport.ts) ── */}
+      {shownReviews.length > 0 && (
       <section className="py-8 md:py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8 md:mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
-              What {city} Customers Say
+              {usesCompanyReviews ? 'What Our Customers Say' : `What ${city} Customers Say`}
             </h2>
-            <p className="text-gray-600">{reviewProfileUrl ? `Read customer feedback on our ${city} Google profile.` : 'Real reviews from your neighbors'}</p>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              {allLocal
+                ? `Real Google reviews from customers in and around ${city}, word for word.`
+                : usesCompanyReviews
+                  ? `Real reviews from our Google profile, word for word: ${BUSINESS_INFO.aggregateRating.ratingValue} stars from ${BUSINESS_INFO.aggregateRating.reviewCount} reviews.`
+                  : reviewProfileUrl ? `Read customer feedback on our ${city} Google profile.` : 'Real reviews from your neighbors'}
+            </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
-            {reviews.slice(0, 3).map((r, i) => (
-              <div key={i} className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+            {shownReviews.map((r, i) => (
+              // Cards 4–6 (place-review pages only) stay off small screens to keep the scroll short.
+              <figure key={r.key} className={`bg-gray-50 rounded-2xl p-6 border border-gray-100 flex flex-col ${i >= 3 ? 'hidden md:flex' : ''}`}>
                 <Stars />
-                <p className="text-gray-700 mt-3 mb-5 italic leading-relaxed">"{r.text}"</p>
-                <div className="flex items-center gap-3">
-                  <div className={`w-11 h-11 ${r.color ?? 'bg-blue-600'} rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0`}>
-                    {r.initials}
+                <blockquote className="text-gray-700 mt-3 mb-5 italic leading-relaxed whitespace-pre-line flex-1">
+                  “{r.text}”
+                </blockquote>
+                <figcaption className="flex items-center gap-3">
+                  <div className={`w-11 h-11 ${AVATAR_COLORS[i % AVATAR_COLORS.length]} rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0`} aria-hidden="true">
+                    {initialsOf(r.author)}
                   </div>
                   <div>
                     <div className="font-semibold text-gray-900 text-sm">{r.author}</div>
-                    <div className="text-gray-500 text-xs">{r.location}</div>
+                    <div className="text-gray-500 text-xs">{r.label}</div>
                   </div>
-                </div>
-              </div>
+                </figcaption>
+              </figure>
             ))}
           </div>
           <div className="text-center mt-8">

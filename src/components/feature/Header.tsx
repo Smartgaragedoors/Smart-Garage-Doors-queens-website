@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useLocation as useRouterLocation } from 'react-router-dom';
 import { trackPhoneClick, trackBookNowClick } from '../../utils/analytics';
 import AnnouncementBar from './AnnouncementBar';
+import LicenseBar from './LicenseBar';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -35,6 +36,7 @@ export default function Header() {
       {/* Slim, non-sticky promo bar — sits above the sticky nav in normal flow so it
           scrolls away and never overlaps the bottom mobile sticky CTA. */}
       <AnnouncementBar />
+      <LicenseBar />
       <header className="sticky top-0 z-50 overflow-visible">
       {/* Main Navigation */}
       <nav className="bg-white border-b border-gray-200 shadow-sm relative z-50" style={{ overflow: 'visible' }}>

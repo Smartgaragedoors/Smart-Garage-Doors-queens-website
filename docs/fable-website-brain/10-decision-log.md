@@ -6,6 +6,39 @@ commit history so the log starts complete.)
 
 ---
 
+## 2026-11-22 — Trust signals on every location page: real reviews, license bar, starting prices
+
+**Owner asked** (2026-11-18 trust/choice list, items 2–4: "Yes, build them").
+Branch `feat/trust-signals-2026-11`, preview only until the owner approves.
+
+- **Real reviews on location pages.** 54 of 61 location pages showed no reviews
+  since the October purge. Read all 502 Queens-profile reviews and 157 Suffern-
+  profile reviews from the GBP review manager by hand. Only 27 of 466 written
+  reviews name a place (far fewer than assumed); 19 are used, mapped to Queens,
+  Flushing, Long Island, Nassau, Suffolk, New Canaan and Bergen (plus Fresh
+  Meadows ahead of its page). Every other page gets 3 company reviews, spread by
+  a slug hash (37 reviews, none on more than 9 pages), titled "What Our
+  Customers Say" and labelled plain "Google review". Files:
+  `src/data/googleReviewsExport.ts`, `LocationPageTemplate.tsx`.
+  Left out: reviews with prices or "24 hours", ones naming other platforms or
+  competitors, mixed ones, and a late-2025 group that reads alike and repeats
+  search phrases. No review schema added (self-serving reviews earn no stars).
+- **License bar.** `LicenseBar.tsx` under the AnnouncementBar on every page that
+  uses `<Header />`: NYC DCWP license, NJ and CT HIC registrations ("Reg." on
+  phones, full labels with lookup links on desktop). Plain text on phones to keep
+  the 44px tap-target rule; the footer keeps the links.
+- **Starting prices block** on every location page: repairs, springs, cables and
+  rollers, opener repair, new opener, new door — all from `pricing.ts`, with
+  `<PricingNote />`. The $115 visit is left out until the owner decides free vs $115.
+
+**Impact:** the location chunk grows ~20 kB raw (~6 kB gzip) from the review
+text. 153/153 prerendered. **Risk:** the review count the site shows (486) comes
+from the Post Automation sync, which hasn't run since mid-2026; the profile has
+502. **Follow-up:** re-run the review sync; refresh this export when new reviews
+name towns; consider a Westchester review ask once auto review texts are on.
+
+---
+
 ## 2026-09-09 — Verified directory references and payment follow-up
 
 Confirm the existing claimed Yelp Queens profile and Yahoo Local record against
