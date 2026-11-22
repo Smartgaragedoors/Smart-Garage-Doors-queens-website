@@ -44,6 +44,11 @@ const blogFiles = await walk('content/blog', ['.json']);
 
 const srcHits = [];
 for (const f of srcFiles) srcHits.push(...scan(await readFile(f, 'utf8'), f));
+// public/llms.txt is the summary AI assistants read. It is hand-edited, so it
+// went stale once and kept "$175–$350" after the site moved to starting prices.
+// Hold it to the same rule as src/.
+const LLMS_FILE = 'public/llms.txt';
+srcHits.push(...scan(await readFile(LLMS_FILE, 'utf8'), LLMS_FILE));
 const blogHits = [];
 for (const f of blogFiles) blogHits.push(...scan(await readFile(f, 'utf8'), f));
 
@@ -52,7 +57,7 @@ if (blogHits.length) {
   for (const h of blogHits) console.warn('  ' + h);
 }
 if (srcHits.length) {
-  console.error(`[verify-pricing] FAIL: ${srcHits.length} price range(s) in src/. The site shows starting prices only ("From $X" + <PricingNote />). See src/config/pricing.ts.`);
+  console.error(`[verify-pricing] FAIL: ${srcHits.length} price range(s) in src/ or public/llms.txt. The site shows starting prices only ("From $X" + <PricingNote />). See src/config/pricing.ts.`);
   for (const h of srcHits) console.error('  ' + h);
   process.exit(1);
 }

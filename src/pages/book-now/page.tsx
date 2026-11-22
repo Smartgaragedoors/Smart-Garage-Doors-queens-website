@@ -8,6 +8,7 @@ import { buildCanonical } from '../../config/canonical';
 import { BUSINESS_INFO } from '../../config/business-info';
 import { submitForm } from '../../utils/formSubmission';
 import { trackFormStart, trackFormSubmit } from '../../utils/analytics';
+import { classifyLeadType } from '../../utils/leadType';
 import FormTrustBadges from '../../components/conversion/FormTrustBadges';
 import SpamTrap from '../../components/conversion/SpamTrap';
 
@@ -65,7 +66,11 @@ export default function BookNowPage() {
           service_type: formData.serviceType,
           urgency: formData.urgency,
         });
-        navigate(`/book-now/thank-you/?location=${encodeURIComponent(locationContext)}`);
+        navigate(`/book-now/thank-you/?location=${encodeURIComponent(locationContext)}`, {
+          state: {
+            leadType: classifyLeadType({ formName: 'Book Now Form', formType: 'book_now', serviceType: formData.serviceType }),
+          },
+        });
         setSubmitStatus(result.usedFallback ? 'fallback' : 'success');
         setFormData({
           name: '',
