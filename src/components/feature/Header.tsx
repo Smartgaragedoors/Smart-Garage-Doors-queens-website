@@ -87,10 +87,12 @@ export default function Header() {
                   >
                     <a href="/emergency-garage-door-repair/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Emergency Garage Door Repair</a>
                     <a href="/garage-door-installation/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Installation Services</a>
+                    <a href="/garage-door-styles/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Door Styles & Materials</a>
                     <a href="/garage-door-repair/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Garage Door Repair</a>
                     <a href="/opener-repair-installation/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Opener Repair</a>
                     <a href="/spring-replacement/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Spring Replacement</a>
                     <a href="/cable-roller-repair/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Cable & Roller Repair</a>
+                    <a href="/garage-door-panel-replacement/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Panel Replacement</a>
                     <a href="/maintenance/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Maintenance</a>
                     <a href="/garage-door-insulation/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Garage Door Insulation</a>
                     <a href="/pedestrian-garage-doors/" className="block px-4 py-2 text-gray-700 hover:text-orange-500">Pedestrian (Wicket) Doors</a>
@@ -288,10 +290,12 @@ export default function Header() {
                   <div className="space-y-1 pl-4">
                     <a href="/emergency-garage-door-repair/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Emergency Garage Door Repair</a>
                     <a href="/garage-door-installation/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Installation Services</a>
+                    <a href="/garage-door-styles/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Door Styles & Materials</a>
                     <a href="/garage-door-repair/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Garage Door Repair</a>
                     <a href="/opener-repair-installation/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Opener Repair</a>
                     <a href="/spring-replacement/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Spring Replacement</a>
                     <a href="/cable-roller-repair/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Cable & Roller Repair</a>
+                    <a href="/garage-door-panel-replacement/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Panel Replacement</a>
                     <a href="/maintenance/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Maintenance</a>
                     <a href="/garage-door-insulation/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Garage Door Insulation</a>
                     <a href="/pedestrian-garage-doors/" className="block py-1 text-gray-700 hover:text-orange-500 text-sm">Pedestrian (Wicket) Doors</a>

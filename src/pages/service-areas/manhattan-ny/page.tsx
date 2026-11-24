@@ -13,9 +13,9 @@ export default function LocationPage() {
 
   return (
     <LocationPageTemplate
-      metaTitle="Garage Door Repair Manhattan, NY | Smart Garage Doors"
-      metaDescription="Garage door and rolling gate repair in Manhattan from our Upper West Side location on W 96th St. Springs, openers, building garage doors — total-price quotes. Call (929) 456-5610."
-      keywords="Manhattan garage door repair, garage door repair NYC, rolling gate repair Manhattan, garage door opener repair Manhattan, parking garage door repair Manhattan"
+      metaTitle="Garage Door & Torsion Spring Repair in Manhattan, NY"
+      metaDescription="Broken garage door spring in Manhattan? Torsion spring, opener and rolling gate repair from our W 96th St location. Springs from $175. Call (929) 456-5610."
+      keywords="Manhattan garage door repair, garage door spring repair Manhattan, torsion spring repair Manhattan NY, broken spring repair NYC, garage door repair NYC, rolling gate repair Manhattan, garage door opener repair Manhattan, parking garage door repair Manhattan"
       slug="/manhattan-ny/"
       cityName="Manhattan"
       stateCode="NY"
@@ -23,6 +23,15 @@ export default function LocationPage() {
       geo={{ latitude: '40.7959', longitude: '-73.9742' }}
       phone={LOCATIONS.manhattan.phone}
       phoneTel={LOCATIONS.manhattan.phoneTel}
+      localIntroduction="Broken springs are the most common garage door call we get in Manhattan, on townhouse garages and building garages alike. We replace torsion and extension springs, repair openers and rolling gates, and confirm the total price before any work starts."
+      services={[
+        { icon: 'ri-settings-4-line', title: 'Torsion Spring Repair', description: 'Broken torsion springs replaced in matched pairs with high-cycle springs sized to your door\'s weight. Springs from $175.' },
+        { icon: 'ri-alarm-warning-line', title: 'Broken Spring Emergencies', description: 'Door stuck shut with the car inside? Call the Manhattan line and a dispatcher checks current technician availability.' },
+        { icon: 'ri-door-closed-line', title: 'Rolling Gate Springs & Motors', description: 'Storefront and garage rolling gates: barrel springs, gate motors, chain hoists and bottom bars.' },
+        { icon: 'ri-remote-control-line', title: 'Opener Repair & Install', description: 'LiftMaster, Chamberlain and Genie openers repaired, or replaced with a Wi-Fi opener.' },
+        { icon: 'ri-building-2-line', title: 'Building Garage Doors', description: 'High-cycle sectional and rolling doors for co-ops, condos and parking garages, with maintenance plans for supers.' },
+        { icon: 'ri-links-line', title: 'Cables, Rollers & Off-Track Doors', description: 'Snapped cables, worn rollers and doors that came off the track, fixed and re-balanced.' },
+      ]}
       heroImage="https://imagedelivery.net/qHBP5gILWOpC78ZgZPcRpg/251bb224-5425-49d4-7ab9-6fceaf7a3b00/hero"
       neighborhoods={[
         {
@@ -63,6 +72,18 @@ export default function LocationPage() {
         {
           question: 'Do you work with supers, managing agents and co-op boards?',
           answer: 'Constantly. We provide a certificate of insurance before the first visit, coordinate access and elevator or garage-ramp timing with the super, and invoice the managing agent or board directly. For buildings with several doors we set up a maintenance schedule so the garage does not become an emergency.',
+        },
+        {
+          question: 'Do you repair broken garage door springs in Manhattan?',
+          answer: 'Yes. It is our most common Manhattan call. We replace broken torsion and extension springs on townhouse and building garage doors, in matched pairs, with springs sized to the door\'s actual weight, and check the cables, drums and balance while we are there. Spring replacement starts at $175, and the total is confirmed before work begins.',
+        },
+        {
+          question: 'Is it safe to open a garage door with a broken spring?',
+          answer: 'No. With a broken spring the opener or the person lifting is carrying the full weight of the door, which can damage the opener or let the door drop. Leave it closed, don\'t pull the emergency release on a raised door, and call us. If a car is trapped inside, tell the dispatcher.',
+        },
+        {
+          question: 'Can you fix a broken spring on a rolling gate?',
+          answer: 'Yes. Rolling steel gates use a spring inside the barrel above the opening, and a broken or weak barrel spring is why a gate gets heavy or won\'t stay up. We re-tension or replace the spring and service the motor or chain hoist at the same visit.',
         },
         {
           question: 'Can you repair rolling steel gates and parking garage doors?',

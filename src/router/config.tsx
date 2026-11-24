@@ -133,6 +133,8 @@ const ReplacementCostNassauPage = lazy(() => import('../pages/garage-door-replac
 const InstallationCostWestchesterPage = lazy(() => import('../pages/garage-door-installation-cost-westchester/page').then(module => ({ default: module.default })));
 const InsulatedCostLongIslandPage = lazy(() => import('../pages/insulated-garage-door-cost-long-island/page').then(module => ({ default: module.default })));
 const LiftMasterInstallationPage = lazy(() => import('../pages/liftmaster-opener-installation/page').then(module => ({ default: module.default })));
+const GarageDoorPanelReplacementPage = lazy(() => import('../pages/garage-door-panel-replacement/page').then(module => ({ default: module.default })));
+const GarageDoorStylesPage = lazy(() => import('../pages/garage-door-styles/page').then(module => ({ default: module.default })));
 const PedestrianGarageDoorsPage = lazy(() => import('../pages/pedestrian-garage-doors/page').then(module => ({ default: module.default })));
 
 const routes: RouteObject[] = [
@@ -589,6 +591,15 @@ const routes: RouteObject[] = [
   {
     path: '/pedestrian-garage-doors/',
     element: <PedestrianGarageDoorsPage />
+  },
+  // Panel replacement + styles guide (GSC gap pages, 2026-11-24)
+  {
+    path: '/garage-door-panel-replacement/',
+    element: <GarageDoorPanelReplacementPage />
+  },
+  {
+    path: '/garage-door-styles/',
+    element: <GarageDoorStylesPage />
   },
   // Legacy routes - redirect to new format (keep for SEO)
   { path: '/garage-door-replacement/', element: <Navigate to="/garage-door-installation/" replace /> },
