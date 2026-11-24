@@ -92,6 +92,7 @@ const coreRoutes = [
   { path: '/garage-door-insulation/', priority: '0.8', changefreq: 'monthly' },
   { path: '/garage-door-panel-replacement/', priority: '0.8', changefreq: 'monthly' },
   { path: '/garage-door-styles/', priority: '0.8', changefreq: 'monthly' },
+  { path: '/garage-door-storm-preparation/', priority: '0.6', changefreq: 'yearly' },
   { path: '/overhead-door-repair/', priority: '0.8', changefreq: 'monthly' },
   // Spanish landing page
   { path: '/reparacion-de-puertas-de-garaje/', priority: '0.8', changefreq: 'monthly' },

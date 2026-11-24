@@ -116,6 +116,7 @@ function Footer() {
               <li><a href="/garage-door-insulation/" className="text-gray-200 hover:text-orange-400 transition-colors">Garage Door Insulation Guide</a></li>
               <li><a href="/garage-door-styles/" className="text-gray-200 hover:text-orange-400 transition-colors">Garage Door Styles Guide</a></li>
               <li><a href="/garage-door-panel-replacement/" className="text-gray-200 hover:text-orange-400 transition-colors">Panel Replacement Guide</a></li>
+              <li><a href="/garage-door-storm-preparation/" className="text-gray-200 hover:text-orange-400 transition-colors">Storm Preparation Guide</a></li>
               <li><a href="/best-garage-door-company-queens/" className="text-gray-200 hover:text-orange-400 transition-colors">Choosing a Company in Queens</a></li>
               <li><a href="/best-garage-door-company-tri-state/" className="text-gray-200 hover:text-orange-400 transition-colors">Best Company in the Tri-State Area</a></li>
               <li><a href="/local-vs-national-garage-door-company/" className="text-gray-200 hover:text-orange-400 transition-colors">Local vs. National Companies</a></li>

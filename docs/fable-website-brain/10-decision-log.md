@@ -6,6 +6,32 @@ commit history so the log starts complete.)
 
 ---
 
+## 2026-11-25 — Storm-prep resource page for government link replacements
+
+Owner asked for "good" backlinks, including .gov ones via retired links. Research
+(read-only) found seven National Weather Service hurricane pages
+(weather.gov/wrn/hurricane-strengthen-home and office pages) and the CT Dept. of
+Public Health "Before a Hurricane" page linking to dead FLASH garage-door/storm
+URLs; NJ OEM and NY DFS storm pages mention garage doors with no guide linked.
+Built `/garage-door-storm-preparation/` as the replacement: hardware checks,
+wind ratings (PSF label, ANSI/DASMA 108), bracing limits, storm-day checklist,
+after-storm safety, four FAQs, nine live sources (all checked 2026-11-25).
+
+- GuidePageTemplate gained `resourceMode` (no hero call buttons, trust band,
+  orange CTA band or service grid; a quiet help line instead), `reviewedBy`
+  and `sources`. Existing guide pages are unchanged.
+- No prices, no arrival promises, no sales copy. FEMA and CPSC pages block
+  automated checks, so none are cited until confirmed by hand.
+- Footer Guides link + sitemap (priority 0.6). Prerender 156 ok, 0 failed.
+- Government vendor listings (SAM.gov, SBA search, NYC PASSPort, NYCHA,
+  county portals) were researched too: little backlink value, real sales
+  value; owner checklist in `marketing/2026-11-google-ranking/`.
+
+**Not done:** outreach. Drafts only; nothing is sent without the owner, and
+only after the page is live.
+
+---
+
 ## 2026-11-24 — Search Console gap pages: panel replacement, door styles, Manhattan springs
 
 Owner asked for pages for queries the site ranks for with no content behind

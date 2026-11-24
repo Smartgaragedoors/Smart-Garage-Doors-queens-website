@@ -135,6 +135,7 @@ const InsulatedCostLongIslandPage = lazy(() => import('../pages/insulated-garage
 const LiftMasterInstallationPage = lazy(() => import('../pages/liftmaster-opener-installation/page').then(module => ({ default: module.default })));
 const GarageDoorPanelReplacementPage = lazy(() => import('../pages/garage-door-panel-replacement/page').then(module => ({ default: module.default })));
 const GarageDoorStylesPage = lazy(() => import('../pages/garage-door-styles/page').then(module => ({ default: module.default })));
+const GarageDoorStormPreparationPage = lazy(() => import('../pages/garage-door-storm-preparation/page').then(module => ({ default: module.default })));
 const PedestrianGarageDoorsPage = lazy(() => import('../pages/pedestrian-garage-doors/page').then(module => ({ default: module.default })));
 
 const routes: RouteObject[] = [
@@ -600,6 +601,10 @@ const routes: RouteObject[] = [
   {
     path: '/garage-door-styles/',
     element: <GarageDoorStylesPage />
+  },
+  {
+    path: '/garage-door-storm-preparation/',
+    element: <GarageDoorStormPreparationPage />
   },
   // Legacy routes - redirect to new format (keep for SEO)
   { path: '/garage-door-replacement/', element: <Navigate to="/garage-door-installation/" replace /> },

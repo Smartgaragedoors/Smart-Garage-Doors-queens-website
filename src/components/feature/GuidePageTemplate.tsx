@@ -84,6 +84,14 @@ export interface GuidePageTemplateProps {
 
   // Optional block rendered right after the intro (e.g. <DoorStyleGallery />).
   afterIntro?: ReactNode;
+
+  // Public-safety resource pages (pitched to government / nonprofit editors as
+  // link replacements): no hero call buttons, no trust band, no orange CTA band,
+  // no service grid — a quiet help line at the end instead. Facts must be cited
+  // in `sources`, and `reviewedBy` names who checked the page and when.
+  resourceMode?: boolean;
+  reviewedBy?: string;
+  sources?: { title: string; publisher: string; href: string }[];
 }
 
 const PHONE = BUSINESS_INFO.phone;
@@ -121,6 +129,7 @@ export default function GuidePageTemplate(props: GuidePageTemplateProps) {
     intro, sections, costTable, criteria, faqs, bottomLine,
     relatedLinks, ctaHeadline, ctaText, showCommercialLeadForm,
     featureImage, afterIntro,
+    resourceMode = false, reviewedBy, sources,
   } = props;
 
   const trackSource = slug.replace(/\//g, '') || 'guide';
@@ -175,9 +184,13 @@ export default function GuidePageTemplate(props: GuidePageTemplateProps) {
           <h1 className="font-newsreader font-medium text-4xl md:text-5xl lg:text-6xl mb-5 leading-[1.05] tracking-[-0.02em]">
             {headline}
           </h1>
-          <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed">
+          <p className={`text-lg md:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed ${resourceMode ? 'mb-4' : 'mb-8'}`}>
             {subheadline}
           </p>
+          {reviewedBy && (
+            <p className="text-sm text-gray-400 max-w-2xl mx-auto">{reviewedBy}</p>
+          )}
+          {!resourceMode && (<>
           <div data-hero-cta className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href={`tel:${PHONE_TEL}`}
@@ -220,11 +233,13 @@ export default function GuidePageTemplate(props: GuidePageTemplateProps) {
             <span aria-hidden="true">·</span>
             <span>Emergency Line Available</span>
           </div>
+          </>)}
         </div>
       </section>
 
       {/* ── TRUST BAR ─────────────────────────────────────────────── */}
       {/* Same ink-navy + orange-accent treatment as the homepage TrustBar.tsx band */}
+      {!resourceMode && (
       <section className="bg-[#16335B] text-white border-t-[3px] border-orange-500 py-4">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm font-medium">
           <span className="inline-flex items-center gap-2">
@@ -251,6 +266,7 @@ export default function GuidePageTemplate(props: GuidePageTemplateProps) {
           )}
         </div>
       </section>
+      )}
 
       {/* ── B2B LEAD FORM ─────────────────────────────────────────── */}
       {showCommercialLeadForm && (
@@ -389,6 +405,28 @@ export default function GuidePageTemplate(props: GuidePageTemplateProps) {
         </div>
       </section>
 
+      {/* ── SOURCES (resource pages cite every fact) ──────────────── */}
+      {sources && sources.length > 0 && (
+        <section className="py-8 md:py-12 bg-white">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Sources and Official Resources</h2>
+            <ul className="space-y-3">
+              {sources.map((s) => (
+                <li key={s.href} className="flex items-start gap-3 text-gray-700">
+                  <i className="ri-external-link-line text-gray-400 text-lg flex-shrink-0 mt-0.5" aria-hidden="true" />
+                  <span>
+                    <a href={s.href} target="_blank" rel="noopener noreferrer" className="text-blue-700 underline underline-offset-2 hover:text-blue-900">
+                      {s.title}
+                    </a>
+                    <span className="text-gray-500"> · {s.publisher}</span>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
       {/* ── RELATED LINKS ─────────────────────────────────────────── */}
       {relatedLinks && relatedLinks.links.length > 0 && (
         <section className="py-8 md:py-12 bg-white">
@@ -410,7 +448,29 @@ export default function GuidePageTemplate(props: GuidePageTemplateProps) {
         </section>
       )}
 
+      {/* ── QUIET HELP LINE (resource pages) ──────────────────────── */}
+      {resourceMode && (
+        <section className="py-8 md:py-12 bg-gray-50 border-t border-gray-200">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-xl font-bold text-gray-900 mb-2">{ctaHeadline ?? 'Need a Garage Door Checked?'}</h2>
+            <p className="text-gray-700 leading-relaxed">
+              {ctaText ?? 'Smart Garage Doors is a licensed garage door company serving New York, New Jersey and Connecticut.'}{' '}
+              Call{' '}
+              <a
+                href={`tel:${PHONE_TEL}`}
+                onClick={() => trackPhoneClick(PHONE, `guide_resource_${trackSource}`)}
+                className="font-semibold text-blue-700 underline underline-offset-2 hover:text-blue-900"
+              >
+                {PHONE}
+              </a>
+              {' '}and a dispatcher will check availability.
+            </p>
+          </div>
+        </section>
+      )}
+
       {/* ── FINAL CTA ─────────────────────────────────────────────── */}
+      {!resourceMode && (
       <section className="py-8 md:py-12 bg-orange-500 text-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-3">{ctaHeadline ?? 'Get an Honest Quote Today'}</h2>
@@ -450,12 +510,15 @@ export default function GuidePageTemplate(props: GuidePageTemplateProps) {
           </div>
         </div>
       </section>
+      )}
 
-      <ServiceLinks
-        title="Our Garage Door Services"
-        showDescription={true}
-        locationPath={slug}
-      />
+      {!resourceMode && (
+        <ServiceLinks
+          title="Our Garage Door Services"
+          showDescription={true}
+          locationPath={slug}
+        />
+      )}
       <Footer />
     </div>
   );
