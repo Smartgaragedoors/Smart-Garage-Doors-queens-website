@@ -165,7 +165,8 @@ export default function InstallationPage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Garage Door Types We Install</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Choose from a wide selection of high-quality garage doors to match your home's style and budget.{' '}
-              <a href="/garage-door-installation/#door-styles" className="text-orange-700 font-semibold underline underline-offset-2">See real doors we've installed</a>.
+              <a href="/garage-door-installation/#door-styles" className="text-orange-700 font-semibold underline underline-offset-2">See real doors we've installed</a>.{' '}
+              Comparing materials? Read our <a href="/garage-door-styles/" className="text-orange-700 font-semibold underline underline-offset-2">garage door styles &amp; materials guide</a>.
             </p>
           </div>
 

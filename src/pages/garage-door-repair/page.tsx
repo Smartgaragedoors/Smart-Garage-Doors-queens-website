@@ -427,6 +427,7 @@ export default function GarageDoorRepairPage() {
         links={[
           { label: "Garage Door Won't Close? How to Fix It", href: '/blog/how-to-fix-garage-door-wont-close/' },
           { label: 'Professional vs DIY Garage Door Repair', href: '/blog/professional-vs-diy-garage-door-repair/' },
+          { label: 'Dented or Cracked Panel? Panel Replacement Guide', href: '/garage-door-panel-replacement/' },
         ]}
       />
       <RelatedServices />

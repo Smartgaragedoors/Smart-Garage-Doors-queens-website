@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 import PricingNote from './PricingNote';
 import { mentionsPrice } from '../../config/pricing';
 import Header from './Header';
@@ -77,6 +77,13 @@ export interface GuidePageTemplateProps {
   // bar instead of funneling commercial visitors through the residential
   // book-now form (no company/portfolio fields, reads as "book my house call").
   showCommercialLeadForm?: boolean;
+
+  // Optional real job photo shown under the intro. Use only photos of our own
+  // work (see /public/images/) with a descriptive alt — never stock.
+  featureImage?: { src: string; alt: string; width: number; height: number; caption?: string };
+
+  // Optional block rendered right after the intro (e.g. <DoorStyleGallery />).
+  afterIntro?: ReactNode;
 }
 
 const PHONE = BUSINESS_INFO.phone;
@@ -113,6 +120,7 @@ export default function GuidePageTemplate(props: GuidePageTemplateProps) {
     badge, headline, subheadline, heroImage, showWhatsAppHero, whatsAppMessage,
     intro, sections, costTable, criteria, faqs, bottomLine,
     relatedLinks, ctaHeadline, ctaText, showCommercialLeadForm,
+    featureImage, afterIntro,
   } = props;
 
   const trackSource = slug.replace(/\//g, '') || 'guide';
@@ -259,8 +267,26 @@ export default function GuidePageTemplate(props: GuidePageTemplateProps) {
           {intro.map((para, i) => (
             <p key={i} className="text-gray-700 leading-relaxed text-lg">{para}</p>
           ))}
+          {featureImage && (
+            <figure className="pt-4">
+              <img
+                src={featureImage.src}
+                alt={featureImage.alt}
+                width={featureImage.width}
+                height={featureImage.height}
+                loading="lazy"
+                decoding="async"
+                className="w-full max-w-lg mx-auto h-auto rounded-2xl border border-gray-200 shadow-sm"
+              />
+              {featureImage.caption && (
+                <figcaption className="mt-2 text-sm text-gray-500 text-center">{featureImage.caption}</figcaption>
+              )}
+            </figure>
+          )}
         </div>
       </section>
+
+      {afterIntro}
 
       {/* ── COST TABLE ────────────────────────────────────────────── */}
       {costTable && (

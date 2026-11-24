@@ -6,6 +6,35 @@ commit history so the log starts complete.)
 
 ---
 
+## 2026-11-24 — Search Console gap pages: panel replacement, door styles, Manhattan springs
+
+Owner asked for pages for queries the site ranks for with no content behind
+them (GSC Performance export, 12 months to 2026-11-23). Built:
+
+- `/garage-door-panel-replacement/` (GuidePageTemplate): ~2,000 impr across 15
+  panel/section queries at pos 3–9, 1 click. Photo: Dan's real panel repair.
+- `/garage-door-styles/` (GuidePageTemplate + DoorStyleGallery): ~3,000 impr
+  across steel/wood/vinyl/modern/carriage/flush-mount/for-sale queries. Cost
+  table uses only `PRICING`. Vinyl/fiberglass described neutrally —
+  `TODO(owner)` to confirm whether we supply them.
+- `/manhattan-ny/` strengthened instead of a new city×service page (rule 10;
+  city×service URLs were consolidated into city pages earlier): spring-first
+  title/meta, `localIntroduction`, spring-led `services`, three spring FAQs.
+  ~1,400 impr for Manhattan/NYC spring queries at pos 2–16, 0 clicks.
+- GuidePageTemplate gained two optional props: `featureImage` (real job photo
+  with alt, under the intro) and `afterIntro` (slot for a block such as the
+  gallery). Existing pages are unaffected.
+- Links: Services dropdown (desktop + mobile), footer Guides, repair page
+  guide links, installation page door-types intro.
+
+Verification: typecheck clean, build, prerender 155 ok, 0 failed (153 + 2).
+Not built (next candidates from the same export): remotes/keypads (~900
+impr), sensors (~700), locks (~320), seals (~200), commercial installation /
+roll-up doors (~1,280), smart Wi-Fi openers on Long Island (~1,700), and town
+pages for East Massapequa, South Farmingdale, North Massapequa, Searingtown,
+Bay Shore. Ignore the Utah "smart garage door" queries (Roy, Clearfield,
+Sunset, Riverdale) — a same-named Utah company.
+
 ## 2026-11-22 — Attribution branch (PR 9) merged to main and deployed
 
 Owner said "merge and deploy" after the 2026-11-11 live test lead. Merged
